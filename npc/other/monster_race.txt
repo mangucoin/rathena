@@ -150,20 +150,20 @@ OnInit:
 
 p_track01,73,22,1	script	Ticket Helper#single	899,{
 	mes "[Ticket Helper]";
-	mes "Welcome to the";
-	mes "Monster Race Arena.";
-	mes "If you'd like to participate";
-	mes "in the ^3131FFSingle Monster Race^000000,";
-	mes "then please select 1 out of";
-	mes "the 6 monsters from the list.";
+	mes "Bienvenido a la";
+	mes "Arena de Carrera de Monstruos.";
+	mes "Si te gustaria participar";
+	mes "en la ^3131FFCarrera de Monstruos Individual^000000,";
+	mes "entonces por favor selecciona 1 de";
+	mes "los 6 monstruos de la lista.";
 	next;
 	if (!checkweight("Spawn",200)) {
 		mes "[Ticket Helper]";
-		mes "Wait, wait...";
-		mes "I can't give you";
-		mes "anything right now.";
-		mes "You're carrying way";
-		mes "too many things...";
+		mes "Espera, espera...";
+		mes "No puedo darte";
+		mes "nada ahora mismo.";
+		mes "Estas cargando";
+		mes "demasiadas cosas...";
 		close;
 	}
 	.@m = select ("Monster Status", "Monster 1", "Monster 2", "Monster 3", "Monster 4", "Monster 5", "Monster 6") - 1;
@@ -194,9 +194,9 @@ p_track01,73,22,1	script	Ticket Helper#single	899,{
 			close;
 		}
 		mes "[Ticket Helper]";
-		mes "I'm sorry, but a Monster";
-		mes "Race is now in progress.";
-		mes "If you'd like to participate, then please wait for the next race.";
+		mes "Lo siento, pero una Carrera";
+		mes "de Monstruos esta en progreso.";
+		mes "Si te gustaria participar, por favor espera la proxima carrera.";
 		close;
 	}
 
@@ -234,7 +234,7 @@ OnTouchNPC:
 	sleep 4000;
 	mapannounce "p_track01","Si apostaste al Monstruo "+.@n+" en esta carrera, habla con el Distribuidor de Medallas para recibir tu premio!",bc_map,"0x33FF66";
 	sleep 2000;
-	mapannounce "p_track01","Please remember that we can distribute Prize Medals for only 5 minutes after each race.",bc_map,"0x33FF66";
+	mapannounce "p_track01","Por favor recuerda que solo podemos distribuir Medallas de Premio durante 5 minutos despues de cada carrera.",bc_map,"0x33FF66";
 	sleep 1000;
 	donpcevent "Medal Distributor#single::OnEnable";
 	donpcevent strnpcinfo(0)+"::OnDisable";
@@ -386,34 +386,34 @@ OnEnable:
 	end;
 
 OnTimer1000:
-	mapannounce "p_track01","The Monster Race is finished! Congratulations to all the winners!",bc_map,"0xFFFF00";
+	mapannounce "p_track01","La Carrera de Monstruos ha terminado! Felicidades a todos los ganadores!",bc_map,"0xFFFF00";
 	end;
 OnTimer4000:
-	mapannounce "p_track01","Please give your Racing Ticket to the Medal Distributor if you bet on the winning monster.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Por favor entrega tu Boleto de Carrera al Distribuidor de Medallas si apostaste al monstruo ganador.",bc_map,"0xFFFF00";
 	end;
 OnTimer7000:
-	mapannounce "p_track01","You have 5 minutes to exchange a winning ticket for Prize Medals from the Medal Distributor.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Tienes 5 minutos para intercambiar un boleto ganador por Medallas de Premio con el Distribuidor de Medallas.",bc_map,"0xFFFF00";
 	end;
 OnTimer10000:
-	mapannounce "p_track01","All tickets become void after this 5 minute period, so winners should claim their prize now.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Todos los boletos quedan anulados despues de este periodo de 5 minutos, asi que los ganadores deben reclamar su premio ahora.",bc_map,"0xFFFF00";
 	end;
 OnTimer13000:
-	mapannounce "p_track01","Please leave the Race Arena before this 5 minute period elapses. Thank you.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Por favor abandona la Arena de Carreras antes de que termine este periodo de 5 minutos. Gracias.",bc_map,"0xFFFF00";
 	end;
 OnTimer240000:
-	mapannounce "p_track01","Attention. We will being preparing for the next race shortly...",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Atencion. Comenzaremos a preparar la proxima carrera en breve...",bc_map,"0xFFFF00";
 	end;
 OnTimer243000:
-	mapannounce "p_track01","We will close the Racing Arena in 1 minute to prepare for the next race.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Cerraremos la Arena de Carreras en 1 minuto para preparar la proxima carrera.",bc_map,"0xFFFF00";
 	end;
 OnTimer246000:
-	mapannounce "p_track01","Participants in the last race should leave the arena as soon as possible.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Los participantes de la ultima carrera deben abandonar la arena lo antes posible.",bc_map,"0xFFFF00";
 	end;
 OnTimer249000:
-	mapannounce "p_track01","Thank you for your cooperation.",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Gracias por tu cooperacion.",bc_map,"0xFFFF00";
 	end;
 OnTimer252000:
-	mapannounce "p_track01","We hope that you enjoyed the Monster Race arena. Come back again soon~",bc_map,"0xFFFF00";
+	mapannounce "p_track01","Esperamos que hayas disfrutado la arena de Carrera de Monstruos. Vuelve pronto~",bc_map,"0xFFFF00";
 	$@mr_1_luk1 = $@mr_1_tire1 = 0;
 	for ( .@i = 1; .@i <= 6; .@i++ ) {
 		for ( .@j = 1; .@j <= 6; .@j++ ) {
@@ -977,7 +977,7 @@ OnTimer7000:
 	end;
 
 OnTimer120000:
-	mapannounce "p_track02","The Dual Monster Race will start in 3 minutes.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","La Carrera de Monstruos Dual comenzara en 3 minutos.",bc_map,"0x87ceeb";
 	end;
 
 OnTimer122000:
@@ -985,7 +985,7 @@ OnTimer122000:
 	end;
 
 OnTimer240000:
-	mapannounce "p_track02","The Dual Monster Race will start shortly.",bc_map,"0x87ceeb";
+	mapannounce "p_track02","La Carrera de Monstruos Dual comenzara pronto.",bc_map,"0x87ceeb";
 	end;
 
 OnTimer242000:
@@ -993,7 +993,7 @@ OnTimer242000:
 	end;
 
 OnTimer300000:
-	mapannounce "p_track02","The Monster Race is starting now. Good luck, everybody!",bc_map,"0x87ceeb";
+	mapannounce "p_track02","La Carrera de Monstruos esta comenzando ahora. Buena suerte a todos!",bc_map,"0x87ceeb";
 	$@mon_time_2_2 = 1;
 	disablenpc "Ticket Helper#2";
 	donpcevent "#poring1::OnEnable";
@@ -1019,43 +1019,43 @@ OnEnable:
 	end;
 
 OnTimer3000:
-	mapannounce "p_track02","The Monster Race is finished! Congratulations to all the winners!",bc_map,"0xFFFF00";
+	mapannounce "p_track02","La Carrera de Monstruos ha terminado! Felicidades a todos los ganadores!",bc_map,"0xFFFF00";
 	end;
 
 OnTimer6000:
-	mapannounce "p_track02","Please give your Racing Ticket to the Medal Distributor if you bet on the winning monster.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Por favor entrega tu Boleto de Carrera al Distribuidor de Medallas si apostaste al monstruo ganador.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer9000:
-	mapannounce "p_track02","You have 5 minutes to exchange a winning ticket for Prize Medals from the Medal Distributor.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Tienes 5 minutos para intercambiar un boleto ganador por Medallas de Premio con el Distribuidor de Medallas.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer12000:
-	mapannounce "p_track02","All tickets become void after this 5 minute period, so winners should claim their prize now.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Todos los boletos quedan anulados despues de este periodo de 5 minutos, asi que los ganadores deben reclamar su premio ahora.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer15000:
-	mapannounce "p_track02","Please leave the Race Arena before this 5 minute period elapses. Thank you.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Por favor abandona la Arena de Carreras antes de que termine este periodo de 5 minutos. Gracias.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer240000:
-	mapannounce "p_track02","Attention. We will being preparing for the next race shortly...",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Atencion. Comenzaremos a preparar la proxima carrera en breve...",bc_map,"0xFFFF00";
 	end;
 
 OnTimer243000:
-	mapannounce "p_track02","We will close the Racing Arena in 1 minute to prepare for the next race.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Cerraremos la Arena de Carreras en 1 minuto para preparar la proxima carrera.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer246000:
-	mapannounce "p_track02","Participants in the last race should leave the arena as soon as possible.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Los participantes de la ultima carrera deben abandonar la arena lo antes posible.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer249000:
-	mapannounce "p_track02","Thank you for your cooperation.",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Gracias por tu cooperacion.",bc_map,"0xFFFF00";
 	end;
 
 OnTimer252000:
-	mapannounce "p_track02","We hope that you enjoyed the Monster Race arena. Come back again soon~",bc_map,"0xFFFF00";
+	mapannounce "p_track02","Esperamos que hayas disfrutado la arena de Carrera de Monstruos. Vuelve pronto~",bc_map,"0xFFFF00";
 	end;
 
 OnTimer300000:
@@ -1269,11 +1269,11 @@ p_track02,73,22,1	script	Ticket Helper#2	899,{
 		mes "the 6 monsters from the list.";
 		next;
 		mes "[Ticket Helper]";
-		mes "Wait, wait...";
-		mes "I can't give you";
-		mes "anything right now.";
-		mes "You're carrying way";
-		mes "too many things...";
+		mes "Espera, espera...";
+		mes "No puedo darte";
+		mes "nada ahora mismo.";
+		mes "Estas cargando";
+		mes "demasiadas cosas...";
 		close;
 	}
 	if (!monster_race_2_1 && !monster_race_2_2) {
@@ -1702,13 +1702,13 @@ OnTouchNPC:
 	if (!$@mon_race_2_1) {
 		emotion ET_THROB;
 		specialeffect EF_MVP;
-		mapannounce "p_track02","Monster "+.@i+" has reached the Finish Line!",bc_map,"0x66FFCC";
+		mapannounce "p_track02","El Monstruo "+.@i+" ha llegado a la Meta!",bc_map,"0x66FFCC";
 		$@mon_race_2_1 = .@i;
 		donpcevent strnpcinfo(0)+"::OnDisable";
 	} else {
 		emotion ET_THROB;
 		specialeffect EF_MVP;
-		mapannounce "p_track02","The race is over! Monster "+.@i+" has reached the Finish Line!",bc_map,"0x66FFCC";
+		mapannounce "p_track02","La carrera ha terminado! El Monstruo "+.@i+" ha llegado a la Meta!",bc_map,"0x66FFCC";
 		$@mon_race_2_2 = .@i;
 		donpcevent "#poring1::OnDisable";
 		donpcevent "#lunatic1::OnDisable";

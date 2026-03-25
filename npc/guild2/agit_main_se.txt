@@ -75,7 +75,7 @@ OnGuildBreak:
 	disablenpc "Kafra Employee#"+substr(strnpcinfo(2),0,1)+substr(strnpcinfo(2),8,9);
 	setcastledata strnpcinfo(2),CD_GUILD_ID,0;
 	sleep 7000;
-	announce "Guild Base ["+getcastlename(strnpcinfo(2))+"] has been abandoned.",0;
+	announce "La Base de Gremio ["+getcastlename(strnpcinfo(2))+"] ha sido abandonada.",0;
 	donpcevent strnpcinfo(0)+"::OnRecvCastle2";
 	end;
 
@@ -620,8 +620,8 @@ OnStartArena:
 	// Disable Kafra
 	disablenpc "Kafra Employee#"+strnpcinfo(2);
 
-	announce "The ["+getguildname(.@GID)+"] guild conquered the ["+.@region$+" "+charat(strnpcinfo(2),3)+"] stronghold of "+getcastlename(strnpcinfo(4))+"!",bc_all|bc_woe;
-	mapannounce strnpcinfo(4),"The emperium has been shattered!",bc_map,"0x00FF00",FW_NORMAL,20,0,40;
+	announce "El gremio ["+getguildname(.@GID)+"] conquisto la fortaleza ["+.@region$+" "+charat(strnpcinfo(2),3)+"] de "+getcastlename(strnpcinfo(4))+"!",bc_all|bc_woe;
+	mapannounce strnpcinfo(4),"El emperium ha sido destrozado!",bc_map,"0x00FF00",FW_NORMAL,20,0,40;
 	donpcevent "Manager#"+strnpcinfo(4)+"::OnReset";
 	maprespawnguildid strnpcinfo(4),getcastledata(strnpcinfo(4),CD_GUILD_ID),2;
 	donpcevent "Manager#"+strnpcinfo(4)+"::OnRecvCastle2";
@@ -629,7 +629,7 @@ OnStartArena:
 	sleep 10000;
 	if (agitcheck2()) {
 		donpcevent "Manager#"+strnpcinfo(4)+"::OnChange";
-		mapannounce strnpcinfo(4),"Rebuild this stronghold's Guardian Stones and Fortress Gates to secure your guild's new aquisition!",bc_map,"0x00FF00",FW_NORMAL,20,0,40;
+		mapannounce strnpcinfo(4),"Reconstruye las Piedras Guardian y Puertas de Fortaleza para asegurar la nueva adquisicion de tu gremio!",bc_map,"0x00FF00",FW_NORMAL,20,0,40;
 	}
 	end;
 }
@@ -982,26 +982,26 @@ OnInit:
 			setarray .@stone$[0],"Elunium","Oridecon","Stones";
 			set .@i, select("Elunium:Oridecon:Piedra")-1;
 			if (.@i == 2) set .@nice,.@nice+10;
-			mes "^3355FF"+.@stone$[.@i]+" has been";
-			mes "placed in the center.^000000";
+			mes "^3355FF"+.@stone$[.@i]+" ha sido";
+			mes "colocado en el centro.^000000";
 			next;
 			set .@i, select("Elunium:Oridecon:Piedra")-1;
 			if (.@i == 0) set .@nice,.@nice+10;
-			mes "^3355FFYou have lined the";
-			mes "outside of the center";
-			mes "with some "+.@stone$[.@i]+".^000000";
+			mes "^3355FFHas recubierto el";
+			mes "exterior del centro";
+			mes "con algo de "+.@stone$[.@i]+".^000000";
 			next;
 			set .@i, select("Elunium:Oridecon:Piedra")-1;
 			if (.@i == 1) set .@nice,.@nice+10;
-			mes "^3355FFYou covered the";
-			mes "rest of the materials";
-			mes "with some "+.@stone$[.@i]+".^000000";
+			mes "^3355FFCubriste el";
+			mes "resto de los materiales";
+			mes "con algo de "+.@stone$[.@i]+".^000000";
 			next;
-			mes "^3355FFNow you need to arrange";
-			mes "the enchanted Gemstones";
-			mes "accordingly. You can identify";
-			mes "their Magic properties by";
-			mes "their casting effect.^000000";
+			mes "^3355FFAhora necesitas organizar";
+			mes "las Gemas encantadas";
+			mes "correctamente. Puedes identificar";
+			mes "sus propiedades Magicas por";
+			mes "su efecto de lanzamiento.^000000";
 			next;
 			setarray .@effect[0],EF_BEGINSPELL4,EF_BEGINSPELL2,EF_VOLCANO;
 			setarray .@color$[0],"Red","Yellow","Blue";
@@ -1009,17 +1009,17 @@ OnInit:
 				if (.@roof0 > 7) break;
 				set .@i, rand(getarraysize(.@effect));
 				specialeffect .@effect[.@i];
-				mes "^3355FFThe Gemstones must";
-				mes "be arranged in the correct";
-				mes "order according to their";
-				mes "magic properties and power.^000000";
+				mes "^3355FFLas Gemas deben";
+				mes "organizarse en el orden";
+				mes "correcto segun sus";
+				mes "propiedades magicas y poder.^000000";
 				next;
-				set .@j, select("Red Gemstone:Yellow Gemstone:Blue Gemstone")-1;
-				mes "^3355FFYou placed the "+.@color$[.@j]+" Gemstone.^000000";
+				set .@j, select("Gema Roja:Gema Amarilla:Gema Azul")-1;
+				mes "^3355FFColocaste la Gema "+.@color$[.@j]+".^000000";
 				if (.@i == .@j) {
-					mes "^3355FFHowever, the Guardian Stone";
-					mes "Repair System failed because";
-					mes "of a magic power conflict.^000000";
+					mes "^3355FFSin embargo, el Sistema de";
+					mes "Reparacion de la Piedra Guardian fallo";
+					mes "debido a un conflicto de poder magico.^000000";
 					close;
 				}
 				set .@nice,.@nice+10;
@@ -1029,23 +1029,23 @@ OnInit:
 			}
 			if (.@nice > 90) {
 				if (!getd(.@var$+"["+(.@num-1)+"]")) {
-					mes "^3355FFThe Guardian Stone";
-					mes "Repair System has";
-					mes "already completed.^000000";
+					mes "^3355FFEl Sistema de Reparacion";
+					mes "de la Piedra Guardian ya";
+					mes "ha sido completado.^000000";
 					close;
 				}
 				else {
 					if (!agitcheck2()) {
-						mes "^3355FFIt is impossible to";
-						mes "rebuild the Guardian";
-						mes "Stone because the";
-						mes "Emperium is not present.^000000";
+						mes "^3355FFEs imposible";
+						mes "reconstruir la Piedra";
+						mes "Guardian porque el";
+						mes "Emperium no esta presente.^000000";
 						close;
 					}
 					else {
-						mes "^3355FFThe Gemstones have been";
-						mes "arranged, and the Guardian";
-						mes "Stone is successfully repaired.^000000";
+						mes "^3355FFLas Gemas han sido";
+						mes "organizadas, y la Piedra";
+						mes "Guardian ha sido reparada exitosamente.^000000";
 						delitem 984,1; //Oridecon
 						delitem 985,1; //Elunium
 						delitem 7049,30; //Stone
@@ -1059,10 +1059,10 @@ OnInit:
 						setd .@var$+"["+(.@num-1)+"]",0;
 						set .@df_all,getd(.@var$+"[0]")+getd(.@var$+"[1]");
 						if (!.@df_all) {
-							mapannounce strnpcinfo(4),"Both Guardian Stones have been erected, bolstering this stronghold's defenses!",bc_map,"0x00ff00";
+							mapannounce strnpcinfo(4),"Ambas Piedras Guardian han sido erigidas, reforzando las defensas de esta fortaleza!",bc_map,"0x00ff00";
 							donpcevent "RL0#"+strnpcinfo(4)+"::OnEnable";
 						}
-						else mapannounce strnpcinfo(4),"The "+strnpcinfo(1)+" has been repaired successfully.",bc_map,"0x00ff00";
+						else mapannounce strnpcinfo(4),"La "+strnpcinfo(1)+" ha sido reparada exitosamente.",bc_map,"0x00ff00";
 						if (getd(.@var$+"[5]") == 1)
 							donpcevent "gard"+.@num+"#"+strnpcinfo(4)+"::OnEnable";
 						end;
@@ -1070,10 +1070,10 @@ OnInit:
 				}
 			}
 			else {
-				mes "^3355FFAfter all of that work...";
-				mes "It looks like you failed";
-				mes "to fix the Guardian Stone,";
-				mes "and lost some materials.^000000";
+				mes "^3355FFDespues de todo ese trabajo...";
+				mes "Parece que fallaste";
+				mes "en reparar la Piedra Guardian,";
+				mes "y perdiste algunos materiales.^000000";
 				delitem 7049,10; //Stone
 				delitem 717,2; //Blue_Gemstone
 				delitem 715,2; //Yellow_Gemstone
@@ -1082,9 +1082,9 @@ OnInit:
 			}
 		}
 		else {
-			mes "^3355FFYou don't have enough";
-			mes "materials to repair";
-			mes "the Guardian Stone.^000000";
+			mes "^3355FFNo tienes suficientes";
+			mes "materiales para reparar";
+			mes "la Piedra Guardian.^000000";
 			close;
 		}
 	}
@@ -1110,24 +1110,24 @@ OnEnable:
 	if (getcharid(2) == .@GID) {
 		if (is_guild_leader() == true) {
 			if (getd(.@var$+"["+(.@num+1)+"]") == 2) {
-				mes "^3355FFDemolished Fortress";
-				mes "Gates can be repaired,";
-				mes "but you will need to gather";
-				mes "the following materials.^000000";
+				mes "^3355FFLas Puertas de Fortaleza";
+				mes "demolidas pueden repararse,";
+				mes "pero necesitaras reunir";
+				mes "los siguientes materiales.^000000";
 				next;
 				mes "^4D4DFF10 Steel^000000,";
 				mes "^4D4DFF30 Trunks^000000,";
 				mes "^4D4DFF5 Oridecon^000000, and";
 				mes "^4D4DFF10 Emveretarcon^000000.";
 				next;
-				select("Continue");
+				select("Continuar");
 				if ((countitem(1019) > 29) && (countitem(999) > 9) && (countitem(1011) > 9) && (countitem(984) > 4)) {
-					mes "^3355FFYou will need Trunks to";
-					mes "repair the support frame,";
-					mes "Oridecon to enhance the";
-					mes "gate's endurance, and";
-					mes "Emveretarcon to basically";
-					mes "hold everything together.^000000";
+					mes "^3355FFNecesitaras Troncos para";
+					mes "reparar el marco de soporte,";
+					mes "Oridecon para mejorar la";
+					mes "resistencia de la puerta, y";
+					mes "Emveretarcon para basicamente";
+					mes "mantener todo unido.^000000";
 					next;
 					set .@ro_of01,rand(10,15);
 					while(1) {
@@ -1135,68 +1135,68 @@ OnEnable:
 						else {
 							switch(rand(1,4)) {
 							case 1:
-								mes "^3355FFThe support frame";
-								mes "is badly damaged:";
-								mes "fixing this part";
-								mes "is a top priority.^000000";
+								mes "^3355FFEl marco de soporte";
+								mes "esta muy danado:";
+								mes "reparar esta parte";
+								mes "es prioridad maxima.^000000";
 								next;
-								switch(select("Trunk:Steel:Emveretarcon:Oridecon")) {
+								switch(select("Tronco:Acero:Emveretarcon:Oridecon")) {
 								case 1:
-									mes "^3355FFThe frame has been";
-									mes "reinforced with wood.^000000";
+									mes "^3355FFEl marco ha sido";
+									mes "reforzado con madera.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
 									next;
 									break;
 								case 2:
-									mes "^3355FFYou tried using steel,";
-									mes "but it's not working very";
-									mes "well. You'll have to try";
-									mes "something else.^000000";
+									mes "^3355FFIntentaste usar acero,";
+									mes "pero no esta funcionando muy";
+									mes "bien. Tendras que intentar";
+									mes "algo mas.^000000";
 									close;
 								case 3:
-									mes "^3355FFYou tried using emveretarcon";
-									mes "to reinforce the gate, but it's";
-									mes "not working well at all.";
-									mes "You'll have to start over.^000000";
+									mes "^3355FFIntentaste usar emveretarcon";
+									mes "para reforzar la puerta, pero no";
+									mes "esta funcionando para nada.";
+									mes "Tendras que empezar de nuevo.^000000";
 									close;
 								case 4:
-									mes "^3355FFYou tried using oridecon,";
-									mes "but it's not working very";
-									mes "well. You'll have to try";
-									mes "something else.^000000";
+									mes "^3355FFIntentaste usar oridecon,";
+									mes "pero no esta funcionando muy";
+									mes "bien. Tendras que intentar";
+									mes "algo mas.^000000";
 									close;
 								}
 								break;
 							case 2:
 								mes "^3355FFIt looks like the gate's";
-								mes "overall endurance needs to";
-								mes "be reinforced with something.^000000";
+								mes "general de la puerta necesita";
+								mes "ser reforzada con algo.^000000";
 								next;
-								switch(select("Trunk:Steel:Emveretarcon:Oridecon")) {
+								switch(select("Tronco:Acero:Emveretarcon:Oridecon")) {
 								case 1:
-									mes "^3355FFYou tried using wood";
-									mes "to reinforce the gate.^000000";
+									mes "^3355FFIntentaste usar madera";
+									mes "para reforzar la puerta.^000000";
 									set .@ro_of02,.@ro_of02+1;
 									next;
 									break;
 								case 2:
-									mes "^3355FFYou tried using steel";
-									mes "to reinforce the gate, but";
-									mes "it's not working well at all.";
-									mes "You'll have to start over.^000000";
+									mes "^3355FFIntentaste usar acero";
+									mes "para reforzar la puerta, pero";
+									mes "no esta funcionando para nada.";
+									mes "Tendras que empezar de nuevo.^000000";
 									close;
 								case 3:
-									mes "^3355FFYou tried using emveretarcon";
-									mes "to reinforce the gate, but it's";
-									mes "not working well at all.";
-									mes "You'll have to start over.^000000";
+									mes "^3355FFIntentaste usar emveretarcon";
+									mes "para reforzar la puerta, pero no";
+									mes "esta funcionando para nada.";
+									mes "Tendras que empezar de nuevo.^000000";
 									close;
 								case 4:
-									mes "^3355FFYou hammered the";
-									mes "oridecon: it looks";
-									mes "like this will work.^000000";
+									mes "^3355FFMartillaste el";
+									mes "oridecon: parece";
+									mes "que esto funcionara.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
@@ -1206,91 +1206,91 @@ OnEnable:
 								break;
 							case 3:
 								mes "^3355FFThe damage to the gate";
-								mes "has caused all these";
-								mes "cracks. You'll have to";
-								mes "weld them solid somehow.^000000";
+								mes "ha causado todas estas";
+								mes "grietas. Tendras que";
+								mes "soldarlas de alguna manera.^000000";
 								next;
-								switch(select("Trunk:Steel:Emveretarcon:Oridecon")) {
+								switch(select("Tronco:Acero:Emveretarcon:Oridecon")) {
 								case 1:
-									mes "^3355FFYou tried using wood to fix";
-									mes "this problem, but it seems";
-									mes "to have made it worse.";
-									mes "You'll have to start all over.^000000";
+									mes "^3355FFIntentaste usar madera para arreglar";
+									mes "este problema, pero parece";
+									mes "que lo empeoro.";
+									mes "Tendras que empezar todo de nuevo.^000000";
 									close;
 								case 2:
-									mes "^3355FFYou used steel to weld";
-									mes "all the cracks: the gate is";
-									mes "is starting to look more solid.^000000";
+									mes "^3355FFUsaste acero para soldar";
+									mes "todas las grietas: la puerta";
+									mes "esta empezando a verse mas solida.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
 									next;
 									break;
 								case 3:
-									mes "^3355FFYou tried using emveretarcon";
-									mes "to reinforce the gate, but it's";
-									mes "not working well at all.";
-									mes "You'll have to start over.^000000";
+									mes "^3355FFIntentaste usar emveretarcon";
+									mes "para reforzar la puerta, pero no";
+									mes "esta funcionando para nada.";
+									mes "Tendras que empezar de nuevo.^000000";
 									close;
 								case 4:
-									mes "^3355FFYou tried using oridecon,";
-									mes "but it's not working very";
-									mes "well. You'll have to try";
-									mes "something else.^000000";
+									mes "^3355FFIntentaste usar oridecon,";
+									mes "pero no esta funcionando muy";
+									mes "bien. Tendras que intentar";
+									mes "algo mas.^000000";
 									close;
 								}
 								break;
 							case 4:
 								mes "^3355FFNow you need to make";
-								mes "sure that the gate is held";
-								mes "together pretty solidly.^000000";
+								mes "de que la puerta este";
+								mes "bastante solida.^000000";
 								next;
-								switch(select("Trunk:Steel:Emveretarcon:Oridecon")) {
+								switch(select("Tronco:Acero:Emveretarcon:Oridecon")) {
 								case 1:
-									mes "^3355FFYou tried using wood to fix";
-									mes "this problem, but it seems";
-									mes "to have made it worse.";
-									mes "You'll have to start all over.^000000";
+									mes "^3355FFIntentaste usar madera para arreglar";
+									mes "este problema, pero parece";
+									mes "que lo empeoro.";
+									mes "Tendras que empezar todo de nuevo.^000000";
 									close;
 								case 2:
-									mes "^3355FFYou tried using steel,";
-									mes "but it's not working very";
-									mes "well. You'll have to try";
-									mes "something else.^000000";
+									mes "^3355FFIntentaste usar acero,";
+									mes "pero no esta funcionando muy";
+									mes "bien. Tendras que intentar";
+									mes "algo mas.^000000";
 									close;
 								case 3:
-									mes "^3355FFYou successfully used";
-									mes "the emveretarcon to repair";
-									mes "much of the gate's damage.^000000";
+									mes "^3355FFUsaste exitosamente";
+									mes "el emveretarcon para reparar";
+									mes "gran parte del dano de la puerta.^000000";
 									set .@rp_temp,.@rp_temp+1;
 									set .@ro_of02,.@ro_of02+1;
 									specialeffect2 EF_REPAIRWEAPON;
 									next;
 									break;
 								case 4:
-									mes "^3355FFYou tried using oridecon,";
-									mes "but it's not working very";
-									mes "well. You'll have to try";
-									mes "something else.^000000";
+									mes "^3355FFIntentaste usar oridecon,";
+									mes "pero no esta funcionando muy";
+									mes "bien. Tendras que intentar";
+									mes "algo mas.^000000";
 									close;
 								}
 							}
 						}
 					}
 					mes "^3355FFWell, it looks like";
-					mes "you're just about done";
-					mes "with repairing the gate.^000000";
+					mes "ya casi terminas";
+					mes "de reparar la puerta.^000000";
 					next;
 					if (!agitcheck2()) {
-						mes "^3355FFUnfortunately, the Fortress";
-						mes "Gate can't be reconstructed:";
-						mes "the Emperium is no longer here.^000000";
+						mes "^3355FFDesafortunadamente, la Puerta de";
+						mes "Fortaleza no puede reconstruirse:";
+						mes "el Emperium ya no esta aqui.^000000";
 						close;
 					}
 					else {
 						if (.@rp_temp == .@ro_of01) {
-							mes "^3355FFThe Fortress Gate has";
-							mes "been successfully repaired!^000000";
+							mes "^3355FFLa Puerta de Fortaleza ha";
+							mes "sido reparada exitosamente!^000000";
 							delitem 1019,30; //Wooden_Block
 							delitem 999,10; //Steel
 							delitem 1011,10; //Emveretarcon
@@ -1301,7 +1301,7 @@ OnEnable:
 							if (.@num == 1) set .@str$,"1st";
 							else if (.@num == 2) set .@str$,"2nd";
 							else if (.@num == 3) set .@str$,"3rd";
-							mapannounce strnpcinfo(4),"The "+.@str$+" Fortress Gate has been reconstructed!",bc_map,"0x00ff00";
+							mapannounce strnpcinfo(4),"La "+.@str$+" Puerta de Fortaleza ha sido reconstruida!",bc_map,"0x00ff00";
 							if (.@num == 1) setd .@var$+"[2]",0;
 							else {
 								setarray getd(.@var$+"["+.@num+"]"),2,0;
@@ -1310,11 +1310,11 @@ OnEnable:
 							end;
 						}
 						else {
-							mes "^3355FFThe wall has been breached,";
-							mes "and the attempt to repair the";
-							mes "Fortress Gate has failed.";
-							mes "You lost some of your";
-							mes "repair resources...^000000";
+							mes "^3355FFEl muro ha sido traspasado,";
+							mes "y el intento de reparar la";
+							mes "Puerta de Fortaleza ha fallado.";
+							mes "Perdiste algunos de tus";
+							mes "recursos de reparacion...^000000";
 							delitem 984,2; //Oridecon
 							delitem 999,4; //Steel
 							delitem 1019,14; //Wooden_Block
@@ -1324,9 +1324,9 @@ OnEnable:
 					}
 				}
 				else {
-					mes "^3355FFYou can't attempt to repair";
-					mes "the Fortress Gate if you don't";
-					mes "have all the needed materials.^000000";
+					mes "^3355FFNo puedes intentar reparar";
+					mes "la Puerta de Fortaleza si no";
+					mes "tienes todos los materiales necesarios.^000000";
 					close;
 				}
 			}
@@ -1420,7 +1420,7 @@ OnTimer3600000:
 	set getd(".MyMobCount_"+charat(strnpcinfo(1),4)+strnpcinfo(2)),getd(".MyMobCount_"+charat(strnpcinfo(1),4)+strnpcinfo(2))+1;
 	callsub OnSummon,getd(.@var$);
 	setarray .count$[5],"1st","2nd","3rd","4th","5th";
-	mapannounce strnpcinfo(2),"The "+.count$[getd(.@var$)]+" Guardian has been summoned from the Gate House.",bc_map,"0xff4500";
+	mapannounce strnpcinfo(2),"El "+.count$[getd(.@var$)]+" Guardian ha sido invocado desde la Casa de Puerta.",bc_map,"0xff4500";
 	if (getd(.@var$) == 9) {
 		setd .@var$,0;
 		stopnpctimer;
@@ -1496,10 +1496,10 @@ OnGuardianStoneDied:
 	if (getd(.@var$+"[0]") == 1 || getd(.@var$+"[0]") == 2) set .@destroyed, .@destroyed+1;
 	if (getd(.@var$+"[1]") == 1 || getd(.@var$+"[1]") == 2) set .@destroyed, .@destroyed+1;
 	if (.@destroyed == 2) {
-		mapannounce strnpcinfo(2),"All of the Guardian Stones have been destroyed!",bc_map,"0x00ff00";
+		mapannounce strnpcinfo(2),"Todas las Piedras Guardian han sido destruidas!",bc_map,"0x00ff00";
 		donpcevent "RL0#"+strnpcinfo(2)+"::OnDisable";
 	}
-	else mapannounce strnpcinfo(2),"The "+((.@num == 1)?"1st":"2nd")+" Guardian Stone has been destroyed!",bc_map,"0x00ff00";
+	else mapannounce strnpcinfo(2),"La "+((.@num == 1)?"1ra":"2da")+" Piedra Guardian ha sido destruida!",bc_map,"0x00ff00";
 	donpcevent "gard"+.@num+"#"+strnpcinfo(2)+"::OnReset";
 	initnpctimer;
 	end;
@@ -1751,7 +1751,7 @@ function	script	ReturnFlag	{
 	.@GID =  getcastledata(.@map$,CD_GUILD_ID);
 	if (!.@GID) {
 		mes "[ "+.@str$+" Royal Edict ]";
-		mes "The Holy Kingdom of";
+		mes "El Santo Reino de";
 		mes .@str$+" declares that";
 		mes "one has yet to claim lordship";
 		mes "over this stronghold. The one";
@@ -1781,18 +1781,18 @@ function	script	ReturnFlag	{
 		close;
 	}
 	mes "[ "+.@str$+" Royal Edict ]";
-	mes "The Holy Kingdom of";
-	mes .@str$+" decrees that";
-	mes "this stronghold is owned";
-	mes "by the ^FF0000"+getguildname(.@GID)+"^000000 Guild.";
+	mes "El Santo Reino de";
+	mes .@str$+" decreta que";
+	mes "esta fortaleza es propiedad";
+	mes "del Gremio ^FF0000"+getguildname(.@GID)+"^000000.";
 	next;
 	mes "[ "+.@str$+" Royal Edict ]";
-	mes "^FF0000"+getguildmaster(.@GID)+"^000000 is";
-	mes "Guild Master of ^FF0000"+getguildname(.@GID)+"^000000.";
-	mes "Any that object must claim this";
-	mes "stronghold through strength of";
-	mes "steel and magic during the";
-	mes "appointed Guild Siege times.";
+	mes "^FF0000"+getguildmaster(.@GID)+"^000000 es";
+	mes "Maestro del Gremio ^FF0000"+getguildname(.@GID)+"^000000.";
+	mes "Cualquiera que objete debe reclamar esta";
+	mes "fortaleza a traves de la fuerza del";
+	mes "acero y la magia durante los";
+	mes "horarios designados de Asedio de Gremio.";
 	close;
 }
 
@@ -1800,10 +1800,10 @@ function	script	ReturnFlag	{
 //============================================================
 -	script	Switch#template	-1,{
 	mes " ";
-	mes "^3355FFWill you pull";
+	mes "^3355FFJalaras";
 	mes "this small lever?^000000";
 	next;
-	if(select("Pull Lever:Cancel") == 2) close;
+	if(select("Jalar Palanca:Cancelar") == 2) close;
 	if (compare(strnpcinfo(4),"arug")) {
 		if (strnpcinfo(4) == "arug_cas01") setarray .@i[0],121,357;
 		else if (strnpcinfo(4) == "arug_cas02") setarray .@i[0],387,323;
@@ -1822,9 +1822,9 @@ function	script	ReturnFlag	{
 //============================================================
 -	script	Sunflower#template	-1,{
 	if (getcharid(2) == getcastledata(strnpcinfo(4),CD_GUILD_ID)) {
-		mes "- It's an amazingly huge sunflower; as big as a human! ... You feel something mysterious emanating from the flower. -";
+		mes "- Es un girasol increiblemente enorme; tan grande como un humano! ... Sientes algo misterioso emanando de la flor. -";
 		next;
-		switch(select("Hold the stem.:Do nothing.")) {
+		switch(select("Sostener el tallo.:No hacer nada.")) {
 		case 1:
 			if (compare(strnpcinfo(4),"arug")) {
 				set .@map$,"arug_dun01";
@@ -1840,7 +1840,7 @@ function	script	ReturnFlag	{
 			warp .@map$,.@mapx[.@i],.@mapy[.@i];
 			close;
 		case 2:
-			mes "It's too scary to touch unknown things.";
+			mes "Es demasiado aterrador tocar cosas desconocidas.";
 			close;
 		}
 	}
