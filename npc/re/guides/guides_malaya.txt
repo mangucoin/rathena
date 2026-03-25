@@ -1,42 +1,42 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Port Malaya Guides
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Euphy
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Guides for the city of Malaya.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version. [Euphy]
 //= 1.1 Navigation system update. [Euphy]
-//============================================================ 
+//============================================================
 
 malaya,71,72,4	script	Port Malaya Guide#01::GuideMalaya	579,{
 	mes "[Port Malaya Guide]";
-	mes "Welcome to ^8B4513Port Malaya^000000, the Breathing Village.";
-	mes "Where cultures and legends come to life!";
-	mes "Do you need help navigating the village?";
+	mes "Bienvenido a ^8B4513Port Malaya^000000, la Aldea Viviente.";
+	mes "Donde las culturas y leyendas cobran vida!";
+	mes "Necesitas ayuda para navegar por la aldea?";
 	F_Navi("[Port Malaya Guide]");
 	while(1) {
 		next;
-		switch(select("[ Kafra Employees ]:[ Inn & Tavern ]:[ Weapon & Armor Shop ]:[ Tool Shop ]:[ Hospital ]:[ Park ]:[ Harbor ]:Remove marks from Mini-Map:Cancel")) {
+		switch(select("[ Empleadas Kafra ]:[ Posada y Taberna ]:[ Tienda de Armas y Armaduras ]:[ Tienda de Herramientas ]:[ Hospital ]:[ Parque ]:[ Puerto ]:Quitar Marcas del Mini-Mapa:Cancelar")) {
 		case 1:
-			callsub L_Mark, "^0000FFKafra Employees^000000",1;
+			callsub L_Mark, "^0000FFEmpleadas Kafra^000000",1;
 			viewpoint 1,71,79,0,0x0A82FF;
 			viewpoint 1,234,204,1,0x0A82FF;
 			break;
 		case 2:
-			callsub L_Mark, F_Navi("Inn & Tavern","malaya,193,215","^006400");
+			callsub L_Mark, F_Navi("Posada y Taberna","malaya,193,215","^006400");
 			viewpoint 1,193,215,2,0xAAFF00;
 			break;
 		case 3:
-			callsub L_Mark, F_Navi("Weapon & Armor Shop","malaya,114,212","^008080");
+			callsub L_Mark, F_Navi("Tienda de Armas y Armaduras","malaya,114,212","^008080");
 			viewpoint 1,114,212,3,0x4F543C;
 			break;
 		case 4:
-			callsub L_Mark, F_Navi("Tool Shop","malaya,297,167","^FF1493");
+			callsub L_Mark, F_Navi("Tienda de Herramientas","malaya,297,167","^FF1493");
 			viewpoint 1,297,167,4,0xFF1493;
 			break;
 		case 5:
@@ -44,17 +44,17 @@ malaya,71,72,4	script	Port Malaya Guide#01::GuideMalaya	579,{
 			viewpoint 1,50,75,5,0x8B4513;
 			break;
 		case 6:
-			callsub L_Mark, F_Navi("Park","malaya,280,371","^8B4513");
+			callsub L_Mark, F_Navi("Parque","malaya,280,371","^8B4513");
 			viewpoint 1,280,371,6,0x8B4513;
 			break;
 		case 7:
-			callsub L_Mark, F_Navi("Harbor","malaya,276,55","^8A2BE2");
+			callsub L_Mark, F_Navi("Puerto","malaya,276,55","^8A2BE2");
 			viewpoint 1,276,55,7,0x8A2BE2;
 			break;
 		case 8:
 			mes "[Port Malaya Guide]";
-			mes "I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "Quitare todas las marcas de tu mini-mapa.";
+			mes "Hay algo mas en lo que pueda ayudarte?";
 			viewpoint 2,1,1,0,0xFFFFFF;
 			viewpoint 2,1,1,1,0xFFFFFF;
 			viewpoint 2,1,1,2,0xFFFFFF;
@@ -66,17 +66,17 @@ malaya,71,72,4	script	Port Malaya Guide#01::GuideMalaya	579,{
 			break;
 		case 9:
 			mes "[Port Malaya Guide]";
-			mes "I hope you enjoy your journey.";
+			mes "Espero que disfrutes tu viaje.";
 			close;
 		}
 	}
 	end;
 L_Mark:
 	mes "[Port Malaya Guide]";
-	mes "The "+getarg(0)+" "+((getarg(1,0))?"are":"is");
-	mes "marked on your mini-map.";
-	mes "Check your mini-map.";
-	mes "Is there anything else I can do for you?";
+	mes "La ubicacion de "+getarg(0)+" "+((getarg(1,0))?"estan":"esta");
+	mes "marcada en tu mini-mapa.";
+	mes "Revisa tu mini-mapa.";
+	mes "Hay algo mas en lo que pueda ayudarte?";
 	return;
 }
 malaya,250,83,6	duplicate(GuideMalaya)	Port Malaya Guide#02	579
