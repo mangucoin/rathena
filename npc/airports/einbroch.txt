@@ -1,34 +1,34 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Einbroch Airport Staff
-//===== By: ================================================== 
+//===== By: ==================================================
 //= L0ne_W0lf, Muad_Dib
 //===== Current Version: =====================================
 //= 1.0
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Einbroch Airport Staff
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version.
-//============================================================ 
+//============================================================
 
 airport,143,43,5	script	Airport Staff#airport1a::airport1	90,{
 	mes "[Airport Staff]";
-	mes "Welcome to the";
-	mes "Einbroch Airport,";
-	mes "where we offer nonstop";
-	mes "flights to the cities of";
-	mes "Juno, Lighthalzen and Hugel.";
+	mes "Bienvenido al";
+	mes "Aeropuerto de Einbroch,";
+	mes "donde ofrecemos vuelos";
+	mes "directos a las ciudades de";
+	mes "Juno, Lighthalzen y Hugel.";
 	next;
-	if (select("Board the Airship:Cancel") == 1) {
+	if (select("Abordar la Aeronave:Cancelar") == 1) {
 		mes "[Airport Staff]";
-		mes "The Airship boarding fee";
-		mes "is 1,200 zeny, but if you've";
-		mes "got a Free Ticket for Airship,";
-		mes "the fee will be waived. Will";
-		mes "you board the Airship?";
+		mes "La tarifa de abordaje de";
+		mes "la Aeronave es 1,200 zeny, pero";
+		mes "si tienes un Free Ticket for Airship,";
+		mes "la tarifa sera eximida. Deseas";
+		mes "abordar la Aeronave?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Si:No") == 1) {
 			if (countitem(7311) > 0) {
 				delitem 7311,1; //Free_Flying_Ship_Ticket
 				warp "airport",148,51;
@@ -40,18 +40,18 @@ airport,143,43,5	script	Airport Staff#airport1a::airport1	90,{
 				end;
 			}
 			mes "[Airport Staff]";
-			mes "I'm sorry, but you don't";
-			mes "have a Free Ticket for";
-			mes "Airship and you don't have";
-			mes "enough zeny for boarding";
-			mes "the Airship. Remember, the";
-			mes "boarding fee is 1,200 zeny.";
+			mes "Lo siento, pero no tienes";
+			mes "un Free Ticket for";
+			mes "Airship y no tienes";
+			mes "suficiente zeny para abordar";
+			mes "la Aeronave. Recuerda, la";
+			mes "tarifa de abordaje es 1,200 zeny.";
 			close;
 		}
 	}
 	mes "[Airport Staff]";
-	mes "Thank you and";
-	mes "have a nice day.";
+	mes "Gracias y";
+	mes "que tengas un buen dia.";
 	close;
 }
 
@@ -60,30 +60,30 @@ airport,126,43,5	duplicate(airport1)	Airport Staff#airport1c	90
 
 airport,143,49,3	script	Arrival Staff#airport2a::airport2	90,{
 	mes "[Arrival Staff]";
-	mes "Welcome to Einbroch Airport.";
-	mes "If you are arriving from your";
-	mes "flight, let me guide you to the";
-	mes "main terminal. Otherwise, please board the Airship to depart to";
-	mes "Juno, Lighthalzen and Hugel.";
+	mes "Bienvenido al Aeropuerto de Einbroch.";
+	mes "Si estas llegando de tu";
+	mes "vuelo, dejame guiarte a la";
+	mes "terminal principal. De lo contrario, por favor aborda la Aeronave para partir a";
+	mes "Juno, Lighthalzen y Hugel.";
 	next;
-	if (select("Exit to main terminal.:Cancel.") == 1) {
+	if (select("Salir a la terminal principal.:Cancelar.") == 1) {
 		mes "[Arrival Staff]";
-		mes "Once you're in the main terminal, you will need to pay the fee again";
-		mes "to board an Airship. You should";
-		mes "only exit if the city of Einbroch";
-		mes "is your intended destination.";
-		mes "Proceed to the main terminal?";
+		mes "Una vez en la terminal principal, tendras que pagar la tarifa de nuevo";
+		mes "para abordar una Aeronave. Solo";
+		mes "deberias salir si la ciudad de Einbroch";
+		mes "es tu destino previsto.";
+		mes "Proceder a la terminal principal?";
 		next;
-		if (select("Yes:No") == 1) {
+		if (select("Si:No") == 1) {
 			warp "airport",142,40;
 			end;
 		}
 	}
 	mes "[Arrival Staff]";
-	mes "Alright, thank you";
-	mes "for your patronage";
-	mes "and I hope you have";
-	mes "a pleasant flight~";
+	mes "Muy bien, gracias";
+	mes "por tu preferencia";
+	mes "y espero que tengas";
+	mes "un vuelo agradable~";
 	close;
 }
 
@@ -92,19 +92,19 @@ airport,158,50,3	duplicate(airport2)	Arrival Staff#airport2c	90
 
 einbroch,94,267,3	script	Airship Staff#ein01	91,{
 	mes "[Airship Staff]";
-	mes "Welcome to the";
-	mes "Einbroch Airport.";
-	mes "Please use this door to";
-	mes "board the Airship which stops";
-	mes "over Juno, Lighthalzen and";
-	mes "Hugel in the Schwarzwald Republic.";
+	mes "Bienvenido al";
+	mes "Aeropuerto de Einbroch.";
+	mes "Por favor usa esta puerta para";
+	mes "abordar la Aeronave que hace parada";
+	mes "en Juno, Lighthalzen y";
+	mes "Hugel en la Republica de Schwarzwald.";
 	next;
 	mes "[Airship Staff]";
-	mes "Otherwise, if Einbroch is";
-	mes "your intended destination,";
-	mes "please head down the stairs";
-	mes "and ask the Arrival Staff to lead";
-	mes "you to the main terminal. Thank";
-	mes "you, and enjoy your travels.";
+	mes "De lo contrario, si Einbroch es";
+	mes "tu destino previsto,";
+	mes "por favor baja las escaleras";
+	mes "y pidele al Personal de Llegadas que te";
+	mes "guie a la terminal principal. Gracias,";
+	mes "y disfruta tus viajes.";
 	close;
 }

@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Cool Event Corp. Staff
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Gepard
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.6
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Cool Event Corp. Staff (Save, Storage & Pushcart Service)
 //= in Arunafeltz Region.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version, iRO Sakray X.4 [Gepard]
 //= 1.1 Optimized, fixed a conditional bug [Lupus]
 //= 1.1a Redo back. It wasn't a bug [Lupus]
@@ -19,67 +19,67 @@
 //= 1.4 Added Veins Cool Event Corp. Staff. [L0ne_W0lf]
 //= 1.5 Cool Event Corp staff is now more iRO like. [L0ne_W0lf]
 //= 1.6 Wrote a basic function and added VIP features. [Euphy]
-//============================================================ 
+//============================================================
 
 //callfunc "F_CoolEventCorp","<menu>","<location>","<save map>",<x>,<y>,"<warp map>";
 function	script	F_CoolEventCorp	{
 	cutin "zonda_01",2;
 	mes "[Cool Event Corp. Staff]";
-	mes "Welcome to Cool Event Corp.";
-	mes "Our staff is always working";
-	mes "to surpass your expactations";
-	mes "for quality service. So how";
-	mes "may I assist you today?";
+	mes "Bienvenido/a a Cool Event Corp.";
+	mes "Nuestro personal siempre trabaja";
+	mes "para superar tus expectativas";
+	mes "de servicio de calidad. Entonces,";
+	mes "¿en que puedo asistirte hoy?";
 	next;
 	switch(select(getarg(0))) {
 	case 1:
 		mes "[Cool Event Corp. Staff]";
-		mes "Your Respawn Point";
-		mes "has been saved here";
+		mes "Tu Punto de Reaparicion";
+		mes "ha sido guardado aqui";
 		mes getarg(1)+".";
-		mes "Thank you for using the";
-		mes "Cool Event Corp. service~";
+		mes "Gracias por usar el";
+		mes "servicio de Cool Event Corp.~";
 		savepoint getarg(2),getarg(3),getarg(4),1,1;
 		close2;
 		break;
 	case 2:
 		mes "[Cool Event Corp. Staff]";
 		if(!callfunc("F_CanOpenStorage")){
-			mes "I'm sorry, but you";
-			mes "need the Novice's";
-			mes "Basic Skill Level 6 to";
-			mes "use the Storage Service.";
+			mes "Lo siento, pero";
+			mes "necesitas la Habilidad";
+			mes "Basica de Novato Nivel 6 para";
+			mes "usar el Servicio de Almacen.";
 			close2;
 			break;
 		}
 		if(Zeny < 40){
-			mes "I'm sorry, but you don't";
-			mes "have enough Zeny to use";
-			mes "the Storage Service. Our";
-			mes "Storage access fee is 40 Zeny.";
+			mes "Lo siento, pero no tienes";
+			mes "suficiente Zeny para usar";
+			mes "el Servicio de Almacen. La";
+			mes "tarifa de acceso al Almacen es de 40 Zeny.";
 			close2;
 			break;
 		}
 		set Zeny, Zeny - 40;
-		mes "Let me open your personal";
-		mes "storage for you right away.";
-		mes "Thanks for supporting Cool";
-		mes "Event Corp. by using our";
-		mes "services. Have a good day~";
+		mes "Dejame abrir tu almacen";
+		mes "personal de inmediato.";
+		mes "Gracias por apoyar a Cool";
+		mes "Event Corp. usando nuestros";
+		mes "servicios. ¡Que tengas un buen dia~!";
 		callfunc("F_CheckKafCode");	//check your storage password, if set
 		close2;
 		openstorage;
 		break;
 	case 3:
-		mes "Please choose";
-		mes "your destination.";
+		mes "Por favor elige";
+		mes "tu destino.";
 		next;
 		if (VIP_SCRIPT && !vip_status(VIP_STATUS_ACTIVE))
 			set .@cost,4400;
 		else
 			set .@cost,2200;
 		.@destination$ = getarg(5);
-		if (select(.@destination$ +" -> "+ .@cost +" z:Cancel") == 1) {
+		if (select(.@destination$ +" -> "+ .@cost +" z:Cancelar") == 1) {
 			if ((countitem(7060) != 0) || (Zeny >= .@cost)) {
 				if (countitem(7060) != 0) {
 					delitem 7060,1; //Warp_Free_Ticket
@@ -94,10 +94,10 @@ function	script	F_CoolEventCorp	{
 			}
 			else {
 				mes "[Cool Event Corp. Staff]";
-				mes "I'm sorry, but you don't have";
-				mes "enough zeny for the Teleport";
-				mes "Service. The fee to teleport";
-				mes "to "+ .@destination$ +" is "+.@cost+" zeny.";
+				mes "Lo siento, pero no tienes";
+				mes "suficiente zeny para el Servicio";
+				mes "de Teletransporte. La tarifa para";
+				mes "teletransportarte a "+ .@destination$ +" es de "+.@cost+" zeny.";
 			}
 		}
 		close2;
@@ -105,30 +105,30 @@ function	script	F_CoolEventCorp	{
 	case 4:
 		mes "[Cool Event Corp. Staff]";
 		if(BaseClass != Job_Merchant){
-			mes "I'm sorry, but the";
-			mes "Pushcart rental service";
+			mes "Lo siento, pero el";
+			mes "servicio de renta de Carreta";
 			if (checkre(0))
-				mes "is only available to Merchant classes.";
+				mes "solo esta disponible para clases Mercader.";
 			else {
-				mes "is only available to Merchants,";
-				mes "Blacksmiths, White Smiths,";
-				mes "Alchemists and Creators.";
+				mes "solo esta disponible para Mercaderes,";
+				mes "Herreros, Maestros Herreros,";
+				mes "Alquimistas y Creadores.";
 			}
 			close2;
 			break;
 		}
 		if(getskilllv("MC_PUSHCART") == 0){
-			mes "You can only rent a cart after";
-			mes "learning the Pushcart Skill.";
+			mes "Solo puedes rentar una carreta despues";
+			mes "de aprender la habilidad Pushcart.";
 			close2;
 			break;
 		}
 		if(checkcart() == 1){
-			mes "You already have";
-			mes "a Pushcart equipped.";
-			mes "Unfortunately, we can't";
-			mes "rent more than one to";
-			mes "each customer at a time.";
+			mes "Ya tienes una";
+			mes "Carreta equipada.";
+			mes "Lamentablemente, no podemos";
+			mes "rentar mas de una por";
+			mes "cliente a la vez.";
 			close2;
 			break;
 		}
@@ -138,17 +138,17 @@ function	script	F_CoolEventCorp	{
 			close2;
 			break;
 		}
-		mes "The Pushcart rental";
-		mes "fee is 800 Zeny. Would";
-		mes "you like to rent a Pushcart?";
+		mes "La tarifa de renta de";
+		mes "Carreta es de 800 Zeny. ¿Te";
+		mes "gustaria rentar una Carreta?";
 		next;
-		if(select("Rent a Pushcart:Cancel") == 1){
+		if(select("Rentar una Carreta:Cancelar") == 1){
 			if(Zeny < 800){
 				mes "[Cool Event Corp. Staff]";
-				mes "I'm sorry, but you";
-				mes "don't have enough";
-				mes "Zeny to pay the Pushcart";
-				mes "rental fee of 800 Zeny.";
+				mes "Lo siento, pero no";
+				mes "tienes suficiente";
+				mes "Zeny para pagar la tarifa";
+				mes "de renta de Carreta de 800 Zeny.";
 			} else {
 				set Zeny, Zeny - 800;
 				setcart;
@@ -162,12 +162,12 @@ function	script	F_CoolEventCorp	{
 	case 6:
 	default:
 		mes "[Cool Event Corp. Staff]";
-		mes "Cool Event Corp. is always";
-		mes "striving to provide the best";
-		mes "services for our customers.";
-		mes "Help us become the best by";
-		mes "providing us with your opinions";
-		mes "and honest feedback. Thank you.";
+		mes "Cool Event Corp. siempre se";
+		mes "esfuerza por brindar los mejores";
+		mes "servicios a nuestros clientes.";
+		mes "Ayudanos a ser los mejores";
+		mes "brindandonos tus opiniones";
+		mes "y comentarios honestos. Gracias.";
 		close2;
 	}
 	cutin "", 255;
@@ -176,28 +176,28 @@ function	script	F_CoolEventCorp	{
 
 lighthalzen,94,248,3	script	Cool Event Corp Staff::CoolEventCorpStaffLighthalzen	4_M_ZONDAMAN,{
 	callfunc "F_CoolEventCorp",
-		"Save:Use Storage::Rent a Pushcart:Storage Password Service:Cancel",
-		"in the town of Lighthalzen","lighthalzen",95,240;
+		"Guardar:Usar Almacen::Rentar Carreta:Servicio de Contraseña de Almacen:Cancelar",
+		"en el pueblo de Lighthalzen","lighthalzen",95,240;
 	end;
 }
 
 hugel,88,168,4	script	Cool Event Corp. Staff::CoolEventCorpStaffHugel	4_M_ZONDAMAN,{
 	callfunc "F_CoolEventCorp",
-		"Save:Use Storage::Rent a Pushcart:Storage Password Service:Cancel",
-		"in the village of Hugel","hugel",96,155;
+		"Guardar:Usar Almacen::Rentar Carreta:Servicio de Contraseña de Almacen:Cancelar",
+		"en la aldea de Hugel","hugel",96,155;
 	end;
 }
 
 rachel,109,138,5	script	Cool Event Corp. Staff::CoolEventCorpStaffRachel	4_M_ZONDAMAN,{
 	callfunc "F_CoolEventCorp",
-		"Save:Use Storage:Teleport Service:Rent a Pushcart:Storage Password Service:Cancel",
-		"in the town of Rachel","rachel",113,137,"Veins";
+		"Guardar:Usar Almacen:Servicio de Teletransporte:Rentar Carreta:Servicio de Contraseña de Almacen:Cancelar",
+		"en el pueblo de Rachel","rachel",113,137,"Veins";
 	end;
 }
 
 veins,208,128,5	script	Cool Event Corp. Staff::CoolEventCorpStaffVeins	4_M_ZONDAMAN,{
 	callfunc "F_CoolEventCorp",
-		"Save:Use Storage:Teleport Service:Rent a Pushcart:Storage Password Service:Cancel",
-		"in the town of Veins","veins",204,103,"Rachel";
+		"Guardar:Usar Almacen:Servicio de Teletransporte:Rentar Carreta:Servicio de Contraseña de Almacen:Cancelar",
+		"en el pueblo de Veins","veins",204,103,"Rachel";
 	end;
 }

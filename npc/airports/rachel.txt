@@ -1,24 +1,24 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Rachel Airport NPCs
-//===== By: ================================================== 
+//===== By: ==================================================
 //= rAthena Dev Team
 //===== Current Version: =====================================
 //= 1.0
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Rachel Airport NPCs
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version.
-//============================================================ 
+//============================================================
 
 ra_fild12,295,208,0	script	toairplane#rachel	45,1,1,{
 	end;
 OnTouch:
-	mes "To use the airship, you are required to pay 1,200 zeny or a Free Airship Ticket.";
-	mes "Would you like to use the service?";
+	mes "Para usar la aeronave, debes pagar 1,200 zeny o un Free Airship Ticket.";
+	mes "Te gustaria usar el servicio?";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("Si:No") == 1) {
 		if (countitem(7311) > 0) {
 			delitem 7311,1; //Free_Flying_Ship_Ticket
 			warp "airplane_01",245,60;
@@ -29,10 +29,10 @@ OnTouch:
 			warp "airplane_01",245,60;
 			end;
 		}
-		mes "I am sorry, but you do not have enough money.";
-		mes "Please remember, you are required to pay 1,200 zeny to use the service.";
+		mes "Lo siento, pero no tienes suficiente dinero.";
+		mes "Por favor recuerda, debes pagar 1,200 zeny para usar el servicio.";
 		close;
 	}
-	mes "Thank you, please come again.";
+	mes "Gracias, vuelve pronto.";
 	close;
 }

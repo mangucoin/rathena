@@ -23,25 +23,25 @@
 	set .@GID, GetCastleData("prtg_cas03",1);
 
 	if (.@GID == 0) {
-		mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+		mes "[ Edicto del Divino Reino de Rune-Midgarts ]";
 		mes " ";
-		mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-		mes "We declare that";
-		mes "there is no formal master of this castle.";
+		mes "1. Siguiendo la ordenanza del Divino Reino de Rune-Midgarts, ";
+		mes "Declaramos que";
+		mes "no existe un dueno formal de este castillo.";
 		mes " ";
-		mes "2. To the one who can ";
-		mes "overcome all trials";
-		mes "and destroy the Emperium,";
-		mes "the king will endow the one with";
-		mes "ownership of this castle.";
+		mes "2. A aquel que pueda ";
+		mes "superar todas las pruebas";
+		mes "y destruir el Emperium,";
+		mes "el rey le otorgara";
+		mes "la propiedad de este castillo.";
 		close;
 	}
 	if (getcharid(2) == .@GID) {
-		mes "[ Echoing Voice ]";
-		mes "Brave ones...";
-		mes "Do you wish to return to your honorable place?";
+		mes "[ Voz Resonante ]";
+		mes "Valientes...";
+		mes "Desean regresar a su honorable lugar?";
 		next;
-		if(select("Return to the guild castle.:Quit.") == 1) {
+		if(select("Regresar al castillo del guild.:Salir.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("prtg_cas03",1)) {
 				warp "prtg_cas03",181,215;
@@ -51,16 +51,16 @@
 		}
 		close;
 	}
-	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+	mes "[ Edicto del Divino Reino de Rune-Midgarts ]";
 	mes " ";
-	mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-	mes "we approve that this place is in";
-	mes "the private prossession of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild.";
+	mes "1. Siguiendo la ordenanza del Divino Reino de Rune-Midgarts, ";
+	mes "aprobamos que este lugar esta en";
+	mes "posesion privada del Guild ^ff0000"+GetGuildName(.@GID)+"^000000.";
 	mes " ";
-	mes "2. The guild Master of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild is";
+	mes "2. El Maestro del Guild ^ff0000"+GetGuildName(.@GID)+"^000000 es";
 	mes "^ff0000"+GetGuildMaster(.@GID)+"^000000";
-	mes "If there is anyone who objects to this,";
-	mes "prove your strength and honor with a steel blade in your hand.";
+	mes "Si alguien se opone a esto,";
+	mes "demuestra tu fuerza y honor con una espada de acero en tu mano.";
 	close;
 
 OnRecvCastlePt03:
@@ -110,9 +110,9 @@ prtg_cas03,51,100,4	duplicate(cm)	Sttick#prtg_cas03	55
 //============================================================
 prtg_cas03,193,130,0	script	#Lever_PR03	111,{
 	mes " ";
-	mes "There's a small lever. Will you pull it?";
+	mes "Hay una pequena palanca. Quieres jalarla?";
 	next;
-	if(select("Pull.:Do not.") == 1) {
+	if(select("Jalar.:No jalar.") == 1) {
 		close2;
 		warp "prtg_cas03",51,101;
 		end;

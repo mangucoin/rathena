@@ -21,31 +21,31 @@
 
 prontera,73,140,0	script	Milk Vendor	86,{
 	if (checkweight(1201,1) == 0) {
-		mes "^3355FFJust a minute!";
-		mes "I can't offer any of my";
-		mes "services to you because";
-		mes "you're carrying too much";
-		mes "stuff. Put your extra items in";
-		mes "Kafra Storage and come again~";
+		mes "^3355FFUn momento!";
+		mes "No puedo ofrecerte ninguno de";
+		mes "mis servicios porque";
+		mes "estas cargando demasiadas";
+		mes "cosas. Guarda tus objetos extra en";
+		mes "el Almacen Kafra y vuelve~";
 		close;
 	}
 	mes "[Milk Vendor]";
 	mes "Hey, hey...";
-	mes "If you bring me";
-	mes "1 Empty Bottle and";
-	mes "15 Zeny, I'll exchange";
-	mes "them for 1 Milk. How";
-	mes "does that sound?";
+	mes "Si me traes";
+	mes "1 Empty Bottle y";
+	mes "15 Zeny, te los intercambio";
+	mes "por 1 Milk. Que";
+	mes "te parece?";
 	next;
-	if (select("Exchange all empty bottles.:Cancel") == 1) {
+	if (select("Intercambiar todas las botellas vacias.:Cancelar") == 1) {
 		if (countitem(713) <= 0) {
 			mes "[Milk Vendor]";
 			mes "Hey...";
-			mes "You don't have";
-			mes "any Empty Bottles.";
-			mes "I can't really give you";
-			mes "this milk any other";
-			mes "way, you know...";
+			mes "No tienes";
+			mes "ninguna Empty Bottle.";
+			mes "Realmente no puedo darte";
+			mes "esta leche de otra";
+			mes "forma, sabes...";
 			close;
 		}
 		set .@bottles,countitem(713);
@@ -53,22 +53,22 @@ prontera,73,140,0	script	Milk Vendor	86,{
 		set .@total_cost,.@bottles * 15;
 		if (Zeny < .@Total_cost) {
 			mes "[Milk Vendor]";
-			mes "Oh, whoa~!";
-			mes "You don't have enough";
-			mes "zeny to exchange all";
-			mes "these Empty Bottles for";
-			mes "Milk. You need to have";
-			mes "at least " + .@total_cost + " zeny.";
+			mes "Oh, wow~!";
+			mes "No tienes suficiente";
+			mes "zeny para intercambiar todas";
+			mes "estas Empty Bottles por";
+			mes "Milk. Necesitas tener";
+			mes "al menos " + .@total_cost + " zeny.";
 			close;
 		}
 		if (MaxWeight - Weight < .@total_weight) {
 			mes "[Milk Vendor]";
 			mes "Hmm...";
-			mes "Would you make";
-			mes "a little more room";
-			mes "in your inventory";
-			mes "before I give you";
-			mes "all of this milk?";
+			mes "Podrias hacer";
+			mes "un poco mas de espacio";
+			mes "en tu inventario";
+			mes "antes de que te de";
+			mes "toda esta leche?";
 			close;
 		}
 		set Zeny, Zeny-.@total_cost;

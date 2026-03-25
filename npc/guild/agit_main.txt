@@ -121,7 +121,7 @@ OnAgitBreak:
 	SetCastleData strnpcinfo(2),CD_GUILD_ID, .@GID;
 
 	// Announce that the Emperium is destroyed, and respawn all but new castle-occupants.
-	mapannounce strnpcinfo(2),"The emperium has been destroyed.",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
+	mapannounce strnpcinfo(2),"El Emperium ha sido destruido.",bc_map|bc_woe,"0x00CCFF",FW_NORMAL,12;
 	MapRespawnGuildID strnpcinfo(2),.@GID,6;
 
 	// Refresh castle data, disable Kafra and reset Invest information.
@@ -141,7 +141,7 @@ OnAgitBreak:
 	if( agitcheck() )
 		donpcevent "Agit#"+strnpcinfo(2)+"::OnStartArena";
 	sleep 7000;
-	announce "The [" + getcastlename(strnpcinfo(2)) + "] castle has been conquered by the [" + getguildName(.@GID) + "] guild.",bc_all|bc_woe;
+	announce "El castillo [" + getcastlename(strnpcinfo(2)) + "] ha sido conquistado por el guild [" + getguildName(.@GID) + "].",bc_all|bc_woe;
 	end;
 
 // War of Emperium has ended.
@@ -163,7 +163,7 @@ OnGuildBreak:
 	SetCastleData strnpcinfo(2),CD_GUILD_ID,0;
 	// Wait before refreshing guild information.
 	sleep 7000;
-	Announce "Guild Base [" + GetCastleName(strnpcinfo(2)) + "] has been abandoned.",0;
+	Announce "La Base del Guild [" + GetCastleName(strnpcinfo(2)) + "] ha sido abandonada.",0;
 	donpcevent strnpcinfo(0)+"::OnRecvCastle";
 	end;
 
@@ -344,26 +344,26 @@ OnRecvCastle:
 	cutin "kafra_01",2;
 	if (getcharid(2) == .@GID) {
 		mes "[Kafra Employee]";
-		mes "Welcome. ^ff0000" + GetGuildName(.@GID) + "^000000 Member.";
-		mes "The Kafra Corporation will stay with you wherever you go.";
+		mes "Bienvenido. Miembro de ^ff0000" + GetGuildName(.@GID) + "^000000.";
+		mes "La Corporacion Kafra estara contigo a donde vayas.";
 		next;
-		switch (select("Use Storage:Use Teleport Service:Rent a Pushcart:Cancel")) {
+		switch (select("Usar Almacen:Usar Servicio de Teletransporte:Rentar un Carrito:Cancelar")) {
 		case 1:
 			if(!callfunc("F_CanOpenStorage")){
 				mes "[Kafra Employee]";
-				mes "I'm sorry, but you";
-				mes "need the Novice's";
-				mes "Basic Skill Level 6 to";
-				mes "use the Storage Service.";
+				mes "Lo siento, pero";
+				mes "necesitas la Habilidad";
+				mes "Basica de Novato Nivel 6 para";
+				mes "usar el Servicio de Almacen.";
 				close2;
 				cutin "",255;
 				end;
 			}
 			mes "[Kafra Employee]";
-			mes "Here, let me open";
-			mes "your Storage for you.";
-			mes "Thank you for using";
-			mes "the Kafra Service.";
+			mes "Aqui tienes, dejame abrir";
+			mes "tu Almacen.";
+			mes "Gracias por usar";
+			mes "el Servicio Kafra.";
 			close2;
 			cutin "",255;
 			openstorage;

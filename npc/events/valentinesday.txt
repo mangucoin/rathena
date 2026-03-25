@@ -19,43 +19,43 @@
 //============================================================
 alberta,26,243,4	script	Stephen	58,{
 	mes "[Stephen]";
-	mes "Guess what I've got?";
-	mes "A tasty treat not easily found in Midgard....";
+	mes "Adivina que tengo?";
+	mes "Una golosina que no se encuentra facilmente en Midgard....";
 	next;
 	mes "[Stephen]";
 	mes "Chocolate!";
-	mes "That's right, don't you love chocolate.... I do.";
-	mes "And you are in luck, because I'm selling them for only 5,000 zeny a piece!";
+	mes "Asi es, a quien no le gusta el chocolate.... a mi si.";
+	mes "Y tienes suerte, porque los vendo por solo 5,000 zeny cada uno!";
 	next;
-	if(select("I want some chocolate!:No thanks.")==2) {
+	if(select("Quiero chocolate!:No gracias.")==2) {
 		mes "[Stephen]";
-		mes "You don't want any chocolate?";
-		mes "I'm telling you! You'll regret it!";
-		mes "You better get some now... you won't come across Chocolate like this ever again!";
-		mes "Think it over and visit me again sometime.";
+		mes "No quieres chocolate?";
+		mes "Te lo digo! Te vas a arrepentir!";
+		mes "Mejor compra ahora... no encontraras Chocolate como este nunca mas!";
+		mes "Piensalo y visitame de nuevo.";
 		close; }
 	mes "[Stephen]";
-	mes "Hah!";
-	mes "I knew it!";
-	mes "But I can't sell you more than 5 at once... but, if you really need more....";
-	mes "you can come back again.";
-	mes "So how many do you want?";
+	mes "Ja!";
+	mes "Lo sabia!";
+	mes "Pero no puedo venderte mas de 5 a la vez... pero, si realmente necesitas mas....";
+	mes "puedes volver otra vez.";
+	mes "Cuantos quieres?";
 	next;
 	input .@i;
 	if (.@i <= 0) close;
 	mes "[Stephen]";
 	if (.@i > 5)  {
-		mes "I'm sorry, but I can't give you that many.";
+		mes "Lo siento, pero no puedo darte tantos.";
 		close; }
 	if (Zeny < .@i*5000) {
-		mes "I'm sorry, but it seems you can't afford to buy these off me.";
+		mes "Lo siento, pero parece que no puedes pagar por estos.";
 		close; }
 	set Zeny, Zeny - .@i*5000;
 	getitem 558,.@i;
-	mes "There you go!";
-	mes "You can give that to someone as a gift, or enjoy it yourself!";
-	mes "Mmm... sweet chocolate...";
-	mes "Visit me anytime...!";
+	mes "Aqui tienes!";
+	mes "Puedes darselo a alguien como regalo, o disfrutarlo tu mismo!";
+	mes "Mmm... dulce chocolate...";
+	mes "Visitame cuando quieras...!";
 	close;
 }
 
@@ -63,23 +63,23 @@ alberta,26,243,4	script	Stephen	58,{
 //============================================================
 alberta,29,243,4	script	Jainie	53,{
 	mes "[Jainie]";
-	mes "You know what? The chocolate that my boyfriend sells are from me!";
-	mes "I made them by myself.";
+	mes "Sabes que? Los chocolates que vende mi novio son mios!";
+	mes "Los hice yo misma.";
 	next;
 	mes "[Jainie]";
-	mes "You know ... In cetain countries, there's a tradition of presenting chocolates to a person that you love...";
-	mes "They call it, ^3355FFValentine's Day^000000.";
+	mes "Sabes... En ciertos paises, hay una tradicion de regalar chocolates a la persona que amas...";
+	mes "Lo llaman, ^3355FFDia de San Valentin^000000.";
 	next;
 	mes "[Jainie]";
-	mes "So I gave him my delicious chocolate...";
-	mes "And then he made me cook a lot more...";
-	mes "And now he is selling them to everyone.";
-	mes "I guess he really enjoyed it.";
-	mes "But, I do feel good when people buy something I have made.";
+	mes "Asi que le di mi delicioso chocolate...";
+	mes "Y luego me hizo cocinar muchos mas...";
+	mes "Y ahora los esta vendiendo a todos.";
+	mes "Supongo que realmente le gusto.";
+	mes "Pero, me siento bien cuando la gente compra algo que yo he hecho.";
 	next;
 	mes "[Jainie]";
-	mes "It would be great if you bought some too...";
-	mes "I will be making chocolates for a while so...";
+	mes "Seria genial si tu tambien compraras algunos...";
+	mes "Estare haciendo chocolates por un tiempo asi que...";
 	close;
 }
 
@@ -87,45 +87,45 @@ alberta,29,243,4	script	Jainie	53,{
 //============================================================
 prt_castle,54,34,4	script	Carl Orleans	47,{
 	mes "[Carl Orleans]";
-	mes "Yes?";
+	mes "Si?";
 	next;
-	if(select("I want some hand made chocolate...:I'm lost, sorry to bother you.")==2) {
+	if(select("Quiero chocolate hecho a mano...:Estoy perdido, perdon por molestarte.")==2) {
 		mes "[Carl Orleans]";
-		mes "Oh... well, if you want me to make some of my special Hand Made Chocolate....";
-		mes "You will need to give me at least ^0000FF 3 Chocolates^000000.";
+		mes "Oh... bueno, si quieres que haga algo de mi Chocolate Hecho a Mano especial....";
+		mes "Necesitaras darme al menos ^0000FF 3 Chocolates^000000.";
 		next;
 		mes "[Carl Orleans]";
-		mes "That's right, only ^0000FF 3 Chocolates^000000";
-		mes "Bring them to me and you'll get what you came for.";
+		mes "Asi es, solo ^0000FF 3 Chocolates^000000";
+		mes "Traemelos y obtendras lo que viniste a buscar.";
 		next;
 		mes "[Carl Orleans]";
-		mes "See You.";
+		mes "Nos vemos.";
 		close; }
 	mes "[Carl Orleans]";
-	mes "Well, I just might be able to fulfill your needs...";
+	mes "Bueno, tal vez pueda cumplir tus deseos...";
 	next;
 	mes "[Carl Orleans]";
 	if (countitem(558) < 3) {
-		mes "I'm sorry, you don't have enough Chocolate Bars to do this.";
+		mes "Lo siento, no tienes suficientes barras de Chocolate para esto.";
 		close; }
 	delitem 558,3;
-	mes "You got 3 pieces of pure chocolate, I see.";
-	mes "Give them to me...";
+	mes "Tienes 3 piezas de chocolate puro, ya veo.";
+	mes "Damelos...";
 	next;
 	mes "[Carl Orleans]";
-	mes "Ok, now I will only create my special hand made chocolates if you promise to use it wisely.";
+	mes "Bien, ahora solo creare mis chocolates especiales hechos a mano si prometes usarlos sabiamente.";
 	next;
 	mes "[Carl Orleans]";
 	mes "....Hmmmmmm.....";
-	mes "Well...";
+	mes "Bueno...";
 	next;
 	mes "[Carl Orleans]";
 	getitem 559,1;
-	mes "Here.";
-	mes "I hope you give it to someone special, because its a special chocolate.";
-	mes "As you know... only I can create this.";
+	mes "Aqui tienes.";
+	mes "Espero que se lo des a alguien especial, porque es un chocolate especial.";
+	mes "Como sabes... solo yo puedo crear esto.";
 	next;
 	mes "[Carl Orleans]";
-	mes "Enjoy.";
+	mes "Disfruta.";
 	close;
 }

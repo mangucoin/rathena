@@ -1,18 +1,18 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Guild Battle NPC
-//===== By: ================================================== 
+//===== By: ==================================================
 //= L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Guild Battle with PVP mechanics.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version. [L0ne_W0lf]
 //= 1.1 Optimized. [Euphy]
-//============================================================ 
+//============================================================
 
 pvp_y_room,77,85,4	script	Guild Battle Guide	105,{
 
@@ -21,35 +21,35 @@ pvp_y_room,77,85,4	script	Guild Battle Guide	105,{
 	setarray .@mapY[1],49,49,50,49,50;
 
 	mes "[Guild Battle Guide]";
-	mes "How are you doing?";
-	mes "I'm the Guild Battle Guide";
-	mes "for the new PvP maps.";
-	mes "Let me know to which map";
-	mes "you want me to move you.";
+	mes "Como estas?";
+	mes "Soy el Guia de Batalla de Gremios";
+	mes "para los nuevos mapas de PvP.";
+	mes "Dime a cual mapa";
+	mes "quieres que te lleve.";
 	next;
-	set .@i, select("Map 1:Map 2:Map 3:Map 4:Map 5");
+	set .@i, select("Mapa 1:Mapa 2:Mapa 3:Mapa 4:Mapa 5");
 	mes "[Guild Battle Guide]";
-	mes "You've chosen Map "+.@i+".";
-	mes "Now, which team are";
-	mes "you on? You can choose";
-	mes "either Team 1 or Team 2.";
+	mes "Has elegido el Mapa "+.@i+".";
+	mes "Ahora, en que equipo";
+	mes "estas? Puedes elegir";
+	mes "el Equipo 1 o el Equipo 2.";
 	next;
-	set .@j, select("Team 1:Team 2");
+	set .@j, select("Equipo 1:Equipo 2");
 	mes "[Guild Battle Guide]";
-	mes "Alright, I'll move you";
-	mes "to Map "+.@i+" as a member";
-	mes "of Team "+.@j+". Are you ready";
-	mes "to be transported there now?";
+	mes "Bien, te llevare";
+	mes "al Mapa "+.@i+" como miembro";
+	mes "del Equipo "+.@j+". Estas listo";
+	mes "para ser transportado ahora?";
 	next;
-	if(select("Yes:No") == 2) {
+	if(select("Si:No") == 2) {
 		mes "[Guild Battle Guide]";
-		mes "Alright, I hope to";
-		mes "see you again on";
-		mes "the PvP fields!";
+		mes "Bien, espero verte";
+		mes "de nuevo en los";
+		mes "campos de PvP!";
 		close;
 	}
 	mes "[Guild Battle Guide]";
-	mes "Great! Have a good time~";
+	mes "Genial! Que la pases bien~";
 	close2;
 	warp "guild_vs"+.@i,getd(".@map"+.@j+"X["+.@i+"]"),.@mapY[.@i];
 	end;

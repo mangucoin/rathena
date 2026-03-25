@@ -31,23 +31,23 @@ function	script	F_GldManager	{
 
 	mes "[ "+ .@npc_name$ +" ]";
 	if (.@gid == 0){
-		mes "I am waiting for my master.  Brave adventurer, follow your destiny!";
+		mes "Estoy esperando a mi amo. Valiente aventurero, sigue tu destino!";
 		return;
 	}
 	if (getcharid(2) != .@gid){
-		mes "I am here to follow ^5533FF" + getguildmaster(.@gid) + "^000000's command! Hey! Your not even a part of the guild!!";
-		mes "Where are the guardians? Destroy these intruders!";
+		mes "Estoy aqui para seguir las ordenes de ^5533FF" + getguildmaster(.@gid) + "^000000! Oye! Ni siquiera eres parte del gremio!!";
+		mes "Donde estan los guardianes? Destruyan a estos intrusos!";
 		return;
 	}
 	if (is_guild_leader() == false){
-		mes "You're not ^5533FF" + getguildmaster(.@gid) + "^000000! I am here to follow ^5533FF" + getguildmaster(.@gid) + "^000000's command only";
+		mes "Tu no eres ^5533FF" + getguildmaster(.@gid) + "^000000! Estoy aqui para seguir solo las ordenes de ^5533FF" + getguildmaster(.@gid) + "^000000";
 		return 0;
 	}
 
-	mes "Welcome Master ^5533FF" + getguildmaster(.@gid) + "^000000 ! I will assist you in any way I can!";
+	mes "Bienvenido Maestro ^5533FF" + getguildmaster(.@gid) + "^000000 ! Te asistire en todo lo que pueda!";
 	next;
 
-	menu "Kafra Staff Employment / Dismissal",M_Kaf, "Enter Treasure Room",M_Treas, "Cancel",M_End;
+	menu "Empleo / Despido de Kafra",M_Kaf, "Entrar a la Sala del Tesoro",M_Treas, "Cancelar",M_End;
 
 	//===========================
 	M_Kaf:
@@ -55,89 +55,89 @@ function	script	F_GldManager	{
 		mes "[ "+ .@npc_name$ +" ]";
 		if (GetCastleData(.@map_name$,9) == 1) goto L_Dismiss;
 		if (getgdskilllv(.@gid,10001) == 0){
-			mes "Master, you don't have a contract with the Kafra Staff Company.";
-			mes "In order to hire a Kafra, you must first learn the Guild skill ^5533FFContract With Kafra^000000.";
+			mes "Maestro, no tienes un contrato con la Compania de Kafra.";
+			mes "Para contratar una Kafra, primero debes aprender la habilidad de Gremio ^5533FFContrato con Kafra^000000.";
 			return;
 		}
 
 		L_Hire:
-			mes "Would you like to employ the services of a Kafra? You will need ^5533FF10,000 Zeny^000000 to do so... ";
+			mes "Te gustaria emplear los servicios de una Kafra? Necesitaras ^5533FF10,000 Zeny^000000 para hacerlo... ";
 			next;
-			menu "Employ Kafra.",-,"Cancel",sM_KafEnd;
+			menu "Emplear Kafra.",-,"Cancelar",sM_KafEnd;
 
 				mes "[ "+ .@npc_name$ +" ]";
 				if (Zeny < 10000){
-					mes "Master, you do not have enough money to employ a Kafra. Employment has been cancelled.";
+					mes "Maestro, no tienes suficiente dinero para emplear una Kafra. El empleo ha sido cancelado.";
 					return;
 				}
 				set Zeny,Zeny-10000;
 				enablenpc "Kafra Staff#"+getarg(4);
 				SetCastleData .@map_name$,9,1;
-				mes "You have created a contract with the Kafra Staff Company.";
+				mes "Has creado un contrato con la Compania de Kafra.";
 				next;
 				cutin "kafra_01",2;
 				mes "[ Kafra Staff ]";
-				mes "How do you do? I'm here to provide you with helpful service! I'll do the best I can to serve you.";
+				mes "Como estas? Estoy aqui para brindarte un servicio util! Hare lo mejor que pueda para servirte.";
 				next;
 				cutin "kafra_01",255;
 				mes "[ "+ .@npc_name$ +" ]";
-				//mes "Your employment contract lasts ^5533FF1 month^000000.  After this term is over you will have to create a new contract.";
-				mes "I think the Kafra Staff will benefit our guild members.";
+				//mes "Tu contrato de empleo dura ^5533FF1 mes^000000. Despues de que termine este plazo tendras que crear un nuevo contrato.";
+				mes "Creo que la Kafra beneficiara a los miembros de nuestro gremio.";
 				return;
 
 			sM_KafEnd:
 				mes "[ "+ .@npc_name$ +" ]";
-				mes "As you wish Master.  But I suggest we get a Kafra as soon as possible!";
+				mes "Como desees Maestro. Pero te sugiero que consigamos una Kafra lo antes posible!";
 				return;
 
 		L_Dismiss:
-			mes "Would you like to dismiss the current Kafra?";
+			mes "Te gustaria despedir a la Kafra actual?";
 			next;
-			menu "Dismissal",-,"Cancel",sM_KafEnd2;
+			menu "Despido",-,"Cancelar",sM_KafEnd2;
 
 				cutin "kafra_01",2;
 				mes "[ Kafra Staff ]";
-				mes "Have I done anything wrong? If I did, will you please forgive me?";
+				mes "He hecho algo mal? Si lo hice, me perdonarias?";
 				next;
-				menu "Dismiss",-,"Cancel",ssM_KafEnd2;
+				menu "Despedir",-,"Cancelar",ssM_KafEnd2;
 
 					mes "[ Kafra Staff ]";
-					mes "It's unfortunate that I won't be able to serve your guild anymore....";
+					mes "Es una lastima que ya no podre servir a tu gremio....";
 					next;
 					disablenpc "Kafra Staff#"+getarg(4);
 					SetCastleData .@map_name$,9,0;
 					cutin "kafra_01",255;
 					mes "[ "+ .@npc_name$ +" ]";
-					mes "The Kafra has been dismissed.  But... we should really get a Kafra as soon as possible!";
+					mes "La Kafra ha sido despedida. Pero... realmente deberiamos conseguir una Kafra lo antes posible!";
 					return;
 				ssM_KafEnd2:
 					mes "[ Kafra Staff ]";
-					mes "Thank you master, I'll do my best! ^^.";
+					mes "Gracias maestro, dare lo mejor de mi! ^^.";
 					cutin "kafra_01",255;
 					return;
 			sM_KafEnd2:
 				mes "[ "+ .@npc_name$ +" ]";
-				mes "Master, I think you should keep the current Kafra Staff because she is already trying her best to serve us";
+				mes "Maestro, creo que deberias mantener a la Kafra actual porque ya esta dando lo mejor de si para servirnos";
 				return;
 
 	//=========================
 	M_Treas:
 	//========
 		mes "[ "+ .@npc_name$ +" ]";
-		mes "Would you to go to our Treasure Room? Only you, the Guild Master, are allowed to enter this room.";
+		mes "Deseas ir a nuestra Sala del Tesoro? Solo tu, el Maestro del Gremio, tienes permitido entrar a esta sala.";
 		next;
-		menu "Enter Treasure room.",-,"Cancel",sM_TresEnd;
+		menu "Entrar a la Sala del Tesoro.",-,"Cancelar",sM_TresEnd;
 
 			mes "[ "+ .@npc_name$ +" ]";
-			mes "Please follow me through the secret passage way.";
-			mes "You must pull down on the secret switch in order to get out.";
+			mes "Por favor sigueme por el pasaje secreto.";
+			mes "Debes jalar el interruptor secreto para poder salir.";
 			next;
 			warp .@map_name$,getarg(2),getarg(3);
 			return;
 		sM_TresEnd:
 			mes "[ "+ .@npc_name$ +" ]";
-			mes "The goods are produced everyday.";
-			mes "You should get them whenever you can because they might dissapear if you take them at the wrong time.";
+			mes "Los bienes se producen todos los dias.";
+			mes "Deberias recogerlos cuando puedas porque podrian desaparecer si los tomas en el momento equivocado.";
 			return;
 
 
@@ -145,7 +145,7 @@ function	script	F_GldManager	{
 	M_End:
 	//=======
 		mes "[ "+ .@npc_name$ +" ]";
-		mes "As you wish, master.";
+		mes "Como desees, maestro.";
 		return;
 }
 
