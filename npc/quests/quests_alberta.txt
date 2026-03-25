@@ -1,12 +1,12 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Quest NPCs related to Alberta
-//===== By: ================================================== 
+//===== By: ==================================================
 //= kobra_k88
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 2.6
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Dolls Quest
 //= Boy's Cap Quest
@@ -15,17 +15,17 @@
 //= Hat of Sun God, Sunday Hat, Mage Hat, Magician Hat Quests
 //= Turtle Island Quests
 //= Alberta Boy
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.1 Fixed Spore Doll exploit, Gramp's Tiger skin label bug
 //= 1.3 Fixed item ID 7031 -> 7013
 //= 1.4 Fixed a bug, Fixed Exploits, Optimized [Lupus]
-//= 1.6 TEMPESTRA quest uses common quests variable MISC_QUEST 
+//= 1.6 TEMPESTRA quest uses common quests variable MISC_QUEST
 //=     Condition if done: (MISC_QUEST & 2) [Lupus]
 //= 1.7 Moved quest from cities/albera.txt [Evera]
 //= 1.8 Re-made the Doll Quest, now with official dialogs. [DZeroX]
 //= 1.8a Removed .GATs [Lupus]
 //= 1.9 Updated Turtle Quest to official. [L0ne_W0lf]
-//= 2.0 Turtle Island quest now clears TURTLE var and set 
+//= 2.0 Turtle Island quest now clears TURTLE var and set
 //=     MISC_QUEST bit (MISC_QUEST & 65536) [Lupus]
 //= 2.1 Added missing close. [L0ne_W0lf]
 //= 2.2 Updated Gotan to be compliant with misc_quiest var. [L0ne_W0lf]
@@ -33,102 +33,102 @@
 //= 2.4 Updated 'Doll Quest' to match AEGIS script. [Kisuka]
 //= 2.5 Moved Alberta NPC to pre-re/re paths. [Euphy]
 //= 2.6 Updated RE/Pre-RE EXP. [Euphy]
-//============================================================ 
+//============================================================
 
 // Doll Quest
 //============================================================
 alberta,117,135,0	script	Elin	96,{
 	if (checkweight(1201,1) == 0) {
 		mes "[Elin]";
-		mes "^3355FFWait a second! Right now, you're carrying too many items with you. Please come back after putting some of your things into Kafra Storage.^000000";
+		mes "^3355FFEspera un momento! Ahora mismo llevas demasiados objetos contigo. Por favor regresa despues de guardar algunas de tus cosas en el Almacen Kafra.^000000";
 		close;
 	}
 	mes "[Elin]";
 	if (Sex == SEX_MALE) {
-		mes "Hello~!";
-		mes "Heh heh, you're a boy, so you probably don't like dolls, right? Well, I like dolls very very much!";
+		mes "Hola~!";
+		mes "Je je, eres un chico, asi que probablemente no te gustan las munecas, verdad? Bueno, a mi me gustan mucho mucho!";
 	} else {
-		mes "Hi hi~! Oh, oh, do you like dolls? I really really like dolls... Hee Hee~!";
+		mes "Hola hola~! Oh, oh, te gustan las munecas? A mi me gustan mucho mucho... Ji ji~!";
 	}
 	next;
 	mes "[Elin]";
-	mes "You know, I really really want a new doll! I hope my daddy will give me one on my birthday...!";
+	mes "Sabes, de verdad quiero una muneca nueva! Espero que mi papi me de una en mi cumpleanos...!";
 	next;
-	switch(select("Um, I hope your daddy gives you one too.:How about I give you one now?")) {
+	switch(select("Eh, espero que tu papi te de una tambien.:Que tal si te doy una ahora?")) {
 	case 1:
 		mes "[Elin]";
-		mes "Yeah, I'm hoping";
-		mes "he gives me a Yoyo";
-		mes "doll. They're so cute!";
+		mes "Si, espero que";
+		mes "me de una muneca";
+		mes "Yoyo. Son tan lindas!";
 		close;
 	case 2:
 		if (MaxWeight - Weight < 1000) {
 			mes "[Elin]";
 			if (Sex == SEX_MALE) {
-				mes "Maybe you should put some of your stuff away first, you look like you're carrying too much, hee hee~";
+				mes "Quiza deberias guardar algunas de tus cosas primero, parece que cargas demasiado, ji ji~";
 			} else {
-				mes "Do you always carry so much with you? Put some of your things away first, okay?";
+				mes "Siempre cargas tanto contigo? Guarda algunas de tus cosas primero, si?";
 			}
 			close;
 		}
 		mes "[Elin]";
 		if (Sex == SEX_MALE) {
-			mes "Oh my goodness!";
-			mes "Really? You're";
-			mes "such a sweetie~!";
+			mes "Ay, Dios mio!";
+			mes "En serio? Que";
+			mes "dulce eres~!";
 		} else {
-			mes "Will you really?";
-			mes "You're gonna give";
-			mes "me a doll? Yaaaay~";
+			mes "De verdad?";
+			mes "Me vas a dar";
+			mes "una muneca? Yupi~";
 		}
 		next;
 		mes "[Elin]";
-		mes "What kind of doll are you going to give me? Are you really gonna give me one?";
+		mes "Que tipo de muneca me vas a dar? De verdad me vas a dar una?";
 		next;
-		switch(select("Poring Doll:Chonchon Doll:Puppet:Rocker Doll:Spore Doll:Osiris Doll:Baphomet Doll:Raccoon Doll:Yoyo Doll:I'm as adorable as a doll.")) {
+		switch(select("Muneca Poring:Muneca Chonchon:Puppet:Muneca Rocker:Muneca Spore:Muneca Osiris:Muneca Baphomet:Muneca Raccoon:Muneca Yoyo:Soy tan adorable como una muneca.")) {
 		case 1:
 			if (countitem(741) >= 1) {
 				delitem 741,1; //Poring_Doll
 				mes "[Elin]";
 				mes "Aww...";
-				mes "I have a lot";
-				mes "of Poring dolls...";
+				mes "Tengo muchas";
+				mes "munecas Poring...";
 				next;
 				mes "[Elin]";
 				if (Sex == SEX_MALE) {
-					mes "But since a cute boy is giving it to me, I'll happily take it! Hee hee, soft and fluffy Poring doll~";
+					mes "Pero como un chico lindo me la esta dando, la aceptare con gusto! Ji ji, muneca Poring suavecita y esponjosa~";
 				} else {
-					mes "But since a nice girl is giving it to me, I'll take it! Hee he, soft and fluffy Poring doll~";
+					mes "Pero como una chica amable me la esta dando, la aceptare! Ji ji, muneca Poring suavecita y esponjosa~";
 				}
 				next;
 				mes "[Elin]";
-				mes "Ooh, let me give you something as a little thank you. You see, I hid some candy so I can eat it without telling mommy.";
+				mes "Ooh, dejame darte algo como agradecimiento. Sabes, escondi unos dulces para comerlos sin decirle a mami.";
 				next;
 				getitem 529,1; //Candy
 				mes "[Elin]";
 				if (Sex == SEX_MALE) {
-					mes "I don't know if you're too old to like candy, but I guess it's okay.";
+					mes "No se si ya estas grande para que te gusten los dulces, pero supongo que esta bien.";
 				} else {
-					mes "So, try not to eat too much, okay? Otherwise, you might get in trouble!";
+					mes "Asi que, trata de no comer mucho, si? Si no, te podrias meter en problemas!";
 				}
 				next;
 				mes "[Elin]";
-				mes "Thank you";
-				mes "so much for";
-				mes "the Poring doll!";
+				mes "Muchas gracias";
+				mes "por la muneca";
+				mes "Poring!";
 				close;
 			} else {
 				mes "[Elin]";
 				if (Sex == SEX_MALE) {
 					mes "Aww...?";
-					mes "Were you only teasing me?";
+					mes "Solo me estabas molestando?";
 				} else {
 					mes "Aww...";
-					mes "You're not making fun of me are you?";
+					mes "No te estaras burlando de mi, verdad?";
 				}
 				next;
 				mes "[Elin]";
-				mes "I guess you forgot it somewhere...";
+				mes "Supongo que la olvidaste en algun lado...";
 				close;
 			}
 		case 2:
@@ -136,36 +136,36 @@ alberta,117,135,0	script	Elin	96,{
 				delitem 742,1; //Chonchon_Doll
 				mes "[Elin]";
 				mes "Agh--!";
-				mes "A Ch-Ch, Chonchon doll?!";
+				mes "Una mu-mu, muneca Chonchon?!";
 				next;
 				mes "[Elin]";
 				if (Sex == SEX_MALE) {
-					mes "But since... You're... Such a nice guy... I better take it...!";
+					mes "Pero como... Eres... Tan buen chico... Mejor la acepto...!";
 				} else {
-					mes "But since... Since it's a gift... I guess I'll take it...";
+					mes "Pero como... Como es un regalo... Supongo que la aceptare...";
 				}
 				next;
 				mes "[Elin]";
 				mes "Mmm~";
-				mes "Let me give you";
-				mes "something in return...";
+				mes "Dejame darte";
+				mes "algo a cambio...";
 				next;
 				getitem 530,1; //Candy_Striper
 				mes "[Elin]";
-				mes "If you eat too much, your teeth will start to rot... at least, that's what Mommy says.";
+				mes "Si comes mucho, tus dientes se van a picar... al menos, eso dice Mami.";
 				next;
 				mes "[Elin]";
-				mes "And..";
-				mes "Uh...";
-				mes "Thank you";
-				mes "for the doll?";
+				mes "Y..";
+				mes "Eh...";
+				mes "Gracias";
+				mes "por la muneca?";
 				close;
 			} else {
 				mes "[Elin]";
-				mes "Chonchon dolls are ugly anyways, but you still lied to me! How can you be so mean?!";
+				mes "Las munecas Chonchon son feas de todas formas, pero aun asi me mentiste! Como puedes ser tan malo?!";
 				next;
 				mes "[Elin]";
-				mes "Waaaaaaaaah~~";
+				mes "Buaaaaaaaaa~~";
 				close;
 			}
 		case 3:
@@ -173,89 +173,89 @@ alberta,117,135,0	script	Elin	96,{
 				delitem 740,1; //Stuffed_Doll
 				mes "[Elin]";
 				mes "Wow...!";
-				mes "It looks like a bunny!";
+				mes "Parece un conejito!";
 				next;
 				mes "[Elin]";
-				mes "I really like this Puppet~ Heh hehe! Thank you so much~";
+				mes "Me gusta mucho este Puppet~ Je jeje! Muchas gracias~";
 				next;
 				mes "[Elin]";
 				mes "Ooh ooh!";
-				mes "I have something";
-				mes "for you too!";
-				mes "Um, where";
-				mes "did it... Ah!";
+				mes "Tengo algo";
+				mes "para ti tambien!";
+				mes "Eh, donde";
+				mes "estaba... Ah!";
 				next;
 				getitem 530,1; //Candy_Striper
 				mes "[Elin]";
-				mes "Here it is! It's some of the candy Santa gave me. Go ahead and try some! Oh, and thank you so much for the doll!";
+				mes "Aqui esta! Son de los dulces que me dio Santa. Prueba algunos! Oh, y muchas gracias por la muneca!";
 				close;
 			} else {
 				mes "[Elin]";
-				mes "Awww, you were only kidding? W-W-Why are you teasing me like that?";
+				mes "Awww, solo estabas bromeando? P-P-Por que me molestas asi?";
 				next;
 				mes "[Elin]";
 				mes "^666666*Sniff...*^000000";
 				next;
 				mes "[Elin]";
-				mes "Waaaaaaaaah~~";
+				mes "Buaaaaaaaaa~~";
 				close;
 			}
 		case 4:
 			if (countitem(752) >= 1) {
 				delitem 752,1; //Grasshopper_Doll
 				mes "[Elin]";
-				mes "Ooh! Rocker Doll!";
-				mes "It's the Rocker that likes singing and dancing! I don't like grasshoppers, but I like this because it's cute~";
+				mes "Ooh! Muneca Rocker!";
+				mes "Es el Rocker que le gusta cantar y bailar! No me gustan los chapulines, pero me gusta porque es lindo~";
 				next;
 				mes "[Elin]";
-				mes "Hmmm, I should give you something too, huh? Let's see, I have what my grandpa gave me...";
+				mes "Hmmm, deberia darte algo a ti tambien, no? Veamos, tengo lo que me dio mi abuelito...";
 				next;
 				getitem 532,7; //Banana_Juice
 				mes "[Elin]";
-				mes "Here you go! We have a lot of this at home, so I'll give it to you, okay? Oh, and thank you so much for the doll~ I love cute dolls!";
+				mes "Aqui tienes! Tenemos mucho de esto en casa, asi que te lo dare, si? Oh, y muchas gracias por la muneca~ Me encantan las munecas lindas!";
 				close;
 			} else {
 				mes "[Elin]";
 				mes "Awww...";
 				next;
 				mes "[Elin]";
-				mes "You don't";
-				mes "really have a doll...?";
-				mes "I was so excited about it, too...";
+				mes "De verdad no";
+				mes "tienes una muneca...?";
+				mes "Estaba tan emocionada, tambien...";
 				close;
 			}
 		case 5:
 			if (countitem(743) >= 1) {
 				delitem 743,1; //Spore_Doll
 				mes "[Elin]";
-				mes "It's a mushroom?";
-				mes "Ewwwwwwwww, yucky!";
-				mes "Mommy made me eat";
-				mes "mushrooms today, too...";
+				mes "Es un hongo?";
+				mes "Ewwwwwwwww, que asco!";
+				mes "Mami me hizo comer";
+				mes "hongos hoy, tambien...";
 				next;
 				mes "[Elin]";
-				mes "But this doll is cute, so I'll take it. But I'm still not gonna eat mushrooms! Heh heh~";
+				mes "Pero esta muneca es linda, asi que la aceptare. Pero aun asi no voy a comer hongos! Je je~";
 				next;
 				getitem 538,5; //Well_Baked_Cookie
 				mes "[Elin]";
-				mes "Hehe~ My mommy made this! It's really yummy. I love cookies, too. So try it, you'll like it! Hee hee!";
+				mes "Jeje~ Mi mami hizo esto! Esta muy rico. Me encantan las galletas tambien. Asi que pruebalas, te van a gustar! Ji ji!";
 				next;
 				mes "[Elin]";
-				mes "Thanks for";
-				mes "the doll! I'll";
-				mes "take good care of it!";
+				mes "Gracias por";
+				mes "la muneca! La voy";
+				mes "a cuidar mucho!";
 				close;
 			} else {
 				mes "[Elin]";
 				mes "Eh...?";
-				mes "You don't";
-				mes "have a doll?";
+				mes "No tienes";
+				mes "una muneca?";
 				next;
 				mes "[Elin]";
 				mes "Awww...";
-				mes "It's not nice";
-				mes "to tease people";
-				mes "like that. ^666666*Sniff, sniff*^000000";
+				mes "No es bonito";
+				mes "molestar a la gente";
+				mes "asi. ^666666*Sniff, sniff*^000000";
 				close;
 			}
 		case 6:
@@ -263,125 +263,125 @@ alberta,117,135,0	script	Elin	96,{
 				delitem 751,1; //Osiris_Doll
 				mes "[Elin]";
 				mes "Ahhhhh!";
-				mes "What is this";
-				mes "thing?! It's so scary!";
+				mes "Que es esta";
+				mes "cosa?! Da mucho miedo!";
 				next;
 				mes "[Elin]";
-				mes "I've never seen a doll like this before. Where it's from? Hmm? Since I've never seen this kind of doll before, I'm gonna show it to my daddy, too. Hehe~! He'll be surprised!";
+				mes "Nunca habia visto una muneca asi antes. De donde es? Hmm? Como nunca he visto este tipo de muneca antes, se la voy a ensenar a mi papi tambien. Jeje~! Se va a sorprender!";
 				next;
 				mes "[Elin]";
-				mes "Here, since you gave me such a nicely made doll, I better give you something good too.";
+				mes "Aqui, ya que me diste una muneca tan bien hecha, mejor te doy algo bueno a ti tambien.";
 				next;
 				getitem 522,2; //Fruit_Of_Mastela
 				mes "[Elin]";
-				mes "I found it when I secretly went to the forest. I took it because it has pretty colors!";
+				mes "Lo encontre cuando fui al bosque a escondidas. Lo tome porque tiene colores bonitos!";
 				if (Sex == SEX_MALE) {
-					mes "Since there's two, you can share it with your girlfriend. Hee hee~!";
+					mes "Como hay dos, puedes compartir con tu novia. Ji ji~!";
 				} else {
-					mes "Since there's two, you can share it with your boyfriend. Hee hee~!";
+					mes "Como hay dos, puedes compartir con tu novio. Ji ji~!";
 				}
 				close;
 			} else {
 				mes "[Elin]";
 				mes "Awww...";
-				mes "Why do you have";
-				mes "to make fun of me?";
+				mes "Por que tienes";
+				mes "que burlarte de mi?";
 				close;
 			}
 		case 7:
 			if (countitem(750) >= 1) {
 				delitem 750,1; //Baphomet_Doll
 				mes "[Elin]";
-				mes "Huh?";
-				mes "It's a little goat...";
+				mes "Eh?";
+				mes "Es una cabrita...";
 				next;
 				mes "[Elin]";
-				mes "It's so weird. It's cute but it's also scary at the same time. Well, since you gave me a pretty doll, I wanna give you something, too.";
+				mes "Es muy rara. Es linda pero tambien da miedo al mismo tiempo. Bueno, ya que me diste una muneca bonita, quiero darte algo a ti tambien.";
 				next;
 				getitem 525,5; //Panacea
 				mes "[Elin]";
-				mes "My daddy gave me this when I was really sick. I'm not sick anymore so you can use it when you need to. Hehehe~";
+				mes "Mi papi me dio esto cuando estaba muy enferma. Ya no estoy enferma asi que puedes usarlo cuando lo necesites. Jejeje~";
 				next;
 				mes "[Elin]";
-				mes "Hee hee~";
-				mes "Thank you for";
-				mes "the doll. I won't lose it!";
+				mes "Ji ji~";
+				mes "Gracias por";
+				mes "la muneca. No la voy a perder!";
 				close;
 			} else {
 				mes "[Elin]";
-				mes "You big liar! Why are you pretending to be nice?!";
+				mes "Gran mentiroso! Por que finges ser amable?!";
 				close;
 			}
 		case 8:
 			if (countitem(754) >= 1) {
 				delitem 754,1; //Raccoondog_Doll
 				mes "[Elin]";
-				mes "Hehe, it's a";
-				mes "raccoon doll.";
-				mes "It's very very cute~";
+				mes "Jeje, es una";
+				mes "muneca de mapache.";
+				mes "Es muy muy linda~";
 				next;
 				mes "[Elin]";
-				mes "I don't like";
-				mes "Smokies in real life,";
-				mes "but this doll is nice!";
+				mes "No me gustan los";
+				mes "Smokies en la vida real,";
+				mes "pero esta muneca es bonita!";
 				next;
 				getitem 539,3; //Piece_Of_Cake
 				mes "[Elin]";
-				mes "Here, let me give you some cake my grandma made. It's really yummy. I don't know if you like sweets or not, but it's really good! Please try some!";
+				mes "Aqui, dejame darte un poco de pastel que hizo mi abuelita. Esta muy rico. No se si te gustan las cosas dulces o no, pero esta muy bueno! Por favor prueba!";
 				next;
 				mes "[Elin]";
-				mes "Hee hee~";
-				mes "Thanks for the doll.";
-				mes "I'm gonna keep it";
-				mes "in my room!";
+				mes "Ji ji~";
+				mes "Gracias por la muneca.";
+				mes "La voy a guardar";
+				mes "en mi cuarto!";
 				close;
 			} else {
 				mes "[Elin]";
-				mes "Hey! How come you have to say things like that? Are you making fun of me?!";
+				mes "Oye! Como es que dices esas cosas? Te estas burlando de mi?!";
 				close;
 			}
 		case 9:
 			if (countitem(753) >= 1) {
 				delitem 753,1; //Monkey_Doll
 				mes "[Elin]";
-				mes "Woooooooow~!";
+				mes "Guauuuuuuuu~!";
 				next;
 				mes "[Elin]";
-				mes "A Yoyo doll! It's so pretty! You're really gonna give it to me?! Yay! Thank you so much! I really like it! Hee hee!";
+				mes "Una muneca Yoyo! Es tan bonita! De verdad me la vas a dar?! Yupi! Muchas gracias! Me gusta mucho! Ji ji!";
 				next;
 				mes "[Elin]";
-				mes "Since you gave";
-				mes "me such a pretty doll,";
-				mes "I wanna give you";
-				mes "something, too!";
+				mes "Ya que me diste";
+				mes "una muneca tan bonita,";
+				mes "quiero darte";
+				mes "algo a ti tambien!";
 				next;
 				getitem 608,1; //Seed_Of_Yggdrasil
 				mes "[Elin]";
-				mes "My daddy picked it up on his way to another town. It looks like some kind of seed. I tried planting it in front of our house but it won't grow. Do you want to try?";
+				mes "Mi papi la recogio en su camino a otra ciudad. Parece alguna clase de semilla. Intente plantarla enfrente de nuestra casa pero no crece. Quieres intentar?";
 				next;
 				mes "[Elin]";
-				mes "Hehe~";
-				mes "Thanks for";
-				mes "the doll. I'll hug";
-				mes "it before I go";
-				mes "to sleep!";
+				mes "Jeje~";
+				mes "Gracias por";
+				mes "la muneca. La voy a";
+				mes "abrazar antes de";
+				mes "dormir!";
 				close;
 			} else {
 				mes "[Elin]";
-				mes "Hey...";
-				mes "How come you're making fun of me?!";
+				mes "Oye...";
+				mes "Por que te burlas de mi?!";
 				close;
 			}
 		case 10:
 			mes "["+strcharinfo(0)+"]";
-			mes "I'm as adorable as a doll...";
+			mes "Soy tan adorable como una muneca...";
 			next;
 			mes "[Elin]";
-			mes "Whaaaaaaaaaaat...?";
+			mes "Queeeeeeeeee...?";
 			next;
 			mes "[Elin]";
-			mes "^3355FFWhat did^000000";
-			mes "^3355FFyou just say?!^000000";
+			mes "^3355FFQue fue lo^000000";
+			mes "^3355FFque dijiste?!^000000";
 			close;
 		}
 	}
@@ -394,72 +394,72 @@ alberta_in,28,145,4	script	Grampa	120,{
 	mes "*Gasp*...";
 	mes "....*Gasp!*";
 	mes "Oh...";
-	mes "Some may say I've lived a full life on wine, women and song...";
+	mes "Algunos diran que he vivido una vida plena de vino, mujeres y canciones...";
 	next;
 	mes "[Grampa]";
-	mes "But my soul still burns with youthful vigor! It's just... This old body can't keep up anymore... *Hack! Wheeeeze~*";
+	mes "Pero mi alma todavia arde con vigor juvenil! Es solo que... Este viejo cuerpo ya no puede seguir el ritmo... *Cof! Siiiiiii~*";
 	next;
 	if (countitem(1030) > 9) {
-		switch(select("Show him Tiger's Footskin.:Exchange it with Boys Cap.:Cancel")) {
+		switch(select("Mostrarle Tiger's Footskin.:Intercambiarla por Boys Cap.:Cancelar")) {
 		case 1:
 			mes "[Grampa]";
 			mes "Ohhh~ !!";
-			mes "Is that...?";
-			mes "It is! ";
-			mes "That's Tiger's Footskin!! Even from here I can feel its powers!";
+			mes "Eso es...?";
+			mes "Lo es! ";
+			mes "Esa es Tiger's Footskin!! Incluso desde aqui puedo sentir sus poderes!";
 			next;
 			mes "[Grampa]";
-			mes "One glance at it can restore your strength, one sniff and your blood boils with vigorous pleasure...";
+			mes "Una mirada puede restaurar tu fuerza, una olida y tu sangre hierve con vigoroso placer...";
 			next;
 			mes "[Grampa]";
-			mes "Just one bite...";
-			mes "Will revive my virility!!!! The Tiger's Footskin~!! Ohhhh! Ohh My God !! Please!!! Please give me that... Please...";
+			mes "Solo un mordisco...";
+			mes "Revivira mi virilidad!!!! La Tiger's Footskin~!! Ohhhh! Oh Dios mio!! Por favor!!! Por favor dame eso... Por favor...";
 			close;
 		case 2:
 			delitem 1030,10;  //Tiger_Footskin
 			getitem 5016,1; //Boy's_Cap
 			mes "[Grampa]";
-			mes "T... Thank you !!";
-			mes "With this I can revive my youthful splendor!! I must eat this thing right away !";
+			mes "G... Gracias !!";
+			mes "Con esto puedo revivir mi esplendor juvenil!! Debo comer esto de inmediato!";
 			next;
 			mes "[Grampa]";
 			mes "...";
-			mes "Nope. Still feel OLD.";
-			mes "If anything, I feel even worse. Th-there's this buzzing in my head...";
+			mes "No. Todavia me siento VIEJO.";
+			mes "Si acaso, me siento peor. H-hay un zumbido en mi cabeza...";
 			close;
 		case 3:
 			mes "[Grampa]";
-			mes "He...Hey, kid !! W-Wait !";
+			mes "O...Oye, chico!! E-Espera!";
 			close;
 		}
-	} 
+	}
 	else {
-		switch(select("Talk:Cancel")) {
+		switch(select("Hablar:Cancelar")) {
 		case 1:
 			mes "[Grampa]";
-			mes "Listen well...";
-			mes "You've got to take care of yourself as well as your can. Without your health, one cannot enjoy the pleasures of this mortal realm.";
+			mes "Escucha bien...";
+			mes "Tienes que cuidarte lo mejor que puedas. Sin salud, uno no puede disfrutar los placeres de este reino mortal.";
 			next;
 			mes "[Grampa]";
-			mes "In order to restore my youth, I tried all sorts of things, mostly by hearsay, but nothing worked. In the end, I spent so much zeny on miracle cures, I ended up broke.";
+			mes "Para restaurar mi juventud, intente todo tipo de cosas, mayormente de oidas, pero nada funciono. Al final, gaste tanto zeny en curas milagrosas, que termine en la ruina.";
 			next;
 			mes "[Grampa]";
-			mes "I've mostly given up on restoring my youth. But there is one hope left... Eating ^3355FFTiger's Footskin^000000, The King of Invigorators!!";
+			mes "Ya casi me rendi con restaurar mi juventud. Pero queda una esperanza... Comer ^3355FFTiger's Footskin^000000, El Rey de los Vigorizantes!!";
 			next;
 			mes "[Grampa]";
-			mes "Haven't you heard?! One glance would restore the color in my white hair, one sniff, even just one touch, and an 80 year-old would have another chance at youth... It's The King of Invigorators !";
+			mes "No has oido?! Una mirada restauraria el color de mi cabello blanco, una olida, solo un toque, y un anciano de 80 anios tendria otra oportunidad de juventud... Es El Rey de los Vigorizantes!";
 			next;
 			mes "[Grampa]";
-			mes "Before I die...";
-			mes "I wish I could eat 10 Tiger's Footskin. Then, I wouldn't have to die!";
+			mes "Antes de morir...";
+			mes "Quisiera poder comer 10 Tiger's Footskin. Entonces, no tendria que morir!";
 			next;
 			mes "[Grampa]";
-			mes "If someone helped me get them, I would give that person my precious item, ^3355FFBoys Cap^000000 without regret...";
+			mes "Si alguien me ayudara a conseguirlas, le daria a esa persona mi preciado objeto, ^3355FFBoys Cap^000000 sin arrepentimiento...";
 			close;
 		case 2:
 			mes "[Grampa]";
-			mes "Cough Cough !!";
-			mes "Tiger ....Tiger's ..... Foot ..... skin .....Cough Cough !!";
+			mes "Cof Cof !!";
+			mes "Tiger ....Tiger's ..... Foot ..... skin .....Cof Cof !!";
 			close;
 		}
 	}
@@ -469,44 +469,44 @@ alberta_in,28,145,4	script	Grampa	120,{
 //============================================================
 alberta_in,122,53,4	script	Cherokee	47,{
 	mes "[Cherokee]";
-	mes "Hey there~!";
+	mes "Oye que tal~!";
 	next;
 	mes "[Cherokee]";
-	mes "What do you think about animal horns? Oh man, I think they're great! Don't you? I love animal horns so much I became a ^3355FFHorn Collector^000000.";
+	mes "Que piensas de los cuernos de animales? Ay, creo que son geniales! Tu no? Me encantan tanto los cuernos de animales que me volvi un ^3355FFColeccionista de Cuernos^000000.";
 	next;
 	mes "[Cherokee]";
-	mes "I mean, there's so many things you can do with horns. You can wear them on your head, you can wear them on, um... your house? All sorts of things!";
+	mes "Digo, hay tantas cosas que puedes hacer con cuernos. Puedes usarlos en tu cabeza, puedes usarlos en, eh... tu casa? Todo tipo de cosas!";
 	next;
 	mes "[Cherokee]";
-	mes "I've collected almost every sort of horn except for one kind, and that's ^FF3355Evil Horn^000000. Some people say Evil Horn doesn't even come from an animal, but from a demon. But even so, I still want it.";
+	mes "He coleccionado casi todo tipo de cuerno excepto por uno, y ese es ^FF3355Evil Horn^000000. Algunas personas dicen que Evil Horn ni siquiera viene de un animal, sino de un demonio. Pero aun asi, todavia lo quiero.";
 	next;
 	mes "[Cherokee]";
-	mes "Do you...";
-	mes "Do you have ^FF3355Evil Horn^000000?";
-	mes "If you offer me 20 Evil Horns, I will give you an ^3355FFAntler^000000 from my precious collection. So, deal?";
+	mes "Tu tienes...";
+	mes "Tienes ^FF3355Evil Horn^000000?";
+	mes "Si me ofreces 20 Evil Horns, te dare un ^3355FFAntler^000000 de mi preciada coleccion. Entonces, trato?";
 	next;
-	switch(select("Okay, let's deal.:Shut up, Dumbo.")) {
+	switch(select("Orale, hagamos el trato.:Callate, Dumbo.")) {
 	case 1:
 		if (countitem(923) > 19) {
 			delitem 923,20;  //Evil_Horn
 			mes "[Cherokee]";
-			mes "Whoah~! This is the first time I've ever seen a real ^FF3355Evil Horn^000000!!";
-			mes "Thank you! Here, this is my Antler for you!";
+			mes "Guau~! Es la primera vez que veo un verdadero ^FF3355Evil Horn^000000!!";
+			mes "Gracias! Aqui, este es mi Antler para ti!";
 			getitem 2284,1; // Antler
 			next;
 			mes "[Cherokee]";
-			mes "With your great help, I can make my wish come true this time. Finally, I'll be recognized as a serious horn collector. I appreciate this~!";
+			mes "Con tu gran ayuda, puedo hacer mi deseo realidad esta vez. Finalmente, sere reconocido como un coleccionista de cuernos serio. Te lo agradezco~!";
 			close;
 		}
 		else {
 			mes "[Cherokee]";
 			mes "Hmm...";
-			mes "You don't seem to have enough. I need ^FF335520 Evil Horns^000000 for my collection.";
+			mes "No pareces tener suficientes. Necesito ^FF335520 Evil Horns^000000 para mi coleccion.";
 			close;
 		}
 	case 2:
 		mes "[Cherokee]";
-		mes "Well that's fine. Although you're a rude prick, I will forgive you. We'll probably speak again...";
+		mes "Bueno, esta bien. Aunque eres un grosero, te perdonare. Probablemente hablaremos de nuevo...";
 		close;
 	}
 }
@@ -516,129 +516,129 @@ alberta_in,122,53,4	script	Cherokee	47,{
 alberta,120,53,1	script	Stylish Merchant#new30	51,{
 	if ((countitem(10007) > 0) && (countitem(968) > 49)) {
 		mes "[Zic]";
-		mes "I know I know, you just want to get a Bao Bao of your own. But I can't concentrate on my work if you keep rushing me like this.";
+		mes "Ya se, ya se, solo quieres conseguir tu propio Bao Bao. Pero no puedo concentrarme en mi trabajo si me apuras asi.";
 		next;
-		mes "^3355FF*Thud! Thud!*";
+		mes "^3355FF*Tum! Tum!*";
 		mes "*Ah! Kek! Smash!*";
 		mes "*Boom Boom!*^000000";
 		next;
 		delitem 10007,1;  //Silk_Ribbon
 		delitem 968,50;  //Voucher_Of_Orcish_Hero
 		mes "[Zic]";
-		mes "Phew!";
-		mes "There you go~!";
-		mes "Now make good use of it!!";
+		mes "Uf!";
+		mes "Aqui tienes~!";
+		mes "Ahora dale buen uso!!";
 		getitem 5042,1; // Hair_Protector
 		close;
 	}
 	else if((countitem(5041) > 0) && (countitem(999) > 9)) {
 		mes "[Zic]";
-		mes "Alright alright! Gosh, your Crescent Hairpin will be ready in a bit, but I can't concentrate my work if you keep rushing me like this!";
+		mes "Ya ya! Cielos, tu Crescent Hairpin estara listo en un momento, pero no puedo concentrar mi trabajo si me sigues apurando asi!";
 		next;
-		mes "^3355FF*Thud! Thud!*";
+		mes "^3355FF*Tum! Tum!*";
 		mes "*Ah! Kek! Smash!*";
 		mes "*Boom Boom!*^000000";
 		next;
 		delitem 5041,1;  //Heart_Hair_Pin
 		delitem 999,10;  //Steel
 		mes "[Zic]";
-		mes "Phew!";
-		mes "It's done~!";
-		mes "Now wear it and";
-		mes "look pretty or";
-		mes "something, yeah?";
+		mes "Uf!";
+		mes "Esta listo~!";
+		mes "Ahora pontelo y";
+		mes "vete bonita o";
+		mes "algo asi, si?";
 		getitem 5048,1; // First_Moon_Hair_Pin
 		close;
 	}
 	else if((countitem(2271) > 0) && (countitem(975) > 0)) {
 		mes "[Zic]";
-		mes "Yeah yeah, you came for your Fashionable Glasses. Just don't rush me, or I won't be able to concentrate on my work, alright?";
+		mes "Si si, viniste por tus Fashionable Glasses. Solo no me apures, o no podre concentrarme en mi trabajo, si?";
 		next;
-		mes "^3355FF*Thud! Thud!*";
+		mes "^3355FF*Tum! Tum!*";
 		mes "*Ah! Kek! Smash!*";
 		mes "*Boom Boom!*^000000";
 		next;
 		delitem 2271,1;  //Jack_A_Dandy
 		delitem 975,1;  //Scarlet_Dyestuffs
 		mes "[Zic]";
-		mes "Phew, it's done!";
-		mes "Now go wear these and look, well, as fashionable as these glasses, I guess.";
+		mes "Uf, ya esta!";
+		mes "Ahora ve a ponerte estos y vete, bueno, tan de moda como estos lentes, supongo.";
 		getitem 5047,1; // Fashion_Sunglass
 		close;
 	}
 	else if(countitem(7013) > 1199){
 		mes "[Zic]";
-		mes "Okay okay, you want your Heart hairpin, I'm working on it. Yeesh, I can't concentrate at all if you try to rush me, you know?";
+		mes "Ya ya, quieres tu Heart Hairpin, estoy trabajando en ello. Uf, no puedo concentrarme nada si tratas de apurarme, sabes?";
 		next;
-		mes "^3355FF*Thud! Thud!*";
+		mes "^3355FF*Tum! Tum!*";
 		mes "*Ah! Kek! Smash!*";
 		mes "*Boom Boom!*^000000";
 		next;
 		delitem 7013,1200;  //Coral_Reef
 		mes "[Zic]";
-		mes "Phew~!";
-		mes "Finally, it's done!";
-		mes "Make me happy and";
-		mes "wear it with pride~";
+		mes "Uf~!";
+		mes "Por fin, esta listo!";
+		mes "Hazme feliz y";
+		mes "usalo con orgullo~";
 		getitem 5041,1; // Heart_Hair_Pin
 		close;
 	}
 	else {
 		mes "[Zic]";
-		mes "Yay, this cool";
-		mes "breeze is great!";
-		mes "I love the sea!";
+		mes "Yay, esta brisa fresca";
+		mes "esta genial!";
+		mes "Me encanta el mar!";
 		next;
 		mes "[Zic]";
 		mes "...Hm?";
-		mes "Awww man. Can't you tell I'm on vacation? All I wanted was some peaceful rest.";
+		mes "Awww. No ves que estoy de vacaciones? Todo lo que queria era un descanso tranquilo.";
 		next;
 		mes "[Zic]";
-		mes "Okay okay, you win. Once again, my reputation as a master craftsman precedes me.";
+		mes "Ya ya, tu ganas. Una vez mas, mi reputacion como maestro artesano me precede.";
 		next;
 		mes "[Zic]";
-		mes "Let me know what item you're interested in, and maybe I'll make it for you...";
+		mes "Dime que objeto te interesa, y quiza te lo haga...";
 		next;
 		switch(select("Bao Bao:Cresent Hairpin:Fashionable Glasses:Heart Hairpin")) {
 		case 1:
 			mes "[Zic]";
-			mes "Sooo...";
-			mes "You want me to make you a Bao Bao, huh? Alright, alright...";
+			mes "Asiii que...";
+			mes "Quieres que te haga un Bao Bao, eh? Bien, bien...";
 			next;
 			mes "[Zic]";
-			mes "Let's see, I'll need...";
+			mes "Veamos, necesitare...";
 			mes "1 ^0000FFSilk Ribbon^000000";
 			mes "50 ^0000FFHeroic Emblem^000000";
-			mes "...Did you know this already?";
+			mes "...Ya lo sabias?";
 			close;
 		case 2:
 			mes "[Zic]";
-			mes "So you want a Crescent Hairpin, huh? Man, I guess these things are pretty high in demand.";
+			mes "Asi que quieres un Crescent Hairpin, eh? Hombre, supongo que estas cosas estan en alta demanda.";
 			next;
 			mes "[Zic]";
-			mes "Okay, I'll need...";
+			mes "Ok, necesitare...";
 			mes "1 ^0000FFHeart Hairpin^000000";
 			mes "10 ^0000FFSteel^000000";
-			mes "...Did you know this already?";
+			mes "...Ya lo sabias?";
 			close;
 		case 3:
 			mes "[Zic]";
-			mes "Weird. How'd you know I make Fashionable Glasses? I guess I must be more famous that I thought.";
+			mes "Raro. Como supiste que hago Fashionable Glasses? Supongo que debo ser mas famoso de lo que pense.";
 			next;
 			mes "[Zic]";
-			mes "I need to have...";
+			mes "Necesito tener...";
 			mes "1 ^0000FFJack be Dandy^000000";
 			mes "1 ^0000FFScarlet Dyestuffs^000000";
-			mes "...Did you know this already?";
+			mes "...Ya lo sabias?";
 			close;
 		case 4:
 			mes "[Zic]";
-			mes "You want a heart hairpin, eh? Okay, I think I can work something out for you...";
+			mes "Quieres un Heart Hairpin, eh? Ok, creo que puedo hacer algo por ti...";
 			next;
 			mes "[Zic]";
-			mes "Just gimmie...";
+			mes "Solo dame...";
 			mes "1200 ^0000FFCoral Reef^000000.";
-			mes "...Did you know this already?";
+			mes "...Ya lo sabias?";
 			close;
 		}
 	}
@@ -648,51 +648,51 @@ alberta,120,53,1	script	Stylish Merchant#new30	51,{
 //============================================================
 alberta,136,79,1	script	Hat store girl#new30	71,{
 	mes "[Tempestra]";
-	mes "Ah, such a cool breeze. It's good to visit the seashore. I think it was the right choice to come here to take a break from my business.";
+	mes "Ah, que brisa tan fresca. Es bueno visitar la costa. Creo que fue buena decision venir aqui para descansar de mi negocio.";
 	next;
 	mes "[Tempestra]";
-	mes "Ooh, the sun is too strong today. I'm glad that I brought my hat. I'm going to get a sunburn if my skin is exposed to the sun like this everyday.";
+	mes "Ooh, el sol esta muy fuerte hoy. Que bueno que traje mi sombrero. Me voy a quemar si mi piel esta expuesta al sol asi todos los dias.";
 	next;
 	mes "[Tempestra]";
-	mes "Oh, I'm sooo thirsty! A nice, chilled Yellow Potion would be perfect right about now~";
+	mes "Oh, tengo taaanta sed! Una Yellow Potion fria seria perfecta ahora mismo~";
 	next;
-	switch(select("Let me treat you to a Yellow Potion.:What, you expect me to give you one?!")) {
+	switch(select("Dejame invitarte una Yellow Potion.:Que, esperas que te de una?!")) {
 	case 1:
 		if (countitem(503) > 0){
 			mes "[Tempestra]";
-			mes "Ah, thank you so much. I'm so glad to have met a friendly person like yourself.";
+			mes "Ah, muchas gracias. Que alegria haber conocido a una persona tan amable como tu.";
 			next;
-			mes "^3355FF*Gulp, gulp*^000000";
+			mes "^3355FF*Glup, glup*^000000";
 			delitem 503,1;  //Yellow_Potion
 			next;
 			mes "[Tempestra]";
 			mes "Hyaaaaaa~~!!!";
-			mes "It's so cold!! Thank you~~~";
+			mes "Esta tan fria!! Gracias~~~";
 			next;
-			switch(select("It's really hot, isn't it~?:You should wear your hat...")) {
+			switch(select("Hace mucho calor, verdad~?:Deberias ponerte tu sombrero...")) {
 			case 1:
 				mes "[Tempestra]";
-				mes "Yeah~ it's really hot....";
+				mes "Si~ hace mucho calor....";
 				next;
 				mes "[Tempestra]";
-				mes "I have";
+				mes "Tengo";
 				mes "^0000FFSunday Hat^000000,";
-				mes "^0000FFMage Hat^000000 and...";
-				mes "^0000FFMagician Hat^000000 and more in my room.";
+				mes "^0000FFMage Hat^000000 y...";
+				mes "^0000FFMagician Hat^000000 y mas en mi cuarto.";
 				next;
 				mes "[Tempestra]";
-				mes "I brought these hats so I can sell them and use the money for my vacation here, but now it looks like I have to wear one~";
+				mes "Traje estos sombreros para venderlos y usar el dinero para mis vacaciones aqui, pero ahora parece que tengo que usar uno~";
 				next;
 				switch(select("Sunday Hat!!?:Mage Hat?!?:Magician Hat??!??")) {
 				case 1:
 					mes "[Tempestra]";
-					mes "Oh? Didn't you know? I'm a hat merchant. Didn't I tell you that before?";
+					mes "Oh? No lo sabias? Soy comerciante de sombreros. No te lo habia dicho antes?";
 					next;
 					mes "[Tempestra]";
-					mes "Hmm, I guess I didn't. I apologize. Ooh! You know what, I could make you a Sunday Hat~!";
+					mes "Hmm, supongo que no. Me disculpo. Ooh! Sabes que, podria hacerte un Sunday Hat~!";
 					next;
 					mes "[Tempestra]";
-					mes "I'd need...";
+					mes "Necesitaria...";
 					mes "^0000FF250 Fabric^000000";
 					mes "^0000FF1 Slotted Hat^000000";
 					mes "^0000FF1 Slotted Cap^000000";
@@ -700,18 +700,18 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 					next;
 					if ((countitem(1059) > 249) && (countitem(2221) > 0) && (countitem(2227) > 0) && (countitem(7063) > 599)) {
 						mes "[Tempestra]";
-						mes "What?!? ";
-						mes "You have all the items already? If there are forged items or slotted items with monster cards, then put them into your storage.";
+						mes "Que?!? ";
+						mes "Ya tienes todos los materiales? Si hay objetos forjados o con ranuras con cartas de monstruos, ponlos en tu almacen.";
 						next;
 						mes "[Tempestra]";
-						mes "I just want to make something for the Yellow Potion, so I won't charge you any zeny for my hat making service.";
-						switch(select("Oh, please do.:No thanks.")) {
+						mes "Solo quiero hacer algo por la Yellow Potion, asi que no te cobrare zeny por mi servicio de hacer sombreros.";
+						switch(select("Oh, por favor hazlo.:No gracias.")) {
 						case 1:
 							next;
 							mes "[Tempestra]";
-							mes "Alrighty. Just give me a moment...";
+							mes "Muy bien. Solo dame un momento...";
 							next;
-							mes "^3355FF*Thud! Boot!*";
+							mes "^3355FF*Tum! Boot!*";
 							mes "*Thic-Tac!*^000000";
 							next;
 							mes "^3355FF*Beeeeeeeh~~~*^000000";
@@ -721,40 +721,40 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 							delitem 2227,1; //Cap_
 							delitem 7063,600; //Soft_Feather
 							mes "[Tempestra]";
-							mes "Here it is, tee hee~";
-							mes "How about that? Do you like it?";
+							mes "Aqui esta, ji ji~";
+							mes "Que tal? Te gusta?";
 							getitem 5032,1; //Picnic_Hat
 							next;
 							mes "[Tempestra]";
-							mes "Once again, thank you for your favour. I'll see you later~";
+							mes "Una vez mas, gracias por tu favor. Nos vemos despues~";
 							close;
 						case 2:
 							next;
 							mes "[Tempestra]";
-							mes "Oh alright~";
+							mes "Oh, esta bien~";
 							next;
 							mes "[Tempestra]";
-							mes "If by any chance you visit me later, I'd be more than happy to make a hat for you~";
+							mes "Si por casualidad me visitas despues, estare mas que feliz de hacerte un sombrero~";
 							next;
 							mes "[Tempestra]";
-							mes "Well then, see you later~";
+							mes "Bueno entonces, nos vemos despues~";
 							close;
 						}
 					}
 					else {
 						mes "[Tempestra]";
-						mes "I will tell you a secret, because you gave me the Yellow Potion~";
+						mes "Te contare un secreto, porque me diste la Yellow Potion~";
 						next;
 						mes "[Tempestra]";
-						mes "I'm looking forward seeing you again~~";
+						mes "Espero verte de nuevo~~";
 						close;
 					}
 				case 2:
 					mes "[Tempestra]";
-					mes "Oh? Didn't you know? I'm a hat merchant. Didn't I tell you that before?";
+					mes "Oh? No lo sabias? Soy comerciante de sombreros. No te lo habia dicho antes?";
 					next;
 					mes "[Tempestra]";
-					mes "Hmm, I guess I didn't. I apologize. Ooh! You know what, I could make you a Mage Hat!";
+					mes "Hmm, supongo que no. Me disculpo. Ooh! Sabes que, podria hacerte un Mage Hat!";
 					next;
 					mes "[Tempestra]";
 					mes "^0000FF1 Wizard Hat^000000";
@@ -764,18 +764,18 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 					next;
 					if ((countitem(2252) > 0) && (countitem(1036) > 399) && (countitem(4052) > 0) && (countitem(7001) > 49)) {
 						mes "[Tempestra]";
-						mes "What?!? ";
-						mes "You have all the items already? If there are forged items or slotted items with monster cards, then put them into your storage.";
+						mes "Que?!? ";
+						mes "Ya tienes todos los materiales? Si hay objetos forjados o con ranuras con cartas de monstruos, ponlos en tu almacen.";
 						next;
 						mes "[Tempestra]";
-						mes "I just want to make something nice for you, so I won't charge you any zeny for my hat making service.";
-						switch(select("Oh, please do.:No thanks.")) {
+						mes "Solo quiero hacerte algo lindo, asi que no te cobrare zeny por mi servicio de hacer sombreros.";
+						switch(select("Oh, por favor hazlo.:No gracias.")) {
 						case 1:
 							next;
 							mes "[Tempestra]";
-							mes "Alrighty. Just give me a moment...";
+							mes "Muy bien. Solo dame un momento...";
 							next;
-							mes "^3355FF*Thud! Boot!*";
+							mes "^3355FF*Tum! Boot!*";
 							mes "*Thic-Tac!*^000000";
 							next;
 							mes "^3355FF*Beeeeeeeh~~~*^000000";
@@ -785,41 +785,41 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 							delitem 4052,1; //Elder_Wilow_Card
 							delitem 7001,50; //Mould_Powder
 							mes "[Tempestra]";
-							mes "Here it is, tee hee~";
-							mes "How about that?";
-							mes "Do you like it?";
+							mes "Aqui esta, ji ji~";
+							mes "Que tal?";
+							mes "Te gusta?";
 							getitem 5027,1; //Wizardry_Hat
 							next;
 							mes "[Tempestra]";
-							mes "Once again, thank you for your favour. I'll see you later~";
+							mes "Una vez mas, gracias por tu favor. Nos vemos despues~";
 							close;
 						case 2:
 							next;
 							mes "[Tempestra]";
-							mes "Oh alright~";
+							mes "Oh, esta bien~";
 							next;
 							mes "[Tempestra]";
-							mes "If by any chance you visit me later, I'd be more than happy to make a hat for you~";
+							mes "Si por casualidad me visitas despues, estare mas que feliz de hacerte un sombrero~";
 							next;
 							mes "[Tempestra]";
-							mes "Well then, see you later~";
+							mes "Bueno entonces, nos vemos despues~";
 							close;
 						}
 					}
 					else {
 						mes "[Tempestra]";
-						mes "I will tell you a secret, because you gave me the Yellow Potion~";
+						mes "Te contare un secreto, porque me diste la Yellow Potion~";
 						next;
 						mes "[Tempestra]";
-						mes "I'm looking forward seeing you again~~";
+						mes "Espero verte de nuevo~~";
 						close;
 					}
 				case 3:
 					mes "[Tempestra]";
-					mes "Oh? Didn't you know? I'm a hat merchant. Didn't I tell you that before?";
+					mes "Oh? No lo sabias? Soy comerciante de sombreros. No te lo habia dicho antes?";
 					next;
 					mes "[Tempestra]";
-					mes "Hmm, I guess I didn't. I apologize. Ooh! You know what, I could make you a Magician Hat!";
+					mes "Hmm, supongo que no. Me disculpo. Ooh! Sabes que, podria hacerte un Magician Hat!";
 					next;
 					mes "[Tempestra]";
 					mes "^0000FF1 Wizard Hat^000000";
@@ -828,19 +828,19 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 					next;
 					if ((countitem(2252) > 0) && (countitem(1054) > 449) && (countitem(943) > 1199)) {
 						mes "[Tempestra]";
-						mes "What?!? ";
-						mes "You have all the items already?";
-						mes "If there are forged items or slotted items with monster cards, then put them into your storage.";
+						mes "Que?!? ";
+						mes "Ya tienes todos los materiales?";
+						mes "Si hay objetos forjados o con ranuras con cartas de monstruos, ponlos en tu almacen.";
 						next;
 						mes "[Tempestra]";
-						mes "I just want to make something nice for you, so I won't charge you any zeny for my hat making service.";
-						switch(select("Please do:No thanks")) {
+						mes "Solo quiero hacerte algo lindo, asi que no te cobrare zeny por mi servicio de hacer sombreros.";
+						switch(select("Por favor hazlo:No gracias")) {
 						case 1:
 							next;
 							mes "[Tempestra]";
-							mes "Alrighty. Just give me a moment...";
+							mes "Muy bien. Solo dame un momento...";
 							next;
-							mes "^3355FF*Thud! Boot!*";
+							mes "^3355FF*Tum! Boot!*";
 							mes "*Thic-Tac!*^000000";
 							next;
 							mes "^3355FF*Beeeeeeeh~~~*^000000";
@@ -849,54 +849,54 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 							delitem 1054,450; //Lip_Of_Ancient_Fish
 							delitem 943,1200; //Solid_Shell
 							mes "[Tempestra]";
-							mes "Here it is, tee hee~";
-							mes "How about that?";
-							mes "Do you like it?";
+							mes "Aqui esta, ji ji~";
+							mes "Que tal?";
+							mes "Te gusta?";
 							getitem 5045,1; //Magician_Hat
 							next;
 							mes "[Tempestra]";
-							mes "Once again, thank you for your favour. I'll see you later~";
+							mes "Una vez mas, gracias por tu favor. Nos vemos despues~";
 							close;
 						case 2:
 							next;
 							mes "[Tempestra]";
-							mes "Oh alright~";
+							mes "Oh, esta bien~";
 							next;
 							mes "[Tempestra]";
-							mes "If by any chance you visit me later, I'd be more than happy to make a hat for you~";
+							mes "Si por casualidad me visitas despues, estare mas que feliz de hacerte un sombrero~";
 							next;
 							mes "[Tempestra]";
-							mes "Well then, see you later~";
+							mes "Bueno entonces, nos vemos despues~";
 							close;
 						}
 					}
 					else {
 						mes "[Tempestra]";
-						mes "I will tell you a secret, because you gave me the Yellow Potion~";
+						mes "Te contare un secreto, porque me diste la Yellow Potion~";
 						next;
 						mes "[Tempestra]";
-						mes "I'm looking forward seeing you again~~";
+						mes "Espero verte de nuevo~~";
 						close;
 					}
 				}
 			case 2:
 				mes "[Tempestra]";
-				mes "Well, the hats I have with me are for my customers. If I use them for myself, I'll have nothing to sell...";
+				mes "Bueno, los sombreros que tengo conmigo son para mis clientes. Si los uso para mi, no tendre nada que vender...";
 				next;
 				mes "[Tempestra]";
-				mes "I want to make something special for you because you showed me such kindness, but I don't have anything like that right now.";
+				mes "Quiero hacerte algo especial porque me mostraste tanta amabilidad, pero no tengo nada asi ahora mismo.";
 				next;
 				if ((countitem(7086) > 0) && (countitem(969) > 9) && (countitem(999) > 39) && (countitem(1003) > 49) && (countitem(984) > 1)) {
 					mes "[Tempestra]";
 					mes "Hmm...";
-					mes "I think I can make a special item from the items you already have.";
+					mes "Creo que puedo hacer un objeto especial con los materiales que ya tienes.";
 					next;
 					mes "[Tempestra]";
-					mes "If there are any forged items or slotted items with monster cards, then put them into your Kafra storage.";
+					mes "Si hay objetos forjados o con ranuras con cartas de monstruos, ponlos en tu almacen Kafra.";
 					next;
 					mes "[Tempestra]";
-					mes "Heh heh...";
-					mes "I think I'll make you a Hat of the Sun God~";
+					mes "Je je...";
+					mes "Creo que te hare un Hat of the Sun God~";
 					next;
 					delitem 7086,1; //Symbol_Of_Sun
 					delitem 969,10; //Gold
@@ -904,15 +904,15 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 					delitem 1003,50; //Coal
 					delitem 984,2; //Oridecon
 					mes "[Tempestra]";
-					mes "See! Here it is!!";
-					mes "Haha, I made this quicker than the speed of light!";
+					mes "Ve! Aqui esta!!";
+					mes "Jaja, hice esto mas rapido que la velocidad de la luz!";
 					next;
 					mes "[Tempestra]";
-					mes "...Or maybe I just gave you the one I already had, and took your items. Hee hee!";
+					mes "...O quiza solo te di el que ya tenia, y me quede con tus materiales. Ji ji!";
 					getitem 5022,1; // Helm_Of_Sun
 					next;
 					mes "[Tempestra]";
-					mes "Anyway, I justed want to give something really nice to you...";
+					mes "De todas formas, solo queria darte algo realmente lindo...";
 					close;
 				}
 				else {
@@ -925,22 +925,22 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 					mes "^0000FF2 Oridecon^000000";
 					next;
 					mes "[Tempestra]";
-					mes "If you have these, I can make you my fantastic 'Hat of the Sun God!'";
+					mes "Si tienes estos, puedo hacerte mi fantastico 'Hat of the Sun God!'";
 					next;
 					mes "[Tempestra]";
-					mes "I just want to make something really special for you, so I won't charge you any zeny to make this hat.";
+					mes "Solo quiero hacerte algo realmente especial, asi que no te cobrare zeny por hacer este sombrero.";
 					close;
 				}
 			}
 		}
 		else {
 			mes "[Tempestra]";
-			mes "Umm, I appreciate it but, I guess you just ran out of Yellow Potions?";
+			mes "Ehm, te lo agradezco pero, supongo que te quedaste sin Yellow Potions?";
 			close;
 		}
 	case 2:
 		mes "[Tempestra]";
-		mes "....How rude!";
+		mes "....Que grosero!";
 		close;
 	}
 }
@@ -949,21 +949,21 @@ alberta,136,79,1	script	Hat store girl#new30	71,{
 //============================================================
 alberta,91,70,4	script	Kinsey#tur	89,{
 	mes "[Kinsey]";
-	mes "What does a man have to do to get a stiff drink around here? I mean, there are absolutely no good bars in Alberta!";
+	mes "Que tiene que hacer un hombre para conseguir un buen trago por aqui? Digo, no hay absolutamente ningun buen bar en Alberta!";
 	next;
 	mes "[Kinsey]";
-	mes "Well, the alcohol in the pub here is second rate, but I gotta admit, it's got a great atmosphere.";
+	mes "Bueno, el alcohol del pub aqui es de segunda, pero debo admitir que tiene una gran atmosfera.";
 	next;
 	mes "[Kinsey]";
-	mes "In fact, this old man is always there, telling stories about Turtle Island! But we're not sure if he's been there, or if he's just that drunk.";
+	mes "De hecho, este viejo siempre esta ahi, contando historias sobre Turtle Island! Pero no estamos seguros si ha estado ahi, o si simplemente esta muy borracho.";
 	next;
-	if (select("^3333FF*ting!*^000000:Sounds fun~") == 1) {
+	if (select("^3333FF*ting!*^000000:Suena divertido~") == 1) {
 		mes "[Kinsey]";
-		mes "Whoa...";
-		mes "Hey, your eyes just lit up right when I said 'Turtle Island!' Hmm, let me try that again.";
+		mes "Guau...";
+		mes "Oye, tus ojos se iluminaron justo cuando dije 'Turtle Island!' Hmm, dejame intentar eso de nuevo.";
 		next;
 		mes "[Kinsey]";
-		mes "*Ahem*";
+		mes "*Ejem*";
 		mes "'Tur-tle";
 		mes "Is-land.'";
 		next;
@@ -972,135 +972,135 @@ alberta,91,70,4	script	Kinsey#tur	89,{
 		next;
 		mes "[Kinsey]";
 		mes "Ah...";
-		mes "You must be an adventurer. It seems like you really wanna learn more about that place, huh?";
+		mes "Debes ser un aventurero. Parece que realmente quieres aprender mas sobre ese lugar, eh?";
 		next;
 		mes "[Kinsey]";
-		mes "Why don't you look around near the pub, and look for that old man? He's usually pretty drunk, and speaks nonsense, but he might have something to say to you.";
+		mes "Por que no buscas cerca del pub, y buscas a ese viejo? Generalmente esta bastante borracho, y habla tonterias, pero podria tener algo que decirte.";
 		next;
 		mes "[Kinsey]";
-		mes "Oh, and um, I've been in his room before. He leaves some sort of letter lying around the table that has something to do with his Turtle Island stories.";
+		mes "Oh, y eh, he estado en su cuarto antes. Deja alguna clase de carta tirada en la mesa que tiene algo que ver con sus historias de Turtle Island.";
 		next;
 		mes "[Kinsey]";
-		mes "But if he asks for you to buy him a drink, I wouldn't do it. He's got like, three extra livers or something, so he'll drink you to bankruptcy.";
+		mes "Pero si te pide que le compres un trago, yo no lo haria. Tiene como tres higados extra o algo asi, asi que te bebera hasta la bancarrota.";
 		close;
 	}
 	mes "[Kinsey]";
-	mes "Yeah, I guess it's pretty cool listening to his stories. But it would be even cooler if I could hear them in a better drinking establishment.";
+	mes "Si, supongo que es bastante genial escuchar sus historias. Pero seria aun mas genial si pudiera escucharlas en un mejor establecimiento para beber.";
 	next;
 	mes "[Kinsey]";
-	mes "I mean, they don't even serve a 'Boogieman,' much less a 'Cobo.' It's getting harder and harder to find those fine, fine specialty drinks.";
+	mes "Digo, ni siquiera sirven un 'Boogieman,' mucho menos un 'Cobo.' Se esta volviendo cada vez mas dificil encontrar esas finas bebidas especiales.";
 	close;
 }
 
 alberta_in,23,104,4	script	Grandpa Turtle#tur	120,{
 	mes "[Grandpa Turtle]";
 	mes "Ooog...";
-	mes "So dizzy...";
+	mes "Tan mareado...";
 	next;
 	mes "[Grandpa Turtle]";
-	mes "There isn't one decent drinking establishment in all of Alberta! But then again, why did I drink so much? Hmm...";
+	mes "No hay un solo lugar decente para beber en toda Alberta! Pero de nuevo, por que bebi tanto? Hmm...";
 	next;
-	switch(select("Tell me about Turtle Island:How can I get there?:Stop talking")) {
+	switch(select("Cuentame sobre Turtle Island:Como puedo llegar ahi?:Deja de hablar")) {
 	case 1:
 		mes "[Grandpa Turtle]";
 		mes "Eh...?";
 		mes "Turtle Island?";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "Well, there's a lot of folklore about that place. Some folk say that there's a mountain of treasure there.";
+		mes "Bueno, hay mucho folclore sobre ese lugar. Algunos dicen que hay una montana de tesoros ahi.";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "Others folk say a potion that can prolong your lifespan can be found somewhere in Turtle Island. But nobody really knows for sure.";
+		mes "Otros dicen que una pocion que puede prolongar tu vida se puede encontrar en algun lugar de Turtle Island. Pero nadie sabe con certeza.";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "But I'm sure that Turtle Island does exist, and that something wonderful can be found there.";
+		mes "Pero estoy seguro de que Turtle Island si existe, y que algo maravilloso se puede encontrar ahi.";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "But only someone with a good heart that's eager for adventure should be able to go to that kind of place.";
+		mes "Pero solo alguien con buen corazon que este ansioso de aventura deberia poder ir a ese tipo de lugar.";
 		next;
-		switch(select("^3333FF*ting!*^000000:Tell me more, old man!")) {
+		switch(select("^3333FF*ting!*^000000:Cuentame mas, viejo!")) {
 		case 1:
 			mes "[Grandpa Turtle]";
-			mes "Ha ha ha~!";
+			mes "Ja ja ja~!";
 			if (Sex == SEX_MALE)
-				mes "I like the shine in your eye, my boy! I can see a little bit of myself in those eyes. Yes...";
+				mes "Me gusta el brillo en tu ojo, muchacho! Puedo ver un poco de mi mismo en esos ojos. Si...";
 			else
-				mes "No use hiding the glint in your eyes, my dear! It's adventure you wish for, that much I can tell...";
+				mes "No sirve esconder el destello en tus ojos, querida! Es aventura lo que deseas, eso puedo decir...";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "Tell me...";
-			mes "Have you heard of a man named ^3355FFJornadan Niliria^000000? He, and a group of ten other men actually found Turtle Island!";
+			mes "Dime...";
+			mes "Has oido hablar de un hombre llamado ^3355FFJornadan Niliria^000000? El, y un grupo de diez hombres mas realmente encontraron Turtle Island!";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "^3355FFJornadan Niliria^000000 was a man of strength and conviction. He and his crew gathered every clue they could about Turtle Island.";
+			mes "^3355FFJornadan Niliria^000000 era un hombre de fuerza y conviccion. El y su tripulacion reunieron cada pista que pudieron sobre Turtle Island.";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "Even after learning all that they could, much of their voyage relied on their hope and faith that the Turtle Island legend was true...";
+			mes "Incluso despues de aprender todo lo que pudieron, mucho de su viaje dependio de su esperanza y fe en que la leyenda de Turtle Island era verdadera...";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "After a long, arduous journey, their efforts were rewarded, and they landed on Turtle Island!";
+			mes "Despues de un largo y arduo viaje, sus esfuerzos fueron recompensados, y desembarcaron en Turtle Island!";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "However, it gets more complicated after that. I hear Niliria's crew had great difficulty getting back home for some reason.";
+			mes "Sin embargo, se complica mas despues de eso. Escuche que la tripulacion de Niliria tuvo gran dificultad para regresar a casa por alguna razon.";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "Heh heh...";
-			mes "If you want to learn more, why don't you go to the eastern end of the Alberta port? There's a scholar there that knows more of this story.";
+			mes "Je je...";
+			mes "Si quieres saber mas, por que no vas al extremo este del puerto de Alberta? Hay un estudioso ahi que sabe mas de esta historia.";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "He could probably shed more light on the subject of Turtle Island's legend.";
+			mes "Probablemente podria arrojar mas luz sobre el tema de la leyenda de Turtle Island.";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "Ah, one more thing! Look around that scholar and you should find his ^3355FFJournal^000000. I promise that it will be an interesting read.";
+			mes "Ah, una cosa mas! Busca alrededor de ese estudioso y deberias encontrar su ^3355FFDiario^000000. Te prometo que sera una lectura interesante.";
 			next;
 			mes "[Grandpa Turtle]";
 			mes "Ah...";
-			mes "The fire of youth!";
-			mes "When the winds die, may your dreams fill your sails~ Good luck to you!";
+			mes "El fuego de la juventud!";
+			mes "Cuando los vientos mueran, que tus suenos llenen tus velas~ Buena suerte!";
 			close;
 		}
 		mes "[Grandpa Turtle]";
 		mes "Grrrr...!";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "I may not know much, but I won't talk to anyone motivated solely by greed. Go home!";
+		mes "Quiza no sepa mucho, pero no hablare con nadie motivado unicamente por la avaricia. Vete a casa!";
 		close;
 	case 2:
 		if ((MISC_QUEST & 65536) || TURTLE) {
 			if(MISC_QUEST & 65536) set TURTLE,0; //now clear the var
 			mes "[Grandpa Turtle]";
-			mes "Well...";
-			mes "If you go to eastern side of the Alberta port, you should find an old ferryboatman.";
+			mes "Bueno...";
+			mes "Si vas al lado este del puerto de Alberta, deberias encontrar a un viejo barquero.";
 			next;
 			mes "[Grandpa Turtle]";
-			mes "His name is ^3355FFGotanblue^000000. I believe he may know a way to Turtle Island. Heh heh, good luck~";
+			mes "Su nombre es ^3355FFGotanblue^000000. Creo que podria saber una forma de llegar a Turtle Island. Je je, buena suerte~";
 			close;
 		}
 		mes "[Grandpa Turtle]";
 		mes "Turtle Island...?";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "My, that place is difficult to find and even more difficult to travel to. You're sure you want to go? I would love to give you some advice, but I feel so dizzy after drinking so much...";
+		mes "Cielos, ese lugar es dificil de encontrar y aun mas dificil de viajar. Estas seguro de que quieres ir? Me encantaria darte algun consejo, pero me siento tan mareado despues de beber tanto...";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "Ho ho ho...";
-		mes "Why don't you talk to a chubby little sailor I know named ^3355FFGotanblue^000000. You can find him loitering on one of the Alberta ports.";
+		mes "Jo jo jo...";
+		mes "Por que no hablas con un marinerito regordete que conozco llamado ^3355FFGotanblue^000000. Puedes encontrarlo merodeando en uno de los puertos de Alberta.";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "Tell him that I sent you, and he may tell you more about Turtle Island. He may even know how to get there~";
+		mes "Dile que te envie yo, y podria contarte mas sobre Turtle Island. Hasta podria saber como llegar ahi~";
 		next;
 		mes "[Grandpa Turtle]";
-		mes "Well, then...";
-		mes "Good luck~";
+		mes "Bueno, entonces...";
+		mes "Buena suerte~";
 		set TURTLE,1;
 		setquest 11029;
 		close;
 	case 3:
 		mes "[Grandpa Turtle]";
 		mes "Oooh...";
-		mes "Even at this age...";
-		mes "I don't understand";
-		mes "how I can drink so much...";
+		mes "Incluso a esta edad...";
+		mes "No entiendo";
+		mes "como puedo beber tanto...";
 		close;
 	}
 }
@@ -1108,97 +1108,97 @@ alberta_in,23,104,4	script	Grandpa Turtle#tur	120,{
 -	script	::Sailor_alberta	-1,{
 	if (TURTLE || (MISC_QUEST & 65536)) {
 		mes "[Gotanblue]";
-		mes "Heh...";
-		mes "Your eyes...";
-		mes "I can tell you're curious about Turtle Island. I guess you must have been talking to that drunken old man!";
+		mes "Je...";
+		mes "Tus ojos...";
+		mes "Puedo decir que tienes curiosidad por Turtle Island. Supongo que debes haber estado hablando con ese viejo borracho!";
 		next;
-		switch(select("Do you know about Turtle Island?:How can I get there?:Stop talking.")) {
+		switch(select("Sabes sobre Turtle Island?:Como puedo llegar ahi?:Deja de hablar.")) {
 		case 1:
 			mes "[Gotanblue]";
 			mes "Turtle Island...?";
-			mes "Well, first I think it's fair to warn you that Turtle Island took the lives of my buddies. That's right, I was part of ^3355FFJornadan Niliria^000000's crew.";
+			mes "Bueno, primero creo que es justo advertirte que Turtle Island se llevo la vida de mis companeros. Asi es, fui parte de la tripulacion de ^3355FFJornadan Niliria^000000.";
 			next;
 			mes "[Gotanblue]";
-			mes "We wanted to find out if the legends about that island were true, so we left everything behind to learn the truth.";
+			mes "Queriamos descubrir si las leyendas sobre esa isla eran ciertas, asi que dejamos todo atras para aprender la verdad.";
 			next;
 			mes "[Gotanblue]";
-			mes "Jornadan Niliria was one of the greatest treasure hunters ever, and he gathered men for his crew from around the globe. I'm proud to say that each member of our crew was the best in his field.";
+			mes "Jornadan Niliria fue uno de los mas grandes cazadores de tesoros, y reunio hombres para su tripulacion de todo el mundo. Estoy orgulloso de decir que cada miembro de nuestra tripulacion era el mejor en su campo.";
 			next;
 			mes "[Gotanblue]";
-			mes "I happened to be the best at navigating. I was only twenty, but I was still invited to his team. It was such an honor to be accepted as an equal amongst these great men.";
+			mes "Yo era el mejor navegando. Solo tenia veinte, pero aun asi fui invitado a su equipo. Fue un honor ser aceptado como igual entre estos grandes hombres.";
 			next;
 			mes "[Gotanblue]";
-			mes "Anyway, our biggest clue about Turtle Island's location hinted that it was near Alberta, so our voyage began from here.";
+			mes "De todas formas, nuestra mayor pista sobre la ubicacion de Turtle Island indicaba que estaba cerca de Alberta, asi que nuestro viaje comenzo desde aqui.";
 			next;
 			mes "[Gotanblue]";
-			mes "We sailed day and night, drifting for weeks, until one day, we were surrounded by an incredibly thick fog. We had no idea of which direction we were going and the mist wouldn't clear.";
+			mes "Navegamos dia y noche, a la deriva por semanas, hasta que un dia, fuimos rodeados por una niebla increiblemente densa. No teniamos idea de en que direccion ibamos y la bruma no se despejaba.";
 			next;
 			mes "[Gotanblue]";
-			mes "But none of us had any regrets and we just kept moving onward. There would be no turning back!";
+			mes "Pero ninguno de nosotros tenia arrepentimientos y simplemente seguimos adelante. No habria marcha atras!";
 			next;
 			mes "[Gotanblue]";
-			mes "Finally, a coral reef sudden appeared and we couldn't steer away from it. Our ship was critically damaged. But when the fog cleared, we saw that we had finally arrived at Turtle Island! It was real!";
+			mes "Finalmente, un arrecife de coral aparecio de repente y no pudimos alejarnos de el. Nuestro barco fue danado criticamente. Pero cuando la niebla se despejo, vimos que finalmente habiamos llegado a Turtle Island! Era real!";
 			next;
 			mes "[Gotanblue]";
-			mes "After we made camp on shore and explored the island, we learned something quite remarkable.";
+			mes "Despues de acampar en la orilla y explorar la isla, aprendimos algo bastante notable.";
 			next;
 			mes "[Gotanblue]";
-			mes "There was a man who had actually made it to Turtle Island before us. His records, however, never reached Rune-Midgarts. He was a great swordmaster known simply as ^3355FFOne^000000.";
+			mes "Habia un hombre que realmente habia llegado a Turtle Island antes que nosotros. Sus registros, sin embargo, nunca llegaron a Rune-Midgarts. Era un gran maestro espadachin conocido simplemente como ^3355FFOne^000000.";
 			next;
 			mes "[Gotanblue]";
-			mes "According to his records, he had traveled alone to find Turtle Island and made it by himself. But we couldn't find any sign of him anywhere...";
+			mes "Segun sus registros, habia viajado solo para encontrar Turtle Island y lo logro por si mismo. Pero no pudimos encontrar rastro de el en ningun lado...";
 			next;
 			mes "[Gotanblue]";
-			mes "As we explored Turtle Island further, we learned that not only was it abundant with treasure, but that it also held an item of great interest.";
+			mes "Mientras exploramos Turtle Island mas a fondo, aprendimos que no solo era abundante en tesoros, sino que tambien contenia un objeto de gran interes.";
 			next;
 			mes "[Gotanblue]";
-			mes "From the first explorer's record, some kind of amazing ^3355FFjewel fragment^000000 was mentioned.";
+			mes "Del registro del primer explorador, se mencionaba algun tipo de asombroso ^3355FFfragmento de joya^000000.";
 			next;
 			mes "[Gotanblue]";
-			mes "He had traveled to Turtle Island with the purpose of discovering secrets to the sword arts, and stumbled upon a jewel he claimed was the most beautiful in the world.";
+			mes "El habia viajado a Turtle Island con el proposito de descubrir secretos de las artes de la espada, y se topo con una joya que afirmaba era la mas hermosa del mundo.";
 			next;
 			mes "[Gotanblue]";
-			mes "By the ^3355FFOne^000000's records, we were able to thoroughly explore all to be seen on Turtle Island. However...";
+			mes "Por los registros de ^3355FFOne^000000, pudimos explorar exhaustivamente todo lo que se podia ver en Turtle Island. Sin embargo...";
 			next;
 			mes "[Gotanblue]";
-			mes "Even after months of searching, we could never find a trace of the jewel fragment. Eventually, we had to give up on our search.";
+			mes "Incluso despues de meses de busqueda, nunca pudimos encontrar rastro del fragmento de joya. Eventualmente, tuvimos que renunciar a nuestra busqueda.";
 			next;
 			mes "[Gotanblue]";
-			mes "Finally, we packed our things to leave the island. But then, as we were traveling at sea, we encountered a thick, blinding fog once again.";
+			mes "Finalmente, empacamos nuestras cosas para irnos de la isla. Pero entonces, mientras viajabamos por mar, encontramos una niebla densa y cegadora una vez mas.";
 			next;
 			mes "[Gotanblue]";
-			mes "We spent a month trying to steer through that mist. When we finally sailed out of that mist, we saw that we had arrived at the other side of Turtle Island!";
+			mes "Pasamos un mes tratando de navegar a traves de esa bruma. Cuando finalmente salimos de esa niebla, vimos que habiamos llegado al otro lado de Turtle Island!";
 			next;
 			mes "[Gotanblue]";
-			mes "Our spirits were crushed!! We tried again and again to leave that place, and spent nearly a year trying to leave but we kept winding up at Turtle Island's shores.";
+			mes "Nuestro espiritu fue aplastado!! Lo intentamos una y otra vez para irnos de ese lugar, y pasamos casi un anio intentando irnos pero seguiamos terminando en las costas de Turtle Island.";
 			next;
 			mes "[Gotanblue]";
-			mes "As we struggled with the fog, we lost our comrades one by one. In the end, Jornadan, the drunken old man you met, and myself were the only ones who were able to return home to Alberta.";
+			mes "Mientras luchamos con la niebla, perdimos a nuestros companeros uno por uno. Al final, Jornadan, el viejo borracho que conociste, y yo fuimos los unicos que pudimos regresar a casa a Alberta.";
 			next;
 			mes "[Gotanblue]";
-			mes "We were the only ones who did not give in to despair, and doggedly held onto our hopes. Still, it was by pure luck that we found a way back to Rune-Midgarts.";
+			mes "Fuimos los unicos que no cedimos a la desesperacion, y nos aferramos tenazmente a nuestras esperanzas. Aun asi, fue por pura suerte que encontramos un camino de regreso a Rune-Midgarts.";
 			next;
 			mes "[Gotanblue]";
-			mes "Well, that's my story. You know, if you want to learn more about Turtle Island, why don't you speak to the scholar on the eastern port of Alberta?";
+			mes "Bueno, esa es mi historia. Sabes, si quieres aprender mas sobre Turtle Island, por que no hablas con el estudioso en el puerto este de Alberta?";
 			next;
 			mes "[Gotanblue]";
-			mes "Heh heh...";
-			mes "I'm sure he can tell give you details that even I wouldn't be able to provide...";
+			mes "Je je...";
+			mes "Estoy seguro de que puede darte detalles que ni yo podria proporcionar...";
 			close2;
 			// erasequest 11029;
 			end;
 		case 2:
 			mes "[Gotanblue]";
-			mes "After my story of Turtle Island, you're still not afraid of going? I'm impressed! Alright then...";
+			mes "Despues de mi historia de Turtle Island, aun no tienes miedo de ir? Me impresionas! Muy bien entonces...";
 			next;
 			mes "[Gotanblue]";
-			mes "If you wish for me to guide you there, I will charge you 10,000 zeny. I'm the only navigator that can guide you there and back safely.";
+			mes "Si deseas que te guie ahi, te cobrare 10,000 zeny. Soy el unico navegante que puede guiarte ahi y de regreso de forma segura.";
 			next;
-			if (select("Turtle island -> 10000 zeny:Cancel") == 1) {
+			if (select("Turtle island -> 10000 zeny:Cancelar") == 1) {
 				if (Zeny > 9999) {
 					mes "[Gotanblue]";
-					mes "Alright!!";
-					mes "You've made your choice! With my experience, we will arrive without fail! I appreciate your spirit!";
+					mes "Muy bien!!";
+					mes "Has tomado tu decision! Con mi experiencia, llegaremos sin falta! Aprecio tu espiritu!";
 					next;
 					mes "^3355FF*Choo Choo*^000000";
 					set Zeny, Zeny-10000;
@@ -1209,38 +1209,38 @@ alberta_in,23,104,4	script	Grandpa Turtle#tur	120,{
 				}
 				mes "[Gotanblue]";
 				mes "Hmmm...";
-				mes "Sorry, but you don't have enough zeny. I hope you understand that I can let my expertise and experience be undervalued...";
+				mes "Lo siento, pero no tienes suficiente zeny. Espero que entiendas que no puedo dejar que mi experiencia y habilidad sean subvaloradas...";
 				close;
 			}
 			mes "[Gotanblue]";
-			mes "Alright then...";
-			mes "Well, if the spirit of adventure should happen to grab you, I will be here waiting.";
+			mes "Bien entonces...";
+			mes "Bueno, si el espiritu de aventura te atrapa, estare aqui esperando.";
 			close;
 		case 3:
 			mes "[Gotanblue]";
-			mes "Heh...";
+			mes "Je...";
 			next;
 			mes "[Gotanblue]";
-			mes "Come back whenever you feel you're ready to hear my story, will you?";
+			mes "Regresa cuando sientas que estas listo para escuchar mi historia, si?";
 			close;
 		}
 	}
 	mes "[Gotanblue]";
 	mes "Ahhhh...!";
-	mes "Just look at that ocean! It covers the earth as far as the eye can see. Tell me that's not one of the most beautiful things you've ever seen...";
+	mes "Solo mira ese oceano! Cubre la tierra hasta donde alcanza la vista. Dime que eso no es una de las cosas mas hermosas que has visto...";
 	close;
 }
 
 tur_dun01,165,29,4	script	Sailor#tur2	709,{
 	mes "[Gotanblue]";
-	mes "Do you want";
-	mes "to return";
-	mes "to Alberta?";
+	mes "Quieres";
+	mes "regresar";
+	mes "a Alberta?";
 	next;
-	if (select("Go to Alberta:Stop talking") == 1) {
+	if (select("Ir a Alberta:Deja de hablar") == 1) {
 		mes "[Gotanblue]";
-		mes "Heh heh...";
-		mes "I certainly hope you've found what you were looking for. Alright, I guess there's always a time for an adventurer to return home...";
+		mes "Je je...";
+		mes "Ciertamente espero que hayas encontrado lo que buscabas. Bien, supongo que siempre hay un momento para que un aventurero regrese a casa...";
 		next;
 		mes "^3355FF* Choo Choo *^000000";
 		if (checkre(0))
@@ -1253,65 +1253,65 @@ tur_dun01,165,29,4	script	Sailor#tur2	709,{
 
 -	script	::Turtle_Scholar_alberta	-1,{
 	mes "[Jornadan Niliria]";
-	mes "Every single place";
-	mes "has its own unique";
-	mes "smells, sights and sounds.";
+	mes "Cada lugar";
+	mes "tiene sus propios";
+	mes "olores, vistas y sonidos unicos.";
 	next;
 	mes "[Jornadan Niliria]";
-	mes "Even the great, ever expanding sky that's shared by all the peoples of the earth looks strange when you're in a new and foreign land.";
+	mes "Incluso el gran cielo en constante expansion que comparten todos los pueblos de la tierra se ve extrano cuando estas en una tierra nueva y extranjera.";
 	next;
 	mes "[Jornandan Niliria]";
-	mes "Heh heh...";
-	mes "Just like my";
-	mes "time on Turtle Island.";
-	mes "Hah Hah Hah~";
+	mes "Je je...";
+	mes "Igual que mi";
+	mes "tiempo en Turtle Island.";
+	mes "Ja ja ja~";
 	next;
-	switch(select("About Turtle island:You're Jornadan Niliria?!:Stop talking")) {
+	switch(select("Sobre Turtle Island:Tu eres Jornadan Niliria?!:Deja de hablar")) {
 	case 1:
 		mes "[Jornadan Niliria]";
 		mes "Turtle...";
 		mes "Island...";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "It's almost silly, but Turtle Island was named simply because it's shaped just like a turtle.";
+		mes "Es casi tonto, pero Turtle Island se llamo asi simplemente porque tiene forma de tortuga.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "Now, Turtle Island is surrounded by a dense fog. When we were first stuck in it, a lot of us believed it was the result of a curse, or some kind of magic.";
+		mes "Ahora, Turtle Island esta rodeada de una niebla densa. Cuando estuvimos atrapados en ella por primera vez, muchos de nosotros creiamos que era resultado de una maldicion, o algun tipo de magia.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "But in actuality, the fog is the result of a natural phenomenon. It's created by a waterfall inside a cave located on Turtle Island's coast.";
+		mes "Pero en realidad, la niebla es resultado de un fenomeno natural. Es creada por una cascada dentro de una cueva ubicada en la costa de Turtle Island.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "Heh heh...";
-		mes "Once you attain understanding, the truth becomes so simple. I guess confusion and fear is the fog that clouds your judgment, your path on life.";
+		mes "Je je...";
+		mes "Una vez que obtienes comprension, la verdad se vuelve tan simple. Supongo que la confusion y el miedo son la niebla que nubla tu juicio, tu camino en la vida.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "Believe it or not, I too used to fear the dangers of Turtle Island. But now that I understand most of its secrets, I look at my experiences at Turtle Island with fondness.";
+		mes "Lo creas o no, yo tambien solia temer los peligros de Turtle Island. Pero ahora que entiendo la mayoria de sus secretos, miro mis experiencias en Turtle Island con carino.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "Still, there is one thing I haven't yet uncovered. The ^3355FFunknown jewel fragment^000000.";
+		mes "Aun asi, hay una cosa que aun no he descubierto. El ^3355FFfragmento de joya desconocido^000000.";
 		next;
 		mes "[Jornandan Niliria]";
-		mes "So, until I find it, I'll keep researching and learn as much as I can until I do. Ha ha ha ha~!";
+		mes "Asi que, hasta que lo encuentre, seguire investigando y aprendiendo todo lo que pueda hasta que lo haga. Ja ja ja ja~!";
 		close;
 	case 2:
 		mes "[Jornadan Niliria]";
 		mes "Hmm...?";
-		mes "You've heard of me?";
+		mes "Has oido de mi?";
 		next;
 		mes "[Jornadan Niliria]";
 		mes "Ah...";
-		mes "I suppose that you know about my treasure hunting days, and probably about Turtle Island.";
+		mes "Supongo que sabes sobre mis dias de caza de tesoros, y probablemente sobre Turtle Island.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "Well, as you can see, I'm a little older now. These old bones aren't what they used to be.";
+		mes "Bueno, como puedes ver, soy un poco mayor ahora. Estos viejos huesos ya no son lo que eran.";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "But perhaps, someday, if my research bears fruit, I'll venture out once more and seek the one treasure I've never found...";
+		mes "Pero quiza, algun dia, si mi investigacion da frutos, me aventurare una vez mas y buscare el unico tesoro que nunca encontre...";
 		close;
 	case 3:
 		mes "[Jornadan Niliria]";
-		mes "When you want to discover the truth, never give in to despair. If you never give up your search, the answer will come to you.";
+		mes "Cuando quieras descubrir la verdad, nunca cedas a la desesperacion. Si nunca abandonas tu busqueda, la respuesta vendra a ti.";
 		next;
 		mes "[Jornadan Niliria]";
 		mes "...";
@@ -1321,7 +1321,7 @@ tur_dun01,165,29,4	script	Sailor#tur2	709,{
 		mes "......";
 		next;
 		mes "[Jornadan Niliria]";
-		mes "By the way, I'm pretty hungry. Why doesn't Alberta have any good restaurants?! I hear they have good dimsum in Kunlun...";
+		mes "Por cierto, tengo bastante hambre. Por que Alberta no tiene buenos restaurantes?! Escuche que tienen buen dimsum en Kunlun...";
 		close;
 	}
 }
@@ -1329,20 +1329,20 @@ tur_dun01,165,29,4	script	Sailor#tur2	709,{
 alberta_in,18,102,4	script	Letter#tur	111,{
 	mes "[Explorer's Letter]";
 	mes "- O / X / XOVX -";
-	mes "If you find this letter, please don't disregard what you have read.";
+	mes "Si encuentras esta carta, por favor no ignores lo que has leido.";
 	next;
 	mes "[Explorer's Letter]";
-	mes "Although we have found Turtle Island, it seems our expedition will fail.";
+	mes "Aunque hemos encontrado Turtle Island, parece que nuestra expedicion fracasara.";
 	next;
 	mes "[Explorer's Letter]";
-	mes "Only half of our crew is left, and we only have enough food for ten more days. Our condition is truly grave.";
+	mes "Solo queda la mitad de nuestra tripulacion, y solo tenemos comida para diez dias mas. Nuestra condicion es verdaderamente grave.";
 	next;
 	mes "[Explorer's Letter]";
-	mes "This damn island must be cursed. There's nothing to eat and we're so close to starving!";
+	mes "Esta maldita isla debe estar maldita. No hay nada que comer y estamos a punto de morir de hambre!";
 	next;
 	mes "[Explorer's Letter]";
-	mes "If we don't get help or find Alberta soon...";
-	mes "We'll...";
+	mes "Si no conseguimos ayuda o encontramos Alberta pronto...";
+	mes "Nosotros...";
 	close;
 }
 
@@ -1350,202 +1350,202 @@ alberta,246,117,4	script	Voyage log#tur	111,{
 	if (rand(2)) {
 		mes "[Voyage log]";
 		mes "03:20 am";
-		mes "There's no light from the stars tonight, and we can't even see a hundred meters ahead of us. The men seem to feel something bad in the air.";
+		mes "No hay luz de las estrellas esta noche, y no podemos ver ni cien metros adelante. Los hombres parecen sentir algo malo en el aire.";
 		next;
 		mes "[Voyage Log]";
-		mes "The faces of my comrades betrayed their fears. They couldn't manage to sleep last night. I hope we will see sunrise soon...";
+		mes "Los rostros de mis companeros delataban sus miedos. No pudieron dormir anoche. Espero que veamos el amanecer pronto...";
 		next;
 		mes "[Voyage Log]";
 		mes "04:10 ";
-		mes "5 minutes ago, our comrade, Cooker, was killed when the mast suddenly cracked and fell on his head.";
+		mes "Hace 5 minutos, nuestro companero, Cooker, fue asesinado cuando el mastil se rompio de repente y le cayo en la cabeza.";
 		next;
 		mes "[Voyage Log]";
-		mes "The estimated time of death is 04:07. The mast broke due to the shock of the ship hitting a reef. The left side of the deck also suffered from serious damage.";
+		mes "La hora estimada de muerte es 04:07. El mastil se rompio por el impacto del barco golpeando un arrecife. El lado izquierdo de la cubierta tambien sufrio serios danos.";
 		next;
 		mes "[Voyage Log]";
 		mes "04:45";
-		mes "While two of our workers were fixing the bottom of the deck, they were attacked by monsters that had snuck through cracks in the deck.";
+		mes "Mientras dos de nuestros trabajadores reparaban el fondo de la cubierta, fueron atacados por monstruos que se colaron por grietas en la cubierta.";
 		next;
 		mes "[Voyage Log]";
-		mes "These two were lost in the attack. The estimated time of death was 04:32. Fortunately, we are able to stay afloat, but we must hurry and find land.";
+		mes "Estos dos se perdieron en el ataque. La hora estimada de muerte fue 04:32. Afortunadamente, podemos mantenernos a flote, pero debemos apresurarnos y encontrar tierra.";
 		next;
 		mes "[Voyage Log]";
-		mes "From the damage to the deck, we've lost 30% of our supplies. At this rate, we'll run out of food soon.";
+		mes "Por el dano a la cubierta, hemos perdido 30% de nuestras provisiones. A este ritmo, nos quedaremos sin comida pronto.";
 		next;
 		mes "[Voyage Log]";
 		mes "05:23";
-		mes "There seem to be more and more reefs to steer around, and they are growing larger as we travel. I wonder if we'll find land soon...";
+		mes "Parece haber cada vez mas arrecifes alrededor, y estan creciendo mas grandes mientras viajamos. Me pregunto si encontraremos tierra pronto...";
 		next;
 		mes "[Voyage Log]";
-		mes "Written by";
-		mes "Captain Jornadan Niliria";
+		mes "Escrito por";
+		mes "Capitan Jornadan Niliria";
 		close;
 	}
 	else {
 		if (TURTLE == 1) {
-			mes "^3355FFThe paper is torn and seaweed and mold are stuck to the paper. It seems this log is in very poor condition...^000000";
+			mes "^3355FFEl papel esta rasgado y algas marinas y moho estan pegados al papel. Parece que este registro esta en muy malas condiciones...^000000";
 			next;
 			switch(rand(1,3)) {
 			case 1:
-				mes "^3355FFThere is a banana leaf between some of the pages. Here is what is written.^000000";
+				mes "^3355FFHay una hoja de platano entre algunas de las paginas. Aqui esta lo que esta escrito.^000000";
 				next;
 				mes "[Voyage Log]";
-				mes "O / X date";
-				mes "Just after we arrived on Turtle Island, we frantically searched all over for food.";
+				mes "O / X fecha";
+				mes "Justo despues de llegar a Turtle Island, buscamos freneticamente comida por todos lados.";
 				next;
 				mes "[Voyage Log]";
-				mes "It was so bad, that you could see the bones through our skin.";
+				mes "Fue tan malo, que podias ver los huesos a traves de nuestra piel.";
 				next;
 				mes "[Voyage Log]";
-				mes "X / X date";
-				mes "We found some kind of fruit to eat! It's covered in some sort of yellow skin and looks like a banana!";
+				mes "X / X fecha";
+				mes "Encontramos alguna clase de fruta para comer! Esta cubierta de alguna clase de piel amarilla y parece una banana!";
 				next;
 				mes "[Voyage Log]";
-				mes "XO / X date";
-				mes "Well, it wasn't exactly like the bananas we have in Rune-Midgarts, but it was very similar.";
+				mes "XO / X fecha";
+				mes "Bueno, no era exactamente como las bananas que tenemos en Rune-Midgarts, pero era muy similar.";
 				next;
 				mes "[Voyage Log]";
-				mes "O / O date";
-				mes "In the middle of the night, one of the men reported that he felt sick after eating the food.";
+				mes "O / O fecha";
+				mes "A mitad de la noche, uno de los hombres reporto que se sintio enfermo despues de comer la comida.";
 				next;
 				mes "[Voyage Log]";
-				mes "OO / O date";
-				mes "Another crew member, Berot Berot, was also found to have severe indigestion.";
+				mes "OO / O fecha";
+				mes "Otro miembro de la tripulacion, Berot Berot, tambien fue encontrado con indigestion severa.";
 				next;
 				mes "[Voyage Log]";
-				mes "It's now becoming very clear that the food we have been eating contains some kind of poison.";
+				mes "Ahora se esta volviendo muy claro que la comida que hemos estado comiendo contiene alguna clase de veneno.";
 				next;
 				mes "[Voyage Log]";
-				mes "XO / O date";
-				mes "The third person to experience indigestion passed away today. We are all very worried.";
+				mes "XO / O fecha";
+				mes "La tercera persona en experimentar indigestion fallecio hoy. Estamos todos muy preocupados.";
 				next;
 				mes "[Voyage Log]";
-				mes "Our suspicions were confirmed when we found that the animals on Turtle Island wouldn't eat the bananas we found.";
+				mes "Nuestras sospechas fueron confirmadas cuando descubrimos que los animales en Turtle Island no comerian las bananas que encontramos.";
 				next;
 				mes "[Voyage Log]";
-				mes "OX / O date";
-				mes "We decided to seal away this poisonous fruit, but learned that it didn't rot, not even after we removed the skin.";
+				mes "OX / O fecha";
+				mes "Decidimos sellar esta fruta venenosa, pero aprendimos que no se pudre, ni siquiera despues de remover la piel.";
 				next;
 				mes "[Voyage Log]";
-				mes "We have no idea why it's harmful to eat, or why it never perishes, but it be of some medical or scientific interest.";
+				mes "No tenemos idea de por que es danina para comer, o por que nunca perece, pero podria ser de algun interes medico o cientifico.";
 				next;
 				mes "[Voyage Log]";
-				mes "In the meantime, we've decided to bury this fruit until we can get back to Alberta.";
+				mes "Mientras tanto, hemos decidido enterrar esta fruta hasta que podamos regresar a Alberta.";
 				next;
 				mes "[Voyage Log]";
 				mes "^FF3355tur_dun01^000000";
 				mes "^FF3355X : 160 , Y : 81^000000";
 				next;
-				mes "^3355FFIn the Voyage log is a thin key marked with a skull. You've taken this Skull key, as it may be of some use later.^000000";
+				mes "^3355FFEn el registro de viaje hay una llave delgada marcada con una calavera. Has tomado esta llave de Calavera, ya que podria ser util despues.^000000";
 				set TURTLE,2;
 				changequest 11029,11030;
 				close;
 			case 2:
-				mes "^3355FFYou notice a page with a stamp shaped like a bird's foot. The black ink smells sort of like fruit.^000000";
+				mes "^3355FFNotas una pagina con un sello en forma de pata de pajaro. La tinta negra huele algo parecido a fruta.^000000";
 				next;
 				mes "[Voyage Log]";
-				mes "X / OO date";
-				mes "We've found evidence that other people were here, and that we are not the first to find Turtle Island.";
+				mes "X / OO fecha";
+				mes "Hemos encontrado evidencia de que otras personas estuvieron aqui, y que no somos los primeros en encontrar Turtle Island.";
 				next;
 				mes "[Voyage Log]";
-				mes "There was at least one person who made it here before us. Hopefully, his records are on the island somewhere.";
+				mes "Hubo al menos una persona que llego aqui antes que nosotros. Esperamos que sus registros esten en la isla en algun lugar.";
 				next;
 				mes "[Voyage Log]";
-				mes "Starting tomorrow, we will begin searching for these hidden records.";
+				mes "A partir de manana, comenzaremos a buscar estos registros ocultos.";
 				next;
 				mes "[Voyage Log]";
-				mes "O / OO date";
-				mes "We are having difficulty trying to find any records. Is it possible that the first people here wrote nothing of their journey?";
+				mes "O / OO fecha";
+				mes "Estamos teniendo dificultades tratando de encontrar registros. Es posible que las primeras personas aqui no escribieran nada de su viaje?";
 				next;
 				mes "[Voyage Log]";
-				mes "XO / OO date";
-				mes "We finally found the records we have been searching for.";
+				mes "XO / OO fecha";
+				mes "Finalmente encontramos los registros que hemos estado buscando.";
 				next;
 				mes "[Voyage Log]";
-				mes "His notes were so hard to find because only one man, rather than a whole team, came to Turtle Island before us!";
+				mes "Sus notas fueron tan dificiles de encontrar porque solo un hombre, en vez de todo un equipo, vino a Turtle Island antes que nosotros!";
 				next;
 				mes "[Voyage Log]";
-				mes "This man was a swordsman simply known as 'One.' His records tell much about what can be found on Turtle Island.";
+				mes "Este hombre era un espadachin conocido simplemente como 'One.' Sus registros cuentan mucho sobre lo que se puede encontrar en Turtle Island.";
 				next;
 				mes "[Voyage Log]";
-				mes "His records were written on animals skin, but they were durable and still easy to read after all this time.";
+				mes "Sus registros estaban escritos en piel de animal, pero eran durables y aun faciles de leer despues de todo este tiempo.";
 				next;
 				mes "[Voyage Log]";
-				mes "According to his notes, Turtle Island consists of 4 levels. Although there are no people here, but there are many traps and devices which operate through a mysterious force.";
+				mes "Segun sus notas, Turtle Island consiste de 4 niveles. Aunque no hay personas aqui, hay muchas trampas y dispositivos que operan a traves de una fuerza misteriosa.";
 				next;
 				mes "[Voyage Log]";
-				mes "Still, it is certain that something has some control over Turtle Island.";
+				mes "Aun asi, es seguro que algo tiene algun control sobre Turtle Island.";
 				next;
 				mes "[Voyage Log]";
-				mes "To keep this record safe, our crew has decided to hide this valuable record on the second level of Turtle Island.";
+				mes "Para mantener este registro a salvo, nuestra tripulacion ha decidido esconder este valioso registro en el segundo nivel de Turtle Island.";
 				next;
 				mes "[Voyage Log]";
-				mes "Search here...";
+				mes "Busca aqui...";
 				mes "^FF3355tur_dun02^000000";
 				mes "^FF3355X : 132 , Y : 251^000000";
 				next;
-				mes "^3355FFThere is a picture of a tree in which there is a small keyhole clearly shown under the roots.^000000";
+				mes "^3355FFHay un dibujo de un arbol en el cual hay un pequeno agujero de cerradura claramente mostrado bajo las raices.^000000";
 				next;
-				mes "^3355FFYou've gained^000000";
-				mes "^3355FFthe Roots key.^000000";
+				mes "^3355FFHas obtenido";
+				mes "la llave de Raices.^000000";
 				set TURTLE,3;
 				changequest 11029,11031;
 				close;
 			case 3:
-				mes "^3355FFThese pages of this log are soiled with mud, and some of them are missing.^000000";
+				mes "^3355FFEstas paginas de este registro estan manchadas de lodo, y algunas faltan.^000000";
 				next;
 				mes "[Voyage Log]";
-				mes "O / XX date";
-				mes "The greatest treasure of Turtle Island, the likes of which have never been seen, is hidden, sealed in some secret place...";
+				mes "O / XX fecha";
+				mes "El mayor tesoro de Turtle Island, como nunca se ha visto, esta escondido, sellado en algun lugar secreto...";
 				next;
 				mes "[Voyage Log]";
-				mes "We have spent many days searching for it, but found not one trace.";
+				mes "Hemos pasado muchos dias buscandolo, pero no encontramos ni un rastro.";
 				next;
 				mes "[Voyage Log]";
-				mes "In the meantime, we've collected many precious treasures. We've decided to take only some of it back home, and to leave the rest here.";
+				mes "Mientras tanto, hemos recolectado muchos tesoros preciosos. Decidimos llevar solo algo de vuelta a casa, y dejar el resto aqui.";
 				next;
 				mes "[Voyage Log]";
-				mes "XO / XX date";
-				mes "We have hidden the treasure we have left behind to keep it from getting stolen.";
+				mes "XO / XX fecha";
+				mes "Hemos escondido el tesoro que dejamos atras para evitar que sea robado.";
 				next;
 				mes "[Voyage Log]";
-				mes "It is somewhere on the fourth level, the bottom of the island. The treasure is sealed in a box that is a relic from an ancient culture.";
+				mes "Esta en algun lugar del cuarto nivel, el fondo de la isla. El tesoro esta sellado en una caja que es una reliquia de una cultura antigua.";
 				next;
 				mes "[Voyage Log]";
-				mes "However, the technology of this treasure box is very sophisticated, and it won't be easy to open by force.";
+				mes "Sin embargo, la tecnologia de esta caja de tesoro es muy sofisticada, y no sera facil abrirla por la fuerza.";
 				next;
 				mes "[Voyage Log]";
-				mes "Here...";
+				mes "Aqui...";
 				mes "^FF3355tur_dun01^000000";
 				mes "^FF3355X : 203 , Y : 155^000000";
 				next;
-				mes "^3355FFYou find three small holes under the turtle stone. Within one of these holes is a thin key.^000000";
+				mes "^3355FFEncuentras tres pequenos agujeros debajo de la piedra tortuga. Dentro de uno de estos agujeros hay una llave delgada.^000000";
 				next;
-				mes "^3355FFYou've gained ^000000";
-				mes "^3355FFthe Security key^000000";
+				mes "^3355FFHas obtenido ^000000";
+				mes "^3355FFla llave de Seguridad^000000";
 				set TURTLE,4;
 				changequest 11029,11032;
 				close;
 			}
 		}
-		mes "^3355FFYou've closed the voyage log.^000000";
+		mes "^3355FFHas cerrado el registro de viaje.^000000";
 		close;
 	}
 }
 
 tur_dun01,160,81,4	script	Skull Stone#tur	111,{
 	if (TURTLE == 2) {
-		mes "^3355FFUnder the stone^000000";
-		mes "^3355FFis a tiny key hole^000000";
-		mes "^3355FFwith a skull mark.^000000";
-		mes "^3355FFYou used the Skull key^000000";
-		mes "^3355FFin that key hole.^000000";
+		mes "^3355FFDebajo de la piedra^000000";
+		mes "^3355FFhay un pequeno agujero de cerradura^000000";
+		mes "^3355FFcon una marca de calavera.^000000";
+		mes "^3355FFUsaste la llave de Calavera^000000";
+		mes "^3355FFen ese agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Click! Click!*^000000";
 		next;
-		mes "^3355FFSuddenly, the top of^000000";
-		mes "^3355FFthe stone opened and^000000";
-		mes "^3355FFsome items popped out!!^000000";
+		mes "^3355FFDe repente, la parte superior^000000";
+		mes "^3355FFde la piedra se abrio y^000000";
+		mes "^3355FFalgunos objetos salieron!!^000000";
 		next;
 		set MISC_QUEST,MISC_QUEST | 65536;
 		set TURTLE,0;
@@ -1553,408 +1553,408 @@ tur_dun01,160,81,4	script	Skull Stone#tur	111,{
 		switch(rand(1,3)) {
 		case 1:
 			getitem 532,5; //Banana_Juice
-			mes "^3355FFYou've gained^000000";
+			mes "^3355FFHas obtenido^000000";
 			mes "^3355FF5 Banana Juice^000000";
 			close;
 		case 2:
 			getitem 513,5; //Banana
-			mes "^3355FFYou've gained^000000";
+			mes "^3355FFHas obtenido^000000";
 			mes "^3355FF5 Banana^000000";
 			close;
 		case 3:
 			getitem 513,5; //Banana
 			getitem 532,5; //Banana_Juice
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FF5 Banana and^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FF5 Banana y^000000";
 			mes "^3355FF5 Banana Juice^000000";
 			close;
 		}
 	}
-	mes "^3355FFIt is a frightening^000000";
-	mes "^3355FFstone tomb with a^000000";
-	mes "^3355FFhorrible skull on it.^000000";
+	mes "^3355FFEs una aterradora^000000";
+	mes "^3355FFtumba de piedra con una^000000";
+	mes "^3355FFhorrible calavera en ella.^000000";
 	close;
 }
 
 tur_dun02,132,251,4	script	Turtle Tree Roots#tur	111,{
 	if (TURTLE == 3) {
-		mes "^3355FFUnder the tree roots^000000";
-		mes "^3355FFis a tiny key hole^000000";
-		mes "^3355FFmarked with a root insignia.^000000";
-		mes "^3355FFYou used the Roots key^000000";
-		mes "^3355FFin that key hole.^000000";
+		mes "^3355FFDebajo de las raices del arbol^000000";
+		mes "^3355FFhay un pequeno agujero de cerradura^000000";
+		mes "^3355FFmarcado con una insignia de raiz.^000000";
+		mes "^3355FFUsaste la llave de Raices^000000";
+		mes "^3355FFen ese agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Swishy swashy!*^000000";
 		next;
-		mes "^3355FFBetween the roots^000000";
-		mes "^3355FFa little door opens,^000000";
-		mes "^3355FFrevealing an^000000";
-		mes "^3355FFold scroll.^000000";
+		mes "^3355FFEntre las raices^000000";
+		mes "^3355FFuna pequena puerta se abre,^000000";
+		mes "^3355FFrevelando un^000000";
+		mes "^3355FFviejo pergamino.^000000";
 		next;
 		mes "[Old scroll]";
-		mes "^FF3355Following the^000000";
-		mes "^FF3355legend from^000000";
-		mes "^FF3355my village,^000000";
-		mes "^FF3355I've come^000000";
-		mes "^FF3355to improve my^000000";
-		mes "^FF3355swordmanship...^000000";
+		mes "^FF3355Siguiendo la^000000";
+		mes "^FF3355leyenda de^000000";
+		mes "^FF3355mi aldea,^000000";
+		mes "^FF3355he venido^000000";
+		mes "^FF3355a mejorar mi^000000";
+		mes "^FF3355esgrima...^000000";
 		next;
 		mes "[Old scroll]";
-		mes "^FF3355Only one who^000000";
-		mes "^FF3355cuts the shell^000000";
-		mes "^FF3355of a turtle^000000";
-		mes "^FF3355can become a^000000";
-		mes "^FF3355grand master^000000";
-		mes "^FF3355of the sword...^000000";
+		mes "^FF3355Solo aquel que^000000";
+		mes "^FF3355corte el caparazon^000000";
+		mes "^FF3355de una tortuga^000000";
+		mes "^FF3355puede convertirse en^000000";
+		mes "^FF3355un gran maestro^000000";
+		mes "^FF3355de la espada...^000000";
 		next;
 		mes "[Old scroll]";
-		mes "^FF3355To fufill this^000000";
-		mes "^FF3355legend, I have^000000";
-		mes "^FF3355come. I, 'One,'^000000";
-		mes "^FF3355will cut the^000000";
-		mes "^FF3355turtle's shell!!^000000";
+		mes "^FF3355Para cumplir esta^000000";
+		mes "^FF3355leyenda, he^000000";
+		mes "^FF3355venido. Yo, 'One,'^000000";
+		mes "^FF3355cortare el^000000";
+		mes "^FF3355caparazon de la tortuga!!^000000";
 		next;
 		mes "[Old scroll]";
-		mes "^FF3355Go...^000000";
+		mes "^FF3355Ve...^000000";
 		mes "^FF3355tur_dun02^000000";
 		mes "^FF3355X : 46 , Y : 125^000000";
 		next;
-		mes "^3355FFInside the pile of turtle^000000";
-		mes "^3355FFcrystals, a scroll is hidden.^000000";
+		mes "^3355FFDentro del monton de cristales^000000";
+		mes "^3355FFde tortuga, un pergamino esta escondido.^000000";
 		set TURTLE,7;
 		changequest 11031,11033;
-		mes "^3355FFYou've gained a^000000";
-		mes "^3355FFTurtle Crystal key.^000000";
+		mes "^3355FFHas obtenido una^000000";
+		mes "^3355FFllave de Cristal de Tortuga.^000000";
 		close;
 	}
-	mes "^3355FFThere are old,^000000";
-	mes "^3355FFthick tree roots^000000";
-	mes "^3355FFanchored into^000000";
-	mes "^3355FFthe ground here.^000000";
+	mes "^3355FFHay viejas y^000000";
+	mes "^3355FFgruesas raices de arbol^000000";
+	mes "^3355FFancladas en^000000";
+	mes "^3355FFel suelo aqui.^000000";
 	close;
 }
 
 tur_dun02,46,125,4	script	A pile of turtle crystal	111,{
 	if (TURTLE == 7) {
-		mes "^3355FFAmong the Turtle Crystals,^000000";
-		mes "^3355FFyou find a strange key hole.^000000";
+		mes "^3355FFEntre los Cristales de Tortuga,^000000";
+		mes "^3355FFencuentras un extrano agujero de cerradura.^000000";
 		next;
-		mes "^3355FFYou use the";
-		mes "Turtle crystal key";
-		mes "in the key hole.^000000";
+		mes "^3355FFUsas la";
+		mes "llave de Cristal de Tortuga";
+		mes "en el agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Click! Click!*^000000";
 		next;
-		mes "^3355FFBetween the crystals,000000";
-		mes "^3355FFa small crystal plate^000000";
-		mes "^3355FFin which a message^000000";
-		mes "^3355FFin engraved.^000000";
+		mes "^3355FFEntre los cristales,000000";
+		mes "^3355FFuna pequena placa de cristal^000000";
+		mes "^3355FFen la cual un mensaje^000000";
+		mes "^3355FFesta grabado.^000000";
 		next;
 		mes "[Crystal Plate]";
-		mes "^3355AAI, the swordsman,^000000";
-		mes "^3355AA'One,' has succeeded.^000000";
-		mes "^3355AAI've cut the turtle's shell.^000000";
-		mes "^3355AANow I shall try to^000000";
-		mes "^3355AAcut turtle crystal.^000000";
+		mes "^3355AAYo, el espadachin,^000000";
+		mes "^3355AA'One,' he tenido exito.^000000";
+		mes "^3355AAHe cortado el caparazon de la tortuga.^000000";
+		mes "^3355AAAhora intentare^000000";
+		mes "^3355AAcortar el cristal de tortuga.^000000";
 		next;
 		mes "[Crystal Plate]";
-		mes "^3355AAThe surface of turtle^000000";
-		mes "^3355AAcrystal is so rough and^000000";
-		mes "^3355AAirregular. I'll need^000000";
-		mes "^3355AAto sharpen my skills.^000000";
+		mes "^3355AALa superficie del cristal^000000";
+		mes "^3355AAde tortuga es tan aspera e^000000";
+		mes "^3355AAirregular. Necesitare^000000";
+		mes "^3355AAafilar mis habilidades.^000000";
 		next;
 		mes "[Crystal Plate]";
-		mes "^3355AAIt's going to be tough,^000000";
-		mes "^3355AAbut I will succeed...^000000";
+		mes "^3355AAVa a ser dificil,^000000";
+		mes "^3355AApero lo lograre...^000000";
 		next;
 		mes "[Crystal plate]";
-		mes "^3355AAGo 5 steps east,^000000";
-		mes "^3355AA30 steps south^000000";
-		mes "^3355AAand 5 steps around^000000";
-		mes "^3355AAthe turtle pillar.^000000";
-		mes "^3355AAThere you will find^000000";
-		mes "^3355AAthe end of sword art.^000000";
+		mes "^3355AAVe 5 pasos al este,^000000";
+		mes "^3355AA30 pasos al sur^000000";
+		mes "^3355AAy 5 pasos alrededor^000000";
+		mes "^3355AAdel pilar de tortuga.^000000";
+		mes "^3355AAAhi encontraras^000000";
+		mes "^3355AAel fin del arte de la espada.^000000";
 		next;
-		mes "^3355FFAt the edge of the crystal^000000";
-		mes "^3355FFplate, is a long key.^000000";
+		mes "^3355FFEn el borde de la placa de cristal^000000";
+		mes "^3355FFhay una llave larga.^000000";
 		set TURTLE,8;
 		changequest 11033,11034;
-		mes "^3355FFYou've gained the^000000";
-		mes "^3355FFTurtle Pillar key.^000000";
+		mes "^3355FFHas obtenido la^000000";
+		mes "^3355FFllave del Pilar de Tortuga.^000000";
 		close;
 	}
-	mes "^3355FFThere are so many Turtle^000000";
-	mes "^3355FFCrystals that can only be^000000";
-	mes "^3355FFfound on Turtle island.^000000";
+	mes "^3355FFHay tantos Cristales de^000000";
+	mes "^3355FFTortuga que solo se pueden^000000";
+	mes "^3355FFencontrar en Turtle Island.^000000";
 	close;
 }
 
 tur_dun02,49,158,4	script	Turtle Pillar#tur	111,{
 	if (TURTLE == 8) {
-		mes "^3355FFAt the base of the pillar^000000";
-		mes "^3355FFis a tiny key hole with^000000";
-		mes "^3355FFa turtle shaped mark.^000000";
-		mes "^3355FFYou used the";
-		mes "Turtle Pillar key";
-		mes "in that key hole.^000000";
+		mes "^3355FFEn la base del pilar^000000";
+		mes "^3355FFhay un pequeno agujero de cerradura con^000000";
+		mes "^3355FFuna marca en forma de tortuga.^000000";
+		mes "^3355FFUsaste la";
+		mes "llave del Pilar de Tortuga";
+		mes "en ese agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Click! Crack!*^000000";
 		next;
-		mes "^3355FFAt the base of the pillar,^000000";
-		mes "^3355FFa little door appears, and^000000";
-		mes "^3355FFfrom that door an engraved^000000";
-		mes "^3355FFstone bead rolls out.^000000";
+		mes "^3355FFEn la base del pilar,^000000";
+		mes "^3355FFuna pequena puerta aparece, y^000000";
+		mes "^3355FFde esa puerta una cuenta de piedra^000000";
+		mes "^3355FFgrabada rueda hacia afuera.^000000";
 		next;
 		mes "[Turtle Stone Bead]";
-		mes "This turtle pillar is made of the strongest material on this island.";
+		mes "Este pilar de tortuga esta hecho del material mas fuerte en esta isla.";
 		next;
 		mes "[Turtle Stone Bead]";
-		mes "Cutting it is impossible for even someone with legendary skills. Even if I managed to cut it, all of Turtle Island would collapse upon me.";
+		mes "Cortarlo es imposible incluso para alguien con habilidades legendarias. Aunque lograra cortarlo, toda Turtle Island colapsaria sobre mi.";
 		next;
 		mes "[Turtle Stone Bead]";
-		mes "I've developed my mental skills, and trained using materials on this island. Sharpening my mind, I now know that I can cut this pillar in two.";
+		mes "He desarrollado mis habilidades mentales, y entrenado usando materiales de esta isla. Afilando mi mente, ahora se que puedo cortar este pilar en dos.";
 		next;
 		mes "[Turtle Stone Bead]";
-		mes "Can this be the pinnacle of swordsmanship? Of the sword arts?";
+		mes "Puede ser esto la cima de la esgrima? Del arte de la espada?";
 		next;
 		mes "[Turtle Stone Bead]";
-		mes "For this final accomplishment, I leave behind an offering.";
+		mes "Para este logro final, dejo una ofrenda.";
 		next;
 		mes "[Turtle Stone Bead]";
-		mes "I intend to offer my gratitude to the blood of the monsters I have killed, and the materials I have used in my training.";
+		mes "Pretendo ofrecer mi gratitud a la sangre de los monstruos que he matado, y los materiales que he usado en mi entrenamiento.";
 		next;
-		mes "^3355FFThere are many items^000000";
-		mes "^3355FFunder the pillar...^000000";
+		mes "^3355FFHay muchos objetos^000000";
+		mes "^3355FFdebajo del pilar...^000000";
 		set MISC_QUEST,MISC_QUEST | 65536;
 		set TURTLE,0;
 		completequest 11034;
 		switch(rand(1,10)) {
 		case 1:
 			getitem 702,1; //Animal_Blood
-			mes "^3355FFYou've gained ^000000";
+			mes "^3355FFHas obtenido ^000000";
 			mes "^3355FFAnimal Gore.^000000";
 			close;
 		case 2:
 			getitem 716,1; //Red_Gemstone
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Red Gemstone.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Red Gemstone.^000000";
 			close;
 		case 3:
 			getitem 734,1; //Red_Frame
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Red Frame^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFun Red Frame^000000";
 			close;
 		case 4:
 			getitem 10019,1; //Red_Muffler
-			mes "^3355FFYou've gained^000000";
+			mes "^3355FFHas obtenido^000000";
 			mes "^3355FFRed Scarf.^000000";
 			close;
 		case 5:
 			getitem 725,1; //Red_Jewel
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Sardonyx.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Sardonyx.^000000";
 			close;
 		case 6:
 			getitem 716,1; //Red_Gemstone
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Red Gemstone.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Red Gemstone.^000000";
 			close;
 		case 7:
 			getitem 716,1; //Red_Gemstone
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Red Gemstone.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Red Gemstone.^000000";
 			close;
 		case 8:
 			getitem 716,1; //Red_Gemstone
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Red Gemstone.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Red Gemstone.^000000";
 			close;
 		case 9:
 			getitem 716,1; //Red_Gemstone
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Red Gemstone.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Red Gemstone.^000000";
 			close;
 		case 10:
 			getitem 725,1; //Red_Jewel
-			mes "^3355FFYou've gained^000000";
-			mes "^3355FFa Sardonyx.^000000";
+			mes "^3355FFHas obtenido^000000";
+			mes "^3355FFuna Sardonyx.^000000";
 			close;
 		}
 	}
-	mes "^3355FFThis Turtle Pillar^000000";
-	mes "^3355FFis just one of^000000";
-	mes "^3355FFmany pillars.^000000";
+	mes "^3355FFEste Pilar de Tortuga^000000";
+	mes "^3355FFes solo uno de^000000";
+	mes "^3355FFmuchos pilares.^000000";
 	next;
-	mes "^3355FFOr is it...?^000000";
+	mes "^3355FFO lo es...?^000000";
 	close;
 }
 
 tur_dun01,203,155,4	script	Turtle stone#tur	111,{
 	if (TURTLE == 4) {
-		mes "^3355FFOn top of the stone";
-		mes "is a small key hole";
-		mes "with the turtle mark.^000000";
+		mes "^3355FFEncima de la piedra";
+		mes "hay un pequeno agujero de cerradura";
+		mes "con la marca de tortuga.^000000";
 		next;
-		mes "^3355FFYou used the";
-		mes "Security Key";
-		mes "in that hole.^000000";
+		mes "^3355FFUsaste la";
+		mes "llave de Seguridad";
+		mes "en ese agujero.^000000";
 		next;
 		mes "^3355FF*Tat tat tat tat*^000000";
 		next;
-		mes "^3355FFThe back of the stone";
-		mes "split into two parts";
-		mes "revealing some hidden";
-		mes "words engraved inside.^000000";
+		mes "^3355FFLa parte trasera de la piedra";
+		mes "se dividio en dos partes";
+		mes "revelando algunas palabras";
+		mes "ocultas grabadas adentro.^000000";
 		next;
 		mes "[Turtle Stone]";
-		mes "The one who dreams to be a star of serenity must first hold the comet and three rays of light as one.";
+		mes "Aquel que suena con ser una estrella de serenidad debe primero sostener el cometa y tres rayos de luz como uno.";
 		next;
 		mes "[Turtle Stone]";
-		mes "You already possess the comet, so I grant you the first light...";
+		mes "Ya posees el cometa, asi que te concedo la primera luz...";
 		next;
 		mes "[Turtle Stone]";
-		mes "- Light of the second stage -";
+		mes "- Luz de la segunda etapa -";
 		mes "^FF3355B2 , X : 75 , Y : 249^000000";
 		next;
-		mes "^3355FFAt the bottom of the stone";
-		mes "beneath the line of words,";
-		mes "rests a brilliant red bead.^000000";
+		mes "^3355FFEn el fondo de la piedra";
+		mes "debajo de la linea de palabras,";
+		mes "descansa una brillante cuenta roja.^000000";
 		next;
 		set TURTLE,10;
 		changequest 11032,11035;
-		mes "^3355FFYou set the red bead to the";
-		mes "Security key, fitting it";
-		mes "within one of three tiny holes.^000000";
+		mes "^3355FFColocas la cuenta roja en la";
+		mes "llave de Seguridad, encajandola";
+		mes "dentro de uno de tres pequenos agujeros.^000000";
 		close;
 	}
-	mes "^3355FFIt is just a";
-	mes "normal turtle";
-	mes "stone. But";
-	mes "on the top";
-	mes "is written";
-	mes "the words,";
-	mes "'1st stage.'^000000";
+	mes "^3355FFEs solo una";
+	mes "piedra de tortuga";
+	mes "normal. Pero";
+	mes "en la parte superior";
+	mes "esta escrita";
+	mes "la palabra,";
+	mes "'1ra etapa.'^000000";
 	close;
 }
 
 tur_dun02,75,249,4	script	Turtle stone#tur2	111,{
 	if (TURTLE == 10) {
-		mes "^3355FFOn top of the stone";
-		mes "is a small keyhole";
-		mes "with the turtle mark.^000000";
+		mes "^3355FFEncima de la piedra";
+		mes "hay un pequeno agujero de cerradura";
+		mes "con la marca de tortuga.^000000";
 		next;
-		mes "^3355FFYou used the";
-		mes "Security Key";
-		mes "in the keyhole.^000000";
+		mes "^3355FFUsaste la";
+		mes "llave de Seguridad";
+		mes "en el agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Click! Click!*^000000";
 		next;
-		mes "^3355FFThe back of the stone";
-		mes "split into two parts";
-		mes "revealing some hidden";
-		mes "words along the inside.^000000";
+		mes "^3355FFLa parte trasera de la piedra";
+		mes "se dividio en dos partes";
+		mes "revelando algunas palabras";
+		mes "ocultas a lo largo del interior.^000000";
 		next;
 		mes "[Turtle Stone]";
-		mes "The one who dreams to be a star of serenity must first hold the comet and three rays of light as one.";
+		mes "Aquel que suena con ser una estrella de serenidad debe primero sostener el cometa y tres rayos de luz como uno.";
 		next;
 		mes "[Turtle Stone]";
-		mes "You already possess the comet and the first light, so I now grant you the second light.";
+		mes "Ya posees el cometa y la primera luz, asi que ahora te concedo la segunda luz.";
 		next;
 		mes "[Turtle stone]";
-		mes "- Light of the third stage -";
+		mes "- Luz de la tercera etapa -";
 		mes "^FF3355B3 . X : 118 . Y : 233^000000";
 		next;
-		mes "At the bottom of the stone";
-		mes "beneath the line of words,";
-		mes "rests a brilliant yellow bead.";
+		mes "En el fondo de la piedra";
+		mes "debajo de la linea de palabras,";
+		mes "descansa una brillante cuenta amarilla.";
 		next;
 		set TURTLE,11;
 		changequest 11035,11036;
-		mes "^3355FFYou set the yellow bead";
-		mes "into the Security key, fitting it";
-		mes "within one of three tiny holes.^000000";
+		mes "^3355FFColocas la cuenta amarilla";
+		mes "en la llave de Seguridad, encajandola";
+		mes "dentro de uno de tres pequenos agujeros.^000000";
 		close;
 	}
-	mes "^3355FFIt is just a";
-	mes "normal turtle";
-	mes "stone. But";
-	mes "on the top,";
-	mes "the words";
-	mes "'2nd stage'";
-	mes "are written.^000000";
+	mes "^3355FFEs solo una";
+	mes "piedra de tortuga";
+	mes "normal. Pero";
+	mes "en la parte superior,";
+	mes "las palabras";
+	mes "'2da etapa'";
+	mes "estan escritas.^000000";
 	close;
 }
 
 tur_dun03,118,233,4	script	Turtle Stone#tur3	111,{
 	if (TURTLE == 11) {
-		mes "^3355FFOn top of the stone";
-		mes "is a small key hole";
-		mes "with the turtle mark.^000000";
+		mes "^3355FFEncima de la piedra";
+		mes "hay un pequeno agujero de cerradura";
+		mes "con la marca de tortuga.^000000";
 		next;
-		mes "^3355FFYou used the";
-		mes "Security Key";
-		mes "in the keyhole.^000000";
+		mes "^3355FFUsaste la";
+		mes "llave de Seguridad";
+		mes "en el agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Click! Click!*^000000";
 		next;
-		mes "^3355FFThe back of the stone";
-		mes "split into two parts";
-		mes "revealing some hidden";
-		mes "words along the inside.^000000";
+		mes "^3355FFLa parte trasera de la piedra";
+		mes "se dividio en dos partes";
+		mes "revelando algunas palabras";
+		mes "ocultas a lo largo del interior.^000000";
 		next;
 		mes "[Turtle Stone]";
-		mes "The one who dreams to be a star of serenity must first hold the comet and three rays of light as one.";
+		mes "Aquel que suena con ser una estrella de serenidad debe primero sostener el cometa y tres rayos de luz como uno.";
 		next;
 		mes "[Turtle Stone]";
-		mes "You already possess the comet, and the first two lights. The final light is now yours.";
+		mes "Ya posees el cometa, y las dos primeras luces. La luz final ahora es tuya.";
 		next;
 		mes "[Turtle Stone]";
-		mes "- Star of Serenity -";
+		mes "- Estrella de Serenidad -";
 		mes "^FF3355B4 . X : 113 . Y : 178^000000";
 		next;
-		mes "^3355FFAt the bottom of the stone";
-		mes "beneath the line of words,";
-		mes "rests a brilliant blue bead.^000000";
+		mes "^3355FFEn el fondo de la piedra";
+		mes "debajo de la linea de palabras,";
+		mes "descansa una brillante cuenta azul.^000000";
 		next;
 		set TURTLE,12;
 		changequest 11036,11037;
-		mes "^3355FFYou set the blue bead to the";
-		mes "into the Security Key, fitting it";
-		mes "within one of three tiny holes.^000000";
+		mes "^3355FFColocas la cuenta azul en la";
+		mes "llave de Seguridad, encajandola";
+		mes "dentro de uno de tres pequenos agujeros.^000000";
 		close;
 	}
-	mes "^3355FFIt is just a";
-	mes "normal turtle";
-	mes "stone. But";
-	mes "on the top,";
-	mes "the words,";
-	mes "'3rd stage,'";
-	mes "are written.^000000";
+	mes "^3355FFEs solo una";
+	mes "piedra de tortuga";
+	mes "normal. Pero";
+	mes "en la parte superior,";
+	mes "las palabras,";
+	mes "'3ra etapa,'";
+	mes "estan escritas.^000000";
 	close;
 }
 
 tur_dun04,113,178,4	script	Turtle Statue#tur	111,{
 	if (TURTLE == 12) {
-		mes "^3355FFOn top of the statue";
-		mes "is a small key hole";
-		mes "with the turtle mark.^000000";
-		mes "^3355FFYou used the";
-		mes "Security Key";
-		mes "in the keyhole.^000000";
+		mes "^3355FFEncima de la estatua";
+		mes "hay un pequeno agujero de cerradura";
+		mes "con la marca de tortuga.^000000";
+		mes "^3355FFUsaste la";
+		mes "llave de Seguridad";
+		mes "en el agujero de cerradura.^000000";
 		next;
 		mes "^3355FF*Click! Click!*^000000";
 		next;
-		mes "^3355FFThe statue split into";
-		mes "two parts revealing a";
-		mes "metal plate underneath.^000000";
+		mes "^3355FFLa estatua se dividio en";
+		mes "dos partes revelando una";
+		mes "placa de metal debajo.^000000";
 		next;
 		mes "[Metal Plate]";
-		mes "To the one who dreams to be a star of serenity among the people: You know hold the comet and three rays of light as one.";
+		mes "A aquel que suena con ser una estrella de serenidad entre la gente: Ahora sostienes el cometa y tres rayos de luz como uno.";
 		next;
-		mes "^3355FFYou find a small lever";
-		mes "at the bottom of the";
-		mes "metal plate. You pull";
-		mes "it open like a drawer.^000000";
+		mes "^3355FFEncuentras una pequena palanca";
+		mes "en el fondo de la";
+		mes "placa de metal. La jalas";
+		mes "abriendola como un cajon.^000000";
 		next;
 		set MISC_QUEST,MISC_QUEST | 65536;
 		set TURTLE,0;
@@ -1963,740 +1963,740 @@ tur_dun04,113,178,4	script	Turtle Statue#tur	111,{
 			switch(rand(1,4)) {
 			case 1:
 				getitem 644,1; //Gift_Box
-				mes "^3355FFInside the drawer,";
-				mes "is a Gift Box. This";
-				mes "Gift Box is now yours.^000000";
+				mes "^3355FFDentro del cajon,";
+				mes "hay una Gift Box. Esta";
+				mes "Gift Box ahora es tuya.^000000";
 				close;
 			case 2:
 				getitem 616,1; //Old_Card_Album
-				mes "^3355FFInside the drawer,";
-				mes "is an Old Card Album.";
-				mes "It is now yours to keep.^000000";
+				mes "^3355FFDentro del cajon,";
+				mes "hay un Old Card Album.";
+				mes "Ahora es tuyo.^000000";
 				close;
 			case 3:
 				getitem 617,1; //Old_Violet_Box
-				mes "^3355FFInside the drawer,";
-				mes "is an Old Purple Box.";
-				mes "It is now yours to keep.^000000";
+				mes "^3355FFDentro del cajon,";
+				mes "hay una Old Purple Box.";
+				mes "Ahora es tuya.^000000";
 				close;
 			case 4:
 				getitem 617,1; //Old_Violet_Box
-				mes "^3355FFInside the drawer,";
-				mes "is an Old Purple Box.";
-				mes "It is now yours to keep.^000000";
+				mes "^3355FFDentro del cajon,";
+				mes "hay una Old Purple Box.";
+				mes "Ahora es tuya.^000000";
 				close;
 			}
 		}
 		getitem 604,1; //Branch_Of_Dead_Tree
-		mes "^3355FFInside the drawer,";
-		mes "is a Dead Branch.";
-		mes "It is now yours to keep.^000000";
+		mes "^3355FFDentro del cajon,";
+		mes "hay una Dead Branch.";
+		mes "Ahora es tuya.^000000";
 		close;
 	}
-	mes "^3355FFIt is a turtle statue";
-	mes "made of ordinary turtle";
-	mes "stone. On top of it is";
-	mes "the word 'Security.'^000000";
+	mes "^3355FFEs una estatua de tortuga";
+	mes "hecha de piedra de tortuga";
+	mes "ordinaria. Encima esta";
+	mes "la palabra 'Seguridad.'^000000";
 	close;
 }
 
 tur_dun03,105,76,4	script	Knight Leader#tur	110,5,5,{
 	mes "[Takuyaka]";
-	mes "Where did all my men go?!";
-	mes "This is horrible~!";
+	mes "A donde fueron todos mis hombres?!";
+	mes "Esto es horrible~!";
 	next;
 	mes "[Takuyaka]";
 	mes "Oh...";
-	mes "*Whew!*";
-	mes "Finally, another person.";
-	mes "Tell me who you are!";
+	mes "*Uf!*";
+	mes "Por fin, otra persona.";
+	mes "Dime quien eres!";
 	next;
-	switch(select("Who are you to ask?:"+ strcharinfo(0) +"!:What are you doing here?:First, tell me who you are.")) {
+	switch(select("Quien eres tu para preguntar?:"+ strcharinfo(0) +"!:Que haces aqui?:Primero, dime quien eres tu.")) {
 	case 1:
 		mes "[Takuyaka]";
-		mes "How dare you speak to me in that tone! Don't you know who I am?! I'm Takuyaka, leader of the Security Knights of Alberta! Kobolds and Porings quiver in fear when they hear my name...";
+		mes "Como te atreves a hablarme en ese tono! No sabes quien soy?! Soy Takuyaka, lider de los Caballeros de Seguridad de Alberta! Kobolds y Porings tiemblan de miedo cuando escuchan mi nombre...";
 		next;
 		mes "[Takuyaka]";
-		mes "So tell me the truth! You came here for treasure, didn't you?! You want it all for yourself! You bastard! Now get off this island! Go, shoo!";
+		mes "Asi que dime la verdad! Viniste aqui por tesoros, verdad?! Los quieres todos para ti! Desgraciado! Ahora largate de esta isla! Vete, fuera!";
 		close;
 	case 2:
 		mes "[Takuyaka]";
 		mes "" + strcharinfo(0) + "?";
-		mes "Well, your name sounds better than mine. And you have more hair on your head as well. Hmmm...";
+		mes "Bueno, tu nombre suena mejor que el mio. Y tienes mas pelo en la cabeza tambien. Hmmm...";
 		next;
 		mes "[Takuyaka]";
-		mes "Do you have anything to give me? You know, some food or zeny? It's not like I really need it, it's just... Oh bother. Never mind. Perhaps we'll meet later.";
+		mes "Tienes algo para darme? Ya sabes, algo de comida o zeny? No es que realmente lo necesite, es solo... Ay, no importa. Quiza nos veamos despues.";
 		close;
 	case 3:
 		mes "[Takuyaka]";
-		mes "I've heard that many treasures can be found on Turtle Island. If I can take enough home, I'll be rich! Well, we're supposed to rescue lost adventurers too, but whatever. As leader, I can do whatever I want!";
+		mes "He oido que muchos tesoros se pueden encontrar en Turtle Island. Si puedo llevar suficientes a casa, sere rico! Bueno, se supone que rescatamos aventureros perdidos tambien, pero da igual. Como lider, puedo hacer lo que quiera!";
 		next;
 		mes "[Takuyaka]";
-		mes "However, we're totally lost. Meaning we can't find any treasure or even rescue any people. Grrr...! Where are my useless soldiers! I've probably spoiled them with too much food!";
+		mes "Sin embargo, estamos totalmente perdidos. Significa que no podemos encontrar tesoros ni rescatar personas. Grrr...! Donde estan mis inservibles soldados! Probablemente los he malcriado con demasiada comida!";
 		next;
 		mes "[Takuyaka]";
-		mes "If you see any of them, tell them they must assemble here! Alright?!";
+		mes "Si ves a alguno de ellos, diles que deben reunirse aqui! Entendido?!";
 		close;
 	case 4:
 		mes "[Takuyaka]";
-		mes "Me? I'm Takuyaka. A tall, dark, handsome, and dashing leader, as well as a fearsome knight! I have come to save the foolish people of Alberta that have come seeking treasure on Turtle Island.";
+		mes "Yo? Soy Takuyaka. Un alto, moreno, guapo y apuesto lider, ademas de un temible caballero! He venido a salvar a la gente tonta de Alberta que ha venido buscando tesoros a Turtle Island.";
 		next;
 		mes "[Mudasamu]";
-		mes "Really, now?";
+		mes "De verdad?";
 		next;
 		mes "[Takuyaka]";
-		mes "Quiet!";
+		mes "Silencio!";
 		next;
 		mes "[Takuyaka]";
-		mes "Anyway, we came here with the purest of intents. But right when we arrived, we were attacked by monsters! Because of the confusion from all the fighting, my soldiers were scattered.";
+		mes "De todas formas, vinimos aqui con las intenciones mas puras. Pero justo cuando llegamos, fuimos atacados por monstruos! Por la confusion de toda la pelea, mis soldados se dispersaron.";
 		next;
 		mes "[Takuyaka]";
 		mes "Mudasamu!";
-		mes "Why is this";
-		mes "happening to me!!!!";
+		mes "Por que me pasa";
+		mes "esto a mi!!!!";
 		next;
 		mes "[Mudasamu]";
-		mes "Huh...!";
-		mes "Why should you";
-		mes "be surprised,";
-		mes "you chubby dwarf?";
+		mes "Eh...!";
+		mes "Por que deberia";
+		mes "sorprenderte,";
+		mes "enano regordete?";
 		close;
 	}
 
 OnTouch_:
 	mes "[Scared Voice]";
-	mes "Wh-wh-whaat?!";
+	mes "Qu-qu-queeee?!";
 	next;
 	mes "[Terrified Voice]";
-	mes "What's that noise?!";
+	mes "Que es ese ruido?!";
 	mes "M-M-Mudasamu!";
-	mes "Protect me!";
+	mes "Protegeme!";
 	next;
 	mes "[Mudasamu]";
 	mes "No.";
-	mes "And shut up.";
+	mes "Y callate.";
 	close;
 }
 
 tur_dun03,105,74,4	script	Mudasamu#tur	119,{
 	mes "[Mudasamu]";
-	mes "My name is Mudasamu...";
-	mes "Second in command of the";
-	mes "Alberta Security Knights.";
+	mes "Mi nombre es Mudasamu...";
+	mes "Segundo al mando de los";
+	mes "Caballeros de Seguridad de Alberta.";
 	next;
 	mes "[Mudasamu]";
-	mes "We've come here to rescue treasure hunters that might be in trouble. However, our leader is this porky specimen right next to me. So I guess I foresaw that this mission would fail.";
+	mes "Vinimos aqui para rescatar cazadores de tesoros que pudieran estar en problemas. Sin embargo, nuestro lider es este gordo especimen junto a mi. Asi que supongo que prevei que esta mision fracasaria.";
 	next;
 	mes "[Mudasamu]";
-	mes "Basically, our leader was so distracted by the idea of finding treasure himself that we've lost our men. It's bad enough that he's a fat slob, but he's a greedy slob too!";
+	mes "Basicamente, nuestro lider estaba tan distraido con la idea de encontrar tesoros el mismo que perdimos a nuestros hombres. Ya es suficiente que sea un gordo vago, pero ademas es un vago avaro!";
 	next;
 	emotion ET_ANGER;
 	mes "[Takuyaka]";
-	mes "Hey, Mudasamu!";
-	mes "Are you talking";
-	mes "about me?!";
+	mes "Oye, Mudasamu!";
+	mes "Estas hablando";
+	mes "de mi?!";
 	next;
 	mes "[Mudasamu]";
-	mes "No, fat one,";
-	mes "we're not";
-	mes "talking about you.";
+	mes "No, gordo,";
+	mes "no estamos";
+	mes "hablando de ti.";
 	next;
 	mes "[Mudasamu]";
-	mes "*Sigh...*";
-	mes "I better be paid";
-	mes "overtime for";
-	mes "putting up with this.";
+	mes "*Suspiro...*";
+	mes "Mejor me pagan";
+	mes "tiempo extra por";
+	mes "aguantar esto.";
 	close;
 }
 
 tur_dun01,190,115,4	script	Knight#tur	105,{
 	mes "[?]";
-	mes "Where are they?";
-	mes "Oh hey! You're an adventurer, aren't you? Do you know where my comrades are?";
+	mes "Donde estan?";
+	mes "Oye! Eres un aventurero, verdad? Sabes donde estan mis companeros?";
 	next;
-	switch(select("Who are you?:Sorry, I don't.:Why did you come here?:How did you get here?")) {
+	switch(select("Quien eres?:Lo siento, no.:Por que vinieron aqui?:Como llegaste aqui?")) {
 	case 1:
 		mes "[Passats]";
-		mes "My name is Passats, a proud Security Knight of Alberta. We've obtained some information that some people came here to seek treasure.";
+		mes "Mi nombre es Passats, un orgulloso Caballero de Seguridad de Alberta. Obtuvimos informacion de que algunas personas vinieron aqui buscando tesoros.";
 		next;
 		mes "[Passats]";
-		mes "Our task here is to save people, but when we arrived on Turtle Island, we were attacked by a mob of monsters! So we all got scattered.";
+		mes "Nuestra tarea aqui es salvar gente, pero cuando llegamos a Turtle Island, fuimos atacados por una turba de monstruos! Asi que todos nos dispersamos.";
 		next;
 		mes "[Passats]";
-		mes "Now I'm all alone. If you find anyone else in my unit, would you let them know?";
+		mes "Ahora estoy solo. Si encuentras a alguien mas de mi unidad, les avisarias?";
 		close;
 	case 2:
 		mes "[Passats]";
-		mes "Ah well...";
-		mes "Well, if you happen to find anyone else in my unit, would you let them know where I am?";
+		mes "Ah bueno...";
+		mes "Bueno, si encuentras a alguien mas de mi unidad, les avisarias donde estoy?";
 		next;
 		mes "[Passat]";
-		mes "Oh, and if you find our leader, kick his butt, will you? It's so fat, there's no way you can miss.";
+		mes "Oh, y si encuentras a nuestro lider, pateale el trasero, si? Esta tan gordo que no hay forma de que le falles.";
 		next;
 		if (BaseLevel <= 10)
 			percentheal 40,0;
 		mes "[Passats]";
 		mes "Oh...";
-		mes "And, um...";
-		mes "Cheer up!";
+		mes "Y, eh...";
+		mes "Animo!";
 		close;
 	case 3:
 		mes "[Passats]";
-		mes "There are a lot of stories about the amazing wealth that can be found on this island. However, everyone assumed that it was impossible to find Turtle Island.";
+		mes "Hay muchas historias sobre la asombrosa riqueza que se puede encontrar en esta isla. Sin embargo, todos asumian que era imposible encontrar Turtle Island.";
 		next;
 		mes "[Passats]";
-		mes "But then, the problem began when some navigator actually knew the way to Turtle Island. I think he'll take just about anybody for 10,000 zeny!";
+		mes "Pero luego, el problema empezo cuando algun navegante realmente sabia el camino a Turtle Island. Creo que llevara a cualquiera por 10,000 zeny!";
 		next;
 		mes "[Passats]";
-		mes "So anyway, some of the people of Alberta have been foolishly coming here, hoping to find treasure. But of course, they can't fight monsters.";
+		mes "Asi que, de todas formas, algunos de los habitantes de Alberta han estado viniendo aqui tontamente, esperando encontrar tesoros. Pero por supuesto, no saben pelear contra monstruos.";
 		next;
 		mes "[Passats]";
-		mes "So now we're here in order to seek out towners in trouble, and send them safely back home. Of course, now it seems that we also need rescuing...";
+		mes "Asi que ahora estamos aqui para buscar a los ciudadanos en problemas, y enviarlos de regreso a casa sanos y salvos. Por supuesto, ahora parece que nosotros tambien necesitamos rescate...";
 		close;
 	case 4:
 		mes "[Passats]";
 		mes "Hmmm...";
 		next;
 		mes "[Passats]";
-		mes "No clue.";
+		mes "Ni idea.";
 		next;
-		select("How can that be?!");
+		select("Como puede ser?!");
 		mes "[Passats]";
-		mes "Oh, don't be angry. I just drank too much vodka! Before we arrived I was still unconscious and when I finally sobered up, I was here. I'm so embarrassed~";
+		mes "Oh, no te enojes. Es que tome mucho vodka! Antes de llegar aun estaba inconsciente y cuando finalmente me sobrie, estaba aqui. Que verguenza~";
 		next;
 		mes "[Passats]";
-		mes "I...";
-		mes "I'm a victim too~";
+		mes "Yo...";
+		mes "Yo tambien soy una victima~";
 		close;
 	}
 }
 
 tur_dun03,189,126,4	script	Knight#tur2	105,{
 	mes "[Jayprocat]";
-	mes "Oh? Are you a civilian? Nice to meet you. I'm a mighty Security Knight of Alberta, Jayprocat.";
+	mes "Oh? Eres un civil? Gusto en conocerte. Soy un poderoso Caballero de Seguridad de Alberta, Jayprocat.";
 	next;
-	if (select("What is that, exactly?:I'm not impressed.") == 1) {
+	if (select("Que es eso, exactamente?:No estoy impresionado.") == 1) {
 		mes "[Jayprocat]";
-		mes "Well...";
-		mes "We're supposed to protect the people of Alberta. That's our job as proud Security Knights.";
+		mes "Bueno...";
+		mes "Se supone que protegemos a la gente de Alberta. Ese es nuestro trabajo como orgullosos Caballeros de Seguridad.";
 		next;
 		mes "[Jayprocat]";
-		mes "So when a bunch of them caught treasure fever and started coming here, we came to rescue them. Anyway, that was the plan.";
+		mes "Entonces cuando un monton de ellos les dio fiebre del tesoro y empezaron a venir aqui, vinimos a rescatarlos. De todas formas, ese era el plan.";
 		next;
 		mes "[Jayprocat]";
-		mes "It turns out that by some joke by fate, our leader is this pudgy guy who attracted a mob on monsters to us by noisily digging up treasure, instead of doing what we were supposed to do.";
+		mes "Resulta que por alguna broma del destino, nuestro lider es este tipo gordito que nos atrajo una turba de monstruos cavando ruidosamente tesoros, en vez de hacer lo que se suponia que debiamos hacer.";
 		next;
 		mes "[Jayprocat]";
-		mes "*Sigh...*";
-		mes "Why wasn't Mudasamu in charge? With him as leader, I would've been home for dinner...";
+		mes "*Suspiro...*";
+		mes "Por que no estaba Mudasamu al mando? Con el como lider, hubiera llegado a casa para la cena...";
 		close;
 	}
 	mes "[Jayprocat]";
-	mes "Well...";
-	mes "It's true that we pretty much messed up our current mission to save anyone here seeking for treasure, since we need rescuing now as well.";
+	mes "Bueno...";
+	mes "Es verdad que basicamente fallamos nuestra mision actual de salvar a alguien aqui que busque tesoros, ya que nosotros tambien necesitamos rescate ahora.";
 	next;
 	mes "[Jayprocat]";
 	mes "*Sniff*";
-	mes "Why did we have to be attacked by so many monsters on my first mission? I'm... I'm just a new recruit...";
+	mes "Por que tuvimos que ser atacados por tantos monstruos en mi primera mision? Soy... Soy solo un recluta nuevo...";
 	next;
-	if (select("Why did you run away?:I don't care.") == 1) {
+	if (select("Por que huiste?:No me importa.") == 1) {
 		mes "[Jayprocat]";
-		mes "No, I didn't just run away! The monsters were too stong and there were so many of them! Plus, it's our damn leader's fault.";
+		mes "No, no simplemente hui! Los monstruos eran demasiado fuertes y habia muchos! Ademas, es culpa de nuestro maldito lider.";
 		next;
 		mes "[Jayprocat]";
-		mes "The monsters are all highly evolved turtles. And this island even looks like a turtle! But I guess you knew that already.";
+		mes "Los monstruos son todas tortugas altamente evolucionadas. Y esta isla hasta parece una tortuga! Pero supongo que eso ya lo sabias.";
 		next;
 		mes "[Jayprocat]";
-		mes "I had no idea that this island's monsters were so much stronger than the ones that live near Alberta.";
+		mes "No tenia idea de que los monstruos de esta isla fueran mucho mas fuertes que los que viven cerca de Alberta.";
 		next;
 		mes "[Jayprocat]";
-		mes "Their shells are so tough, and we can't seem to find any sort of weak point! I have no idea how to fight these turtles!";
+		mes "Sus caparazones son tan duros, y no podemos encontrar ningun punto debil! No tengo idea de como pelear contra estas tortugas!";
 		close;
 	}
 	mes "[Jayprocat]";
-	mes "You're so mean...";
-	mes "I mean, I'm really new at this!";
+	mes "Que malo eres...";
+	mes "Digo, de verdad soy nuevo en esto!";
 	close;
 }
 
 tur_dun03,104,171,4	script	Knight#tur3	105,{
 	mes "[Squall]";
-	mes "Am I the only one left? Where are all my comrades?! I... I'm about to go crazy!";
+	mes "Soy el unico que queda? Donde estan todos mis companeros?! Yo... Estoy a punto de volverme loco!";
 	next;
-	if(select("Maybe they ran away?:What happened?") == 1) {
+	if(select("Quiza huyeron?:Que paso?") == 1) {
 		mes "[Squall]";
-		mes "No, we would never run away from the face of danger.";
+		mes "No, nunca huiriamos del peligro.";
 		next;
 		mes "[Squall]";
-		mes "Well, we sort of did, but that was because it was a direct order from our leader! If a knight is loyal and proud, he will accept his leader's orders without question!";
+		mes "Bueno, mas o menos lo hicimos, pero eso fue porque fue una orden directa de nuestro lider! Si un caballero es leal y orgulloso, aceptara las ordenes de su lider sin cuestionar!";
 		next;
 		mes "[Squall]";
-		mes "Even if that leader is a little greedy, with hair that might be thinning...";
+		mes "Aunque ese lider sea un poco avaro, con pelo que quiza se esta cayendo...";
 		next;
 		mes "[Squall]";
-		mes "^FF0000And has the body";
-		mes "of a pregnant whale^000000.";
+		mes "^FF0000Y tiene el cuerpo";
+		mes "de una ballena embarazada^000000.";
 		next;
 		mes "[Squall]";
-		mes "Oh wait!";
-		mes "I shouldn't";
-		mes "have said that!";
-		mes "What I meant";
-		mes "to say was...";
+		mes "Ay espera!";
+		mes "No deberia";
+		mes "haber dicho eso!";
+		mes "Lo que quise";
+		mes "decir fue...";
 		next;
 		mes "[Squall]";
-		mes "^CC0000And has the";
-		mes "body of a whale";
-		mes "pregnant with twins^000000.";
+		mes "^CC0000Y tiene el";
+		mes "cuerpo de una ballena";
+		mes "embarazada de gemelos^000000.";
 		next;
 		mes "[Squall]";
-		mes "Grrrr...!";
-		mes "I'm so angry!";
-		mes "Why can't Mudasamu";
-		mes "be our leader?!";
+		mes "Grrr...!";
+		mes "Estoy tan enojado!";
+		mes "Por que no puede Mudasamu";
+		mes "ser nuestro lider?!";
 		close;
 	}
 	mes "[Squall]";
-	mes "We had good plans for this mission, made by our second in command, Mudasamu. However, they were executely poorly by the first in command.";
+	mes "Teniamos buenos planes para esta mision, hechos por nuestro segundo al mando, Mudasamu. Sin embargo, fueron ejecutados pobremente por el primer al mando.";
 	next;
 	mes "[Squall]";
-	mes "Whenever Takuyaka leads a mission, he always manages to mess it up! Why do the leaders in Alberta like him anyway?!";
+	mes "Siempre que Takuyaka lidera una mision, siempre se las arregla para arruinarla! Por que a los lideres de Alberta les cae bien de todas formas?!";
 	next;
 	mes "[Squall]";
 	mes "*Sniff*";
-	mes "I sweat and I bleed for the Alberta Security Knights, and still I'm tortured by the fact that Sir Porky commands us. I hate it!";
+	mes "Sudo y sangro por los Caballeros de Seguridad de Alberta, y aun asi me tortura el hecho de que Sir Gordo nos comanda. Lo odio!";
 	next;
 	mes "[Squall]";
-	mes "Our weapon and armor budget is always gone after Takuyaka visits a buffet... Why do we have to be so miserable?!";
+	mes "Nuestro presupuesto de armas y armaduras siempre se acaba despues de que Takuyaka visita un buffet... Por que tenemos que ser tan miserables?!";
 	close;
 }
 
 tur_dun03,67,130,4	script	Knight#tur4	105,{
 	mes "[Nysurea]";
-	mes "Hm? I'm surprised that someone around here is still alive.";
+	mes "Hm? Me sorprende que alguien por aqui siga vivo.";
 	next;
 	mes "[Nysurea]";
-	mes "I'm beginning to think all my comrades have been killed by the monsters here...";
+	mes "Estoy empezando a pensar que todos mis companeros han sido asesinados por los monstruos de aqui...";
 	next;
 	if (BaseLevel <= 40) {
 		mes "[Nysurea]";
-		mes "Having a";
-		mes "tough time?";
+		mes "La estas pasando";
+		mes "dificil?";
 		next;
 		if (Zeny <= 3000) {
 			mes "[Nysurea]";
-			mes "Even though you're pretty strong, sooner or later you might need a reprieve. I can send you back to Alberta right now if you want.";
+			mes "Aunque eres bastante fuerte, tarde o temprano podrias necesitar un descanso. Puedo enviarte de regreso a Alberta ahora mismo si quieres.";
 			next;
-			if (select("Yes, Help me.:No, thanks.") == 1) {
+			if (select("Si, ayudame.:No, gracias.") == 1) {
 				mes "[Nysurea]";
-				mes "Okay then, let me activate this teleport thingee donated to us by Kafra Corporation...";
+				mes "Bueno entonces, dejame activar esta cosa de teletransporte donada por la Corporacion Kafra...";
 				close2;
 				warp "alberta",241,115;
 				end;
 			}
 			mes "[Nysurea]";
-			mes "Ah, that's the spirit! You should be careful though. And if you see any other of my comrades, let them know I'm here, would you?";
+			mes "Ah, asi se habla! Pero ten cuidado. Y si ves a alguno de mis otros companeros, hazles saber que estoy aqui, si?";
 			next;
 			mes "[Nysurea]";
-			mes "Well, good luck!";
+			mes "Bueno, buena suerte!";
 			close;
 		}
 		mes "[Nysurea]";
-		mes "You look lost! If you stick around here, well, the monsters will probably get the best of you sooner or later.";
+		mes "Te ves perdido! Si te quedas por aqui, bueno, los monstruos probablemente te ganaran tarde o temprano.";
 		next;
 		mes "[Nyusurea]";
-		mes "Anyway...";
-		mes "Good luck!";
-		mes "You'll need it!";
+		mes "De todas formas...";
+		mes "Buena suerte!";
+		mes "La vas a necesitar!";
 		close;
 	}
 	mes "[Nysurea]";
-	mes "Huh...";
-	mes "You look calm and collected. If all our soldiers were as strong as you, we probably would not have been scattered.";
+	mes "Eh...";
+	mes "Te ves tranquilo y sereno. Si todos nuestros soldados fueran tan fuertes como tu, probablemente no nos habriamos dispersado.";
 	next;
 	mes "[Nysurea]";
-	mes "I have dreams of becoming a great knight, but since our 'leader' is all plump and no brains, we're stuck in this predicament.";
+	mes "Tengo suenos de convertirme en un gran caballero, pero como nuestro 'lider' es todo gordo y nada de cerebro, estamos atrapados en este predicamento.";
 	next;
 	mes "[Nysurea]";
-	mes "Anyway, be careful in this third level of Turtle Island. A lot of our men were annihilated when they went to explore the East and North sides, so be careful!";
+	mes "De todas formas, ten cuidado en este tercer nivel de Turtle Island. Muchos de nuestros hombres fueron aniquilados cuando fueron a explorar los lados Este y Norte, asi que ten cuidado!";
 	close;
 }
 
 // Alberta Boy
-//============================================================ 
+//============================================================
 alberta_in,131,95,5	script	Iromo#ep3_2	706,{
 	if (ep13_2_hiki == 13) {
 		mes "[Iromo]";
-		mes "But... this world is...";
-		mes "What a big world... Not just humans...";
-		mes "Other lifeforms just like us...";
-		mes "Where could they be?...";
+		mes "Pero... este mundo es...";
+		mes "Que mundo tan grande... No solo humanos...";
+		mes "Otras formas de vida como nosotros...";
+		mes "Donde podrian estar?...";
 		next;
 		mes "[Iromo]";
-		mes "...Their lives.. and...";
-		mes "Their kingdom... and land...";
-		mes "Where could they be...";
+		mes "...Sus vidas.. y...";
+		mes "Su reino... y tierra...";
+		mes "Donde podrian estar...";
 		next;
 		mes "[Iromo]";
-		mes "If they exist, that'd be great...";
-		mes "No... they must exist...";
-		mes "I wish one day... one day I can go there...";
+		mes "Si existen, seria genial...";
+		mes "No... deben existir...";
+		mes "Ojala algun dia... algun dia pueda ir ahi...";
 		close;
 	}
 	if (ep13_2_hiki == 12) {
 		mes "[Iromo]";
-		mes "If it's too painful...";
-		mes "It's better if I don't...";
+		mes "Si es muy doloroso...";
+		mes "Es mejor si no lo hago...";
 		next;
-		mes "-Silent pause-";
+		mes "-Pausa silenciosa-";
 		next;
-		mes "-"+strcharinfo(0)+" starts to speak-";
-		mes "-And tells him of the journeys-";
-		mes "-Adventures, joy, sorrow, and loss-";
-		mes "-One by one to the boy-";
+		mes "-"+strcharinfo(0)+" comienza a hablar-";
+		mes "-Y le cuenta de los viajes-";
+		mes "-Aventuras, alegria, tristeza y perdida-";
+		mes "-Una por una al chico-";
 		next;
-		mes "-Fighting monsters, and winning-";
-		mes "-Coming across many people, and-";
-		mes "-leaving them, and tells of many other things-";
-		mes "-As much as possible, to the boy.-";
+		mes "-Peleando monstruos, y ganando-";
+		mes "-Encontrandose con mucha gente, y-";
+		mes "-dejandolos, y cuenta de muchas otras cosas-";
+		mes "-Tanto como es posible, al chico.-";
 		next;
-		mes "-Much has happened, and-";
-		mes "-There were many dangers, but in the end-";
-		mes "-Happy things outweighs the bad,-";
-		mes "-What I have received is more than what I have lost.-";
-		mes "-I try hard to convey this message to Iromo.-";
+		mes "-Mucho ha pasado, y-";
+		mes "-Hubo muchos peligros, pero al final-";
+		mes "-Las cosas felices superan las malas,-";
+		mes "-Lo que he recibido es mas de lo que he perdido.-";
+		mes "-Intento transmitir este mensaje a Iromo.-";
 		next;
 		mes "[Iromo]";
 		mes "...";
 		next;
 		mes "[Iromo]";
-		mes "...So in the end...";
-		mes "You just want me... to go outside...";
-		mes "Am I right...";
+		mes "...Asi que al final...";
+		mes "Solo quieres que yo... salga afuera...";
+		mes "Tengo razon...";
 		next;
-		select("It's true, you'll get more than you pay.");
+		select("Es verdad, obtendras mas de lo que pagas.");
 		mes "[Iromo]";
 		mes "...";
 		next;
 		mes "[Iromo]";
-		mes "...But now... I am not going outside.";
-		mes "I am still afraid...";
+		mes "...Pero ahora... no voy a salir.";
+		mes "Todavia tengo miedo...";
 		next;
 		mes "[Iromo]";
-		mes "Even if I don't go out right now,";
-		mes "I will still... make an effort to do so.";
-		mes "One day, I will surely become...";
-		mes "..An adventurer... and do many, many things.";
+		mes "Aunque no salga ahora mismo,";
+		mes "aun asi... hare el esfuerzo.";
+		mes "Un dia, seguramente me convertire en...";
+		mes "..Un aventurero... y hare muchas, muchas cosas.";
 		next;
 		set ep13_2_hiki,13;
 		completequest 10089;
 		getexp (checkre(3))?8000:80000,0;
 		mes "[Iromo]";
-		mes "The world is big, there are many things...";
-		mes "I have not seen yet. Yes... I want to...";
-		mes "...see them all.";
+		mes "El mundo es grande, hay muchas cosas...";
+		mes "Que no he visto aun. Si... quiero...";
+		mes "...verlas todas.";
 		close;
 	}
 	if ((ep13_2_hiki == 11) && (friendship > 14)) {
 		mes "[Iromo]";
-		mes "To go on an adventure with my friends,";
-		mes "I would still rather stay here.";
-		mes "I would still rather stay here quietly and safely.";
+		mes "Ir de aventura con mis amigos,";
+		mes "Todavia prefiero quedarme aqui.";
+		mes "Todavia prefiero quedarme aqui tranquilo y seguro.";
 		next;
 		mes "[Iromo]";
-		mes "Alright...go away. I know...";
-		mes "I know what you want to say...what an annoyance...";
+		mes "Bien...vete. Ya se...";
+		mes "Ya se lo que quieres decir...que fastidio...";
 		next;
-		mes "-You don't give up, and continue to-";
-		mes "-tell of the stories-";
-		mes "-shared with friends.-";
-		mes "-You tell of the truth.-";
+		mes "-No te rindes, y continuas-";
+		mes "-contando de las historias-";
+		mes "-compartidas con amigos.-";
+		mes "-Cuentas la verdad.-";
 		next;
-		mes "-Someone met long ago,-";
-		mes "-Suddenly leaves,-";
-		mes "-and finally reunited, but-";
-		mes "-because of the cruel fate-";
-		mes "-he dies in this tragedy.-";
-		mes "-In the end, it's all a tragedy...-";
+		mes "-Alguien que conociste hace mucho,-";
+		mes "-De repente se va,-";
+		mes "-y finalmente se reencuentran, pero-";
+		mes "-por el cruel destino-";
+		mes "-el muere en esta tragedia.-";
+		mes "-Al final, todo es una tragedia...-";
 		next;
-		mes "-But you emphasize -";
-		mes "-Even though the ending is tragic,-";
-		mes "-A beautiful friendship-";
-		mes "-Will not disappear because of that.-";
+		mes "-Pero tu enfatizas -";
+		mes "-Aunque el final es tragico,-";
+		mes "-Una hermosa amistad-";
+		mes "-No desaparecera por eso.-";
 		next;
 		mes "[Iromo]";
 		mes "...";
 		next;
 		mes "[Iromo]";
-		mes "...Thank you for telling me...";
-		mes "They are great friends...";
+		mes "...Gracias por contarme...";
+		mes "Son grandes amigos...";
 		next;
 		if (Sex == SEX_FEMALE) {
 			mes "[Iromo]";
-			mes "...And? ...What do you...";
-			mes "Want to say to me this time...";
-			mes "You've told me many stories...";
-			mes "...How about one of your own?";
+			mes "...Y? ...Que quieres...";
+			mes "Decirme esta vez...";
+			mes "Me has contado muchas historias...";
+			mes "...Que tal una tuya propia?";
 			next;
 		}
 		else {
 			mes "[Iromo]";
-			mes "...And? ...What do you...";
-			mes "Want to say to me this time...";
-			mes "You've told me many stories...";
-			mes "...How about one of your own?";
+			mes "...Y? ...Que quieres...";
+			mes "Decirme esta vez...";
+			mes "Me has contado muchas historias...";
+			mes "...Que tal una tuya propia?";
 			next;
 		}
-		select("Friendship cannot be forgotten.");
+		select("La amistad no se puede olvidar.");
 		mes "[Iromo]";
 		mes "...";
 		next;
-		select("To have that kind of friends and that kind of friendship...");
-		select("You need to get out of your house and see the world.");
+		select("Para tener ese tipo de amigos y ese tipo de amistad...");
+		select("Necesitas salir de tu casa y ver el mundo.");
 		mes "[Iromo]";
-		mes "Though you changed a story... but...";
-		mes "You're still talking about this...";
+		mes "Aunque cambiaste una historia... pero...";
+		mes "Sigues hablando de esto...";
 		next;
-		select("To be honest, the other kids miss you.");
+		select("Para ser honesto, los otros ninos te extranan.");
 		mes "[Iromo]";
-		mes "...Him? ...Miss me? That's...";
-		mes "Something from a long time ago...";
+		mes "...El? ...Me extrana? Eso es...";
+		mes "Algo de hace mucho tiempo...";
 		next;
-		select("There are many things you don't know yet.");
+		select("Hay muchas cosas que aun no sabes.");
 		mes "[Iromo]";
 		mes "...";
 		next;
-		select("Don't you think it's a waste to stay home?");
+		select("No crees que es un desperdicio quedarte en casa?");
 		mes "[Iromo]";
 		mes "...";
 		next;
-		select("In order to find safety, you would give up fun adventures?");
-		select("That's too bad. Change is a very fun thing.");
+		select("Para encontrar seguridad, renunciarias a aventuras divertidas?");
+		select("Que lastima. El cambio es algo muy divertido.");
 		mes "[Iromo]";
-		mes "...Change...";
-		mes "Is fun...?";
+		mes "...Cambio...";
+		mes "Es divertido...?";
 		next;
-		select("Outside this city and this kingdom, there is a bigger world.");
+		select("Fuera de esta ciudad y este reino, hay un mundo mas grande.");
 		mes "[Iromo]";
 		mes "...";
 		next;
-		select("Since it's so big, there are many fun things.");
+		select("Ya que es tan grande, hay muchas cosas divertidas.");
 		mes "[Iromo]";
-		mes "Really...? Other than Alberta, and Rune-Midgarts...?";
-		mes "There are other places...?";
+		mes "De verdad...? Aparte de Alberta, y Rune-Midgarts...?";
+		mes "Hay otros lugares...?";
 		next;
 		set ep13_2_hiki,12;
 		changequest 10088,10089;
 		mes "[Iromo]";
-		mes "But... there will also be many troubles...";
-		mes "Isn't that true... I can't relax...";
-		mes "I... don't like those...";
+		mes "Pero... tambien habra muchos problemas...";
+		mes "No es cierto... No puedo relajarme...";
+		mes "Yo... no me gustan esas cosas...";
 		close;
 	}
 	if (ep13_2_hiki == 11) {
 		mes "[Iromo]";
-		mes "To go on an adventure with my friends,";
-		mes "I would still rather stay here.";
-		mes "I would still rather stay here quietly and safely.";
+		mes "Ir de aventura con mis amigos,";
+		mes "Todavia prefiero quedarme aqui.";
+		mes "Todavia prefiero quedarme aqui tranquilo y seguro.";
 		next;
 		mes "[Iromo]";
-		mes "Alright... go away. I know...";
-		mes "I know what you want to say... what an annoyance...";
+		mes "Bien... vete. Ya se...";
+		mes "Ya se lo que quieres decir... que fastidio...";
 		close;
 	}
 	if (ep13_2_hiki == 10) {
 		set .@cooltime,checkquest(10087,PLAYTIME);
 		if (.@cooltime == 2) {
 			mes "[Iromo]";
-			mes "...You really are annoying...";
-			mes "What exactly do you want from me...?";
+			mes "...De verdad eres molesto...";
+			mes "Que quieres exactamente de mi...?";
 			next;
 			mes "[Iromo]";
-			mes "A long time ago... I had a friend just like you.";
-			mes "I met him when I went out to play...";
-			mes "But...";
-			mes "He must've forgotten all about me...";
+			mes "Hace mucho... tuve un amigo como tu.";
+			mes "Lo conoci cuando sali a jugar...";
+			mes "Pero...";
+			mes "Ya se debe haber olvidado de mi...";
 			next;
 			set ep13_2_hiki,11;
 			changequest 10087,10088;
 			getexp (checkre(3))?6700:67000,0;
 			mes "[Iromo]";
-			mes "Nevermind... it's not unexpected...";
-			mes "To go on an adventure with my friends,";
-			mes "I would still rather stay here.";
-			mes "I would still rather stay here quietly and safely.";
+			mes "No importa... no es inesperado...";
+			mes "Ir de aventura con mis amigos,";
+			mes "Todavia prefiero quedarme aqui.";
+			mes "Todavia prefiero quedarme aqui tranquilo y seguro.";
 			close;
 		}
 		mes "[Iromo]";
-		mes "...What... Right now, I...";
-		mes "I don't want to... hear anything...";
-		mes "Go away...";
+		mes "...Que... Ahora mismo, yo...";
+		mes "No quiero... escuchar nada...";
+		mes "Vete...";
 		close;
 	}
 	if ((ep13_2_hiki == 9) && (lhz_rekenber > 21)) {
 		mes "[Iromo]";
-		mes "...What is it... this time...?";
+		mes "...Que es... esta vez...?";
 		next;
-		select("A story about a pair of siblings.");
-		mes "-Tell him about Kazien and Lyozien.-";
-		mes "-Because of ill fate,-";
-		mes "-They were born to do illegal tasks-";
-		mes "-But the innocent Lyozien-";
-		mes "-Trusted his brother...-";
+		select("Una historia sobre un par de hermanos.");
+		mes "-Le cuentas sobre Kazien y Lyozien.-";
+		mes "-Por un destino cruel,-";
+		mes "-Nacieron para hacer tareas ilegales-";
+		mes "-Pero el inocente Lyozien-";
+		mes "-Confiaba en su hermano...-";
 		next;
-		mes "-And even though Kazien has become-";
-		mes "-a criminal, but as an older brother-";
-		mes "-He hopes to take good care of his younger brother.-";
+		mes "-Y aunque Kazien se ha convertido-";
+		mes "-en un criminal, pero como hermano mayor-";
+		mes "-Espera cuidar bien de su hermano menor.-";
 		next;
-		mes "-This is a story from far away,-";
-		mes "-But because you have seen it with your own eyes,-";
-		mes "-You can clearly express-";
-		mes "-Your feelings.-";
+		mes "-Esta es una historia de lejos,-";
+		mes "-Pero porque la has visto con tus propios ojos,-";
+		mes "-Puedes expresar claramente-";
+		mes "-Tus sentimientos.-";
 		next;
-		mes "-This story must be able to-";
-		mes "-Stir up the interest of-";
-		mes "-Iromo, who has always wanted a brother.-";
-		next;
-		mes "[Iromo]";
-		mes "I see...They were great siblings...";
-		mes "Tragic...but also beautiful.";
-		mes "If only...I can be the protagonist...";
-		mes "..in such a story...";
+		mes "-Esta historia debe poder-";
+		mes "-Despertar el interes de-";
+		mes "-Iromo, quien siempre ha querido un hermano.-";
 		next;
 		mes "[Iromo]";
-		mes "...But...I'm an only child...";
-		mes "...So there's nothing I can do...";
+		mes "Ya veo...Eran grandes hermanos...";
+		mes "Tragico...pero tambien hermoso.";
+		mes "Si tan solo...pudiera ser el protagonista...";
+		mes "..en una historia asi...";
 		next;
-		select("You don't need to be related by blood to be brothers.");
 		mes "[Iromo]";
-		mes "...";
+		mes "...Pero...soy hijo unico...";
+		mes "...Asi que no puedo hacer nada...";
 		next;
-		select("You can find make of these brothers outside.");
-		mes "[Iromo]";
-		mes "...Outside?...";
-		next;
-		select("But if you stay at home, nothing will change.");
+		select("No necesitas estar relacionados por sangre para ser hermanos.");
 		mes "[Iromo]";
 		mes "...";
 		next;
+		select("Puedes encontrar estos hermanos afuera.");
 		mes "[Iromo]";
-		mes "...What... So it's all my fault...";
-		mes "What you want to say...";
-		mes "...is always the same...";
-		mes "Get out... I'm not in the mood...";
+		mes "...Afuera?...";
+		next;
+		select("Pero si te quedas en casa, nada cambiara.");
+		mes "[Iromo]";
+		mes "...";
+		next;
+		mes "[Iromo]";
+		mes "...Que... Entonces todo es mi culpa...";
+		mes "Lo que quieres decir...";
+		mes "...siempre es lo mismo...";
+		mes "Vete... no estoy de humor...";
 		next;
 		set ep13_2_hiki,10;
 		changequest 10086,10087;
 		getexp (checkre(3))?5700:57000,0;
 		mes "[Iromo]";
-		mes "...I'm not in a good mood, get out...";
+		mes "...No estoy de buen humor, vete...";
 		close;
 	}
 	if ((ep13_2_hiki == 8) || (ep13_2_hiki == 9)) {
 		set .@cooltime,checkquest(10085,PLAYTIME);
 		if (.@cooltime == 2) {
 			mes "[Iromo]";
-			mes "You never give up, don't you?";
-			mes "What are you trying to say?";
+			mes "Nunca te rindes, verdad?";
+			mes "Que estas tratando de decir?";
 			next;
 			mes "[Iromo]";
-			mes "It is frustrating. But...";
-			mes "Why do you care about me so much?";
+			mes "Es frustrante. Pero...";
+			mes "Por que te preocupas tanto por mi?";
 			next;
 			if (Sex == SEX_FEMALE) {
 				mes "[Iromo]";
-				mes "Really, its not that bad...";
-				mes "I wish I could have a sister like you.";
+				mes "De verdad, no esta tan mal...";
+				mes "Ojala pudiera tener una hermana como tu.";
 				next;
 			}
 			else {
 				mes "[Iromo]";
-				mes "Really, its not that bad...";
-				mes "I wish I could have a brother like you.";
+				mes "De verdad, no esta tan mal...";
+				mes "Ojala pudiera tener un hermano como tu.";
 				next;
 			}
 			mes "[Iromo]";
-			mes "Do you have any stories about siblings?";
+			mes "Tienes alguna historia sobre hermanos?";
 			next;
 			set ep13_2_hiki,9;
 			changequest 10085,10086;
 			mes "[Iromo]";
-			mes "What? Anything to say?";
-			mes "Seriously!";
-			mes "Just leave me alone.";
+			mes "Que? Algo que decir?";
+			mes "En serio!";
+			mes "Solo dejame en paz.";
 			close;
 		}
 		mes "[Iromo]";
-		mes "Thank you for caring...";
-		mes "But that is ok...No thanks...";
+		mes "Gracias por preocuparte...";
+		mes "Pero esta bien...No gracias...";
 		close;
 	}
 	if (ep13_2_hiki == 7) {
 		set .@goyang,checkquest(10084,HUNTING);
 		if (.@goyang == 2) {
 			mes "[Iromo]";
-			mes "Oh, you made the furious cat";
-			mes "go away from the village?";
-			mes "...Oh, you did..Thanks!";
+			mes "Oh, hiciste que el gato furioso";
+			mes "se fuera de la aldea?";
+			mes "...Oh, lo hiciste..Gracias!";
 			next;
 			mes "[Iromo]";
-			mes "But, I am still scared of";
-			mes "being outside.";
-			mes "I would rather stay at home.";
+			mes "Pero, todavia me da miedo";
+			mes "estar afuera.";
+			mes "Prefiero quedarme en casa.";
 			next;
 			set ep13_2_hiki,8;
 			changequest 10084,10085;
 			getexp (checkre(3))?4700:47000,0;
 			mes "[Iromo]";
-			mes "Thank you for being helpful.";
-			mes "But, no thanks.";
+			mes "Gracias por ser de ayuda.";
+			mes "Pero, no gracias.";
 			close;
 		}
 		mes "[Iromo]";
-		mes "If I go out, I will see the scary cat.";
+		mes "Si salgo, vere al gato espantoso.";
 		next;
 		mes "[Iromo]";
-		mes "He will bite me..and";
-		mes "scratch me again.";
-		mes "I should stay at home.";
+		mes "Me va a morder..y";
+		mes "rasgunar de nuevo.";
+		mes "Deberia quedarme en casa.";
 		close;
 	}
 	if ((ep13_2_hiki == 6) && (countitem(528) > 0) && (countitem(501) > 0)) {
 		mes "[Iromo]";
-		mes "...Huh? This smell...";
-		mes "This is the one I like the most.";
-		mes "Ha Ha!";
+		mes "...Eh? Este olor...";
+		mes "Este es el que mas me gusta.";
+		mes "Ja Ja!";
 		next;
 		mes "[Iromo]";
-		mes "But..my mom is beside me.";
-		mes "(Wink, Wink)";
+		mes "Pero..mi mama esta a mi lado.";
+		mes "(Guino, Guino)";
 		next;
 		mes "[Iromo]";
-		mes "...Thanks! I need to hide this.";
-		mes "Anyway, thank you!";
+		mes "...Gracias! Necesito esconder esto.";
+		mes "De todas formas, gracias!";
 		next;
 		mes "[Iromo]";
-		mes "It smells so good.";
+		mes "Huele tan bien.";
 		next;
 		mes "[Iromo]";
-		mes "Huh?? If I go out,";
-		mes "then can I get these things?";
+		mes "Eh?? Si salgo,";
+		mes "puedo conseguir estas cosas?";
 		next;
 		mes "[Iromo]";
 		mes "......";
 		next;
 		mes "[Iromo]";
-		mes "But... I'm scared...";
+		mes "Pero... tengo miedo...";
 		next;
 		mes "[Iromo]";
-		mes "I am scared. If I go out...";
-		mes "No, I don't want to get hurt again.";
+		mes "Tengo miedo. Si salgo...";
+		mes "No, no quiero que me lastimen de nuevo.";
 		next;
-		select("Again?");
+		select("De nuevo?");
 		mes "[Iromo]";
-		mes "...there is a weird cat that can walk on two feet.";
-		mes "I like cats so I approached him.";
-		mes "Then suddenly he scratched and bit me.";
+		mes "...hay un gato raro que puede caminar en dos patas.";
+		mes "Me gustan los gatos asi que me acerque a el.";
+		mes "Entonces de repente me rasguño y mordio.";
 		next;
 		delitem 528,1; //Monster's_Feed
 		delitem 501,1; //Red_Potion
@@ -2704,162 +2704,162 @@ alberta_in,131,95,5	script	Iromo#ep3_2	706,{
 		changequest 10083,10084;
 		getexp (checkre(3))?3750:37500,0;
 		mes "[Iromo]";
-		mes "I don't want to see the cat again.";
-		mes "If I go out, I will see him. It is scary.";
+		mes "No quiero ver al gato de nuevo.";
+		mes "Si salgo, lo vere. Da miedo.";
 		close;
 	}
 	if ((ep13_2_hiki == 3) || (ep13_2_hiki == 4) || (ep13_2_hiki == 5) || (ep13_2_hiki == 5)) {
 		mes "[Iromo]";
-		mes "... I don't like being outside of the village.";
-		mes "Being inside of the house is the best.";
+		mes "... No me gusta estar fuera de la aldea.";
+		mes "Estar dentro de la casa es lo mejor.";
 		close;
 	}
 	if ((ep13_2_hiki == 1) || (ep13_2_hiki == 2)) {
 		mes "[Iromo]";
-		mes "Mother told me that";
-		mes "I should go out and play";
-		mes "with friends. But I don't";
-		mes "want to go out with them.";
+		mes "Mama me dijo que";
+		mes "deberia salir a jugar";
+		mes "con amigos. Pero no";
+		mes "quiero salir con ellos.";
 		next;
 		mes "[Iromo]";
-		mes "It is little bit inconvenient that";
-		mes "I can't get delicious food";
-		mes "that grows outside of the village.";
-		mes "I can stand it.";
+		mes "Es un poco inconveniente que";
+		mes "no puedo conseguir comida deliciosa";
+		mes "que crece fuera de la aldea.";
+		mes "Puedo aguantarlo.";
 		next;
 		if (ep13_2_hiki == 1) {
 			set ep13_2_hiki,2;
 			changequest 10079,10080;
 		}
 		mes "[Iromo]";
-		mes "But, I can have other food";
-		mes "instead of the outside food.";
-		mes "That way I don't have to go out.";
+		mes "Pero, puedo comer otra comida";
+		mes "en vez de la comida de afuera.";
+		mes "Asi no tengo que salir.";
 		close;
 	}
 	mes "[Iromo]";
 	mes "......";
 	next;
 	mes "[Iromo]";
-	mes "I like my house and my room.";
-	mes "I don't want to go out.";
+	mes "Me gusta mi casa y mi cuarto.";
+	mes "No quiero salir.";
 	close;
 }
 
 alberta_in,120,93,3	script	Iromo's Mother#ep3_2	53,{
 	if (ep13_2_hiki >= 8) {
 		mes "[Mother]";
-		mes "Thank you for helping my son.";
-		mes "But I think we can't do anything";
-		mes "about him anymore.";
+		mes "Gracias por ayudar a mi hijo.";
+		mes "Pero creo que ya no podemos hacer nada";
+		mes "por el.";
 		next;
 		mes "[Mother]";
-		mes "Iromo was really active and";
-		mes "curious about the world.";
-		mes "He wanted to see all the";
-		mes "sights of the world.";
+		mes "Iromo era realmente activo y";
+		mes "curioso sobre el mundo.";
+		mes "Queria ver todos los";
+		mes "paisajes del mundo.";
 		next;
 		mes "[Mother]";
-		mes "But look at him now.";
-		mes "He doesn't go out anymore.";
-		mes "He is just stuck inside of his room.";
+		mes "Pero miralo ahora.";
+		mes "Ya no sale.";
+		mes "Solo esta encerrado en su cuarto.";
 		next;
 		mes "[Mother]";
-		mes "He became a timid person.";
-		mes "If he has an argument with me,";
-		mes "he doesn't talk to me for a week.";
+		mes "Se convirtio en una persona timida.";
+		mes "Si tiene una discusion conmigo,";
+		mes "no me habla por una semana.";
 		next;
 		mes "[Mother]";
-		mes "You might have";
-		mes "a hard time getting";
-		mes "Iromo to talk to you.";
+		mes "Puede que te";
+		mes "cueste trabajo lograr";
+		mes "que Iromo te hable.";
 		close;
 	}
 	if (ep13_2_hiki == 7) {
 		mes "[Mother]";
-		mes "Oh, I remember";
-		mes "what happened last time...";
-		mes "One day, Iromo came home";
-		mes "with tears in his eyes";
-		mes "And he seemed hurt.";
+		mes "Oh, recuerdo";
+		mes "lo que paso la ultima vez...";
+		mes "Un dia, Iromo llego a casa";
+		mes "con lagrimas en los ojos";
+		mes "Y parecia lastimado.";
 		next;
 		mes "[Mother]";
-		mes "It was not a big injury.";
-		mes "I was worried about him so much.";
-		mes "But, he never tells me what happened that day.";
+		mes "No fue una herida grande.";
+		mes "Estaba tan preocupada por el.";
+		mes "Pero, nunca me dice que paso ese dia.";
 		next;
 		mes "[Mother]";
-		mes "After that day, he hasn't talked to people much and doesn't go out at all.";
+		mes "Despues de ese dia, no ha hablado mucho con la gente y no sale para nada.";
 		next;
 		mes "[Mother]";
-		mes "I hope he tells me what happened that day.";
-		mes "Iromo was such a good boy...";
+		mes "Espero que me diga que paso ese dia.";
+		mes "Iromo era un nino tan bueno...";
 		close;
 	}
 	if ((ep13_2_hiki == 4) || (ep13_2_hiki == 5) || (ep13_2_hiki == 6)) {
 		mes "[Mother]";
-		mes "Hum.. Iromo's favorite?";
-		mes "Let me think...";
-		mes "Actually he likes all kinds of food.";
-		mes "He is not picky about food.";
+		mes "Hmm.. Lo favorito de Iromo?";
+		mes "Dejame pensar...";
+		mes "En realidad le gusta todo tipo de comida.";
+		mes "No es quisquilloso con la comida.";
 		next;
 		mes "[Mother]";
-		mes "When he went out with friends,";
-		mes "he spent all his pocket money,";
-		mes "but I don't know what he has been eating.";
+		mes "Cuando salia con amigos,";
+		mes "se gastaba todo su dinero,";
+		mes "pero no se que ha estado comiendo.";
 		next;
 		mes "[Mother]";
-		mes "Oh, why don't you ask Iromo's friend?";
-		mes "I think he would know about his favorite food.";
+		mes "Oh, por que no le preguntas al amigo de Iromo?";
+		mes "Creo que el sabria sobre su comida favorita.";
 		close;
 	}
 	if ((ep13_2_hiki == 2) || (ep13_2_hiki == 3)) {
 		mes "[Mother]";
-		mes "Hum.. Iromo's favorite?";
-		mes "Let me think...";
-		mes "Actually he likes all kinds of food.";
-		mes "He is not picky about food.";
+		mes "Hmm.. Lo favorito de Iromo?";
+		mes "Dejame pensar...";
+		mes "En realidad le gusta todo tipo de comida.";
+		mes "No es quisquilloso con la comida.";
 		next;
 		mes "[Mother]";
-		mes "When he went out with friends,";
-		mes "he spent all his pocket money,";
-		mes "but I don't know what he has been eating.";
+		mes "Cuando salia con amigos,";
+		mes "se gastaba todo su dinero,";
+		mes "pero no se que ha estado comiendo.";
 		next;
 		set ep13_2_hiki,3;
 		mes "[Mother]";
-		mes "Oh, why don't you ask Iromo's friend?";
-		mes "I think he would know about his favorite food.";
+		mes "Oh, por que no le preguntas al amigo de Iromo?";
+		mes "Creo que el sabria sobre su comida favorita.";
 		close;
 	}
 	mes "[Mother]";
-	mes "This little boy is my son, Iromo.";
+	mes "Este nino es mi hijo, Iromo.";
 	next;
 	mes "[Mother]";
-	mes "He used to go out all the time.";
-	mes "He loved playing outside with friends.";
+	mes "Solia salir todo el tiempo.";
+	mes "Le encantaba jugar afuera con amigos.";
 	next;
 	mes "[Mother]";
-	mes "But, somehow...";
-	mes "he doesn't go out anymore.";
+	mes "Pero, de alguna forma...";
+	mes "ya no sale.";
 	next;
 	if (BaseLevel > 40 && checkquest(10079) == -1) {
 		set ep13_2_hiki,1;
 		setquest 10079;
 	}
 	mes "[Mother]";
-	mes "I am so worried about him...";
-	mes "What happened to him..?";
+	mes "Estoy tan preocupada por el...";
+	mes "Que le paso..?";
 	close;
 }
 
 alberta,45,106,5	script	Little Boy#ep3_2	706,{
 	if (ep13_2_hiki == 6) {
 		mes "[Little Boy]";
-		mes "Iromo? He used to like ^FF0000Monster's Feed^000000 and ^FF0000Red Potion^000000.";
+		mes "Iromo? Le gustaban ^FF0000Monster's Feed^000000 y ^FF0000Red Potion^000000.";
 		next;
 		mes "[Little Boy]";
-		mes "Oh ya and one more thing~!";
-		mes "I like Bananas. Haha.";
+		mes "Ah si y una cosa mas~!";
+		mes "A mi me gustan las Bananas. Jaja.";
 		close;
 	}
 	if (ep13_2_hiki == 5) {
@@ -2867,131 +2867,131 @@ alberta,45,106,5	script	Little Boy#ep3_2	706,{
 		mes "......";
 		next;
 		mes "[Little Boy]";
-		mes "Yummy! Banana is always delicious!";
-		mes "Bananas are the best fruits ever!";
+		mes "Mmmm! La Banana siempre es deliciosa!";
+		mes "Las Bananas son las mejores frutas!";
 		next;
 		mes "[Little Boy]";
-		mes "Thanks for the Banana...";
-		mes "Now I can think about";
-		mes "what Iromo likes to eat.";
+		mes "Gracias por la Banana...";
+		mes "Ahora puedo pensar en";
+		mes "que le gusta comer a Iromo.";
 		next;
 		mes "[Little Boy]";
-		mes "He used to like junk food.";
-		mes "You know, cheap and weird tasting snacks...";
-		mes "So he had to hide when he had them.";
+		mes "Le gustaba la comida chatarra.";
+		mes "Ya sabes, botanas baratas y de sabor raro...";
+		mes "Asi que tenia que esconderse cuando las comia.";
 		next;
 		mes "[Little Boy]";
-		mes "His mother wouldn't let him";
-		mes "have those kind of snacks...";
-		mes "So he hid them from her.";
-		mes "I don't know why he liked";
-		mes "those junk foods anyways.";
+		mes "Su mama no lo dejaba";
+		mes "comer ese tipo de botanas...";
+		mes "Asi que las escondia de ella.";
+		mes "No se por que le gustaban";
+		mes "esas comidas chatarras de todas formas.";
 		next;
 		mes "[Little Boy]";
-		mes "He usually enjoyed having";
+		mes "Generalmente disfrutaba comer";
 		mes "Monster's Feed.";
-		mes "He said it is good";
-		mes "with Red Potion soup.";
-		mes "He always had a Red Potion and Monster's Feed for his lunch.";
+		mes "Decia que es bueno";
+		mes "con sopa de Red Potion.";
+		mes "Siempre comia Red Potion y Monster's Feed de almuerzo.";
 		next;
 		mes "[Little Boy]";
-		mes "He's got a weird appetite.";
-		mes "I can't understand why he liked";
-		mes "those foods. He was odd...";
+		mes "Tiene un apetito raro.";
+		mes "No puedo entender por que le gustaban";
+		mes "esas comidas. Era raro...";
 		next;
 		set ep13_2_hiki,6;
 		changequest 10082,10083;
 		mes "[Little Boy]";
-		mes "Anyway, I already told you";
-		mes "what I know about him.";
-		mes "So, I am done now.";
-		mes "Let me know if you have more Bananas. Haha.";
-		mes "I love Bananas~~!";
+		mes "De todas formas, ya te dije";
+		mes "lo que se de el.";
+		mes "Asi que, ya termine.";
+		mes "Avisame si tienes mas Bananas. Jaja.";
+		mes "Me encantan las Bananas~~!";
 		close;
 	}
 	if ((ep13_2_hiki == 4) && (countitem(513) > 0)) {
 		mes "[Little Boy]";
-		mes "Huh? What a delicious smell!";
-		mes "You brought me Bananas!";
-		mes "Oh, thanks so much!";
+		mes "Eh? Que olor tan delicioso!";
+		mes "Me trajiste Bananas!";
+		mes "Oh, muchas gracias!";
 		next;
 		mes "[Little Boy]";
-		mes "Let me have them first.";
+		mes "Dejame comerlas primero.";
 		next;
 		mes "[Little Boy]";
-		mes "Chew, chew...";
+		mes "Nom, nom...";
 		next;
 		mes "[Little Boy]";
-		mes "Yum Yum...";
+		mes "Mmmm...";
 		next;
 		delitem 513,1; //Banana
 		set ep13_2_hiki,5;
 		changequest 10081,10082;
 		mes "[Little Boy]";
-		mes "Wait. Wait...";
+		mes "Espera. Espera...";
 		mes "***Gulp***";
-		mes "just a second...";
-		mes "Wait.";
+		mes "solo un segundo...";
+		mes "Espera.";
 		close;
 	}
 	if (ep13_2_hiki == 4) {
 		mes "[Little Boy]";
 		mes "Banana~banana~";
-		mes "I love bananas~";
+		mes "Me encantan las bananas~";
 		next;
 		mes "[Little Boy]";
-		mes "They don't sell bananas in this village...";
-		mes "I am eager to have bananas.";
+		mes "No venden bananas en esta aldea...";
+		mes "Estoy ansioso por comer bananas.";
 		next;
 		mes "[Little Boy]";
-		mes "Oh~ you promised!";
-		mes "Bring bananas for me~!! I will wait for you!";
+		mes "Oh~ lo prometiste!";
+		mes "Traeme bananas~!! Te esperare!";
 		close;
 	}
 	if (ep13_2_hiki == 3) {
 		mes "[Little Boy]";
-		mes "I am hungry. We don't have";
-		mes "much snack bar in this village.";
+		mes "Tengo hambre. No tenemos";
+		mes "mucha tienda de botanas en esta aldea.";
 		next;
 		mes "[Little Boy]";
-		mes "Huh? Iromo?";
-		mes "Oh, I haven't seen him for a long time...";
-		mes "Hum.. Where is he?";
-		mes "Did he move out?";
+		mes "Eh? Iromo?";
+		mes "Oh, no lo he visto en mucho tiempo...";
+		mes "Hmm.. Donde esta?";
+		mes "Se mudo?";
 		next;
 		mes "[Little Boy]";
-		mes "Huh? His favorite food?.";
-		mes "Hum.. What was it..?";
+		mes "Eh? Su comida favorita?";
+		mes "Hmm.. Que era..?";
 		next;
 		mes "[Little Boy]";
-		mes "If I can remember it can you buy me a banana?";
+		mes "Si puedo recordar puedes comprarme una banana?";
 		next;
 		mes "[Little Boy]";
 		mes "Banana~banana~";
-		mes "I love bananas~";
+		mes "Me encantan las bananas~";
 		next;
 		mes "[Little Boy]";
-		mes "They don't sell bananas in this village...";
-		mes "I am eager to have bananas.";
+		mes "No venden bananas en esta aldea...";
+		mes "Estoy ansioso por comer bananas.";
 		next;
 		set ep13_2_hiki,4;
 		changequest 10080,10081;
 		mes "[Little Boy]";
-		mes "Oh, you will buy me a banana?";
-		mes "I'll try to remember what Iromo's favorite food is for sure if you bring it to me.";
+		mes "Oh, me compraras una banana?";
+		mes "Intentare recordar cual es la comida favorita de Iromo si me la traes.";
 		close;
 	}
 	mes "[Little Boy]";
-	mes "I am hungry. We don't have";
-	mes "much snack bar in this village.";
+	mes "Tengo hambre. No tenemos";
+	mes "mucha tienda de botanas en esta aldea.";
 	next;
 	mes "[Little Boy]";
-	mes "I hope they sell bananas";
-	mes "in this village.";
-	mes "Like other nice villages.";
+	mes "Ojala vendieran bananas";
+	mes "en esta aldea.";
+	mes "Como en otras aldeas bonitas.";
 	next;
 	mes "[Little Boy]";
-	mes "This village is so boring...";
-	mes "What a small village.";
+	mes "Esta aldea es tan aburrida...";
+	mes "Que aldea tan pequena.";
 	close;
 }
