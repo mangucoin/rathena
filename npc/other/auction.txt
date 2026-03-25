@@ -6,7 +6,7 @@
 //= 1.3
 //===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Auction house releated NPCs, and warps
 //===== Additional Comments: =================================
@@ -36,20 +36,20 @@ lighthalzen,205,169,6	script	Auction Hall Guide#lhz	833,{
 
 function	script	F_AuctionWarper	{
 	mes "[Auction Hall Guide]";
-	mes "Hello, would you";
-	mes "like to enter the";
-	mes "Auction Hall?";
+	mes "Hola, te gustaria";
+	mes "entrar a la Sala";
+	mes "de Subastas?";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("Si:No") == 1) {
 		.@num = getarg(0);
 		if (.@num == 1 || .@num == 4) {
 			mes "[Auction Hall Guide]";
-			mes "Great! Well then,";
-			mes "I hope you have fun";
-			mes "and enjoy the auction~";
+			mes "Genial! Bueno entonces,";
+			mes "espero que te diviertas";
+			mes "y disfrutes la subasta~";
 		} else {
 			mes "[Auction Hall Guide]";
-			mes "Enjoy your auction.";
+			mes "Disfruta tu subasta.";
 		}
 		close2;
 		switch(.@num) {
@@ -64,11 +64,11 @@ function	script	F_AuctionWarper	{
 		}
 	}
 	mes "[Auction Hall Guide]";
-	mes "Alright then,";
-	mes "see you later.";
-	mes "If you change your";
-	mes "mind, please come";
-	mes "and enjoy the auctions~";
+	mes "Esta bien entonces,";
+	mes "nos vemos luego.";
+	mes "Si cambias de opinion,";
+	mes "por favor ven y";
+	mes "disfruta las subastas~";
 	close;
 }
 
@@ -76,7 +76,7 @@ function	script	F_AuctionWarper	{
 //============================================================
 -	script	Information Post#dum::AuctionSign	-1,{
 	mes "[Information]";
-	mes "Auction Warp Guide";
+	mes "Guia de Teletransporte a Subastas";
 	close;
 }
 
@@ -96,24 +96,24 @@ auction_02,43,17,0	warp	auction_enterance_lhz	1,1,lighthalzen,209,169
 //============================================================
 -	script	Auction Broker#dum::AuctionBroker	-1,{
 	mes "[Auction Broker]";
-	mes "Welcome to the Auction Hall.";
-	mes "Would you like to view the goods?";
+	mes "Bienvenido a la Sala de Subastas.";
+	mes "Te gustaria ver los productos?";
 	next;
-	if (select("Yes:No") == 1) {
+	if (select("Si:No") == 1) {
 		mes "[Auction Broker]";
-		mes "Very well.";
-		mes "Please take";
-		mes "a look, and see";
-		mes "What's being offered~";
+		mes "Muy bien.";
+		mes "Por favor echale";
+		mes "un vistazo, y mira";
+		mes "lo que se ofrece~";
 		OpenAuction;
 		close;
 	}
 	mes "[Auction Broker]";
-	mes "Very well, then.";
-	mes "If you change your";
-	mes "mind, then please";
-	mes "come and check";
-	mes "out the auctions~";
+	mes "Muy bien, entonces.";
+	mes "Si cambias de opinion,";
+	mes "por favor ven y";
+	mes "revisa las";
+	mes "subastas~";
 	close;
 }
 
