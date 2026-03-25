@@ -1,168 +1,168 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= RWC 2011 Golden Poring
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Euphy
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.0
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Collect blue cards dropped by Golden Porings to spell out
 //= 'RWC2011' and win a prize!
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Euphy]
-//============================================================ 
+//============================================================
 
 prontera,114,81,5	script	RWC2011 Agent#2	407,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 500) {
-		mes "[New Agent]";
-		mes "You have too many items. Please make room in your inventory and come back.";
+		mes "[Nuevo Agente]";
+		mes "Tienes demasiados objetos. Por favor haz espacio en tu inventario y vuelve.";
 		close;
 	}
 	if (oversea_event == 0) {
-		mes "[New Agent]";
-		mes "Wow~ Finally!! It's the season we've all been waiting for!";
+		mes "[Nuevo Agente]";
+		mes "Wow~ Por fin!! Es la temporada que todos estabamos esperando!";
 		emotion ET_BIGTHROB;
 		next;
-		mes "[New Agent]";
-		mes "It's RWC time!";
+		mes "[Nuevo Agente]";
+		mes "Es la epoca del RWC!";
 		next;
 		set .@loop,1;
 		while(.@loop) {
-			switch(select("What is RWC?:Are you a New Agent?:I don't care.")) {
+			switch(select("Que es el RWC?:Eres un Nuevo Agente?:No me importa.")) {
 			case 1:
-				mes "[New Agent]";
+				mes "[Nuevo Agente]";
 				if (BaseLevel < 70)
-					mes "You must be a new adventurer. I will kindly explain it to you.";
+					mes "Debes ser un aventurero nuevo. Te lo explicare amablemente.";
 				else
-					mes "It seems you've traveled quite enough but you're not good with hearing the news around the world.";
+					mes "Parece que has viajado bastante pero no eres bueno escuchando las noticias del mundo.";
 				next;
-				mes "[New Agent]";
-				mes "There are few adventurers in Midgard whose lives are dedicated to battle, who never skip their training, live in seclusion, and are experts in their art.";
+				mes "[Nuevo Agente]";
+				mes "Hay pocos aventureros en Midgard cuyas vidas estan dedicadas a la batalla, que nunca se saltan su entrenamiento, viven en reclucion y son expertos en su arte.";
 				next;
-				mes "[New Agent]";
-				mes "The RWC is the festival where those adventurers can compete with each other and find out who is the best!";
+				mes "[Nuevo Agente]";
+				mes "El RWC es el festival donde esos aventureros pueden competir entre ellos y descubrir quien es el mejor!";
 				next;
-				mes "[New Agent]";
-				mes "But this cannot be achieved all alone. Your friends will have a huge role in the competition.";
+				mes "[Nuevo Agente]";
+				mes "Pero esto no se puede lograr solo. Tus amigos tendran un papel enorme en la competencia.";
 				next;
-				mes "[New Agent]";
-				mes "If you're interested in this festival, start looking for friends you can trust!";
+				mes "[Nuevo Agente]";
+				mes "Si te interesa este festival, empieza a buscar amigos en los que puedas confiar!";
 				next;
 				break;
 			case 2:
-				mes "[New Agent]";
-				mes "Many events are organized for RWC promotion every year.";
+				mes "[Nuevo Agente]";
+				mes "Muchos eventos se organizan para la promocion del RWC cada ano.";
 				next;
-				mes "[New Agent]";
-				mes "And this year, a special mission has been entrusted to a new agent... myself!";
+				mes "[Nuevo Agente]";
+				mes "Y este ano, una mision especial le fue encomendada a un nuevo agente... yo!";
 				next;
-				mes "[New Agent]";
-				mes "I am supposed to attach blue cards with the letters RWC2011 all over the world to promote the event. But... but...";
+				mes "[Nuevo Agente]";
+				mes "Se supone que debo pegar tarjetas azules con las letras RWC2011 por todo el mundo para promocionar el evento. Pero... pero...";
 				next;
-				mes "- He thought of something and then looked at your eyes. -";
+				mes "- Penso en algo y luego te miro a los ojos. -";
 				next;
-				mes "[New Agent]";
-				mes "Would you like to listen to my story?";
+				mes "[Nuevo Agente]";
+				mes "Te gustaria escuchar mi historia?";
 				next;
-				if(select("Sure, let me hear it.:No, thank you.") == 2) {
-					mes "[New Agent]";
-					mes "Arrgg!! Are you ignoring me because I'm new? Usually people listen...";
+				if(select("Claro, cuentame.:No, gracias.") == 2) {
+					mes "[Nuevo Agente]";
+					mes "Arrgg!! Me estas ignorando porque soy nuevo? Normalmente la gente escucha...";
 					next;
-					mes "- New Agent is looking at you with pitiable eyes. -";
+					mes "- El Nuevo Agente te mira con ojos lastimeros. -";
 					next;
-					mes "- His brimming small eyes seem to tell you something. ^FF0000Please talk to me again...^000000 -";
+					mes "- Sus pequenos ojos brillantes parecen decirte algo. ^FF0000Por favor hablame de nuevo...^000000 -";
 					close;
 				}
 				set .@loop,0;
 				break;
 			case 3:
-				mes "[New Agent]";
-				mes "This is my first mission but people's reaction is not good.";
+				mes "[Nuevo Agente]";
+				mes "Esta es mi primera mision pero la reaccion de la gente no es buena.";
 				next;
-				mes "- New Agent is looking at you with pitiable eyes. -";
+				mes "- El Nuevo Agente te mira con ojos lastimeros. -";
 				next;
-				mes "- His twinkling small eyes seem to tell you something. ^FF0000Please talk to me again...^000000 -";
+				mes "- Sus pequenos ojos brillantes parecen decirte algo. ^FF0000Por favor hablame de nuevo...^000000 -";
 				close;
 			}
 		}
-		mes "[New Agent]";
-		mes "I used to be a very normal boy in Morocc.";
-		mes "I am not an adventurer and I don't even know how to buy/sell things. Sometimes I'm just very happy to see adventurers. You know... I am just an ordinary boy.";
+		mes "[Nuevo Agente]";
+		mes "Yo solia ser un chico muy normal en Morocc.";
+		mes "No soy aventurero y ni siquiera se como comprar/vender cosas. A veces solo me alegro de ver aventureros. Sabes... soy solo un chico comun.";
 		next;
-		mes "[New Agent]";
-		mes "People used to tell me that since I was very shy.";
-		mes "I would spend my life in a suburb.";
+		mes "[Nuevo Agente]";
+		mes "La gente solia decirme que como era muy timido,";
+		mes "pasaria mi vida en un suburbio.";
 		next;
-		mes "[New Agent]";
-		mes "But eventually, my patience and restrained personality motivated me to become an agent for RWC2011!";
-		mes "I was so happy that I couldn't sleep! I would finally have a chance to meet lots of adventurers and get to know them.";
+		mes "[Nuevo Agente]";
+		mes "Pero finalmente, mi paciencia y personalidad contenida me motivaron a convertirme en agente del RWC2011!";
+		mes "Estaba tan feliz que no podia dormir! Por fin tendria la oportunidad de conocer a muchos aventureros y hacerme amigo de ellos.";
 		next;
-		mes "[New Agent]";
-		mes "This mission was so important to me,";
-		mes "I was afraid of being attacked by monsters when attaching the blue cards for RWC2011 in the streets.";
+		mes "[Nuevo Agente]";
+		mes "Esta mision era tan importante para mi,";
+		mes "que tenia miedo de ser atacado por monstruos al pegar las tarjetas azules del RWC2011 en las calles.";
 		next;
-		mes "[New Agent]";
+		mes "[Nuevo Agente]";
 		mes "......";
 		next;
-		mes "[New Agent]";
-		mes "And you know what?";
-		mes "^FF0000It really happened!^000000";
+		mes "[Nuevo Agente]";
+		mes "Y sabes que?";
+		mes "^FF0000Realmente paso!^000000";
 		next;
-		select("Are you serious!?");
-		mes "[New Agent]";
-		mes "I had turned off the light and was trying to get some sleep, then I saw this bright light through the window.";
-		mes "Suddenly, the window was broken and it appeared!";
+		select("En serio!?");
+		mes "[Nuevo Agente]";
+		mes "Habia apagado la luz e intentaba dormir, cuando vi una luz brillante por la ventana.";
+		mes "De repente, la ventana se rompio y aparecio!";
 		next;
-		select("It?");
-		mes "[New Agent]";
-		mes "It was a shining poring! And it ate all blue cards I had prepared in less than a second!";
+		select("Eso?");
+		mes "[Nuevo Agente]";
+		mes "Era un poring brillante! Y se comio todas las tarjetas azules que habia preparado en menos de un segundo!";
 		next;
-		mes "[New Agent]";
-		mes "I was so shocked, I tried to calm down and think... I had neither heard about nor seen any shining poring!";
+		mes "[Nuevo Agente]";
+		mes "Estaba tan impactado que intente calmarme y pensar... Nunca habia oido hablar de ni visto ningun poring brillante!";
 		next;
-		mes "[New Agent]";
-		mes "^FF0000Yes! It must be a dream!^000000 That's the conclusion I came up with and went back to sleep.";
+		mes "[Nuevo Agente]";
+		mes "^FF0000Si! Debe ser un sueno!^000000 Esa fue la conclusion a la que llegue y me volvi a dormir.";
 		next;
-		mes "[New Agent]";
-		mes "But it wasn't a dream. When I woke up, I realized all the blue cards were gone...";
+		mes "[Nuevo Agente]";
+		mes "Pero no era un sueno. Cuando desperte, me di cuenta de que todas las tarjetas azules habian desaparecido...";
 		next;
-		mes "[New Agent]";
-		mes "If I ruin this promotion, I might lose the job and have to go back to where I used to live alone...";
+		mes "[Nuevo Agente]";
+		mes "Si arruino esta promocion, podria perder el trabajo y tener que volver a donde solia vivir solo...";
 		next;
-		mes "[New Agent]";
-		mes "If you see the Golden Poring, could you please find the precious blue cards for me?";
+		mes "[Nuevo Agente]";
+		mes "Si ves al Golden Poring, podrias buscar las preciadas tarjetas azules por mi?";
 		next;
 		emotion ET_CRY;
-		mes "- He looks at you with imploring eyes. -";
+		mes "- Te mira con ojos suplicantes. -";
 		next;
-		if(select("Ok, I will help you!:How much money can you offer me?") == 2) {
-			mes "[New Agent]";
-			mes "Have you decided to help me? Well, I will prepare some gifts. I'm sure you'll like them.";
+		if(select("Ok, te ayudare!:Cuanto dinero me puedes ofrecer?") == 2) {
+			mes "[Nuevo Agente]";
+			mes "Decidiste ayudarme? Bueno, preparare algunos regalos. Estoy seguro de que te gustaran.";
 			next;
 		}
-		mes "[New Agent]";
-		mes "What you are looking for are large cards with the letters ^FF0000RWC2011^000000. Some of them might already be digested though.";
+		mes "[Nuevo Agente]";
+		mes "Lo que buscas son tarjetas grandes con las letras ^FF0000RWC2011^000000. Algunas de ellas podrian ya estar digeridas.";
 		next;
-		mes "[New Agent]";
-		mes "Try to gather remaining cards until you make the word, 'RWC2011'.";
+		mes "[Nuevo Agente]";
+		mes "Intenta reunir las tarjetas restantes hasta que formes la palabra 'RWC2011'.";
 		next;
-		mes "[New Agent]";
-		mes "Please help me out!! My life is in your hands!";
+		mes "[Nuevo Agente]";
+		mes "Por favor ayudame!! Mi vida esta en tus manos!";
 		set oversea_event,1;
 		setquest 13000;
 		close;
 	} else if (oversea_event == 1) {
 		if (countitem(6485) && countitem(6486) && countitem(6487) > 1 && countitem(7602) && countitem(7470) && countitem(6012)) {
-			mes "[RWC2011 Agent]";
-			mes "Have you gathered all the cards?";
+			mes "[Agente RWC2011]";
+			mes "Reuniste todas las tarjetas?";
 			next;
-			mes "[RWC2011 Agent]";
-			mes "Wow~ You bring light in my life again!";
+			mes "[Agente RWC2011]";
+			mes "Wow~ Traes luz a mi vida de nuevo!";
 			next;
-			mes "[RWC2011 Agent]";
-			mes "Here are the gifts I promised... Let's see...";
+			mes "[Agente RWC2011]";
+			mes "Aqui estan los regalos que prometi... Veamos...";
 			next;
 			delitem 6485,1; //BlueCard_2
 			delitem 6486,1; //BlueCard_0
@@ -189,63 +189,63 @@ prontera,114,81,5	script	RWC2011 Agent#2	407,{
 				getitem 12696,5; //RWC_Cele_Fire
 				getitem 12697,5; //RWC_Cele_Fire2
 	 		}
-	 		mes "[RWC2011 Agent]";
-	 		mes "It's not much but please keep it! Haha, we still have lots of cards to be found. I hope you can help me tomorrow as well.";
+	 		mes "[Agente RWC2011]";
+	 		mes "No es mucho pero por favor guardalo! Jaja, todavia quedan muchas tarjetas por encontrar. Espero que puedas ayudarme manana tambien.";
 	 		next;
-	 		mes "[RWC2011 Agent]";
-	 		mes "Thank you!! I can continue working now. Nothing is impossible when we have great adventurers like you in this world!";
+	 		mes "[Agente RWC2011]";
+	 		mes "Gracias!! Ahora puedo seguir trabajando. Nada es imposible cuando tenemos grandes aventureros como tu en este mundo!";
 	 		next;
-	 		mes "[RWC2011 Agent]";
+	 		mes "[Agente RWC2011]";
 	 		mes "ADIOS!";
 	 		next;
-	 		mes "- Agent muttered something to himself. -";
+	 		mes "- El agente murmuro algo para si mismo. -";
 	 		close;
 		} else {
-			mes "[RWC2011 Agent]";
-			mes "Mmmm~ not yet? We're short-handed... Please help me.";
+			mes "[Agente RWC2011]";
+			mes "Mmmm~ todavia no? Nos falta gente... Por favor ayudame.";
 			next;
-			mes "[RWC2011 Agent]";
-			mes "I'm just saying that out of concern for you. You need TWO ^FF0000Blue 1 Card^000000. It's \"2011\"... Got it?";
+			mes "[Agente RWC2011]";
+			mes "Solo te digo por tu bien. Necesitas DOS ^FF0000Tarjetas Azules 1^000000. Es \"2011\"... Entiendes?";
 			close;
 		}
 	} else if (oversea_event == 2) {
 		set .@playtime, checkquest(13001,PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
-			mes "[RWC2011 Agent]";
-			mes "First, I will start attaching cards you found... I'll take the rest of cards tomorrow.";
-			mes "Please come back tomorrow.";
+			mes "[Agente RWC2011]";
+			mes "Primero, empezare a pegar las tarjetas que encontraste... Tomare el resto de las tarjetas manana.";
+			mes "Por favor vuelve manana.";
 			close;
 		} else if (.@playtime == 2)
 			erasequest 13001;
-		mes "[RWC2011 Agent]";
-		mes "Thanks for the last time.";
-		mes "I must keep on promoting the event so I want to ask you again~!";
+		mes "[Agente RWC2011]";
+		mes "Gracias por la ultima vez.";
+		mes "Debo seguir promocionando el evento asi que quiero pedirte de nuevo~!";
 		set oversea_event,3;
 		close;
 	} else if (oversea_event == 3) {
-		mes "[RWC2011 Agent]";
-		mes "You've come again~";
-		mes "Thanks for the last time! We still have lots of cards to find. Could you help me out?";
+		mes "[Agente RWC2011]";
+		mes "Viniste de nuevo~";
+		mes "Gracias por la ultima vez! Todavia quedan muchas tarjetas por encontrar. Podrias ayudarme?";
 		next;
-		switch(select("Ok!:I'm busy now.")) {
+		switch(select("Ok!:Estoy ocupado ahora.")) {
 		case 1:
-			mes "[RWC2011 Agent]";
-			mes "It's the same mission as before.";
-			mes "Try to gather blue cards and make the word, ^FF0000R W C 2 0 1 1 ^000000.";
-			mes "Good Luck!";
+			mes "[Agente RWC2011]";
+			mes "Es la misma mision de antes.";
+			mes "Intenta reunir tarjetas azules y formar la palabra ^FF0000R W C 2 0 1 1 ^000000.";
+			mes "Buena suerte!";
 			set oversea_event,1;
 			setquest 13000;
 			close;
 		case 2:
-			mes "[RWC2011 Agent]";
-			mes "...I see...";
-			mes "I still have lots of cards to find so if you have time, please come back and help again.";
+			mes "[Agente RWC2011]";
+			mes "...Ya veo...";
+			mes "Todavia tengo muchas tarjetas por encontrar asi que si tienes tiempo, por favor vuelve y ayuda de nuevo.";
 			close;
 		}
 	} else {
-		mes "[RWC2011 Agent]";
-		mes "... huh...?";
-		mes "I am... a new agent.";
+		mes "[Agente RWC2011]";
+		mes "... eh...?";
+		mes "Soy... un nuevo agente.";
 		close;
 	}
 }

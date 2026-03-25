@@ -8,48 +8,48 @@
 
 harboro1,356,211,5	script	Guide#rockridge01	4_F_ANYA,{
 	mes "[Sheriff Assistant]";
-	mes "Welcome to Rock Ridge, the hot, dry desert in the West where adventure is waiting!";
-	mes "I'm the sheriff's assistant, and I'm here to guide visitors. Is there a place you want to go?";
+	mes "Bienvenido a Rock Ridge, el caluroso y arido desierto del Oeste donde la aventura te espera!";
+	mes "Soy la asistente del sheriff, y estoy aqui para guiar a los visitantes. Hay algun lugar al que quieras ir?";
 	next;
 	mes "[Sheriff Assistant]";
-	mes "Tell me where you want to go, and I'll show you where it is.";
-	mes "Also, you can use ^B9062FNavigation^000000 mode by ^B9062Fclicking the name of the place^000000 I showed to you.";
+	mes "Dime a donde quieres ir y te mostrare donde esta.";
+	mes "Ademas, puedes usar el modo de ^B9062FNavegacion^000000 haciendo ^B9062Fclic en el nombre del lugar^000000 que te muestre.";
 	while(true) {
 		next;
-		.@s = select( "[Kafra Employee]", "[Inn]", "[Weapon/Armor Shop]", "[Tool Shop]", "[Sheriff's Office]", "Clear mini-map.", "Cancel." );
+		.@s = select( "[Empleada Kafra]", "[Posada]", "[Tienda de Armas/Armaduras]", "[Tienda de Herramientas]", "[Oficina del Sheriff]", "Limpiar mini-mapa.", "Cancelar." );
 		switch(.@s) {
 		case 1:
 			mes "[Sheriff Assistant]";
-			mes "The ^006400Kafra Employee^000000, got it. Please click the ^0000FFBox icon^000000 on your mini-map.";
+			mes "La ^006400Empleada Kafra^000000, entendido. Por favor haz clic en el ^0000FFicono de Caja^000000 en tu mini-mapa.";
 			viewpoint 1,291,207,1,0xFFFF33;
 			break;
 		case 2:
 			mes "[Sheriff Assistant]";
-			mes "I've marked the location of the <NAVI>Inn<INFO>harboro1,156,215,0,000,0</INFO></NAVI> on your mini-map.";
-			mes "Click the name to activate Navigation mode.";
+			mes "He marcado la ubicacion de la <NAVI>Posada<INFO>harboro1,156,215,0,000,0</INFO></NAVI> en tu mini-mapa.";
+			mes "Haz clic en el nombre para activar el modo de Navegacion.";
 			viewpoint 1,156,215,2,0xAAFF00;
 			break;
 		case 3:
 			mes "[Sheriff Assistant]";
-			mes "I've marked the location of the <NAVI>Weapon/Armor Shop<INFO>harboro1,312,193,0,000,0</INFO></NAVI> on your mini-map.";
-			mes "Click the name to activate Navigation mode.";
+			mes "He marcado la ubicacion de la <NAVI>Tienda de Armas/Armaduras<INFO>harboro1,312,193,0,000,0</INFO></NAVI> en tu mini-mapa.";
+			mes "Haz clic en el nombre para activar el modo de Navegacion.";
 			viewpoint 1,312,193,3,0x008080;
 			break;
 		case 4:
 			mes "[Sheriff Assistant]";
-			mes "I've marked the location of the <NAVI>Tool Shop<INFO>harboro1,312,193,0,000,0</INFO></NAVI> on your mini-map.";
-			mes "Click the name to activate Navigation mode.";
+			mes "He marcado la ubicacion de la <NAVI>Tienda de Herramientas<INFO>harboro1,312,193,0,000,0</INFO></NAVI> en tu mini-mapa.";
+			mes "Haz clic en el nombre para activar el modo de Navegacion.";
 			viewpoint 1,312,193,4,0xFF1493;
 			break;
 		case 5:
 			mes "[Sheriff Assistant]";
-			mes "I've marked the location of the <NAVI>Sheriff's Office<INFO>harboro1,241,218,0,000,0</INFO></NAVI> on your mini-map.";
-			mes "Click the name to activate Navigation mode.";
+			mes "He marcado la ubicacion de la <NAVI>Oficina del Sheriff<INFO>harboro1,241,218,0,000,0</INFO></NAVI> en tu mini-mapa.";
+			mes "Haz clic en el nombre para activar el modo de Navegacion.";
 			viewpoint 1,241,218,5,0xFFCCFF;
 			break;
 		case 6:
 			mes "[Sheriff Assistant]";
-			mes "Let me remove all the marks on your mini-map.";
+			mes "Dejame quitar todas las marcas de tu mini-mapa.";
 			viewpoint 2,291,207,1,0xFFFF33;
 			viewpoint 2,156,215,2,0xAAFF00;
 			viewpoint 2,312,193,3,0x008080;
@@ -58,13 +58,13 @@ harboro1,356,211,5	script	Guide#rockridge01	4_F_ANYA,{
 			break;
 		case 7:
 			mes "[Sheriff Assistant]";
-			mes "Enjoy your stay in Rock Ridge!";
+			mes "Disfruta tu estancia en Rock Ridge!";
 			close;
 		}
 		if (.@s == 7)
-			mes "Did you need anything else?";
+			mes "Necesitabas algo mas?";
 		else
-			mes "Is there anywhere else you want to check?";
+			mes "Hay algun otro lugar que quieras revisar?";
 	}
 }
 

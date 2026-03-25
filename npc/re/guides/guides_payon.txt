@@ -11,53 +11,53 @@
 payon,160,67,3	script	Guide#01payon::GuidePayon	708,{
 	cutin "pay_soldier",2;
 	mes "[Payon Guide]";
-	mes "Welcome to ^8B4513Payon^000000,";
-	mes "the Mountain Village.";
-	mes "Do you need help navigating the village?";
+	mes "Bienvenido a ^8B4513Payon^000000,";
+	mes "la Aldea de la Montana.";
+	mes "Necesitas ayuda para navegar por la aldea?";
 	F_Navi("[Payon Guide]");
 	next;
 	while (1) {
-		switch(select("[ Main Facilities ]:[ Merchants & Helpers ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ Instalaciones Principales ]:[ Comerciantes y Ayudantes ]:Quitar Marcas del Mini-Mapa:Cancelar")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Archer Village ]:[ Tool Shop ]:[ Weapon & Armor Shop ]:[ Inn & Tavern ]:[ Central Palace ]:[ Palace Court ]:[ Royal Kitchen ]:Previous Menu")) {
+				switch(select("[ Aldea de Arqueros ]:[ Tienda de Herramientas ]:[ Tienda de Armas y Armaduras ]:[ Posada y Taberna ]:[ Palacio Central ]:[ Corte del Palacio ]:[ Cocina Real ]:Menu Anterior")) {
 				case 1:
 					mes "[Payon Guide]";
-					mes F_Navi("Archer Village","payon,227,328","^B9062F")+" is where";
-					mes "the Archer Association resides.";
-					mes "Please use the far north gate to enter the village.";
-					mes "Would you like to check any other locations?";
+					mes "La "+F_Navi("Aldea de Arqueros","payon,227,328","^B9062F")+" es donde";
+					mes "reside la Asociacion de Arqueros.";
+					mes "Por favor usa la puerta del extremo norte para entrar a la aldea.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,227,328,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark, F_Navi("Tool Shop","payon,144,85","^0000FF");
+					callsub L_Mark, F_Navi("Tienda de Herramientas","payon,144,85","^0000FF");
 					viewpoint 1,144,85,1,0x0A82FF;
 					next;
 					break;
 				case 3:
-					callsub L_Mark, F_Navi("Weapon & Armor Shop","payon,139,159","^FF5400");
+					callsub L_Mark, F_Navi("Tienda de Armas y Armaduras","payon,139,159","^FF5400");
 					viewpoint 1,139,159,2,0xFFB400;
 					next;
 					break;
 				case 4:
-					callsub L_Mark, F_Navi("Inn & Tavern","payon,220,117","^006400");
+					callsub L_Mark, F_Navi("Posada y Taberna","payon,220,117","^006400");
 					viewpoint 1,220,117,3,0xAAFF00;
 					next;
 					break;
 				case 5:
-					callsub L_Mark, F_Navi("Central Palace","payon,155,245","^7F3300");
+					callsub L_Mark, F_Navi("Palacio Central","payon,155,245","^7F3300");
 					viewpoint 1,155,245,4,0xD2691E;
 					next;
 					break;
 				case 6:
-					callsub L_Mark, F_Navi("Palace Court","payon,107,325","^800080");
+					callsub L_Mark, F_Navi("Corte del Palacio","payon,107,325","^800080");
 					viewpoint 1,107,325,5,0xDA70D6;
 					next;
 					break;
 				case 7:
-					callsub L_Mark, F_Navi("Royal Kitchen","payon,154,325","^B9062F");
+					callsub L_Mark, F_Navi("Cocina Real","payon,154,325","^B9062F");
 					viewpoint 1,154,325,6,0xFF0000;
 					next;
 					break;
@@ -70,71 +70,71 @@ payon,160,67,3	script	Guide#01payon::GuidePayon	708,{
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Eden Teleport Officer ]:[ Kafra Shop ]:[ Repair / Armsmith ]:[ Kafra Employee ]:[ Trap Specialist ]:[ Seiayblem ]:[ Leablem ]:[ Jade ]:[ Pet Groomer ]:[ Chef Assistant ]:Previous Menu")) {
+				switch(select("[ Oficial de Teletransporte Eden ]:[ Tienda Kafra ]:[ Reparacion / Armero ]:[ Empleada Kafra ]:[ Especialista en Trampas ]:[ Seiayblem ]:[ Leablem ]:[ Jade ]:[ Cuidador de Mascotas ]:[ Asistente de Chef ]:Menu Anterior")) {
 				case 1:
-					callsub L_Mark, F_Navi("Eden Teleport Officer","payon,177,111","^0000FF");
+					callsub L_Mark, F_Navi("Oficial de Teletransporte Eden","payon,177,111","^0000FF");
 					viewpoint 1,177,111,7,0x0A82FF;
 					next;
 					break;
 				case 2:
-					callsub L_Mark, F_Navi("Kafra Shop Girls","payon,164,157","^FF5400");
+					callsub L_Mark, F_Navi("Chicas de la Tienda Kafra","payon,164,157","^FF5400");
 					viewpoint 1,164,157,8,0xFFB400;
 					next;
 					break;
 				case 3:
-					callsub L_Mark, F_Navi("Repairman & Armsmith","payon,144,170","^006400");
+					callsub L_Mark, F_Navi("Reparador y Armero","payon,144,170","^006400");
 					viewpoint 1,144,170,9,0xAAFF00;
 					next;
 					break;
 				case 4:
-					callsub L_Mark, "^7F3300Kafra Employees^000000";
+					callsub L_Mark, "^7F3300Empleadas Kafra^000000";
 					viewpoint 1,181,104,10,0xD2691E;
 					viewpoint 1,175,226,11,0xD2691E;
 					next;
 					break;
 				case 5:
-					callsub L_Mark, F_Navi("Trap Specialist","payon,123,109","^800080");
+					callsub L_Mark, F_Navi("Especialista en Trampas","payon,123,109","^800080");
 					viewpoint 1,123,109,12,0xDA70D6;
 					next;
 					break;
 				case 6:
 					mes "[Payon Guide]";
 					mes F_Navi("Seiyablem","payon,140,151","^B9062F");
-					mes "is a technician";
-					mes "who can create ^0000FFslots^000000 on weapons and armors,";
-					mes "but not all equipment";
-					mes "can be slotted. Well, that's what he says.";
-					mes "Would you like to check any other locations?";
+					mes "es un tecnico";
+					mes "que puede crear ^0000FFranuras^000000 en armas y armaduras,";
+					mes "pero no todo el equipo";
+					mes "puede recibir ranuras. Bueno, eso es lo que el dice.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,140,151,13,0xFF0000;
 					next;
 					break;
 				case 7:
 					mes "[Payon Guide]";
 					mes F_Navi("Leablem","payon,236,199","^0000FF");
-					mes "is a technician";
-					mes "who can create ^0000FFslots^000000 on weapons and armors,";
-					mes "but not all equipment";
-					mes "can be slotted. Well, that's what he says.";
-					mes "Would you like to check any other locations?";
+					mes "es un tecnico";
+					mes "que puede crear ^0000FFranuras^000000 en armas y armaduras,";
+					mes "pero no todo el equipo";
+					mes "puede recibir ranuras. Bueno, eso es lo que el dice.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,236,199,14,0x0A82FF;
 					next;
 					break;
 				case 8:
 					mes "[Payon Guide]";
 					mes F_Navi("Jade","payon,173,238","^FF5400");
-					mes "can exchange different types of";
-					mes "^FF5400Gemstones^000000.";
-					mes "Would you like to check any other locations?";
+					mes "puede intercambiar diferentes tipos de";
+					mes "^FF5400Gemas^000000.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,173,238,15,0xFFB400;
 					next;
 					break;
 				case 9:
-					callsub L_Mark, F_Navi("Pet Groomer","payon,177,131","^006400");
+					callsub L_Mark, F_Navi("Cuidador de Mascotas","payon,177,131","^006400");
 					viewpoint 1,177,131,16,0xAAFF00;
 					next;
 					break;
 				case 10:
-					callsub L_Mark, F_Navi("Chef Assistant","payon,206,119","^7F3300");
+					callsub L_Mark, F_Navi("Asistente de Chef","payon,206,119","^7F3300");
 					viewpoint 1,206,119,17,0xD2691E;
 					next;
 					break;
@@ -146,8 +146,8 @@ payon,160,67,3	script	Guide#01payon::GuidePayon	708,{
 			break;
 		case 3:
 			mes "[Payon Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "Claro, quitare todas las marcas de tu mini-mapa.";
+			mes "Hay algo mas en lo que pueda ayudarte?";
 			viewpoint 2,1,1,0,0xFFFF00;
 			viewpoint 2,1,1,1,0x000000;
 			viewpoint 2,1,1,2,0xFF0000;
@@ -170,7 +170,7 @@ payon,160,67,3	script	Guide#01payon::GuidePayon	708,{
 			break;
 		case 4:
 			mes "[Payon Guide]";
-			mes "Enjoy your stay.";
+			mes "Disfruta tu estancia.";
 			close2;
 			cutin "",255;
 			end;
@@ -179,10 +179,10 @@ payon,160,67,3	script	Guide#01payon::GuidePayon	708,{
 	end;
 L_Mark:
 	mes "[Payon Guide]";
-	mes "Let me mark the location of the";
+	mes "Dejame marcar la ubicacion de";
 	mes getarg(0);
-	mes "on your mini-map.";
-	mes "Would you like to check any other locations?";
+	mes "en tu mini-mapa.";
+	mes "Te gustaria revisar alguna otra ubicacion?";
 	return;
 }
 
@@ -193,79 +193,79 @@ payon,233,324,4	duplicate(GuidePayon)	Guide#04payon	708
 pay_arche,86,33,4	script	Guide#05payon	708,{
 	cutin "pay_soldier",2;
 	mes "[Payon Guide]";
-	mes "Welcome to ^8B4513Archer Village^000000,";
-	mes "a subsidiary village of Payon.";
-	mes "Do you need help navigating the village?";
+	mes "Bienvenido a la ^8B4513Aldea de Arqueros^000000,";
+	mes "una aldea subsidiaria de Payon.";
+	mes "Necesitas ayuda para navegar por la aldea?";
 	F_Navi("[Payon Guide]");
 	next;
-	set .@str$,"Would you like to check any other locations?";
+	set .@str$,"Te gustaria revisar alguna otra ubicacion?";
 	while (1) {
-		switch(select("[ Payon Dungeon ]:[ Archer Guild ]:[ Tool Shop ]:[ Kafra Employee ]:[ Mercenary Guildsman ]:[ Alchemist Guildsman ]:[ Eden Teleport Officer ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ Mazmorra de Payon ]:[ Gremio de Arqueros ]:[ Tienda de Herramientas ]:[ Empleada Kafra ]:[ Miembro del Gremio de Mercenarios ]:[ Miembro del Gremio de Alquimistas ]:[ Oficial de Teletransporte Eden ]:Quitar Marcas del Mini-Mapa:Cancelar")) {
 		case 1:
 			mes "[Payon Guide]";
-			mes "Let me mark the entrance of";
-			mes "the "+F_Navi("Payon Dungeon","pay_arche,38,131","^B9062F");
-			mes "on your mini-map.";
+			mes "Dejame marcar la entrada de";
+			mes "la "+F_Navi("Mazmorra de Payon","pay_arche,38,131","^B9062F");
+			mes "en tu mini-mapa.";
 			mes .@str$;
 			viewpoint 1,38,131,0,0xFF0000;
 			next;
 			break;
 		case 2:
 			mes "[Payon Guide]";
-			mes "The "+F_Navi("Archer Guild","pay_arche,143,164","^0000FF");
-			mes "is where you can change";
-			mes "your job to Archer.";
+			mes "El "+F_Navi("Gremio de Arqueros","pay_arche,143,164","^0000FF");
+			mes "es donde puedes cambiar";
+			mes "tu trabajo a Arquero.";
 			mes .@str$;
 			viewpoint 1,143,164,1,0x0A82FF;
 			next;
 			break;
 		case 3:
 			mes "[Payon Guide]";
-			mes "Let me mark the location of the";
-			mes F_Navi("Tool Shop","pay_arche,72,156","^FF5400");
-			mes "on your mini-map.";
+			mes "Dejame marcar la ubicacion de la";
+			mes F_Navi("Tienda de Herramientas","pay_arche,72,156","^FF5400");
+			mes "en tu mini-mapa.";
 			mes .@str$;
 			viewpoint 1,72,156,2,0xFFB400;
 			next;
 			break;
 		case 4:
 			mes "[Payon Guide]";
-			mes "Let me mark the location of the ^006400Kafra Employee^000000";
-			mes "on your mini-map.";
+			mes "Dejame marcar la ubicacion de la ^006400Empleada Kafra^000000";
+			mes "en tu mini-mapa.";
 			mes .@str$;
 			viewpoint 1,55,123,3,0xAAFF00;
 			next;
 			break;
 		case 5:
 			mes "[Payon Guide]";
-			mes "Let me mark the location of the";
-			mes F_Navi("Mercenary Guildsman","pay_arche,101,166","^7F3300");
-			mes "on your mini-map.";
+			mes "Dejame marcar la ubicacion del";
+			mes F_Navi("Miembro del Gremio de Mercenarios","pay_arche,101,166","^7F3300");
+			mes "en tu mini-mapa.";
 			mes .@str$;
 			viewpoint 1,101,166,4,0xD2691E;
 			next;
 			break;
 		case 6:
 			mes "[Payon Guide]";
-			mes "Let me mark the location of the";
-			mes F_Navi("Alchemist Guildsman","pay_arche,126,113,","^800080");
-			mes "on your mini-map.";
+			mes "Dejame marcar la ubicacion del";
+			mes F_Navi("Miembro del Gremio de Alquimistas","pay_arche,126,113,","^800080");
+			mes "en tu mini-mapa.";
 			mes .@str$;
 			viewpoint 1,127,113,5,0xDA70D6;
 			next;
 			break;
 		case 7:
 			mes "[Payon Guide]";
-			mes "The "+F_Navi("Eden Teleport Officer","pay_arche,143,164","^0000FF");
-			mes "is currently staying inside";
-			mes "the Archer Guild building.";
+			mes "El "+F_Navi("Oficial de Teletransporte Eden","pay_arche,143,164","^0000FF");
+			mes "actualmente se encuentra dentro";
+			mes "del edificio del Gremio de Arqueros.";
 			mes .@str$;
 			viewpoint 1,143,164,6,0x0A82FF;
 			next;
 			break;
 		case 8:
 			mes "[Payon Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
+			mes "Claro, quitare todas las marcas de tu mini-mapa.";
 			mes .@str$;
 			viewpoint 2,1,1,0,0xFFFF00;
 			viewpoint 2,1,1,1,0x000000;
@@ -278,7 +278,7 @@ pay_arche,86,33,4	script	Guide#05payon	708,{
 			break;
 		case 9:
 			mes "[Payon Guide]";
-			mes "Enjoy your stay.";
+			mes "Disfruta tu estancia.";
 			close2;
 			cutin "",255;
 			end;

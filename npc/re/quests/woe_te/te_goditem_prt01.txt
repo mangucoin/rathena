@@ -9,9 +9,9 @@
 
 te_prtcas01,204,204,3	script	Blacksmith Kai#tegod01	4_M_RACHMAN2,{
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many items to proceed with the quest.";
-		mes "Please lighten your load and try again.";
-		close;	}
+		mes "Tienes demasiados objetos para continuar con la mision.";
+		mes "Por favor aligera tu carga e intenta de nuevo.";
+		close;	}
 
 	.@guild_id = getcastledata("te_prtcas01",1);
 	.@economy  = getcastledata("te_prtcas01",2);
@@ -19,215 +19,215 @@ te_prtcas01,204,204,3	script	Blacksmith Kai#tegod01	4_M_RACHMAN2,{
 
 	mes "["+ .@npc_name$ +"]";
 	if (.@guild_id != getcharid(2)) {
-		mes "You... don't look familiar to me... ?";
-		mes "Are you going to threaten me?";
-		mes "No, right?";
+		mes "Tu... no me pareces familiar...?";
+		mes "Me vas a amenazar?";
+		mes "No, verdad?";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "I have my reasons.";
-		mes "Please, pretend not to see me.";
+		mes "Tengo mis razones.";
+		mes "Por favor, haz como si no me hubieras visto.";
 		close;
 	}
 	if (WoeTETimeStart(14400) == 1 || agitcheck3() == 1) {// cannot start the quest 4 hours before and during WOE TE
-		mes "From now on, I'll stay here quietly and not interrupt anyone until the siege ends.";
-		mes "Don't worry about me.";
+		mes "De ahora en adelante, me quedare aqui tranquilo y no interrumpire a nadie hasta que termine el asedio.";
+		mes "No te preocupes por mi.";
 		close;
 	}
 	if (is_guild_leader() == false) {
-		mes "I feel so grateful all the time about you letting me stay here.";
-		mes "It's nothing special... but if you want, I'll make you tools that could be of use.";
+		mes "Me siento muy agradecido todo el tiempo por dejarme quedar aqui.";
+		mes "No es nada especial... pero si quieres, te hare herramientas que podrian ser utiles.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "I mean if the guild master wants it.";
-		mes "I'm also a master who pursues the ultimate way.";
-		mes "I hope I can find that way here.";
+		mes "Digo, si el lider del gremio lo quiere.";
+		mes "Yo tambien soy un maestro que busca el camino definitivo.";
+		mes "Espero poder encontrar ese camino aqui.";
 		close;
 	}
 	if ($2012_tegod_gloria == 0) {// event status
-		mes "Ah... Master.";
-		mes "I feel so thankful all the time.";
-		mes "Since I owe you big time, I'll help you with anything anytime.";
+		mes "Ah... Maestro.";
+		mes "Me siento muy agradecido todo el tiempo.";
+		mes "Como te debo mucho, te ayudare con lo que sea cuando quieras.";
 		next;
-		switch( select( "Make Hervor.","Fuse materials.","Relax." ) ) {
+		switch( select( "Crear Hervor.","Fusionar materiales.","Relajarse." ) ) {
 		case 1:
 			if (.@economy > 29) {
 				if (countitem(6595) > 1 && countitem(6596) > 0 && countitem(6594) > 3 && countitem(6597) > 2 && countitem(6602) > 0 && countitem(6605) > 0 && countitem(6604) > 0 && countitem(2115) > 0) {
-					mes "^ff0000Valkyrja's Shield is needed in the process of making Hervor.";
-					mes "You should not possess any other items except for Valkyrja's Shields in order to proceed with the quest.^ff0000";
+					mes "^ff0000El Escudo de Valkyrja es necesario en el proceso de crear Hervor.";
+					mes "No debes poseer ningun otro objeto excepto los Escudos de Valkyrja para poder continuar con la mision.^ff0000";
 					next;
-					mes "^ff0000Even if the refinement level and cards have been applied, the process requires any one of the Valkyrja's Shields you may have.";
-					mes "Please try again after organizing your possessions.^000000";
+					mes "^ff0000Incluso si el nivel de refinamiento y las cartas han sido aplicados, el proceso requiere cualquiera de los Escudos de Valkyrja que puedas tener.";
+					mes "Por favor intenta de nuevo despues de organizar tus posesiones.^000000";
 					next;
-					if (select( "Organize possessions.","Continue as it is." ) == 1) {
-						mes "You've decided to keep Valkyrja's Shields only.";
+					if (select( "Organizar posesiones.","Continuar como esta." ) == 1) {
+						mes "Has decidido quedarte solo con los Escudos de Valkyrja.";
 						close;
 					}
 					mes "["+ .@npc_name$ +"]";
-					mes "I see that you've developed the fortress as you promised.";
-					mes "Moreover, you've found Velund's items...";
+					mes "Veo que has desarrollado la fortaleza como prometiste.";
+					mes "Ademas, has encontrado los objetos de Velund...";
 					next;
 					mes "["+ .@npc_name$ +"]";
-					mes "... so..let's get the work done.";
-					mes "Before the girls find us...";
+					mes "... asi que... pongamonos a trabajar.";
+					mes "Antes de que las chicas nos encuentren...";
 					next;
 					mes "[" + strcharinfo(0) + "]";
-					mes "The girls... ?";
+					mes "Las chicas...?";
 					next;
 					mes "["+ .@npc_name$ +"]";
-					mes "... yeah, there were some girls..";
-					mes "I had to run away because of them...";
+					mes "... si, habia unas chicas..";
+					mes "Tuve que huir por su culpa...";
 					donpcevent "#tequest_master_prt01::OnCommandOn";
-					mapannounce "te_prtcas01","A girl's voice: Hey, were you talking about us? It's "+ .@npc_name$ +", right? I can't believe you ran away to a place like this.",bc_map,"0x00FF00",FW_BOLD,20,0,40;
+					mapannounce "te_prtcas01","Voz de una chica: Oye, estabas hablando de nosotras? Es "+ .@npc_name$ +", verdad? No puedo creer que te hayas escapado a un lugar como este.",bc_map,"0x00FF00",FW_BOLD,20,0,40;
 					next;
 					mes "["+ .@npc_name$ +"]";
-					mes "Oh, no... !";
-					mes "They're here..!!";
+					mes "Oh, no...!";
+					mes "Ya estan aqui..!!";
 					next;
 					mes "[" + strcharinfo(0) + "]";
-					mes "Leave it to me.";
+					mes "Dejamelo a mi.";
 					next;
-					mes "^4d4dff!- Instruction -!";
-					mes "Soon, 7 girls that are after "+ .@npc_name$ +" will try to invade the fortress.";
-					mes "You have to protect "+ .@npc_name$ +" for 1 hour.^000000";
+					mes "^4d4dff!- Instrucciones -!";
+					mes "Pronto, 7 chicas que persiguen a "+ .@npc_name$ +" intentaran invadir la fortaleza.";
+					mes "Tienes que proteger a "+ .@npc_name$ +" durante 1 hora.^000000";
 					next;
-					mes "^4d4dff!- Instruction -!";
-					mes "When the actual attack starts, the doorway of Emperium region will be blocked up for protection.^000000";
+					mes "^4d4dff!- Instrucciones -!";
+					mes "Cuando comience el ataque real, la entrada de la region del Emperium sera bloqueada para proteccion.^000000";
 					close;
 				}
 				mes "["+ .@npc_name$ +"]";
-				mes "Hervor is a shield named after Hervor the Valkyrie.";
-				mes "I didn't know this fortress would have the items that used to belong to Velund, a husband of Hervor...";
+				mes "Hervor es un escudo que lleva el nombre de Hervor la Valquiria.";
+				mes "No sabia que esta fortaleza tendria los objetos que pertenecieron a Velund, el esposo de Hervor...";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "If we use them, we could make Hervor.";
-				mes "It's like a dream come true for me... my hands are shaking.";
+				mes "Si los usamos, podriamos hacer Hervor.";
+				mes "Es como un sueno hecho realidad para mi... me tiemblan las manos.";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "However, it seems like we need more materials.";
-				mes "Could you check again? I'll give you the list of what we need.";
-				callsub S_Material, .@npc_name$,1,"since it is a crystal of Velund's love.";
+				mes "Sin embargo, parece que necesitamos mas materiales.";
+				mes "Podrias verificar de nuevo? Te dare la lista de lo que necesitamos.";
+				callsub S_Material, .@npc_name$,1,"ya que es un cristal del amor de Velund.";
 			}
 			mes "["+ .@npc_name$ +"]";
-			mes "However, would it be okay if I said something?";
-			mes "Hervor is one of the most powerful battlegears I make and you deserve to receive something like that from me...";
+			mes "Sin embargo, estaria bien si dijera algo?";
+			mes "Hervor es uno de los equipos de batalla mas poderosos que hago y mereces recibir algo asi de mi parte...";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "but I would like you to have the minimum qualification at least.";
-			mes "Manage this fortress well and raise ^4d4dffits commerce level by 30 or more^000000.";
+			mes "pero me gustaria que tuvieras la cualificacion minima al menos.";
+			mes "Administra bien esta fortaleza y sube ^4d4dffsu nivel de comercio a 30 o mas^000000.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "With great power comes great responsibility and duty.";
-			mes "I would like you to master the basics first.";
+			mes "Un gran poder conlleva una gran responsabilidad y deber.";
+			mes "Me gustaria que dominaras lo basico primero.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "I'll make you Hervor afterward.";
-			mes "Let me give you the list of materials if you want.";
-			callsub S_Material, .@npc_name$,0,"since it is a crystal of Velund's love.";
+			mes "Te hare Hervor despues de eso.";
+			mes "Dejame darte la lista de materiales si quieres.";
+			callsub S_Material, .@npc_name$,0,"ya que es un cristal del amor de Velund.";
 		case 2:
 			callsub S_Fuse, .@npc_name$, "Hervor";
 		case 3:
 			mes "["+ .@npc_name$ +"]";
-			mes "That is so nice of you to say that.";
-			mes "By the way, I wonder how my younger brother Cano is doing?";
+			mes "Que amable de tu parte decir eso.";
+			mes "Por cierto, me pregunto como estara mi hermano menor Cano?";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "I'm sure he's doing fine just like I am.";
-			mes "... I hope things stay as peaceful as they are now.";
+			mes "Estoy seguro de que esta bien, igual que yo.";
+			mes "... Espero que las cosas sigan tan tranquilas como estan ahora.";
 			close;
 		}
 	}
 	if ($2012_tegod_gloria == 1) {// event started
-		mes "Did you hear the news?";
-		mes "The girls are coming.";
-		mes "The merciless girls!!!";
+		mes "Escuchaste las noticias?";
+		mes "Las chicas vienen.";
+		mes "Las chicas despiadadas!!!";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "They'll get here any minute since they've declared war already.";
-		mes "I'm sure they're coming to get Hervor.";
+		mes "Llegaran en cualquier momento ya que ya declararon la guerra.";
+		mes "Estoy seguro de que vienen por Hervor.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Stop them. Please!";
+		mes "Detenlas. Por favor!";
 		next;
-		switch( select( "Leave it to me.","What do you mean 'the girls?'" ) ) {
+		switch( select( "Dejamelo a mi.","A que te refieres con 'las chicas?'" ) ) {
 		case 1:
 			mes "["+ .@npc_name$ +"]";
-			mes "Thank you...";
-			mes "I'm sorry that I'm causing you troubles, but my hands are tied.";
+			mes "Gracias...";
+			mes "Lamento causarte problemas, pero tengo las manos atadas.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Please, stop them for me!";
+			mes "Por favor, detenlas por mi!";
 			close;
 		case 2:
 			mes "["+ .@npc_name$ +"]";
-			mes "... They are the girls who want to be Valkyries...";
-			mes "and they always go around in groups of seven.";
+			mes "... Son las chicas que quieren ser Valquirias...";
+			mes "y siempre andan en grupos de siete.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "What they want is a powerful battlegear...";
-			mes "They always threatened my younger brother Cano and me.";
+			mes "Lo que quieren es un equipo de batalla poderoso...";
+			mes "Siempre amenazaban a mi hermano menor Cano y a mi.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "They were satisfied with basic weapons at first, but";
-			mes "soon they started threatening us saying that they need something more powerful in order to become Valkyries.";
+			mes "Al principio estaban satisfechas con armas basicas, pero";
+			mes "pronto empezaron a amenazarnos diciendo que necesitaban algo mas poderoso para convertirse en Valquirias.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "I couldn't stand it, so I ran away... but they're here...";
-			mes "You have to be careful since they found out that materials for Hervor are here.";
+			mes "No lo soporte y hui... pero estan aqui...";
+			mes "Ten cuidado ya que descubrieron que los materiales para Hervor estan aqui.";
 			close;
 		}
 	}
 	if ($2012_tegod_gloria == 2) {// after 10 minutes delay
-		mes "Ah stop following me around!";
-		mes "If you could just get rid of them... Hervor, that's right! I'll make you Hervor!";
+		mes "Ah, dejen de seguirme!";
+		mes "Si pudieras deshacerte de ellas... Hervor, eso es! Te hare Hervor!";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "When will they ever stop following me...";
-		mes "Now I'm scared of girls in general... and I'm too scared to do anything...";
+		mes "Cuando dejaran de seguirme...";
+		mes "Ahora le tengo miedo a las chicas en general... y estoy demasiado asustado para hacer nada...";
 		next;
-		mes "He's babbling now.";
-		mes "Just wait and he'll calm down.";
-		mes "You have to get rid of those girls first.";
+		mes "Esta balbuceando.";
+		mes "Solo espera y se calmara.";
+		mes "Primero tienes que deshacerte de esas chicas.";
 		close;
 	}
 	if ($2012_tegod_gloria == 3) {// event failed
-		mes "... Although I managed to escape from them again...";
-		mes "it's hard.";
-		mes "life is... just so hard.";
+		mes "... Aunque logre escapar de ellas otra vez...";
+		mes "es dificil.";
+		mes "la vida es... simplemente muy dificil.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "I'm so exhausted that I can't do anything.";
-		mes "... I don't think I can do anything for a while, whether it's producing or smithing or whatever it is.";
-		mes "I'm sorry. I'll take a break.";
+		mes "Estoy tan agotado que no puedo hacer nada.";
+		mes "... No creo que pueda hacer nada por un tiempo, ya sea producir o forjar o lo que sea.";
+		mes "Lo siento. Voy a descansar.";
 		close;
 	}
 	if ($2012_tegod_gloria == 4) {
-		mes "I can finally breathe now.";
-		mes "I'll start making Hervor as promised.";
+		mes "Por fin puedo respirar.";
+		mes "Empezare a hacer Hervor como prometi.";
 		next;
-		switch( select( "Make Hervor.","Fuse materials.","Not now." ) ) {
+		switch( select( "Crear Hervor.","Fusionar materiales.","Ahora no." ) ) {
 		case 1:
 			if (countitem(6595) > 1 && countitem(6596) > 0 && countitem(6594) > 3 && countitem(6597) > 2 && countitem(6602) > 0 && countitem(6605) > 0 && countitem(6604) > 0 && countitem(2115) > 0) {
-				mes "^ff0000Valkyrja's Shield is needed in the process of making Hervor.";
-				mes "You should not possess any other items except for Valkyrja's Shields in order to proceed with the quest.^ff0000";
+				mes "^ff0000El Escudo de Valkyrja es necesario en el proceso de crear Hervor.";
+				mes "No debes poseer ningun otro objeto excepto los Escudos de Valkyrja para poder continuar con la mision.^ff0000";
 				next;
-				mes "^ff0000Even if the refinement level and cards have been applied, the process requires any one of the Valkyrja's Shields you may have.";
-				mes "Please try again after organizing your possessions.^000000";
+				mes "^ff0000Incluso si el nivel de refinamiento y las cartas han sido aplicados, el proceso requiere cualquiera de los Escudos de Valkyrja que puedas tener.";
+				mes "Por favor intenta de nuevo despues de organizar tus posesiones.^000000";
 				next;
-				if (select( "Organize possessions.","Continue as it is." ) == 1) {
-					mes "You've decided to keep Valkyrja's Shields only.";
+				if (select( "Organizar posesiones.","Continuar como esta." ) == 1) {
+					mes "Has decidido quedarte solo con los Escudos de Valkyrja.";
 					close;
 				}
 				mes "["+ .@npc_name$ +"]";
-				mes "Oh... thank you.";
-				mes "I can't believe I'm finally touching these materials myself...";
+				mes "Oh... gracias.";
+				mes "No puedo creer que finalmente estoy tocando estos materiales yo mismo...";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "Here it is.";
-				mes "Wasn't it fast although we had to go through many steps?";
-				mes "I was so overwhelmed that it felt as short as a moment.";
+				mes "Aqui esta.";
+				mes "No fue rapido aunque tuvimos que pasar por muchos pasos?";
+				mes "Estaba tan abrumado que se sintio tan corto como un momento.";
 				next;
-				mes "Hervor, a shield that Blacksmith Velund made for his wife Hervor, is finally made";
-				mes "at the hands of "+ .@npc_name$ +".";
+				mes "Hervor, un escudo que el Herrero Velund hizo para su esposa Hervor, finalmente es creado";
+				mes "en las manos de "+ .@npc_name$ +".";
 				delitem 6595,2;// Hammer_Of_Velund
 				delitem 6596,1;// Anvil_Of_Velund
 				delitem 6594,4;// Magic_Bronze_Bullion
@@ -238,133 +238,133 @@ te_prtcas01,204,204,3	script	Blacksmith Kai#tegod01	4_M_RACHMAN2,{
 				delitem 2115,1;// Valkyrja's_Shield
 				$2012_tegod_gloria = 5;
 				getitem 2181,1;// Hervor
-				announce "Velund's gift [ Hervor ] is introduced to this world by ["+ strcharinfo(0) +"] of ["+ getguildname(.@guild_id) +"] Guild.",bc_all,"0x70dbdb",FW_NORMAL,12;
+				announce "El regalo de Velund [ Hervor ] es presentado al mundo por ["+ strcharinfo(0) +"] del Gremio ["+ getguildname(.@guild_id) +"].",bc_all,"0x70dbdb",FW_NORMAL,12;
 				if (.@economy > 20)
 					setcastledata "te_prtcas01",2,(.@economy-20);
 				else
 					setcastledata "te_prtcas01",2,1;// min is 1 for WOE TE
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "Whew.. I don't think I can work for a while.";
-				mes "I'm all exhausted. Hahaha...";
+				mes "Uf.. No creo que pueda trabajar por un tiempo.";
+				mes "Estoy completamente agotado. Jajaja...";
 				close;
 			}
 			mes "["+ .@npc_name$ +"]";
-			mes "However, it seems like we need more materials.";
-			mes "Could you check again? I'll give you the list of what we need.";
+			mes "Sin embargo, parece que necesitamos mas materiales.";
+			mes "Podrias verificar de nuevo? Te dare la lista de lo que necesitamos.";
 			callsub S_Material, .@npc_name$,1;
 		case 2:
 			callsub S_Fuse, .@npc_name$, "Hervor";
 		case 3:
 			mes "["+ .@npc_name$ +"]";
-			mes "Now is actually the right time to make it.";
-			mes "By the time next Emperium appears, there won't be any chances left.";
+			mes "Ahora es en realidad el momento adecuado para hacerlo.";
+			mes "Para cuando aparezca el siguiente Emperium, no quedaran oportunidades.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Also, keep in mind the fact that I can only do this once a week.";
+			mes "Ademas, ten en cuenta que solo puedo hacer esto una vez por semana.";
 			close;
 		}
 	}
 	if ($2012_tegod_gloria == 5) {
-		mes "I'm tired a little bit.";
-		mes "I think I should rest for a few days.";
-		mes "I may look just fine, but I was mentally very tired.";
+		mes "Estoy un poco cansado.";
+		mes "Creo que deberia descansar unos dias.";
+		mes "Puede que me vea bien, pero estaba mentalmente muy agotado.";
 		close;
 	}
-	mes "It's strange.";
-	mes "I can't tell how I feel.";
-	mes "Am I having some kind of a health problem?";
-	mes "Is it something uncurable?";
+	mes "Es extrano.";
+	mes "No puedo describir como me siento.";
+	mes "Estare teniendo algun problema de salud?";
+	mes "Sera algo incurable?";
 	close;
 
 S_Material:
 	.@npc_name$ = getarg(0);
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "^4d4dff2 of Velund's Hammer";
-	mes "1 Velund's Anvil";
-	mes "4 Bronze bars with magical power";
-	mes "3 of Velund's Bracelet";
-	mes "1 Rune characters' Secret";
-	mes "1 Valkyrja's Shield";
-	mes "1 Muspellium and Essence of Rune, respectively^000000";
+	mes "^4d4dff2 Martillos de Velund";
+	mes "1 Yunque de Velund";
+	mes "4 Lingotes de bronce con poder magico";
+	mes "3 Brazaletes de Velund";
+	mes "1 Secreto de los caracteres runicos";
+	mes "1 Escudo de Valkyrja";
+	mes "1 Muspellium y 1 Esencia de Runa, respectivamente^000000";
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "We need as many materials as these.";
+	mes "Necesitamos tantos materiales como estos.";
 	mes getarg(2,"");
-	mes "By the way, Muspellium and Essence of Rune need to be made separately with additional materials.";
+	mes "Por cierto, el Muspellium y la Esencia de Runa necesitan ser hechos por separado con materiales adicionales.";
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "In order to make Muspellium, you need to ^4d4dffcombine 50 Eluniums and 50 Oridecons^000000.";
-	mes "For Essence of Rune, you need to ^4d4dffcombine 200 Ancient Rough Runestones and 100 Mystic Rough Runestones^000000.";
+	mes "Para hacer Muspellium, necesitas ^4d4dffcombinar 50 Eluniums y 50 Oridecons^000000.";
+	mes "Para la Esencia de Runa, necesitas ^4d4dffcombinar 200 Piedras Runicas Antiguas en Bruto y 100 Piedras Runicas Misticas en Bruto^000000.";
 	next;
 	mes "["+ .@npc_name$ +"]";
-	mes "I'll make Muspellium and Essence of Rune anytime upon your request,";
-	mes "and of course, I'll make Jormungand as soon as we gather all the materials needed.";
+	mes "Te hare el Muspellium y la Esencia de Runa cuando quieras,";
+	mes "y por supuesto, hare Jormungand tan pronto como reunamos todos los materiales necesarios.";
 	next;
 	mes "["+ .@npc_name$ +"]";
 	if (getarg(1))
-		mes "What I'm doing is never enough compared to what you've done for me.";
+		mes "Lo que estoy haciendo nunca es suficiente comparado con lo que has hecho por mi.";
 	else {
-		mes "However, you won't be able to find Velund's items.";
-		mes "... but people say they definitely appear to those who truly want it. I wish you all the luck.";
+		mes "Sin embargo, no podras encontrar los objetos de Velund.";
+		mes "... pero la gente dice que definitivamente aparecen ante quienes realmente los desean. Te deseo toda la suerte.";
 	}
 	close;
 
 S_Fuse:
 	.@npc_name$ = getarg(0);
 	mes "["+ .@npc_name$ +"]";
-	mes "Which material do you want to make?";
+	mes "Que material quieres crear?";
 	next;
-	switch( select( "Muspellium","Essence of Rune","Forget it." ) ) {
+	switch( select( "Muspellium","Esencia de Runa","Olvidalo." ) ) {
 	case 1:
 		mes "["+ .@npc_name$ +"]";
 		if (countitem(985) > 49 && countitem(984) > 49) {
-			mes "I'll make Muspellium with the materials you've prepared.";
+			mes "Hare Muspellium con los materiales que has preparado.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "It shouldn't take long.";
-			mes "Here it is.";
-			mes "It is an essential material for making Hervor and Jormungand.";
+			mes "No deberia tomar mucho tiempo.";
+			mes "Aqui esta.";
+			mes "Es un material esencial para hacer Hervor y Jormungand.";
 			delitem 985,50;// Elunium
 			delitem 984,50;// Oridecon
 			getitem 6605,1;// Muspellium
 			close;
 		}
-		mes "In order to make Muspellium,";
-		mes "^4d4dffyou need 50 Eluniums and 50 Oridecons.^000000";
+		mes "Para hacer Muspellium,";
+		mes "^4d4dffnecesitas 50 Eluniums y 50 Oridecons.^000000";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "We should have all the materials ready, right?";
+		mes "Debemos tener todos los materiales listos, verdad?";
 		close;
 	case 2:
 		mes "["+ .@npc_name$ +"]";
 		if (countitem(12735) > 199 && countitem(12736) > 99) {
-			mes "I'll make Essence of Rune with the materials you've prepared.";
+			mes "Hare la Esencia de Runa con los materiales que has preparado.";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "It shouldn't take long.";
-			mes "Here it is.";
-			mes "It is an essential material for making Hervor and Jormungand.";
+			mes "No deberia tomar mucho tiempo.";
+			mes "Aqui esta.";
+			mes "Es un material esencial para hacer Hervor y Jormungand.";
 			delitem 12735,200;// Runstone_Ancient
 			delitem 12736,100;// Runstone_Mystic
 			getitem 6604,1;// Essence_Of_Rune
 			close;
 		}
-		mes "For Essence of Rune,";
-		mes "^4d4dffyou need 200 Ancient Rough Runestones and 100 Mystic Rough Runestones.^000000";
+		mes "Para la Esencia de Runa,";
+		mes "^4d4dffnecesitas 200 Piedras Runicas Antiguas en Bruto y 100 Piedras Runicas Misticas en Bruto.^000000";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Surely, it takes a lot...";
+		mes "Seguramente, se necesitan muchas...";
 		close;
 	case 3:
 		mes "["+ .@npc_name$ +"]";
-		mes "Tell me whenever you need it.";
-		mes "I'm glad I can at least do this for you.";
+		mes "Dime cuando lo necesites.";
+		mes "Me alegra poder al menos hacer esto por ti.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Also, a place where you can find materials for "+ getarg(1) +"...";
-		mes "this is like a dream place for me, too.";
+		mes "Ademas, un lugar donde puedes encontrar materiales para "+ getarg(1) +"...";
+		mes "este tambien es un lugar de ensueno para mi.";
 		close;
 	}
 
@@ -377,49 +377,49 @@ OnInit:
 }
 
 te_prtcas01,190,2,0	script	#tequest_master_prt01	CLEAR_NPC,{
-	mes "password?";
+	mes "contrasena?";
 	next;
 	if ( callfunc( "F_GM_NPC", 1854,0, 0,9999 ) < 1 ) {
-		mes "Go away";
+		mes "Vete";
 		close;
 	}
 	.@map$ = "te_prtcas01";
-	mes "Current Status: " + $2012_tegod_gloria;
-	mes "0: Able to proceed with the quest";
-	mes "1: Proceed with the quest. 10-minute wait";
-	mes "2: Quest in progress";
-	mes "3: Quest failed";
-	mes "4: Able to produce items , 5: Items produced successfully.";
+	mes "Estado Actual: " + $2012_tegod_gloria;
+	mes "0: Se puede proceder con la mision";
+	mes "1: Proceder con la mision. 10 minutos de espera";
+	mes "2: Mision en progreso";
+	mes "3: Mision fallida";
+	mes "4: Se pueden producir objetos, 5: Objetos producidos exitosamente.";
 	next;
-	mes "Princess Status: " + $@2012_tegirls_prt01;
-	mes "Current Commerce Level of the Fortress:" + getcastledata(.@map$,2);
+	mes "Estado de las Princesas: " + $@2012_tegirls_prt01;
+	mes "Nivel de Comercio Actual de la Fortaleza:" + getcastledata(.@map$,2);
 	next;
-	switch( select( "Do not proceed","Initialization","Raise Commerce Level","Lower Commerce Level" ) ) {
+	switch( select( "No proceder","Inicializacion","Subir Nivel de Comercio","Bajar Nivel de Comercio" ) ) {
 	case 1:
 		end;
 	case 2:
-		mes "Initialize";
+		mes "Inicializar";
 		donpcevent "#tequest_master_prt01::OnReset";
 		close;
 	case 3:
 		.@economy = getcastledata(.@map$,2) +30;
 		.@economy = .@economy > 100 ? 100 : .@economy;
 		setcastledata .@map$,2,.@economy;
-		mes "Raise Commerce Level by 30";
-		mes "Modified Commerce Level:" + .@economy;
+		mes "Subir Nivel de Comercio en 30";
+		mes "Nivel de Comercio Modificado:" + .@economy;
 		close;
 	case 4:
 		.@economy1 = getcastledata(.@map$,2);
 		.@economy2 = .@economy1 > 30 ? (.@economy1 -30) : 1;
 		if (.@economy1 > 30) {
-			mes "Lower Commerce Level by 30";
+			mes "Bajar Nivel de Comercio en 30";
 			setcastledata .@map$,2,.@economy2;
 		}
 		else {
-			mes "Commerce Level gets decreased to 0 since current level is lower than 30.";
+			mes "El Nivel de Comercio se reduce a 0 ya que el nivel actual es menor a 30.";
 			setcastledata .@map$,2,1;// min is 1 for WOE TE
 		}
-		mes "Modified Commerce Level:" + .@economy2;
+		mes "Nivel de Comercio Modificado:" + .@economy2;
 		close;
 	}
 
@@ -441,16 +441,16 @@ OnCommandOn:
 	end;
 
 OnTimer10000:
-	announce "Girls' voices: Kai~ We already know where you are. It's over!",bc_all,"0xFF0000",FW_NORMAL,10;
+	announce "Voces de las chicas: Kai~ Ya sabemos donde estas. Se acabo!",bc_all,"0xFF0000",FW_NORMAL,10;
 	end;
 OnTimer15000:
-	announce "Girls' Voices: We'll wait just 10 minutes. If you don't show up in the meantime, we'll storm the fortress!",bc_all,"0xFF0000",FW_NORMAL,10;
+	announce "Voces de las chicas: Esperaremos solo 10 minutos. Si no te presentas mientras tanto, asaltaremos la fortaleza!",bc_all,"0xFF0000",FW_NORMAL,10;
 	end;
 OnTimer595000:
-	mapannounce "te_prtcas01", "A girl's voice: Kai! How dare you ignore our warning! So, you have company there, huh? But how long do you think they'll stay with you?!",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Voz de una chica: Kai! Como te atreves a ignorar nuestra advertencia! Asi que tienes compania ahi, eh? Pero cuanto tiempo crees que se quedaran contigo?!",bc_map,"0x00ff00",FW_NORMAL,12;
 	end;
 OnTimer598000:
-	mapannounce "te_prtcas01", "You are forced out of the fortress by unknown power.",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Eres expulsado de la fortaleza por un poder desconocido.",bc_map,"0x00ff00",FW_NORMAL,12;
 	end;
 
 OnTimer600000:
@@ -468,7 +468,7 @@ OnTimer600000:
 	end;
 
 OnTimer602000:
-	announce "Gaebolg in Gloria region is being attacked by a group of unidentified beings.",bc_all,"0xFF0000",FW_NORMAL,10;
+	announce "Gaebolg en la region de Gloria esta siendo atacado por un grupo de seres no identificados.",bc_all,"0xFF0000",FW_NORMAL,10;
 	monster "te_prtcas01",0,0,"Raydric",1163,15, .npc_name$ +"::OnMyMobDead";
 	monster "te_prtcas01",0,0,"Khalitzburg",1132,10, .npc_name$ +"::OnMyMobDead";
 	monster "te_prtcas01",0,0,"Abysmal Knight",1219,5, .npc_name$ +"::OnMyMobDead";
@@ -505,16 +505,16 @@ S_MobRedondant:
 	end;
 
 OnTimer4200000:
-	mapannounce "te_prtcas01", "Girls: ... how long do we have to wait?",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Chicas: ... cuanto tiempo tenemos que esperar?",bc_map,"0x00ff00",FW_NORMAL,12;
 	end;
 OnTimer4205000:
-	mapannounce "te_prtcas01", "Girls: Hervor should be made for us!",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Chicas: Hervor deberia ser hecho para nosotras!",bc_map,"0x00ff00",FW_NORMAL,12;
 	end;
 OnTimer4210000:
-	mapannounce "te_prtcas01", "Girls: Come on, cut if off! You guys are so persistent!!",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Chicas: Vamos, ya basta! Ustedes son tan persistentes!!",bc_map,"0x00ff00",FW_NORMAL,12;
 	end;
 OnTimer4220000:
-	mapannounce "te_prtcas01", "Aira: Ah! I can't take it anymore! Girls, come here!",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Aira: Ah! Ya no lo soporto! Chicas, vengan aqui!",bc_map,"0x00ff00",FW_NORMAL,12;
 
 	$2012_tegod_gloria = 3;// quest off until someone break the emp
 	callsub S_EventReset;
@@ -533,27 +533,27 @@ OnTimer4225000:
 	end;
 
 OnTimer4227000:
-	npctalk "Kai: Oh... no! What are you going to do to me?!", "Blacksmith Kai#tegod01";
+	npctalk "Kai: Oh... no! Que me van a hacer?!", "Blacksmith Kai#tegod01";
 	end;
 OnTimer4230000:
-	npctalk "Aira: Mm? Hey Kai. You're going home.", "#end_aira_prt01";
+	npctalk "Aira: Mm? Oye Kai. Te vas a casa.", "#end_aira_prt01";
 	end;
 OnTimer4233000:
-	npctalk "Kuluna: Yup~ You have to fix my broken wand and make powerful weapons for me once you get back!", "#end_kuluna_prt01";
+	npctalk "Kuluna: Sip~ Tienes que arreglar mi varita rota y hacerme armas poderosas cuando regreses!", "#end_kuluna_prt01";
 	end;
 OnTimer4236000:
-	npctalk "Ezella: Try to run away again. You'll be sorry, understand?", "#end_ezella_prt01";
+	npctalk "Ezella: Intenta escapar otra vez. Lo vas a lamentar, entiendes?", "#end_ezella_prt01";
 	end;
 OnTimer4237000:
-	npctalk "Nasarin: ... Just take him. Why are you guys talking to him so much?", "#end_nasarin_prt01";
+	npctalk "Nasarin: ... Solo llevatelo. Por que le estan hablando tanto?", "#end_nasarin_prt01";
 	end;
 OnTimer4240000:
-	npctalk "Aira: You're right! Alright then!", "#end_aira_prt01";
+	npctalk "Aira: Tienes razon! Muy bien entonces!", "#end_aira_prt01";
 	npctalk "Kai: Oh... No... Noooo!!!!!", "Blacksmith Kai#tegod01";
 	end;
 
 OnTimer4243000:
-	mapannounce "te_prtcas01", "You've failed to recapture the fortress. Kai is now gone.",bc_map,"0x00ff00",FW_NORMAL,12;
+	mapannounce "te_prtcas01", "Has fallado en recapturar la fortaleza. Kai se ha ido.",bc_map,"0x00ff00",FW_NORMAL,12;
 	disablenpc "Blacksmith Kai#tegod01";
 	callsub S_EventOff;// clear setnpcdisplay
 	.npc_name$ = "";
@@ -619,7 +619,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_prtcas01","Aira#fake01_prt01::OnMyMobDead" )) end;
 	donpcevent "#aira_real_prt01::OnCommandOn";
-	npctalk "Aira: My summon water balls! I'll get you! With my own hands!!";
+	npctalk "Aira: Mis bolas de agua invocadas! Me las pagaran! Con mis propias manos!!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_prtcas01", "Aira#fake01_prt01::OnMyMobDead";
@@ -655,7 +655,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_prtcas01","Kuluna#fake01_prt01::OnMyMobDead" )) end;
 	donpcevent "#kuluna_real_prt01::OnCommandOn";
-	npctalk "Kuluna: Hmm? So you're going to be that way? You'd better be ready!";
+	npctalk "Kuluna: Hmm? Asi que van a ser asi? Preparense!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_prtcas01", "Kuluna#fake01_prt01::OnMyMobDead";
@@ -691,7 +691,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_prtcas01","Mallina#fake01_prt01::OnMyMobDead" )) end;
 	donpcevent "#mallina_real_prt01::OnCommandOn";
-	npctalk "Mallina: Stop it!! Stop bothering me!!";
+	npctalk "Mallina: Basta!! Dejen de molestarme!!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_prtcas01", "Mallina#fake01_prt01::OnMyMobDead";
@@ -725,7 +725,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_prtcas01","Ezella#fake01_prt01::OnMyMobDead" )) end;
 	donpcevent "#ezella_real_prt01::OnCommandOn";
-	npctalk "Ezella: Ahh... This only makes both of us more tired...";
+	npctalk "Ezella: Ahh... Esto solo nos cansa mas a ambos...";
 OnReset:
 	stopnpctimer;
 	killmonster "te_prtcas01", "Ezella#fake01_prt01::OnMyMobDead";
@@ -762,7 +762,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_prtcas01","Lune#fake01_prt01::OnMyMobDead" )) end;
 	donpcevent "#lune_real_prt01::OnCommandOn";
-	npctalk "Lune: ..you want to be drowned in the deep sea? Huh?";
+	npctalk "Lune: ..quieres ser ahogado en el mar profundo? Eh?";
 OnReset:
 	stopnpctimer;
 	killmonster "te_prtcas01", "Lune#fake01_prt01::OnMyMobDead";
@@ -854,7 +854,7 @@ OnCommandOn:
 OnMyMobDead:
 	if (mobcount( "te_prtcas01","Nasarin#fake01_prt01::OnMyMobDead" )) end;
 	donpcevent "#nasarin_real_prt01::OnCommandOn";
-	npctalk "Nasarin: ..Ahh.. It's so hard to become a Valkyrie!";
+	npctalk "Nasarin: ..Ahh.. Es tan dificil convertirse en Valquiria!";
 OnReset:
 	stopnpctimer;
 	killmonster "te_prtcas01", "Nasarin#fake01_prt01::OnMyMobDead";
@@ -910,25 +910,25 @@ OnTimer1000:
 	if (mobcount( "te_prtcas01",strnpcinfo(0) +"::OnMyMobDead" ) == 0) {
 		$@2012_tegirls_prt01++;
 		if ($@2012_tegirls_prt01 == 7) {
-			mapannounce "te_prtcas01","Kai: aaahh!! The girls broke the shields and made their way into where Emperium is!!!!",bc_map,"0x00ff00",FW_NORMAL,12;
+			mapannounce "te_prtcas01","Kai: aaahh!! Las chicas rompieron los escudos y se abrieron paso hasta donde esta el Emperium!!!!",bc_map,"0x00ff00",FW_NORMAL,12;
 			donpcevent "#eproom_girls_prt01::OnCommandOn";
 		}
 		else {
 			.@npc_name$ = strnpcinfo(0);
 			if (.@npc_name$ == "#aira_real_prt01")
-				mapannounce "te_prtcas01","Aira: You think I lost? You're wrong! We force our way to where Kai is!!",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Aira: Crees que perdi? Te equivocas! Nos abriremos paso hasta donde esta Kai!!",bc_map,"0x00ff00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#kuluna_real_prt01")
-				mapannounce "te_prtcas01","Kuluna: ... This is called a strategic retreat.",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Kuluna: ... Esto se llama una retirada estrategica.",bc_map,"0x00ff00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#mallina_real_prt01")
-				mapannounce "te_prtcas01","Mallina: ... Why are you disturbing us so much? But victory will be ours in the end!!",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Mallina: ... Por que nos molestan tanto? Pero la victoria sera nuestra al final!!",bc_map,"0x00ff00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#ezella_real_prt01")
-				mapannounce "te_prtcas01","Ezella: Oh you, a weakling that would just disappear like the wind... !!!",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Ezella: Oh tu, un debilucho que simplemente desapareceria como el viento...!!!",bc_map,"0x00ff00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#lune_real_prt01")
-				mapannounce "te_prtcas01","Lune: ..Alright. Let the battle begin!",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Lune: ..Muy bien. Que comience la batalla!",bc_map,"0x00ff00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#morin_real_prt01")
-				mapannounce "te_prtcas01","Morin: It's not... interesting anymore.",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Morin: Ya no es... interesante.",bc_map,"0x00ff00",FW_NORMAL,12;
 			else if (.@npc_name$ == "#nasarin_real_prt01")
-				mapannounce "te_prtcas01","Nasarin: .. I wasted my time. Kai is in the center of this fortress?",bc_map,"0x00ff00",FW_NORMAL,12;
+				mapannounce "te_prtcas01","Nasarin: .. Perdi mi tiempo. Kai esta en el centro de esta fortaleza?",bc_map,"0x00ff00",FW_NORMAL,12;
 		}
 	}
 	stopnpctimer;
@@ -970,7 +970,7 @@ OnTimer3000:
 	if (mobcount( "te_prtcas01","#eproom_girls_prt01::OnMyMobDead" ) == 0) {
 		donpcevent "#tequest_master_prt01::OnStop";
 		$2012_tegod_gloria = 4;
-		mapannounce "te_prtcas01","You have defeated the girls and recaptured the fortress successfully.",bc_map,"0x00ff00",FW_NORMAL,12;
+		mapannounce "te_prtcas01","Has derrotado a las chicas y recapturado la fortaleza exitosamente.",bc_map,"0x00ff00",FW_NORMAL,12;
 	}
 	stopnpctimer;
 	end;

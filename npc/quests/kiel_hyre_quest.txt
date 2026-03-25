@@ -655,28 +655,28 @@ lighthalzen,366,289,2	script	Windmill Owner's Helper	97,{
 //----------------------------------------------------------------------------
 yuno_fild08,196,196,5	script	Hanie#kh1	102,{
 	mes "[Hanie]";
-	mes "Oh, I wish I could study";
-	mes "at the Kiel Hyre Academy...";
-	mes "All of the graduates get";
-	mes "really nice jobs! I'm almost";
-	mes "jealous of the students!";
+	mes "Oh, ojala pudiera estudiar";
+	mes "en la Academia Kiel Hyre...";
+	mes "Todos los graduados consiguen";
+	mes "trabajos muy buenos! Casi les";
+	mes "tengo envidia a los estudiantes!";
 	next;
-	select("Kiel Hyre Academy?");
+	select("Academia Kiel Hyre?");
 	mes "[Hanie]";
-	mes "Oh, the Kiel Hyre Academy";
-	mes "is a school founded by Kiel";
-	mes "Hyre, an inventor that became";
-	mes "rich from his strange machines.";
-	mes "He decided to give back to society";
-	mes "by building this private academy.";
+	mes "Oh, la Academia Kiel Hyre";
+	mes "es una escuela fundada por Kiel";
+	mes "Hyre, un inventor que se hizo";
+	mes "rico con sus extranas maquinas.";
+	mes "Decidio retribuir a la sociedad";
+	mes "construyendo esta academia privada.";
 	next;
 	mes "[Hanie]";
-	mes "However, the school will";
-	mes "only accept orphans that are";
-	mes "too poor to enroll in any other";
-	mes "schools. Sometimes, it makes";
-	mes "me wish that I was an orphan too!";
-	mes "Well, not really, but you know...";
+	mes "Sin embargo, la escuela solo";
+	mes "acepta huerfanos que son";
+	mes "demasiado pobres para inscribirse";
+	mes "en otras escuelas. A veces, me";
+	mes "hace desear ser huerfana tambien!";
+	mes "Bueno, no realmente, pero ya sabes...";
 	close;
 }
 
@@ -685,109 +685,109 @@ yuno_fild08,196,196,5	script	Hanie#kh1	102,{
 // Academy Security Guards
 //----------------------------------------------------------------------------
 yuno_fild08,158,194,6	script	Security Guard#1::KHAGuard	852,{
-	if ((KielHyreQuest < 2) || (KielHyreQuest > 31)) { 
+	if ((KielHyreQuest < 2) || (KielHyreQuest > 31)) {
 		mes "[Security Guard]";
-		mes "I'm sorry, but if you aren't";
-		mes "associated with this institution,";
-		mes "then you're not authorized to";
-		mes "enter the ^FF0000Kiel Hyre Academy^000000.";
-		mes "Please leave if you don't have";
-		mes "an appointment with the staff.";
+		mes "Lo siento, pero si no estas";
+		mes "asociado con esta institucion,";
+		mes "entonces no estas autorizado";
+		mes "para entrar a la ^FF0000Academia Kiel Hyre^000000.";
+		mes "Por favor vete si no tienes";
+		mes "una cita con el personal.";
 		close;
 	}
-	else if (KielHyreQuest == 2) { 
+	else if (KielHyreQuest == 2) {
 		mes "[Security Guard]";
-		mes "I'm sorry, but if you aren't";
-		mes "associated with this institution,";
-		mes "then you're not authorized to";
-		mes "enter the ^FF0000Kiel Hyre Academy^000000.";
-		mes "Please leave if you don't have";
-		mes "an appointment with the staff.";
+		mes "Lo siento, pero si no estas";
+		mes "asociado con esta institucion,";
+		mes "entonces no estas autorizado";
+		mes "para entrar a la ^FF0000Academia Kiel Hyre^000000.";
+		mes "Por favor vete si no tienes";
+		mes "una cita con el personal.";
 		next;
-		switch(select("I'm here for a delivery.:......")) {
+		switch(select("Vengo a hacer una entrega.:......")) {
 		case 1:
 			mes "[Security Guard]";
-			mes "You're here to deliver";
-			mes "something? Okay, just give";
-			mes "me the recipient's ^FF0000name^000000,";
-			mes "followed by the ^FF0000item^000000 being";
-			mes "delivered, and I'll verify it";
-			mes "before letting you inside.";
+			mes "Vienes a entregar";
+			mes "algo? Bien, solo dame";
+			mes "el ^FF0000nombre^000000 del destinatario,";
+			mes "seguido del ^FF0000objeto^000000 que";
+			mes "entregas, y lo verificare";
+			mes "antes de dejarte entrar.";
 			next;
 			input .@KHDelivery$;
 			if (.@KHDelivery$ != "Lecollane") {
 				mes "[Security Guard]";
-				mes "You're here to deliver some";
-				mes "Wine to...to who? What was";
-				mes "the name? I...I don't think";
-				mes "we have anybody in the";
-				mes "academy named "+.@KHDelivery$+"";
+				mes "Vienes a entregar un poco de";
+				mes "Vino a...a quien? Cual era";
+				mes "el nombre? Yo...no creo";
+				mes "que tengamos a nadie en la";
+				mes "academia llamado "+.@KHDelivery$+"";
 				close;
 			}
 			input .@KHDelivery$ ;
 			if (.@KHDelivery$ != "Culinary Wine") {
 				mes "[Security Guard]";
-				mes "So you're here to make";
-				mes "a delivery to Mrs. Lecollane?";
-				mes "What is it you've brought for";
-				mes "her? Some ^3355FF"+.@KHDelivery$+"^000000?";
+				mes "Entonces vienes a hacer";
+				mes "una entrega a la Sra. Lecollane?";
+				mes "Que es lo que le traes?";
+				mes "Un poco de ^3355FF"+.@KHDelivery$+"^000000?";
 				next;
 				mes "[Security Guard]";
-				mes "Let me buzz her first,";
-				mes "and check to make sure";
-				mes "that she's been expecting";
-				mes "you. Let's see now...";
+				mes "Dejame llamarla primero,";
+				mes "y verificar que ella";
+				mes "ha estado esperandote.";
+				mes "Veamos...";
 				next;
 				mes "......";
 				mes ".........";
 				mes "............";
 				next;
 				mes "[Security Guard]";
-				mes "Huh. Mrs Lecollane";
-				mes "is expecting a delivery,";
-				mes "but not the item that you";
-				mes "say that you've brought for";
-				mes "her. You might want to check";
-				mes "to see if there's been a mixup...";
+				mes "Hmm. La Sra. Lecollane";
+				mes "espera una entrega,";
+				mes "pero no el objeto que";
+				mes "dices que le traes.";
+				mes "Quiza debas verificar";
+				mes "si ha habido una confusion...";
 				close;
 			}
 			mes "[Security Guard]";
-			mes "Alright....";
-			mes "So you're here to";
-			mes "deliver a bottle of";
-			mes "Wine to Mrs. Lecollane?";
-			mes "Let me buzz her, and get";
-			mes "this confirmed real quickly.";
+			mes "Muy bien....";
+			mes "Asi que vienes a";
+			mes "entregar una botella de";
+			mes "Vino a la Sra. Lecollane?";
+			mes "Dejame llamarla y";
+			mes "confirmar esto rapidamente.";
 			next;
 			mes "......";
 			mes ".........";
 			mes "............";
 			next;
 			mes "[Security Guard]";
-			mes "Okay, everything looks";
-			mes "good. Mrs. Lecollane";
-			mes "has been expecting you.";
-			mes "I guess you can enter.";
+			mes "Bien, todo se ve";
+			mes "en orden. La Sra. Lecollane";
+			mes "te ha estado esperando.";
+			mes "Supongo que puedes entrar.";
 			close2;
 			warp "kh_school",71,155;
 			end;
 		case 2:
 			mes "[Security Guard]";
-			mes "If you don't have";
-			mes "an appoointment, then";
-			mes "don't loiter around in";
-			mes "front of the academy!";
+			mes "Si no tienes";
+			mes "una cita, entonces";
+			mes "no merodees";
+			mes "frente a la academia!";
 			close;
 		}
 	}
-	else if (KielHyreQuest < 32) { 
+	else if (KielHyreQuest < 32) {
 		mes "[Security Guard]";
-		mes "Oh, did you have";
-		mes "other business inside";
-		mes "the academy? I remember";
-		mes "you from before, so there";
-		mes "shouldn't be any problems";
-		mes "letting you back inside...";
+		mes "Oh, tenias otros";
+		mes "asuntos dentro de";
+		mes "la academia? Te recuerdo";
+		mes "de antes, asi que no";
+		mes "deberia haber problemas";
+		mes "para dejarte entrar de nuevo...";
 		close2;
 		warp "kh_school",71,155;
 		end;
@@ -801,46 +801,46 @@ yuno_fild08,158,183,7	duplicate(KHAGuard)	Security Guard#2	852
 //----------------------------------------------------------------------------
 kh_school,57,142,6	script	Student#kha	893,3,3,{
 	mes "[Laci]";
-	mes "Oh, wow! We usually";
-	mes "don't get visitors on";
-	mes "campus! Um, you're not";
-	mes "a new faculty member, are you?";
+	mes "Oh, vaya! Normalmente";
+	mes "no recibimos visitantes";
+	mes "en el campus! Eh, no eres";
+	mes "un nuevo miembro del profesorado, verdad?";
 	close;
 
 OnTouch_:
 	mes "[Laci]";
-	mes "Hey, Nesha...!";
-	mes "have you heard why";
-	mes "Aaci hasn't been coming";
-	mes "to class for awhile?";
+	mes "Oye, Nesha...!";
+	mes "has escuchado por que";
+	mes "Aaci no ha venido a";
+	mes "clases ultimamente?";
 	next;
 	mes "[Gui Nesha]";
-	mes "That's right, I haven't";
-	mes "seen Aaci in awhile.";
-	mes "Did something happen?";
+	mes "Es cierto, no he";
+	mes "visto a Aaci en un tiempo.";
+	mes "Le paso algo?";
 	next;
 	mes "[Laci]";
-	mes "It's because....";
-	mes "Aaci saw a freakin' ghost!";
-	mes "It's one hundred percent";
-	mes "true! I heard about it from,";
-	mes "well, you know, my sources.";
+	mes "Es porque....";
+	mes "Aaci vio un fantasma!";
+	mes "Es cien por ciento";
+	mes "verdad! Me entere por,";
+	mes "bueno, ya sabes, mis fuentes.";
 	next;
 	mes "[Gui Nesha]";
-	mes "...Wha...?";
-	mes "Oh, come on,";
-	mes "get outta town.";
+	mes "...Que...?";
+	mes "Oh, vamos,";
+	mes "no me digas.";
 	close;
 }
 
 kh_school,57,139,0	script	Student#khb	893,{
 	mes "[Gui Nesha]";
-	mes "Aren't we a little";
-	mes "old to be talking about";
-	mes "this kind of stuff? You";
-	mes "know, rumors and ghost";
-	mes "stories that make no sense?";
-	mes "C'mon, Laci, knock it off!";
+	mes "No estamos un poco";
+	mes "grandes para hablar de";
+	mes "estas cosas? Ya sabes,";
+	mes "rumores e historias de";
+	mes "fantasmas que no tienen sentido?";
+	mes "Vamos, Laci, ya dejalo!";
 	emotion ET_PROFUSELY_SWEAT;
 	close;
 }
@@ -851,77 +851,77 @@ kh_school,57,139,0	script	Student#khb	893,{
 kh_school,176,60,4	script	Lady#kh	101,{
 	if (KielHyreQuest < 2) {
 		mes "[Mrs. Lecollane]";
-		mes "Is there a problem?";
-		mes "Outsiders are not allowed to come";
-		mes "in here, please leave.";
+		mes "Hay algun problema?";
+		mes "Los de afuera no tienen permitido";
+		mes "entrar aqui, por favor vete.";
 		close;
 	}
-	else if (KielHyreQuest == 2) { 
+	else if (KielHyreQuest == 2) {
 		mes "[Mrs. Lecollane]";
-		mes "Oh, hello. Ah!";
-		mes "have you come to";
-		mes "deliver my wine? The";
-		mes "security guard called and";
-		mes "mentioned you were coming.";
+		mes "Oh, hola. Ah!";
+		mes "viniste a entregar";
+		mes "mi vino? El guardia de";
+		mes "seguridad llamo y";
+		mes "menciono que venias.";
 		next;
-		switch(select("Yes, that's right!:Er, s-sorry!")) {
+		switch(select("Si, asi es!:Eh, l-lo siento!")) {
 		case 1:
 			mes "[Mrs. Lecollane]";
-			mes "Well, you've come a little";
-			mes "later than I thought, but";
-			mes "I suppose it can't be helped.";
-			mes "I guess the waiting has just";
-			mes "heightened my anticipation";
-			mes "for this bottle of wi--";
+			mes "Bueno, llegaste un poco";
+			mes "mas tarde de lo que pense, pero";
+			mes "supongo que no se puede evitar.";
+			mes "Creo que la espera solo ha";
+			mes "aumentado mi anticipacion";
+			mes "por esta botella de vi--";
 			next;
 			mes "^3355FF*Cling! Crrrack!*^000000";
 			next;
 			mes "[Mrs. Lecollane]";
-			mes "Elly? Elly did you";
-			mes "break something again?!";
-			mes "You've got to be more careful!";
-			mes "If you don't finish baking those";
-			mes "cookies by the end of today, your";
-			mes "semester grades will suffer!";
+			mes "Elly? Elly, rompiste";
+			mes "algo otra vez?!";
+			mes "Tienes que ser mas cuidadosa!";
+			mes "Si no terminas de hornear esas";
+			mes "galletas para el final del dia, tus";
+			mes "calificaciones del semestre sufriran!";
 			next;
 			mes "[Elly]";
-			mes "B-but I just...";
+			mes "P-pero yo solo...";
 			next;
 			mes "[Mrs. Lecollane]";
 			mes "^FF0000Elly^000000!!";
 			next;
 			mes "[Elly]";
 			mes "......";
-			mes "Yes, Mrs. Lecollane.";
+			mes "Si, Sra. Lecollane.";
 			next;
 			mes "[Mrs. Lecollane]";
-			mes "*Ahem* Excuse me.";
-			mes "Would you please leave";
-			mes "the wine over there? You";
-			mes "may go now, and please";
-			mes "don't wander needlessly";
-			mes "around the academy.";
+			mes "*Ejem* Disculpe.";
+			mes "Podria por favor dejar";
+			mes "el vino por alla? Ya puede";
+			mes "irse, y por favor no";
+			mes "deambule innecesariamente";
+			mes "por la academia.";
 			delitem 7487,1; //Tavern_Wine
 			set KielHyreQuest,4;
 			close;
 		case 2:
 			mes "[Mrs. Lecollane]";
 			mes "Hm...?";
-			mes "I guess I must";
-			mes "be mistaken. I'm";
-			mes "sorry, I thought you";
-			mes "were somebody else.";
+			mes "Supongo que debo";
+			mes "estar equivocada. Lo";
+			mes "siento, pense que eras";
+			mes "otra persona.";
 			close;
 		}
 	}
 	else if (KielHyreQuest == 4) {
 		mes "[Mrs Lecollane]";
-		mes "Well, our business is";
-		mes "completed, so would you";
-		mes "please leave the campus";
-		mes "as soon as you can? *Sigh*";
-		mes "I can't believe our future";
-		mes "is in these girls' hands...";
+		mes "Bueno, nuestro asunto";
+		mes "ya termino, asi que podrias";
+		mes "irte del campus lo antes";
+		mes "posible? *Suspiro*";
+		mes "No puedo creer que nuestro futuro";
+		mes "este en las manos de estas chicas...";
 		close;
 	}
 }
@@ -932,86 +932,86 @@ kh_school,176,60,4	script	Lady#kh	101,{
 kh_school,179,39,0	script	Cute Student#kh	895,{
 	if (checkweight(908,200) == 0) {
 		mes "[Elly]";
-		mes "I'm sorry, but would you";
-		mes "put some of your things in";
-		mes "your Kafra Storage first or";
-		mes "something? I can't really";
-		mes "help you when you're ";
-		mes "carrying so much stuff.";
+		mes "Lo siento, pero podrias";
+		mes "guardar algunas de tus cosas";
+		mes "en tu Almacen Kafra primero";
+		mes "o algo? No puedo realmente";
+		mes "ayudarte cuando estas";
+		mes "cargando tantas cosas.";
 		close;
 	}
 	cutin "kh_elly01",2;
-	if (KielHyreQuest < 4) { 
+	if (KielHyreQuest < 4) {
 		cutin "kh_elly03",2;
 		mes "[Elly]";
 		mes "W-wah! Oh...!";
-		mes "^333333*Phew*^000000 That was close,";
-		mes "I almost dropped them ";
-		mes "again! Why do I have so much";
-		mes "trouble handling ingredients?";
+		mes "^333333*Uff*^000000 Estuvo cerca,";
+		mes "casi los tiro otra";
+		mes "vez! Por que me cuesta tanto";
+		mes "manejar los ingredientes?";
 	}
-	else if (KielHyreQuest == 4) { 
+	else if (KielHyreQuest == 4) {
 		cutin "kh_elly03",2;
 		mes "[Elly]";
-		mes "Oh no, what should";
-		mes "I do? ^333333*Sob*^000000 Wh-what";
-		mes "am I going to do? ^333333*Sniff*^000000";
+		mes "Oh no, que deberia";
+		mes "hacer? ^333333*Sollozo*^000000 Q-que";
+		mes "voy a hacer? ^333333*Sniff*^000000";
 		next;
-		switch(select("What happened?:......")) {
+		switch(select("Que paso?:......")) {
 		case 1:
 			mes "[Elly]";
-			mes "I... I have to finish baking";
-			mes "this batch of cookies by the";
-			mes "end of today, but then I spilled";
-			mes "all of the ingredients on the";
-			mes "floor. I don't know how I can";
-			mes "bake those cookies now...";
+			mes "Yo... tengo que terminar de";
+			mes "hornear esta tanda de galletas";
+			mes "para el final del dia, pero se me";
+			mes "cayeron todos los ingredientes";
+			mes "al piso. No se como puedo";
+			mes "hornear esas galletas ahora...";
 			next;
-			switch(select("What can I do to help you?:Oh, I'm so sorry.")) {
+			switch(select("Que puedo hacer para ayudarte?:Oh, lo siento mucho.")) {
 			case 1:
 				cutin "kh_elly02",2;
 				mes "[Elly]";
-				mes "What was that...?";
-				mes "You'll really help";
-				mes "me? That's wonderful!";
-				mes "Thank you! Thanks so much!";
+				mes "Que dijiste...?";
+				mes "De verdad me";
+				mes "ayudaras? Que maravilla!";
+				mes "Gracias! Muchas gracias!";
 				next;
 				break;
 			case 2:
 				mes "[Elly]";
-				mes "Wait, you don't go";
-				mes "to this school, don't";
-				mes "you? Y-you're one of";
-				mes "those adventurers, right?";
+				mes "Espera, tu no estudias";
+				mes "en esta escuela, verdad?";
+				mes "E-eres uno de esos";
+				mes "aventureros, cierto?";
 				next;
-				select("Yeah, that's right.");
-				mes "Listen, I know you";
-				mes "probably have your own";
-				mes "plans, but do  you think";
-				mes "you can help me with this";
-				mes "huge problem that I have?";
+				select("Si, asi es.");
+				mes "Escucha, se que";
+				mes "probablemente tienes tus";
+				mes "propios planes, pero crees";
+				mes "que puedes ayudarme con este";
+				mes "enorme problema que tengo?";
 				next;
-				switch(select("Accept:Decline")) {
+				switch(select("Aceptar:Rechazar")) {
 				case 1:
 					cutin "kh_elly02",2;
-					mes "How Wonderful!";
-					mes "Thank you! Thank you";
-					mes "so much! I'm supposed to";
-					mes "finish baking this batch of";
-					mes "cookies soon, but I spilled";
-					mes "all of the ingredients...";
+					mes "Que maravilla!";
+					mes "Gracias! Muchas";
+					mes "gracias! Se supone que debo";
+					mes "terminar de hornear esta tanda";
+					mes "de galletas pronto, pero se me";
+					mes "cayeron todos los ingredientes...";
 					next;
 					break;
 				case 2:
 					mes "["+strcharinfo(0)+"]";
-					mes "I'm outta here.";
+					mes "Me largo de aqui.";
 					next;
 					cutin "kh_elly04",2;
 					mes "[Elly]";
-					mes "W-wait...!";
-					mes "Come back, you";
-					mes "d-don't...! I really";
-					mes "need some help!";
+					mes "E-espera...!";
+					mes "Regresa, t-tu";
+					mes "no...! De verdad";
+					mes "necesito ayuda!";
 					emotion ET_CRY;
 					close2;
 					cutin "",255;
@@ -1020,53 +1020,53 @@ kh_school,179,39,0	script	Cute Student#kh	895,{
 			}
 			cutin "kh_elly01",2;
 			mes "[Elly]";
-			mes "Well, I guess the only way";
-			mes "I can bake these cookies is";
-			mes "to get some new ingredients.";
-			mes "I'm sorry to be such a burden,";
-			mes "but if you didn't offer to help";
-			mes "me, then I'd have no one to ask!";
+			mes "Bueno, supongo que la unica";
+			mes "forma de hornear estas galletas";
+			mes "es conseguir ingredientes nuevos.";
+			mes "Lamento ser una carga, pero";
+			mes "si no te hubieras ofrecido a";
+			mes "ayudarme, no tendria a quien pedirle!";
 			next;
 			cutin "kh_elly04",2;
 			mes "[Elly]";
-			mes "You don't understand how";
-			mes "important it is that I bake";
-			mes "these cookies... If I don't";
-			mes "finish this assignment, then";
-			mes "Mrs. Crank will fail me for";
-			mes "the entire semester!";
+			mes "No entiendes lo importante";
+			mes "que es que hornee estas";
+			mes "galletas... Si no termino";
+			mes "esta tarea, la Sra. Crank";
+			mes "me reprobara todo";
+			mes "el semestre!";
 			next;
 			mes "[Elly]";
 			cutin "kh_elly01",2;
-			mes "Okay, I need to calm";
-			mes "down. I think I can do";
-			mes "this with your help.";
-			mes "Would you please do me";
-			mes "this huge favor and bring";
-			mes "all of these ingredients?";
+			mes "Bien, necesito calmarme.";
+			mes "Creo que puedo hacerlo";
+			mes "con tu ayuda. Podrias";
+			mes "hacerme este enorme favor";
+			mes "y traer todos estos";
+			mes "ingredientes?";
 			next;
 			mes "[Elly]";
-			mes "^3355FF1 Wine^000000,";
-			mes "^3355FF7 Milks^000000,";
+			mes "^3355FF1 Vino^000000,";
+			mes "^3355FF7 Leches^000000,";
 			mes "^3355FF5 Cacaos^000000,";
-			mes "^3355FF2 Cheeses^000000,";
-			mes "^3355FF1 Egg^000000, and";
-			mes "^3355FF1 Bag of Flour^000000.";
+			mes "^3355FF2 Quesos^000000,";
+			mes "^3355FF1 Huevo^000000, y";
+			mes "^3355FF1 Bolsa de Harina^000000.";
 			next;
 			mes "[Elly]";
-			mes "Let's see... You can";
-			mes "get Wine from a pub in";
-			mes "Juno, Cacaos from hunting";
-			mes "Yoyos, and you can get flour";
-			mes "and Eggs from the girl that";
-			mes "runs the Toast Stand in Juno.";
+			mes "Veamos... Puedes";
+			mes "conseguir Vino en un bar de";
+			mes "Juno, Cacaos cazando";
+			mes "Yoyos, y puedes conseguir harina";
+			mes "y Huevos de la chica que";
+			mes "atiende el Puesto de Tostadas en Juno.";
 			next;
 			mes "[Elly]";
-			mes "Good luck, getting";
-			mes "everything, and I hope";
-			mes "you hurry back here with";
-			mes "those cookie ingredients";
-			mes "as quickly as you can, okay?";
+			mes "Buena suerte consiguiendo";
+			mes "todo, y espero que regreses";
+			mes "aqui con esos ingredientes";
+			mes "para galletas lo mas rapido";
+			mes "que puedas, si?";
 			set KielHyreQuest,6;
 			break;
 		case 2:
@@ -1078,39 +1078,39 @@ kh_school,179,39,0	script	Cute Student#kh	895,{
 	else if (KielHyreQuest == 6) {
 		if ((countitem(519) < 7) || (countitem(548) < 2) || (countitem(7182) < 5) || (countitem(7487) < 1) || (countitem(7488) < 1)) {
 			mes "[Elly]";
-			mes "Let's see, would you";
-			mes "like me to remind you";
-			mes "which ingredients I need?";
-			mes "Please bring these things as";
-			mes "soon as you can so that I can";
-			mes "quickly bake some cookies~";
+			mes "Veamos, quieres que te";
+			mes "recuerde que ingredientes";
+			mes "necesito? Por favor traelos";
+			mes "lo antes posible para que";
+			mes "pueda hornear galletas";
+			mes "rapidamente~";
 			next;
 			mes "[Elly]";
-			mes "^3355FF1 Wine^000000,";
-			mes "^3355FF7 Milks^000000,";
+			mes "^3355FF1 Vino^000000,";
+			mes "^3355FF7 Leches^000000,";
 			mes "^3355FF5 Cacaos^000000,";
-			mes "^3355FF2 Cheeses^000000,";
-			mes "^3355FF1 Egg^000000, and";
-			mes "^3355FF1 Bag of Flour^000000.";
+			mes "^3355FF2 Quesos^000000,";
+			mes "^3355FF1 Huevo^000000, y";
+			mes "^3355FF1 Bolsa de Harina^000000.";
 			next;
 			cutin "kh_elly01",2;
 			mes "[Elly]";
-			mes "Let's see... You can";
-			mes "get Wine from a pub in";
-			mes "Juno, Cacaos from hunting";
-			mes "Yoyos, and you can get flour";
-			mes "and Eggs from the girl that";
-			mes "runs the Toast Stand in Juno.";
+			mes "Veamos... Puedes";
+			mes "conseguir Vino en un bar de";
+			mes "Juno, Cacaos cazando";
+			mes "Yoyos, y puedes conseguir harina";
+			mes "y Huevos de la chica que";
+			mes "atiende el Puesto de Tostadas en Juno.";
 		}
 		else {
 			cutin "kh_elly02",2;
 			mes "[Elly]";
-			mes "Hooray! Finally, I have";
-			mes "everything I need! This is";
-			mes "great! Oh, would you please";
-			mes "give me a moment while I bake";
-			mes "these cookies?  It shouldn't take";
-			mes "long, so hold on just a bit.";
+			mes "Hurra! Finalmente, tengo";
+			mes "todo lo que necesito! Esto es";
+			mes "genial! Oh, podrias darme";
+			mes "un momento mientras horneo";
+			mes "estas galletas? No deberia tomar";
+			mes "mucho, asi que espera un poco.";
 			delitem 519,7; //Milk
 			delitem 548,2; //Cheese
 			delitem 7182,5; //Cacao
