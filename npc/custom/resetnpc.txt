@@ -16,26 +16,26 @@ prontera,150,193,4	script	Reset Girl	124,{
 	setarray .@Reset,	5000,	5000,	9000,	0;
 	mes "[Reset Girl]";
 	if(.@Reset[3] && reset_limit > .@Reset[3]) {
-		mes "Sorry you can only reset "+callfunc("F_InsertPlural",.@Reset[3],"time")+" in your life.";
+		mes "Lo siento, solo puedes resetear "+callfunc("F_InsertPlural",.@Reset[3],"time")+" en tu vida.";
 		close;
 	}
-	mes "I am the Reset Girl.";
+	mes "Soy la Chica del Reset.";
 	mes "Reset Stats: "+ callfunc("F_InsertComma",.@Reset[1]) +"z";
 	mes "Reset Skills: "+ callfunc("F_InsertComma",.@Reset[0]) +"z";
-	mes "Reset Both: "+ callfunc("F_InsertComma",.@Reset[2]) +"z";
-	if(.@Reset[3]) mes "You may only reset "+callfunc("F_InsertPlural",.@Reset[3],"time")+", so use "+((.@Reset[3]>1)?"them":"it")+" wisely.";
-	mes "Please select the service you want:";
+	mes "Reset Ambos: "+ callfunc("F_InsertComma",.@Reset[2]) +"z";
+	if(.@Reset[3]) mes "Solo puedes resetear "+callfunc("F_InsertPlural",.@Reset[3],"time")+", asi que usalo sabiamente.";
+	mes "Por favor selecciona el servicio que deseas:";
 	next;
-	set .@i,(select("^FF3355Reset Skills:Reset Stats:Reset Both^000000:Cancel"));
+	set .@i,(select("^FF3355Reset Skills:Reset Stats:Reset Ambos^000000:Cancelar"));
 	if(.@i > 3) close;
 	mes "[Reset Girl]";
 	if (Zeny < .@Reset[.@i-1]) {
-		mes "Sorry, you don't have enough Zeny.";
+		mes "Lo siento, no tienes suficiente Zeny.";
 		close;
 	}
 	if(.@Reset[3]){
-		mes "You can only reset "+callfunc("F_InsertPlural",.@Reset[3],"time")+" in your life, are you sure?";
-		if(select("Let me think:That's fine") == 1) close;
+		mes "Solo puedes resetear "+callfunc("F_InsertPlural",.@Reset[3],"time")+" en tu vida, estas seguro?";
+		if(select("Dejame pensar:Esta bien") == 1) close;
 	}
 	set Zeny, Zeny-.@Reset[.@i-1];
 	if(.@i&1){
@@ -43,7 +43,7 @@ prontera,150,193,4	script	Reset Girl	124,{
 		ResetSkill;
 	}
 	if(.@i&2) ResetStatus;
-	mes "There you go!";
+	mes "Listo!";
 	if(.@Reset[3]) set reset_limit,reset_limit + 1;
 	close;
 }
