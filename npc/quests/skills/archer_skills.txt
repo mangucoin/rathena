@@ -4,11 +4,11 @@
 //= rAthena Dev Team
 //===== Current Version: =====================================
 //= 1.7
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Quest for skills: Arrow Crafting, Arrow Repel
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.5 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
 //= 1.6 Updated to latest available official file.
 //=     also fixed Item issue [bugreport:5607]. [Masao]
@@ -19,32 +19,32 @@ moc_ruins,118,99,5	script	Roberto	88,{
 	if (BaseClass == Job_Archer) {
 		if (getskilllv("AC_MAKINGARROW") == 1) {
 			mes "[Roberto]";
-			mes "Ooh, you're from my home town!";
-			mes "Nice to see you!";
-			mes "How are you?";
-			mes "Ah! That arrow!";
-			mes "You made it, didn't you!";
+			mes "Ooh, eres de mi pueblo natal!";
+			mes "Que gusto verte!";
+			mes "Como estas?";
+			mes "Ah! Esa flecha!";
+			mes "Tu la hiciste, verdad!";
 			next;
 			mes "[Roberto]";
-			mes "Haha...!";
-			mes "Do you think it's a lot better?";
-			mes "Haha... anyways, I am glad.";
-			mes "Come back with once in a while";
-			mes "with news from home.";
-			mes "Then byebye~";
+			mes "Jaja...!";
+			mes "Crees que es mucho mejor?";
+			mes "Jaja... de todos modos, me alegro.";
+			mes "Ven de vez en cuando";
+			mes "con noticias de casa.";
+			mes "Entonces nos vemos~";
 			close;
 		}
 		else if (JobLevel >= 30 || (BaseJob == Job_Hunter || BaseJob == Job_Bard || BaseJob == Job_Dancer)) {
 			mes "[Roberto]";
 			mes "Eh!";
 			mes " ";
-			mes "You are...";
+			mes "Tu eres...";
 			next;
 			if ((countitem(907) > 19) && (countitem(921) > 6) && (countitem(906) > 40) && (countitem(1019) > 12) && (countitem(501) > 0)) {
 				mes "[Roberto]";
-				mes "You brought them!";
-				mes "Thank you very much.";
-				mes "Then, as I promised, I will teach you the skill.";
+				mes "Los trajiste!";
+				mes "Muchas gracias.";
+				mes "Entonces, como prometi, te ensenare la habilidad.";
 				next;
 				delitem 907,20; //Resin
 				delitem 921,7; //Mushroom_Spore
@@ -53,91 +53,91 @@ moc_ruins,118,99,5	script	Roberto	88,{
 				delitem 501,1; //Red_Potion
 				skill "AC_MAKINGARROW",1,SKILL_PERM;
 				mes "[Roberto]";
-				mes "No need to worry about arrows now.";
-				mes "Oh, and did you happen to see";
-				mes "someone called Jason in Payon?";
-				mes "Be careful. He is a";
-				mes "ferocious one.";
+				mes "Ya no tienes que preocuparte por las flechas.";
+				mes "Oh, y de casualidad viste a";
+				mes "alguien llamado Jason en Payon?";
+				mes "Ten cuidado. El es";
+				mes "muy feroz.";
 				next;
 				mes "[Roberto]";
-				mes "You just have to be careful of Jason in Payon.";
-				mes "Remember.";
-				mes "Then bubye~ Thank you for the presents~";
+				mes "Solo ten cuidado con Jason en Payon.";
+				mes "Recuerdalo.";
+				mes "Entonces nos vemos~ Gracias por los regalos~";
 				close;
 			}
 			mes "[Roberto]";
-			mes "An archer in Morocc!?";
-			mes "Nice to see you! Meeting a fellow";
-			mes "archer in a place like this! *sniffsniff*!";
-			mes "I came alone to Morocc..";
-			mes "but I was a newcomer, and the pressure... waaah~";
-			mes "I was very lonely~";
+			mes "Un arquero en Morocc!?";
+			mes "Que gusto verte! Encontrar a un";
+			mes "arquero en un lugar como este! *snif snif*!";
+			mes "Vine solo a Morocc..";
+			mes "pero era nuevo, y la presion... waaah~";
+			mes "Me sentia muy solo~";
 			next;
-			switch (select("It must be hard. It's ok have faith.:Keep suffering.")) {
+			switch (select("Debe ser dificil. Esta bien, ten fe.:Sigue sufriendo.")) {
 			case 1:
 				mes "[Roberto]";
-				mes "Yes. Thank you...";
-				mes "You must be having a hard";
-				mes "time in a place like this.";
-				mes "Isn't it hard to find arrows?";
-				mes "That's why I make my own.";
+				mes "Si. Gracias...";
+				mes "Tu tambien debes estar pasandola";
+				mes "dificil en un lugar como este.";
+				mes "No es dificil encontrar flechas?";
+				mes "Por eso hago las mias.";
 				next;
-				select("Eh, really?!");
+				select("Eh, en serio?!");
 				mes "[Roberto]";
-				mes "Yeah! I gather different items";
-				mes "and make arrows using them.";
-				mes "It is a useful skill to help me";
-				mes "survive alone in this tough world.";
-				mes "If you'd like, I can teach you.";
+				mes "Si! Junto diferentes objetos";
+				mes "y hago flechas usandolos.";
+				mes "Es una habilidad util para ayudarme";
+				mes "a sobrevivir solo en este mundo dificil.";
+				mes "Si quieres, puedo ensenarte.";
 				next;
-				select("That would be wonderful.");
+				select("Eso seria maravilloso.");
 				mes "[Roberto]";
-				mes "But.. I can't do it for free.";
-				mes "Nothing is free in this world~";
-				mes "Mmm... How about this?";
-				mes "You bring me what I ask for.";
-				mes "Then I will teach you the skill.";
-				next;
-				mes "[Roberto]";
-				mes "I've been very lonely since I left my hometown.";
-				mes "I would like to treat my homesickness";
-				mes "with things from there.";
-				mes "Bring me 20 Resins from the trees in the ";
-				mes "Payon forest, and 1 Red Potion";
-				mes "sold in the store.";
+				mes "Pero.. no puedo hacerlo gratis.";
+				mes "Nada es gratis en este mundo~";
+				mes "Mmm... Que tal esto?";
+				mes "Traeme lo que te pida.";
+				mes "Entonces te ensenare la habilidad.";
 				next;
 				mes "[Roberto]";
-				mes "Also, 13 Trunks from the Willows that";
-				mes "live near the Payon Forest,";
+				mes "He estado muy solo desde que deje mi pueblo.";
+				mes "Me gustaria curar mi nostalgia";
+				mes "con cosas de alla.";
+				mes "Traeme 20 Resins de los arboles del ";
+				mes "bosque de Payon, y 1 Red Potion";
+				mes "que se vende en la tienda.";
+				next;
+				mes "[Roberto]";
+				mes "Tambien, 13 Trunks de los Willows que";
+				mes "viven cerca del bosque de Payon,";
 				mes "41 Pointed Scale,";
 				mes "7 Mushroom Spores.";
-				mes "If you bring me all of these,";
+				mes "Si me traes todo esto,";
 				next;
 				mes "[Roberto]";
-				mes "I will teach you the skill.";
-				mes "Then.. I'll be waiting.";
-				mes "For news from our home.";
+				mes "te ensenare la habilidad.";
+				mes "Entonces.. te estare esperando.";
+				mes "Con noticias de nuestro hogar.";
 				close;
 			case 2:
 				mes "[Roberto]";
-				mes "...hey "+((Sex == SEX_MALE)?"mister":"miss")+".";
-				mes "...be careful at night.";
+				mes "...oye "+((Sex == SEX_MALE)?"senor":"senorita")+".";
+				mes "...ten cuidado por las noches.";
 				close;
 			}
 		}
 		mes "[Roberto]";
-		mes "Hmm... Do you";
-		mes "have something to say?";
-		mes "I have nothing.";
-		mes "Difference in levels";
-		mes "cuts off conversations.";
+		mes "Hmm... Tienes";
+		mes "algo que decir?";
+		mes "Yo no tengo nada.";
+		mes "La diferencia de niveles";
+		mes "corta las conversaciones.";
 		close;
 	}
 	mes "[?]";
-	mes "Eh... First time seeing an archer or something?";
-	mes "Just go where you were going.";
-	mes "I only talk to high level archers.";
-	mes "Won't open my mouth otherwise!";
+	mes "Eh... Primera vez que ves un arquero o algo asi?";
+	mes "Solo sigue tu camino.";
+	mes "Solo hablo con arqueros de alto nivel.";
+	mes "No abrire la boca de otra manera!";
 	close;
 }
 
@@ -145,79 +145,79 @@ payon,103,63,3	script	Jason	88,3,3,{
 	if (BaseClass == Job_Archer) {
 		if (getskilllv("AC_CHARGEARROW") == 1) {
 			mes "[Jason]";
-			mes "Eh, we meet again.";
-			mes "Ehhhh so weird.";
-			mes "Whenever I see someone again";
-			mes "I start eh-ing a lot.";
-			mes "Ehhh... anyways nice to see you again.";
-			mes "Ehhhh... don't come any more ehh...";
+			mes "Eh, nos vemos de nuevo.";
+			mes "Ehhh que raro.";
+			mes "Cada vez que veo a alguien de nuevo";
+			mes "empiezo a decir eh mucho.";
+			mes "Ehhh... de todos modos que bueno verte de nuevo.";
+			mes "Ehhh... no vengas mas ehh...";
 			close;
 		}
 		else if (JobLevel >= 35 || (BaseJob == Job_Hunter || BaseJob == Job_Bard || BaseJob == Job_Dancer)) {
 			mes "[Jason]";
-			mes "Darn... my wound isn't healing.";
-			mes "Bleh.. I was too careless... ";
-			mes "to become like this.. err...";
-			mes "But still, hurting me like this";
-			mes "giving me so many injuries...";
+			mes "Rayos... mi herida no sana.";
+			mes "Bleh.. fui muy descuidado... ";
+			mes "para terminar asi.. err...";
+			mes "Pero aun asi, lastimarme asi";
+			mes "dandome tantas heridas...";
 			next;
-			mes "What should I do about Roberto.";
+			mes "Que deberia hacer con Roberto.";
 			mes "Mmmm... Ah!";
-			mes "You? How long have you been there?";
-			mes "Mmm... very high level.";
-			mes "Someone like you would definitely be";
-			mes "able to know how to use Arrow Repel.";
+			mes "Tu? Cuanto tiempo llevas ahi?";
+			mes "Mmm... muy alto nivel.";
+			mes "Alguien como tu definitivamente";
+			mes "sabria como usar Arrow Repel.";
 			next;
-			switch (select("What is that?:Teach me.")) {
+			switch (select("Que es eso?:Ensename.")) {
 			case 1:
 				mes "[Jason]";
-				mes "...you're kidding, right?";
-				mes "Oh my, you don't even know";
-				mes "Arrow Repel at that level?";
-				mes "You're a strange person.";
+				mes "...estas bromeando, verdad?";
+				mes "Dios mio, ni siquiera conoces";
+				mes "Arrow Repel a ese nivel?";
+				mes "Eres una persona extrana.";
 				next;
 				mes "[Jason]";
-				mes "(Jason was in the lala land.)";
+				mes "(Jason estaba en las nubes.)";
 				next;
 				mes "[Jason]";
-				mes "Well, ok. I'll teach you what";
-				mes "Arrow Repel is.";
+				mes "Bueno, ok. Te ensenare que";
+				mes "es Arrow Repel.";
 				next;
 				mes "[Jason]";
-				mes "Arrow Repel is a skill that allows you to";
-				mes "push the opponent away as soon as you attack.";
-				mes "You can only use it when you aim exactly";
-				mes "at the target. But unlike magic, ";
-				mes "it doesn't de-spell.";
+				mes "Arrow Repel es una habilidad que te permite";
+				mes "empujar al oponente tan pronto como atacas.";
+				mes "Solo puedes usarla cuando apuntas exactamente";
+				mes "al objetivo. Pero a diferencia de la magia, ";
+				mes "no cancela hechizos.";
 				next;
 				mes "[Jason]";
-				mes "It is very useful for an archer";
-				mes "that is weak in close ranges.";
-				mes "If you would like to learn,";
-				mes "come find me again.";
-				mes "There are some necessary materials.";
+				mes "Es muy util para un arquero";
+				mes "que es debil a corta distancia.";
+				mes "Si quieres aprender,";
+				mes "ven a buscarme de nuevo.";
+				mes "Hay algunos materiales necesarios.";
 				next;
 				mes "[Jason]";
-				mes "First, because you must modify a bow";
-				mes "bring a crossbow you do not use.";
+				mes "Primero, porque debes modificar un arco";
+				mes "trae una ballesta que no uses.";
 				mes "10 Tentacles, 10 Bill of Birds,";
-				mes "3 Yoyo Tails.. these are very elastic.";
-				mes "Also, 2 Emeralds. And last but not least...";
-				mes "36 bottles of Banana Juice that I love!";
+				mes "3 Yoyo Tails.. estos son muy elasticos.";
+				mes "Tambien, 2 Emeralds. Y por ultimo...";
+				mes "36 botellas de Banana Juice que me encanta!";
 				next;
 				mes "[Jason]";
-				mes "......Ehem!";
-				mes "If you bring all of these,";
-				mes "I shall teach you Arrow Repel.";
-				mes "Then, see you again.";
-				mes "(I'm going to be mad if you don't bring the Banana Juice.)";
+				mes "......Ejem!";
+				mes "Si traes todo esto,";
+				mes "te ensenare Arrow Repel.";
+				mes "Entonces, nos vemos.";
+				mes "(Me voy a enojar si no traes el Banana Juice.)";
 				close;
 			case 2:
 				if ((countitem(721) > 1) && (countitem(942) > 2) && (countitem(962) > 9) && (countitem(925) > 9) && (countitem(532) > 35)) {
 					mes "[Jason]";
-					mes "Ok! Perfect!";
-					mes "I shall teach you the nationally";
-					mes "renowned skill, Arrow Repel!";
+					mes "Ok! Perfecto!";
+					mes "Te ensenare la habilidad";
+					mes "conocida nacionalmente, Arrow Repel!";
 					next;
 					delitem 721,2; //Azure_Jewel
 					delitem 942,3; //Yoyo_Tail
@@ -226,38 +226,38 @@ payon,103,63,3	script	Jason	88,3,3,{
 					delitem 532,36; //Banana_Juice
 					skill "AC_CHARGEARROW",1,SKILL_PERM;
 					mes "[Jason]";
-					mes "Oh, works better than I expected!";
-					mes "Won't be needing to modify the bow!";
-					mes "You can take this back~";
-					mes "And enjoy using your newly inherited";
-					mes "skill in fields and dungeons!";
-					mes "He~heh~!";
+					mes "Oh, funciona mejor de lo que esperaba!";
+					mes "No sera necesario modificar el arco!";
+					mes "Puedes quedartelo~";
+					mes "Y disfruta usando tu nueva habilidad";
+					mes "heredada en campos y mazmorras!";
+					mes "Je~je~!";
 					close;
 				}
 				mes "[Jason]";
-				mes "Mmm... too bad.";
-				mes "You are missing some things.";
-				mes "Once again, you need 2 Emeralds,";
+				mes "Mmm... que lastima.";
+				mes "Te faltan algunas cosas.";
+				mes "Una vez mas, necesitas 2 Emeralds,";
 				mes "3 Yoyo Tails, 10 Tentacles,";
-				mes "10 Bill of Birds, and last but";
-				mes "not least 36 bottles of Banana juice!";
+				mes "10 Bill of Birds, y por ultimo";
+				mes "36 botellas de Banana Juice!";
 				next;
 				mes "[Jason]";
-				mes "Make sure you have all of them and come again!";
+				mes "Asegurate de tener todo y ven de nuevo!";
 				close;
 			}
 		}
 		mes "[Jason]";
-		mes "Ooh... you are an archer.";
-		mes "If you try a little more";
-		mes "you will have a great";
-		mes "reputation as an archer!";
-		mes "Exert yourself!";
+		mes "Ooh... eres un arquero.";
+		mes "Si te esfuerzas un poco mas";
+		mes "tendras una gran";
+		mes "reputacion como arquero!";
+		mes "Esfuerzate!";
 		close;
 	}
 	mes "[?]";
-	mes "What does life need from";
-	mes "a lonely lad like me?";
+	mes "Que necesita la vida de";
+	mes "un chico solitario como yo?";
 	close;
 
 OnTouch_:
@@ -266,9 +266,9 @@ OnTouch_:
 	close;
 }
 
-//============================================================ 
+//============================================================
 // Old changelog
-//============================================================ 
+//============================================================
 //= 1.0 Roberto message text is based off RO npc.  Jason message
 //=     text is custom from old version.
 //=     All items are from official quests though.[kobra_k88]

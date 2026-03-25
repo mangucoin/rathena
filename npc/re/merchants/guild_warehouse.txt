@@ -9,38 +9,38 @@
 
 -	script	GuildWarehouse	-1,{
 	mes "[Warehouse Manager]";
-	mes "How are you? We are specialized in guild warehouses. This is our ^0000cdstory^000000:";
-	mes "Why can't guild members share a storage? We started off with that simple question.";
+	mes "¿Como estas? Somos especialistas en almacenes de gremio. Esta es nuestra ^0000cdhistoria^000000:";
+	mes "¿Por que los miembros del gremio no pueden compartir un almacen? Empezamos con esa simple pregunta.";
 	next;
 	mes "[Warehouse Manager]";
-	mes "You can open the warehouse for 1000 Zeny or look up the usage history of the guild.";
-	mes "How can I help you?";
+	mes "Puedes abrir el almacen por 1000 Zeny o consultar el historial de uso del gremio.";
+	mes "¿En que puedo ayudarte?";
 	next;
-	if( select( "Open guild warehouse:View warehouse usage history" ) == 1 ){
+	if( select( "Abrir almacen del gremio:Ver historial de uso del almacen" ) == 1 ){
 		.@guildid = getcharid( 2 );
 
 		if( .@guildid == 0 ){
 			mes "[Warehouse Manager]";
-			mes "The guild storage is only available for guild members.";
+			mes "El almacen del gremio solo esta disponible para miembros del gremio.";
 			close;
 		}
 
 		if( getgdskilllv( .@guildid, "GD_GUILD_STORAGE" ) == 0 || !guild_has_permission( GUILD_PERM_STORAGE ) ){
 			mes "[Warehouse Manager]";
-			mes "It seems that it is not yet possible for your guild to use the guild warehouse or you do not have access permissions for the warehouse.";
-			mes "Please come back after checking the guild skill and the permission to access the warehouse.";
+			mes "Parece que aun no es posible que tu gremio use el almacen del gremio o no tienes permisos de acceso al almacen.";
+			mes "Por favor vuelve despues de verificar la habilidad del gremio y el permiso de acceso al almacen.";
 			close;
 		}
 
 		if( Zeny < 1000 ){
 			mes "[Warehouse Manager]";
-			mes "I am afraid you do not have enough money to settle the fee.";
-			mes "The fee is 1000 Zeny.";
+			mes "Me temo que no tienes suficiente dinero para pagar la tarifa.";
+			mes "La tarifa es de 1000 Zeny.";
 			close;
 		}
 
 		mes "[Warehouse Manager]";
-		mes "I will open the guild storage for you then. Have a memorable time!";
+		mes "Entonces te abrire el almacen del gremio. ¡Que tengas un buen momento!";
 		close2;
 
 		if( Zeny < 1000 ){
@@ -53,8 +53,8 @@
 			end;
 		}else{
 			mes "[Warehouse Manager]";
-			mes "I am afraid someone else is using the warehouse right now.";
-			mes "Please try again after a while.";
+			mes "Me temo que alguien mas esta usando el almacen en este momento.";
+			mes "Por favor intenta de nuevo despues de un momento.";
 			close;
 		}
 	}else{
@@ -62,20 +62,20 @@
 
 		if( .@guildid == 0 ){
 			mes "[Warehouse Manager]";
-			mes "The guild storage is only available for guild members.";
+			mes "El almacen del gremio solo esta disponible para miembros del gremio.";
 			close;
 		}
 
 		if( getgdskilllv( .@guildid, "GD_GUILD_STORAGE" ) == 0 || !guild_has_permission( GUILD_PERM_STORAGE ) ){
 			mes "[Warehouse Manager]";
-			mes "It seems that it is not yet possible for your guild to use the guild warehouse or you do not have access permissions for the warehouse.";
-			mes "Please come back after checking the guild skill and the permission to access the warehouse.";
+			mes "Parece que aun no es posible que tu gremio use el almacen del gremio o no tienes permisos de acceso al almacen.";
+			mes "Por favor vuelve despues de verificar la habilidad del gremio y el permiso de acceso al almacen.";
 			close;
 		}
 
 		mes "[Warehouse Manager]";
-		mes "I will show you the usage history of the warehouse. Usage history will be retained for up to 3 months.";
-		mes "Have a memorable time!";
+		mes "Te mostrare el historial de uso del almacen. El historial de uso se conserva hasta por 3 meses.";
+		mes "¡Que tengas un buen momento!";
 		close2;
 		guildopenstorage_log();
 		end;

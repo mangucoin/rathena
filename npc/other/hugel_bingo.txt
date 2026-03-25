@@ -85,10 +85,10 @@ OnTouch:
 L_Fill:
 	set @bingo_fill,callfunc("Func_Bingo",@bingo_case);
 	if (!@bingo_fill) {
-		mes "The numbers you have entered";
-  		mes "exceed the limit, or you have";
-		mes "already entered these numbers.";
-		mes "Please enter your numbers again.";
+		mes "Los numeros que has ingresado";
+  		mes "exceden el limite, o ya has";
+		mes "ingresado estos numeros.";
+		mes "Por favor ingresa tus numeros de nuevo.";
 		next;
 	} else if (@bingo_fill) {
 		if(@bingoplate[25] < 10) set @bingo_e5$,"0"+@bingoplate[25]+""; else set @bingo_e5$,@bingoplate[25];
@@ -126,23 +126,23 @@ OnEnter:
 	end;
 
 OnTimer1000:
-	mapannounce "que_bingo","Eukran: Hello, everyone! I'm Eukran, your Bingo Guide~",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Hola a todos! Soy Eukran, tu Guia de Bingo~",1,0xFFAB54;
 	end;
 
 OnTimer6000:
-	mapannounce "que_bingo","Eukran: Game participants, please enter the Warp Portal at the bottom of your screen and choose a Bingo Plate by entering a number.",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Participantes del juego, por favor entren al Warp Portal en la parte inferior de su pantalla y elijan una Placa de Bingo ingresando un numero.",1,0xFFAB54;
 	end;
 
 OnTimer11000:
-	mapannounce "que_bingo","Eukran: All participants must choose their Bingo Plates within 3 minutes, or the game will be canceled.",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Todos los participantes deben elegir sus Placas de Bingo dentro de 3 minutos, o el juego sera cancelado.",1,0xFFAB54;
 	end;
 
 OnTimer192000:
-	mapannounce "que_bingo","Eukran: Please enter a number in 5 seconds, or the game will be canceled.",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Por favor ingresa un numero en 5 segundos, o el juego sera cancelado.",1,0xFFAB54;
 	end;
 
 OnTimer200000:
-	mapannounce "que_bingo","Eukran: I'm sorry, but the game has been canceled. Please come again and enjoy a game of Bingo with us!",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Lo siento, pero el juego ha sido cancelado. Por favor vuelve y disfruta un juego de Bingo con nosotros!",1,0xFFAB54;
 	end;
 
 OnTimer202000:
@@ -178,7 +178,7 @@ OnStart:
 	end;
 
 OnTimer2000:
-	mapannounce "que_bingo","Eukran: Great, everyone seems to be ready~",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Genial, todos parecen estar listos~",1,0xFFAB54;
 	disablenpc "plate1#bingo";
 	disablenpc "plate2#bingo";
 	disablenpc "plate3#bingo";
@@ -187,7 +187,7 @@ OnTimer2000:
 	end;
 
 OnTimer5000:
-	mapannounce "que_bingo","Eukran: Now, let the game begin!",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Ahora, que comience el juego!",1,0xFFAB54;
 	setarray $@bingoarray[0],1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25;
 	set .@max_index, 24;
 	for(set .@i,0; .@i < 25; set .@i,.@i +1) {
@@ -199,7 +199,7 @@ OnTimer5000:
 	end;
 
 OnTimer8000:
-	mapannounce "que_bingo","Eukran: I'll announce the Bingo Numbers. If you get 5 lines by matching 5 Bingo Numbers in a straight line on your Bingo Plate, yell out ''Bingo'' to win~",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Anunciare los Numeros de Bingo. Si consigues 5 lineas coincidiendo 5 Numeros de Bingo en linea recta en tu Placa de Bingo, grita ''Bingo'' para ganar~",1,0xFFAB54;
 	end;
 
 OnTimer10000:
@@ -262,15 +262,15 @@ OnTimer340000:
 	end;
 
 OnTimer440000:
-	mapannounce "que_bingo","Eukran: I've announced all of the selected numbers, but I haven't heard anyone yell ''Bingo.''",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: He anunciado todos los numeros seleccionados, pero no he escuchado a nadie gritar ''Bingo.''",1,0xFFAB54;
 	end;
 
 OnTimer445000:
-	mapannounce "que_bingo","Eukran: I'll give you all 10 seconds to check if any of you have won. If no one can yell ''Bingo'' in 10 seconds, this game will end without a winner.",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Les dare a todos 10 segundos para verificar si alguno ha ganado. Si nadie puede gritar ''Bingo'' en 10 segundos, este juego terminara sin ganador.",1,0xFFAB54;
 	end;
 
 OnTimer460000:
-	mapannounce "que_bingo","Eukran: I'm sorry, but this game has ended without a winner. Thanks for playing, everyone~",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Lo siento, pero este juego ha terminado sin ganador. Gracias por jugar, todos~",1,0xFFAB54;
 	donpcevent "1a#bingo::OnInit";
 	areawarp "que_bingo",44,115,54,126,"que_bingo",40,121;
 	set $@hu_bingoa,0;
@@ -664,18 +664,18 @@ OnTouch:
 	end;
 
 OnTimer1000:
-	mapannounce "que_bingo","Eukran: Wow, Bingo! It's Bingo!",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: Wow, Bingo! Es Bingo!",1,0xFFAB54;
 	end;
 
 OnTimer5000:
-	mapannounce "que_bingo","Eukran: "+$@bingowinner$+" has said Bingo!",1,0xFFAB54;
+	mapannounce "que_bingo","Eukran: "+$@bingowinner$+" ha dicho Bingo!",1,0xFFAB54;
 	end;
 
 OnTimer10000:
 	if ($@bingoresult == 16)
-		mapannounce "que_bingo","Eukran: Congratulations, "+$@bingowinner$+"! You will be rewarded with 50 Marvelous Medals.",1,0xFFAB54;
+		mapannounce "que_bingo","Eukran: Felicidades, "+$@bingowinner$+"! Seras recompensado con 50 Marvelous Medals.",1,0xFFAB54;
 	else
-		mapannounce "que_bingo","Eukran: Congratulations, "+$@bingowinner$+"! You will be rewarded with 1 Marvelous Medal.",1,0xFFAB54;
+		mapannounce "que_bingo","Eukran: Felicidades, "+$@bingowinner$+"! Seras recompensado con 1 Marvelous Medal.",1,0xFFAB54;
 	end;
 
 OnTimer15000:

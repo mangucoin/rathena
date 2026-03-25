@@ -121,14 +121,14 @@ poring_w01,100,97,3	script	Poring Vending Machine#w	909,{
 				case 7:
 					callsub S_PoringVending,2769,100;
 				case 8:
-					mes "You have chosen Random Draw.";
-					mes "1 of 7 diffeent kinds of figures will be selected.";
+					mes "Has elegido Sorteo Aleatorio.";
+					mes "Se seleccionara 1 de 7 tipos diferentes de figuras.";
 					next;
-					if(select("Draw:Cancel") == 1) {
+					if(select("Sortear:Cancelar") == 1) {
 						if (countitem(7539) >= 50) {
-							mes "Insert the Poring coin and pull the lever.";
-							mes "Click~ The item came out of the mouth of the Poring with a rumbling sound.";
-							mes "What could it be?";
+							mes "Inserta la moneda Poring y jala la palanca.";
+							mes "Click~ El item salio de la boca del Poring con un sonido retumbante.";
+							mes "Que podra ser?";
 							next;
 							switch(rand(1,17)) {
 							case 5: set .@Random_Figure,2766; break; // Swordman_Figure
@@ -144,22 +144,22 @@ poring_w01,100,97,3	script	Poring Vending Machine#w	909,{
 							getitem .@Random_Figure,1;
 							close;
 						} else {
-							mes "Not enough coins.";
+							mes "No tienes suficientes monedas.";
 							close;
 						}
 					}
 					mes "["+strcharinfo(0)+"]";
-					mes "... Maybe next time...";
+					mes "... Quizas la proxima vez...";
 					close;
 				case 9:
 					mes "["+strcharinfo(0)+"]";
-					mes "... Maybe next time...";
+					mes "... Quizas la proxima vez...";
 					close;
 				}
 			}
 		}
 	}
-	mes "Selling Item List";
+	mes "Lista de Items en Venta";
 	mes "====================";
 	mes "[Marvelous Medal]";
 	mes " : A medal made of special metal only produced in Hugel.";

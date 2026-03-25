@@ -13,82 +13,82 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 	.@new_item_name$ = getitemname(.@new_item);
 
 	if (!checkweight(1201,1) || (MaxWeight - Weight) < 500) {
-		mes "You can't proceed with the conversation because you have a large quantity of items.";
-		mes "Please organize your items and try again.";
+		mes "No puedes continuar la conversacion porque tienes una gran cantidad de objetos.";
+		mes "Por favor organiza tus objetos e intenta de nuevo.";
 		close;
 	}
 	mes "[Heart Merchant]";
-	mes "Hello! I see you are an adventurer who gives your heart to traveling, uses a boat to sail across the continent, and enjoys the thrill of danger!";
+	mes "¡Hola! ¡Veo que eres un aventurero que entrega su corazon a viajar, usa un barco para navegar por el continente y disfruta la emocion del peligro!";
 	next;
 	if(!countitem(.@old_item)){
 		mes "[Heart Merchant]";
-		mes "Do you have any " + mesitemlink( .@old_item ) + " in your storage?";
+		mes "¿Tienes algun " + mesitemlink( .@old_item ) + " en tu almacen?";
 		next;
 		mes "[Heart Merchant]";
-		mes "If you bring me a " + .@old_item_name$ + ", I'll exchange it to " + mesitemlink( .@new_item ) + ". What do you think? Do you have any idea what this item is?";
+		mes "Si me traes un " + .@old_item_name$ + ", lo intercambiare por " + mesitemlink( .@new_item ) + ". ¿Que dices? ¿Tienes idea de que es este objeto?";
 	} else {
 		mes "[Heart Merchant]";
-		mes "Have you ever thought about replacing your " + mesitemlink( .@old_item ) + " to something better? For example... " + mesitemlink( .@new_item ) + ". What do you think?";
+		mes "¿Alguna vez pensaste en reemplazar tu " + mesitemlink( .@old_item ) + " por algo mejor? Por ejemplo... " + mesitemlink( .@new_item ) + ". ¿Que dices?";
 	}
 	next;
-	switch(select("What is it?",(countitem(.@old_item)?"Exchange it please!":""),"I'm not interested")) {
+	switch(select("¿Que es?",(countitem(.@old_item)?"¡Intercambialo por favor!":""),"No me interesa")) {
 	case 1:
 		mes "[Heart Merchant]";
-		mes mesitemlink( .@old_item ) + " is an item that prevents you from losing experience on death once within the 30 minutes duration after use.";
+		mes mesitemlink( .@old_item ) + " es un objeto que evita que pierdas experiencia al morir una vez dentro de los 30 minutos de duracion despues de usarlo.";
 		next;
 		mes "[Heart Merchant]";
-		mes "But a lot of people are sad about the time limit, right? So I looked into it and prepared the " + mesitemlink( .@new_item ) + ".";
+		mes "Pero mucha gente esta triste por el limite de tiempo, ¿verdad? Asi que investigue y prepare el " + mesitemlink( .@new_item ) + ".";
 		next;
 		mes "[Heart Merchant]";
-		mes mesitemlink( .@new_item ) + " is an item that will prevent the loss of experience on death once by just having it ^EE0000regardless of the duration^000000. Of course, after death, the "+.@new_item_name$+" is consumed.";
+		mes mesitemlink( .@new_item ) + " es un objeto que evitara la perdida de experiencia al morir una vez con solo tenerlo ^EE0000sin importar la duracion^000000. Por supuesto, despues de morir, el "+.@new_item_name$+" se consume.";
 		next;
-		select("Why are you exchanging it?");
+		select("¿Por que lo intercambias?");
 		mes "[Heart Merchant]";
-		mes "Are you curious about that? I'm a merchant. Buying and selling things is my fate, whether it's related to one's life or death. Do you think I'm going to miss this opportunity to make money? I make money, and the living get a leeway from the pain of death. Isn't that a good deal?";
-		next;
-		mes "[Heart Merchant]";
-		mes "The exchange rate is 5 " + mesitemlink( .@old_item ) + " for 1 " + mesitemlink( .@new_item ) + ". Do you have any questions?";
+		mes "¿Tienes curiosidad por eso? Soy un mercader. Comprar y vender cosas es mi destino, ya sea relacionado con la vida o la muerte de alguien. ¿Crees que voy a perder esta oportunidad de ganar dinero? Yo gano dinero, y los vivos obtienen un respiro del dolor de la muerte. ¿No es un buen trato?";
 		next;
 		mes "[Heart Merchant]";
-		mes "Hm~ What do you think? Isn't it a fair trade? Do you want to always worry about time? It's a must-have for adventurers who enjoy breathtaking adventures.";
+		mes "La tasa de intercambio es 5 " + mesitemlink( .@old_item ) + " por 1 " + mesitemlink( .@new_item ) + ". ¿Tienes alguna pregunta?";
+		next;
+		mes "[Heart Merchant]";
+		mes "Hm~ ¿Que opinas? ¿No es un intercambio justo? ¿Quieres siempre preocuparte por el tiempo? Es un objeto imprescindible para aventureros que disfrutan aventuras emocionantes.";
 		close;
-		
-	case 2:	
+
+	case 2:
 		mes "[Heart Merchant]";
-		mes "Yeah, yeah. Good decision. It's better to exchange it for a better one, isn't it?";
+		mes "Si, si. Buena decision. Es mejor intercambiarlo por algo mejor, ¿no?";
 		next;
 		mes "[Heart Merchant]";
-		mes "I can exchange your ^0000cd5 "+.@old_item_name$+" to 1 "+.@new_item_name$+".";
+		mes "Puedo intercambiar tus ^0000cd5 "+.@old_item_name$+" por 1 "+.@new_item_name$+".";
 		next;
 		mes "[Heart Merchant]";
-		mes "However, ^EE0000[Not for sale] " + .@old_item_name$ + " is not eligible for exchange^000000, so it is useless to bring it here and ask for it to be exchanged.";
+		mes "Sin embargo, ^EE0000[No se vende] " + .@old_item_name$ + " no es elegible para intercambio^000000, asi que es inutil traerlo aqui y pedir que se intercambie.";
 		next;
 		mes "[Heart Merchant]";
-		mes "Shall we exchange it now?";
+		mes "¿Hacemos el intercambio ahora?";
 		next;
-		if (select("Exchange it please!:I don't want to exchange it.") == 2)
+		if (select("¡Intercambialo por favor!:No quiero intercambiarlo.") == 2)
 			break;
 		mes "[Heart Merchant]";
-		mes "How many do you want to exchange? ^0000cdYou can exchange up to 10 "+.@new_item_name$+" at a time^000000.";
+		mes "¿Cuantos quieres intercambiar? ^0000cdPuedes intercambiar hasta 10 "+.@new_item_name$+" a la vez^000000.";
 		next;
 		input .@amount;
 		if (.@amount == 0) {
 			mes "[Heart Merchant]";
-			mes "Hm? Are you not interested? This is a great product, and it's really good for someone like you. But if you don't want to protect your live, I won't force you either.";
+			mes "¿Hm? ¿No te interesa? Este es un gran producto, y es realmente bueno para alguien como tu. Pero si no quieres proteger tu vida, tampoco te obligare.";
 			close;
 		}
 		if (.@amount > 10) {
 			mes "[Heart Merchant]";
-			mes "Like I said, ^0000cdyou can only exchange up to 10^000000 at a time. Check the quantity again.";
+			mes "Como dije, ^0000cdsolo puedes intercambiar hasta 10^000000 a la vez. Verifica la cantidad de nuevo.";
 			close;
 		}
 		if (countitem(.@old_item) < (.@amount*5)) {
 			mes "[Heart Merchant]";
-			mes "Um, excuse me but... you don't have enough " +.@old_item_name$+ ", no? It's 5 " + mesitemlink( .@old_item ) + " for 1 " + mesitemlink( .@new_item ) + ". Please check the quantity.";
+			mes "Um, disculpa pero... no tienes suficientes " +.@old_item_name$+ ", ¿verdad? Son 5 " + mesitemlink( .@old_item ) + " por 1 " + mesitemlink( .@new_item ) + ". Por favor verifica la cantidad.";
 			close;
 		}
 		mes "[Heart Merchant]";
-		mes "Now, with this, I've exchanged your ^0000cd" + .@old_item_name$ + "^000000 for the ^EE0000" + .@new_item_name$ + "^000000!! That was a good deal, wasn't it? The next time you get your hands on a "+.@old_item_name$+", come see me again!";
+		mes "¡Ahora, con esto, he intercambiado tus ^0000cd" + .@old_item_name$ + "^000000 por el ^EE0000" + .@new_item_name$ + "^000000!! Fue un buen trato, ¿no? ¡La proxima vez que consigas un "+.@old_item_name$+", ven a verme de nuevo!";
 		delitem .@old_item,.@amount*5;
 		getitem .@new_item,.@amount;
 		close;
@@ -96,14 +96,14 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 		break;
 	}
 	mes "[Heart Merchant]";
-	mes "This is a great deal! Adventurer, it's a must-have item for people like you who ventures in dangerous places!";
+	mes "¡Este es un gran trato! Aventurero, es un objeto imprescindible para personas como tu que se aventuran en lugares peligrosos!";
 	next;
 	mes "[Heart Merchant]";
-	mes "If you become interested in it, be sure to come back for the exchange. Okay?";
+	mes "Si te interesa, asegurate de volver para el intercambio. ¿De acuerdo?";
 	close;
-	
+
 OnTouch:
 	if(countitem(12209))
-		npctalk "You have something good. Would you like to replace your " + getitemname(12209) + " with a better one?", "", bc_self;
+		npctalk "Tienes algo bueno. ¿Te gustaria reemplazar tu " + getitemname(12209) + " por algo mejor?", "", bc_self;
 	end;
 }

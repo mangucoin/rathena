@@ -4,11 +4,11 @@
 //= kobra_k88
 //===== Current Version: =====================================
 //= 1.8
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Quest for skills: Holy Light
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.5 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
 //= 1.6 Fixed a typo in job check. (Bugreport:1531) [L0ne_W0lf]
 //= 1.7 Updated to latest available official file. [Masao]
@@ -17,101 +17,101 @@
 
 prt_church,173,23,4	script	Cleric	79,{
 	mes "[Acolyte Klift]";
-	mes "Ahh . Brothers ! Does the task of";
-	mes "caring for out lost sheep burden";
-	mes "and tire you ?";
-	mes "I am here to assist you.";
+	mes "Ahh . Hermanos ! La tarea de";
+	mes "cuidar a nuestras ovejas perdidas";
+	mes "te agobia y te cansa ?";
+	mes "Estoy aqui para ayudarte.";
 	next;
-	switch (select("^3355FF' About acolyte's hidden ability '^000000 ..:^3355FF' Holy light '^000000 training:End conversation")) {
+	switch (select("^3355FF' Sobre la habilidad oculta del acolito '^000000 ..:^3355FF' Entrenamiento de Holy Light '^000000:Terminar conversacion")) {
 	case 1:
 		mes "[Acolyte Klift]";
-		mes "Our members of the clergy";
-		mes "naturally learn a skill as";
-		mes "as they mature. As they approach ";
-		mes "their senior years as an acolyte";
-		mes "this special skill.";
+		mes "Nuestros miembros del clero";
+		mes "aprenden una habilidad de forma";
+		mes "natural a medida que maduran. Cuando se acercan";
+		mes "a sus anos de experiencia como acolito";
+		mes "obtienen esta habilidad especial.";
 		next;
 		mes "[Acolyte Klift]";
-		mes "Faced with great danger and";
-		mes "an endless struggle with evil,";
-		mes "our brethren are much in need of assistance.";
-		mes "^3355FF' Holy Light '^000000 is that skill.";
-		mes "To gain this ability for yourself,";
-		mes "takes some work.";
+		mes "Ante un gran peligro y";
+		mes "una lucha interminable contra el mal,";
+		mes "nuestros hermanos necesitan mucha ayuda.";
+		mes "^3355FF' Holy Light '^000000 es esa habilidad.";
+		mes "Para obtener esta habilidad por ti mismo,";
+		mes "requiere algo de trabajo.";
 		next;
 		mes "[Acolyte Klift]";
-		mes "To gain the skill, you must find these items.";
+		mes "Para obtener la habilidad, debes encontrar estos objetos.";
 		mes "^FF33551 Opal^000000";
 		mes "^FF33551 Crystal Blue^000000";
 		mes "^FF33551 Rosary^000000 ";
 		next;
 		mes "[Acolyte Klift]";
-		mes "In order to be able to even use this skill,";
-		mes "one must be have sufficient experience.";
+		mes "Para poder usar esta habilidad,";
+		mes "debes tener suficiente experiencia.";
 		mes "^FF3355 Job Level 30^000000";
-		mes "is required to learn this skill.";
+		mes "es necesario para aprender esta habilidad.";
 		next;
 		mes "[Acolyte Klift]";
-		mes "As for a priest, because of their";
-		mes "already vast amount of experience,";
-		mes "they are able to gain this skill at any";
-		mes "job level.";
+		mes "En cuanto a un sacerdote, debido a su";
+		mes "ya vasta cantidad de experiencia,";
+		mes "pueden obtener esta habilidad en cualquier";
+		mes "nivel de trabajo.";
 		close;
 	case 2:
 		if (getskilllv("AL_HOLYLIGHT") == 1) {
 			mes "[Acolyte Klift]";
-			mes "Brother, you already possess";
-			mes "the skill of ` Holy Light '.";
-			mes "You cannot gain a skill you";
-			mes "already possess ..";
-			mes "I pray that you are using";
-			mes "this skill for the work of good . .";
+			mes "Hermano, ya posees";
+			mes "la habilidad de ` Holy Light '.";
+			mes "No puedes obtener una habilidad que";
+			mes "ya posees ..";
+			mes "Rezo para que estes usando";
+			mes "esta habilidad para hacer el bien . .";
 			close;
 		}
 		if ((countitem(727) > 0) && (countitem(991) > 0) && (countitem(2608) > 0) && (JobLevel > 29 || (BaseJob == Job_Priest || BaseJob == Job_Monk)) && (BaseClass == Job_Acolyte)) {
 			mes "[Acolyte Klift]";
-			mes "Your faith has proven worthy";
-			mes "for you to gain the ' Holy Light ' skill.";
-			mes "Your skill is adequate";
-			mes "to use this skill.";
-			mes "Use it wisely. . .";
+			mes "Tu fe ha demostrado ser digna";
+			mes "para que obtengas la habilidad ' Holy Light '.";
+			mes "Tu habilidad es adecuada";
+			mes "para usar esta tecnica.";
+			mes "Usala sabiamente. . .";
 			next;
 			delitem 727,1; //White_Jewel
 			delitem 991,1; //Crystal_Blue
 			delitem 2608,1; //Rosary
 			skill "AL_HOLYLIGHT",1,SKILL_PERM;
 			mes "[Acolyte Klift]";
-			mes "You now know ' Holy Light '";
-			mes "May you use this skill only in the";
-			mes "best conduct . . . . .";
+			mes "Ahora conoces ' Holy Light '";
+			mes "Que uses esta habilidad solo con";
+			mes "la mejor conducta . . . . .";
 			close;
 		}
 		mes "[Acolyte Klift]";
-		mes "Oh, it is clear. . .";
-		mes "You are not yet ready to";
-		mes "receive the ' Holy Light ' skill.";
+		mes "Oh, esta claro. . .";
+		mes "Aun no estas listo para";
+		mes "recibir la habilidad ' Holy Light '.";
 		next;
 		mes "[Acolyte Klift]";
-		mes "You should listen carefully to what";
-		mes "is necessary for this skill.";
-		mes "If you listen closely,";
-		mes "you may learn what you lack.";
-		mes "So that you may improve upon yourself.";
+		mes "Deberias escuchar atentamente lo que";
+		mes "es necesario para esta habilidad.";
+		mes "Si escuchas con atencion,";
+		mes "podras saber que te falta.";
+		mes "Para que puedas mejorar.";
 		close;
 	case 3:
 		mes "[Acolyte Klift]";
 		mes ". . . . .";
-		mes "I understand your zeal.";
-		mes "You have much time yet to";
-		mes "practice and gain experience.";
-		mes "Blessings upon you . . . . .";
+		mes "Entiendo tu entusiasmo.";
+		mes "Aun tienes mucho tiempo para";
+		mes "practicar y ganar experiencia.";
+		mes "Bendiciones para ti . . . . .";
 		close;
 	}
 }
 
-//============================================================ 
+//============================================================
 // Old changelog
-//============================================================ 
+//============================================================
 //= 1.0a Now using functions found in "Global_Functions.txt"
 //=     for class checks.
 //= 1.2 Added Baby Class Support [Lupus]

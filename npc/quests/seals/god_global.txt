@@ -1,12 +1,12 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= God Item Quest - Variable Management
-//===== By: ================================================== 
+//===== By: ==================================================
 //= MasterOfMuppets
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.2
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Use this NPC if the seals quest variables get messed up.
 //===== Additional Comments: =================================
 //= 1.0 First version. [MasterOfMuppets]
@@ -18,13 +18,13 @@
 sec_in02,15,170,0	script	Golbal var	817,{
 	callfunc "F_GM_NPC";
 	mes "[Check]";
-	mes "Please enter the password.";
+	mes "Por favor ingresa la contrasena.";
 	next;
 	if (callfunc("F_GM_NPC",68392411,0) == 1) {
 		mes "[Check]";
-		mes "Please choose a menu.";
+		mes "Por favor elige una opcion.";
 		next;
-		switch(select("Now:No.1:No.2:No.3:No.4:Reset:god_sl_1:god_eremes:god_brising:god_mjo_0:god_mjo_1:god_mjo_2:god_mjo_3:god_mjo_4")) {
+		switch(select("Ahora:No.1:No.2:No.3:No.4:Reiniciar:god_sl_1:god_eremes:god_brising:god_mjo_0:god_mjo_1:god_mjo_2:god_mjo_3:god_mjo_4")) {
 		case 1:
 			mes "^0000FF$God1^000000 = ^FF0000" + $God1 + "^000000.";
 			mes "^0000FF$God2^000000 = ^FF0000" + $God2 + "^000000.";
@@ -37,12 +37,12 @@ sec_in02,15,170,0	script	Golbal var	817,{
 		case 5: callsub L_Number,"$God4"; break;
 		case 6:
 			mes "[Check]";
-			mes "Are you really sure that you want to reset the entire list of God Globalvar?";
-			mes "Please enter the password.";
+			mes "Estas realmente seguro de que quieres reiniciar toda la lista de God Globalvar?";
+			mes "Por favor ingresa la contrasena.";
 			next;
 			if (callfunc("F_GM_NPC",68392411,0) == 1) {
 				mes "[Check]";
-				mes "Now, the entire list of God Globalvar is being reset.";
+				mes "Ahora, toda la lista de God Globalvar esta siendo reiniciada.";
 				next;
 				set $God1,0;
 				set $God2,0;
@@ -55,7 +55,7 @@ sec_in02,15,170,0	script	Golbal var	817,{
 				close;
 			} else {
 				mes "[Check]";
-				mes "The command has been canceled.";
+				mes "El comando ha sido cancelado.";
 				close;
 			}
 		case 7: callsub L_Var,"god_sl_1"; break;
@@ -69,26 +69,26 @@ sec_in02,15,170,0	script	Golbal var	817,{
 		}
 	} else {
 		mes "[Check]";
-		mes "Incorrect password.";
+		mes "Contrasena incorrecta.";
 		close;
 	}
 
 L_Number:
 	input .@input,0,$@god_check2;
 	mes "[Check]";
-	mes "Would you like to change to "+.@input+"?";
-	mes "Please enter the password.";
+	mes "Te gustaria cambiar a "+.@input+"?";
+	mes "Por favor ingresa la contrasena.";
 	next;
 	if (callfunc("F_GM_NPC",68392411,0) == 1) {
 		mes "[Check]";
-		mes "The command "+.@input+" has been confirmed.";
+		mes "El comando "+.@input+" ha sido confirmado.";
 		next;
 		setd getarg(0),.@input;
 		mes getarg(0)+" "+.@input;
 		close;
 	} else {
 		mes "[Check]";
-		mes "The command has been canceled.";
+		mes "El comando ha sido cancelado.";
 		close;
 	}
 
@@ -97,7 +97,7 @@ L_Var:
 	setd getarg(0),.@input;
 	next;
 	mes "[Check]";
-	mes "Done.";
+	mes "Listo.";
 	close;
 
 OnInit:

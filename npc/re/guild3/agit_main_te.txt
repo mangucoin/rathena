@@ -156,14 +156,14 @@ OnAgitBreak:
 			setcastledata .@map$,.@i,0;
 	}
 
-	mapannounce .@map$,"Emperium has been destroyed.",bc_map,"0x00FF00",FW_BOLD,20,0,40;
+	mapannounce .@map$,"El Emperium ha sido destruido.",bc_map,"0x00FF00",FW_BOLD,20,0,40;
 	maprespawnguildid .@map$,.@guild_id,2;// Respawn all but new castle-occupants, don't remove monsters.
 
 	sleep 500;
 	if (agitcheck3())
 		donpcevent strnpcinfo(0) +"::OnEmpSpawn";
 	sleep 7000;
-	announce "The [" + getcastlename(.@map$) + "] castle has been conquered by the [" + getguildName(.@guild_id) + "] guild.",bc_all|bc_woe;
+	announce "El castillo [" + getcastlename(.@map$) + "] ha sido conquistado por el gremio [" + getguildName(.@guild_id) + "].",bc_all|bc_woe;
 	end;
 
 OnGuildBreak:
@@ -174,7 +174,7 @@ OnGuildBreak:
 	disablenpc "Kafra Employee#"+ .@tmp$;
 	setcastledata .@map$,CD_GUILD_ID,0;
 	sleep 7000;
-	announce "Guild Base [" + getcastlename(.@map$) + "] has been abandoned.",bc_all;
+	announce "La Base de Gremio [" + getcastlename(.@map$) + "] ha sido abandonada.",bc_all;
 	donpcevent strnpcinfo(0) +"::OnAgitInit3";
 	end;
 
@@ -183,9 +183,9 @@ S_Message:
 	.@guild_id = getcastledata(.@map$,CD_GUILD_ID);
 	
 	if (.@guild_id)
-		announce "The [" + getcastlename(.@map$) + "] castle is occupied by the [" + getguildname(.@guild_id) + "] guild.",bc_all,"0xFF0000",FW_NORMAL,10;
+		announce "El castillo [" + getcastlename(.@map$) + "] esta ocupado por el gremio [" + getguildname(.@guild_id) + "].",bc_all,"0xFF0000",FW_NORMAL,10;
 	else
-		announce "The [" + getcastlename(.@map$) + "] castle is currently unoccupied.", bc_all,"0xFF0000",FW_NORMAL,10;
+		announce "El castillo [" + getcastlename(.@map$) + "] esta actualmente desocupado.", bc_all,"0xFF0000",FW_NORMAL,10;
 	if (compare( .@map$,"te_alde" ))
 		.@string$ = "alde0"+ charat( .@map$,getstrlen(.@map$)-1 );
 	else
@@ -217,25 +217,25 @@ OnMyMobDead:
 	cutin "kafra_01",2;
 	mes "[Kafra Employee]";
 	if (.@guild_id == getcharid(2)) {
-		mes "Welcome. ^ff0000" + .@guildname$ + "^000000 Member.";
-		mes "The Kafra Corporation will stay with you wherever you go.";
+		mes "Bienvenido. Miembro de ^ff0000" + .@guildname$ + "^000000.";
+		mes "La Corporacion Kafra estara contigo donde quiera que vayas.";
 		next;
-		switch( select( "Use Storage", "Use Teleport Service", "Rent a Pushcart", "Cancel" ) ) {
+		switch( select( "Usar Almacen", "Usar Servicio de Teletransporte", "Alquilar Carreta", "Cancelar" ) ) {
 		case 1:
 			if (getskilllv("NV_BASIC") > 5) {
 				mes "[Kafra Employee]";
-				mes "Here, let me open";
-				mes "your Storage for you.";
-				mes "Thank you for using";
-				mes "the Kafra Service.";
+				mes "Aqui, dejame abrir";
+				mes "tu Almacen.";
+				mes "Gracias por usar";
+				mes "el Servicio Kafra.";
 				close2;
 				openstorage;
 			} else {
 				mes "[Kafra Employee]";
-				mes "I'm sorry, but you";
-				mes "need the Novice's";
-				mes "Basic Skill Level 6 to";
-				mes "use the Storage Service.";
+				mes "Lo siento, pero";
+				mes "necesitas la Habilidad";
+				mes "Basica de Novato Nivel 6 para";
+				mes "usar el Servicio de Almacen.";
 				close2;
 			}
 			break;
@@ -247,32 +247,32 @@ OnMyMobDead:
 		case 3:
 			mes "[Kafra Employee]";
 			if (BaseClass != Job_Merchant) {
-				mes "I'm sorry, but the";
-				mes "Pushcart rental service";
-				mes "is only available to Merchants,";
-				mes "Blacksmiths and Alchemists.";
+				mes "Lo siento, pero el";
+				mes "servicio de alquiler de Carreta";
+				mes "solo esta disponible para Mercaderes,";
+				mes "Herreros y Alquimistas.";
 				close2;
 			}
 			else if (checkcart()) {
-				mes "You already have";
-				mes "a Pushcart equipped.";
-				mes "Unfortunately, we can't";
-				mes "rent more than one to";
-				mes "each customer at a time.";
+				mes "Ya tienes";
+				mes "una Carreta equipada.";
+				mes "Desafortunadamente, no podemos";
+				mes "alquilar mas de una a";
+				mes "cada cliente a la vez.";
 				close2;
 			}
 			else {
-				mes "The Pushcart rental";
-				mes "fee is 800 zeny. Would";
+				mes "La tarifa de alquiler";
+				mes "de Carreta es 800 zeny.";
 				mes "you like to rent a Pushcart?";
 				next;
-				if (select( "Rent a Pushcart","Cancel" ) == 1) {
+				if (select( "Alquilar Carreta","Cancelar" ) == 1) {
 					if (Zeny < 800) {
 						mes "[Kafra Employee]";
-						mes "I'm sorry, but you";
-						mes "don't have enough";
-						mes "zeny to pay the Pushcart";
-						mes "rental fee of 800 zeny.";
+						mes "Lo siento, pero";
+						mes "no tienes suficiente";
+						mes "zeny para pagar la tarifa";
+						mes "de alquiler de Carreta de 800 zeny.";
 						close2;
 					}
 					else {
@@ -285,14 +285,14 @@ OnMyMobDead:
 			break;
 		case 4:
 			mes "[Kafra Employee]";
-			mes "We, here at Kafra Corporation,";
-			mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
+			mes "Nosotros, en la Corporacion Kafra,";
+			mes "siempre nos esforzamos por brindarte los mejores servicios. Esperamos cumplir con tus necesidades de aventura y estandares de excelencia.";
 			close2;
 			break;
 		}
 	}
 	else {
-		mes "I am instructed to only offer my services to the ^ff0000"+ .@guildname$ +"^000000 Guild. Please try another Kafra Employee around here. Sorry for the inconvenience.";
+		mes "Tengo instrucciones de solo ofrecer mis servicios al Gremio ^ff0000"+ .@guildname$ +"^000000. Por favor busca otro Empleado Kafra por aqui. Disculpa las molestias.";
 		close2;
 	}
 	cutin "",255;
@@ -300,17 +300,17 @@ OnMyMobDead:
 
 S_Warp:
 	mes "[Kafra Employee]";
-	mes "Please choose";
-	mes "your destination.";
+	mes "Por favor elige";
+	mes "tu destino.";
 	next;
-	switch( select( getarg(0) + " -> 200 z", "Cancel it" ) ) {
+	switch( select( getarg(0) + " -> 200 z", "Cancelar" ) ) {
 	case 1:
 		if (Zeny < 200) {
 			mes "[Kafra Employee]";
-			mes "I'm sorry, but you don't have";
-			mes "enough zeny for the Teleport";
-			mes "Service. The fee to teleport";
-			mes "to "+getarg(0)+" is 200 zeny.";
+			mes "Lo siento, pero no tienes";
+			mes "suficiente zeny para el Servicio";
+			mes "de Teletransporte. La tarifa para";
+			mes "teletransportarte a "+getarg(0)+" es 200 zeny.";
 			close2;
 			cutin "",255;
 			end;
@@ -340,32 +340,32 @@ function GuardianData;
 
 	mes .@npc_name$;
 	if (.@guild_id == 0) {
-		mes "I have been waiting for a master to fulfill my destiny.";
-		mes "Brave soul... fate will guide you towards your future...";
+		mes "He estado esperando a un amo que cumpla mi destino.";
+		mes "Alma valiente... el destino te guiara hacia tu futuro...";
 		close;
 	}
 	if (strcharinfo(0) != .@guildmaster$) {
-		mes "No matter how much you pester me, I'll still follow my master ^ff0000"+.@guildmaster$+"^000000. Where are the Guardians?! Send these ruffians away right now!";
+		mes "Sin importar cuanto me molestes, I'll still follow my master ^ff0000"+.@guildmaster$+"^000000. Donde estan los Guardianes?! Saquen a estos rufianes ahora mismo!";
 		close;
 	}
-	mes "Welcome. My honorable master, ^ff0000"+strcharinfo(0)+"^000000...";
-	mes "Your humble servent, "+strnpcinfo(1)+", is here to serve you.";
+	mes "Bienvenido. Mi honorable amo, ^ff0000"+strcharinfo(0)+"^000000...";
+	mes "Tu humilde sirviente, "+strnpcinfo(1)+", esta aqui para servirte.";
 	next;
-	switch( select( "Castle briefing", "Invest in commercial growth", "Invest in Castle Defenses", "Summon Guardian", "Hire / Fire a Kafra Employee", "Go into Master's room" ) ) {
+	switch( select( "Informe del Castillo", "Invertir en crecimiento comercial", "Invertir en Defensas del Castillo", "Invocar Guardian", "Contratar / Despedir Empleado Kafra", "Ir a la habitacion del Amo" ) ) {
 	case 1:
 		.@economy_today = getcastledata(.@map$,CD_INVESTED_ECONOMY);
 		.@defense_today = getcastledata(.@map$,CD_INVESTED_DEFENSE);
 		mes .@npc_name$;
-		mes "I will report the Castle briefing, Master.";
+		mes "Reportare el informe del Castillo, Amo.";
 		mes " ";
-		mes "^0000ffNow, the commercial growth level is "+GetCastleData(.@map$,CD_CURRENT_ECONOMY)+".";
+		mes "^0000ffActualmente, el nivel de crecimiento comercial es "+GetCastleData(.@map$,CD_CURRENT_ECONOMY)+".";
 		if (.@economy_today > 0)
-			mes " You invested "+.@economy_today+" times in past 1 day.";
-		mes " Now, the Castle Defense level is "+GetCastleData(.@map$,CD_CURRENT_DEFENSE)+".^000000";
+			mes " Invertiste "+.@economy_today+" veces en el ultimo dia.";
+		mes " Ahora, el nivel de Defensa del Castillo es "+GetCastleData(.@map$,CD_CURRENT_DEFENSE)+".^000000";
 		if (.@defense_today > 0)
-			mes " ^0000ff- You invested "+.@defense_today+" times in past 1 day.^000000";
+			mes " ^0000ff- Invertiste "+.@defense_today+" veces en el ultimo dia.^000000";
 		mes " ";
-		mes "That's all I have to report, Master.";
+		mes "Eso es todo lo que tengo que reportar, Amo.";
 		close;
 
 	case 2:
@@ -386,38 +386,38 @@ function GuardianData;
 
 	case 4:
 		mes .@npc_name$;
-		mes "Will you summon a Guardian? It'll be a protector to defend us loyally.";
-		mes "Please select a guardian to defend us.";
+		mes "Invocaras un Guardian? Sera un protector que nos defendera lealmente.";
+		mes "Por favor selecciona un guardian para defendernos.";
 		next;
 		GuardianData( .@mob_id, .@x, .@y, .@name$ );
 		for ( .@i = 0; .@i < MAX_GUARDIANS ; .@i++ ) {
 			if (guardianinfo(.@map$,.@i,0))
-				.@menu$ = .@menu$ + getmonsterinfo(.@mob_id[.@i],MOB_NAME) + " - Implemented (" + guardianinfo(.@map$,.@i,2) + "/" + guardianinfo(.@map$,.@i,1) + "):";// hp/hpmax
+				.@menu$ = .@menu$ + getmonsterinfo(.@mob_id[.@i],MOB_NAME) + " - Implementado (" + guardianinfo(.@map$,.@i,2) + "/" + guardianinfo(.@map$,.@i,1) + "):";// hp/hpmax
 			else
 				.@menu$ = .@menu$ + getmonsterinfo(.@mob_id[.@i],MOB_NAME) + " - Not Implemented:";
 		}
 		.@s = select(.@menu$) -1;
 		mes .@npc_name$;
-		mes "Will you summon the chosen guardian? 10,000 zeny are required to summon a Guardian.";
+		mes "Invocaras al guardian elegido? Se requieren 10,000 zeny para invocar un Guardian.";
 		next;
-		if (select( "Summon","Cancel" ) == 2) {
+		if (select( "Invocar","Cancelar" ) == 2) {
 			mes .@npc_name$;
-			mes "I did as you ordered. But please remember if you the have money to spare, it'll be better to set it up.";
+			mes "Hice lo que ordenaste. Pero recuerda que si tienes dinero de sobra, sera mejor configurarlo.";
 			close;
 		}
 		mes .@npc_name$;
 		if (getgdskilllv(.@guild_id,10002) == 0) {
-			mes "Master, we have not the resources to Summon the Guardian. If you want to accumulate them, you have to learn the Guild skill. We failed to summon the Guardian.";
+			mes "Amo, no tenemos los recursos para Invocar al Guardian. Si quieres acumularlos, debes aprender la habilidad de Gremio. No logramos invocar al Guardian.";
 		}
 		else if (getcastledata( .@map$,(.@s + CD_ENABLED_GUARDIAN00) ) == 1)
-			mes "Master, you already have summoned that Guardian. We cannot summon another.";
+			mes "Amo, ya has invocado a ese Guardian. No podemos invocar otro.";
 		else if (Zeny <  10000)
-			mes "Well... I'm sorry but we don't have funds to summon the Guardian. We failed to summon the Guardian.";
+			mes "Bueno... lo siento pero no tenemos fondos para invocar al Guardian. No logramos invocar al Guardian.";
 		else {
 			Zeny = Zeny - 10000;
 			setcastledata .@map$,(.@s + CD_ENABLED_GUARDIAN00),1;
 			guardian .@map$, .@x[.@s], .@y[.@s], .@name$[.@s], .@mob_id[.@s], "Kafra Employee#"+ replacestr(.@map$, "cas", "") +"::OnGuardianDied", .@s;
-			mes "We completed the summoning of the Guardian. Our defenses are now increased with it in place.";
+			mes "Completamos la invocacion del Guardian. Nuestras defensas ahora estan reforzadas con el en su lugar.";
 		}
 		close;
 
@@ -426,22 +426,22 @@ function GuardianData;
 		if (getcastledata(.@map$,CD_ENABLED_KAFRA) == 1) {
 			mes "We are currently hiring a Kafra Employee... Do you want to fire the Kafra Employee?";
 			next;
-			if (select( "Fire","Cancel" ) == 2) {
+			if (select( "Despedir","Cancelar" ) == 2) {
 				mes .@npc_name$;
-				mes "She worked hard in my opinion. It was a good decision to keep her.";
+				mes "Ella trabajo duro en mi opinion. Fue una buena decision mantenerla.";
 				close;
 			}
 			cutin "kafra_01",2;
 			mes "[ Hired Kafra Employee ]";
 			mes "I worked so hard... How can you do that, Master?... Please... Please reconsider... Check it again, Master... Please...";
 			next;
-			if (select( "Fire","Cancel" ) == 2) {
+			if (select( "Despedir","Cancelar" ) == 2) {
 				mes "[ Hired Kafra Employee ]";
-				mes "I'll work hard for you... Thank you!";
+				mes "Trabajare duro por ti... Gracias!";
 				close3;
 			}
 			mes "[ Hired Kafra Employee ]";
-			mes "Oh, my goodness! This is nonsense!";
+			mes "Oh, Dios mio! Esto es un disparate!";
 			next;
 			cutin "",255;
 			disablenpc "Kafra Employee#" + replacestr(.@map$, "cas", "");
@@ -452,54 +452,54 @@ function GuardianData;
 			close;
 		}
 		mes "Will you contact the kafra Main Office and Hire a Employee for our Castle?";
-		mes "^ff0000 10,000 zeny is required for their services. ";
+		mes "^ff0000 Se requieren 10,000 zeny por sus servicios. ";
 		next;
-		if (select( "Hire.","Cancel" ) == 2) {
+		if (select( "Contratar.","Cancelar" ) == 2) {
 			mes .@npc_name$;
-			mes "I did as you ordered, but some of our members will be unhappy. It will be better to hire a Kafra Employee quickly.";
+			mes "Hice lo que ordenaste, pero algunos de nuestros miembros estaran descontentos. Sera mejor contratar un Empleado Kafra rapidamente.";
 			close;
 		}
 		mes .@npc_name$;
 		if (getgdskilllv(.@guild_id,10001) == 0) {
-			mes "Master, we can't hire a Kafra Employee because we don't have a contract with the Kafra Main Office. If you want to obtain a contract with the Kafra Main Office, you will need to learn the Guild skill first.";
+			mes "Amo, no podemos contratar un Empleado Kafra porque no tenemos un contrato con la Oficina Principal de Kafra. Si quieres obtener un contrato, necesitaras aprender la habilidad de Gremio primero.";
 			close;
 		}
 		if (Zeny <  10000) {
-			mes "Well... I'm sorry but we don't have enough funds to hire a Kafra Employee.";
+			mes "Bueno... lo siento pero no tenemos suficientes fondos para contratar un Empleado Kafra.";
 			close;
 		}
 		Zeny = Zeny - 10000;
 		enablenpc "Kafra Employee#" + replacestr(.@map$, "cas", "");
 		setcastledata .@map$,CD_ENABLED_KAFRA,1;
 
-		mes "We obtained a contract with the kafra Main Office, and hired a Kafra Employee.";
+		mes "Obtuvimos un contrato con la Oficina Principal de Kafra y contratamos un Empleado Kafra.";
 		next;
 		cutin "kafra_01",2;
 		mes "[ Hired Kafra Employee ]";
 		mes "How do you do? I was dispatched from the Main Office.";
-		mes "I'll do my best to not tarnish the reputation of the Guild.";
+		mes "Hare mi mejor esfuerzo para no manchar la reputacion del Gremio.";
 		next;
 		cutin "",255;
 		mes .@npc_name$;
-		mes "The Contract terms of the hired Kafra Employee are for 1 month and after this term, you will need to pay an additional fee.";
-		mes "It will be useful for our members.";
+		mes "Los terminos del contrato del Empleado Kafra contratado son por 1 mes y despues de este plazo, necesitaras pagar una tarifa adicional.";
+		mes "Sera util para nuestros miembros.";
 		close;
 
 	case 6:
 		mes .@npc_name$;
 		mes "Do you want to visit the room where our valuables are stored?";
-		mes "That room is restricted to you... you are the only one with access to it.";
+		mes "Esa habitacion esta restringida a ti... eres el unico con acceso a ella.";
 		next;
 		mes .@npc_name$;
-		mes "If you don't open the treasure box within time limits, there is a possibility of losing it when unexpected situation occurs.";
-		mes "Please make sure to remember that always, Master.";
-		mes "So, for our guild's improvement, you must find time to collect it.";
+		mes "Si no abres el cofre del tesoro dentro del limite de tiempo, existe la posibilidad de perderlo cuando ocurra una situacion inesperada.";
+		mes "Por favor asegurate de recordar eso siempre, Amo.";
+		mes "Asi que, por la mejora de nuestro gremio, debes encontrar tiempo para recolectarlo.";
 		next;
-		switch( select( "Go into Master's room.","Cancel" ) ) {
+		switch( select( "Ir a la habitacion del Amo.","Cancelar" ) ) {
 		case 1:
 			mes .@npc_name$;
-			mes "I'll show you the secret path. Follow me...please.";
-			mes "When you want to return here, please press the secret switch.";
+			mes "Te mostrare el camino secreto. Sigueme...por favor.";
+			mes "Cuando quieras regresar aqui, por favor presiona el interruptor secreto.";
 			close2;
 			if (.@map$ == "te_aldecas1") warp "te_aldecas1",113,223;
 			else if (.@map$ == "te_aldecas2") warp "te_aldecas2",134,225;
@@ -514,8 +514,8 @@ function GuardianData;
 			end;
 		case 2:
 			mes .@npc_name$;
-			mes "Goods are produced once a day... if you don't remove them in time, they will not be produced anymore.";
-			mes "Therefore, it will be better if you check up on them from time to time.";
+			mes "Los bienes se producen una vez al dia... si no los retiras a tiempo, no se produciran mas.";
+			mes "Por lo tanto, sera mejor que los revises de vez en cuando.";
 			close;
 		}
 	}
@@ -528,37 +528,37 @@ S_Invest:
 		.@cost_invest = .@cost_invest * 4;
 
 	mes .@npc_name$;
-	mes "If you invest in "+ getarg(3) +", the "+ getarg(4) +". Therfore, if you consider our "+ getarg(5) +", investments will be a necessity.";
+	mes "Si inviertes en "+ getarg(3) +", la "+ getarg(4) +". Por lo tanto, si consideras nuestro "+ getarg(5) +", las inversiones seran una necesidad.";
 	mes " ";
-	mes "Initially, you are able to invest just once but if you pay more money, you will be able to invest twice.";
+	mes "Inicialmente, solo puedes invertir una vez pero si pagas mas dinero, podras invertir dos veces.";
 	mes " ";
 	if (getcastledata(strnpcinfo(4),CD_CURRENT_ECONOMY) >= 100) {
-		mes "^ff0000The "+ getarg(3) +" level of our Castle is at it's highest, 100%. No more investments are needed. Just as I have expected from a great "+ getarg(6) +" like you, Master.^000000";
+		mes "^ff0000El nivel de "+ getarg(3) +" de nuestro Castillo esta en su maximo, 100%. No se necesitan mas inversiones. Tal como esperaba de un gran "+ getarg(6) +" como tu, Amo.^000000";
 		close;
 	}
 	if (.@num_invest_today >= 2) {
-		mes "^ff0000You have already invested twice today. You cannot invest any more.^000000 I expect the "+ getarg(7) +" of the guild to grow at a high rate.";
+		mes "^ff0000Ya has invertido dos veces hoy. No puedes invertir mas.^000000 Espero que las "+ getarg(7) +" del gremio crezcan a un ritmo alto.";
 		close;
 	}
 	if (.@num_invest_today == 0)
 		mes "The current investment amount required is ^ff0000"+.@cost_invest+"^000000 zeny. Will you invest?";
 	else
-		mes "You've invested once today... if you wish to invest once more, ^ff0000"+.@cost_invest+"^000000 more zeny will be needed.";
+		mes "Ya invertiste una vez hoy... si deseas invertir una vez mas, se necesitaran ^ff0000"+.@cost_invest+"^000000 zeny mas.";
 	next;
-	switch( select( "Invest in "+ getarg(3) +".","Cancel" ) ) {
+	switch( select( "Invertir en "+ getarg(3) +".","Cancelar" ) ) {
 	case 1:
 		mes .@npc_name$;
 		if (Zeny < .@cost_invest) {
-			mes "I'm sorry but there is not enough zeny to invest. You will have to try again when you have the funds, Master.";
+			mes "Lo siento pero no hay suficiente zeny para invertir. Tendras que intentar de nuevo cuando tengas los fondos, Amo.";
 			close;
 		}
 		Zeny = Zeny - .@cost_invest;
 		setcastledata strnpcinfo(4), getarg(0), (.@num_invest_today +1);
-		mes "We finished the investment safely. I expect that our "+ getarg(3) +" level will be increased by tomorrow.";
+		mes "Terminamos la inversion de forma segura. Espero que nuestro nivel de "+ getarg(3) +" aumente para manana.";
 		close;
 	case 2:
 		mes .@npc_name$;
-		mes "I'll do as you bid, my master... There is no hurry. We will do our best.";
+		mes "Hare lo que ordenes, mi amo... No hay prisa. Haremos nuestro mejor esfuerzo.";
 		close;
 	}
 
@@ -700,16 +700,16 @@ OnSpawnGuardians:
 	.@guild_id = getcastledata( strnpcinfo(4),CD_GUILD_ID );
 	if (.@guild_id == 0) {
 		mes "[Ringing Voice]";
-		mes "'Those who overcome an ordeal shows a great deal of bravery... and will find their way to another ordeal.'";
+		mes "'Aquellos que superan una prueba muestran gran valentia... y encontraran su camino hacia otra prueba.'";
 		close;
 	}
 	mes "[Ringing Voice]";
-	mes "'Only the truly brave can take the test.'";
+	mes "'Solo los verdaderamente valientes pueden tomar la prueba.'";
 	next;
 	mes " ";
 	mes "There's a small lever. Will you pull it?";
 	next;
-	if (select( "Pull.","Don't pull." ) == 1) {
+	if (select( "Jalar.","No jalar." ) == 1) {
 		if (.@guild_id == getcharid(2)) {
 			.@npc_map$ = strnpcinfo(4);
 			if (compare( .@npc_map$,"te_alde" )) {
@@ -732,7 +732,7 @@ OnSpawnGuardians:
 		}
 		else {
 			mes " ";
-			mes "Nothing happened.";
+			mes "Nada sucedio.";
 			close;
 		}
 	}
@@ -745,7 +745,7 @@ OnSpawnGuardians:
 	mes " ";
 	mes "There's a small lever. Will you pull it?";
 	next;
-	if ( select( "Pull.","Do not." ) == 1 ) {
+	if ( select( "Jalar.","No hacerlo." ) == 1 ) {
 		.@map$ = strnpcinfo(4);
 		if (.@map$ == "te_aldecas1") setarray .@coord[0],218,176;
 		else if (.@map$ == "te_aldecas2") setarray .@coord[0],51,179;

@@ -1,19 +1,19 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Job Repairs
 //===== By: ==================================================
 //= Euphy
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Removes potentially conflicting job data.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version.
 //= 1.1 Added GM management function. [Euphy]
 //= 2.0 Prontera castle map changed in ep16.1 [Capuche]
-//============================================================ 
+//============================================================
 
 // Job Variables
 //============================================================
@@ -65,55 +65,55 @@ Expanded Super Novice: EXSUPNOV_Q -> job_super2
 //============================================================
 prt_in,38,104,4	script	Valerie	811,{
 	if (checkweight(1201,1) == 0) {
-		mes "I think you have too many items. Let's try it again after you take some out.";
+		mes "Creo que tienes demasiados items. Intentemoslo de nuevo despues de que saques algunos.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You're overweight with items so I don't think we can proceed any further. Challenge me after you've taken some items off.";
+		mes "Estas sobrecargado de items asi que no creo que podamos proceder. Desafiame despues de que te quites algunos items.";
 		close;
 	}
 	mes "[Valerie]";
-	mes "I am Valerie; I help those with abnormalities. I am friends with Valkyrie.";
+	mes "Soy Valerie; ayudo a aquellos con anomalias. Soy amiga de Valkyrie.";
 	next;
 	mes "[Valerie]";
-	mes "If both abnormalities disappear then we must start the test over from scratch. What would you like to do?";
+	mes "Si ambas anomalias desaparecen entonces debemos empezar la prueba desde cero. Que te gustaria hacer?";
 	next;
-	switch(select("I don't have any abnormalities:I think my body has some abnormalities")) {
+	switch(select("No tengo ninguna anomalia:Creo que mi cuerpo tiene algunas anomalias")) {
 	case 1:
 		mes "[Valerie]";
-		mes "That's a relief. Then please take care.";
+		mes "Que alivio. Entonces por favor cuidate.";
 		close;
 	case 2:
 		mes "[Valerie]";
-		mes "Are you sure you want to intialize it and start over?";
+		mes "Estas seguro de que quieres inicializar y empezar de nuevo?";
 		next;
-		if(select("Nope:Yes, I want to start completely over") == 1) {
+		if(select("No:Si, quiero empezar completamente de nuevo") == 1) {
 			mes "[Valerie]";
-			mes "I understand. I'll see you next time";
+			mes "Entiendo. Te veo la proxima vez";
 			close;
 		}
 		mes "[Valerie]";
-		mes "All items related to the existing conditions will disappear. Are you okay with this?";
+		mes "Todos los items relacionados con las condiciones existentes desapareceran. Estas de acuerdo con esto?";
 		next;
-		if(select("Nope:Yes, I want to start completely over.") == 1) {
+		if(select("No:Si, quiero empezar completamente de nuevo.") == 1) {
 			mes "[Valerie]";
-			mes "I understand. I'll see you next time.";
+			mes "Entiendo. Te veo la proxima vez.";
 			close;
 		}
 		mes "[Valerie]";
-		mes "It seems that there are a sea of people who seemed to be cursed of not being able to get a significant other after going through with this. Are you still okay with this? ";
+		mes "Parece que hay un mar de personas que parecen estar malditas de no poder tener pareja despues de pasar por esto. Todavia estas de acuerdo? ";
 		next;
-		if(select("Nope:I still want to intialize.") == 1) {
+		if(select("No:Aun asi quiero inicializar.") == 1) {
 			mes "[Valerie]";
-			mes "I understand. I will see you next time.";
+			mes "Entiendo. Te vere la proxima vez.";
 			close;
 		}
 		mes "[Valerie]";
-		mes "In extreme cases, some become crippled and can get ulcers. Do you still want to intilize former processes?";
+		mes "En casos extremos, algunos quedan lisiados y pueden tener ulceras. Todavia quieres inicializar los procesos anteriores?";
 		next;
-		if(select("Nope:Please intilize the former processes") == 1) {
+		if(select("No:Por favor inicializa los procesos anteriores") == 1) {
 			mes "[Valerie]";
-			mes "I understand. I will see you next time";
+			mes "Entiendo. Te vere la proxima vez";
 			close;
 		}
 		specialeffect2 EF_INVENOM;
@@ -122,13 +122,13 @@ prt_in,38,104,4	script	Valerie	811,{
 		// Warlock - quest items
 		if (isequipped(2796) || isequipped(2797)) {
 			mes "[Valerie]";
-			mes "Please unequip the Magical Stone or Magical Stone Ring and try again.";
+			mes "Por favor desequipa la Piedra Magica o el Anillo de Piedra Magica e intenta de nuevo.";
 			close;
 		}
 		if (countitem(2796) || countitem(2797)) {
 			if (isequipped(2796) || isequipped(2797)) {
 				mes "[Valerie]";
-				mes "Please talk to me after your replace all Magical Stones.";
+				mes "Por favor habla conmigo despues de reemplazar todas las Piedras Magicas.";
 				close;
 			}
 			setarray .@items[0], 2796, 2797, 6152, 6151; //Magical_Stone,Magical_Stone_,Glittering_Crystal,Peice_Of_Great_Bradium
@@ -137,14 +137,14 @@ prt_in,38,104,4	script	Valerie	811,{
 					delitem .@items[.@i], countitem(.@items[.@i]);
 			}
 			mes "[Valerie]";
-			mes "You're carrying something that is unnecessary. I will sort it out for you.";
+			mes "Llevas algo que es innecesario. Lo organizare por ti.";
 			close;
 		}
 
 		// Baby and third job characters meet no further conditions.
 		if (eaclass()&(EAJL_BABY|EAJL_THIRD)) {
 			mes "[Valerie]";
-			mes "I don't think you should have any further business with me.";
+			mes "No creo que debas tener mas asuntos conmigo.";
 			close;
 		}
 
@@ -152,10 +152,10 @@ prt_in,38,104,4	script	Valerie	811,{
 		if ((Class >= Job_Swordman && Class <= Job_Crusader2) && ADVJOB != 0) {
 			set ADVJOB,0;
 			mes "[Valerie]";
-			mes "You're carrying big karma- You should erase it.";
+			mes "Llevas un gran karma. Deberias borrarlo.";
 			next;
 			mes "[Valerie]";
-			mes "Please talk to me again as there could be additional problems.";
+			mes "Por favor habla conmigo de nuevo ya que podria haber problemas adicionales.";
 			close;
 		}
 
@@ -212,7 +212,7 @@ prt_in,38,104,4	script	Valerie	811,{
 			callsub L_Third, "job_soc", 12098, 12096, 12098;
 
 		mes "[Valerie]";
-		mes "I don't think you should have any further business with me.";
+		mes "No creo que debas tener mas asuntos conmigo.";
 		close;
 	}
 
@@ -222,10 +222,10 @@ L_Second:
 		if (checkquest(getarg(1)) == 2)
 			erasequest getarg(1);
 		mes "[Valerie]";
-		mes "I will help clear your problems for you that came from your former attempts.";
+		mes "Te ayudare a resolver tus problemas que vinieron de tus intentos anteriores.";
 		next;
 		mes "[Valerie]";
-		mes "Please talk to me again as there could be additional problems.";
+		mes "Por favor habla conmigo de nuevo ya que podria haber problemas adicionales.";
 		close;
 	} else
 		return;
@@ -246,17 +246,17 @@ L_Third:
 				erasequest getarg(4);
 		}
 		mes "[Valerie]";
-		mes "I will help clear your problems for you that came from your former attempts.";
+		mes "Te ayudare a resolver tus problemas que vinieron de tus intentos anteriores.";
 		next;
 		mes "[Valerie]";
-		mes "Please talk to me again as there could be additional problems.";
+		mes "Por favor habla conmigo de nuevo ya que podria haber problemas adicionales.";
 		close;
 	} else
 		return;
 }
 
 -	script	Valerie#sign	-1,{
-	mes "^ff00ffI couldn't pay the office rent so I am temporarily relocating to the building across from the Prontera Refinery.^000000";
+	mes "^ff00ffNo pude pagar la renta de la oficina asi que me estoy reubicando temporalmente al edificio frente a la Refineria de Prontera.^000000";
 	mes " ";
 	mes "^ff00ffValerie^000000";
 	close;
@@ -286,7 +286,7 @@ xmas,166,209,4	duplicate(Valerie#sign)	Valerie#wan	837
 
 sec_in02,12,40,5	script	Job Repair	57,1,1,{
 	callfunc "F_GM_NPC";
-	mes "Please input your password.";
+	mes "Por favor ingresa tu contrasena.";
 	next;
 	if (callfunc("F_GM_NPC","1854",1) == 1) {
 		set job_arch,100;
