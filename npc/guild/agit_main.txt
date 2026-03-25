@@ -879,37 +879,37 @@ OnRecvCastle:
 			mes "Obtuvimos un contrato con la Oficina Principal de Kafra, y contratamos una Empleada Kafra.";
 			next;
 			cutin "kafra_01",2;
-			mes "[ Hired Kafra Employee ]";
-			mes "How do you do? I was dispatched from the Main Office.";
-			mes "I'll do my best to not tarnish the reputation of the Guild.";
+			mes "[ Empleada Kafra Contratada ]";
+			mes "Como estas? Fui enviada desde la Oficina Principal.";
+			mes "Hare mi mejor esfuerzo para no manchar la reputacion del Guild.";
 			next;
 			cutin "",255;
 			mes "["+strnpcinfo(1)+"]";
-			mes "The Contract terms of the hired Kafra Employee are for 1 month and after this term, you will need to pay an additional fee.";
-			mes "It will be useful for our members.";
+			mes "Los terminos del contrato de la Empleada Kafra contratada son por 1 mes y despues de este plazo, necesitaras pagar una tarifa adicional.";
+			mes "Sera util para nuestros miembros.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "I did as you ordered, but some of our members will be unhappy. It will be better to hire a Kafra Employee quickly.";
+			mes "Hice lo que ordenaste, pero algunos de nuestros miembros estaran descontentos. Sera mejor contratar una Empleada Kafra pronto.";
 			close;
 		}
 	case 6:
 		mes "["+strnpcinfo(1)+"]";
-		mes "Do you want to visit the room where our valuables are stored?";
-		mes "That room is restricted to you... you are the only one with access to it.";
+		mes "Quieres visitar la habitacion donde se guardan nuestros objetos de valor?";
+		mes "Esa habitacion esta restringida para ti... tu eres el unico con acceso a ella.";
 		next;
-		switch (select("Go into Master's room.:Cancel")) {
+		switch (select("Ir a la habitacion del Maestro.:Cancelar")) {
 		case 1:
 			mes "["+strnpcinfo(1)+"]";
-			mes "I'll show you the secret path. Follow me...please.";
-			mes "When you want to return here, please press the secret switch.";
+			mes "Te mostrare el camino secreto. Sigueme...por favor.";
+			mes "Cuando quieras regresar aqui, por favor presiona el interruptor secreto.";
 			close2;
 			warp strnpcinfo(2),.@masterroom[0],.@masterroom[1];
 			end;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "Goods are produced once a day... if you don't remove them in time, they will not be produced anymore.";
-			mes "Therefore, it will be better if you check up on them from time to time.";
+			mes "Los bienes se producen una vez al dia... si no los retiras a tiempo, no se produciran mas.";
+			mes "Por lo tanto, sera mejor si los revisas de vez en cuando.";
 			close;
 		}
 	}
@@ -922,8 +922,8 @@ OnRecvCastle:
 	set .@GID,GetCastleData(strnpcinfo(2),CD_GUILD_ID);
 
 	if (.@GID == 0) {
-		mes "[Ringing Voice]";
-		mes "'Those who overcome an ordeal shows a great deal of bravery... and will find their way to another ordeal.'";
+		mes "[Voz Resonante]";
+		mes "'Aquellos que superan una prueba demuestran gran valentia... y encontraran su camino hacia otra prueba.'";
 		close;
 	}
 
@@ -964,8 +964,8 @@ OnRecvCastle:
 		end;
 	}
 
-	mes "[Ringing Voice]";
-	mes "'Only the truly brave can take the test.'";
+	mes "[Voz Resonante]";
+	mes "'Solo los verdaderamente valientes pueden tomar la prueba.'";
 	next;
 	mes " ";
 	mes "There's a small lever. Will you pull it?";

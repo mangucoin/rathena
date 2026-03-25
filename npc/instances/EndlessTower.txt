@@ -1234,11 +1234,11 @@ OnMyMobDead:
 		initnpctimer;
 		//SetItemPartyInMap in_102floor 1
 	} else
-		mapannounce .@map$, "Remaining Monsters on the 1st Level - "+.@mob_dead_num,bc_map,"0x00ff99";
+		mapannounce .@map$, "Monstruos restantes en el Nivel 1 - "+.@mob_dead_num,bc_map,"0x00ff99";
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("1@tower"), "All Monsters on the 1st Level have been defeated.",bc_map,"0xffff00";
+	mapannounce instance_mapname("1@tower"), "Todos los monstruos en el Nivel 1 han sido derrotados.",bc_map,"0xffff00";
 	donpcevent instance_npcname("1FGate102tower")+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1278,7 +1278,7 @@ OnMyMobDead:
 
 OnTimer5000:
 	set .@level, atoi(replacestr(strnpcinfo(0),"FGate102tower","")) + 1;
-	mapannounce strnpcinfo(4), "All Monsters on the "+callfunc("F_GetNumSuffix",.@level)+" Level have been defeated.",bc_map,"0xffff00";
+	mapannounce strnpcinfo(4), "Todos los monstruos en el Nivel "+callfunc("F_GetNumSuffix",.@level)+" han sido derrotados.",bc_map,"0xffff00";
 	donpcevent instance_npcname(.@level+"FGate102tower")+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1356,30 +1356,30 @@ OnInstanceInit:
 
 OnTimer15000:
 OnTimer60000:
-	mapannounce instance_mapname("1@tower"), "Notice : In any abnormal situation where you defeat a monster, you can't advance to the next level!",bc_map,"0xff0000";
+	mapannounce instance_mapname("1@tower"), "Aviso: En cualquier situacion anormal donde derrotes un monstruo, no podras avanzar al siguiente nivel!",bc_map,"0xff0000";
 	end;
 OnTimer120000:
-	mapannounce instance_mapname("1@tower"), "Notice : In any abnormal situation where you defeat a monster, you can't advance to the next level!",bc_map,"0xff0000";
+	mapannounce instance_mapname("1@tower"), "Aviso: En cualquier situacion anormal donde derrotes un monstruo, no podras avanzar al siguiente nivel!",bc_map,"0xff0000";
 	stopnpctimer;
 	end;
 }
 
 1@tower,71,1,0	script	#Manager Mode1	844,{
 	callfunc "F_GM_NPC";
-	mes "Please enter the password.";
+	mes "Por favor ingresa la contrasena.";
 	set .@i, callfunc("F_GM_NPC","dmc2008",1);
 	next;
 	if (.@i == 1) {
-		mes "This NPC manages the tower from the 1st to the 25th Level.";
-		mes "Please enter the Level number to open.";
-		mes "(i.g.: 1F->1, 25F->25)";
+		mes "Este NPC administra la torre desde el Nivel 1 al 25.";
+		mes "Por favor ingresa el numero de Nivel a abrir.";
+		mes "(ej.: 1F->1, 25F->25)";
 		input .@input,1,25;
 		next;
 		if (.@input < 1 || .@input > 25)
-			mes "You can only enter a number from 1 to 25.";
+			mes "Solo puedes ingresar un numero del 1 al 25.";
 		else {
 			donpcevent instance_npcname(.@input+"FGate102tower")+"::OnEnable";
-			mes "*** Level "+ .@input + " is now being opened. ***";
+			mes "*** El Nivel "+ .@input + " se esta abriendo. ***";
 		}
 	}
 	close;
@@ -1405,11 +1405,11 @@ OnMyMobDead:
 		//SetItemPartyInMap in_102floor 26
 	}
 	else
-		mapannounce .@map$, "Remaining Monsters on the 26th Level - " + .@mob_dead_num,bc_map,"0x00ff99";
+		mapannounce .@map$, "Monstruos restantes en el Nivel 26 - " + .@mob_dead_num,bc_map,"0x00ff99";
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("2@tower"), "All Monsters on the 26th Level have been defeated.",bc_map,"0xffff00";
+	mapannounce instance_mapname("2@tower"), "Todos los monstruos en el Nivel 26 han sido derrotados.",bc_map,"0xffff00";
 	donpcevent instance_npcname("26FGate102tower")+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1482,20 +1482,20 @@ OnTouch_:
 
 2@tower,71,1,0	script	#Manager Mode2	844,{
 	callfunc "F_GM_NPC";
-	mes "Please enter the password.";
+	mes "Por favor ingresa la contrasena.";
 	set .@i, callfunc("F_GM_NPC","dmc2008",1);
 	next;
 	if (.@i == 1) {
-		mes "This NPC manages the tower from the 26st to the 50th Level.";
-		mes "Please enter the Level number to open.";
-		mes "(i.g.: 26F->26, 50F->50)";
+		mes "Este NPC administra la torre desde el Nivel 26 al 50.";
+		mes "Por favor ingresa el numero de Nivel a abrir.";
+		mes "(ej.: 26F->26, 50F->50)";
 		input .@input,26,50;
 		next;
 		if (.@onput < 26 || .@input > 50)
-			mes "You can only enter a number from 26 to 50.";
+			mes "Solo puedes ingresar un numero del 26 al 50.";
 		else {
 			donpcevent instance_npcname(.@input+"FGate102tower")+"::OnEnable";
-			mes "*** Level "+ .@input + " is now being opened. ***";
+			mes "*** El Nivel "+ .@input + " se esta abriendo. ***";
 		}
 	}
 	close;
@@ -1521,11 +1521,11 @@ OnMyMobDead:
 		//SetItemPartyInMap in_102floor 51
 	}
 	else
-		mapannounce .@map$, "Remaining Monsters on the 51st Level - " + .@mob_dead_num,bc_map,"0x00ff99";
+		mapannounce .@map$, "Monstruos restantes en el Nivel 51 - " + .@mob_dead_num,bc_map,"0x00ff99";
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("3@tower"), "All Monsters on the 51st Level have been defeated.",bc_map,"0xffff00";
+	mapannounce instance_mapname("3@tower"), "Todos los monstruos en el Nivel 51 han sido derrotados.",bc_map,"0xffff00";
 	donpcevent instance_npcname("51FGate102tower")+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1598,20 +1598,20 @@ OnTouch_:
 
 3@tower,71,1,0	script	#Manager Mode3	844,{
 	callfunc "F_GM_NPC";
-	mes "Please enter the password.";
+	mes "Por favor ingresa la contrasena.";
 	set .@i, callfunc("F_GM_NPC","dmc2008",1);
 	next;
 	if (.@i == 1) {
-		mes "This NPC manages the tower from the 51st to the 75th Level.";
-		mes "Please enter the Level number to open.";
-		mes "(i.g.: 51F->51, 75F->75)";
+		mes "Este NPC administra la torre desde el Nivel 51 al 75.";
+		mes "Por favor ingresa el numero de Nivel a abrir.";
+		mes "(ej.: 51F->51, 75F->75)";
 		input .@input,51,75;
 		next;
 		if (.@input < 51 || .@input > 75)
-			mes "You can only enter a number from 51 to 75.";
+			mes "Solo puedes ingresar un numero del 51 al 75.";
 		else {
 			donpcevent instance_npcname(.@input+"FGate102tower")+"::OnEnable";
-			mes "*** Level "+ .@input + " is now being opened. ***";
+			mes "*** El Nivel "+ .@input + " se esta abriendo. ***";
 		}
 	}
 	close;
@@ -1637,11 +1637,11 @@ OnMyMobDead:
 		//SetItemPartyInMap in_102floor 76
 	}
 	else
-		mapannounce .@map$,"Remaining Monsters on the 76th Level - " + .@mob_dead_num,bc_map,"0x00ff99";
+		mapannounce .@map$,"Monstruos restantes en el Nivel 76 - " + .@mob_dead_num,bc_map,"0x00ff99";
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("4@tower"),"All Monsters on the 76th Level have been defeated.",bc_map,"0xffff00";
+	mapannounce instance_mapname("4@tower"),"Todos los monstruos en el Nivel 76 han sido derrotados.",bc_map,"0xffff00";
 	donpcevent instance_npcname("76FGate102tower")+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1713,20 +1713,20 @@ OnTouch_:
 
 4@tower,71,1,0	script	#Manager Mode4	844,{
 	callfunc "F_GM_NPC";
-	mes "Please enter the password.";
+	mes "Por favor ingresa la contrasena.";
 	set .@i, callfunc("F_GM_NPC","dmc2008",1);
 	next;
 	if (.@i == 1) {
-		mes "This NPC manages the tower from the 76th to the 99th Level.";
-		mes "Please enter the Level number to open.";
-		mes "(i.g.: 76F->76, 99F->99)";
+		mes "Este NPC administra la torre desde el Nivel 76 al 99.";
+		mes "Por favor ingresa el numero de Nivel a abrir.";
+		mes "(ej.: 76F->76, 99F->99)";
 		input .@input,76,99;
 		next;
 		if (.@input < 76 || .@input > 99)
-			mes "You can only enter a number from 76 to 99.";
+			mes "Solo puedes ingresar un numero del 76 al 99.";
 		else {
 			donpcevent instance_npcname(.@input+"FGate102tower")+"::OnEnable";
-			mes "*** Level "+ .@input + " is now being opened. ***";
+			mes "*** El Nivel "+ .@input + " se esta abriendo. ***";
 		}
 	}
 	close;
@@ -1736,34 +1736,34 @@ OnTouch_:
 //============================================================
 5@tower,106,109,2	script	Lucid Crystal#102	844,{
 	if (in_102tower < 10) {
-		mes "^0000ffA mysterious voice echoes through the room as you touch the lucid crystal radiating a strong light.^000000";
+		mes "^0000ffUna voz misteriosa resuena en la habitacion mientras tocas el cristal lucido que irradia una luz intensa.^000000";
 		next;
 		mes "[Mysterious Voice]";
-		mes "Welcome to my place, intruders. I've had fun watching you endure all the difficulties I've set before you.";
+		mes "Bienvenidos a mi morada, intrusos. Me he divertido viendolos soportar todas las dificultades que les puse enfrente.";
 		next;
 		mes "[Mysterious Voice]";
-		mes "Unfortunately, the time has come to end the show.";
+		mes "Desafortunadamente, ha llegado el momento de terminar el espectaculo.";
 		next;
 		mes "[Mysterious Voice]";
-		mes "It's still too early to celebrate your victory against my right-hand man Knothen because he isn't completely destroyed!";
+		mes "Aun es muy pronto para celebrar su victoria contra mi mano derecha Knothen porque no ha sido completamente destruido!";
 		next;
 		mes "[Mysterious Voice]";
-		mes "I shall resurrect him for your next show. Defeat him again, and then I'll gladly accept your challenge.";
+		mes "Lo resucitare para su proximo espectaculo. Derrotenlo de nuevo, y entonces aceptare su desafio con gusto.";
 		next;
 		mes "[Mysterious Voice]";
-		mes "Good-bye for now.";
-		mes "Once again, I had such a great time, humans. I look forward to seeing you again.";
+		mes "Adios por ahora.";
+		mes "Una vez mas, la pase muy bien, humanos. Espero verlos de nuevo.";
 		next;
-		mes "^0000ffAs soon as the voice stopped talking, an irresistible force lifted and moved you somewhere else.";
+		mes "^0000ffTan pronto como la voz dejo de hablar, una fuerza irresistible te levanto y te llevo a otro lugar.";
 		close2;
 		set in_102tower,10;
 		warp "alberta",223,36;
 	}
 	else {
-		mes "^0000ffThe radiating crystal piece seems to beckon you, just like last time.^000000";
+		mes "^0000ffEl cristal radiante parece llamarte, igual que la ultima vez.^000000";
 		next;
 		mes "[Mysterious Voice]";
-		mes "I must have underestimated you... I didn't expect to see you again.";
+		mes "Debo haberte subestimado... No esperaba verte de nuevo.";
 		next;
 		mes "[Mysterious Voice]";
 		mes "I can smell your sweat, hear the gasps of your exhaustion in combat. Ah~ The human desire for victory always excites me.";
