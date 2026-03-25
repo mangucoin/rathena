@@ -1,3 +1,244 @@
+//===== rAthena Script =======================================
+//= St. Patrick's Day (2008)
+//===== By: ==================================================
+//= Kisuka
+//===== Current Version: =====================================
+//= 1.5
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= iRO St. Patrick's Day. (2008)
+//= Find O'Riley's treasure for him, then hunt down coinds from
+//= the snakes to get Green Ale in return for them.
+//=
+//= Mobs 1841 through 1844 have been modified for this event
+//= you must use the mob edits provided for this quest.
+//= Enable in mob_db2.txt
+//=
+//= The item 12715 Black_Treasure_Chest contains a script
+//= that relies explicitly on this script being loaded.
+//= Remove the "end" from the item script to enable.
+//= In addition to that, you must enable the item_avail
+//= entries if you are using a kRO client, as the items
+//= were removed from the client between testing and this
+//= updated.
+//===== Additional Comments: =================================
+//= 1.0 First version. [Kisuka]
+//= 1.1 Fixed checkitems for ale, fixed ale prize(gives the correct one now). [Kisuka]
+//= 1.2 Optimized. Uses only one variable now. [L0ne_W0lf]
+//=     Corrected EXP rewards, and some typos.
+//= 1.3 Corrected random in item function. [L0ne_W0lf]
+//= 1.4 Replaced effect numerics with constants. [Samuray22]
+//= 1.5 Revamped the script. [Kisuka]
+//============================================================
+
+prt_fild05,170,286,4	script	Anxious Leprechaun#8pday	954,{
+	if (StPatrick2008 < 1) {
+		mes "[O'Riley el Leprechaun]";
+		mes "Hmm...";
+		mes "Es un buen dia hoy.";
+		mes "Si tienes un momento libre.";
+		mes "Ven aqui, ven y te contare algo.";
+		next;
+		select("Adelante.");
+		mes "[O'Riley el Leprechaun]";
+		mes "En estos ultimos anos he venido a ver el mundo y cada vez las serpientes me han robado el tesoro.";
+		next;
+		select("Oh?");
+		mes "[O'Riley el Leprechaun]";
+		mes "La buena gente de esta tierra ha sido tan amable de recuperar mi tesoro una y otra vez.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Aprendi mi leccion y nunca olvidare como esas viles serpientes me han perjudicado.";
+		next;
+		select("Que hiciste?");
+		mes "[O'Riley el Leprechaun]";
+		mes "Hice un lugar seguro para esconder mi tesoro.";
+		mes "Escondido en un lugar secreto, el tesoro estaria a salvo hasta que volviera al mundo al ano siguiente.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Este ano, hice mi viaje para ver el mundo exterior una vez mas.";
+		mes "Viaje a mi escondite de oro y lo encontre seguro e intacto.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Pense para mis adentros, soy muy listo al esconder el tesoro de las serpientes.";
+		mes "Oh, pero seguia siendo un tonto.";
+		next;
+		select("Que paso?");
+		mes "[O'Riley el Leprechaun]";
+		mes "Mi escondite era demasiado ingenioso.";
+		mes "Jale y empuje con fuerza, pero el escondite no se movia.";
+		mes "Asi que una vez mas, estoy sin tesoro este ano.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Ni siquiera he empezado a preparar mi famosa cerveza verde por culpa de este desastre.";
+		mes "Te pido, me ayudas a recuperar mi tesoro?";
+		next;
+		if (select("Claro, puedo ayudarte.:Estoy muy ocupado.") == 2) {
+			mes "[O'Riley el Leprechaun]";
+			mes "Aye, entiendo.";
+			mes "Gracias por escuchar mi historia.";
+			close;
+		}
+		mes "[O'Riley el Leprechaun]";
+		mes "Para encontrar mi tesoro, es verdad.";
+		mes "A mi tesoro te doy mi secreto.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Entonces, escucha bien y no omitas nada.";
+		mes "Haz el viaje a la ciudad de los magos.";
+		mes "Cruza el puente y atraviesa el agua.";
+		mes "Sube la montana hasta que no puedas ir mas al norte.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Pasados los escalones de piedra puestos en el aire.";
+		mes "Escondido en el costado de la montana, ahi esta mi tesoro.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Debes encontrar la forma de abrirlo.";
+		mes "Necesitaras una explosion poderosa para liberar el escondite, seguro.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Podrias probar con Petardos.";
+		mes "Claro, necesitarias una gran cantidad de ellos, necesitarias al menos ^FF0000200 Petardos^000000";
+		set StPatrick2008,1;
+		close;
+	}
+	else if (StPatrick2008 == 1) {
+		mes "[O'Riley el Leprechaun]";
+		mes "Es un buen dia hoy.";
+		mes "Ya encontraste mi tesoro?";
+		mes "Mi escondite es bastante dificil de abrir.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Podrias probar con Petardos.";
+		mes "Claro, necesitarias una gran cantidad de ellos, necesitarias al menos ^FF0000200 Petardos^000000";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Entiendo si no puedes lograrlo, de verdad.";
+		close;
+	}
+	else if (StPatrick2008 == 2) {
+		mes "[O'Riley el Leprechaun]";
+		mes "Oh, bienvenido de vuelta!";
+		mes "Gracias por devolver mi tesoro!";
+		mes "Mi gratitud no conoce limites!";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Estoy tan feliz,";
+		mes "empezare a preparar mi cerveza de inmediato.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Parece que las serpientes han vuelto este ano y estan aqui para robar mi tesoro otra vez.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Las serpientes cargan las monedas de mis companeros y deben ser castigadas.";
+		mes "Pero has tenido un largo viaje, por lo cual estoy muy agradecido.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Cuando hayas descansado las piernas, ven a hablar conmigo otra vez y podremos conversar de nuevo.";
+		close2;
+		set StPatrick2008,3;
+    		getexp 200000,70000;
+		delitem 7721,1;
+		end;
+	}
+	else if (StPatrick2008 == 3) {
+		mes "[O'Riley el Leprechaun]";
+		mes "Ah, bien descansado espero?";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Gracias por venir de nuevo.";
+		mes "Las serpientes cargan las monedas de mis companeros y deben ser castigadas.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Seria tan generoso de darte un poco de mi famosa cerveza si me trajeras las ganancias ilicitas que cargan esas viles serpientes.";
+		next;
+		mes "Y si encuentras uno de los tesoros de mis companeros, por favor traeme esas monedas para que las serpientes no se queden con ellas.";
+		set StPatrick2008,4;
+		close;
+	}
+	else if (StPatrick2008 == 4) {
+		mes "[O'Riley el Leprechaun]";
+		mes "Las serpientes cargan demasiadas monedas de mis companeros, estoy repartiendo jarras de mi cerveza como recompensa por su devolucion.";
+		next;
+		mes "[O'Riley el Leprechaun]";
+		mes "Te recompensare con una jarra de cerveza por ^0000FF1 Moneda de Oro^000000, ^0000FF5 Monedas de Plata^000000, o ^0000FF10 Monedas de Bronce^000000.";
+		mes "Es una recompensa justa por las monedas ilicitas.";
+		mes "Entonces, que tipo de moneda trajiste?";
+		next;
+		switch(select("Monedas de Bronce:Monedas de Plata:Monedas de Oro:Salir.")) {
+		case 1:
+			mes "[O'Riley el Leprechaun]";
+			mes "Gracias. Aqui tienes tu cerveza~";
+			if (countitem(7915) >= 10) {
+				getitem 12135,1;
+				delitem 7915,10;
+			}
+			close;
+		case 2:
+			mes "[O'Riley el Leprechaun]";
+			mes "Gracias. Aqui tienes tu cerveza~";
+			if (countitem(7916) >= 5) {
+				getitem 12135,1;
+				delitem 7916,5;
+			}
+			close;
+		case 3:
+			mes "[O'Riley el Leprechaun]";
+			mes "Gracias. Aqui tienes tu cerveza~";
+			if (countitem(7720) >= 1) {
+				getitem 12135,1;
+				delitem 7720,1;
+			}
+			close;
+		case 4:
+			mes "[O'Riley el Leprechaun]";
+			mes "Te recompensare con una jarra de cerveza por ^0000FF1 Moneda de Oro^000000, ^0000FF5 Monedas de Plata^000000, o ^0000FF10 Monedas de Bronce^000000.";
+			close;
+		}
+	}
+}
+
+mjolnir_01,272,363,4	script	Rocks#08StPattysDay	-1,1,1,{
+	end;
+
+OnTouch:
+	if (StPatrick2008 < 1) {
+		mes "- Encontraste un monton de rocas cubiertas de tierra. -";
+		close;
+	}
+	if (StPatrick2008 == 1) {
+		mes "- Encontraste un monton de rocas cubiertas de tierra. -";
+		next;
+		if (countitem(12018) < 200) {
+			mes "Las rocas no se mueven.";
+			mes "Quizas O'Riley sepa como mover las rocas.";
+			close;
+		}
+		else {
+			if (select("Usar Petardos.:Ignorar") == 2) {
+				close;
+			}
+			mes "Enterraste 200 Petardos debajo del monton de rocas.";
+			mes "Enciendes la mecha.";
+			next;
+			mes "*BOOM!*";
+			specialeffect2 EF_LORD;
+			next;
+			mes "Despues de que una nube de polvo y humo se disipo,";
+			mes "encontraste una caja entre las rocas y la tierra.";
+			mes "Esta caja debe contener los objetos valiosos de O'Riley.";
+			mes "Llevemos la caja a O'Riley.";
+			close2;
+			set StPatrick2008,2;
+			delitem 12018,200;
+			getitem 7721,1;
+		}
+	}
+	end;
+}
+
 function	script	F_08stpattyseventbox	{
 	switch(rand(1,6)) {
 	case 1:

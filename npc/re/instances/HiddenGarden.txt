@@ -48,7 +48,7 @@ ba_maison,120,321,5	script(CLOAKED)	#he_admin1	MD_ASSISTANT,{
 	.@md_name$ = "Hidden Flower Garden";
 
 	if (instance_live_info(ILI_NAME,instance_id(IM_PARTY)) == .@md_name$)
-		.@menu$ = "^FF0000Enter^000000";
+		.@menu$ = "^FF0000Entrar^000000";
 
 	switch( select( "Quit and Stand Back.", "Authenticate Identity", .@menu$ ) ) {
 	case 1:
@@ -102,7 +102,7 @@ ba_maison,120,321,5	script(CLOAKED)	#he_admin2	MD_ASSISTANT,{
 	if (BaseLevel >= 180)
 		.@menu$[1] = "^FF00002nd Security Zone.^000000";
 
-	switch( select( "Stand back.", "Identity Authentication", "Enter Zone" ) ) {
+	switch( select( "Stand back.", "Identity Authentication", "Entrar Zone" ) ) {
 	case 1:
 		mes "[Flower Garden Manager]";
 		mes "Alright.";
@@ -182,7 +182,7 @@ OnInstanceInit:
 	if ('npc_is_talking)
 		end;
 	if ('hidden_garden == 0) {
-		mes "It appears to be a hologram of an automatic doll. You can see a strange glass on the middle panel with the word ^0000FF[Enter the pattern on the touch screen]^000000 and other several buttons.";
+		mes "It appears to be a hologram of an automatic doll. You can see a strange glass on the middle panel with the word ^0000FF[Entrar the pattern on the touch screen]^000000 and other several buttons.";
 		while(1) {
 			next;
 			if (select( "Leave it alone", "Touch the screen", .@menu$ ) == 1) {
@@ -677,7 +677,7 @@ OnTouch:
 	if ('hidden_garden == 9) {
 		removespecialeffect EF_MARKING_USE_CHANGEMONSTER;
 		while (true) {
-			switch( select( "Cancel.", "How long have you been in care of this place?", "Are they all farming here?" ) ) {
+			switch( select( "Cancelarar.", "How long have you been in care of this place?", "Are they all farming here?" ) ) {
 			case 1:
 				end;
 			case 2:
@@ -788,7 +788,7 @@ OnTouch:
 		mes "[" + 'guide_name$ + "]";
 		mes "This section is managed by three automatic dolls. Shall we continue with the guide?";
 		next;
-		if (select( "Cancel.", "Let's continue." ) == 1) {
+		if (select( "Cancelarar.", "Let's continue." ) == 1) {
 			mes "[" + 'guide_name$ + "]";
 			mes "I'll wait until further instructions are given.";
 			close;
@@ -807,9 +807,9 @@ OnTouch:
 		mes "[" + 'guide_name$ + "]";
 		mes "Can I help you with anything?";
 		next;
-		if (select( "Cancel.", "What are those automatic dolls?" ) == 1) {
+		if (select( "Cancelarar.", "What are those automatic dolls?" ) == 1) {
 			mes "[" + 'guide_name$ + "]";
-			mes "Entering standby mode.";
+			mes "Entraring standby mode.";
 			close;
 		}
 		mes "[" + 'guide_name$ + "]";
@@ -896,7 +896,7 @@ OnTouch:
 OnEvent:
 	npctalk "[Searching the coordinates of the automatic doll in the area.]";
 	progressbar_npc "3131FF",2;
-	mapannounce 'map_herbs$, "??? : Unauthorized outsider intrusion detection. Code Category 063. Entering the identification process.", bc_map, 0xFF44FF;
+	mapannounce 'map_herbs$, "??? : Unauthorized outsider intrusion detection. Code Category 063. Entraring the identification process.", bc_map, 0xFF44FF;
 	sleep 5000;
 	npctalk "It looks like the automatic dolls are back. I don't think it's friendly to the administrator.";
 	sleep 5000;

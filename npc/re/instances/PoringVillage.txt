@@ -236,9 +236,9 @@ prt_fild05,145,235,5	script	Emily#0	4_GEFFEN_03,4,4,{
 	if (is_party_leader())
 		.@menu$[0] = "Create the entrance";
 	if (instance_live_info(ILI_NAME, instance_id(IM_PARTY)) == .@md_name$)
-		.@menu$[1] = "Enter the dungeon";
+		.@menu$[1] = "Entrar the dungeon";
 
-	switch( select( .@menu$[0], .@menu$[1], "Cancel" ) ) {
+	switch( select( .@menu$[0], .@menu$[1], "Cancelarar" ) ) {
 	case 1:
 		mes "[Emily]";
 		mes "Now I'm looking for the entrance, please talk to me again after it's totally open.";
@@ -247,7 +247,7 @@ prt_fild05,145,235,5	script	Emily#0	4_GEFFEN_03,4,4,{
 	case 2:
 		switch( instance_enter(.@md_name$) ) {
 		case IE_OTHER:
-			mes "An unknown error occurred.";
+			mes "Ocurrio un error desconocido.";
 			close;
 		case IE_NOINSTANCE:
 			mes "^ff0000Time's crack is not created yet.^000000";

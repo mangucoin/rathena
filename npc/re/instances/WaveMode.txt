@@ -76,7 +76,7 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 	mes "[Belka]";
 	mes "Welcome to Zonda, where innovation begins. What can I do for you?";
 	next;
-	switch( select( "Why are you here?", .@menu_entry$, "Enter ^6B9900<Wave Mode - Forest>^000000.", "Enter ^6B9900<Wave Mode - Sky>^000000.", "Cancel." ) ) {
+	switch( select( "Why are you here?", .@menu_entry$, "Entrar ^6B9900<Wave Mode - Forest>^000000.", "Entrar ^6B9900<Wave Mode - Sky>^000000.", "Cancelar." ) ) {
 	case 1:
 		mes "[Belka]";
 		mes "We now offer a new service. Have you heard about the dimensional rifts?";
@@ -124,7 +124,7 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 		mes "[Belka]";
 		mes "Which Wave Mode would you like to enter: Forest or Sky?";
 		next;
-		.@s = select( "Enter ^6B9900<Wave Mode - Forest>^000000.", "Enter ^6B9900<Wave Mode - Sky>^000000." ) - 1;
+		.@s = select( "Entrar ^6B9900<Wave Mode - Forest>^000000.", "Entrar ^6B9900<Wave Mode - Sky>^000000." ) - 1;
 		setarray .@instance_name$[0], "Wave Mode - Forest", "Wave Mode - Sky";
 		mes "[Belka]";
 		mes "" + .@count_online + " party " + (.@count_online == 1 ? "member" : "members") + " found " + .@player_name$ + ", right? To enter the ^6B9900<" + .@instance_name$[.@s] + ">^000000, please sign here.";
@@ -143,7 +143,7 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 		switch( instance_enter("Wave Mode - Forest") ) {
 		case IE_OTHER:
 			mes "[Belka]";
-			mes "An unknown error has occurred.";
+			mes "Ha ocurrido un error desconocido.";
 			close;
 		case IE_NOINSTANCE:
 		case IE_NOMEMBER:
@@ -160,7 +160,7 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 		switch( instance_enter("Wave Mode - Sky") ) {
 		case IE_OTHER:
 			mes "[Belka]";
-			mes "An unknown error has occurred.";
+			mes "Ha ocurrido un error desconocido.";
 			close;
 		case IE_NOINSTANCE:
 		case IE_NOMEMBER:

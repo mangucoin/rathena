@@ -27,116 +27,116 @@
 //============================================================
 prontera,164,174,4	script	Trader#Val09	58,{
 	mes "[Marco Bassinio]";
-	mes "Hey, folks! Here's something you don't see everyday!";
-	mes "Something you can never find in Rune-Midgarts!";
-	mes "Something that makes you happy with just one bite!";
+	mes "Oigan, amigos! Aqui tienen algo que no ven todos los dias!";
+	mes "Algo que nunca encontraran en Rune-Midgarts!";
+	mes "Algo que te hace feliz con solo un bocado!";
 	next;
 	mes "[Marco Bassinio]";
-	mes "It's the perfect dessert and the perfect gift for loved ones.";
-	mes "High-quality, traditional homemade chocolate only 5000z each!";
+	mes "Es el postre perfecto y el regalo perfecto para tus seres queridos.";
+	mes "Chocolate casero tradicional de alta calidad, solo 5000z cada uno!";
 	next;
-	switch(select("I'll take it, please!:I want to wrap the chocolate!:End trading.")) {
+	switch(select("Lo llevo, por favor!:Quiero envolver el chocolate!:Terminar el intercambio.")) {
 		case 1:
 			mes "[Marco Bassinio]";
-			mes "Ahaha, my dear.";
-			mes "This chocolate is nothing like others.";
-			mes "Every piece bears the devotion of the person who made it!";
+			mes "Ajaja, querido.";
+			mes "Este chocolate no es como los demas.";
+			mes "Cada pieza lleva la devocion de quien lo hizo!";
 			next;
 			mes "[Marco Bassinio]";
-			mes "So, that's why I can't sell more than 5 of them at a time.";
-			mes "If you really really want more, then talk to me again.";
-			mes "How many do you want anyway?";
+			mes "Por eso, no puedo vender mas de 5 a la vez.";
+			mes "Si realmente quieres mas, entonces hablame de nuevo.";
+			mes "Cuantos quieres?";
 			next;
 			while(.@input <= 0 || .@input > 5) {
 				input .@input;
 				if (.@input < 1) {
 					mes "[Marco Bassinio]";
-					mes "Oh, it's such a shame!";
-					mes "I'm sure you'll miss this opportunity and regret you didn't buy it.";
+					mes "Oh, que lastima!";
+					mes "Seguro vas a perder esta oportunidad y lamentaras no haberlo comprado.";
 					next;
 					mes "[Marco Bassinio]";
-					mes "Remember, you can never find this anywhere else!";
-					mes "Come back anytime, when you change your mind.";
+					mes "Recuerda, no puedes encontrar esto en ningun otro lado!";
+					mes "Vuelve cuando quieras, cuando cambies de opinion.";
 					close;
 				}
 				if (.@input > 5) {
 					mes "[Marco Bassinio]";
-					mes "Ugh.. Didn't I tell you?";
-					mes "5 is the maximum!";
-					mes "I can't sell more than that to the same person.";
+					mes "Ugh.. No te dije?";
+					mes "5 es el maximo!";
+					mes "No puedo venderle mas de eso a la misma persona.";
 					next;
 					mes "[Marco Bassinio]";
-					mes "And you know it's not like an everyday meal.";
-					mes "Eating too much is not really good for you.";
+					mes "Y sabes que no es como una comida de todos los dias.";
+					mes "Comer demasiado no es bueno para ti.";
 					next;
 				}
 			}
 			if (!checkweight(558, .@input)) {
 				mes "[Marco Bassinio]";
-				mes "You're carrying too many items.";
-				mes "Please use the Kafra Services.";
+				mes "Cargas demasiados objetos.";
+				mes "Por favor usa los Servicios Kafra.";
 				close;
 			}
 			set .@price, .@input * 5000;
 			if (Zeny < .@price) {
 				mes "[Marco Bassinio]";
-				mes "Looks like you don't have enough zeny with ya.";
-				mes "Maybe you should borrow some zeny from a friend.";
-				mes "Cuz, I'm not gonna be here everyday.";
+				mes "Parece que no tienes suficiente zeny.";
+				mes "Quizas deberias pedirle prestado a un amigo.";
+				mes "Porque no voy a estar aqui todos los dias.";
 				close;
 			} else {
 				mes "[Marco Bassinio]";
-				mes "Good for you!";
-				mes "It's also perfect as a gift!";
-				mes "You know you can't get this kind of chocolate normally.";
+				mes "Que bueno para ti!";
+				mes "Tambien es perfecto como regalo!";
+				mes "Sabes que no puedes conseguir este tipo de chocolate normalmente.";
 				next;
 				mes "[Marco Bassinio]";
-				mes "If you want more, you should come back.";
-				mes "Might be a good idea to buy some more while you have a chance...!";
+				mes "Si quieres mas, deberias volver.";
+				mes "Seria buena idea comprar mas mientras tengas la oportunidad...!";
 				set Zeny,Zeny - .@price;
 				getitem 558,.@input;
 				close;
 			}
 		case 2:
 			mes "[Marco Bassinio]";
-			mes "If you want to gift-wrap the chocolate, of course, you need chocolate, plus, wrapping paper, wrapping strap and a box.";
+			mes "Si quieres envolver el chocolate para regalo, por supuesto, necesitas chocolate, mas papel de envolver, cinta de envolver y una caja.";
 			next;
 			mes "[Marco Bassinio]";
-			mes "You also need to pay 500 zeny to carve your name on the box.";
-			mes "Are you all prepared...?";
+			mes "Tambien necesitas pagar 500 zeny para grabar tu nombre en la caja.";
+			mes "Estas preparado...?";
 			next;
 			if (countitem(7175) < 1 || countitem(7174) < 1 || countitem(7948) < 1 || Zeny < 500) {
 				mes "[Marco Bassinio]";
-				mes "Hmm.. Looks like you don't have enough materials to decorate the gift box..";
-				mes "You can't just put your gift into some plain looking box..";
-				mes "Don't you think?";
+				mes "Hmm.. Parece que no tienes suficientes materiales para decorar la caja de regalo..";
+				mes "No puedes meter tu regalo en una caja cualquiera..";
+				mes "No crees?";
 				next;
 				mes "[Marco Bassinio]";
-				mes "You need to bring some wrapping paper, wrapping strap, and a box.";
-				mes "Oh, also bring 500 zeny, and don't forget to bring your true loving heart with you!!";
+				mes "Necesitas traer papel de envolver, cinta de envolver y una caja.";
+				mes "Oh, tambien trae 500 zeny, y no olvides traer tu corazon lleno de amor!!";
 				close;
 			}
 			if (countitem(558) < 1) {
 				mes "[Marco Bassinio]";
-				mes "Hey, look, adventurer!";
-				mes "I can't create something right away!";
-				mes "You know I'm not an alchemist or anything.";
+				mes "Oye, mira, aventurero!";
+				mes "No puedo crear algo de la nada!";
+				mes "Sabes que no soy alquimista ni nada.";
 				next;
 				mes "[Marco Bassinio]";
-				mes "You're not saying that you want an empty chocolate box without any chocolate in it, am I right?";
+				mes "No me estaras diciendo que quieres una caja de chocolate vacia sin chocolate adentro, verdad?";
 				close;
 			}
 			if (!checkweight(12744,1)) {
 				mes "[Marco Bassinio]";
-				mes "You're carrying too many items.";
-				mes "Please use the Kafra Services.";
+				mes "Cargas demasiados objetos.";
+				mes "Por favor usa los Servicios Kafra.";
 				close;
 			}
 			mes "[Marco Bassinio]";
-			mes "Here, look!";
-			mes "It's your chocolate box with your name on it.";
-			mes "Isn't it fabulous?";
-			mes "See, your name looks great on the box!";
+			mes "Mira, aqui esta!";
+			mes "Es tu caja de chocolate con tu nombre grabado.";
+			mes "No es fabulosa?";
+			mes "Mira, tu nombre se ve genial en la caja!";
 			next;
 			delitem 558,1;
 			delitem 7175,1;
@@ -145,17 +145,17 @@ prontera,164,174,4	script	Trader#Val09	58,{
 			set Zeny,Zeny-500;
 			getnameditem 12744,strcharinfo(0);
 			mes "[Marco Bassinio]";
-			mes "Happy Valentine's Day!";
-			mes "Valentine's the reason I came back.";
+			mes "Feliz Dia de San Valentin!";
+			mes "San Valentin es la razon por la que volvi.";
 			close;
 		case 3:
 			mes "[Marco Bassinio]";
-			mes "Oh, it's such a shame!";
-			mes "I'm sure you'll miss this opportunity and regret you didn't buy it.";
+			mes "Oh, que lastima!";
+			mes "Seguro vas a perder esta oportunidad y lamentaras no haberlo comprado.";
 			next;
 			mes "[Marco Bassinio]";
-			mes "Remember, you can never find this anywhere else!";
-			mes "Come back anytime, when you change your mind.";
+			mes "Recuerda, no puedes encontrar esto en ningun otro lado!";
+			mes "Vuelve cuando quieras, cuando cambies de opinion.";
 			close;
 	}
 }
@@ -163,142 +163,142 @@ prontera,164,174,4	script	Trader#Val09	58,{
 // Packs Trader (Sells Wrapping Paper, Lace, and Box)
 //============================================================
 prontera,147,171,5	script	Packs Trader#Val09	58,{
-	mes "[Packs Trader]";
-	mes "Hello.";
-	mes "I am a Packs Trader, I sell paper boxes and supplies for packing presents.";
+	mes "[Vendedor de Empaques]";
+	mes "Hola.";
+	mes "Soy un Vendedor de Empaques, vendo cajas de papel y materiales para envolver regalos.";
 	next;
 	while(1) {
-		mes "[Packs Trader]";
-		mes "Do you have something to buy?";
+		mes "[Vendedor de Empaques]";
+		mes "Tienes algo que comprar?";
 		next;
-		switch(select("Packing Paper:Packing Ribbon:Box:Cancel.")) {
+		switch(select("Papel de Envolver:Cinta de Envolver:Caja:Cancelar.")) {
 			case 1:
-				mes "[Packs Trader]";
-				mes "It's 200 zeny for 1 Packing Paper.";
-				mes "How many do you want?";
-				mes "You can't buy more than 10 items at once.";
+				mes "[Vendedor de Empaques]";
+				mes "Son 200 zeny por 1 Papel de Envolver.";
+				mes "Cuantos quieres?";
+				mes "No puedes comprar mas de 10 a la vez.";
 				next;
 				input .@input;
 				if (.@input <= 0) {
-					mes "[Packs Trader]";
-					mes "Nothing to buy.";
-					mes "Come back when you need something.";
+					mes "[Vendedor de Empaques]";
+					mes "Nada que comprar.";
+					mes "Vuelve cuando necesites algo.";
 					close;
 				}
 				if (.@input > 10) {
-					mes "[Packs Trader]";
-					mes "I told you not to buy more than 10...";
+					mes "[Vendedor de Empaques]";
+					mes "Te dije que no compraras mas de 10...";
 					next;
 					break;
 				}
 				if (!checkweight(7175,.@input)) {
-					mes "[Packs Trader]";
-					mes "You're carrying too many items.";
-					mes "Please use the Kafra Services.";
+					mes "[Vendedor de Empaques]";
+					mes "Cargas demasiados objetos.";
+					mes "Por favor usa los Servicios Kafra.";
 					close;
 				}
 				set .@price, .@input * 200;
 				if (Zeny < .@price) {
-					mes "[Packs Trader]";
-					mes "You don't have enough money.";
-					mes "Please check your wallet.";
+					mes "[Vendedor de Empaques]";
+					mes "No tienes suficiente dinero.";
+					mes "Por favor revisa tu billetera.";
 					next;
 					break;
 				} else {
-					mes "[Packs Trader]";
-					mes "Here they are.";
-					mes "Hope it makes your Valentine's Day more pleasing!";
+					mes "[Vendedor de Empaques]";
+					mes "Aqui tienes.";
+					mes "Espero que haga tu Dia de San Valentin mas agradable!";
 					set Zeny,Zeny-.@price;
 					getitem 7175,.@input;
 					next;
 					break;
 				}
 			case 2:
-				mes "[Packs Trader]";
-				mes "It's 200 zeny for 1 Packing Ribbon.";
-				mes "How many do you want?";
-				mes "You can't buy more than 10 items at once.";
+				mes "[Vendedor de Empaques]";
+				mes "Son 200 zeny por 1 Cinta de Envolver.";
+				mes "Cuantos quieres?";
+				mes "No puedes comprar mas de 10 a la vez.";
 				next;
 				input .@input;
 				if (.@input <= 0) {
-					mes "[Packs Trader]";
-					mes "Nothing to buy.";
-					mes "Come back when you need something.";
+					mes "[Vendedor de Empaques]";
+					mes "Nada que comprar.";
+					mes "Vuelve cuando necesites algo.";
 					close;
 				}
 				if (.@input > 10) {
-					mes "[Packs Trader]";
-					mes "I told you not to buy more than 10...";
+					mes "[Vendedor de Empaques]";
+					mes "Te dije que no compraras mas de 10...";
 					next;
 					break;
 				}
 				if (!checkweight(7174,.@input)) {
-					mes "[Packs Trader]";
-					mes "You're carrying too many items.";
-					mes "Please use the Kafra Services.";
+					mes "[Vendedor de Empaques]";
+					mes "Cargas demasiados objetos.";
+					mes "Por favor usa los Servicios Kafra.";
 					close;
 				}
 				set .@price, .@input * 200;
 				if (Zeny < .@price) {
-					mes "[Packs Trader]";
-					mes "You don't have enough money.";
-					mes "Please check your wallet.";
+					mes "[Vendedor de Empaques]";
+					mes "No tienes suficiente dinero.";
+					mes "Por favor revisa tu billetera.";
 					next;
 					break;
 				} else {
-					mes "[Packs Trader]";
-					mes "Here they are.";
-					mes "Hope it makes your Valentine's Day more pleasing!";
+					mes "[Vendedor de Empaques]";
+					mes "Aqui tienes.";
+					mes "Espero que haga tu Dia de San Valentin mas agradable!";
 					set Zeny,Zeny-.@price;
 					getitem 7174,.@input;
 					next;
 					break;
 				}
 			case 3:
-				mes "[Packs Trader]";
-				mes "It's 600 zeny for 1 Box.";
-				mes "How many do you want?";
-				mes "You can't buy more than 10 items at once.";
+				mes "[Vendedor de Empaques]";
+				mes "Son 600 zeny por 1 Caja.";
+				mes "Cuantas quieres?";
+				mes "No puedes comprar mas de 10 a la vez.";
 				next;
 				input .@input;
 				if (.@input <= 0) {
-					mes "[Packs Trader]";
-					mes "Nothing to buy.";
-					mes "Come back when you need something.";
+					mes "[Vendedor de Empaques]";
+					mes "Nada que comprar.";
+					mes "Vuelve cuando necesites algo.";
 					close;
 				}
 				if (.@input > 10) {
-					mes "[Packs Trader]";
-					mes "I told you not to buy more than 10...";
+					mes "[Vendedor de Empaques]";
+					mes "Te dije que no compraras mas de 10...";
 					next;
 					break;
 				}
 				if (!checkweight(7948,.@input)) {
-					mes "[Packs Trader]";
-					mes "You're carrying too many items.";
-					mes "Please use the Kafra Services.";
+					mes "[Vendedor de Empaques]";
+					mes "Cargas demasiados objetos.";
+					mes "Por favor usa los Servicios Kafra.";
 					close;
 				}
 				set .@price, .@input * 600;
 				if (Zeny < .@price) {
-					mes "[Packs Trader]";
-					mes "You don't have enough money.";
-					mes "Please check your wallet.";
+					mes "[Vendedor de Empaques]";
+					mes "No tienes suficiente dinero.";
+					mes "Por favor revisa tu billetera.";
 					next;
 					break;
 				} else {
-					mes "[Packs Trader]";
-					mes "Here they are.";
-					mes "Hope it makes your Valentine's Day more pleasing!";
+					mes "[Vendedor de Empaques]";
+					mes "Aqui tienes.";
+					mes "Espero que haga tu Dia de San Valentin mas agradable!";
 					set Zeny,Zeny-.@price;
 					getitem 7948,.@input;
 					next;
 					break;
 				}
 			case 4:
-				mes "[Packs Trader]";
-				mes "Goodbye!";
-				mes "And enjoy your Valentine's Day.";
+				mes "[Vendedor de Empaques]";
+				mes "Adios!";
+				mes "Y disfruta tu Dia de San Valentin.";
 				close;
 		}
 	}
@@ -308,72 +308,72 @@ prontera,147,171,5	script	Packs Trader#Val09	58,{
 //============================================================
 prontera,154,185,5	script	Event Ring Maker#Val09	721,{
 	if (BaseLevel < 75) {
-		mes "[Event Ring Maker]";
-		mes "Hello, I only make the Valentine rings to those experienced adventurer Level 75 or above.";
+		mes "[Fabricante de Anillos]";
+		mes "Hola, solo hago los anillos de San Valentin para aventureros experimentados de Nivel 75 o superior.";
 		next;
-		mes "[Event Ring Maker]";
-		mes "You're not fully experienced yet.";
-		mes "Come back when you're experienced enough to handle the quests.";
+		mes "[Fabricante de Anillos]";
+		mes "Todavia no tienes suficiente experiencia.";
+		mes "Vuelve cuando tengas la experiencia suficiente para manejar las misiones.";
 		close;
 	}
-	
+
 	if (iROval09ring >= 1) {
-		mes "[Event Ring Maker]";
-		mes "The box with the ring, carved with your name, is for the one you love.";
+		mes "[Fabricante de Anillos]";
+		mes "La caja con el anillo, grabado con tu nombre, es para la persona que amas.";
 		next;
-		mes "[Event Ring Maker]";
-		mes "As for the rings that you receive from others, they should all be registered with the Vote Manager.";
-		mes "She is standing near the Prontera Fountain.";
+		mes "[Fabricante de Anillos]";
+		mes "En cuanto a los anillos que recibas de otros, todos deben registrarse con la Administradora de Votos.";
+		mes "Ella esta parada cerca de la Fuente de Prontera.";
 		next;
-		mes "[Event Ring Maker]";
-		mes "Only the most popular male and female are subjected to getting rewards.";
-		mes "Be aware, and always try to stay popular!";
+		mes "[Fabricante de Anillos]";
+		mes "Solo el hombre y la mujer mas populares podran recibir recompensas.";
+		mes "Ten cuidado, y siempre intenta mantenerte popular!";
 		close;
 	}
-	
-	mes "[Event Ring Maker]";
-	mes "Hi, there, how are ya?";
-	mes "Come to me if you're interested in the event, 'Who's Valentine's Hottest?'";
+
+	mes "[Fabricante de Anillos]";
+	mes "Hola, que tal?";
+	mes "Ven conmigo si te interesa el evento, 'Quien es el mas Ardiente de San Valentin?'";
 	next;
-	mes "[Event Ring Maker]";
-	mes "I make the most precious rings that you can give to your sweethearts.";
-	mes "Those rings are very special because I carve your names on them!";
+	mes "[Fabricante de Anillos]";
+	mes "Hago los anillos mas preciosos que puedes darle a tu persona especial.";
+	mes "Esos anillos son muy especiales porque grabo tu nombre en ellos!";
 	next;
-	mes "[Event Ring Maker]";
-	mes "Isn't it exciting?";
-	mes "Isn't it such a brilliant idea?";
-	mes "Give these special rings to your sweethearts!";
+	mes "[Fabricante de Anillos]";
+	mes "No es emocionante?";
+	mes "No es una idea brillante?";
+	mes "Dale estos anillos especiales a tu persona especial!";
 	next;
-	mes "[Event Ring Maker]";
-	mes "You should hurry 'cuz this event will only last for two weeks.";
-	mes "Give that special someone a gift of a Valentine's ring.";
+	mes "[Fabricante de Anillos]";
+	mes "Deberias apurarte porque este evento solo durara dos semanas.";
+	mes "Dale a esa persona especial un regalo de anillo de San Valentin.";
 	next;
-	mes "[Event Ring Maker]";
-	mes "Remember, you can only generate the ring once.";
-	mes "You also need Wrapping Paper, Wrapping Strap and a Box to make the ring.";
+	mes "[Fabricante de Anillos]";
+	mes "Recuerda, solo puedes generar el anillo una vez.";
+	mes "Tambien necesitas Papel de Envolver, Cinta de Envolver y una Caja para hacer el anillo.";
 	next;
-	mes "[Event Ring Maker]";
-	mes "So you better be sure of who you give this to.";
-	mes "By the way, It costs 1,000 zeny.";
-	mes "Would you like to make one?";
+	mes "[Fabricante de Anillos]";
+	mes "Asi que mejor asegurate de a quien se lo das.";
+	mes "Por cierto, cuesta 1,000 zeny.";
+	mes "Te gustaria hacer uno?";
 	next;
-	if(select("Hmm.. I gotta give it a second thought...:Sure.") == 1) {
-		mes "[Event Ring Maker]";
-		mes "Alrighty!";
-		mes "You can't put a rush on such a thing like this.";
-		mes "Think about what you truly want.";
-		mes "Just follow your heart!";
+	if(select("Hmm.. tengo que pensarlo dos veces...:Claro.") == 1) {
+		mes "[Fabricante de Anillos]";
+		mes "De acuerdo!";
+		mes "No puedes apresurar algo como esto.";
+		mes "Piensa en lo que realmente quieres.";
+		mes "Solo sigue a tu corazon!";
 		close;
 	}
 	if (countitem(7175) < 1 || countitem(7174) < 1 || countitem(7948) < 1 || Zeny < 1000) {
-		mes "[Event Ring Maker]";
-		mes "Well, you don't have enough materials to make a gift box.";
-		mes "Check what you have, and come back later with all the materials.";
+		mes "[Fabricante de Anillos]";
+		mes "Bueno, no tienes suficientes materiales para hacer una caja de regalo.";
+		mes "Revisa lo que tienes, y vuelve despues con todos los materiales.";
 		close;
 	}
-	mes "[Event Ring Maker]";
-	mes "Okie Dokie!";
-	mes "I'll make it right away.";
+	mes "[Fabricante de Anillos]";
+	mes "Okey dokey!";
+	mes "Lo hare ahora mismo.";
 	next;
 	delitem 7175,1;
 	delitem 7174,1;
@@ -385,79 +385,79 @@ prontera,154,185,5	script	Event Ring Maker#Val09	721,{
 	} else {
 		getnameditem 12743,strcharinfo(0);
 	}
-	mes "[Event Ring Maker]";
-	mes "Here, the most precious ring in the world!";
-	mes "Don't forget, you can never make this ring again.";
+	mes "[Fabricante de Anillos]";
+	mes "Aqui tienes, el anillo mas precioso del mundo!";
+	mes "No olvides, nunca podras hacer este anillo de nuevo.";
 	next;
-	mes "[Event Ring Maker]";
-	mes "You must pick out the one that you really really love, and give this ring to that person.";
+	mes "[Fabricante de Anillos]";
+	mes "Debes elegir a la persona que realmente amas, y darle este anillo a esa persona.";
 	next;
-	mes "[Event Ring Maker]";
-	mes "Of course, you've got to get rings from others, that's the way you can participate in the voting, right?";
-	mes "Challenge yourself to become Valentine's Hottest!";
+	mes "[Fabricante de Anillos]";
+	mes "Por supuesto, tambien tienes que recibir anillos de otros, asi es como puedes participar en la votacion, verdad?";
+	mes "Desafiate a ti mismo para convertirte en el mas Ardiente de San Valentin!";
 	close;
 }
 
 // Valentine Vote Manager (Registers votes)
 //============================================================
 prontera,157,185,4	script	Valentine Vote Manager#v	113,{
-	mes "[Valentine Vote Manager]";
-	mes "Hello, I'm the Valentine's Vote Manager.";
-	mes "I'm in charge of collecting rings for this event!";
+	mes "[Administradora de Votos de San Valentin]";
+	mes "Hola, soy la Administradora de Votos de San Valentin.";
+	mes "Estoy a cargo de recolectar anillos para este evento!";
 	next;
-	mes "[Valentine Vote Manager]";
-	mes "I register the rings you get from others and I calculate the total number of rings.";
+	mes "[Administradora de Votos de San Valentin]";
+	mes "Registro los anillos que recibes de otros y calculo el numero total de anillos.";
 	next;
-	mes "[Valentine Vote Manager]";
-	mes "You know what I do besides just counting those rings?";
-	mes "I can tell you the adventurer's name who's got the most number of votes.";
+	mes "[Administradora de Votos de San Valentin]";
+	mes "Sabes que mas hago ademas de contar esos anillos?";
+	mes "Puedo decirte el nombre del aventurero que tiene mas votos.";
 	next;
-	mes "[Valentine Vote Manager]";
-	mes "Plus, you can also find out how many votes he/she got.";
+	mes "[Administradora de Votos de San Valentin]";
+	mes "Ademas, tambien puedes averiguar cuantos votos tiene el o ella.";
 	next;
 	while (1) {
-		mes "[Valentine Vote Manager]";
-		mes "So, what do you want?";
+		mes "[Administradora de Votos de San Valentin]";
+		mes "Entonces, que quieres?";
 		next;
-		switch(select("Please register my rings.:Please count my votes.:Nothing, for now.")) {
+		switch(select("Por favor registra mis anillos.:Por favor cuenta mis votos.:Nada, por ahora.")) {
 			case 1:
-				mes "[Valentine Vote Manager]";
-				mes "Please tell me how many rings you want to register.";
+				mes "[Administradora de Votos de San Valentin]";
+				mes "Por favor dime cuantos anillos quieres registrar.";
 				next;
-				mes "[Valentine Vote Manager]";
-				mes "When you write the number of the rings, the number shouldn't be larger than the number of rings you actually have.";
-				mes "'0', cancels everything.";
+				mes "[Administradora de Votos de San Valentin]";
+				mes "Cuando escribas el numero de anillos, el numero no debe ser mayor que la cantidad de anillos que realmente tienes.";
+				mes "'0', cancela todo.";
 				next;
 				input .@input;
 
 				if (.@input <= 0) {
-					mes "[Valentine Vote Manager]";
-					mes "You have entered 0.";
-					mes "Registration is cancelled.";
+					mes "[Administradora de Votos de San Valentin]";
+					mes "Ingresaste 0.";
+					mes "El registro esta cancelado.";
 					next;
 					break;
 				}
-				
+
 				if (Sex == SEX_MALE) {
 					if (countitem(7947) > .@input) {
-						mes "[Valentine Vote Manager]";
-						mes "Seems like the value you entered is too small.";
-						mes "I know you've got more. Be honest, dear.";
+						mes "[Administradora de Votos de San Valentin]";
+						mes "Parece que el valor que ingresaste es muy bajo.";
+						mes "Se que tienes mas. Se honesto, querido.";
 						next;
 						break;
 					}
-					
+
 					if (countitem(7947) < .@input) {
-						mes "[Valentine Vote Manager]";
-						mes "Seems like the value you entered is too large.";
-						mes "I know you've got less. Be honest, dear.";
+						mes "[Administradora de Votos de San Valentin]";
+						mes "Parece que el valor que ingresaste es muy alto.";
+						mes "Se que tienes menos. Se honesto, querido.";
 						next;
 						break;
 					}
-					
-					mes "[Valentine Vote Manager]";
-					mes "I'll take those silver rings, and count the votes for you.";
-					mes "Thank you for participating.";
+
+					mes "[Administradora de Votos de San Valentin]";
+					mes "Tomare esos anillos de plata, y contare los votos por ti.";
+					mes "Gracias por participar.";
 					delitem 7947,.@input;
 					set Val09Rings,Val09Rings+.@input;
 					if (Val09Rings > $Val09votes_M) {
@@ -468,24 +468,24 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 					break;
 				} else {
 					if (countitem(7946) > .@input) {
-						mes "[Valentine Vote Manager]";
-						mes "Seems like the value you entered is too small.";
-						mes "I know you've got more. Be honest, dear.";
+						mes "[Administradora de Votos de San Valentin]";
+						mes "Parece que el valor que ingresaste es muy bajo.";
+						mes "Se que tienes mas. Se honesta, querida.";
 						next;
 						break;
 					}
-					
+
 					if (countitem(7946) < .@input) {
-						mes "[Valentine Vote Manager]";
-						mes "Seems like the value you entered is too large.";
-						mes "I know you've got less. Be honest, dear.";
+						mes "[Administradora de Votos de San Valentin]";
+						mes "Parece que el valor que ingresaste es muy alto.";
+						mes "Se que tienes menos. Se honesta, querida.";
 						next;
 						break;
 					}
-					
-					mes "[Valentine Vote Manager]";
-					mes "I'll take those gold rings, and count the votes for you.";
-					mes "Thank you for participating.";
+
+					mes "[Administradora de Votos de San Valentin]";
+					mes "Tomare esos anillos de oro, y contare los votos por ti.";
+					mes "Gracias por participar.";
 					delitem 7946,.@input;
 					set Val09Rings,Val09Rings+.@input;
 					if (Val09Rings > $Val09votes_F) {
@@ -496,24 +496,24 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 					break;
 				}
 			case 2:
-				mes "[Valentine Vote Manager]";
-				mes "Let's see...";
-				mes "You have registered...."+Val09Rings+" rings so far.";
-				mes "and...";
+				mes "[Administradora de Votos de San Valentin]";
+				mes "Veamos...";
+				mes "Has registrado...."+Val09Rings+" anillos hasta ahora.";
+				mes "y...";
 				next;
-				mes "[Valentine Vote Manager]";
-				mes "The current record shows... "+$Val09name_M$+" is the male vote leader who's registered the total of "+$Val09votes_M+" rings.";
+				mes "[Administradora de Votos de San Valentin]";
+				mes "El registro actual muestra... "+$Val09name_M$+" es el lider masculino de votos que ha registrado un total de "+$Val09votes_M+" anillos.";
 				next;
-				mes "[Valentine Vote Manager]";
-				mes "The current record shows... "+$Val09name_F$+" is the female vote leader who's registered the total of "+$Val09votes_F+" rings.";
+				mes "[Administradora de Votos de San Valentin]";
+				mes "El registro actual muestra... "+$Val09name_F$+" es la lider femenina de votos que ha registrado un total de "+$Val09votes_F+" anillos.";
 				next;
 				break;
 
 			case 3:
-				mes "[Valentine Vote Manager]";
-				mes "Hey, you can be popular too!";
-				mes "Anyone can... really!";
-				mes "Though you have to try a lot harder, but still~ Hahaha!";
+				mes "[Administradora de Votos de San Valentin]";
+				mes "Oye, tu tambien puedes ser popular!";
+				mes "Cualquiera puede... de verdad!";
+				mes "Aunque tienes que esforzarte mucho mas, pero aun asi~ Jajaja!";
 				close;
 		}
 	}
@@ -524,112 +524,112 @@ prontera,157,185,4	script	Valentine Vote Manager#v	113,{
 prt_castle,42,35,3	script	Dessert Manager#Val09	47,{
 	if (Sex == SEX_MALE) {
 		mes "[Charles Orleans]";
-		mes "Monsieur~! What brings you to my beautiful atelier?";
-		mes "What is it that you want?";
-		mes "Well, my sparkling eyes get dried and lose their shine if not for the pretty little lady.";
+		mes "Monsieur~! Que te trae a mi hermoso atelier?";
+		mes "Que es lo que deseas?";
+		mes "Bueno, mis ojos brillantes se secan y pierden su brillo si no es por la presencia de una bella dama.";
 		next;
 		mes "[Charles Orleans]";
-		mes "Please leave me alone unless you have business with me.";
-		mes "Haaaa~ I'm a busy person.";
-		mes "Don't bother me....";
-		mes "Annoying, annoying, annoying~~!";
+		mes "Por favor dejame tranquilo a menos que tengas asuntos conmigo.";
+		mes "Haaaa~ soy una persona ocupada.";
+		mes "No me molestes....";
+		mes "Molesto, molesto, molesto~~!";
 		close;
 	}
-	
+
 	mes "[Charles Orleans]";
 	mes "Oh, Mademoiselle!";
-	mes "This little trifling space felt like heaven the minute you walked in!";
-	mes "Can I help you with anything, if it's alright?";
+	mes "Este pequeno espacio insignificante se sintio como el cielo en el momento en que entraste!";
+	mes "Puedo ayudarte en algo, si me lo permites?";
 	next;
-	if(select("Please, make me some chocolate.:Don't bother. I'm just passing by.") == 2) {
+	if(select("Por favor, hazme chocolate.:No molestes. Solo estoy de paso.") == 2) {
 		mes "[Charles Orleans]";
-		mes "Ahhh, this is so heartbreaking.";
-		mes "How could you say that?";
-		mes "You're just so mean.";
-		mes "Don't bother? Just passing by?";
+		mes "Ahhh, esto es tan desgarrador.";
+		mes "Como puedes decir eso?";
+		mes "Eres tan cruel.";
+		mes "No molestes? Solo de paso?";
 		next;
 		mes "[Charles Orleans]";
-		mes "What can I do to make you";
-		mes "pay a little attention to me?";
-		mes "Please.. I feel like my soul is lost..";
+		mes "Que puedo hacer para que";
+		mes "me prestes un poco de atencion?";
+		mes "Por favor.. siento que mi alma se pierde..";
 		close;
 	}
 	if (countitem(558) < 3) {
 		mes "[Charles Orleans]";
 		mes "Ahhh, Mademoiselle.";
-		mes "I'm not an alchemist, or a magician.";
-		mes "I don't just make chocolate out of anything.";
+		mes "No soy alquimista, ni mago.";
+		mes "No hago chocolate de la nada.";
 		next;
 		mes "[Charles Orleans]";
-		mes "I always think of making chocolate as artistic work.";
-		mes "You see, I'm no ordinary cook...";
-		mes "I make chocolate with feelings..";
-		mes "messages of loving hearts..";
+		mes "Siempre pienso en hacer chocolate como un trabajo artistico.";
+		mes "Veras, no soy un cocinero comun...";
+		mes "Hago chocolate con sentimientos..";
+		mes "mensajes de corazones enamorados..";
 		next;
 		mes "[Charles Orleans]";
-		mes "I make masterpieces.";
-		mes "No one can imitate the looks and the taste.";
-		mes "Yes, it's nothing like ordinary chocolate!";
+		mes "Hago obras maestras.";
+		mes "Nadie puede imitar la apariencia ni el sabor.";
+		mes "Si, no es nada como el chocolate comun!";
 		next;
 		mes "[Charles Orleans]";
-		mes "I'm afraid I can't make it and prove it to you now.";
-		mes "This is really a shame!";
+		mes "Me temo que no puedo hacerlo y demostartelo ahora.";
+		mes "Esto es realmente una lastima!";
 		next;
 		mes "[Charles Orleans]";
-		mes "I really want to thank you for visiting me and if you only bring ^3152ff3 Chocolates^000000, I'll make you chocolate like you've never seen...";
+		mes "Realmente quiero agradecerte por visitarme y si tan solo trajeras ^3152ff3 Chocolates^000000, te hare un chocolate como nunca has visto...";
 		next;
 		mes "[Charles Orleans]";
-		mes "never tasted before...";
-		mes "Mademoiselle, with your spirit, I'm sure you can bring 3 pieces of chocolate.";
-		mes "I have no doubt at all.";
+		mes "nunca has probado...";
+		mes "Mademoiselle, con tu espiritu, estoy seguro de que puedes traer 3 piezas de chocolate.";
+		mes "No tengo ninguna duda.";
 		next;
 		mes "[Charles Orleans]";
-		mes "So... what do you think?";
-		mes "Can you bring ^3152ff3 Chocolates^000000?";
-		mes "I could get them myself, but I'm tied up with so much work as you see right now.";
+		mes "Entonces... que te parece?";
+		mes "Puedes traer ^3152ff3 Chocolates^000000?";
+		mes "Podria conseguirlos yo mismo, pero estoy atado con tanto trabajo como ves ahora.";
 		next;
 		mes "[Charles Orleans]";
 		mes "Adios, Mademoiselle.....";
-		mes "I'll be waiting for you.";
+		mes "Te estare esperando.";
 		close;
 	} else {
 		if (!checkweight(559,1)) {
 			mes "[Charles Orleans]";
-			mes "You're carrying too many items.";
-			mes "Please use the Kafra Services.";
+			mes "Cargas demasiados objetos.";
+			mes "Por favor usa los Servicios Kafra.";
 			close;
 		}
 		mes "[Charles Orleans]";
 		mes "Oh, Mademoiselle!";
-		mes "I'll make the best chocolate with the pieces you've brought.";
-		mes "I'm going to put the light of your eyes into this chocolate that no one can resist.";
+		mes "Hare el mejor chocolate con las piezas que trajiste.";
+		mes "Voy a poner la luz de tus ojos en este chocolate al que nadie podra resistirse.";
 		next;
 		mes "[Charles Orleans]";
-		mes "It'll be stronger than a sweet sweet love potion.....";
+		mes "Sera mas fuerte que una dulce dulce pocion de amor.....";
 		next;
 		mes "[Charles Orleans]";
 		mes "Un, Deux, Trois, Quatre.....";
-		mes "Just like the ugly duckling that turned to a beautiful swan-";
-		mes "Ordinary chocolate pieces are becoming a piece of art!";
+		mes "Tal como el patito feo que se convirtio en un hermoso cisne-";
+		mes "Piezas ordinarias de chocolate se estan convirtiendo en una obra de arte!";
 		next;
 		mes "[Charles Orleans]";
-		mes "They're changing!";
-		mes "They're getting warm, softly changing the shape, getting stronger again!";
-		mes "Oh, is it a master piece or";
-		mes "what...!!";
+		mes "Estan cambiando!";
+		mes "Se estan calentando, cambiando suavemente de forma, fortaleciendose de nuevo!";
+		mes "Oh, es una obra maestra o";
+		mes "que...!!";
 		next;
 		mes "[Charles Orleans]";
-		mes "Here you go, Mademoiselle!";
-		mes "Ahahahaha, just look at this!";
-		mes "I can't believe I made this.";
-		mes "Oh, I can't take my eyes off..!!";
+		mes "Aqui tienes, Mademoiselle!";
+		mes "Ajajaja, solo mira esto!";
+		mes "No puedo creer que lo hice.";
+		mes "Oh, no puedo quitarle los ojos de encima..!!";
 		delitem 558,3;
 		getitem 559,1;
 		next;
 		mes "[Charles Orleans]";
-		mes "Alright. Mademoiselle,";
-		mes "I hope this is just what you wanted, for it bears your beautiful heart inside.";
+		mes "Muy bien. Mademoiselle,";
+		mes "espero que sea justo lo que querias, ya que lleva tu hermoso corazon adentro.";
 		close;
 	}
-	
+
 }

@@ -23,147 +23,147 @@ bif_fild01,158,340,5	script	Laphine Soldier#mist	447,{
 	set .@md_name$,"Mistwood Maze";
 
 	mes "[Laphine Soldier]";
-	mes "Are you going into the forest?";
+	mes "¿Vas a entrar al bosque?";
 	next;
 	if (!.@party_id) {
 		mes "[Laphine Soldier]";
-		mes "Well, well, well, aren't you being too rash?";
-		mes "Why don't you at least organize a party?";
+		mes "Vaya, vaya, vaya, ¿no estás siendo demasiado imprudente?";
+		mes "¿Por qué no organizas al menos un grupo?";
 		close;
 	}
 	set .@playtime, checkquest(7211,PLAYTIME);
 	if (is_party_leader() == true) {
 		if (.@playtime == 0 || .@playtime == 1) {
 			mes "[Laphine Soldier]";
-			mes "...Are you sure you're not doing too much?";
-			mes "I think you'd better get some rest.";
-			mes "You'll only wear yourself out by trying to do too much";
+			mes "...¿Estás seguro de que no te estás exigiendo demasiado?";
+			mes "Creo que sería mejor que descanses.";
+			mes "Solo te agotarás si intentas hacer demasiado";
 			next;
 			mes "[Laphine Soldier]";
-			mes "I don't think the authority will give you permission, either.";
-			mes "...Even a Sapha would be stopped from entering the forest.";
+			mes "No creo que la autoridad te dé permiso tampoco.";
+			mes "...Incluso a un Sapha le impedirían entrar al bosque.";
 			next;
-			select("You speak our language quite well, don't you?");
+			select("Hablas nuestro idioma bastante bien, ¿verdad?");
 			mes "[Laphine Soldier]";
-			mes "...Do I?";
-			mes "Actually I'm not speaking your language.";
-			mes "I'm speaking Laphine language.";
-			next;
-			mes "[Laphine Soldier]";
-			mes "But it's one of the mysteries of Bifrost.";
-			mes "That we can understand each other even if we speak different languages.";
+			mes "...¿En serio?";
+			mes "En realidad no estoy hablando tu idioma.";
+			mes "Estoy hablando en idioma Laphine.";
 			next;
 			mes "[Laphine Soldier]";
-			mes "To be able to talk with everybody...";
-			mes "Perhaps that's the power of Bifrost.";
+			mes "Pero es uno de los misterios de Bifrost.";
+			mes "Que podamos entendernos aunque hablemos idiomas diferentes.";
+			next;
+			mes "[Laphine Soldier]";
+			mes "Poder hablar con todos...";
+			mes "Quizás ese es el poder de Bifrost.";
 			close;
 		} else if (.@playtime == 2) {
 			mes "[Laphine Soldier]";
-			mes "Great, great.";
-			mes "Now the forest won't reject you.";
-			mes "What are you going to do now?";
+			mes "Genial, genial.";
+			mes "Ahora el bosque no te rechazará.";
+			mes "¿Qué vas a hacer ahora?";
 			erasequest 7211;
 		} else {
 			mes "[Laphine Soldier]";
-			mes "You human adventurers are incredible.";
-			mes "You're always going into the forest, where no one else dares to go.";
+			mes "Ustedes los aventureros humanos son increíbles.";
+			mes "Siempre están entrando al bosque, donde nadie más se atreve a ir.";
 			next;
 			mes "[Laphine Soldier]";
-			mes "Phew. But I have to report to the authority";
-			mes "everyone who goes into the forest, just in case.";
+			mes "Uf. Pero tengo que reportar a la autoridad";
+			mes "a todos los que entran al bosque, por si acaso.";
 			next;
 			mes "[Laphine Soldier]";
-			mes "You'll get permission";
-			mes "after you register.";
-			mes "Are you going to venture into the Hazy Forest?";
+			mes "Obtendrás permiso";
+			mes "después de registrarte.";
+			mes "¿Vas a aventurarte en el Bosque Brumoso?";
 		}
 		next;
-		switch(select("Venture into the Hazy Forest.:Give up.")) {
+		switch(select("Aventurarse en el Bosque Brumoso.:Rendirse.")) {
 		case 1:
 			mes "[Laphine Soldier]";
-			mes "Party Name "+getpartyname(.@party_id)+"...";
-			mes "Party Leader "+strcharinfo(0)+"...";
+			mes "Nombre del Grupo "+getpartyname(.@party_id)+"...";
+			mes "Líder del Grupo "+strcharinfo(0)+"...";
 			if (instance_create(.@md_name$) < 0) {
 				mes "Hmm...";
 				next;
 				mes "[Laphine Soldier]";
 				if (.@playtime == -1)
-					mes "It's dangerous in the forest.";
+					mes "Es peligroso en el bosque.";
 				else
-					mes "The atmosphere is somewhat tense in the forest.";
-				mes "...Why don't you just go back today?";
+					mes "El ambiente está algo tenso en el bosque.";
+				mes "...¿Por qué no mejor regresas hoy?";
 				close;
 			}
-			mes "I've got it. I've written them down on the report here.";
+			mes "Entendido. Los anoté en el reporte.";
 			next;
 			mes "[Laphine Soldier]";
-			mes "You'll get permission soon.";
-			mes "Now go to the log tunnel, the only way to get into the Hazy Forest.";
-			mes "You understand?";
+			mes "Obtendrás permiso pronto.";
+			mes "Ahora ve al túnel de troncos, la única forma de entrar al Bosque Brumoso.";
+			mes "¿Entiendes?";
 			next;
 			mes "[Laphine Soldier]";
-			mes "We can't go against the forest,";
-			mes "but maybe you humans can.";
-			mes "Good luck!";
+			mes "No podemos ir contra el bosque,";
+			mes "pero quizás ustedes los humanos sí puedan.";
+			mes "¡Buena suerte!";
 			close;
 		case 2:
 			mes "[Laphine Soldier]";
-			mes "Well, you've made the right decision.";
+			mes "Bueno, tomaste la decisión correcta.";
 			if (.@playtime == -1)
-				mes "That's what's good for you.";
+				mes "Eso es lo mejor para ti.";
 			close;
 		}
 	} else {
 		mes "[Laphine Soldier]";
-		mes "Where's your party leader?";
-		mes "It's dangerous in there.";
+		mes "¿Dónde está el líder de tu grupo?";
+		mes "Es peligroso ahí dentro.";
 		next;
 		if (.@playtime == 2) {
 			mes "[Laphine Soldier]";
-			mes "I see you've been into the forest before.";
-			mes "Okay, at least the forest won't reject you.";
-			mes "However...";
+			mes "Veo que ya has estado en el bosque antes.";
+			mes "Bien, al menos el bosque no te rechazará.";
+			mes "Sin embargo...";
 			erasequest 7211;
 			next;
 		}
 		mes "[Laphine Soldier]";
-		mes "Put yourself in my shoes, the entrance guard, and let me meet the representative of your party.";
-		mes "I have to discuss some things with him/her.";
+		mes "Ponte en mi lugar, el guardia de la entrada, y déjame conocer al representante de tu grupo.";
+		mes "Tengo que discutir algunas cosas con él/ella.";
 		close;
 	}
 }
 
 bif_fild01,161,355,0	script	Log Tunnel	844,{
-	mes "I see the forest through the log tunnel.";
-	mes "It looks like I can enter the forest through the log tunnel.";
+	mes "Veo el bosque a través del túnel de troncos.";
+	mes "Parece que puedo entrar al bosque por el túnel de troncos.";
 	next;
-	if(select("Enter the tunnel.:Give up.") == 2)
+	if(select("Entrar al túnel.:Rendirse.") == 2)
 		close;
 	switch(instance_enter("Mistwood Maze")) {
 	case IE_OTHER:
 		mes "[Laphine Soldier]";
-		mes "Something doesn't feel right. Looks like something dangerous is going on, so you'd better turn back today.";
+		mes "Algo no se siente bien. Parece que algo peligroso está pasando, así que mejor regresa hoy.";
 		close;
 	case IE_NOINSTANCE:
-		mes "You try to crawl into the log, but some mysterious power pushes you back with a gush of wind.";
-		mes "It seems like you can't force your way into the forest.";
+		mes "Intentas arrastrarte dentro del tronco, pero un poder misterioso te empuja hacia atrás con una ráfaga de viento.";
+		mes "Parece que no puedes forzar tu entrada al bosque.";
 		close;
 	case IE_NOMEMBER:
 		mes "[Laphine Soldier]";
-		mes "Hey, look!";
-		mes "Are you going alone?";
-		mes "That's impossible. Too rash.";
-		mes "Team up with some friends and go together!";
+		mes "¡Oye, mira!";
+		mes "¿Vas a ir solo?";
+		mes "Eso es imposible. Demasiado imprudente.";
+		mes "¡Forma equipo con algunos amigos y vayan juntos!";
 		close;
 	case IE_OK:
 		if (checkquest(7211,PLAYTIME) == 2) erasequest 7211;
 		if (checkquest(7211,PLAYTIME) == -1) setquest 7211;
-		mapannounce "bif_fild01",getpartyname(getcharid(1))+" party's "+strcharinfo(0)+" member is entering the Mistwood Maze.",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
+		mapannounce "bif_fild01",getpartyname(getcharid(1))+" miembro "+strcharinfo(0)+" del grupo "+getpartyname(getcharid(1))+" está entrando al Laberinto de Mistwood.",bc_map,"0x00ff99"; //FW_NORMAL 12 0 0
 		//warp "1@mist",89,29;
 		close;
 	default:
-		mes "The world beyond the log tunnel looks dark and suffocating.";
-		mes "Your instinct is screaming that this forest is dangerous.";
+		mes "El mundo más allá del túnel de troncos se ve oscuro y sofocante.";
+		mes "Tu instinto te grita que este bosque es peligroso.";
 		close;
 	}
 }
@@ -181,16 +181,16 @@ OnTouch_:
 	end;
 OnTimer10000:
 OnTimer20000:
-	mapannounce instance_mapname("1@mist"),"Whisper: Who's this? Who's this!? The forest is open! Tom, Tomba, Tired Rem, Remi! Wake up!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro: ¿Quién es? ¡¿Quién es?! ¡El bosque está abierto! ¡Tom, Tomba, Rem Cansado, Remi! ¡Despierten!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer60000:
-	mapannounce instance_mapname("1@mist"),"Loud Whisper: What are the forest keepers doing? What are the gardeners doing??",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Fuerte: ¿Qué están haciendo los guardianes del bosque? ¿¿Qué están haciendo los jardineros??",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer120000:
-	mapannounce instance_mapname("1@mist"),"Loud Whisper: Don't go out, wander around forever, and play with us!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Fuerte: ¡No salgan, vaguen por siempre y jueguen con nosotros!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer180000:
-	mapannounce instance_mapname("1@mist"),"Loud Whisper: Useless, useless. Wandering around and around, you'll meet your end!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Fuerte: Inútil, inútil. ¡Vagando y vagando, encontrarán su fin!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	stopnpctimer;
 	end;
 }
@@ -199,12 +199,12 @@ OnTimer180000:
 function	script	F_Mora_Mist	{
 	set .@map$, instance_mapname("1@mist");
 	if (mobcount(.@map$,instance_npcname(strnpcinfo(0))+"::OnMyMobDead") == 0) {
-		mes "Obviously no one is taking care of it.";
-		mes "It seems like you can chop down the garden tree.";
+		mes "Obviamente nadie lo está cuidando.";
+		mes "Parece que puedes talar el árbol del jardín.";
 		next;
-		if(select("Chop down the garden tree.:Give up.") == 2)
+		if(select("Talar el árbol del jardín.:Rendirse.") == 2)
 			close;
-		mes "You chop down the tree, which was blocking the path of the maze, "+((getarg(3,0))?"clearing the way out of the forest.":"so now you can continue.");
+		mes "Talas el árbol que bloqueaba el camino del laberinto, "+((getarg(3,0))?"despejando la salida del bosque.":"así que ahora puedes continuar.");
 		mapannounce .@map$,getarg(1),bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 		enablenpc instance_npcname(getarg(0));
 		disablenpc();
@@ -212,7 +212,7 @@ function	script	F_Mora_Mist	{
 			initnpctimer;
 		close;
 	} else
-		mapannounce .@map$,((getarg(3,0))?getarg(2):getarg(2)+"'s Cry: Huh? Who's doing bad things to my tree?!"),bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+		mapannounce .@map$,((getarg(3,0))?getarg(2):getarg(2)+"'s Grito: ¿Eh? ¡¿Quién le está haciendo cosas malas a mi árbol?!"),bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 }
 
@@ -220,7 +220,7 @@ function	script	F_Mora_Mist	{
 1@mist,247,123,0	script	Tom's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"a25_a18-1",
-		"Roaring Cry: Tom's bolt is broken! Watch out, Tomba! Watch out, Tomba!",
+		"Roaring Cry: ¡El cerrojo de Tom se rompió! ¡Cuidado, Tomba! ¡Cuidado, Tomba!",
 		"Tom";
 	end;
 OnInstanceInit:
@@ -234,7 +234,7 @@ OnMyMobDead:
 1@mist,225,98,0	script	Tomba's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"a27-2_af1-2",
-		"Roaring Cry: Tomba's Garden Tree is gone with Tomba. Remi, what are you going to do now?",
+		"Grito Rugiente: El Árbol de Tomba se fue con Tomba. Remi, ¿qué vas a hacer ahora?",
 		"Tomba";
 	end;
 OnInstanceInit:
@@ -248,7 +248,7 @@ OnMyMobDead:
 1@mist,159,184,0	script	Remi's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"a15-2_a4-1",
-		"Roaring Cry: Remi, Remi's Garden Tree was chopped down- Rem, it's your turn next. Poor Rem!",
+		"Grito Rugiente: Remi, el Árbol de Remi fue talado- Rem, te toca. ¡Pobre Rem!",
 		"Remi";
 	end;
 OnInstanceInit:
@@ -262,7 +262,7 @@ OnMyMobDead:
 1@mist,61,39,0	script	Tired Rem's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"a4-2_a11",
-		"Rem's Desperate Cry: Argh... Rem will sleep. Rem will sleep now, and won't wake up forever!",
+		"Grito Desesperado de Rem: Argh... Rem dormirá. Rem dormirá ahora, ¡y no despertará jamás!",
 		"Rem",
 		0,1;
 	end;
@@ -270,13 +270,13 @@ OnInstanceInit:
 	monster instance_mapname("1@mist"),101,107,"Rem the Gardener",2136,1,instance_npcname("Tired Rem's Garden Tree")+"::OnMyMobDead";
 	end;
 OnTimer10000:
-	mapannounce instance_mapname("1@mist"),"Whisper of the Forest: So Tom's, Tomba's, Remi's, and Rem's garden trees were all chopped down?",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro del Bosque: ¿Así que los árboles de Tom, Tomba, Remi y Rem fueron todos talados?",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer15000:
-	mapannounce instance_mapname("1@mist"),"Whisper of the Forest: Trouble, trouble, we're in big trouble.",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro del Bosque: Problemas, problemas, estamos en graves problemas.",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer20000:
-	mapannounce instance_mapname("1@mist"),"Loud Whisper: They've come to the second deepest forest. Gardeners of the deep forest, watch out!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Fuerte: Han llegado al segundo bosque más profundo. ¡Jardineros del bosque profundo, cuidado!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	stopnpctimer;
 	end;
 OnMyMobDead:
@@ -287,7 +287,7 @@ OnMyMobDead:
 1@mist,230,179,0	script	Ron's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"b4-2_b2",
-		"Ron the Gardener's Cry: I'm getting off work! Don't look for Ron, the second gardener, any more!!",
+		"Grito de Ron el Jardinero: ¡Me retiro! ¡¡No busquen más a Ron, el segundo jardinero!!",
 		"Ron";
 	end;
 OnInstanceInit:
@@ -301,7 +301,7 @@ OnMyMobDead:
 1@mist,285,225,0	script	Rover's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"b7_bf1-2",
-		"Roaring Whisper: Ron's, and Rover's trees were chopped down as well. Who is forcing his way into the forest? Who is it?",
+		"Susurro Rugiente: Los árboles de Ron y Rover también fueron talados. ¿Quién está forzando su entrada al bosque? ¿Quién es?",
 		"Rover";
 	end;
 OnInstanceInit:
@@ -315,7 +315,7 @@ OnMyMobDead:
 1@mist,161,316,0	script	Mona's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"b31_b16",
-		"Clamoring Whisper: Mona the Seedseeker's garden tree is gone! Mona is gone too! Namon will be okay, because he is brave, right? Namon, are you okay?",
+		"Susurro Clamoroso: ¡El árbol de Mona la Buscasemillas desapareció! ¡Mona también! Namon estará bien, porque es valiente, ¿verdad? Namon, ¿estás bien?",
 		"Mona";
 	end;
 OnInstanceInit:
@@ -329,7 +329,7 @@ OnMyMobDead:
 1@mist,204,299,0	script	Namon's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"b27-3_bN-1",
-		"Clamoring Whisper: Brave Namon met his fate not so bravely... *giggle*",
+		"Susurro Clamoroso: El valiente Namon encontró su destino no tan valientemente... *risita*",
 		"Namon";
 	end;
 OnInstanceInit:
@@ -343,7 +343,7 @@ OnMyMobDead:
 1@mist,221,236,0	script	Sad Neoron's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"b6-1_b33",
-		"Lamenting Whisper: Sad Neoron has become cheerful! Spyder the Superior Spider, what are you going to do? What are you going to do now?",
+		"Susurro Lamentoso: ¡El triste Neoron se alegró! Spyder la Araña Superior, ¿qué vas a hacer? ¿Qué vas a hacer ahora?",
 		"Neoron";
 	end;
 OnInstanceInit:
@@ -357,7 +357,7 @@ OnMyMobDead:
 1@mist,206,200,0	script	Spyder's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"b5_b14",
-		"Depressed Whisper: Now it's all over with the second deepest forest. Gardeners are dying out-",
+		"Susurro Deprimido: Ahora todo acabó con el segundo bosque más profundo. Los jardineros se extinguen-",
 		"Spyder",
 		0,1;
 	end;
@@ -365,16 +365,16 @@ OnInstanceInit:
 	monster instance_mapname("1@mist"),209,200,"Spyder the Eight-Legged",2132,1,instance_npcname("Spyder's Garden Tree")+"::OnMyMobDead";
 	end;
 OnTimer5000:
-	mapannounce instance_mapname("1@mist"),"Roaring Whisper: The path is about to open. The tight bolts have been removed!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Rugiente: El camino está por abrirse. ¡Los cerrojos han sido removidos!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer9000:
-	mapannounce instance_mapname("1@mist"),"Roaring Whisper: A forest opened, another opened, and the other is going to open as well. Tito and Pumba, they are heading your way!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Rugiente: Un bosque se abrió, otro se abrió, y el otro también se abrirá. ¡Tito y Pumba, van hacia ustedes!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer13000:
-	mapannounce instance_mapname("1@mist"),"Roaring Whisper: Where you get after wandering around, around and around, everybody you've met while wandering around, around and around,",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Rugiente: A donde llegan después de vagar y vagar, todos los que conocieron mientras vagaban,",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	end;
 OnTimer17000:
-	mapannounce instance_mapname("1@mist"),"Roaring Whisper: all the gardeners will be waiting for you, with their clippers in their hands-!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Susurro Rugiente: ¡todos los jardineros los estarán esperando, con sus tijeras en las manos-!",bc_map,"0xccffcc"; //FW_NORMAL 12 0 0
 	stopnpctimer;
 	end;
 OnMyMobDead:
@@ -385,7 +385,7 @@ OnMyMobDead:
 1@mist,95,287,0	script	Tito's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"c1_c13-1",
-		"Tito's Cry: *sob* *sob* Tito's gone now! Tito's done for! Boo hoo!!",
+		"Grito de Tito: *sollozo* *sollozo* ¡Tito se fue! ¡Tito está acabado! ¡¡Buaaa!!",
 		"Tito";
 	end;
 OnInstanceInit:
@@ -399,7 +399,7 @@ OnMyMobDead:
 1@mist,324,325,0	script	Pumba's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"c13-3_c4",
-		"Roaring Whisper: Tito the Hard Worker was defeated! Stop playing and go to work, Tete! Start working!",
+		"Susurro Rugiente: ¡Tito el Trabajador fue derrotado! ¡Deja de jugar y trabaja, Tete! ¡A trabajar!",
 		"Pumba";
 	end;
 OnInstanceInit:
@@ -413,7 +413,7 @@ OnMyMobDead:
 1@mist,280,344,0	script	Tete's Garden Tree	527,{
 	callfunc "F_Mora_Mist",
 		"c19_c4",
-		"Whisper: They are strong, strong indeed. What are we going to do now? Are there any gardeners left? Are there any?",
+		"Susurro: Son fuertes, muy fuertes. ¿Qué vamos a hacer ahora? ¿Quedan jardineros? ¿Quedan?",
 		"Tete";
 	end;
 OnInstanceInit:
@@ -426,8 +426,8 @@ OnMyMobDead:
 1@mist,345,186,0	script	The Gardeners' Tree	527,{
 	callfunc "F_Mora_Mist",
 		"#to_bif02",
-		"Roaring Whisper: The forest will remember you! It will remember you, the one who broke the clippers of all the gardeners!",
-		"Gardeners: We're not dead, yet!!!!",1;
+		"Susurro Rugiente: ¡El bosque te recordará! ¡Te recordará, el que rompió las tijeras de todos los jardineros!",
+		"Jardineros: ¡¡¡¡No estamos muertos, todavía!!!!",1;
 	end;
 OnInstanceInit:
 	set .@map$, instance_mapname("1@mist");
@@ -527,154 +527,154 @@ OnMyMobDead:
 		donpcevent instance_npcname("Collapsed Girl#mist")+"::OnEnable";
 		donpcevent instance_npcname("Mysterious Young Man#mis")+"::OnDisable";
 		donpcevent instance_npcname("Loki#mist")+"::OnEnable";
-		mapannounce .@map$,"The Dragon's Cry: Am I being punished... for abandoning the way... of the guardian...?",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+		mapannounce .@map$,"Grito del Dragón: ¿Estoy siendo castigado... por abandonar el camino... del guardián...?",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
 		disablenpc instance_npcname("#Dragon Herder");
 		initnpctimer;
 	}
 	end;
 OnTimer3000:
 	stopnpctimer;
-	mapannounce instance_mapname("1@mist"),"Voice in your head: ...Will you... save... me... please......?",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+	mapannounce instance_mapname("1@mist"),"Voz en tu cabeza: ...¿Podrías... salvarme... por favor......?",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
 	end;
 }
 
 1@mist,97,30,3	script	Mysterious Young Man#mis	512,{
 	if (BaseLevel < 98) {
 		mes "[Mysterious Young Man]";
-		mes "Huh? Do you plan to pass through here?";
-		mes ".....I'm afraid it's beyond your ability, but I won't meddle in your affairs.";
-		mes "We'll meet again, if you survive.";
+		mes "¿Eh? ¿Planeas pasar por aquí?";
+		mes ".....Me temo que está más allá de tus habilidades, pero no me meteré en tus asuntos.";
+		mes "Nos veremos de nuevo, si sobrevives.";
 		close;
 	}
 	if (ep14_1_mistwoods == 0) {
 		if (ep13_3_secret > 23) {
 			mes "[Mysterious Young Man]";
-			mes "You... I remember seeing you at the camp.";
-			mes "The information you gave on Ahat was useful.";
-			mes "Thanks!";
+			mes "Tú... Recuerdo haberte visto en el campamento.";
+			mes "La información que diste sobre Ahat fue útil.";
+			mes "¡Gracias!";
 			next;
 			mes "[Mysterious Young Man]";
-			mes "But do you plan to pass through here?";
-			mes "What good is it to go across Bifrost?";
+			mes "¿Pero planeas pasar por aquí?";
+			mes "¿De qué sirve cruzar Bifrost?";
 			next;
 		} else {
 			mes "[Mysterious Young Man]";
-			mes "Do you plan to pass through here?";
-			mes "I will advise against it if you're just curious.";
-			mes "It will only bring about your untimely death...";
+			mes "¿Planeas pasar por aquí?";
+			mes "Te aconsejo que no lo hagas si solo tienes curiosidad.";
+			mes "Solo traerá tu muerte prematura...";
 			next;
 		}
 		mes "[Mysterious Young Man]";
-		mes "If you are determined to pass through here,";
-		mes "I will ask for your help with something.";
+		mes "Si estás decidido a pasar por aquí,";
+		mes "te pediré ayuda con algo.";
 		next;
-		select("Who are you?");
+		select("¿Quién eres?");
 		mes "[Loki]";
-		mes "Loki... from the Assassin's Guild.";
-		mes "That's my name.";
-		mes "And yours?";
+		mes "Loki... del Gremio de Asesinos.";
+		mes "Ese es mi nombre.";
+		mes "¿Y el tuyo?";
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "....";
-		mes "...."+strcharinfo(0)+" sir.";
+		mes "...."+strcharinfo(0)+".";
 		next;
 		mes "[Loki]";
-		mes "I see. "+strcharinfo(0)+".";
-		mes "I'm asking you again.";
-		mes "Do you plan to pass through this forest?";
+		mes "Ya veo. "+strcharinfo(0)+".";
+		mes "Te lo pregunto de nuevo.";
+		mes "¿Planeas atravesar este bosque?";
 		next;
-		switch(select("Yes, I do.:No, I don't.")) {
+		switch(select("Sí.:No.")) {
 		case 1:
 			mes "[Loki]";
-			mes "Then I'll ask you a question.";
-			mes "Have you ever seen a guard... a girl with purple hair?";
+			mes "Entonces te haré una pregunta.";
+			mes "¿Alguna vez has visto a una guardiana... una chica de cabello morado?";
 			next;
-			switch(select("No, I haven't.:Yes, I might have...")) {
+			switch(select("No, nunca.:Sí, puede que sí...")) {
 			case 1:
 				mes "[Loki]";
-				mes "So you haven't.";
-				mes "You're telling the truth.";
+				mes "Así que no.";
+				mes "Estás diciendo la verdad.";
 				next;
 				break;
 			case 2:
 				mes "[Loki]";
-				mes "Wait.";
-				mes "(Loki comes closer.)";
+				mes "Espera.";
+				mes "(Loki se acerca.)";
 				mes "... No.";
-				mes "You're telling the truth.";
+				mes "Estás diciendo la verdad.";
 				next;
 				break;
 			}
 			mes "[Loki]";
-			mes "Now we have to say goodbye here.";
-			mes "If you survive this forest, of course.";
+			mes "Ahora debemos despedirnos aquí.";
+			mes "Si sobrevives a este bosque, claro.";
 			set ep14_1_mistwoods,2;
 			setquest 7212;
 			close;
 		case 2:
 			mes "[Loki]";
-			mes "I understand.";
-			mes "Step back if you aren't ready.";
-			mes "This forest doesn't like strangers.";
+			mes "Entiendo.";
+			mes "Retrocede si no estás listo.";
+			mes "A este bosque no le gustan los extraños.";
 			set ep14_1_mistwoods,1;
 			close;
 		}
 	} else if (ep14_1_mistwoods == 1) {
 		mes "[Loki]";
-		mes "I told you - step back if you don't want to die.";
-		mes "It's not easy going through the forest.";
-		mes "It may cost you your life.";
+		mes "Te lo dije - retrocede si no quieres morir.";
+		mes "No es fácil atravesar el bosque.";
+		mes "Puede costarte la vida.";
 		next;
-		switch(select("Okay.:What do you want?")) {
+		switch(select("Está bien.:¿Qué quieres?")) {
 		case 1:
-			mes "- When you step back,";
-			mes "Loki nods slightly and then looks away. -";
+			mes "- Cuando retrocedes,";
+			mes "Loki asiente ligeramente y mira a otro lado. -";
 			close;
 		case 2:
 			mes "[Loki]";
-			mes "I'm looking for somebody.";
-			mes "Have you ever seen a guard... a girl with purple hair?";
+			mes "Estoy buscando a alguien.";
+			mes "¿Alguna vez has visto a una guardiana... una chica de cabello morado?";
 			next;
-			switch(select("No, I haven't.:Yes, I might have...")) {
+			switch(select("No, nunca.:Sí, puede que sí...")) {
 			case 1:
 				mes "[Loki]";
-				mes "So you haven't.";
-				mes "You're telling the truth.";
+				mes "Así que no.";
+				mes "Estás diciendo la verdad.";
 				next;
 				break;
 			case 2:
 				mes "[Loki]";
-				mes "Wait.";
-				mes "(Loki comes closer.)";
+				mes "Espera.";
+				mes "(Loki se acerca.)";
 				mes "... No.";
-				mes "You're telling the truth.";
+				mes "Estás diciendo la verdad.";
 				next;
 				break;
 			}
 			mes "[Loki]";
-			mes "Now we have to say goodbye here.";
-			mes "Hopefully, we will see each other again in Mora.";
+			mes "Ahora debemos despedirnos aquí.";
+			mes "Con suerte, nos veremos de nuevo en Mora.";
 			set ep14_1_mistwoods,2;
 			setquest 7212;
 			close;
 		}
 	} else if (ep14_1_mistwoods == 2) {
 		mes "[Loki]";
-		mes "I don't want to go with you.";
-		mes "Hopefully, we will see each other again in Mora.";
+		mes "No quiero ir contigo.";
+		mes "Con suerte, nos veremos de nuevo en Mora.";
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Loki]";
-		mes "So we meet again.";
-		mes "Are you used to this place?";
-		mes "Come to the inn in Mora.";
-		mes "I have something to give to you.";
+		mes "Así que nos encontramos de nuevo.";
+		mes "¿Ya te acostumbraste a este lugar?";
+		mes "Ven a la posada en Mora.";
+		mes "Tengo algo para darte.";
 		close;
 	} else {
 		mes "[Loki]";
-		mes "We're seeing a lot of each other these days.";
-		mes "It seems you are completely comfortable with the place.";
-		mes "You'd better not be too proud of yourself.";
+		mes "Nos estamos viendo mucho últimamente.";
+		mes "Parece que estás completamente cómodo con el lugar.";
+		mes "Mejor no seas demasiado orgulloso.";
 		close;
 	}
 	end;
@@ -689,45 +689,45 @@ OnDisable:
 1@mist,183,304,3	script	Loki#mist	512,{
 	if (ep14_1_mistwoods < 2) {
 		mes "[Loki]";
-		mes "An adventurer in the forest.";
+		mes "Un aventurero en el bosque.";
 		mes ".....";
-		mes "You can go to Mora through this forest.";
+		mes "Puedes ir a Mora a través de este bosque.";
 		close;
 	} else if (ep14_1_mistwoods == 2) {
 		mes "[Loki]";
-		mes "Is it you that took care of this unruly girl?";
-		mes "I guess I have to thank you.";
-		mes "You've calmed her down.";
+		mes "¿Fuiste tú quien se encargó de esta chica rebelde?";
+		mes "Supongo que debo agradecerte.";
+		mes "La calmaste.";
 		next;
-		select("What's happening?:This girl...?");
+		select("¿Qué está pasando?:¿Esta chica...?");
 		mes "[Loki]";
-		mes "You might be able to change your appearance, but you cannot change your unique, innate light.";
-		mes "A scent strong enough to burn your nose.";
+		mes "Puedes cambiar tu apariencia, pero no puedes cambiar tu luz única e innata.";
+		mes "Un aroma tan fuerte que te quema la nariz.";
 		next;
 		mes "[Loki]";
-		mes "This is Nydhogg, the Guardian of Yggdrasil,";
-		mes "whom I was looking for.";
-		mes "Now she won't wander around crazy any more.";
+		mes "Esta es Nydhogg, la Guardiana de Yggdrasil,";
+		mes "a quien estaba buscando.";
+		mes "Ahora ya no vagará enloquecida.";
 		next;
-		select("What are you going to do now?");
+		select("¿Qué vas a hacer ahora?");
 		mes "[Loki]";
-		mes "I'll wait for her to wake up and get out of this forest.";
-		mes "I can manage it on my own.";
-		mes "I'll see you in Mora.";
+		mes "Esperaré a que despierte y salga de este bosque.";
+		mes "Puedo manejarlo solo.";
+		mes "Te veré en Mora.";
 		set ep14_1_mistwoods,3;
 		erasequest 7212;
 		setquest 7213;
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Loki]";
-		mes "I don't want to go with you.";
-		mes "I can manage her on my own.";
-		mes "If you have something to say, say it after we get out of the forest.";
+		mes "No quiero ir contigo.";
+		mes "Puedo manejarla solo.";
+		mes "Si tienes algo que decir, dilo después de que salgamos del bosque.";
 		close;
 	} else {
 		mes "[Loki]";
-		mes "I don't want to go with you.";
-		mes "If you have something to say, say it after we get out of the forest.";
+		mes "No quiero ir contigo.";
+		mes "Si tienes algo que decir, dilo después de que salgamos del bosque.";
 		close;
 	}
 	end;
@@ -741,8 +741,8 @@ OnEnable:
 }
 
 1@mist,181,303,3	script	Collapsed Girl#mist	511,{
-	mes "You see a girl with mysterious hair collapsed on the ground.";
-	mes "As you approach her, you smell the scent of flowers so strong that it makes you dizzy.";
+	mes "Ves a una chica con cabello misterioso desplomada en el suelo.";
+	mes "Al acercarte, hueles un aroma a flores tan fuerte que te marea.";
 	close;
 OnInstanceInit:
 OnDisable:
@@ -757,160 +757,160 @@ OnEnable:
 mora,46,152,5	script	Flower Smelling Lady	510,{
 	if (ep14_1_mistwoods < 3) {
 		mes "[Flower Smell Lady]";
-		mes "I need rest.";
-		mes "I'm too tired to talk to you.";
-		mes "I'm sorry.";
+		mes "Necesito descansar.";
+		mes "Estoy demasiado cansada para hablar contigo.";
+		mes "Lo siento.";
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Nydhogg the Guardian]";
-		mes "I've been waiting for you.";
-		mes "I'm still confused, but I know what I did wrong.";
+		mes "Te estaba esperando.";
+		mes "Todavía estoy confundida, pero sé lo que hice mal.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "If it weren't for you, I would still be wandering in the abyssal darkness.";
-		mes "I thank you, from the bottom of my heart.";
+		mes "Si no fuera por ti, todavía estaría vagando en la oscuridad abismal.";
+		mes "Te lo agradezco de todo corazón.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "I'm ashamed of myself, falling for the sweet but empty words that came to me in my loneliness.";
+		mes "Me avergüenzo de mí misma, cayendo ante las dulces pero vacías palabras que llegaron en mi soledad.";
 		mes "....";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "I don't deserve to be a guardian any more.";
-		mes "A dragon gone crazy is not a guardian any more.";
+		mes "Ya no merezco ser guardiana.";
+		mes "Un dragón enloquecido ya no es un guardián.";
 		next;
 		mes "[Loki]";
-		mes "Yggdrasil doesn't think so.";
-		mes "Nidi, don't forget your duties.";
+		mes "Yggdrasil no piensa así.";
+		mes "Nidi, no olvides tus deberes.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "Are you...?";
-		mes "I see...";
-		mes "I thought I was forsaken...";
+		mes "¿Eres tú...?";
+		mes "Ya veo...";
+		mes "Pensé que había sido abandonada...";
 		next;
-		mes "The Guardian slowly looked away as if deep in thought.";
+		mes "La Guardiana desvió la mirada lentamente como sumida en sus pensamientos.";
 		set ep14_1_mistwoods,4;
 		close2;
 	} else if (ep14_1_mistwoods == 4) {
-		mes "- He seems to be deep in thought. -";
+		mes "- Parece estar sumido en sus pensamientos. -";
 		close;
 	} else {
 		mes "[Nydhogg the Guardian]";
-		mes "I haven't gotten all of my powers back.";
-		mes "I'm sorry I can't protect you.";
+		mes "No he recuperado todos mis poderes.";
+		mes "Lamento no poder protegerte.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "Loki said...";
-		mes "that I won't cry from loneliness again,";
-		mes "that I will always have new friends like you...";
+		mes "Loki dijo...";
+		mes "que no lloraré por la soledad de nuevo,";
+		mes "que siempre tendré nuevos amigos como tú...";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "...I've lost everything, but I'm happy now.";
+		mes "...Lo perdí todo, pero ahora soy feliz.";
 		close;
 	}
 }
 
 mora,48,152,3	script	Sharp Eyed Man	512,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "- You have too many items to do this quest. -";
+		mes "- Tienes demasiados objetos para esta misión. -";
 		close;
 	}
 	if (ep14_1_mistwoods < 3) {
-		mes "He won't look at you. It's like he's not interested at all.";
+		mes "No te mira. Es como si no le interesara en absoluto.";
 		close;
 	} else if (ep14_1_mistwoods == 3) {
 		mes "[Loki]";
-		mes "So you've passed through the forest.";
-		mes "It seems Niddy has something to say to you.";
+		mes "Así que atravesaste el bosque.";
+		mes "Parece que Niddy tiene algo que decirte.";
 		close;
 	} else if (ep14_1_mistwoods == 4) {
 		mes "[Loki]";
-		mes "Nydhogg was one of the guardians of the World Tree.";
-		mes "But he abandoned his duties as a guardian when he gave in to Morocc's temptation.";
+		mes "Nydhogg era uno de los guardianes del Árbol del Mundo.";
+		mes "Pero abandonó sus deberes como guardián cuando cedió a la tentación de Morocc.";
 		next;
 		mes "[Loki]";
-		mes "Some fools performed a ritual to break the seal that held Morocc.";
-		mes "But the ritual didn't work right. The servant of Morocc failed to break the seal.";
+		mes "Unos tontos realizaron un ritual para romper el sello que retenía a Morocc.";
+		mes "Pero el ritual no funcionó bien. El sirviente de Morocc no logró romper el sello.";
 		next;
 		mes "[Loki]";
-		mes "But the seal is so weak that it can break open any time.";
-		mes "It's Yggdrasil the World Tree's will that has kept the seal from breaking.";
+		mes "Pero el sello está tan débil que puede romperse en cualquier momento.";
+		mes "Es la voluntad de Yggdrasil el Árbol del Mundo la que ha mantenido el sello intacto.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "That's right. The power of the World Tree is linked to the whole world.";
-		mes "When the bond between the guardians and Yggdrasil broke, Yggdrasil became unstable.";
+		mes "Así es. El poder del Árbol del Mundo está vinculado a todo el mundo.";
+		mes "Cuando el vínculo entre los guardianes y Yggdrasil se rompió, Yggdrasil se volvió inestable.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "That's why all those disasters happened to Yggdrasil.";
-		mes "As the World Tree became unstable, the influence it had on the seal grew weak.";
+		mes "Por eso todos esos desastres le ocurrieron a Yggdrasil.";
+		mes "A medida que el Árbol del Mundo se volvía inestable, su influencia sobre el sello se debilitó.";
 		next;
 		mes "[Loki]";
-		mes "And Morocc broke himself free from the seal.";
-		mes "Although it seems like he used most of his powers just to break the seal...";
+		mes "Y Morocc se liberó del sello.";
+		mes "Aunque parece que usó la mayor parte de sus poderes solo para romper el sello...";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "It's all my fault.";
-		mes "I couldn't break free from Morocc's temptation.";
-		mes "For too... too long...";
+		mes "Todo es mi culpa.";
+		mes "No pude liberarme de la tentación de Morocc.";
+		mes "Por demasiado... demasiado tiempo...";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "...I wanted to be relieved of my thousands of years of loneliness.";
-		mes "I wasn't in my right mind then.";
-		mes "It was none other than I that broke my bond with Yggdrasil.";
+		mes "...Quería ser liberada de mis miles de años de soledad.";
+		mes "No estaba en mis cabales entonces.";
+		mes "No fue otro que yo quien rompió mi vínculo con Yggdrasil.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "I lost control of myself, and did what I shouldn't have done.";
-		mes "The other side of me became a shadow and a reckless tyrant.";
+		mes "Perdí el control de mí misma e hice lo que no debía.";
+		mes "Mi otro lado se convirtió en una sombra y un tirano imprudente.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "Facing the world, I realized...";
-		mes "I felt too great a sense of loss... it was much more painful than the loneliness I had endured for thousands of years.";
+		mes "Al enfrentar el mundo, me di cuenta...";
+		mes "Sentí una pérdida demasiado grande... fue mucho más doloroso que la soledad que soporté durante miles de años.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "That's how I was left alone.";
-		mes "I felt too great a sense of loss... it was much more painful than the loneliness I had endured for thousands of years.";
+		mes "Así fue como quedé sola.";
+		mes "Sentí una pérdida demasiado grande... fue mucho más doloroso que la soledad que soporté durante miles de años.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "So I became a sinner, forgotten to the world.";
+		mes "Así me convertí en una pecadora, olvidada por el mundo.";
 		next;
 		mes "[Loki]";
-		mes "It's not too late.";
-		mes "You're still a guardian.";
-		mes "You still have things to do.";
+		mes "No es demasiado tarde.";
+		mes "Todavía eres guardiana.";
+		mes "Todavía tienes cosas que hacer.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "...Oh, yes. It's late, but I have to fulfill my duties as a guardian.";
-		mes "Now I know. I'll destroy Morocc with my own hands.";
-		mes "I will fulfill my duties as a guardian.";
+		mes "...Oh, sí. Es tarde, pero debo cumplir mis deberes como guardiana.";
+		mes "Ahora lo sé. Destruiré a Morocc con mis propias manos.";
+		mes "Cumpliré mis deberes como guardiana.";
 		next;
-		switch(select("You're not alone.:Those are very important duties.")) {
+		switch(select("No estás sola.:Esos son deberes muy importantes.")) {
 		case 1:
 			mes "[Nydhogg the Guardian]";
-			mes "You're right.";
-			mes "It may be why I haven't been forsaken - to realize that I'm not alone.";
-			mes "You are a kind soul.";
+			mes "Tienes razón.";
+			mes "Quizás por eso no fui abandonada - para darme cuenta de que no estoy sola.";
+			mes "Eres un alma bondadosa.";
 			next;
 			break;
 		case 2:
 			mes "[Nydhogg the Guardian]";
-			mes "But this is my atonement.";
-			mes "I'm happy, though.";
-			mes "I don't have to fight the loneliness any more.";
+			mes "Pero esta es mi expiación.";
+			mes "Aunque soy feliz.";
+			mes "Ya no tengo que luchar contra la soledad.";
 			next;
 			break;
 		}
 		mes "[Nydhogg the Guardian]";
 		mes strcharinfo(0)+"...";
-		mes "Thanks for listening to my long story.";
+		mes "Gracias por escuchar mi larga historia.";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "It's what I always have with me.";
-		mes "I'm sure it will protect you someday.";
+		mes "Es lo que siempre llevo conmigo.";
+		mes "Estoy segura de que te protegerá algún día.";
 		next;
 		mes "[Loki]";
-		mes "(Removes his scarf from around his neck and hands it to you.)";
+		mes "(Se quita la bufanda del cuello y te la entrega.)";
 		next;
 		mes "[Nydhogg the Guardian]";
-		mes "May the blessing of Mother Yggdrasil be with you...";
+		mes "Que la bendición de la Madre Yggdrasil esté contigo...";
 		set ep14_1_mistwoods,10;
 		completequest 7213;
 		getitem 2568,1; //Muffler_Of_Roki
@@ -919,12 +919,12 @@ mora,48,152,3	script	Sharp Eyed Man	512,{
 		close;
 	} else {
 		mes "[Loki]";
-		mes "I'll be staying here for a while.";
-		mes "We may meet again.";
+		mes "Me quedaré aquí un rato.";
+		mes "Puede que nos volvamos a ver.";
 		next;
 		mes "[Loki]";
-		mes "The day when Morocc reveals his despicable nature...";
-		mes "I will be waiting for him.";
+		mes "El día en que Morocc revele su naturaleza despreciable...";
+		mes "Lo estaré esperando.";
 		close;
 	}
 }
@@ -1007,25 +1007,25 @@ OnInstanceInit:
 // Warp Portals :: md_mist_in_link
 //============================================================
 bif_fild01,38,374,0	script	Mysterious Flower#ep14_1	844,{
-	mes "It's a giant flower with mysterious energy.";
+	mes "Es una flor gigante con energía misteriosa.";
 	if (countitem(12561)) {
-		mes "It's reacting to the Mysterious Flower Seeds you have with you.";
+		mes "Está reaccionando a las Semillas de Flor Misteriosa que llevas contigo.";
 		next;
-		switch(select("Observe the reaction.:Stop the reaction.")) {
+		switch(select("Observar la reacción.:Detener la reacción.")) {
 		case 1:
-			mes "The flower started to shake violently";
-			mes "and swing forward as if trying to send the seeds as far away as possible!!!";
+			mes "La flor comenzó a sacudirse violentamente";
+			mes "¡¡¡y se balanceó como intentando enviar las semillas lo más lejos posible!!!";
 			close2;
 			delitem 12561,1; //Mysterious_Seed
 			warp "bif_fild02",160,230;
 			end;
 		case 2:
-			mes "As you hold onto the Mysterious Flower Seeds tightly,";
-			mes "the flower shook violently and then became calm again.";
+			mes "Mientras sujetas las Semillas de Flor Misteriosa con fuerza,";
+			mes "la flor se sacudió violentamente y luego se calmó.";
 			close;
 		}
 	}
-	mes "It looks like it has some special use, but you're not sure what.";
+	mes "Parece que tiene algún uso especial, pero no estás seguro de cuál.";
 	close;
 }
 

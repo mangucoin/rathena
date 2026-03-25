@@ -14,7 +14,7 @@
 // 2.9 Somewhat iRO-official NPC names [DracoRPG]
 //============================================================
 
-// Configuration Variables: 
+// Configuration Variables:
 -	script	marriage_init	-1,{
 OnInit:
 	set $@wed_allow, 0;	//If 1, allows same sex marriages.
@@ -32,7 +32,7 @@ OnInit:
 
 // Other Configuration:
 // Line 61,62: Priest location, sprite and name.
-// Line 437,438: Registration location, sprite and name. 
+// Line 437,438: Registration location, sprite and name.
 // Line 813,814: Divorcing location, sprite and name.
 
 // Variable Notes:
@@ -67,23 +67,23 @@ prt_church,100,123,4	script	Vomars	60,{
 	function SF_RetrieveRingF;
 	function SF_RingsAccepted;
 	function SF_StartCeremony;
-	
+
 	if (getpartnerid() > 0) {
 		mes "["+@name$+"]";
-		mes "You have my blessings, have a wonderful married life.";
+		mes "Tienes mi bendicion, que tengan una maravillosa vida de casados.";
 		close;
 	}
 	if ($wed_progress == 0) { // Official iRO dialog
 		mes "["+@name$+"]";
-		mes "You must apply for";
-		mes "marriage with Happy Marry";
-		mes "before you can get married.";
-		mes "Happy Marry will let you know";
-		mes "what else you'll need to do";
-		mes "to prepare for marriage";
+		mes "Debes registrarte para";
+		mes "el matrimonio con Happy Marry";
+		mes "antes de poder casarte.";
+		mes "Happy Marry te dira";
+		mes "que mas necesitas hacer";
+		mes "para prepararte para el matrimonio.";
 		close;
 	} // End official iRO dialog
-	
+
 	if (strcharinfo(0) == $wed_groom$) {
 		SF_Groom();
 		end;
@@ -94,31 +94,31 @@ prt_church,100,123,4	script	Vomars	60,{
 	}
 	mes "["+@name$+"]";
 	if ($wed_groom_progress == 0 || $wed_bride_progress == 0) {
-		mes "There is a wedding being planned. I would appreciate it if you would not interrupt me.";
+		mes "Se esta planeando una boda. Te agradeceria que no me interrumpieras.";
 		close;
 	}
 	if ($wed_groom_progress == 6) {
-		mes "I am wedding "+$wed_groom$+" and "+$wed_bride$+", and it's already too late to object. Please let me continue.";
+		mes "Estoy casando a "+$wed_groom$+" y "+$wed_bride$+", y ya es muy tarde para objetar. Por favor dejame continuar.";
 		close;
 	}
-	mes "I am going to wed "+$wed_groom$+" and "+$wed_bride$+", do you have an objection to it?";
-	if (select("Sorry, please go on.","Yes, I actually do.") == 2) {
+	mes "Voy a casar a "+$wed_groom$+" y "+$wed_bride$+", tienes alguna objecion?";
+	if (select("Lo siento, por favor continua.","Si, la tengo.") == 2) {
 		//Abort
-		npctalk @name$ +" : Ladies and gentlemen, "+strcharinfo(0)+" has an objection to the wedding!";
+		npctalk @name$ +" : Damas y caballeros, "+strcharinfo(0)+" tiene una objecion a la boda!";
 		SF_wed_end();
-		mes "Why should they not be wed?";
+		mes "Por que no deberian casarse?";
 		input $@msg$;
-		npctalk @name$ +" : "+ strcharinfo(0) +"'s objection is: "+$@msg$;
+		npctalk @name$ +" : La objecion de "+ strcharinfo(0) +" es: "+$@msg$;
 		emotion ET_CRY;
-		mes "I see...";
+		mes "Ya veo...";
 	} else
-		mes "Very well, go sit and enjoy the ceremony.";
+		mes "Muy bien, sientate y disfruta la ceremonia.";
 	close;
 
 function SF_Groom {
 	if ($wed_bride_progress == 0) {
 		mes "["+@name$+"]";
-		mes "Looks like your bride has yet to arrive and register.";
+		mes "Parece que tu novia aun no ha llegado a registrarse.";
 		close;
 	}
 	if (SF_equip_check() == 0)
@@ -130,14 +130,14 @@ function SF_Groom {
 		break;
 	case 2:
 		mes "["+@name$+"]";
-		mes "I am waiting for your partner to accept you to start the ceremony.";
+		mes "Estoy esperando a que tu pareja te acepte para comenzar la ceremonia.";
 		close;
 	case 3:
 		SF_RetrieveRingM();
 		break;
 	case 4:
 		mes "["+@name$+"]";
-		mes "Your partner's wedding ring hasn't been retrieved yet. The ceremony will start as soon as you both have claimed your rings.";
+		mes "El anillo de tu pareja aun no ha sido reclamado. La ceremonia comenzara cuando ambos hayan reclamado sus anillos.";
 		close;
 	case 5:
 		mes "["+@name$+"]";
@@ -145,7 +145,7 @@ function SF_Groom {
 		break;
 	default:
 		mes "["+@name$+"]";
-		mes "Please don't interrupt me now.";
+		mes "Por favor no me interrumpas ahora.";
 		close;
 	}
 }
@@ -153,7 +153,7 @@ function SF_Groom {
 function SF_Bride {
 	if ($wed_groom_progress == 0) {
 		mes "["+@name$+"]";
-		mes "Looks like your groom has yet to arrive and register.";
+		mes "Parece que tu novio aun no ha llegado a registrarse.";
 		close;
 	}
 
@@ -166,14 +166,14 @@ function SF_Bride {
 		break;
 	case 2:
 		mes "["+@name$+"]";
-		mes "I am waiting for your partner to accept you to start the ceremony.";
+		mes "Estoy esperando a que tu pareja te acepte para comenzar la ceremonia.";
 		close;
 	case 3:
 		SF_RetrieveRingF();
 		break;
 	case 4:
 		mes "["+@name$+"]";
-		mes "Your partner's wedding ring hasn't been retrieved yet. The ceremony will start as soon as you both have claimed your rings.";
+		mes "El anillo de tu pareja aun no ha sido reclamado. La ceremonia comenzara cuando ambos hayan reclamado sus anillos.";
 		close;
 	case 5:
 		mes "["+@name$+"]";
@@ -181,29 +181,29 @@ function SF_Bride {
 		break;
 	default:
 		mes "["+@name$+"]";
-		mes "Please don't interrupt me now.";
+		mes "Por favor no me interrumpas ahora.";
 		close;
 	}
 }
 
 function SF_AcceptGroom {
 	mes "["+@name$+"]";
-	mes $wed_bride$+", "+$wed_groom$+" has requested to be your husband for the rest of your life. Do you accept?";
+	mes $wed_bride$+", "+$wed_groom$+" ha pedido ser tu esposo por el resto de tu vida. Aceptas?";
 	next;
-	switch(select("I need time to think about it.","No, I don't!","Yes, I do!")) {
+	switch(select("Necesito tiempo para pensarlo.","No, no acepto!","Si, acepto!")) {
 	case 1:
 		mes "["+@name$+"]";
-		mes "You what!?";
-		mes "err.. *cough* *cough* very well... come back after you've made up your mind.";
+		mes "Que!?";
+		mes "err.. *cof* *cof* muy bien... vuelve cuando te hayas decidido.";
 		emotion ET_ANGER;
 		close;
 	case 2:
 		mes "["+@name$+"]";
 		mes "!!";
-		mes "Ah... err... ehm... okay. You two seem to have some differences to settle first.";
+		mes "Ah... err... ehm... esta bien. Ustedes dos parecen tener algunas diferencias que resolver primero.";
 		close2;
 		emotion ET_HUK;
-		npctalk @name$ +" : Ladies and gentlemen, "+$wed_bride$+" has rejected to marry "+$wed_groom$+"!";
+		npctalk @name$ +" : Damas y caballeros, "+$wed_bride$+" ha rechazado casarse con "+$wed_groom$+"!";
 		SF_wed_end();
 		break;
 	case 3:
@@ -214,29 +214,29 @@ function SF_AcceptGroom {
 		}
 		emotion ET_OK;
 		mes "["+@name$+"]";
-		mes "After your groom approves, you will be given your rings, the ceremony will begin and you will be officially married.";
+		mes "Despues de que tu novio apruebe, se les daran sus anillos, la ceremonia comenzara y estaran oficialmente casados.";
 		close;
 	}
 }
 
 function SF_AcceptBride {
 	mes "["+@name$+"]";
-	mes $wed_groom$+", "+$wed_bride$+" has requested to be your wife for the rest of your life. Do you accept?";
+	mes $wed_groom$+", "+$wed_bride$+" ha pedido ser tu esposa por el resto de tu vida. Aceptas?";
 	next;
-	switch(select("I need time to think about it.","No, I don't!","Yes, I do!")) {
+	switch(select("Necesito tiempo para pensarlo.","No, no acepto!","Si, acepto!")) {
 	case 1:
 		mes "["+@name$+"]";
-		mes "You what!?";
-		mes "err.. *cough* *cough* very well... come back after you've made up your mind.";
+		mes "Que!?";
+		mes "err.. *cof* *cof* muy bien... vuelve cuando te hayas decidido.";
 		emotion ET_ANGER;
 		close;
 	case 2:
 		mes "["+@name$+"]";
 		mes "!!";
-		mes "Ah... err... ehm... okay. You two seem to have some differences to settle first.";
+		mes "Ah... err... ehm... esta bien. Ustedes dos parecen tener algunas diferencias que resolver primero.";
 		emotion ET_HUK;
 		close2;
-		npctalk @name$ +" : Ladies and gentlemen, "+$wed_groom$+" has rejected to marry "+$wed_bride$+"!";
+		npctalk @name$ +" : Damas y caballeros, "+$wed_groom$+" ha rechazado casarse con "+$wed_bride$+"!";
 		SF_wed_end();
 		break;
 	case 3:
@@ -247,26 +247,26 @@ function SF_AcceptBride {
 		}
 		emotion ET_OK;
 		mes "["+@name$+"]";
-		mes "After your bride approves, you will be given your rings, the ceremony will begin and you will be officially married.";
+		mes "Despues de que tu novia apruebe, se les daran sus anillos, la ceremonia comenzara y estaran oficialmente casados.";
 		close;
 	}
 }
 
 function SF_RingsAccepted {
 	mes "["+@name$+"]";
-	mes "Now that you both have accepted, the wedding will begin. Please come forth, you and your partner, to retrieve your rings.";
+	mes "Ahora que ambos han aceptado, la boda comenzara. Por favor acerquense, tu y tu pareja, a reclamar sus anillos.";
 	set $wed_bride_progress,3;
 	set $wed_groom_progress,3;
-	announce $wed_groom$+" and "+$wed_bride$+"'s wedding ceremony will be held at the church!",8;
+	announce $wed_groom$+" y "+$wed_bride$+" tendran su ceremonia de boda en la iglesia!",8;
 	close2;
 	emotion ET_THROB;
-	npctalk @name$ +" : May the groom and bride please step forward and retrieve their rings?";
+	npctalk @name$ +" : El novio y la novia, por favor pasen al frente a reclamar sus anillos.";
 }
 
 function SF_RetrieveRingM {
 	mes "["+@name$+"]";
 	if ($@wed_ring && countitem($@wed_ring) < 1) {
-		mes "What happened to your "+getitemname($@wed_ring)+"? You didn't lose it... did you? We need it to continue with the ceremony!";
+		mes "Que paso con tu "+getitemname($@wed_ring)+"? No lo perdiste... verdad? Lo necesitamos para continuar con la ceremonia!";
 		close;
 	}
 	if ($wed_bride_sex)
@@ -274,17 +274,17 @@ function SF_RetrieveRingM {
 	else
 		set @item, 2635;	//Bride's wedding ring
 	if (getnameditem(@item,$wed_groom$) == 0) {
-		mes "You don't seem to have enough space to carry the ring... go free up some space and come back to reclaim your partner's ring.";
+		mes "No pareces tener suficiente espacio para llevar el anillo... libera algo de espacio y vuelve a reclamar el anillo de tu pareja.";
 		close;
 	}
-	mes "Here's the wedding ring for your bride.";
+	mes "Aqui esta el anillo de boda para tu novia.";
 	if ($@wed_ring) delitem $@wed_ring,1;
 	set $wed_groom_progress,4;
-	
+
 	if ($wed_bride_progress == 4)
 		SF_StartCeremony();
 	else {
-		mes "Once your bride retrieves the ring, the ceremony will begin.";
+		mes "Una vez que tu novia reclame el anillo, la ceremonia comenzara.";
 		close;
 	}
 }
@@ -292,7 +292,7 @@ function SF_RetrieveRingM {
 function SF_RetrieveRingF {
 	mes "["+@name$+"]";
 	if ($@wed_ring && countitem($@wed_ring) < 1) {
-		mes "What happened to your "+getitemname($@wed_ring)+"? You didn't lose it... did you? We need it to continue with the ceremony!";
+		mes "Que paso con tu "+getitemname($@wed_ring)+"? No lo perdiste... verdad? Lo necesitamos para continuar con la ceremonia!";
 		close;
 	}
 	if ($wed_groom_sex)
@@ -301,23 +301,23 @@ function SF_RetrieveRingF {
 		set @item, 2635;	//Bride's wedding ring
 
 	if (getnameditem(@item,$wed_bride$) == 0) {
-		mes "You don't seem to have enough space to carry the ring... go free up some space and come back to reclaim your partner's ring.";
+		mes "No pareces tener suficiente espacio para llevar el anillo... libera algo de espacio y vuelve a reclamar el anillo de tu pareja.";
 		close;
 	}
-	mes "Here's the wedding ring for your groom.";
+	mes "Aqui esta el anillo de boda para tu novio.";
 	if ($@wed_ring) delitem $@wed_ring,1;
 	set $wed_bride_progress,4;
 
 	if ($wed_groom_progress == 4)
 		SF_StartCeremony();
 	else {
-		mes "Once your groom retrieves the ring, the ceremony will begin.";
+		mes "Una vez que tu novio reclame el anillo, la ceremonia comenzara.";
 		close;
 	}
 }
 
 function SF_StartCeremony {
-	mes "I will now start the wedding ceremony, and you will be declared forth husband and wife.";
+	mes "Ahora comenzare la ceremonia de boda, y seran declarados marido y mujer.";
 	set $wed_bride_progress,5;
 	set $wed_groom_progress,5;
 	set $@msg$,$wed_groom$;
@@ -326,7 +326,7 @@ function SF_StartCeremony {
 	if (marriage($@msg$) == 0) {
 		next;
 		mes "["+@name$+"]";
-		mes "Where is "+$@msg$+"?? I can't marry you both if one is missing...";
+		mes "Donde esta "+$@msg$+"?? No puedo casarlos si uno no esta presente...";
 		close;
 	}
 	set $wed_bride_progress,6;
@@ -336,51 +336,51 @@ function SF_StartCeremony {
 }
 
 OnTimer1000:
-	npctalk @name$ +" : Ladies and Gentlemen, We will now join in holy matrimony these two lovers.";
+	npctalk @name$ +" : Damas y caballeros, ahora uniremos en santo matrimonio a estos dos enamorados.";
 	end;
-	
+
 OnTimer5000:
-	npctalk @name$ +" : Now more than ever, will both of your lives be entwined together as so will be your souls.";
+	npctalk @name$ +" : Ahora mas que nunca, las vidas de ambos estaran entrelazadas al igual que sus almas.";
 	end;
 
 OnTimer10000:
-	npctalk @name$ +" : You will both honor and cherish each other through the best and worst of times.";
+	npctalk @name$ +" : Ambos se honraran y cuidaran mutuamente en los mejores y peores momentos.";
 	end;
-	
+
 OnTimer15000:
-	npctalk @name$ +" : The safety and well being of your other will now also be your responsibility.";
+	npctalk @name$ +" : La seguridad y bienestar de su pareja sera ahora tambien su responsabilidad.";
 	end;
-	
+
 OnTimer20000:
-	npctalk @name$ +" : May in sickness or good health, your love burn bright like no force can extinguish it.";
+	npctalk @name$ +" : Que en enfermedad o buena salud, su amor brille intensamente como ninguna fuerza pueda extinguirlo.";
 	end;
-	
+
 OnTimer25000:
-	npctalk @name$ +" : Those here stand witness to these vows bestowed upon you, you must act accordingly to them.";
+	npctalk @name$ +" : Los aqui presentes son testigos de estos votos otorgados a ustedes, deben actuar conforme a ellos.";
 	end;
-	
+
 OnTimer30000:
-	npctalk @name$ +" : Understanding that, we are nothing more but mortals on this earth, but this is our triumph.";
+	npctalk @name$ +" : Entendiendo que no somos mas que mortales en esta tierra, pero este es nuestro triunfo.";
 	end;
-	
+
 OnTimer35000:
-	npctalk @name$ +" : We here will now join these two mortal entities, and create an immortal love.";
+	npctalk @name$ +" : Nosotros aqui presentes uniremos estas dos entidades mortales, y crearemos un amor inmortal.";
 	end;
-	
+
 OnTimer40000:
-	npctalk @name$ +" : "+ $wed_groom$ +", you have accepted to take "+$wed_bride$+" as your lawfully wedded wife,";
+	npctalk @name$ +" : "+ $wed_groom$ +", has aceptado tomar a "+$wed_bride$+" como tu legitima esposa,";
 	end;
-	
+
 OnTimer45000:
-	npctalk @name$ +" : and you, "+$wed_bride$+", have accepted take "+$wed_groom$+" as your lawfully wedded husband.";
+	npctalk @name$ +" : y tu, "+$wed_bride$+", has aceptado tomar a "+$wed_groom$+" como tu legitimo esposo.";
 	end;
 
 OnTimer50000:
-	npctalk @name$ +" : And as such, now, by the powers vested in me...";
+	npctalk @name$ +" : Y como tal, ahora, por los poderes que me han sido conferidos...";
 	end;
 
 OnTimer55000:
-	npctalk @name$ +" : I pronounce you Husband and Wife, you may kiss the bride and exchange rings.";
+	npctalk @name$ +" : Los declaro Marido y Mujer, puedes besar a la novia e intercambiar anillos.";
 	if ($wedding_effect_id && isloggedin($wedding_effect_id))
 	{
 		attachrid($wedding_effect_id);
@@ -396,19 +396,19 @@ OnTimer55000:
 function SF_equip_check {
 	if (Sex == SEX_MALE && getequipid(EQI_ARMOR) != 7170) {
 		mes "["+@name$+"]";
-		mes "Child, what did you do with your "+getitemname(7170)+"?";
+		mes "Hijo, que hiciste con tu "+getitemname(7170)+"?";
 		emotion ET_THINK;
 		return 0;
 	}
 	if (Sex == SEX_FEMALE && getequipid(EQI_ARMOR) != 2338) {
 		mes "["+@name$+"]";
-		mes "Child, you are supposed to wear a "+getitemname(2338)+" at all times during the ceremony...";
+		mes "Hija, se supone que debes usar un "+getitemname(2338)+" en todo momento durante la ceremonia...";
 		emotion ET_THINK;
 		return 0;
 	}
 	if (Sex == SEX_FEMALE && $@wed_veil && getequipid(EQI_HEAD_TOP) != 2206) {
 		mes "["+@name$+"]";
-		mes "Child, you can't take off your "+getitemname(2206)+" yet....";
+		mes "Hija, no puedes quitarte tu "+getitemname(2206)+" todavia....";
 		emotion ET_THINK;
 		return 0;
 	}
@@ -439,10 +439,10 @@ prt_church,106,99,3	script	Happy Marry	67,{
 	set @name$,"Marry";
 	if (getpartnerid() > 0) {
 		mes "["+@name$+"]";
-		mes "Isn't marriage beautiful?";
+		mes "No es hermoso el matrimonio?";
 		close;
 	}
-	
+
 	function SF_WedProgress;
 	function SF_Principles;
 	function SF_Procedure;
@@ -453,22 +453,22 @@ prt_church,106,99,3	script	Happy Marry	67,{
 		SF_WedProgress();
 		end;
 	}
-	
+
 	do {
 		mes "["+@name$+"]";
-		mes "Marriage... is such a beautiful thing.";
-		mes "Would you like to get married with someone?";
+		mes "El matrimonio... es algo tan hermoso.";
+		mes "Te gustaria casarte con alguien?";
 		next;
 		set @menu, select(
-			"I'll be single forever!",
-			"Explain the principles of marriage.",
-			"Explain the marriage procedure.",
-			"I want to get married with someone."
+			"Sere soltero para siempre!",
+			"Explica los principios del matrimonio.",
+			"Explica el procedimiento del matrimonio.",
+			"Quiero casarme con alguien."
 		);
 		switch (@menu) {
 		case 1: //Quit
 			mes "["+@name$+"]";
-			mes "In that case, enjoy your bachelor's life.";
+			mes "En ese caso, disfruta tu vida de soltero.";
 			close;
 		case 2: //Principles
 			SF_Principles();
@@ -486,22 +486,22 @@ prt_church,106,99,3	script	Happy Marry	67,{
 function SF_Register {
 	if ($@wed_allow) { //Role select
 		mes "["+@name$+"]";
-		mes "Very well, whom would you like to register as?";
+		mes "Muy bien, como quien te gustaria registrarte?";
 		next;
-		set @submenu, select("Groom","Bride","Cancel");
+		set @submenu, select("Novio","Novia","Cancelar");
 	} else if (Sex == SEX_MALE) { //Groom
 		mes "["+@name$+"]";
-		mes "Very well, will you register as the Groom?";
+		mes "Muy bien, te registraras como el Novio?";
 		next;
-		if (select("Yes","I've changed my mind.")==1)
+		if (select("Si","Cambie de opinion.")==1)
 			set @submenu, 1;
 		else
 			set @submenu, 3;
 	} else { //Bride
 		mes "["+@name$+"]";
-		mes "Very well, will you register as the Bride?";
+		mes "Muy bien, te registraras como la Novia?";
 		next;
-		if (select("Yes","I've changed my mind.")==1)
+		if (select("Si","Cambie de opinion.")==1)
 			set @submenu, 2;
 		else
 			set @submenu, 3;
@@ -511,8 +511,8 @@ function SF_Register {
 		SF_TryRegister(0);
 		set $wed_progress,1;
 		mes "["+@name$+"]";
-		mes "You are now registered as the groom.";
-		mes "Tell your bride to register as soon as possible.";
+		mes "Ahora estas registrado como el novio.";
+		mes "Dile a tu novia que se registre lo antes posible.";
 		emotion ET_SCRATCH;
 		initnpctimer;
 		close;
@@ -520,129 +520,129 @@ function SF_Register {
 		SF_TryRegister(1);
 		set $wed_progress,1;
 		mes "["+@name$+"]";
-		mes "You are now registered as the bride.";
-		mes "Tell your groom to register as soon as possible.";
+		mes "Ahora estas registrada como la novia.";
+		mes "Dile a tu novio que se registre lo antes posible.";
 		emotion ET_SCRATCH;
 		initnpctimer;
 		close;
 	default: //Cancel
 		mes "["+@name$+"]";
-		mes "Come back when you are ready.";
+		mes "Vuelve cuando estes listo.";
 		close;
 	}
 }
-	
+
 function SF_WedProgress {
 	if (strcharinfo(0) == $wed_groom$) {
 		mes "["+@name$+"]";
 		if ($wed_bride_progress > 0)
-			mes "The Priest will handle the rest of the ceremony.";
+			mes "El Sacerdote se encargara del resto de la ceremonia.";
 		else
-			mes "Tell your bride to register, what is taking so long? Time is running out.";
+			mes "Dile a tu novia que se registre, que esta tardando tanto? El tiempo se acaba.";
 		close;
 	}
 	if (strcharinfo(0) == $wed_bride$) {
 		mes "["+@name$+"]";
-		if ($wed_groom_progress > 0) 
-			mes "The Priest will handle the rest of the ceremony.";
+		if ($wed_groom_progress > 0)
+			mes "El Sacerdote se encargara del resto de la ceremonia.";
 		else
-			mes "Tell your groom to register, what is taking so long? Time is running out.";
+			mes "Dile a tu novio que se registre, que esta tardando tanto? El tiempo se acaba.";
 		close;
 	}
 	if (($wed_groom_progress == 0) && (Sex == SEX_MALE || $@wed_allow == 1)) {
 		mes "["+@name$+"]";
-		mes $wed_bride$+" is waiting for the groom to register. Are you the one who came to register as groom?";
+		mes $wed_bride$+" esta esperando a que el novio se registre. Eres tu quien vino a registrarse como novio?";
 		next;
-		if (select("Yes, I am.","Sorry, you got the wrong person.") == 1) {
+		if (select("Si, soy yo.","Lo siento, te equivocaste de persona.") == 1) {
 			SF_TryRegister(0);
 			stopnpctimer;
 			set $wed_groom_progress,1;
 			mes "["+@name$+"]";
-			mes "Very well, now go to the Priest to reaffirm your vows and the ceremony will begin."; 
+			mes "Muy bien, ahora ve con el Sacerdote a reafirmar tus votos y la ceremonia comenzara.";
 			emotion ET_BEST;
 			close2;
-			npctalk @name$ +" : Registration finished. "+$wed_groom$+" and "+$wed_bride$+", please reaffirm your vows with the Priest.";
+			npctalk @name$ +" : Registro completado. "+$wed_groom$+" y "+$wed_bride$+", por favor reafirmen sus votos con el Sacerdote.";
 			emotion ET_BEST;
 			end;
 		} else {
 			mes "["+@name$+"]";
-			mes "I see. Sorry to have bothered you then.";
+			mes "Ya veo. Disculpa la molestia.";
 			close;
 		}
 
 	}
 	if (($wed_bride_progress == 0) && (Sex == SEX_FEMALE || $@wed_allow == 1)) {
 		mes "["+@name$+"]";
-		mes $wed_groom$+" is waiting for the bride to register. Are you the one who came to register as the bride?";
+		mes $wed_groom$+" esta esperando a que la novia se registre. Eres tu quien vino a registrarse como novia?";
 		next;
-		if(select("Yes, I am.","Sorry, you got the wrong person.") == 1) {
+		if(select("Si, soy yo.","Lo siento, te equivocaste de persona.") == 1) {
 			SF_TryRegister(1);
 			stopnpctimer;
 			mes "["+@name$+"]";
-			mes "Very well, now go to the Priest to reaffirm your vows and the ceremony will begin."; 
+			mes "Muy bien, ahora ve con el Sacerdote a reafirmar tus votos y la ceremonia comenzara.";
 			emotion ET_BEST;
 			close2;
-			npctalk @name$ +" : Registration finished. "+$wed_groom$+" and "+$wed_bride$+", please reaffirm your vows with the Priest.";
+			npctalk @name$ +" : Registro completado. "+$wed_groom$+" y "+$wed_bride$+", por favor reafirmen sus votos con el Sacerdote.";
 			emotion ET_BEST;
 			end;
 		} else {
 			mes "["+@name$+"]";
-			mes "I see. Sorry to have bothered you then.";
+			mes "Ya veo. Disculpa la molestia.";
 			close;
 		}
 	}
 	mes "["+@name$+"]";
-	mes "There is a wedding in progress.";
-	mes "Would you like to know the progress of said wedding?";
+	mes "Hay una boda en progreso.";
+	mes "Te gustaria saber el progreso de dicha boda?";
 	next;
-	if (select("Yes","No") != 1) {
+	if (select("Si","No") != 1) {
 		mes "["+@name$+"]";
-		mes "Enjoy the wedding.";
+		mes "Disfruta la boda.";
 		close;
 	}
 	//Display Progress
 	mes "["+@name$+"]";
 	switch ($wed_groom_progress) {
 	case 0:
-		mes "The groom has not registered yet.";
+		mes "El novio aun no se ha registrado.";
 		break;
 	case 1:
-		mes "The groom, "+$wed_groom$+", has yet to accept the bride.";
+		mes "El novio, "+$wed_groom$+", aun no ha aceptado a la novia.";
 		break;
 	case 2:
-		mes "The groom, "+$wed_groom$+", is waiting for the bride's acceptance.";
+		mes "El novio, "+$wed_groom$+", esta esperando la aceptacion de la novia.";
 		break;
 	case 3:
-		mes "The groom, "+$wed_groom$+", has yet to retrieve the ring.";
+		mes "El novio, "+$wed_groom$+", aun no ha reclamado el anillo.";
 		break;
 	case 4:
-		mes "The groom, "+$wed_groom$+", is waiting for the bride to retrieve the ring.";
+		mes "El novio, "+$wed_groom$+", esta esperando a que la novia reclame el anillo.";
 		break;
 	}
 	switch ($wed_bride_progress) {
 	case 0:
-		mes "The bride has not registered yet.";
+		mes "La novia aun no se ha registrado.";
 		break;
 	case 1:
-		mes "The bride, "+$wed_bride$+", has yet to confirm the groom.";
+		mes "La novia, "+$wed_bride$+", aun no ha confirmado al novio.";
 		break;
 	case 2:
-		mes "The bride, "+$wed_bride$+", is waiting for the groom's acceptance.";
+		mes "La novia, "+$wed_bride$+", esta esperando la aceptacion del novio.";
 		break;
 	case 3:
-		mes "The bride, "+$wed_bride$+", has yet to retrieve the ring.";
+		mes "La novia, "+$wed_bride$+", aun no ha reclamado el anillo.";
 		break;
 	case 4:
-		mes "The bride, "+$wed_bride$+", is waiting for the groom to retrieve the ring.";
+		mes "La novia, "+$wed_bride$+", esta esperando a que el novio reclame el anillo.";
 		break;
 	case 5:
-		mes "We are just waiting for both "+$wed_groom$+" and "+$wed_bride$+" to be together to marry them.";
+		mes "Solo estamos esperando a que "+$wed_groom$+" y "+$wed_bride$+" esten juntos para casarlos.";
 		break;
 	case 6:
-		mes $wed_groom$+" and "+$wed_bride$+"'s wedding ceremony is already well on it's way.";
+		mes "La ceremonia de boda de "+$wed_groom$+" y "+$wed_bride$+" ya esta en camino.";
 		break;
 	}
-	mes "Enjoy the remaining of the wedding.";
+	mes "Disfruta el resto de la boda.";
 	close;
 }
 
@@ -658,9 +658,9 @@ OnTimer60000:
 	else
 		set $@msg$, $wed_groom$;
 
-	npctalk @name$ +" : Registration timed out. Is there no one who wants to marry "+$@msg$+"..?";
+	npctalk @name$ +" : El registro expiro. No hay nadie que quiera casarse con "+$@msg$+"..?";
 	emotion ET_SCRATCH;
-	
+
 	set $wed_groom$,"";
 	set $wed_groom_sex, 0;
 	set $wed_bride$,"";
@@ -674,16 +674,16 @@ OnTimer60000:
 //Subfunction SF_TryRegister (int bride)
 function SF_TryRegister {
 	set @bride, getarg(0);
-	set @type$, "groom";
+	set @type$, "novio";
 	if (@bride)
-		set @type$, "bride";
-		
+		set @type$, "novia";
+
 	mes "["+@name$+"]";
-	mes "Before registering as "+@type$+", let me check if you meet all the requirements...";
+	mes "Antes de registrarte como "+@type$+", dejame verificar si cumples con todos los requisitos...";
 	next;
 	if (Upper == 2) {
 		mes "["+@name$+"]";
-		mes "Oh dear, you are too young to be thinking of marriage!";
+		mes "Oh querido, eres muy joven para estar pensando en matrimonio!";
 		emotion ET_SURPRISE;
 		close;
 	}
@@ -691,31 +691,31 @@ function SF_TryRegister {
 		set @item, 7170;
 	else
 		set @item, 2338;
-	
+
 	if (getequipid(EQI_ARMOR) != @item) {
 		mes "["+@name$+"]";
-		mes "You should be wearing a "+getitemname(@item)+" if you want to get married.";
+		mes "Deberias estar usando un "+getitemname(@item)+" si quieres casarte.";
 		close;
 	}
 	if (Sex == SEX_FEMALE && $@wed_veil && getequipid(EQI_HEAD_TOP) != 2206) {
 		mes "["+@name$+"]";
-		mes "Where is your "+getitemname(2206)+"? It's a necessary complement to your dress.";
+		mes "Donde esta tu "+getitemname(2206)+"? Es un complemento necesario para tu vestido.";
 		close;
 	}
 	if ($@wed_ring && countitem($@wed_ring) < 1) {
 		mes "["+@name$+"]";
-		mes "Where's the ring? You need a "+getitemname($@wed_ring)+" for the ring exchange, dear.";
+		mes "Donde esta el anillo? Necesitas un "+getitemname($@wed_ring)+" para el intercambio de anillos, querido.";
 		close;
 	}
 	if (@bride)
 		set @cost, $@wed_bride_reg;
-	else 
+	else
 		set @cost, $@wed_groom_reg;
 
 	if (Zeny < @cost) {
 		mes "["+@name$+"]";
-		mes "I am sorry, but you don't have enough to pay for the registration fee.";
-		mes "Come back once you have collected "+@cost+"z."; 
+		mes "Lo siento, pero no tienes suficiente para pagar la tarifa de registro.";
+		mes "Vuelve cuando hayas reunido "+@cost+"z.";
 		close;
 	}
 	set Zeny,Zeny-@cost;
@@ -738,75 +738,75 @@ function SF_TryRegister {
 //Explain wedding principles...
 function SF_Principles {
 	mes "["+@name$+"]";
-	mes "Weddings are performed by our local Priest with the intent of promoting love and peace among the loving couples.";
+	mes "Las bodas son realizadas por nuestro Sacerdote local con la intencion de promover el amor y la paz entre las parejas enamoradas.";
 	next;
 	mes "["+@name$+"]";
-	mes "The proposal must be done with prudence and courtesy, once the wedlocks have been made, they cannot be undone.";
+	mes "La propuesta debe hacerse con prudencia y cortesia, una vez hechos los lazos matrimoniales, no pueden deshacerse.";
 	next;
 	mes "["+@name$+"]";
-	mes "The two who have been joined by marriage must remain together forever until the day death do them apart.";
+	mes "Los dos que han sido unidos en matrimonio deben permanecer juntos para siempre hasta que la muerte los separe.";
 	next;
 	mes "["+@name$+"]";
 	if ($@wed_allow == 1)
-		mes "Although normally only males can wed females (and vice versa), our local Priest is more open-minded than that and he permits all pairings regardless of gender.";
+		mes "Aunque normalmente solo los hombres pueden casarse con mujeres (y viceversa), nuestro Sacerdote local es mas abierto y permite todo tipo de parejas sin importar el genero.";
 	else
-		mes "Males may only wed with females, and females only with males, the church will not consent any other kind of partnerships.";
+		mes "Los hombres solo pueden casarse con mujeres, y las mujeres solo con hombres, la iglesia no consentira ningun otro tipo de uniones.";
 	next;
 	mes "["+@name$+"]";
-	mes "If there is a significant other with whom you want to spend the rest of your life with, then don't be shy to propose.";
+	mes "Si hay alguien especial con quien quieras pasar el resto de tu vida, no seas timido para proponerlo.";
 	next;
 	mes "["+@name$+"]";
-   mes "I wish for many blessings upon couples who wish to live happily ever after...";
+   mes "Deseo muchas bendiciones para las parejas que deseen vivir felices para siempre...";
 	next;
 }
 
 //Explain the wedding procedure...
 function SF_Procedure {
 	mes "["+@name$+"]";
-	mes "First of all, both groom and bride must register with me.";
+	mes "Primero que nada, tanto el novio como la novia deben registrarse conmigo.";
 	next;
 	if ($@wed_allow == 1) {
 		mes "["+@name$+"]";
-		mes "The registration requirements are:";
-		mes "- Males must be wearing a "+getitemname(7170)+".";
-		mes "- Females must be wearing a "+getitemname(2338)+".";
-		if ($@wed_veil) mes "- Females must also wear a "+getitemname(2206)+".";
-		if ($@wed_ring) mes "- Both must own a "+getitemname($@wed_ring)+" each.";
-		if ($@wed_groom_reg > 0) mes "- The registration fee for the groom is "+$@wed_groom_reg+"z.";
-		if ($@wed_bride_reg > 0) mes "- The registration fee for the bride is "+$@wed_bride_reg+"z.";
+		mes "Los requisitos de registro son:";
+		mes "- Los hombres deben usar un "+getitemname(7170)+".";
+		mes "- Las mujeres deben usar un "+getitemname(2338)+".";
+		if ($@wed_veil) mes "- Las mujeres tambien deben usar un "+getitemname(2206)+".";
+		if ($@wed_ring) mes "- Ambos deben tener un "+getitemname($@wed_ring)+" cada uno.";
+		if ($@wed_groom_reg > 0) mes "- La tarifa de registro para el novio es "+$@wed_groom_reg+"z.";
+		if ($@wed_bride_reg > 0) mes "- La tarifa de registro para la novia es "+$@wed_bride_reg+"z.";
 	} else {
 		mes "["+@name$+"]";
-		mes "The registration requirements for the groom are:";
-		mes "- To be wearing a "+getitemname(7170)+".";
-		if ($@wed_ring) mes "- To own a "+getitemname($@wed_ring)+".";
-		if ($@wed_groom_reg > 0) mes "- Pay a Registration fee of "+$@wed_groom_reg+"z.";
+		mes "Los requisitos de registro para el novio son:";
+		mes "- Usar un "+getitemname(7170)+".";
+		if ($@wed_ring) mes "- Tener un "+getitemname($@wed_ring)+".";
+		if ($@wed_groom_reg > 0) mes "- Pagar una tarifa de registro de "+$@wed_groom_reg+"z.";
 		next;
 		mes "["+@name$+"]";
-		mes "The registration requirements for the bride are:";
-		mes "- To be wearing a "+getitemname(2338)+".";
-		if ($@wed_veil) mes "- To be wearing a "+getitemname(2206)+".";
-		if ($@wed_ring) mes "- To own a "+getitemname($@wed_ring)+".";
-		if ($@wed_bride_reg > 0) mes "- Pay a Registration fee of "+$@wed_bride_reg+"z.";
+		mes "Los requisitos de registro para la novia son:";
+		mes "- Usar un "+getitemname(2338)+".";
+		if ($@wed_veil) mes "- Usar un "+getitemname(2206)+".";
+		if ($@wed_ring) mes "- Tener un "+getitemname($@wed_ring)+".";
+		if ($@wed_bride_reg > 0) mes "- Pagar una tarifa de registro de "+$@wed_bride_reg+"z.";
 	}
 	next;
 	mes "["+@name$+"]";
-	mes "I shouldn't need to mention this, but adopted kids are too young to get married.";
-	mes "Both groom and bride must register within a minute of each other, or the wedding will be cancelled. So be sure you both are ready and meet the registration requirements beforehand.";
+	mes "No deberia tener que mencionarlo, pero los hijos adoptados son muy jovenes para casarse.";
+	mes "Tanto el novio como la novia deben registrarse dentro de un minuto entre si, o la boda sera cancelada. Asi que asegurense de estar listos y cumplir los requisitos de registro de antemano.";
 	next;
 	mes "["+@name$+"]";
-	mes "After both have registered with me, you have to go pledge your vows to the Priest and accept your registered partner. If for some reason you reject your registered partner, the wedding will be cancelled...";
+	mes "Despues de que ambos se registren conmigo, deben ir a hacer sus votos con el Sacerdote y aceptar a su pareja registrada. Si por alguna razon rechazan a su pareja registrada, la boda sera cancelada...";
 	next;
 	mes "["+@name$+"]";
-	mes "If you both accept each other, then the wedding has been decided and the ceremony will begin.";
+	mes "Si ambos se aceptan mutuamente, la boda ha sido decidida y la ceremonia comenzara.";
 	if ($@wed_ring) {
-		mes "But first, you need to get your rings ready.";
+		mes "Pero primero, necesitan tener sus anillos listos.";
 		next;
 		mes "["+@name$+"]";
-		mes "Talk to the priest once more, and he will exchange your "+getitemname($@wed_ring)+" for a wedding ring. After you both have claimed the rings for exchanging, the ceremony will begin.";
+		mes "Habla con el sacerdote una vez mas, y el intercambiara tu "+getitemname($@wed_ring)+" por un anillo de boda. Despues de que ambos hayan reclamado los anillos para el intercambio, la ceremonia comenzara.";
 	}
 	next;
 	mes "["+@name$+"]";
-	mes "If there are various couples who desire to marry, you should keep in order, for the Priest can only handle one wedding at a time.";
+	mes "Si hay varias parejas que desean casarse, deben mantener el orden, ya que el Sacerdote solo puede manejar una boda a la vez.";
 	next;
 }
 }
@@ -816,107 +816,107 @@ prt_church,94,99,4	script	Sister Lisa	79,{
 
 	function SF_DivorceEnd;
 	function SF_InProgress;
-	
+
 	if ($@divorce_progress==1) {
 		goto SF_InProgress;
 		end;
 	}
-	
+
 	do {
 		mes "["+@name$+"]";
-		mes "Divorcing can be such a sad event...";
+		mes "El divorcio puede ser un evento tan triste...";
 		if (getpartnerid() == 0) {
-			mes "People shouldn't make shallow vows to others, don't you think?";
+			mes "La gente no deberia hacer votos superficiales a otros, no crees?";
 			close;
 		}
-		mes "You wouldn't want to divorce, by any chance?";
+		mes "No querras divorciarte, verdad?";
 		next;
 		set @menu, select(
-			"I am happy as I am, thank you.",
-			"Explain the divorce.",
-			"Explain Requirements.",
-			"I want to divorce."
+			"Estoy feliz como estoy, gracias.",
+			"Explica el divorcio.",
+			"Explica los requisitos.",
+			"Quiero divorciarme."
 		);
 		switch (@menu) {
 		case 1:
 			mes "["+@name$+"]";
-			mes "Good to hear.";
+			mes "Me alegra escucharlo.";
 			close;
 		case 2: //Explanation
 			mes "["+@name$+"]";
-			mes "Even though it is said that once the wedlocks have been made they cannot be undone, sometimes it is necessary to undo our mistakes from the past..";
+			mes "Aunque se dice que una vez hechos los lazos matrimoniales no pueden deshacerse, a veces es necesario deshacer nuestros errores del pasado..";
 			next;
 			mes "["+@name$+"]";
-			mes "It is sad, but true. If you happen to have married the wrong person, it is possible to divorce, rather than spend the rest of your life with the wrong one.";
+			mes "Es triste, pero cierto. Si te casaste con la persona equivocada, es posible divorciarse, en lugar de pasar el resto de tu vida con la persona equivocada.";
 			next;
 			break;
 		case 3: //Requirement
 			mes "["+@name$+"]";
-			mes "In order to file for divorce, I need you both to agree to it.";
-			mes "After you file in for divorce, your spouse has one minute to agree, and then you will both be divorced.";
-			if ($@wed_divorce_fee > 0) mes "The fee is of "+$@wed_divorce_fee+"z and is paid by the person who confirms the divorce, so plan ahead of time how you will divide the costs.";
+			mes "Para solicitar el divorcio, necesito que ambos esten de acuerdo.";
+			mes "Despues de que solicites el divorcio, tu pareja tiene un minuto para aceptar, y luego ambos estaran divorciados.";
+			if ($@wed_divorce_fee > 0) mes "La tarifa es de "+$@wed_divorce_fee+"z y la paga la persona que confirma el divorcio, asi que planeen de antemano como dividiran los costos.";
 			next;
 			break;
 		case 4: //Divorce
 			mes "["+@name$+"]";
-			mes "You should not regret the choices you've made in life.";
-			mes "Are you positively sure about getting divorced?";
+			mes "No deberias arrepentirte de las decisiones que has tomado en la vida.";
+			mes "Estas absolutamente seguro de querer divorciarte?";
 			next;
-			if (select("Wait... I need to think about it.","Absolutely") != 2) {
+			if (select("Espera... necesito pensarlo.","Absolutamente") != 2) {
 				mes "["+@name$+"]";
-				mes "You should think this through.";
+				mes "Deberias pensarlo bien.";
 				close;
-			} 
+			}
 			mes "["+@name$+"]";
 			set $@divorcee,getpartnerid();
 			set $@divorcer$,strcharinfo(0);
 			set $@divorce_progress,1;
 			initnpctimer;
-			mes "Very well, get your partner to confirm, and I will collect the fee for filing the divorce then.";
+			mes "Muy bien, haz que tu pareja confirme, y cobrare la tarifa para tramitar el divorcio entonces.";
 			close;
 		}
 	} while (@menu > 1);
 end;
 
 function SF_InProgress {
-	if (strcharinfo(0) == $@divorcer$) { 
+	if (strcharinfo(0) == $@divorcer$) {
 		mes "["+@name$+"]";
-		mes "...I am still waiting for your partner to confirm the divorce procedure.";
+		mes "...Todavia estoy esperando a que tu pareja confirme el procedimiento de divorcio.";
 		close;
 	}
 	if (getcharid(0) != $@divorcee) {
 		mes "["+@name$+"]";
-		mes "I am in the progress of divorcing "+$@divorcer$+".";
-		mes "Do you know who the spouse is?";
+		mes "Estoy en proceso de divorciar a "+$@divorcer$+".";
+		mes "Sabes quien es el conyugue?";
 		close;
 	}
 	//Confirm...
 	mes "["+@name$+"]";
-	mes $@divorcer$+" has asked to divorce you. If you accept, and have the fee of "+$@wed_divorce_fee+"z at hand, I will proceed to divorce you two.";
-	mes "So, should I proceed with the divorce?";
+	mes $@divorcer$+" ha pedido divorciarse de ti. Si aceptas, y tienes la tarifa de "+$@wed_divorce_fee+"z a mano, procedere a divorciarlos.";
+	mes "Entonces, debo proceder con el divorcio?";
 	next;
-	if (select("I don't want to divorce....","Yes, we have agreed to this.")!=2) {
+	if (select("No quiero divorciarme....","Si, hemos acordado esto.")!=2) {
 		mes "["+@name$+"]";
-		mes "I hope you can work things out.";
+		mes "Espero que puedan resolver las cosas.";
 		emotion ET_GOODBOY;
 		goto SF_DivorceEnd;
 		close;
 	}
 	if (Zeny < $@wed_divorce_fee) {
 		mes "["+@name$+"]";
-		mes "Well, I can't file your divorce because you don't have enough for the fee. Get your partner to lend you some?";
+		mes "Bueno, no puedo tramitar tu divorcio porque no tienes suficiente para la tarifa. Haz que tu pareja te preste algo?";
 		close;
 	}
 	if (!(divorce())) {
 		mes "["+@name$+"]";
-		mes "Where has "+$@divorcer$+" gone to? I can't divorce you unless you both are here...";
+		mes "A donde se fue "+$@divorcer$+"? No puedo divorciarlos a menos que ambos esten aqui...";
 		emotion ET_PROFUSELY_SWEAT;
 		close;
 	}
 	set Zeny,Zeny-$@wed_divorce_fee;
-	announce $@divorcer$+" has just divorced "+strcharinfo(0)+"...", 8;
+	announce $@divorcer$+" se acaba de divorciar de "+strcharinfo(0)+"...", 8;
 	mes "["+@name$+"]";
-	mes "Your divorce has been filed. You are no longer wed.";
+	mes "Tu divorcio ha sido tramitado. Ya no estan casados.";
 	emotion ET_CRY;
 	goto SF_DivorceEnd;
 	close;
@@ -930,7 +930,7 @@ function SF_DivorceEnd {
 }
 
 OnTimer60000:
-	npctalk @name$ +" : Divorce confirmation time's is up. Where did "+$@divorcer$+"'s spouse go...";
+	npctalk @name$ +" : El tiempo de confirmacion del divorcio se acabo. A donde se fue el conyugue de "+$@divorcer$+"...";
 	emotion ET_QUESTION;
 	SF_DivorceEnd();
 	end;

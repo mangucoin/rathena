@@ -11,7 +11,7 @@
 gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	if (BaseLevel < 130) {
 		mes "[Marry Jay]";
-		mes "Your base level is too low, come back when you hit level 130.";
+		mes "Tu nivel base es muy bajo, vuelve cuando alcances el nivel 130.";
 		close;
 	}
 	mes "^ff0000If you do any monster processing, such as monster taming within the dungeon, it won't count towards your progress. Please take note.^000000";
@@ -57,12 +57,12 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	if (is_party_leader() == true)
 		.@menu$ = "Prepare Friday Memorial";
 
-	switch( select( .@menu$, "Enter Friday Memorial", "Cancel" ) ) {
+	switch( select( .@menu$, "Entrar Friday Memorial", "Cancelar" ) ) {
 	case 1:
 		instance_create(.@md_name$);
 		mes "[Marry Jay]";
-		mes "The Memorial Dungeon has been created.";
-		mes "You may now enter.";
+		mes "La Mazmorra Memorial ha sido creada.";
+		mes "Ya puedes entrar.";
 		close;
 	case 2:
 		switch( instance_enter(.@md_name$) ) {
@@ -73,18 +73,18 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 			close;
 		case IE_NOINSTANCE:
 			if (is_party_leader() == true) {
-				mes "There is no Memorial Dungeon registered.";
+				mes "No hay Mazmorra Memorial registrada.";
 				close;
 			}
 			mes "The Friday Memorial Dungeon does not exist.";
 			mes "Your party leader has not yet created the Memorial dungeon.";
 			close;
 		case IE_OTHER:
-			mes "An unknown error occurred.";
+			mes "Ocurrio un error desconocido.";
 			close;
 		case IE_OK:
 			mes "[Marry Jay]";
-			mes "Off you go!";
+			mes "Adelante!";
 			mapannounce "gef_tower", "" + strcharinfo(0) + " of the party, " + getpartyname( getcharid(1) ) + ", is entering the " + .@md_name$ + ".", bc_map, 0xFF99;
 			if (isbegin_quest(12379) < 1)
 				setquest 12379;
@@ -110,7 +110,7 @@ gef_tower,57,170,3	script	Marry Jay	4_F_JOB_BLACKSMITH,{
 	mes "Before we start setting up the environment here, we'll give you the chance to choose an appropriate difficulty level.";
 	mes "I could make my own choice, but each person handles it differently based on their abilities.";
 	next;
-	switch( select( "Cancel", "LV130 ~ 199", "LV200 + " ) ) {
+	switch( select( "Cancelar", "LV130 ~ 199", "LV200 + " ) ) {
 	case 1:
 		close;
 	case 2:
@@ -348,11 +348,11 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 	function F_enchant;
 
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Clear your inventory.";
+		mes "Tienes demasiados tipos de objetos. Limpia tu inventario.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Reduce your total weight by clearing your inventory.";
+		mes "No puedes continuar porque tienes objetos muy pesados. Reduce tu peso total limpiando tu inventario.";
 		close;
 	}
 	mes "[Amateur Collector]";
@@ -579,7 +579,7 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 				mes "Are you sure to enhance the " + mesitemlink(.@equip_id, false) + "?";
 				mes "^0000FFThere is a no chance of failure^000000.";
 				next;
-				if (select( "Yes, please proceed", "Cancel" ) == 2)
+				if (select( "Yes, please proceed", "Cancelar" ) == 2)
 					end;
 			}
 			if (countitem(25235) < 10) {
@@ -617,7 +617,7 @@ gef_tower,57,167,3	script	Amateur Collector#pa0829	1_F_01,{
 			mes "Are you sure you want to enhance the " + mesitemlink(.@equip_id, false) + "?";
 			mes "^0000FFThere is a no chance of failure^000000.";
 			next;
-			if (select( "Yes, please proceed", "Cancel") == 2)
+			if (select( "Yes, please proceed", "Cancelar") == 2)
 				end;
 			if (countitem(25235) < 10) {
 				mes "[Amateur Collector]";

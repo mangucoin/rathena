@@ -71,7 +71,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 
 		switch( instance_enter(.@enter_to$) ) {
 		case IE_OTHER:
-			mes "^ff0000An unknown error occurred.^000000";
+			mes "^ff0000Ocurrio un error desconocido.^000000";
 			close;
 		case IE_NOINSTANCE:
 			mes "^0000ff The dungeon has not been created or you are trying to enter a dungeon different from the party leader.^000000";
@@ -99,7 +99,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 		if (instance_create(.@md_name_normal$) < 0) {
 			mes "Party: " + getpartyname(getcharid(1)) + "";
 			mes "Leader: " + strcharinfo(0) + "";
-			mes "^0000ff" + .@md_name_normal$ + " ^000000- Unknown error";
+			mes "^0000ff" + .@md_name_normal$ + " ^000000- Error desconocido";
 			close;
 		}
 		end;
@@ -117,7 +117,7 @@ wolfvill,79,260,4	script(CLOAKED)	Aira#con	4_M_BRZ_JACI,{
 		if (instance_create(.@md_name_hard$) < 0) {
 			mes "Party: " + getpartyname(getcharid(1)) + "";
 			mes "Leader: " + strcharinfo(0) + "";
-			mes "^0000ff" + .@md_name_hard$ + " ^000000- Unknown error";
+			mes "^0000ff" + .@md_name_hard$ + " ^000000- Error desconocido";
 			close;
 		}
 		delitem 1000471,1;
@@ -869,7 +869,7 @@ OnStop:
 1@advs,108,358,4	script	#b_sw1	4_ENERGY_YELLOW,2,2,{
 	mes "Ddispel the circle ^ff0000requires your health and mana.^000000 During the process, you ^ff0000becomes immobile and defenseless.^000000 Are you sure you want to start dispelling?";
 	next;
-	if (select( "Cancel", "Proceed" ) == 1)
+	if (select( "Cancelar", "Proceed" ) == 1)
 		end;
 	if ('freyja_gid == 0)
 		end;
@@ -951,7 +951,7 @@ OnTouch:	// effect ?
 	}
 	mes "^0000ffI think you can get out now.^000000";
 	next;
-	if (select( "Cancel", "Exit" ) == 1)
+	if (select( "Cancelar", "Exit" ) == 1)
 		end;
 	warp "wolfvill",77,258;
 	end;

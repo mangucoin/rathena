@@ -47,7 +47,7 @@ que_thr,133,53,5	script	Maram#Armybase1	4_EP18_MARAM,{
 		// player is leader of the party
 		.@create$ = "Apply for entry to " + .@md_name$ + "";
 
-	switch( select( .@create$, "Enter " + .@md_name$ + "" ) ) {
+	switch( select( .@create$, "Entrar " + .@md_name$ + "" ) ) {
 	case 1:
 		cutin "ep18_maram_01.png",2;
 		mes "[Maram]";
@@ -55,7 +55,7 @@ que_thr,133,53,5	script	Maram#Armybase1	4_EP18_MARAM,{
 		if (instance_create(.@md_name$) < 0) {
 			mes "Party: " + getpartyname(getcharid(1)) + "";
 			mes "Leader: " + strcharinfo(0) + "";
-			mes "^0000ff" + .@md_name$ + " ^000000- Unknown error";
+			mes "^0000ff" + .@md_name$ + " ^000000- Error desconocido";
 			close3;
 		}
 		close3;
@@ -64,7 +64,7 @@ que_thr,133,53,5	script	Maram#Armybase1	4_EP18_MARAM,{
 		switch( instance_enter(.@md_name$) ) {
 		case IE_OTHER:
 			mes "[Maram]";
-			mes "^ff0000An unknown error occurred.^000000";
+			mes "^ff0000Ocurrio un error desconocido.^000000";
 			close;
 		case IE_NOINSTANCE:
 			cutin "ep18_maram_01.png",2;
@@ -292,7 +292,7 @@ OnInstanceInit:
 		end;
 	mes "[Pile of documents]";
 	mes "All kinds of documents are all mixed up.";
-	mes "The top chapter is... ¡®If you feed a magmaring a potato and then hunt it after a while, should it drop a baked potato?'";
+	mes "The top chapter is... Â¡Â®If you feed a magmaring a potato and then hunt it after a while, should it drop a baked potato?'";
 	next;
 	mes "[Pile of documents]";
 	mes "...Why is this here? But I'm curious about the results!";

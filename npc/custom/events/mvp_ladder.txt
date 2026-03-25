@@ -14,58 +14,58 @@
 
 prontera,164,171,3	script	MvP Ladder Warper	56,{
 	mes "[MvP Ladder Warper]";
-	mes "Say... do you want to play the MvP Ladder game?";
+	mes "Oye... quieres jugar el juego de MvP Ladder?";
 	next;
-	switch(select("Yes, let's get it on!:Information.:Show me the best record.:No.")) {
+	switch(select("Si, vamos!:Informacion.:Muestrame el mejor record.:No.")) {
 	case 1:
 		break;
 	case 2:
 		mes "[MvP Ladder Warper]";
-		mes "In this game, your party has to kill every single MvP monster in ascending order, from the weakest to strongest.";
+		mes "En este juego, tu grupo debe matar cada MvP en orden ascendente, del mas debil al mas fuerte.";
 		if ( .finish_item_amount )
-			mes "If your party can finish the MVP ladder game, each member will earn "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
+			mes "Si tu grupo puede terminar el juego de MvP Ladder, cada miembro ganara "+ callfunc("F_InsertPlural", .finish_item_amount, getitemname( .finish_item_id )) +".";
 		if ( .register_cost )
-			mes "But the entrance fee is "+ callfunc( "F_InsertComma", .register_cost ) +" zeny.";
+			mes "Pero la tarifa de entrada es de "+ callfunc( "F_InsertComma", .register_cost ) +" zeny.";
 		next;
 		mes "[MvP Ladder Warper]";
-		mes "You lose the game if you can't finish in "+ .timeout +" minutes, or if your entire party is killed.";
-		mes "Good luck!";
+		mes "Pierdes el juego si no puedes terminar en "+ .timeout +" minutos, o si todo tu grupo muere.";
+		mes "Buena suerte!";
 		close;
 	case 3:
 		mes "[MvP Ladder Warper]";
 		if ( !$mvpladdderparty_time ) {
-			mes "Nobody has finished this game yet.";
+			mes "Nadie ha terminado este juego aun.";
 			close;
 		}
-		mes "The best record is";
-		mes "[ "+( $mvpladdderparty_time / 60 )+" min "+( $mvpladdderparty_time % 60 )+" sec ]";
-		mes "By the party ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
+		mes "El mejor record es";
+		mes "[ "+( $mvpladdderparty_time / 60 )+" min "+( $mvpladdderparty_time % 60 )+" seg ]";
+		mes "Del grupo ^FF0000"+ $mvpladdderparty_name$ +"^000000.";
 		.@size = getarraysize( $mvpladderparty_member$ );
 		for ( .@i = 0; .@i < .@size; .@i++ )
 			mes "^000000"+ ( .@i +1 ) +". ^0000FF"+ $mvpladderparty_member$[.@i];
 		if ( getgmlevel() < .gmlvlreset ) close;
 		next;
-		if ( select( "Close.", "Reset the record." ) == 1 ) close;
-		if ( select( "Never mind.", "I really want to reset it." ) == 1 ) close;
+		if ( select( "Cerrar.", "Reiniciar el record." ) == 1 ) close;
+		if ( select( "No importa.", "Realmente quiero reiniciarlo." ) == 1 ) close;
 		$mvpladdderparty_time = 0;
 		$mvpladdderparty_name$ = "";
 		deletearray $mvpladderparty_member$[.@i];
 		mes "[MvP Ladder Warper]";
-		mes "Record reset successfully.";
+		mes "Record reiniciado exitosamente.";
 		close;
 	case 4:
 		mes "[MvP Ladder Warper]";
-		mes "When you are strong enough to complete the game, please come back.";
+		mes "Cuando seas lo suficientemente fuerte para completar el juego, vuelve.";
 		close;
 	}
 	if ( !getcharid(1) ) {
 		mes "[MvP Ladder Warper]";
-		mes "You have to form a party to play.";
+		mes "Tienes que formar un grupo para jugar.";
 		close;
 	}
 	if ( is_party_leader() == false ) {
 		mes "[MvP Ladder Warper]";
-		mes "Only the party leader can register.";
+		mes "Solo el lider del grupo puede registrarse.";
 		close;
 	}
 	.@origin = getcharid(3);
@@ -81,17 +81,17 @@ prontera,164,171,3	script	MvP Ladder Warper	56,{
 	attachrid .@origin;
 	if ( $@partymembercount != .register_min ) {
 		mes "[MvP Ladder Warper]";
-		mes "You have to form a party with exactly "+ .register_min +" members to play.";
+		mes "Tienes que formar un grupo con exactamente "+ .register_min +" miembros para jugar.";
 		close;
 	}
 	else if ( .@online != .register_min )  {
 		mes "[MvP Ladder Warper]";
-		mes "Your party must have "+ .register_min +" members online on map '"+ strnpcinfo(4) +"'.";
+		mes "Tu grupo debe tener "+ .register_min +" miembros conectados en el mapa '"+ strnpcinfo(4) +"'.";
 		close;
 	}
 	else if ( .register_cost && Zeny < .register_cost ) {
 		mes "[MvP Ladder Warper]";
-		mes "You don't have enough zeny. Please come back when you do.";
+		mes "No tienes suficiente zeny. Vuelve cuando lo tengas.";
 		close;
 	}
 	else if ( .party_id ) {

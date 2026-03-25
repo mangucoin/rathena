@@ -23,8 +23,8 @@
 brasilis,297,307,5	script	Angelo#br	1_M_04,{
 	if (BaseLevel < 40) {
 		mes "[Angelo]";
-		mes "Pets went out the village~!!";
-		mes "Gosh... what can I do... ?";
+		mes "Las mascotas salieron de la aldea~!!";
+		mes "Cielos... que puedo hacer... ?";
 		close;
 	}
 	if (checkquest(9032,PLAYTIME) == 2) {
@@ -32,21 +32,21 @@ brasilis,297,307,5	script	Angelo#br	1_M_04,{
 	}
 	if (checkquest(9032,PLAYTIME) == 0) {
 		mes "[Angelo]";
-		mes "The day is not finished yet.";
-		mes "You can only help once a day. Hehe.";
+		mes "El dia aun no termina.";
+		mes "Solo puedes ayudar una vez al dia. Jeje.";
 		close;
 	}
 	if (checkquest(9030) == 1) {
 		mes "[Angelo]";
-		mes "My pets are in the field outside of the village.";
-		mes "Why did they leave? Please find them.";
+		mes "Mis mascotas estan en el campo fuera de la aldea.";
+		mes "Por que se fueron? Por favor encuentralos.";
 		close;
 	}
 	if (checkquest(9031) == 1) {
 		mes "[Angelo]";
-		mes "Oh, thank you. You found all of 3 puppies.";
-		mes "Thanks a lot.";
-		mes "I hope this is useful to you. hoho.";
+		mes "Oh, gracias. Encontraste los 3 cachorros.";
+		mes "Muchas gracias.";
+		mes "Espero que esto te sea util. jojo.";
 		if (VIP_SCRIPT && vip_status(VIP_STATUS_ACTIVE))
 			getexp 75000,0;
 		else
@@ -63,13 +63,13 @@ brasilis,297,307,5	script	Angelo#br	1_M_04,{
 		close;
 	}
 	mes "[Angelo]";
-	mes "Are you an adventurer? You came here right on time.";
-	mes "Puppies have been disappearing.";
-	mes "And someone said that they saw them out on the field just outside the village....";
+	mes "Eres un aventurero? Llegaste justo a tiempo.";
+	mes "Los cachorros han estado desapareciendo.";
+	mes "Y alguien dijo que los vio en el campo justo fuera de la aldea....";
 	next;
 	mes "[Angelo]";
-	mes "It's pretty difficult and dangerous to find 'em.";
-	mes "You have to find ^0000FF3 puppies^000000.";
+	mes "Es bastante dificil y peligroso encontrarlos.";
+	mes "Tienes que encontrar ^0000FF3 cachorros^000000.";
 	setquest 9030;
 	close;
 
@@ -90,22 +90,22 @@ OnGo:
 
 -	script	Puppy#bra	-1,{
 	mes "[Puppy]";
-	mes "bow! wow wow!";
+	mes "guau! guau guau!";
 	if (checkquest(9030) == 1) {
 		if (brazil_kid < 3) {
 			next;
 			brazil_kid++;
 			mes "[" + strcharinfo(0) + "]";
 			if (brazil_kid == 3) {
-				mes "Good. I found all 3 puppies.";
-				mes "Now I need to go tell Angelo.";
+				mes "Bien. Encontre los 3 cachorros.";
+				mes "Ahora necesito ir a decirle a Angelo.";
 				brazil_kid = 0;
 				erasequest 9030;
 				setquest 9031;
 			}
 			else {
-				mes "Ah... who's a good puppy?";
-				mes "Ok, where are the others?";
+				mes "Ah... quien es un buen perrito?";
+				mes "Ok, donde estan los otros?";
 			}
 			if (compare(strnpcinfo(2),"1")) setarray .@i[0],2,3;
 			else if (compare(strnpcinfo(2),"2")) setarray .@i[0],1,3;
@@ -157,11 +157,11 @@ brasilis,192,133,6	script	Lucia#brasilis	4_F_BRZ_WOMAN,{
 	--------------------------------------------------- */
 	if (BaseLevel < 40) {
 		mes "[Lucia]";
-		mes "Hello.";
-		mes "I'm worried about ^FF0000Strange Hydra^000000's on";
-		mes "the south beach.";
-		mes "I hope some experienced adventurers";
-		mes "will come to help.";
+		mes "Hola.";
+		mes "Estoy preocupada por las ^FF0000Hydras Extranas^000000 en";
+		mes "la playa del sur.";
+		mes "Espero que vengan aventureros experimentados";
+		mes "a ayudar.";
 		emotion ET_OHNO;
 		close;
 	}
@@ -169,45 +169,45 @@ brasilis,192,133,6	script	Lucia#brasilis	4_F_BRZ_WOMAN,{
 	.@nQState2 = checkquest(9029);
 	if (.@nQState1 == -1) {
 		mes "[Lucia]";
-		mes "Hello.";
-		mes "Have you come here to hunt ^FF0000Strange Hydra^000000s?";
+		mes "Hola.";
+		mes "Has venido a cazar ^FF0000Hydras Extranas^000000?";
 		next;
-		switch(select("Yes.:No.:^006400What is happening here?^000000")) {
+		switch(select("Si.:No.:^006400Que esta pasando aqui?^000000")) {
 		case 1:
 			setquest 9028;
 			getitem 12408,1; //Hydra_Ball
 			mes "[Lucia]";
-			mes "Here, take this ^006400Hydra Ball^000000.";
-			mes "Use it to capture a ^FF0000Strange Hydra^8B4513.^000000";
-			mes "I hope you can do it~!";
+			mes "Toma, lleva esta ^006400Bola de Hydra^000000.";
+			mes "Usala para capturar una ^FF0000Hydra Extrana^8B4513.^000000";
+			mes "Espero que puedas hacerlo~!";
 			close;
 		case 2:
 			mes "[Lucia]";
-			mes "Ah, I misunderstood.";
-			mes "See you then.";
+			mes "Ah, me malinterprete.";
+			mes "Nos vemos entonces.";
 			close;
 		case 3:
 		L_WhatHappen:
 			mes "[Lucia]";
-			mes "One day ^FF0000Strange Hydra^000000s";
-			mes "came here and surrounded the town.";
-			mes "We're not sure what attracted them but some say that it's because of you adventurers.";
+			mes "Un dia las ^FF0000Hydras Extranas^000000";
+			mes "vinieron aqui y rodearon el pueblo.";
+			mes "No estamos seguros de que las atrajo pero algunos dicen que es por culpa de ustedes los aventureros.";
 			next;
 			mes "[Lucia]";
-			mes "In any case, to contain the ^FF0000Strange Hydra^000000s,";
-			mes "you have to use this specially designed tool a.k.a. a ^8B4513Hydra Ball^000000";
+			mes "En cualquier caso, para contener a las ^FF0000Hydras Extranas^000000,";
+			mes "tienes que usar esta herramienta especialmente disenada conocida como ^8B4513Bola de Hydra^000000";
 			next;
 			mes "[Lucia]";
-			mes "If you still have the ^006400Hydra Ball^000000,";
-			mes "please use it on the ^FF0000Strange Hydra^000000s that";
-			mes "you can find at the beach.";
-			mes "If you are lucky, the tool will work perfectly.";
+			mes "Si aun tienes la ^006400Bola de Hydra^000000,";
+			mes "por favor usala en las ^FF0000Hydras Extranas^000000 que";
+			mes "puedes encontrar en la playa.";
+			mes "Si tienes suerte, la herramienta funcionara perfectamente.";
 			next;
 			mes "[Lucia]";
-			mes "I hope many adventurers";
-			mes "volunteer for this job.";
+			mes "Espero que muchos aventureros";
+			mes "se ofrezcan como voluntarios para este trabajo.";
 			mes " ";
-			mes "I really hate Hydra!";
+			mes "Realmente odio a las Hydras!";
 			emotion ET_CRY;
 			close;
 		}
@@ -215,12 +215,12 @@ brasilis,192,133,6	script	Lucia#brasilis	4_F_BRZ_WOMAN,{
 	else if ((.@nQState1 == 0) || (.@nQState1 == 1)) {
 		if (countitem(6221) > 0) {
 			mes "[Lucia]";
-			mes "Hello, you really did it!";
+			mes "Hola, realmente lo lograste!";
 			if (checkweight(11502,3)) {
-				//mes "I don't have enough ^006400Hydra Ball^000000s to give you."; //Poorly translated by iRO?
-				mes "I hope you will come";
-				mes "again to help me.";
-				mes "Have a nice day~!";
+				//mes "No tengo suficientes ^006400Bolas de Hydra^000000 para darte."; //Poorly translated by iRO?
+				mes "Espero que vuelvas";
+				mes "a ayudarme.";
+				mes "Que tengas buen dia~!";
 				delitem 6221,1; //Mystic_Leaf_Cat_Ball
 				completequest 9028;
 				//recall_completequest 9029;
@@ -239,27 +239,27 @@ brasilis,192,133,6	script	Lucia#brasilis	4_F_BRZ_WOMAN,{
 			}
 			else {
 				mes " ";
-				mes "I'd like to reward you,";
-				mes "however your bags are full.";
-				mes "Please make room and come back!";
+				mes "Me gustaria recompensarte,";
+				mes "sin embargo tus bolsas estan llenas.";
+				mes "Por favor haz espacio y regresa!";
 				close;
 			}
 		}
 		else {
 			mes "[Lucia]";
 			if (countitem(12408) < 1) {
-				mes "Did you need another ^006400Hydra Ball^000000?";
-				mes "I will give you one more.";
+				mes "Necesitas otra ^006400Bola de Hydra^000000?";
+				mes "Te dare una mas.";
 				getitem 12408,1; //Leaf_Cat_Ball
 				close;
 			}
 			else {
-				mes "Any problems?";
+				mes "Algun problema?";
 				next;
-				switch(select("No.:^006400Tell me again what happened^000000")) {
+				switch(select("No.:^006400Cuentame de nuevo que paso^000000")) {
 				case 1:
 					mes "[Lucia]";
-					mes "Ok, please do me a favor.";
+					mes "Ok, por favor hazme el favor.";
 					close;
 				case 2:
 					goto L_WhatHappen;
@@ -269,33 +269,33 @@ brasilis,192,133,6	script	Lucia#brasilis	4_F_BRZ_WOMAN,{
 	}
 	else {
 		mes "[Lucia]";
-		mes "Oh, ^0000FF"+strcharinfo(0)+"^000000 you're back.";
+		mes "Oh, ^0000FF"+strcharinfo(0)+"^000000 regresaste.";
 		.@nCheckTime = checkquest(9029,PLAYTIME);
 		if ((.@nCheckTime == 0) || (.@nCheckTime == 1)) {
-			mes "I'm so grateful for your help.";
-			mes "Each ^006400Hydra Ball^000000 is provided ^006400every 24 hours^000000";
-			mes "Please come at the appropriate time.";
+			mes "Estoy muy agradecida por tu ayuda.";
+			mes "Cada ^006400Bola de Hydra^000000 se proporciona ^006400cada 24 horas^000000";
+			mes "Por favor ven a la hora apropiada.";
 			close;
 		}
 		else {
 			//recall_completequest 9028;
 			if (.@nQState1 > -1) erasequest 9028;
 			completequest 9029;
-			mes "Did you come here to hunt ^FF0000Strange Hydra^000000s?";
+			mes "Has venido a cazar ^FF0000Hydras Extranas^000000?";
 			next;
-			switch(select("Yes.:No.:^006400What is happening here?^000000")) {
+			switch(select("Si.:No.:^006400Que esta pasando aqui?^000000")) {
 			case 1:
 				setquest 9028;
 				getitem 12408,1; //Leaf_Cat_Ball
 				mes "[Lucia]";
-				mes "Here, take this ^006400Hydra Ball^000000.";
-				mes "Use it to capture a ^FF0000Strange Hydra^8B4513.^000000";
-				mes "I hope you can do it~!";
+				mes "Toma, lleva esta ^006400Bola de Hydra^000000.";
+				mes "Usala para capturar una ^FF0000Hydra Extrana^8B4513.^000000";
+				mes "Espero que puedas hacerlo~!";
 				close;
 			case 2:
 				mes "[Lucia]";
-				mes "Ah, I misunderstood.";
-				mes "See you then.";
+				mes "Ah, me malinterprete.";
+				mes "Nos vemos entonces.";
 				close;
 			case 3:
 				goto L_WhatHappen;
@@ -319,95 +319,95 @@ OnTimer7000:
 //============================================================
 brasilis,187,162,5	script	Candy Maker	4_M_BRZ_MAN1,{
 	if (!checkweight(1201,1)) {
-		mes "- You can't start the quest. Please reduce the weight in your inventory. -";
+		mes "- No puedes iniciar la mision. Por favor reduce el peso de tu inventario. -";
 		close;
 	}
 	if (brazil_gua == 0) {
 		mes "[Candy Maker]";
-		mes "Yo, do you know a berry called ^FF0000Guarana^000000?";
+		mes "Oye, conoces una fruta llamada ^FF0000Guarana^000000?";
 		next;
 		mes "[Candy Maker]";
-		mes "Guarana is a really special berry raised in a specific area, it relieves physical fatigue, and gives power to the body. It even detoxes waste from the body.";
+		mes "El guarana es una fruta realmente especial que crece en un area especifica, alivia la fatiga fisica, y da energia al cuerpo. Incluso desintoxica el cuerpo.";
 		next;
 		mes "[Candy Maker]";
-		mes "I used to sell the candy made of it back in the day.";
-		mes "I got a prize sometimes every year in the <annual best product contest>. Those were the good 'ol days.";
+		mes "Yo solia vender dulces hechos de ella en el pasado.";
+		mes "A veces ganaba un premio cada ano en el <concurso anual del mejor producto>. Esos eran los buenos tiempos.";
 		next;
 		mes "[Candy Maker]";
-		mes "Since then, the output of that fruit has reduced and the price has gone up so now candy ingredients were changed to coconuts or other tropical fruits instead. I miss the guarana candy.";
+		mes "Desde entonces, la produccion de esa fruta se redujo y el precio subio asi que ahora los ingredientes de los dulces fueron cambiados por cocos u otras frutas tropicales. Extrano el dulce de guarana.";
 		next;
-		switch(select("How can I taste this guarana candy?:End conversation.")) {
+		switch(select("Como puedo probar este dulce de guarana?:Terminar conversacion.")) {
 		case 1:
 			mes "[Candy Maker]";
-			mes "Hmm? I already sold out of all my old supply.";
+			mes "Hmm? Ya se me agoto todo mi viejo inventario.";
 			next;
 			mes "[Candy Maker]";
-			mes "But if you can find some guarana, I can make it for you.";
+			mes "Pero si puedes encontrar algo de guarana, puedo hacerlo para ti.";
 			next;
-			switch(select("How do I find guarana?:End conversation.")) {
+			switch(select("Como encuentro guarana?:Terminar conversacion.")) {
 			case 1:
 				mes "[Candy Maker]";
-				mes "Will you find the guarana?? Hoooooh~";
+				mes "Vas a buscar el guarana?? Ooooh~";
 				next;
 				mes "[Candy Maker]";
-				mes "Can you find it?";
-				mes "It's probably very expensive.";
-				mes "Trading isn't my thing. Let me think.";
+				mes "Puedes encontrarlo?";
+				mes "Probablemente es muy caro.";
+				mes "El comercio no es lo mio. Dejame pensar.";
 				next;
 				mes "[Candy Maker]";
-				mes "Let me introduce you to someone with whom I used to do guarana business with.";
-				mes "He might still be dealing it.";
+				mes "Dejame presentarte a alguien con quien solia hacer negocios de guarana.";
+				mes "Quizas aun lo este vendiendo.";
 				next;
 				mes "[Candy Maker]";
-				mes "His name is Cherto.";
-				mes "If you can't find him in the city, go to museum.";
-				mes "He's a vain person so he likes to act big.";
-				mes "He's probably wandering in the museum trying to show off to someone for sure.";
+				mes "Su nombre es Cherto.";
+				mes "Si no lo encuentras en la ciudad, ve al museo.";
+				mes "Es una persona vanidosa asi que le gusta darselas de importante.";
+				mes "Seguro esta vagando por el museo tratando de impresionar a alguien.";
 				brazil_gua = 1;
 				setquest 2192;
 				close;
 			case 2:
 				mes "[Candy Maker]";
-				mes "Don't you want to try the guarana candy?";
+				mes "No quieres probar el dulce de guarana?";
 				close;
 			}
 		case 2:
 			mes "[Candy Maker]";
-			mes "Those were the good 'ole days...";
+			mes "Esos eran los buenos tiempos...";
 			close;
 		}
 	}
 	else if (brazil_gua == 1) {
 		mes "[Candy Maker]";
-		mes "If you want to get the guarana, find Cherto.";
-		mes "Maybe he will be in the museum.";
+		mes "Si quieres conseguir el guarana, encuentra a Cherto.";
+		mes "Quizas este en el museo.";
 		close;
 	}
 	else if (brazil_gua == 10) {
 		if (!countitem(6237)) {
-			mes "- The guarana that I had has disappeared. -";
+			mes "- El guarana que tenia ha desaparecido. -";
 			close;
 		}
 		delitem 6237,1; //Guarana_Fruit
 		mes "[Candy Maker]";
-		mes "Did you get the guarana?";
+		mes "Conseguiste el guarana?";
 		next;
-		mes "- You give the guarana to him. -";
-		next;
-		mes "[Candy Maker]";
-		mes "Wow! You have special talent.";
-		mes "It's the best thing I have ever seen so far. Cool~!";
+		mes "- Le das el guarana. -";
 		next;
 		mes "[Candy Maker]";
-		mes "Good, let's make the candy~!";
-		mes "Long time no see my wonderful guarana candy...";
-		next;
-		mes "- hash hash hash hash hash hash -";
-		mes "- hash hash hash hash hash hash -";
+		mes "Wow! Tienes un talento especial.";
+		mes "Es lo mejor que he visto hasta ahora. Genial~!";
 		next;
 		mes "[Candy Maker]";
-		mes "Look! It's the popular guarana candy.";
-		mes "Try to savor its amazing taste hey~ take it easy. hahaha!!";
+		mes "Bien, hagamos el dulce~!";
+		mes "Cuanto tiempo sin verte mi maravilloso dulce de guarana...";
+		next;
+		mes "- machaca machaca machaca machaca machaca machaca -";
+		mes "- machaca machaca machaca machaca machaca machaca -";
+		next;
+		mes "[Candy Maker]";
+		mes "Mira! Es el popular dulce de guarana.";
+		mes "Intenta saborear su increible sabor oye~ con calma. jajaja!!";
 		brazil_gua = 11;
 		completequest 2200;
 		getitem 12414,1; //Guarana_Candy
@@ -421,41 +421,41 @@ brasilis,187,162,5	script	Candy Maker	4_M_BRZ_MAN1,{
 	}
 	else if (brazil_gua == 11) {
 		mes "[Candy Maker]";
-		mes "Guarana candy. That was the most unique masterpiece in my life for sure!";
+		mes "El dulce de guarana. Esa fue la obra maestra mas unica de mi vida sin duda!";
 		next;
 		mes "[Candy Maker]";
-		mes "Since you helped me, guarana supply has been steadily rising.";
-		mes "So, naturally I'm back to making guarana candy.";
+		mes "Desde que me ayudaste, el suministro de guarana ha ido aumentando constantemente.";
+		mes "Asi que, naturalmente he vuelto a hacer dulces de guarana.";
 		next;
 		mes "[Candy Maker]";
-		mes "What about it? Wanna buy some?";
-		mes "It's 4000 zeny each.";
+		mes "Que te parece? Quieres comprar algunos?";
+		mes "Son 4000 zeny cada uno.";
 		next;
-		switch(select("Buy a Guarana Candy.:Cancel.")) {
+		switch(select("Comprar un Dulce de Guarana.:Cancelar.")) {
 		case 1:
 			if (Zeny > 3999) {
 				mes "[Candy Maker]";
-				mes "Here is a delicious guarana candy.";
+				mes "Aqui tienes un delicioso dulce de guarana.";
 				Zeny = Zeny-4000;
 				getitem 12414,1; //Guarana_Candy
 				close;
 			}
 			else {
 				mes "[Candy Maker]";
-				mes "What? You should say before if you don't have money!";
-				mes "Even if you are poor, I can't give this away for free.";
+				mes "Que? Deberias decir antes si no tienes dinero!";
+				mes "Aunque estes pobre, no puedo regalarlo.";
 				close;
 			}
 		case 2:
 			mes "[Candy Maker]";
-			mes "Sometimes some people don't like it due to it's arousal effect.";
+			mes "A veces a algunas personas no les gusta por su efecto estimulante.";
 			close;
 		}
 		close;
 	}
 	else {
 		mes "[Candy Maker]";
-		mes "Guarana candy. That was the most unique masterpiece in my life for sure!";
+		mes "El dulce de guarana. Esa fue la obra maestra mas unica de mi vida sin duda!";
 		close;
 	}
 }
@@ -463,142 +463,142 @@ brasilis,187,162,5	script	Candy Maker	4_M_BRZ_MAN1,{
 bra_in01,95,179,3	script	Cherto	4_M_BRZ_MAN2,{
 	if (brazil_gua <= 1) {
 		mes "[Cherto]";
-		mes "Hmm... hey man, you are from outside, aren't you?";
+		mes "Hmm... oye amigo, eres de afuera, verdad?";
 		next;
 		mes "[Cherto]";
-		mes "Cherto can figure it out even if it's the first time. You can't trick Cherto.";
-		mes "Cherto has sharp eyes like an eagle! Hahaha!";
+		mes "Cherto puede adivinarlo aunque sea la primera vez. No puedes enganar a Cherto.";
+		mes "Cherto tiene ojos afilados como un aguila! Jajaja!";
 		next;
 		mes "[Cherto]";
-		mes "Ok, ok. Yes, yes. I see!";
+		mes "Ok, ok. Si, si. Ya veo!";
 		next;
 		mes "[Cherto]";
-		mes "Anyway, you arrived in Brasilis but don't know what to do?";
-		mes "Am I right?";
-		mes "You don't know how fortunate you are to have found a really proper helper as myself.";
+		mes "En fin, llegaste a Brasilis pero no sabes que hacer?";
+		mes "Tengo razon?";
+		mes "No sabes lo afortunado que eres de haber encontrado a un ayudante tan adecuado como yo.";
 		next;
 		mes "[Cherto]";
-		mes "Cherto takes it by your expression that you want to say, ''You are a master!'' Right?";
-		mes "Cherto, I can read and figure out all at once! That is written in your face!";
+		mes "Cherto lo adivina por tu expresion que quieres decir, ''Eres un maestro!'' Verdad?";
+		mes "Cherto puede leer y descifrar todo de una vez! Esta escrito en tu cara!";
 		next;
 		if (brazil_gua == 0) {
 			mes "[Cherto]";
-			mes "Cherto would love to stay here and explain everything to you but he is a busy man.";
+			mes "A Cherto le encantaria quedarse aqui y explicarte todo pero es un hombre ocupado.";
 			close;
 		}
 		else {// brazil_gua == 1
 			mes "[Cherto]";
-			mes "If you have a curious thing to ask to Cherto. Cherto will be kind enough to answer.";
+			mes "Si tienes algo curioso que preguntarle a Cherto. Cherto sera lo suficientemente amable para responder.";
 			next;
 			select("Guarana?");
 			mes "[Cherto]";
-			mes "What? Do you want to find a guarana?";
+			mes "Que? Quieres encontrar un guarana?";
 			next;
 			mes "[Cherto]";
-			mes "Guarana is only raised in this area, it has a soft inside and is coverd with a light fur.";
-			mes "It seems a little bit weird but the flower is really big and smells beautiful.";
+			mes "El guarana solo crece en esta area, tiene un interior suave y esta cubierto con una pelusa ligera.";
+			mes "Parece un poco raro pero la flor es realmente grande y huele hermoso.";
 			next;
 			mes "[Cherto]";
-			mes "A long time ago, guarana was used to relieve desease and thirst. But recently it's getting popular to revitalize body power and increase blood circulation.";
+			mes "Hace mucho tiempo, el guarana se usaba para aliviar enfermedades y la sed. Pero recientemente se ha vuelto popular para revitalizar la energia del cuerpo y aumentar la circulacion sanguinea.";
 			next;
 			mes "[Cherto]";
-			mes "Although it has such great effects, Cherto is sorry to inform you that we can't get it anymore.";
+			mes "Aunque tiene tan grandes efectos, Cherto lamenta informarte que ya no podemos conseguirlo.";
 			next;
-			select("Whaaaat??");
+			select("Queeee??");
 			mes "[Cherto]";
-			mes "For a while now, guarana berries haven't been growing here.";
-			next;
-			mes "[Cherto]";
-			mes "Even if Cherto managed to find one, it will rot quickly.";
+			mes "Desde hace un tiempo, las frutas de guarana han dejado de crecer aqui.";
 			next;
 			mes "[Cherto]";
-			mes "If only it didn't happen!";
-			next;
-			select("What are you talking about?");
-			mes "[Cherto]";
-			mes "Quiet!!!!!!!!!!!!!!!!";
-			mes "This story has been forbidden! Someone might be listening to our conversation...";
+			mes "Incluso si Cherto lograra encontrar una, se pudriria rapidamente.";
 			next;
 			mes "[Cherto]";
-			mes "If Cherto tells you, you might get us into trouble. But you look like you really wanna know so let me give you a tip.";
-			mes "Come closer. Cherto will whisper so nobody can listen in.";
+			mes "Si tan solo no hubiera pasado!";
+			next;
+			select("De que estas hablando?");
+			mes "[Cherto]";
+			mes "Silencio!!!!!!!!!!!!!!!!";
+			mes "Esta historia ha sido prohibida! Alguien podria estar escuchando nuestra conversacion...";
+			next;
+			mes "[Cherto]";
+			mes "Si Cherto te cuenta, podrias meternos en problemas. Pero pareces que realmente quieres saber asi que dejame darte una pista.";
+			mes "Acercate. Cherto susurrara para que nadie pueda escuchar.";
 			brazil_gua = 2;
 			close;
 		}
 	}
 	else if (brazil_gua == 2) {
 		mes "[Cherto]";
-		mes "A Guarana boy was born.";
+		mes "Un nino del Guarana nacio.";
 		next;
-		select("Guarana kid?");
+		select("Nino del guarana?");
 		mes "[Cherto]";
-		mes "There was woman who was an expert botanist.";
-		mes "The woman was really popular to all living creatures.";
-		next;
-		mes "[Cherto]";
-		mes "At around the time her baby was born, she started a guarana farm. For some reason, her brothers were jealous so they destroyed the farm and disappeared.";
-		mes "That kind of story...";
+		mes "Habia una mujer que era una experta botanica.";
+		mes "La mujer era muy querida por todas las criaturas vivientes.";
 		next;
 		mes "[Cherto]";
-		mes "We can't be sure that baby was born in the world but since that time, all guarana in Brasilis disappeared.";
+		mes "Alrededor del tiempo en que su bebe nacio, ella comenzo una granja de guarana. Por alguna razon, sus hermanos estaban celosos asi que destruyeron la granja y desaparecieron.";
+		mes "Ese tipo de historia...";
 		next;
 		mes "[Cherto]";
-		mes "Who is the guarana kid?";
-		mes "Pedro who is famous as a greedy man?";
-		mes "Meto who can't endure about all the fruits?";
-		mes "Hovenue who is gloomy?";
-		mes "They might know~!";
+		mes "No podemos estar seguros de que el bebe nacio en el mundo pero desde ese momento, todo el guarana en Brasilis desaparecio.";
 		next;
 		mes "[Cherto]";
-		mes "What about you?";
-		mes "Who is the guarana kid?";
-		mes "Will you figure out it? hohohhhhh~";
+		mes "Quien es el nino del guarana?";
+		mes "Pedro que es famoso por ser codicioso?";
+		mes "Meto que no puede resistirse a las frutas?";
+		mes "Hovenue que es melancolico?";
+		mes "Ellos podrian saber~!";
+		next;
+		mes "[Cherto]";
+		mes "Y tu que?";
+		mes "Quien es el nino del guarana?";
+		mes "Lo descubriras? jojoooo~";
 		brazil_gua = 3;
 		changequest 2192,2193;
 		close;
 	}
 	else if (brazil_gua == 3) {
 		mes "[Cherto]";
-		mes "Can you find the guarana kid?";
-		mes "Maybe yes? Maybe no?";
+		mes "Puedes encontrar al nino del guarana?";
+		mes "Quizas si? Quizas no?";
 		close;
 	}
 	else if (brazil_gua == 4) {
 		mes "[Cherto]";
-		mes "Did you find guarana kid?";
+		mes "Encontraste al nino del guarana?";
 		next;
-		mes "- I tell Cherto about the kid making animal-like sounds. -";
-		next;
-		mes "[Cherto]";
-		mes "Hoooh. That's unbelievable.";
-		mes "That kid might be a guarana kid. Sure...";
-		mes "According to the story the kid can have conversations with animals.";
+		mes "- Le cuento a Cherto sobre el nino que hace sonidos de animal. -";
 		next;
 		mes "[Cherto]";
-		mes "If he can make crying sounds of animals, they might be able to converse!";
+		mes "Ooooh. Eso es increible.";
+		mes "Ese nino podria ser el nino del guarana. Claro...";
+		mes "Segun la historia el nino puede conversar con animales.";
+		next;
+		mes "[Cherto]";
+		mes "Si puede hacer sonidos de llanto de animales, quizas puedan conversar!";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Now, what can I do?";
-		mes "If he is the kid from the legend, is there any way to raise the guarana again?";
+		mes "Ahora, que puedo hacer?";
+		mes "Si el es el nino de la leyenda, hay alguna forma de volver a cultivar el guarana?";
 		next;
 		mes "[Cherto]";
-		mes "Haha!! What'd Cherto say?";
-		mes "Cherto knows all~!!";
-		mes "Cherto's already thought";
-		mes "of the next step.";
+		mes "Jaja!! Que dijo Cherto?";
+		mes "Cherto lo sabe todo~!!";
+		mes "Cherto ya ha pensado";
+		mes "en el siguiente paso.";
 		next;
 		mes "[Cherto]";
-		mes "In Brasilis there is an expert Mage.";
-		mes "His name is Paje.";
-		mes "Take this note over to him.";
-		mes "He will show the solution for you and the kid.";
+		mes "En Brasilis hay un mago experto.";
+		mes "Su nombre es Paje.";
+		mes "Lleva esta nota a el.";
+		mes "El te mostrara la solucion para ti y el nino.";
 		brazil_gua = 5;
 		changequest 2194,2195;
 		close;
 	}
 	else {
 		mes "[Cherto]";
-		mes "hoho tickle~tickle~~~~!!!";
+		mes "jojo cosquillas~cosquillas~~~~!!!";
 		close;
 	}
 }
@@ -613,15 +613,15 @@ brasilis,203,64,3	script	Strange Kid#bra	4_M_KID1,{
 		mes "[Strange Kid]";
 		mes "................";
 		next;
-		if(select("Try to talk.:Pretend to pass by.") == 2) {
+		if(select("Intentar hablar.:Fingir pasar de largo.") == 2) {
 			mes "[Strange Kid]";
 			mes "................";
 			close;
 		}
-		mes "What can I say to him?";
+		mes "Que le puedo decir?";
 		next;
 		while(1) {
-			switch(select("What's your name?:How old are you?:What are you doing?:End conversation.")) {
+			switch(select("Como te llamas?:Cuantos anos tienes?:Que estas haciendo?:Terminar conversacion.")) {
 			case 1:
 				mes "[Strange Kid]";
 				mes "Kaaaaaaao~";
@@ -646,8 +646,8 @@ brasilis,203,64,3	script	Strange Kid#bra	4_M_KID1,{
 				mes "Grrrrrrrrr - kaaan-";
 				next;
 				mes "["+strcharinfo(0)+"]";
-				mes "He makes strange sound like an animals.";
-				mes "Should I ask advice from Cherto?";
+				mes "Hace sonidos extranos como de animales.";
+				mes "Deberia pedir consejo a Cherto?";
 				brazil_gua = 4;
 				changequest 2193,2194;
 				close;
@@ -656,8 +656,8 @@ brasilis,203,64,3	script	Strange Kid#bra	4_M_KID1,{
 	}
 	else if (brazil_gua == 4) {
 		mes "["+strcharinfo(0)+"]";
-		mes "He makes strange sounds like an animal.";
-		mes "Should I ask advice from Cherto?";
+		mes "Hace sonidos extranos como de animales.";
+		mes "Deberia pedir consejo a Cherto?";
 		close;
 	}
 	else if ((brazil_gua > 4) && (brazil_gua < 9)) {
@@ -667,77 +667,77 @@ brasilis,203,64,3	script	Strange Kid#bra	4_M_KID1,{
 	}
 	else if (brazil_gua == 9) {
 		mes "[Strange Kid]";
-		mes "ah... ahah.....";
+		mes "ah... ajaj.....";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "I don't have a story but there are lots of friends waiting outside.";
+		mes "No tengo una historia pero hay muchos amigos esperando afuera.";
 		next;
-		mes "- You give the feather, fresh meat and branch of grapes to the kid -";
+		mes "- Le das la pluma, la carne fresca y el racimo de uvas al nino -";
 		next;
 		mes "[Strange Kid]";
 		mes "Ah.............";
 		next;
 		mes "[Strange Kid]";
 		mes "Un, uhh....";
-		mes "mooo... mommy.....";
+		mes "maaa... mami.....";
 		next;
 		mes "[Strange Kid]";
 		mes "Ah..........";
-		mes "bird....";
-		mes "mon, mon, mon...key......";
-		mes "boo, booow...........";
+		mes "paja....ro....";
+		mes "mo, mo, mo...no......";
+		mes "gua, guauu...........";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Dog?!";
-		mes "kkk yes. Lots of friends want to meet you.";
-		mes "Don't be lonely anymore and be happy with your friends.";
+		mes "Perro?!";
+		mes "jjj si. Muchos amigos quieren conocerte.";
+		mes "No estes solo nunca mas y se feliz con tus amigos.";
 		next;
 		mes "[Strange Kid]";
-		mes "ah....he...hehe....";
+		mes "ah....je...jeje....";
 		next;
-		mes "- He starts to smile lightly and laughs. -";
+		mes "- Empieza a sonreir levemente y se rie. -";
 		next;
 		mes "[Strange Kid]";
-		mes "Ye......yes.......";
-		mes "tha... than......thank......yo.........you.";
+		mes "Si......si.......";
+		mes "gra... graci......gracias......po.........por ti.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Alright such a cute smile!";
-		mes "Be a happy kid as always.";
+		mes "Muy bien, que linda sonrisa!";
+		mes "Se un nino feliz siempre.";
 		next;
 		mes "[Strange Kid]";
 		mes "Uh......";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "what?";
+		mes "que?";
 		next;
 		mes "[Strange Kid]";
-		mes "hey..........";
+		mes "oye..........";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Do you want to say anything?";
+		mes "Quieres decir algo?";
 		next;
-		mes "- You get closer and pretend to take caution. -";
+		mes "- Te acercas y finges tener precaucion. -";
 		next;
 		emotion ET_CHUP;
-		mes "(kiss~)";
+		mes "(beso~)";
 		next;
-		mes "- The kid laughs again lightly then puts something in your hand. -";
+		mes "- El nino se rie levemente otra vez y pone algo en tu mano. -";
 		next;
-		mes "- It's a fresh berry that's colored red and hard. -";
+		mes "- Es una fruta fresca de color rojo y dura. -";
 		next;
 		mes "[Strange Kid]";
-		mes "ga...ra..........na...";
+		mes "gua...ra..........na...";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Oops, guarana berry?";
-		mes "Ah! Thank you very much!";
+		mes "Oye, fruta de guarana?";
+		mes "Ah! Muchas gracias!";
 		emotion ET_CHUPCHUP, playerattached();
 		emotion ET_SMILE;
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "If I have this, I can make a guarana candy.";
-		mes "I better find that Candy Maker!";
+		mes "Si tengo esto, puedo hacer un dulce de guarana.";
+		mes "Mejor busco a ese Candy Maker!";
 		brazil_gua = 10;
 		changequest 2199,2200;
 		getitem 6237,1; //Guarana_Fruit
@@ -746,13 +746,13 @@ brasilis,203,64,3	script	Strange Kid#bra	4_M_KID1,{
 	else if (brazil_gua == 10) {
 		if (!countitem(6237)) {
 			mes "[Strange Kid]";
-			mes "He.........";
+			mes "Je.........";
 			getitem 6237,1; //Guarana_Fruit
 			close;
 		}
 	}
 	else {
-		mes "- The kid is smiling. -";
+		mes "- El nino esta sonriendo. -";
 		close;
 	}
 }
@@ -766,38 +766,38 @@ brasilis,56,224,7	script	Mage Paje#bra	4_M_BIBI,{
 	if (brazil_gua != 5) close;
 	next;
 	mes "[Mage Paje]";
-	mes "Ohoooh~!";
-	mes "I have a guest.";
-	mes "Good to see you.";
-	mes "I am the Mage Paje.";
+	mes "Ojooo~!";
+	mes "Tengo un invitado.";
+	mes "Gusto en verte.";
+	mes "Soy el Mago Paje.";
 	next;
 	mes "["+strcharinfo(0)+"]";
-	mes "Hello. Mr. Cherto told me to find you.";
+	mes "Hola. El Sr. Cherto me dijo que te buscara.";
 	next;
 	mes "[Mage Paje]";
-	mes "Um.. Mr. Cherto? What's happened?";
-	mes "Have you come here to ask about lots of weird rumors?";
+	mes "Um.. Sr. Cherto? Que paso?";
+	mes "Has venido a preguntar sobre muchos rumores extranos?";
 	next;
-	mes "- You give the note to Paje-";
-	next;
-	mes "[Mage Paje]";
-	mes "Ohoooh~";
-	mes "Hmm gosh.. that's what happened.";
+	mes "- Le das la nota a Paje -";
 	next;
 	mes "[Mage Paje]";
-	mes "I can't help you directly.";
-	mes "But I will give you simple magic so you can figure it out by yourself.";
-	next;
-	select("What kind of magic?");
-	mes "[Mage Paje]";
-	mes "It's a magic that will make you appear as an animal to other animals. Pretty cool huh?";
+	mes "Ojooo~";
+	mes "Hmm vaya.. eso fue lo que paso.";
 	next;
 	mes "[Mage Paje]";
-	mes "Ok~ I will give you the magic.";
-	mes "Most animals are really sensitive so they might be aware of it. Find a Toucan in the field that's oblivious to the spell. You'll know when you talk to it.";
+	mes "No puedo ayudarte directamente.";
+	mes "Pero te dare una magia simple para que puedas resolverlo tu mismo.";
+	next;
+	select("Que tipo de magia?");
+	mes "[Mage Paje]";
+	mes "Es una magia que hara que parezcas un animal para otros animales. Genial, no?";
 	next;
 	mes "[Mage Paje]";
-	mes "Good luck~!";
+	mes "Ok~ Te dare la magia.";
+	mes "La mayoria de los animales son muy sensibles asi que podrian darse cuenta. Encuentra un Tucan en el campo que no note el hechizo. Lo sabras cuando le hables.";
+	next;
+	mes "[Mage Paje]";
+	mes "Buena suerte~!";
 	brazil_gua = 6;
 	changequest 2195,2196;
 	specialeffect2 EF_ASSUMPTIO;
@@ -811,46 +811,46 @@ OnTouch:
 	if (brazil_gua == 6) {
 		mes "[Toucan]";
 		mes "Baaeecc!";
-		mes "I've never seen you before.";
+		mes "Nunca te habia visto.";
 		mes "Baaeec!";
 		next;
 		mes "[Toucan]";
-		mes "It's the middle of the new and old continent... I know I've never seen you before but you seem familiar, like a woman dancing a samba. ";
+		mes "Es el medio del continente nuevo y viejo... Se que nunca te habia visto pero me pareces familiar, como una mujer bailando samba. ";
 		next;
-		select("What are you talking about?");
+		select("De que estas hablando?");
 		mes "[Toucan]";
-		mes "I can feel some similar power like guarana kid. bbaaaeeeccc!";
-		next;
-		mes "[Toucan]";
-		mes "That kid has had a really lonely time, baaecc! Perhaps you are a friend of him? Baaeec!!";
-		next;
-		select("Not yet... but I want to be a friend.");
-		mes "[Toucan]";
-		mes "The kid who received care from guarana woman is also a friend of animals. Bbaaeecc!";
+		mes "Puedo sentir un poder similar al nino del guarana. bbaaaeeeccc!";
 		next;
 		mes "[Toucan]";
-		mes "I'd like to give the symbol of a toucan representative for the kid. Bbaaeecc!";
+		mes "Ese nino ha tenido un tiempo muy solitario, baaecc! Quizas eres un amigo de el? Baaeec!!";
+		next;
+		select("Aun no... pero quiero ser su amigo.");
+		mes "[Toucan]";
+		mes "El nino que recibio cuidado de la mujer del guarana tambien es amigo de los animales. Bbaaeecc!";
 		next;
 		mes "[Toucan]";
-		mes "If you want to relieve his loneliness, can you help me?";
-		next;
-		select("Absolutely!");
-		mes "[Toucan]";
-		mes "It's my feather.";
-		mes "Send it to the kid.";
-		mes "We will keep our promise of friendship between guarana kid and Toucan forever. Bbaaeecc!";
-		next;
-		mes "- You take a feather from Toucan. - ";
+		mes "Me gustaria dar el simbolo de un tucan representante para el nino. Bbaaeecc!";
 		next;
 		mes "[Toucan]";
-		mes "There have to be others around here like me.";
-		mes "Why don't you find a jaguar Bbaaeecc!";
+		mes "Si quieres aliviar su soledad, puedes ayudarme?";
+		next;
+		select("Por supuesto!");
+		mes "[Toucan]";
+		mes "Es mi pluma.";
+		mes "Enviasela al nino.";
+		mes "Mantendremos nuestra promesa de amistad entre el nino del guarana y el Tucan por siempre. Bbaaeecc!";
+		next;
+		mes "- Tomas una pluma del Tucan. - ";
 		next;
 		mes "[Toucan]";
-		mes "I will give a blessing from Toucan to you.";
+		mes "Debe haber otros por aqui como yo.";
+		mes "Por que no buscas un jaguar Bbaaeecc!";
 		next;
 		mes "[Toucan]";
-		mes "Fly fly far away. bbaaaeeeccckkk--!";
+		mes "Te dare una bendicion del Tucan.";
+		next;
+		mes "[Toucan]";
+		mes "Vuela vuela lejos. bbaaaeeeccckkk--!";
 		brazil_gua = 7;
 		changequest 2196,2197;
 		specialeffect2 EF_SEISMICWEAPON;
@@ -870,50 +870,50 @@ bra_fild01,34,184,5	script	Jaguar#bra	2072,2,2,{
 OnTouch_:
 	if (brazil_gua == 7) {
 		mes "[Jaguar]";
-		mes "Hhooww..hhooww.....";
+		mes "Hhoooww..hhoooww.....";
 		next;
 		mes "[Jaguar]";
-		mes "Smelling! This smell is from a human!";
-		mes "Somewhere, a human!";
-		mes "I got it. You are!!!";
+		mes "Olfateando! Este olor es de un humano!";
+		mes "En algun lugar, un humano!";
+		mes "Lo tengo. Tu eres!!!";
 		specialeffect EF_HIT1,AREA,"Jaguar#bra";
 		emotion ET_HUK, playerattached();
 		next;
 		mes "[Jaguar]";
-		mes "Don't be afraid human.";
-		mes "I don't have enough power to hunt humans, just waiting time to end my lifetime in this jungle.";
+		mes "No tengas miedo humano.";
+		mes "No tengo suficiente poder para cazar humanos, solo espero el momento de terminar mi vida en esta jungla.";
 		next;
 		mes "[Jaguar]";
-		mes "Anyway you can talk with me, are you a guarana kid?";
+		mes "De todos modos puedes hablar conmigo, eres el nino del guarana?";
 		next;
-		select("Yes? N...o......actually....");
+		select("Si? N...o......en realidad....");
 		mes "[Jaguar]";
-		mes "The son of guarana woman became our friend also.";
-		mes "They treated all life preciously.";
-		mes "I hope you are same the as her.";
-		next;
-		mes "[Jaguar]";
-		mes "Bird's chirpings informed me.";
-		mes "The son of guarana woman has a diseased heart.";
-		mes "Her brothers made him lonely, don't you think?";
+		mes "El hijo de la mujer del guarana se convirtio en nuestro amigo tambien.";
+		mes "Ellos trataban toda vida con cuidado.";
+		mes "Espero que tu seas igual que ella.";
 		next;
 		mes "[Jaguar]";
-		mes "Here is fresh meat that I hunted just a few days ago.";
-		mes "Take it and give it to the poor kid.";
+		mes "Los cantos de los pajaros me informaron.";
+		mes "El hijo de la mujer del guarana tiene el corazon enfermo.";
+		mes "Sus hermanos lo hicieron solitario, no crees?";
 		next;
 		mes "[Jaguar]";
-		mes "I can give this tiny thing to you so, don't forget it.";
-		mes "The jungle will welcome you whenever!";
-		next;
-		mes "- You get fresh meat from Jaguar. -";
+		mes "Aqui hay carne fresca que cace hace unos dias.";
+		mes "Tomala y dasela al pobre nino.";
 		next;
 		mes "[Jaguar]";
-		mes "Monkey, who's always meddling with others, wants to meet you.";
+		mes "Puedo darte esta pequena cosa asi que no lo olvides.";
+		mes "La jungla te dara la bienvenida cuando quieras!";
+		next;
+		mes "- Recibes carne fresca del Jaguar. -";
 		next;
 		mes "[Jaguar]";
-		mes "I will give you a Jaguar's high blessing.";
-		mes "Go to monkey by flowing through the wind like a bee.";
-		mes "Let's meet again my friend!";
+		mes "El Mono, que siempre se mete en todo, quiere conocerte.";
+		next;
+		mes "[Jaguar]";
+		mes "Te dare la alta bendicion del Jaguar.";
+		mes "Ve al mono fluyendo a traves del viento como una abeja.";
+		mes "Nos vemos otra vez amigo mio!";
 		brazil_gua = 8;
 		changequest 2197,2198;
 		close2;
@@ -933,38 +933,38 @@ bra_fild01,245,53,3	script	#Monkeybra	1057,{}
 bra_fild01,245,52,3	script	Monkey#bra	HIDDEN_NPC,{
 	if (brazil_gua == 8) {
 		mes "[Monkey]";
-		mes "What is it??!!";
-		mes "We don't tolerate humans? Get out~!!";
+		mes "Que es??!!";
+		mes "No toleramos humanos? Fuera~!!";
 		next;
 		mes "[Monkey]";
-		mes "Nono... wait.... that scent!!";
-		mes "I can smell Jaguar from you, who are you?";
-		mes "Gosh, maybe there's no jaguar without fur and weird shape!";
+		mes "Nono... espera.... ese olor!!";
+		mes "Puedo oler al Jaguar en ti, quien eres?";
+		mes "Cielos, quizas no hay jaguar sin pelo y forma rara!";
 		next;
 		mes "["+strcharinfo(0)+"]";
 		mes "........................";
-		mes "Are you saying that I look like an animal?!?!";
+		mes "Estas diciendo que parezco un animal?!?!";
 		next;
 		mes "[Monkey]";
-		mes "Uh? Aren't you a jaguar?";
+		mes "Eh? No eres un jaguar?";
 		next;
 		mes "[Monkey]";
-		mes "Ahhha. Jaguar send you to me, right?? kkkikkki";
-		mes "But you don't look like guarana kid.";
+		mes "Ajaja. El Jaguar te envio, verdad?? kkkikkki";
+		mes "Pero no pareces el nino del guarana.";
 		next;
-		select("I've come here to help him.");
+		select("He venido a ayudarlo.");
 		mes "[Monkey]";
-		mes "I heard guarana kid became lonely, is he?";
-		mes "We are experts in acrobatic acts, does kid like it?? kkkickkksk!";
+		mes "Escuche que el nino del guarana se puso solitario, verdad?";
+		mes "Somos expertos en actos acrobaticos, le gustara al nino?? kkkickkksk!";
 		next;
 		mes "[Monkey]";
-		mes "Give this branch of grapes to guarana kid.";
-		mes "We will make him have fun during the whole night whenever he comes to us!! kkkickkksk!";
+		mes "Dale este racimo de uvas al nino del guarana.";
+		mes "Lo haremos divertirse toda la noche cuando venga a vernos!! kkkickkksk!";
 		next;
-		mes "- You get a bunch of grapes from Monkey. -";
+		mes "- Recibes un racimo de uvas del Mono. -";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Good~ Now it's time to go back to the kid~!!";
+		mes "Bien~ Ahora es hora de regresar con el nino~!!";
 		brazil_gua = 9;
 		changequest 2198,2199;
 		close;
@@ -981,55 +981,55 @@ bra_fild01,245,52,3	script	Monkey#bra	HIDDEN_NPC,{
 brasilis,203,286,3	script	Botanist Karmen#bra	4_F_HUWOMAN,{
 	if (brazil_regia == 0) {
 		mes "[Karmen]";
-		mes "Brasilis' climate is special.";
-		mes "This climate offers special cases in botany classes different from any other regions of the world.";
+		mes "El clima de Brasilis es especial.";
+		mes "Este clima ofrece casos especiales en clases de botanica diferentes a cualquier otra region del mundo.";
 		next;
 		mes "[Karmen]";
-		mes "The plants here have robust frames and are clear and colorful.";
-		mes "Here the plants are really huge and we can feel their presence.";
+		mes "Las plantas aqui tienen marcos robustos y son claras y coloridas.";
+		mes "Aqui las plantas son realmente enormes y podemos sentir su presencia.";
 		next;
 		mes "[Karmen]";
-		mes "One of them, a Water Lily, is a really gorgeous and unique plant.";
-		mes "This flower is quite sensitive so it doesn't bloom everywhere.";
+		mes "Una de ellas, un Lirio de Agua, es una planta realmente hermosa y unica.";
+		mes "Esta flor es bastante sensible asi que no florece en cualquier lugar.";
 		next;
-		if(select("Interesting.:End conversation.") == 2) {
+		if(select("Interesante.:Terminar conversacion.") == 2) {
 			mes "[Karmen]";
-			mes "I guess you aren't interested in botany.";
+			mes "Supongo que no te interesa la botanica.";
 			close;
 		}
 		mes "[Karmen]";
-		mes "It doesn't appear easily and it is a mysterious flower even to the natives, so the Brasilis people believe that a person will get great luck if someone finds it.";
+		mes "No aparece facilmente y es una flor misteriosa incluso para los nativos, asi que la gente de Brasilis cree que una persona tendra gran suerte si alguien la encuentra.";
 		next;
 		mes "[Karmen]";
-		mes "As a botanist, I have been hanging around here to find the lucky flower but as I expected, it hasn't shown itself yet.";
+		mes "Como botanica, he estado rondando por aqui para encontrar la flor de la suerte pero como esperaba, aun no se ha mostrado.";
 		next;
 		mes "[Karmen]";
-		mes "I believe that with enough perseverence, this flower will show me it's beautiful brilliance.";
+		mes "Creo que con suficiente perseverancia, esta flor me mostrara su hermoso brillo.";
 		next;
 		mes "[Karmen]";
-		mes "Ah, if you are interested more in the Water Lily story, find someone named Marta.";
-		mes "She is wise and knows lots of stories here in Brasilis.";
+		mes "Ah, si te interesa mas la historia del Lirio de Agua, busca a alguien llamada Marta.";
+		mes "Es sabia y conoce muchas historias aqui en Brasilis.";
 		brazil_regia = 1;
 		setquest 2201;
 		close;
 	}
 	else if (brazil_regia == 1) {
 		mes "[Karmen]";
-		mes "Ah, if you are interested more in the Water Lily story, find someone named Marta.";
-		mes "She is wise and knows lots of stories here in Brasilis.";
+		mes "Ah, si te interesa mas la historia del Lirio de Agua, busca a alguien llamada Marta.";
+		mes "Es sabia y conoce muchas historias aqui en Brasilis.";
 		close;
 	}
 	else if (brazil_regia == 9) {
-		mes "- You show a lotus flower to Karmen and talk about the story so far. -";
+		mes "- Le muestras una flor de loto a Karmen y le cuentas la historia hasta ahora. -";
 		next;
 		mes "[Karmen]";
-		mes "Wow!! You had a really good experience.";
-		mes "So~~~ the water lily lives in the depths of brasilis, right?";
-		mes "I wil try to find it again by myself, I won't give up!!";
+		mes "Wow!! Tuviste una experiencia realmente buena.";
+		mes "Asi que~~~ el lirio de agua vive en las profundidades de Brasilis, verdad?";
+		mes "Intentare encontrarlo de nuevo por mi misma, no me rendire!!";
 		next;
 		mes "[Karmen]";
-		mes "I am so grateful that I met you.";
-		mes "The water lily must truly be a lucky flower. hahaha";
+		mes "Estoy tan agradecida de haberte conocido.";
+		mes "El lirio de agua verdaderamente debe ser una flor de la suerte. jajaja";
 		brazil_regia = 10;
 		completequest 2207;
 		if (VIP_SCRIPT && vip_status(VIP_STATUS_ACTIVE))
@@ -1040,14 +1040,14 @@ brasilis,203,286,3	script	Botanist Karmen#bra	4_F_HUWOMAN,{
 	}
 	else {
 		mes "[Karmen]";
-		mes "This climate offers special cases in botany classes different from any other regions of the world.";
+		mes "Este clima ofrece casos especiales en clases de botanica diferentes a cualquier otra region del mundo.";
 		next;
 		mes "[Karmen]";
-		mes "The plants here have robust frames and are clear and colorful.";
-		mes "Here the plants are really huge and we can feel their presence.";
+		mes "Las plantas aqui tienen marcos robustos y son claras y coloridas.";
+		mes "Aqui las plantas son realmente enormes y podemos sentir su presencia.";
 		next;
 		mes "[Karmen]";
-		mes "It's a botanist's dream.";
+		mes "Es el sueno de un botanico.";
 		close;
 	}
 }
@@ -1055,150 +1055,150 @@ brasilis,203,286,3	script	Botanist Karmen#bra	4_F_HUWOMAN,{
 bra_in01,142,27,5	script	Marta#bra	4_F_BRZ_INDOLD,{
 	if (brazil_regia == 1) {
 		mes "[Brasilis Boy]";
-		mes "Grandma! That person has a weird smell.";
+		mes "Abuela! Esa persona tiene un olor raro.";
 		next;
 		mes "[Marta]";
-		mes "This person isn't from here.";
-		mes "Say hello to our guest.";
+		mes "Esta persona no es de aqui.";
+		mes "Saluda a nuestro invitado.";
 		next;
 		mes "[Brasilis Boy]";
-		mes "heee~ hi!!";
-		mes "I am Kaka!!";
-		mes "Whats your name?";
+		mes "jee~ hola!!";
+		mes "Soy Kaka!!";
+		mes "Como te llamas?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "I am "+strcharinfo(0)+".";
+		mes "Soy "+strcharinfo(0)+".";
 		next;
 		mes "[Brasilis Boy]";
-		mes "The outsider has a weird name!";
-		mes "Thas ok! If we keep talking we'll be friends! Cheer up!";
+		mes "El forastero tiene un nombre raro!";
+		mes "Esta bien! Si seguimos hablando seremos amigos! Animo!";
 		next;
 		mes "[Marta]";
-		mes "Hehe...";
-		mes "So, why have you come here stranger~?";
+		mes "Jeje...";
+		mes "Asi que, por que has venido aqui forastero~?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "I heard you knows lots of stories, is that true?";
+		mes "Escuche que conoces muchas historias, es verdad?";
 		next;
 		mes "[Kaka]";
-		mes "Wooo! how you know my grandma knows lots of stories, amazing~?";
-		mes "Grandma is really wise and kind so, I heard lotsa things.";
+		mes "Uuu! como sabes que mi abuela conoce muchas historias, increible~?";
+		mes "La abuela es muy sabia y buena asi que, he escuchado muchas cosas.";
 		next;
 		mes "[Marta]";
-		mes "Hehe. Kaka always listens to many stories every night, he really likes my stories.";
-		mes "Kaka always makes me happy because he asks so many curious things. That is pure happiness.";
+		mes "Jeje. Kaka siempre escucha muchas historias cada noche, realmente le gustan mis historias.";
+		mes "Kaka siempre me hace feliz porque pregunta muchas cosas curiosas. Eso es pura felicidad.";
 		next;
 		mes "[Marta]";
-		mes "Ok, Kaka why don't you invite our guest today to our small meeting?";
+		mes "Ok, Kaka por que no invitas a nuestro invitado hoy a nuestra pequena reunion?";
 		next;
 		mes "[Kaka]";
-		mes "Ok grandma~!!";
+		mes "Ok abuela~!!";
 		next;
 		mes "[Marta]";
-		mes "Hey~ do you have special story that you want to listen to?";
+		mes "Oye~ tienes alguna historia especial que quieras escuchar?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "About the mysterious water lily?";
+		mes "Sobre el misterioso lirio de agua?";
 		next;
 		mes "[Marta]";
-		mes "Water lily....";
-		mes "It's from a long long time ago.";
+		mes "Lirio de agua....";
+		mes "Es de hace mucho mucho tiempo.";
 		next;
 		mes "[Marta]";
-		mes "Before Brasilis was established.";
-		mes "A tribe that lived with the giant waterfall and jungle as friends spent their whole time with nature.";
+		mes "Antes de que Brasilis fuera fundada.";
+		mes "Una tribu que vivia con la cascada gigante y la jungla como amigos pasaba todo su tiempo con la naturaleza.";
 		next;
 		mes "[Marta]";
-		mes "One of tribe chiefs had a pretty daughter called 'Naia'.";
+		mes "Uno de los jefes de tribu tenia una hija bonita llamada 'Naia'.";
 		next;
 		mes "[Marta]";
-		mes "Naia liked listening to stories like Kaka so, her mom told her stories every night about nature and gods.";
+		mes "A Naia le gustaba escuchar historias como a Kaka asi que, su mama le contaba historias cada noche sobre la naturaleza y los dioses.";
 		next;
 		mes "[Kaka]";
-		mes "Woooa, she's just like me!";
-		mes "Maybe she would be pretty... hehe.";
+		mes "Uaaau, ella es igual que yo!";
+		mes "Quizas seria bonita... jeje.";
 		next;
 		mes "[Marta]";
-		mes "According to her mother...";
-		mes "If the moon in the sky loves some woman in the earth, he turns her into a star so that they can stay together forever.";
+		mes "Segun su madre...";
+		mes "Si la luna en el cielo ama a alguna mujer en la tierra, la convierte en una estrella para que puedan estar juntos por siempre.";
 		next;
 		mes "[Marta]";
-		mes "After Naia heard this story, she went to her dad to ask if it was true or not.";
+		mes "Despues de que Naia escucho esta historia, fue con su papa a preguntarle si era verdad o no.";
 		next;
 		mes "[Kaka]";
-		mes "So, what did he say?";
+		mes "Y que le dijo?";
 		next;
 		mes "[Marta]";
-		mes "^3131FF'My dear, Naia the moon is one of the bravest men. But he can no longer have a bride. So you can't become a star... Sorry~.^000000";
+		mes "^3131FF'Mi querida Naia, la luna es uno de los hombres mas valientes. Pero ya no puede tener una novia. Asi que no puedes convertirte en estrella... Lo siento~.^000000";
 		next;
 		mes "[Kaka]";
-		mes "Did Naia wants to be the bride of the man?";
+		mes "Naia queria ser la novia del hombre?";
 		next;
 		mes "[Marta]";
-		mes "Yes Kaka, imagine the moon how beautiful and mysterious, that's just ideal for girls.";
+		mes "Si Kaka, imagina la luna que hermosa y misteriosa, eso es justo lo ideal para las chicas.";
 		next;
 		mes "[Kaka]";
-		mes "But the moon doesn't meet a human as his wife anymore? What was going on with Naia?";
+		mes "Pero la luna ya no se casa con una humana? Que paso con Naia?";
 		next;
 		mes "[Marta]";
-		mes "Naia was really a nice girl.";
+		mes "Naia era realmente una chica buena.";
 		next;
 		mes "[Marta]";
-		mes "Although her parents tried to prevent her, she still went to the forest to meet the moon every night.";
-		mes "Sadly, even with all of her effort, the moon didn't show any reaction to her.";
+		mes "Aunque sus padres intentaron impedirlo, ella aun iba al bosque a encontrarse con la luna cada noche.";
+		mes "Tristemente, incluso con todo su esfuerzo, la luna no mostro ninguna reaccion hacia ella.";
 		next;
 		mes "[Marta]";
-		mes "One day she also went to the top of the mountain to be closer to him. She decided to take a rest for a while around the lake.";
+		mes "Un dia ella tambien fue a la cima de la montana para estar mas cerca de el. Decidio descansar un rato cerca del lago.";
 		next;
 		mes "[Marta]";
-		mes "That's when.. Naia saw it.";
-		mes "It was the moon he was shining beautifully over the waving lake lightly.";
+		mes "Fue entonces.. que Naia lo vio.";
+		mes "Era la luna, brillaba hermosamente sobre el lago que se mecia suavemente.";
 		next;
 		mes "[Kaka]";
-		mes "I know, it's just the moon reflecting on the water. Right?!";
+		mes "Ya se, es solo la luna reflejandose en el agua. Verdad?!";
 		next;
 		mes "[Marta]";
-		mes "Yes, but to her, the image made her fall into the lake without hesitating and drowned.";
+		mes "Si, pero para ella, la imagen la hizo caer al lago sin dudar y se ahogo.";
 		next;
 		mes "[Kaka]";
 		mes "Oh no.";
 		next;
 		mes "[Marta]";
-		mes "The moon was also watching her from the sky.";
-		mes "He felt sad and pitied her. So he decided to turn her into a beautiful flower to thank her for her love.";
+		mes "La luna tambien la estaba observando desde el cielo.";
+		mes "Se sintio triste y la compadecio. Asi que decidio convertirla en una hermosa flor para agradecer su amor.";
 		next;
 		mes "[Marta]";
-		mes "That is the story of the mysterious flower people called the Brasilis Water Flower.";
-		mes "This Naia flower appears as light white during daytime but in the night turns into red due to it's love connection to the moon.";
+		mes "Esa es la historia de la misteriosa flor que la gente llama la Flor de Agua de Brasilis.";
+		mes "Esta flor de Naia aparece de un blanco claro durante el dia pero en la noche se torna roja por su conexion de amor con la luna.";
 		next;
 		mes "[Kaka]";
-		mes "How sad but beautiful!";
+		mes "Que triste pero hermoso!";
 		next;
 		mes "[Marta]";
-		mes "How about you stranger?";
-		mes "Did you enjoy this story?";
-		mes "If you want to listen to another story, just come to me.";
-		mes "If you don't mind playing with my grandson a ~ little. hoohoo.";
+		mes "Y tu forastero?";
+		mes "Disfrutaste esta historia?";
+		mes "Si quieres escuchar otra historia, solo ven conmigo.";
+		mes "Si no te importa jugar con mi nieto un ~ poquito. jujuu.";
 		brazil_regia = 2;
 		close;
 	}
 	else if (brazil_regia > 1) {
 		mes "[Kaka]";
-		mes "My grandma is really a bit tired doing some tribe stuff!";
-		mes "Could you come another day?";
+		mes "Mi abuela esta un poco cansada haciendo cosas de la tribu!";
+		mes "Podrias venir otro dia?";
 		close;
 	}
 	else {
 		mes "[Marta]";
-		mes "You are not from around here.";
-		mes "I can sense a strange earth smell.";
+		mes "Tu no eres de por aqui.";
+		mes "Puedo sentir un olor a tierra extrana.";
 		next;
 		mes "[Marta]";
-		mes "But your eyes shine with strength.";
-		mes "Indeed you are spreading out spirit and will from your whole body.";
+		mes "Pero tus ojos brillan con fuerza.";
+		mes "De hecho estas irradiando espiritu y voluntad de todo tu cuerpo.";
 		next;
 		mes "[Marta]";
-		mes "If you work at it you will be a great person someday.";
+		mes "Si te esfuerzas seras una gran persona algun dia.";
 		close;
 	}
 }
@@ -1206,261 +1206,261 @@ bra_in01,145,27,3	duplicate(Marta#bra)	Brasilis Boy#bra	472
 
 brasilis,270,145,5	script	Brasilis Girl#bra	4_F_BRZ_INDIAN,5,5,{
 	if (!checkweight(1201,1)) {
-		mes "- wait a second!! -";
-		mes "- you have too many items -";
-		mes "- so you can't get any more items. -";
-		mes "- make your body lighter -";
-		mes "- then try again. -";
+		mes "- espera un segundo!! -";
+		mes "- tienes demasiados objetos -";
+		mes "- asi que no puedes obtener mas. -";
+		mes "- aligera tu cuerpo -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	if (brazil_regia == 2) {
 		mes "[Distant Sound]";
 		mes "Jasira!!!";
-		mes "Where are you going again?!!";
-		mes "come back~, please!!";
+		mes "A donde vas otra vez?!!";
+		mes "regresa~, por favor!!";
 		next;
 		mes "[Brasilis Girl]";
-		mes "Mom, I have to go out!!";
+		mes "Mama, tengo que salir!!";
 		next;
 		mes "[Distant Sound]";
-		mes "No way~!! You shouldn't!!";
+		mes "De ninguna manera~!! No deberias!!";
 		next;
 		mes "[Brasilis Girl]";
-		mes "Gosh.. today also failed.";
+		mes "Cielos.. hoy tambien falle.";
 		next;
 		mes "[Brasilis Girl]";
 		mes "......";
-		mes "What's up? Why are you looking at me?";
-		mes "I don't want to be a showgirl!! Get out!!";
+		mes "Que pasa? Por que me miras?";
+		mes "No quiero ser una chica del espectaculo!! Vete!!";
 		next;
-		if(select("Nothing, sorry.:What's wrong?") == 1) {
+		if(select("Nada, perdon.:Que te pasa?") == 1) {
 			mes "[Brasilis Girl]";
-			mes "I am so sad!!!";
+			mes "Estoy muy triste!!!";
 			close;
 		}
 		mes "[Brasilis Girl]";
-		mes "It's not your business.";
-		mes "You are just an outsider!";
+		mes "No es tu asunto.";
+		mes "Solo eres un forastero!";
 		next;
-		if(select("How rude!:Just trying to help.") == 1) {
+		if(select("Que grosera!:Solo intento ayudar.") == 1) {
 			mes "[Brasilis Girl]";
-			mes "What's it matter to you that I'm rude??!!";
+			mes "Que te importa que sea grosera??!!";
 			close;
 		}
 		mes "["+strcharinfo(0)+"]";
-		mes "I know that I'm just passing by but I might be able to help you. What do you think?";
+		mes "Se que solo estoy de paso pero quizas pueda ayudarte. Que piensas?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "This kind of meeting could be more than just a coincidence.";
+		mes "Este tipo de encuentro podria ser mas que solo una coincidencia.";
 		next;
 		mes "[Brasilis Girl]";
 		mes "......................";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Hmm can you tell me your name?";
+		mes "Hmm puedes decirme tu nombre?";
 		next;
 		mes "[Brasilis Girl]";
 		mes "ja...";
 		mes "Jasira.";
-		mes "My name is Jasira.";
+		mes "Mi nombre es Jasira.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Nice name~.";
-		mes "Jasira what's going on?";
+		mes "Bonito nombre~.";
+		mes "Jasira que esta pasando?";
 		next;
 		mes "[Jasira]";
 		mes ".............";
 		next;
 		mes "[Jasira]";
-		mes "I have to meet 'Jasi' but I can't go out....";
+		mes "Tengo que ver a 'Jasi' pero no puedo salir....";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "who is Jasi?";
-		mes "Your.... lover?";
+		mes "quien es Jasi?";
+		mes "Tu.... novio?";
 		next;
 		emotion ET_HUK;
 		mes "[Jasira]";
-		mes "l...o...v...e...lover??!!";
-		mes "No way~";
+		mes "n...o...v...i...novio??!!";
+		mes "Para nada~";
 		next;
 		mes "[Jasira]";
-		mes "If he is my lover, it would be great... but...";
+		mes "Si fuera mi novio, seria genial... pero...";
 		next;
 		mes "[Jasira]";
-		mes "Jasi is......";
-		mes "the great moon.";
+		mes "Jasi es......";
+		mes "la gran luna.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "The moon?";
-		mes "Maybe... are you talking about the moon from the story?";
+		mes "La luna?";
+		mes "Quizas... estas hablando de la luna de la historia?";
 		next;
 		mes "[Jasira]";
-		mes "Yeah!";
-		mes "Dear Jasi is from the moon from the sky!";
+		mes "Si!";
+		mes "El querido Jasi es de la luna del cielo!";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Why are you thinking like that?";
+		mes "Por que piensas eso?";
 		next;
 		mes "[Jasira]";
-		mes "Cuz' Jasi is really gorgeous and the most important thing is he is taking care of the water lily in Brasilis.";
+		mes "Porque Jasi es muy hermoso y lo mas importante es que cuida del lirio de agua en Brasilis.";
 		next;
 		emotion ET_HUK, playerattached();
 		mes "["+strcharinfo(0)+"]";
-		mes "Brasilis water lily??!!";
-		mes "Isn't it the uniqe flower?";
+		mes "Lirio de agua de Brasilis??!!";
+		mes "No es la flor unica?";
 		next;
 		mes "[Jasira]";
-		mes "Right. It's a really mysterious flower and difficult to find.";
-		mes "But around Jasi there are lots of water lilies.";
-		mes "That's why I believe Jasi is the moon.";
+		mes "Si. Es una flor realmente misteriosa y dificil de encontrar.";
+		mes "Pero alrededor de Jasi hay muchos lirios de agua.";
+		mes "Por eso creo que Jasi es la luna.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Where is Jasi?";
+		mes "Donde esta Jasi?";
 		next;
 		mes "[Jasira]";
-		mes "He is deep inside the Jungle.";
-		mes "As you can see I am so weak so, I've been staying home. But once, I was strong enough to leave this village.";
+		mes "Esta en lo profundo de la Jungla.";
+		mes "Como puedes ver soy muy debil asi que, he estado quedandome en casa. Pero una vez, fui lo suficientemente fuerte para salir de esta aldea.";
 		next;
 		mes "[Jasira]";
-		mes "I just wandered the jungle and fell down somewhere and that's where I saw him.";
-		mes "He was so nice. He helped heal me and guided me back home.";
-		mes "That was really really great time.";
+		mes "Solo vagaba por la jungla y me cai en algun lugar y ahi fue donde lo vi.";
+		mes "Fue muy amable. Me ayudo a curarme y me guio de vuelta a casa.";
+		mes "Ese fue un momento realmente genial.";
 		next;
 		mes "[Jasira]";
-		mes "Since I came back home, my parents punished me.";
-		mes "I can understand why they are worrying but i missed Jasi a lot!";
+		mes "Desde que volvi a casa, mis padres me castigaron.";
+		mes "Puedo entender por que se preocupan pero extrano mucho a Jasi!";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Why don't you meet him after recovering your strength?";
+		mes "Por que no lo ves despues de recuperar tu fuerza?";
 		next;
 		mes "[Jasira]";
 		mes ".................";
-		mes "I wanna see him right now...";
+		mes "Quiero verlo ahora mismo...";
 		next;
-		if(select("Help Jasira.:Ignore her.") == 2) {
+		if(select("Ayudar a Jasira.:Ignorarla.") == 2) {
 			mes "["+strcharinfo(0)+"]";
-			mes "Sorry I can't help you. Cheer up!";
+			mes "Lo siento no puedo ayudarte. Animo!";
 			next;
 			mes "[Jasira]";
-			mes "Crying........";
+			mes "Llorando........";
 			close;
 		}
 		mes "["+strcharinfo(0)+"]";
-		mes "Jasira I came here to find the Brasilis water lily.";
-		mes "Don't you think fate has brought us together?";
+		mes "Jasira vine aqui para encontrar el lirio de agua de Brasilis.";
+		mes "No crees que el destino nos junto?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "If you tell me how to find Jasi, I can help you.";
+		mes "Si me dices como encontrar a Jasi, puedo ayudarte.";
 		next;
 		mes "[Jasira]";
-		mes "Really? But I don't know exactly how to get there. I was just wandering around when I met him.";
+		mes "En serio? Pero no se exactamente como llegar. Solo estaba vagando por ahi cuando lo conoci.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Can't you remember anything?";
-		mes "If you know something you've gotta tell me.";
+		mes "No puedes recordar nada?";
+		mes "Si sabes algo tienes que decirme.";
 		next;
 		mes "[Jasira]";
-		mes "Let's see... I was wandering around a waterfall then fell down into the water then I was sucked into somewhere.";
+		mes "Veamos... Estaba vagando por una cascada y me cai al agua y fui succionada a algun lugar.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Good, that's better than nothing! I will look for a similar place.";
+		mes "Bien, eso es mejor que nada! Buscare un lugar similar.";
 		next;
 		mes "[Jasira]";
-		mes "I gave you your information, so can you do me a favor?";
-		mes "It's really simple...";
+		mes "Te di tu informacion, asi que puedes hacerme un favor?";
+		mes "Es realmente simple...";
 		next;
 		mes "[Jasira]";
-		mes "I'd like to give a delicious fruit.";
-		mes "The place where Jas seemed cozy but I didn't see any food around... So if he sees a yummy fruit he will be happy!";
+		mes "Me gustaria darle una fruta deliciosa.";
+		mes "El lugar donde esta Jasi parecia acogedor pero no vi comida alrededor... Asi que si ve una fruta rica sera feliz!";
 		next;
 		mes "[Jasira]";
-		mes "Give him 10 Banana and tell him that I really miss him.";
-		mes "Sorry for ignoring you before. Please, only you can help me!";
+		mes "Dale 10 Bananas y dile que realmente lo extrano.";
+		mes "Perdon por ignorarte antes. Por favor, solo tu puedes ayudarme!";
 		brazil_regia = 3;
 		changequest 2201,2202;
 		close;
 	}
 	else if ((brazil_regia == 3) || (brazil_regia == 4)) {
 		mes "[Jasira]";
-		mes "If you meet Jasi, give him 10 Bananas.";
-		mes "Let's see... I was wandering around a waterfall then fell down into the water then I was sucked into somewhere.";
+		mes "Si ves a Jasi, dale 10 Bananas.";
+		mes "Veamos... Estaba vagando por una cascada y me cai al agua y fui succionada a algun lugar.";
 		next;
 		mes "[Jasira]";
-		mes "If you can't find the way, go up to the waterfall and ask the kids in Brasilis village.";
-		mes "I heard one of the children went to a strange place before. He might've gone to the same place as me!";
+		mes "Si no encuentras el camino, sube a la cascada y pregunta a los ninos de la aldea de Brasilis.";
+		mes "Escuche que uno de los ninos fue a un lugar extrano antes. Quizas fue al mismo lugar que yo!";
 		close;
 	}
 	else if (brazil_regia == 5) {
 		mes "[Jasira]";
-		mes "Did you meet Jasi?";
-		mes "Did you talk about me?";
-		mes "You didn't? Uh? Stupid! Gosh~!";
+		mes "Viste a Jasi?";
+		mes "Le hablaste de mi?";
+		mes "No lo hiciste? Eh? Tonto! Cielos~!";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Hey girl~ you've got a short temper.";
-		mes "I did see him and I talked about you!";
+		mes "Oye chica~ tienes un temperamento corto.";
+		mes "Si lo vi y le hable de ti!";
 		next;
 		mes "[Jasira]";
-		mes "Did you?";
-		mes "What did he say?";
-		mes "Does he remember me?";
+		mes "En serio?";
+		mes "Que dijo?";
+		mes "Se acuerda de mi?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "That you have a really good heart~";
-		mes "I told him that you will try to meet him when your condition gets better.";
+		mes "Que tienes muy buen corazon~";
+		mes "Le dije que intentarias verlo cuando mejores de condicion.";
 		next;
 		mes "[Jasira]";
-		mes "Yeahhhhh!!";
-		mes "Thank you! You are more reliable than I thought you would be.";
+		mes "Siiiii!!";
+		mes "Gracias! Eres mas confiable de lo que pense.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Anyway, I'm looking for a fruit that's brown and has a hard shell.";
-		mes "It has juice inside and can be used as a cup to drink out of.";
+		mes "En fin, estoy buscando una fruta que es cafe y tiene cascara dura.";
+		mes "Tiene jugo adentro y puede usarse como taza para beber.";
 		next;
 		mes "[Jasira]";
-		mes "Duh! You mean a coconut right?!";
-		mes "They're everywhere here in Brasilis.";
+		mes "Pues obvio! Te refieres a un coco verdad?!";
+		mes "Estan por todas partes aqui en Brasilis.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Thanks Jasira!";
+		mes "Gracias Jasira!";
 		brazil_regia = 6;
 		changequest 2204,2205;
 		close;
 	}
 	else if ((brazil_regia == 6) || (brazil_regia == 7)) {
 		mes "[Jasira]";
-		mes "I should take care of my strength by myself!";
-		mes "I can't just lie in my bed forever. Don't you agree?";
+		mes "Deberia cuidar mi fuerza por mi misma!";
+		mes "No puedo solo quedarme en cama para siempre. No crees?";
 		close;
 	}
 	else if (brazil_regia == 8) {
 		mes "[Jasira]";
-		mes "Uh? Why have you come back?";
+		mes "Eh? Por que regresaste?";
 		next;
-		mes "- You tell her what Jasi told you to tell her -";
+		mes "- Le dices lo que Jasi te dijo que le dijeras -";
 		next;
 		mes "[Jasira]";
-		mes "Oh... really?";
-		mes "Did he say that?";
-		mes "Gosh! Gosh!!!";
+		mes "Oh... en serio?";
+		mes "El dijo eso?";
+		mes "Cielos! Cielos!!!";
 		mes "Kkkkkaaaaa - !!";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Thanks to you, I was able to get a flower.";
-		mes "Thanks a lot!!";
+		mes "Gracias a ti, pude obtener una flor.";
+		mes "Muchas gracias!!";
 		next;
 		mes "[Jasira]";
-		mes "Wooow. It's so beautiful.";
+		mes "Uaaau. Es tan hermosa.";
 		next;
 		mes "[Jasira]";
-		mes "Ah... can I see it for a second?";
+		mes "Ah... puedo verla un segundo?";
 		next;
 		mes "[Jasira]";
-		mes "Surprise~!!";
-		mes "I've been working on this hat while you were gone and now it's complete with the water lily flower!";
+		mes "Sorpresa~!!";
+		mes "Estuve trabajando en este sombrero mientras no estabas y ahora esta completo con la flor de lirio de agua!";
 		next;
 		mes "[Jasira]";
-		mes "I know, I know! I'm the best...";
+		mes "Ya se, ya se! Soy la mejor...";
 		delitem 7553,1; //Lotus_Flower - untradable
 		brazil_regia = 9;
 		changequest 2206,2207;
@@ -1470,19 +1470,19 @@ brasilis,270,145,5	script	Brasilis Girl#bra	4_F_BRZ_INDIAN,5,5,{
 	}
 	else if (brazil_regia > 8) {
 		mes "[Jasira]";
-		mes "I just need to get a little bit stronger!";
-		mes "I can't just lie in bed forever. My Jasi is waiting for me~";
+		mes "Solo necesito ponerme un poco mas fuerte!";
+		mes "No puedo solo quedarme en cama para siempre. Mi Jasi me esta esperando~";
 		close;
 	}
 	else {
 		mes "[Distant Sound]";
 		mes "Jasira!!!";
-		mes "Where are you going again?!!";
-		mes "Come back~, please!!";
+		mes "A donde vas otra vez?!!";
+		mes "Regresa~, por favor!!";
 		next;
 		mes "[Brasilis Girl]";
-		mes "Please mom~!";
-		mes "Please let me go!";
+		mes "Por favor mama~!";
+		mes "Por favor dejame ir!";
 		close;
 	}
 	end;
@@ -1496,109 +1496,109 @@ OnTouch:
 bra_dun02,67,205,5	script	Recluse#bra	4_M_BRZ_JACI,3,3,{
 	if (brazil_regia == 3) {
 		mes "[Recluse]";
-		mes "Oh, I haven't seen another person in such a long time.";
+		mes "Oh, no habia visto a otra persona en mucho tiempo.";
 		next;
-		if(select("Keep going.:Are you the moon?") == 1) {
+		if(select("Seguir adelante.:Eres la luna?") == 1) {
 			mes "[Recluse]";
-			mes "You don't have specific business with me.";
+			mes "No tienes ningun asunto especifico conmigo.";
 			close;
 		}
 		mes "[Recluse]";
-		mes "Moon?";
-		mes "My name is Jasi.";
-		mes "My family has worked to take care of the water lily from generation to generation.";
+		mes "Luna?";
+		mes "Mi nombre es Jasi.";
+		mes "Mi familia ha trabajado para cuidar el lirio de agua de generacion en generacion.";
 		next;
 		mes "[Jasi]";
-		mes "Basically the Brasilis water lily is too shy to appear in front of people so, they only bloom in rare places. I guess they like it here, though, that's why I've been staying here for such a long time.";
+		mes "Basicamente el lirio de agua de Brasilis es demasiado timido para aparecer frente a la gente asi que, solo florecen en lugares raros. Supongo que les gusta aqui, por eso he estado aqui por tanto tiempo.";
 		next;
 		mes "[Jasi]";
-		mes "My family has taken care of the water lily calmly to prevent harm from people's hand or monsters.";
+		mes "Mi familia ha cuidado del lirio de agua tranquilamente para prevenir dano de manos de personas o monstruos.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Do you remember a girl named Jasi.";
+		mes "Recuerdas a una chica llamada Jasira?";
 		next;
 		mes "[Jasi]";
 		mes "Ja...si..........";
-		mes "Ah!! a hurry scurry girl. ";
-		mes "Gosh.. I was in trouble due to that girl.";
+		mes "Ah!! una chica alocada. ";
+		mes "Cielos.. estuve en problemas por culpa de esa chica.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Trouble?";
+		mes "Problemas?";
 		next;
 		mes "[Jasi]";
-		mes "One day a young lady appeared with lots of scars so I helped her. Then suddenly she tried to pick up the water lily and asked me to accept her as my wife or make her into a water lily what a nutcase!";
+		mes "Un dia una jovencita aparecio con muchas heridas asi que la ayude. Luego de repente intento arrancar el lirio de agua y me pidio que la aceptara como esposa o que la convirtiera en un lirio de agua, que loca!";
 		next;
 		mes "[Jasi]";
-		mes "I was barely able to calm down and send her to the village.";
-		mes "My life is that water lily so I didn't want anything embarrassing to happen.";
+		mes "Apenas pude calmarla y enviarla de vuelta a la aldea.";
+		mes "Mi vida es ese lirio de agua asi que no queria que nada vergonzoso pasara.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "This is a gift from Jasira to say sorry for that time.";
-		mes "She is really sad that can't come here by herself due to private difficulties.";
+		mes "Este es un regalo de Jasira para disculparse por aquella vez.";
+		mes "Esta muy triste de no poder venir aqui ella misma por dificultades personales.";
 		next;
 		if (countitem(513) < 10) {
 			mes "[Jasi]";
-			mes "What are you saying?";
+			mes "Que estas diciendo?";
 			next;
-			mes "- Oh yeah, I forgot to bring 10 Bananas -";
+			mes "- Ah si, olvide traer 10 Bananas -";
 			close;
 		}
 		mes "[Jasi]";
-		mes "Ah! Bananas! Wow it's been a long time. She's pretty considerate isn't she?";
+		mes "Ah! Bananas! Vaya cuanto tiempo. Es bastante considerada no?";
 		next;
 		mes "[Jasi]";
-		mes "Anyway is that all the business you have with me?";
+		mes "En fin, eso es todo el asunto que tienes conmigo?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Umm honestly I was wondering to find water lily and met you by coincidence. Jasira told me her sad story so that's what led me here.";
+		mes "Umm honestamente estaba buscando el lirio de agua y te conoci por coincidencia. Jasira me conto su triste historia y eso fue lo que me llevo aqui.";
 		next;
 		mes "[Jasi]";
-		mes "I got it.";
-		mes "As you can see, there are lots of Brasilis water lily around here.";
-		mes "If you make sure that you won't destroy them you can appreciate them as you wish.";
+		mes "Entiendo.";
+		mes "Como puedes ver, hay muchos lirios de agua de Brasilis por aqui.";
+		mes "Si te aseguras de no destruirlos puedes apreciarlos como desees.";
 		brazil_regia = 4;
 		changequest 2202,2203;
 		close;
 	}
 	else if (brazil_regia == 4) {
 		mes "[Jasi]";
-		mes "Did you enjoy the water lily?";
+		mes "Disfrutaste el lirio de agua?";
 		close;
 	}
 	else if (brazil_regia == 5) {
 		mes "[Jasi]";
-		mes "I forgot what the name of that fruit was...";
+		mes "Olvide como se llamaba esa fruta...";
 		close;
 	}
 	else if (brazil_regia == 6) {
 		if (countitem(11515) < 5) {
 			mes "[Jasi]";
-			mes "I forgot what the name of that fruit was...";
+			mes "Olvide como se llamaba esa fruta...";
 			close;
 		}
 		else {
 			mes "[Jasi]";
-			mes "Did you find the fruit?";
-			mes "Oh right this is....?";
+			mes "Encontraste la fruta?";
+			mes "Oh cierto esto es....?";
 			next;
 			mes "["+strcharinfo(0)+"]";
-			mes "It's called a 'coconut'.";
+			mes "Se llama 'coco'.";
 			next;
 			mes "[Jasi]";
-			mes "Ahah! COCONUT!!";
-			mes "Now I remember thank you very much. I can't remember the last time I had this fruit.";
+			mes "Ajaj! COCO!!";
+			mes "Ahora recuerdo muchas gracias. No recuerdo la ultima vez que comi esta fruta.";
 			next;
 			mes "[Jasi]";
-			mes "I guess I should keep my promise.";
-			mes "You can take one Water lily.";
+			mes "Supongo que debo cumplir mi promesa.";
+			mes "Puedes tomar un Lirio de agua.";
 			next;
 			mes "[Jasi]";
-			mes "I hope the Brasilis water lily will understand me.";
-			mes "You better grab the flower while you have a chance~";
+			mes "Espero que el lirio de agua de Brasilis me entienda.";
+			mes "Mejor toma la flor mientras puedas~";
 			next;
 			mes "[Jasi]";
-			mes "Oh, can you tell that girl Jasira something for me?";
-			mes "Tell her that I am not the moon from the story, but I want to become the moon to shine only for her.";
+			mes "Oh, puedes decirle a esa chica Jasira algo de mi parte?";
+			mes "Dile que no soy la luna de la historia, pero quiero convertirme en la luna para brillar solo para ella.";
 			delitem 11515,5; //Coconut
 			brazil_regia = 7;
 			changequest 2205,2206;
@@ -1607,7 +1607,7 @@ bra_dun02,67,205,5	script	Recluse#bra	4_M_BRZ_JACI,3,3,{
 	}
 	else {
 		mes "[Jasi]";
-		mes "The flowers blooming from the Water lily today is wonderful.";
+		mes "Las flores que florecen del Lirio de agua hoy son maravillosas.";
 		close;
 	}
 	end;
@@ -1619,107 +1619,107 @@ OnTouchNPC:
 
 bra_dun02,71,200,3	script	Water lily#bra	HIDDEN_NPC,{
 	if (brazil_regia == 4) {
-		mes "An unusual Water lily is blooming here. You can't stop staring at it, knowing that few people have seen this flower bloom.";
+		mes "Un inusual Lirio de agua esta floreciendo aqui. No puedes dejar de mirarlo, sabiendo que pocas personas han visto esta flor florecer.";
 		next;
-		if(select("Pick up the flower.:Keep gazing.") == 2) {
-			mes "- You can't avoid staring at it's beauty. -";
+		if(select("Recoger la flor.:Seguir mirando.") == 2) {
+			mes "- No puedes evitar mirar su belleza. -";
 			close;
 		}
 		mes "[Jasi]";
-		mes "Uh! What are you doing??!!";
+		mes "Eh! Que estas haciendo??!!";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "There is a person who really needs this flower, can I just take one of 'em?";
+		mes "Hay una persona que realmente necesita esta flor, puedo tomar solo una?";
 		next;
 		mes "[Jasi]";
-		mes "As I said earlier, I am the guardian of this water lily.";
-		mes "I can't just stand by here and watch you pluck even a single flower from it.";
+		mes "Como dije antes, soy el guardian de este lirio de agua.";
+		mes "No puedo simplemente quedarme aqui parado y ver que arranques una sola flor de el.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Hey man~ I brought these delicious fruits for you... try it! They are really well matured and fresh bananas.";
+		mes "Oye viejo~ te traje estas deliciosas frutas... pruebalas! Son bananas realmente bien maduras y frescas.";
 		next;
 		if (countitem(513) < 10) {
 			mes "[Jasi]";
-			mes "What are you saying?";
+			mes "Que estas diciendo?";
 			next;
-			mes "- Oh yeah, I forgot to bring 10 Bananas -";
+			mes "- Ah si, olvide traer 10 Bananas -";
 			close;
 		}
 		mes "[Jasi]";
-		mes "Hmm... It's been so long since I've had this fruit.";
+		mes "Hmm... Ha pasado mucho tiempo desde que comi esta fruta.";
 		next;
 		mes "[Jasi]";
-		mes "I will just try one. That's all.";
+		mes "Solo probare una. Eso es todo.";
 		next;
 		mes "- munch -";
-		mes "- mumble mumble mumble -";
+		mes "- mastica mastica mastica -";
 		specialeffect EF_POTION7,AREA,"Recluse#bra";
 		next;
 		mes "[Jasi]";
-		mes "Uh, this taste... is!";
-		mes "I remember my mom baking these into a tasty bread!";
+		mes "Oh, este sabor... es!";
+		mes "Recuerdo que mi mama los horneaba en un pan sabroso!";
 		next;
 		mes "[Jasi]";
-		mes "It makes me miss my childhood.";
+		mes "Me hace extranar mi infancia.";
 		next;
 		emotion ET_HUK, getnpcid(0, "Recluse#bra");
 		mes "[Jasi]";
-		mes "Hoho!!!!";
-		mes "I've been here for as long as I can remember...";
-		mes "I don't have enough time to even do simple things like eat delicious fruit.";
+		mes "Jojo!!!!";
+		mes "He estado aqui tanto como puedo recordar...";
+		mes "No tengo suficiente tiempo ni para hacer cosas simples como comer frutas deliciosas.";
 		next;
 		mes "[Jasi]";
-		mes "It was a really delicious banana.";
-		mes "But rules are rules!";
-		mes "I must do my duty.";
+		mes "Fue una banana realmente deliciosa.";
+		mes "Pero las reglas son las reglas!";
+		mes "Debo cumplir mi deber.";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Please! I just need one flower~ What can I do to convince you?";
+		mes "Por favor! Solo necesito una flor~ Que puedo hacer para convencerte?";
 		next;
 		mes "[Jasi]";
-		mes "Rules are rules, what do you want from me?";
+		mes "Las reglas son las reglas, que quieres de mi?";
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Didn't that banana remind you of your childhood? What can I get for you?";
+		mes "Esa banana no te recordo tu infancia? Que puedo conseguirte?";
 		next;
 		mes "[Jasi]";
-		mes "Now that you mention it, there is one fruit that I really miss.";
-		mes "It was my favorite when I was young but I don't remember what it was called.";
+		mes "Ahora que lo mencionas, hay una fruta que realmente extrano.";
+		mes "Era mi favorita cuando era joven pero no recuerdo como se llamaba.";
 		next;
 		mes "[Jasi]";
-		mes "It's brown and has a hard shell around it. It has juice inside and you can use it as a cup when you're done eating the fruit.";
-		mes "Do you know what it is?";
+		mes "Es cafe y tiene una cascara dura alrededor. Tiene jugo adentro y puedes usarla como taza cuando terminas de comer la fruta.";
+		mes "Sabes que es?";
 		next;
 		mes "[Jasi]";
-		mes "If you bring 5 of those things, I will reconsider your suggestion.";
+		mes "Si me traes 5 de esas cosas, reconsiderare tu propuesta.";
 		delitem 513,10; //Banana
 		brazil_regia = 5;
 		changequest 2203,2204;
 		next;
 		mes "["+strcharinfo(0)+"]";
-		mes "Ok so I have to bring 5 fruits with hard shells.";
-		mes "Hmm what is it?";
+		mes "Ok asi que tengo que traer 5 frutas con cascara dura.";
+		mes "Hmm que sera?";
 		close;
 	}
 	else if (brazil_regia == 5) {
 		mes "[Jasi]";
-		mes "It was my favorite when I was young but I don't remember what it was called.";
+		mes "Era mi favorita cuando era joven pero no recuerdo como se llamaba.";
 		next;
 		mes "[Jasi]";
-		mes "It's brown and has a hard shell around it. It has juice inside and you can use it as a cup when you're done eating the fruit.";
-		mes "Do you know what it is?";
+		mes "Es cafe y tiene una cascara dura alrededor. Tiene jugo adentro y puedes usarla como taza cuando terminas de comer la fruta.";
+		mes "Sabes que es?";
 		close;
 	}
 	else if (brazil_regia == 7) {
 		if (!checkweight(1201,1)) {
-			mes "- wait a second!! -";
-			mes "- you have too many items -";
-			mes "- so you can't get any more items. -";
-			mes "- make your body lighter -";
-			mes "- then try again. -";
+			mes "- espera un segundo!! -";
+			mes "- tienes demasiados objetos -";
+			mes "- asi que no puedes obtener mas. -";
+			mes "- aligera tu cuerpo -";
+			mes "- e intentalo de nuevo. -";
 			close;
 		}
-		mes "- You take a beautiful water lily carefully in your hands. -";
+		mes "- Tomas un hermoso lirio de agua cuidadosamente en tus manos. -";
 		brazil_regia = 8;
 		getitem 7553,1; //Lotus_Flower
 		close;
@@ -1732,68 +1732,68 @@ brasilis,185,246,5	script	Pedro#bra	1_M_SIZ,{
 	if (brazil_ghost == 0) {
 		OnTalk:
 		mes "[Pedro]";
-		mes "Wow it's really a great statue!";
+		mes "Wow es realmente una gran estatua!";
 		next;
 		mes "[Mariana]";
-		mes "It is, isn't it?";
-		mes "This statue is called Verass Monument.";
+		mes "Si, verdad?";
+		mes "Esta estatua se llama Monumento Verass.";
 		next;
 		mes "[Mariana]";
-		mes "A long time ago there was a really brave adventurer named Verass, thanks to his dedicated exploration, Brasilis was able to develop into this great city.";
+		mes "Hace mucho tiempo habia un aventurero muy valiente llamado Verass, gracias a su dedicada exploracion, Brasilis pudo desarrollarse en esta gran ciudad.";
 		next;
 		mes "[Pedro]";
-		mes "Awesome!!";
-		mes "i wanna become a real man like Verass.";
+		mes "Increible!!";
+		mes "Quiero ser un hombre de verdad como Verass.";
 		next;
 		mes "[Mariana]";
-		mes "Pedro, you can become whatever you want.";
+		mes "Pedro, puedes ser lo que tu quieras.";
 		next;
 		mes "[Pedro]";
-		mes "Mariana is so smart, isn't she? hehe.";
+		mes "Mariana es tan inteligente, verdad? jeje.";
 		next;
 		mes "[Fabio]";
-		mes "Ooooh! You love her don't you!";
+		mes "Oooooh! La quieres, verdad!";
 		next;
 		mes "[Daniel]";
-		mes "Wooooaaaa Pedro and Mari sitting in a tree!";
+		mes "Uuuuuaaa Pedro y Mari sentados en un arbol!";
 		next;
 		mes "[Fabio]";
-		mes "Woooo k-i-s-s-i-n-g~!!!";
+		mes "Uuuuu b-e-s-a-n-d-o-s-e~!!!";
 		next;
 		mes "[Daniel]";
-		mes "Nya nya nya!";
+		mes "Na na na!";
 		next;
 		mes "[Fabio]";
-		mes "Hahahahaha.";
+		mes "Jajajajaja.";
 		next;
 		mes "[Pedro]";
-		mes "Stop acting like babies!";
+		mes "Dejen de actuar como bebes!";
 		next;
 		mes "[Mariana]";
-		mes "Boys~!";
+		mes "Chicos~!";
 		next;
 		mes "[Daniel]";
-		mes "Yah yah...";
-		mes "Hey guys, did you hear that something happened a few days ago?";
+		mes "Si si...";
+		mes "Oigan chicos, escucharon que algo paso hace unos dias?";
 		next;
 		mes "[Mariana]";
-		mes "Oh yeah~ I heard that something really scary happened.";
+		mes "Oh si~ Escuche que paso algo realmente aterrador.";
 		next;
 		mes "[Fabio]";
-		mes "Uh, yeah that's why Mariana got scared of going ot the bathroom for 3 days and everything was stinky. Ewwww~";
+		mes "Uh, si por eso Mariana le dio miedo ir al bano por 3 dias y todo estaba apestoso. Ewwww~";
 		next;
 		mes "[Daniel]";
-		mes "Ha ha ha! Smelly Mari!";
+		mes "Ja ja ja! Mari apestosa!";
 		next;
 		mes "[Mariana]";
-		mes "I hate you~!";
-		mes "Stop spreading rumors about me. I'm not scared of the bathroom.";
-		mes "Pedro, do you think that I stink?";
+		mes "Los odio~!";
+		mes "Dejen de esparcir rumores de mi. No le tengo miedo al bano.";
+		mes "Pedro, crees que apesto?";
 		next;
 		mes "[Pedro]";
-		mes "Uh? Uh?";
-		mes "N......no... no way.";
-		mes "Hey guys~ be nice to her~";
+		mes "Eh? Eh?";
+		mes "N......no... para nada.";
+		mes "Oigan chicos~ sean amables con ella~";
 		next;
 		mes "[Fabio]";
 		mes "kkkickkkkkkkkick";
@@ -1801,147 +1801,147 @@ brasilis,185,246,5	script	Pedro#bra	1_M_SIZ,{
 		mes "[Daniel]";
 		mes "kkkickkkkkkkk";
 		next;
-		if(select("Walk by.:Ask about the gossip.") == 1) {
+		if(select("Pasar de largo.:Preguntar sobre el chisme.") == 1) {
 			mes "[Fabio]";
-			mes "Mariana~ smells~ Nya nya~";
+			mes "Mariana~ apesta~ Na na~";
 			next;
 			mes "[Daniel]";
-			mes "Oh man you stink too~! Nya nya~";
+			mes "Oye tu tambien apestas~! Na na~";
 			close;
 		}
 		mes "[Fabio]";
-		mes "Haven't you heard?";
-		mes "The ghost story in the art museum.";
+		mes "No has escuchado?";
+		mes "La historia del fantasma en el museo de arte.";
 		next;
 		mes "[Daniel]";
-		mes "Ooohhhh! Scary~~~!";
+		mes "Ooohhh! Que miedo~~~!";
 		next;
-		select("Can you tell me more?");
+		select("Puedes contarme mas?");
 		mes "[Fabio]";
-		mes "A coupla days ago we went to the art museum for a picnic at school.";
-		mes "You know nothing special, just a ordinary field trip.";
-		next;
-		mes "[Fabio]";
-		mes "Museums are boring so me and some friends snuck away from the group~!";
+		mes "Hace unos dias fuimos al museo de arte en un paseo de la escuela.";
+		mes "Ya sabes nada especial, solo una excursion normal.";
 		next;
 		mes "[Fabio]";
-		mes "That's when we heard a scream echoing through the whole museum.";
+		mes "Los museos son aburridos asi que unos amigos y yo nos escapamos del grupo~!";
+		next;
+		mes "[Fabio]";
+		mes "Fue cuando escuchamos un grito resonando por todo el museo.";
 		next;
 		mes "[Daniel]";
 		mes "kkakkakkaaaah!!";
 		mes "kkieeeeeeh!";
-		mes "kehkeh..";
+		mes "kejkej..";
 		next;
 		mes "[Mariana]";
-		mes "I heard the scream too...";
-		mes "You boys are always making noises where you're not supposed to.";
+		mes "Yo tambien escuche el grito...";
+		mes "Ustedes siempre estan haciendo ruidos donde no deben.";
 		next;
 		mes "[Pedro]";
-		mes "What else are we supposed to do? If we don't do it someone else will.";
+		mes "Que mas se supone que hagamos? Si no lo hacemos nosotros, alguien mas lo hara.";
 		next;
 		emotion ET_FRET, getnpcid(0, "Mariana#bra");
 		mes "[Mariana]";
-		mes "Argh~ Boys are so frustrating sometimes.";
+		mes "Argh~ Los chicos son tan frustrantes a veces.";
 		next;
-		select("So then what happened?");
+		select("Y entonces que paso?");
 		mes "[Fabio]";
-		mes "Daniel and me guessed something weird was goin' on so we ran to where we thought the screams were comin' from.";
+		mes "Daniel y yo pensamos que algo raro estaba pasando asi que corrimos a donde creimos que venian los gritos.";
 		next;
 		mes "[Fabio]";
-		mes "They were coming from the bathroom.";
-		mes "Some kids got so scared that they started screaming too and closing their eyes. It got pretty bad.";
+		mes "Venian del bano.";
+		mes "Algunos ninos se asustaron tanto que empezaron a gritar tambien y a cerrar los ojos. Se puso bastante feo.";
 		next;
 		mes "[Daniel]";
-		mes "I think you pissed or pooped your pants. It smelled freakin' gross.";
+		mes "Creo que te orinaste o te cagaste en los pantalones. Olia horrible.";
 		next;
 		mes "[Fabio]";
-		mes "Nah uh~ Your mom pissed her pants~ Nyah!";
+		mes "No es cierto~ Tu mama se orino en los pantalones~ Na!";
 		next;
 		mes "[Daniel]";
-		mes "Nah uh~ You~ pissed your pants~";
+		mes "No es cierto~ Tu~ te orinaste en los pantalones~";
 		next;
 		mes "[Fabio]";
-		mes "Anyway, so yeah, anyway that's how the rumor of the ghost in the museum started.";
+		mes "En fin, asi que si, en fin asi fue como empezo el rumor del fantasma en el museo.";
 		next;
 		mes "[Daniel]";
-		mes "Liar, there's no such thing as ghosts~";
+		mes "Mentiroso, no existen los fantasmas~";
 		next;
-		select("So was it a ghost?");
+		select("Entonces era un fantasma?");
 		mes "[Fabio]";
-		mes "How should I know?";
-		mes "No one could say they saw one and no one wanted to get in trouble from the teachers.";
+		mes "Como voy a saber?";
+		mes "Nadie pudo decir que vio uno y nadie queria meterse en problemas con los profesores.";
 		next;
 		mes "[Pedro]";
-		mes "I heard if you say special magic words that the ghost will come out.";
+		mes "Escuche que si dices unas palabras magicas especiales el fantasma aparecera.";
 		next;
 		mes "[Daniel]";
-		mes "Quit butting into our conversation Pedro.";
+		mes "Deja de meterte en nuestra conversacion Pedro.";
 		next;
 		mes "[Fabio]";
-		mes "Yah, what are you talking about, Pedro?";
-		mes "So did you see the ghost?";
+		mes "Si, de que hablas, Pedro?";
+		mes "Entonces viste al fantasma?";
 		next;
 		mes "[Pedro]";
-		mes "N... no. I'm scared of ghosts.";
-		mes "But my friends said they saw one and they're not liars.";
+		mes "N... no. Me dan miedo los fantasmas.";
+		mes "Pero mis amigos dijeron que vieron uno y no son mentirosos.";
 		next;
-		select("Did anyone tell you the magic words?");
+		select("Alguien te dijo las palabras magicas?");
 		mes "[Pedro]";
-		mes "I heard it in a kind of song.";
-		mes "the special magic words are...";
+		mes "Lo escuche en una especie de cancion.";
+		mes "las palabras magicas especiales son...";
 		next;
 		mes "[Pedro]";
-		mes "'^3131FFMother the door won't open!^000000'";
-		mes "'^FF0000Turn the key as many times as there are colors in the rainbow.^000000'";
-		mes "'^3131FFMother the water is flooding!^000000'";
-		mes "'^FF0000If the moon disappears 3 times, don't worry.^000000'";
-		mes "'^3131FFMother the drought has started!^000000'";
-		mes "'^FF0000Don't worry, the waterfall will help it.^000000'";
-		mes "'^3131FFMother where are my friends?^000000'";
-		mes "'^FF0000Your 7 friends are sleeping. now it's time to wake them.^000000'";
-		mes "'^3131FFWhere are you mom?^000000'";
+		mes "'^3131FFMama la puerta no abre!^000000'";
+		mes "'^FF0000Gira la llave tantas veces como colores tiene el arcoiris.^000000'";
+		mes "'^3131FFMama el agua se esta inundando!^000000'";
+		mes "'^FF0000Si la luna desaparece 3 veces, no te preocupes.^000000'";
+		mes "'^3131FFMama la sequia ha empezado!^000000'";
+		mes "'^FF0000No te preocupes, la cascada lo ayudara.^000000'";
+		mes "'^3131FFMama donde estan mis amigos?^000000'";
+		mes "'^FF0000Tus 7 amigos estan durmiendo. ahora es hora de despertarlos.^000000'";
+		mes "'^3131FFDonde estas mama?^000000'";
 		next;
 		mes "[Mariana]";
-		mes "Umm it seems like a riddle.";
+		mes "Umm parece un acertijo.";
 		next;
-		select("Wanna help me find this ghost?");
+		select("Quieren ayudarme a encontrar este fantasma?");
 		mes "[Pedro]";
-		mes "You're on your own pal~.";
+		mes "Estas solo amigo~.";
 		next;
 		mes "[Mariana]";
-		mes "I don't like scary things!";
+		mes "No me gustan las cosas aterradoras!";
 		next;
 		mes "[Fabio]";
-		mes "Pfft, I can't believe you're gonna believe that story.";
+		mes "Pfft, no puedo creer que vas a creer esa historia.";
 		next;
 		mes "[Daniel]";
-		mes "I'll do whatever Fabio does, as always!";
+		mes "Yo hago lo que Fabio haga, como siempre!";
 		next;
 		mes "[Fabio]";
-		mes "Maybe you're just scared...";
+		mes "Quizas solo tienes miedo...";
 		brazil_ghost = 1;
 		setquest 2208;
 		close;
 	}
 	else if (brazil_ghost == 1) {
 		mes "[Pedro]";
-		mes "Do you wanna hear the magic words again?";
+		mes "Quieres escuchar las palabras magicas de nuevo?";
 		next;
 		mes "[Pedro]";
-		mes "'^3131FFMother the door won't open!^000000'";
-		mes "'^FF0000Turn the key as many times as there are colors in the rainbow.^000000'";
-		mes "'^3131FFMother the water is flooding!^000000'";
-		mes "'^FF0000If the moon disappears 3 times, don't worry.^000000'";
-		mes "'^3131FFMother the drought has started!^000000'";
-		mes "'^FF0000Don't worry, the waterfall will help it.^000000'";
-		mes "'^3131FFMother where are my friends?^000000'";
-		mes "'^FF0000Your 7 friends are sleeping. now it's time to wake them.^000000'";
-		mes "'^3131FFWhere are you mom?^000000'";
+		mes "'^3131FFMama la puerta no abre!^000000'";
+		mes "'^FF0000Gira la llave tantas veces como colores tiene el arcoiris.^000000'";
+		mes "'^3131FFMama el agua se esta inundando!^000000'";
+		mes "'^FF0000Si la luna desaparece 3 veces, no te preocupes.^000000'";
+		mes "'^3131FFMama la sequia ha empezado!^000000'";
+		mes "'^FF0000No te preocupes, la cascada lo ayudara.^000000'";
+		mes "'^3131FFMama donde estan mis amigos?^000000'";
+		mes "'^FF0000Tus 7 amigos estan durmiendo. ahora es hora de despertarlos.^000000'";
+		mes "'^3131FFDonde estas mama?^000000'";
 		close;
 	}
 	else {
 		mes "[Pedro]";
-		mes "I wonder what I need to do to have a statue made of me?";
+		mes "Me pregunto que necesito hacer para que me hagan una estatua?";
 		close;
 	}
 }
@@ -1953,13 +1953,13 @@ brasilis,187,244,1	script	Mariana#bra	1_F_MARIA,{
 	}
 	else if (brazil_ghost == 1) {
 		mes "[Mariana]";
-		mes "Can you guys stop talking about the ghosts?";
-		mes "I've already got goosebumps all over.";
+		mes "Pueden dejar de hablar de los fantasmas?";
+		mes "Ya tengo piel de gallina por todas partes.";
 		close;
 	}
 	else {
 		mes "[Mariana]";
-		mes "Why do Fabio and Daniel always bother us?";
+		mes "Por que Fabio y Daniel siempre nos molestan?";
 		close;
 	}
 }
@@ -1971,15 +1971,15 @@ brasilis,181,250,5	script	Fabio#bra	4_M_KID1,{
 	}
 	else if (brazil_ghost == 1) {
 		mes "[Fabio]";
-		mes "You still wasting your time with that ghost story?";
+		mes "Sigues perdiendo el tiempo con esa historia de fantasmas?";
 		close;
 	}
 	else {
 		mes "[Fabio]";
-		mes "Mariana, wanna see something cool?";
+		mes "Mariana, quieres ver algo genial?";
 		next;
 		mes "[Mariana]";
-		mes "kkkkkkkaaaaaacck!! Bugs!! Get 'em away!";
+		mes "kkkkkkkaaaaaacck!! Bichos!! Alejenmelos!";
 		close;
 	}
 }
@@ -1991,23 +1991,23 @@ brasilis,180,249,5	script	Daniel#bra	4_M_KID1,{
 	}
 	else if (brazil_ghost == 1) {
 		mes "[Daniel]";
-		mes "Nyah nyah nyah~";
+		mes "Na na na~";
 		close;
 	}
 	else {
 		mes "[Daniel]";
-		mes "Keke Here~ I found more bugs~";
+		mes "Jeje Aqui~ Encontre mas bichos~";
 		close;
 	}
 }
 
 bra_in01,149,184,3	script	Door#bra	CLEAR_NPC,{
 	if (brazil_ghost > 0) {
-		mes "- A key is inserted in the locked door.-";
+		mes "- Hay una llave insertada en la puerta cerrada. -";
 		next;
-		switch(select("Turn the key.:Ignore it.")) {
+		switch(select("Girar la llave.:Ignorar.")) {
 		case 1:
-			mes "You start saying the first line of the magic words.";
+			mes "Empiezas a decir la primera linea de las palabras magicas.";
 			input .@input$;
 			next;
 			mes "["+strcharinfo(0)+"]";
@@ -2016,100 +2016,100 @@ bra_in01,149,184,3	script	Door#bra	CLEAR_NPC,{
 			.@braspell$ = "Mother the door won't open!";
 			.@chkspell = compare(.@braspell$,.@input$);
 			if (!.@chkspell) {
-				mes "Seems like you said something wrong.";
+				mes "Parece que dijiste algo mal.";
 				close;
 			}
 			else {
 				if (brazil_ghost == 2) {
 					mes "[Sobbing Voice]";
-					mes "'^FF0000Turn the key as many times as there are colors in the rainbow.^000000'";
+					mes "'^FF0000Gira la llave tantas veces como colores tiene el arcoiris.^000000'";
 					next;
-					switch(select("Open the door:Knock on the door.:Turn the key.:Take the key out.")) {
+					switch(select("Abrir la puerta:Tocar la puerta.:Girar la llave.:Sacar la llave.")) {
 					case 1:
-						mes "The door is locked.";
-						mes "So nothing happens.";
+						mes "La puerta esta cerrada.";
+						mes "Asi que no pasa nada.";
 						close;
 					case 2:
-						mes "How many times should I try to knock?";
+						mes "Cuantas veces deberia tocar?";
 						input .@input,0,999;
 						next;
-						mes "You knocked on the door "+.@input+" times.";
+						mes "Tocaste la puerta "+.@input+" veces.";
 						next;
-						mes "But, nothing happens.";
+						mes "Pero no pasa nada.";
 						close;
 					case 3:
-						mes "How many times should I turn the key?";
+						mes "Cuantas veces deberia girar la llave?";
 						input .@input,0,999;
 						next;
 						if (.@input == 7) {
-							mes "You turn the key 7 times.";
+							mes "Giras la llave 7 veces.";
 							next;
-							mes "Click! Click! Click!";
-							mes "Click! Click! Click!";
-							mes "Click...!";
+							mes "Clic! Clic! Clic!";
+							mes "Clic! Clic! Clic!";
+							mes "Clic...!";
 							next;
 							mes "[Distant Sound]";
-							mes "^FF0000kkkkhee- hihihihi!!!^000000";
-							mes "You hear water flushing.";
+							mes "^FF0000kkkkhee- jijiji!!!^000000";
+							mes "Escuchas agua corriendo.";
 							next;
 							specialeffect2 EF_VENOMDUST;
-							mes "Faint laughing can be heard off in the direction of the toilet.";
+							mes "Se escuchan risas leves en la direccion del inodoro.";
 							brazil_ghost = 3;
 							changequest 2208,60351;
 							close;
 						}
 						else {
-							mes "You turned over the key "+.@input+" times.";
+							mes "Giraste la llave "+.@input+" veces.";
 							next;
-							mes "But nothing doesn't happened.";
+							mes "Pero no paso nada.";
 							close;
 						}
 					case 4:
-						mes "How many times should I insert the key into the door?";
+						mes "Cuantas veces deberia insertar la llave en la puerta?";
 						input .@input,0,999;
 						next;
-						mes "You inserted the key "+.@input+" times.";
+						mes "Insertaste la llave "+.@input+" veces.";
 						next;
-						mes "But nothing happened.";
+						mes "Pero no paso nada.";
 						close;
 					}
 				}
 				else {
-					mes "Mother the door won't open!";
+					mes "Mama la puerta no abre!";
 					close;
 				}
 			}
 		case 2:
-			mes "You do nothing.";
+			mes "No haces nada.";
 			close;
 		}
 	}
 	else {
-		mes "- A key is inserted in the locked door.-";
+		mes "- Hay una llave insertada en la puerta cerrada. -";
 		close;
 	}
 }
 
 bra_in01,144,187,3	script	Toilet#bra	CLEAR_NPC,{
 	if (brazil_ghost > 0) {
-		mes "- Looks like an ordinary toilet -";
+		mes "- Parece un inodoro normal -";
 		next;
 		if (brazil_ghost > 6) {
-			switch(select("Flush the toilet.:Doing nothing.")) {
+			switch(select("Jalar la cadena.:No hacer nada.")) {
 			case 1:
-				mes "After flushing the toilet, you suddenly feel dizzy and are suddenly swept away somewhere.";
+				mes "Despues de jalar la cadena, de repente te sientes mareado y eres arrastrado a algun lugar.";
 				specialeffect2 EF_WATERFALL_SMALL_T2_90;
 				close2;
 				warp "bra_in01",206,102;
 				end;
 			case 2:
-				mes "The water in the toilet looks gross.";
+				mes "El agua del inodoro se ve asquerosa.";
 				close;
 			}
 		}
-		switch(select("Use the toilet:Ignore.")) {
+		switch(select("Usar el inodoro:Ignorar.")) {
 		case 1:
-			mes "- What was the second line to that spell now? -";
+			mes "- Cual era la segunda linea del hechizo? -";
 			input .@input$;
 			next;
 			mes "["+strcharinfo(0)+"]";
@@ -2118,71 +2118,71 @@ bra_in01,144,187,3	script	Toilet#bra	CLEAR_NPC,{
 			.@braspell$ = "Mother the water is flooding!";
 			.@chkspell = compare(.@braspell$,.@input$);
 			if (!.@chkspell) {
-				mes "Seems like you said something wrong.";
+				mes "Parece que dijiste algo mal.";
 				close;
 			}
 			else {
 				if (brazil_ghost == 3) {
 					mes "[Sobbing Voice]";
-					mes "^FF0000If the moon disappears 3 times... don't worry.....^000000";
+					mes "^FF0000Si la luna desaparece 3 veces... no te preocupes.....^000000";
 					next;
-					switch(select("Flush the toilet.:Close the lid.")) {
+					switch(select("Jalar la cadena.:Cerrar la tapa.")) {
 					case 1:
-						mes "How many times should I flush?";
+						mes "Cuantas veces deberia jalar?";
 						input .@input,0,999;
 						next;
 						if (.@input == 3) {
-							mes "You flush the toilet 3 times.";
+							mes "Jalas la cadena 3 veces.";
 							next;
-							mes "qwaaaaaaaaa!";
-							mes "kwaaaaaaaaaa!";
-							mes "kwaaaaaaaaaaaaaaaaaaa!";
+							mes "cuaaaaaaaaaa!";
+							mes "kuaaaaaaaaaa!";
+							mes "kuaaaaaaaaaaaaaaaaaaa!";
 							next;
 							mes "[Distant Sound]";
-							mes "^FF0000kkkkhee- hihihihi!!!^000000";
-							mes "Suddenly the sink sounds like water is flowing freely from it.";
+							mes "^FF0000kkkkhee- jijiji!!!^000000";
+							mes "De repente el lavamanos suena como si el agua fluyera libremente.";
 							next;
 							specialeffect2 EF_VENOMDUST;
-							mes "Faint laughing can be heard off in the direction of the faucet.";
+							mes "Se escuchan risas leves en la direccion del grifo.";
 							brazil_ghost = 4;
 							changequest 60351,60352;
 							close;
 						}
 						else {
-							mes "You flush the toilet "+.@input+" times.";
+							mes "Jalas la cadena "+.@input+" veces.";
 							next;
-							mes "But nothing happens.";
+							mes "Pero no pasa nada.";
 							close;
 						}
 					case 2:
-						mes "You close the lid of the toilet.";
-						mes "Nothing seems to be happening.";
+						mes "Cierras la tapa del inodoro.";
+						mes "Nada parece estar pasando.";
 						close;
 					}
 				}
 				else {
-					mes "Nothing happens.";
+					mes "No pasa nada.";
 					close;
 				}
 			}
 		case 2:
-			mes "You do nothing.";
+			mes "No haces nada.";
 			close;
 		}
 	}
 	else {
-		mes "- Looks like an ordinary toilet -";
+		mes "- Parece un inodoro normal -";
 		close;
 	}
 }
 
 bra_in01,134,189,3	script	Faucet#bra	CLEAR_NPC,{
 	if (brazil_ghost > 0) {
-		mes "- It seems like an ordinary faucet -";
+		mes "- Parece un grifo normal -";
 		next;
-		switch(select("Examine it.:Ignore.")) {
+		switch(select("Examinarlo.:Ignorar.")) {
 		case 1:
-			mes "- What was the next line to that spell now? -";
+			mes "- Cual era la siguiente linea del hechizo? -";
 			input .@input$;
 			next;
 			mes "["+strcharinfo(0)+"]";
@@ -2191,73 +2191,73 @@ bra_in01,134,189,3	script	Faucet#bra	CLEAR_NPC,{
 			.@braspell$ = "Mother the drought has started!";
 			.@chkspell = compare(.@braspell$,.@input$);
 			if (!.@chkspell) {
-				mes "Seems like you said something wrong.";
+				mes "Parece que dijiste algo mal.";
 				close;
 			}
 			else {
 				if (brazil_ghost == 4) {
 					mes "[Sobbing Voice]";
-					mes "^FF0000Don't worry... the waterfall will help it....^000000";
+					mes "^FF0000No te preocupes... la cascada lo ayudara....^000000";
 					next;
-					switch(select("Tap on the faucet.:Turn on the water.")) {
+					switch(select("Golpear el grifo.:Abrir el agua.")) {
 					case 1:
-						mes "How many times will you tap the faucet?";
+						mes "Cuantas veces golpearas el grifo?";
 						input .@input,0,999;
 						next;
-						mes "You tap the faucet "+.@input+" times.";
+						mes "Golpeas el grifo "+.@input+" veces.";
 						next;
-						mes "But nothing happens.";
+						mes "Pero no pasa nada.";
 						close;
 					case 2:
-						mes "How many times should I turn the water on?";
+						mes "Cuantas veces deberia abrir el agua?";
 						input .@input,0,999;
 						next;
 						if (.@input == 1) {
-							mes "You turn the faucet on once.";
+							mes "Abres el grifo una vez.";
 							next;
 							mes "swwwaaaaaaa-";
 							next;
 							mes "[Distant Sound]";
-							mes "^FF0000kkkkhee- hihihihi!!!^000000";
-							mes "You see the carpet move.";
+							mes "^FF0000kkkkhee- jijiji!!!^000000";
+							mes "Ves la alfombra moverse.";
 							next;
 							specialeffect2 EF_VENOMDUST;
-							mes "Faint laughing can be heard off in the direction of the carpet.";
+							mes "Se escuchan risas leves en la direccion de la alfombra.";
 							brazil_ghost = 5;
 							changequest 60352,60353;
 							close;
 						}
 						else {
-							mes "You turn the faucet on "+.@input+" times.";
+							mes "Abres el grifo "+.@input+" veces.";
 							next;
-							mes "But nothing happens.";
+							mes "Pero no pasa nada.";
 							close;
 						}
 					}
 				}
 				else {
-					mes "Nothing happens.";
+					mes "No pasa nada.";
 					close;
 				}
 			}
 		case 2:
-			mes "You do nothing.";
+			mes "No haces nada.";
 			close;
 		}
 	}
 	else {
-		mes "- It seems like an ordinary faucet -";
+		mes "- Parece un grifo normal -";
 		close;
 	}
 }
 
 bra_in01,138,184,3	script	Carpet#bra	CLEAR_NPC,{
 	if (brazil_ghost > 0) {
-		mes "- A carpet with an intricate pattern on it -";
+		mes "- Una alfombra con un patron intrincado -";
 		next;
-		switch(select("Examine it.:Ignore.")) {
+		switch(select("Examinarla.:Ignorar.")) {
 		case 1:
-			mes "- What was the next line to that spell now? -";
+			mes "- Cual era la siguiente linea del hechizo? -";
 			input .@input$;
 			next;
 			mes "["+strcharinfo(0)+"]";
@@ -2266,80 +2266,80 @@ bra_in01,138,184,3	script	Carpet#bra	CLEAR_NPC,{
 			.@braspell$ = "Mother where are my friends?";
 			.@chkspell = compare(.@braspell$,.@input$);
 			if (!.@chkspell) {
-				mes "Seems like you said something wrong.";
+				mes "Parece que dijiste algo mal.";
 				close;
 			}
 			else {
 				if (brazil_ghost == 5) {
 					mes "[Sobbing Voice]";
-					mes "^FF0000your 7 friends....are...sleeping... now it...'s time ....to wake them........^000000";
+					mes "^FF0000tus 7 amigos....estan...durmiendo... ahora es...hora ....de despertarlos........^000000";
 					next;
-					switch(select("Jump on the carpet.:Lie on the carpet.:Shake the carpet.")) {
+					switch(select("Saltar en la alfombra.:Acostarse en la alfombra.:Sacudir la alfombra.")) {
 					case 1:
-						mes "How many times should I jump?";
+						mes "Cuantas veces deberia saltar?";
 						input .@input,0,999;
 						next;
-						mes "You jump on the carpet "+.@input+" times.";
+						mes "Saltas en la alfombra "+.@input+" veces.";
 						next;
-						mes "But nothing happens.";
+						mes "Pero no pasa nada.";
 						close;
 					case 2:
-						mes "How many times should I lie on the carpet?";
+						mes "Cuantas veces deberia acostarme en la alfombra?";
 						input .@input,0,999;
 						next;
-						mes "You lie on the carpet "+.@input+" times.";
+						mes "Te acuestas en la alfombra "+.@input+" veces.";
 						next;
-						mes "But nothing happens.";
+						mes "Pero no pasa nada.";
 						close;
 					case 3:
-						mes "How many times should I shake the carpet?";
+						mes "Cuantas veces deberia sacudir la alfombra?";
 						input .@input,0,999;
 						next;
 						if (.@input == 7) {
-							mes "You shake the carpet 7 times.";
+							mes "Sacudes la alfombra 7 veces.";
 							next;
-							mes "- fly~ fly~ fly~ fly~ fly~ fly~ fly~ -";
+							mes "- vuela~ vuela~ vuela~ vuela~ vuela~ vuela~ vuela~ -";
 							next;
 							mes "[Distant Sound]";
-							mes "^FF0000kkkkhee- hihihihi!!!^000000";
+							mes "^FF0000kkkkhee- jijiji!!!^000000";
 							next;
 							specialeffect2 EF_VENOMDUST;
-							mes "Faint laughing can be heard off in the direction of the mirror.";
+							mes "Se escuchan risas leves en la direccion del espejo.";
 							brazil_ghost = 6;
 							changequest 60353,60354;
 							close;
 						}
 						else {
-							mes "You shake the carpet "+.@input+" times.";
+							mes "Sacudes la alfombra "+.@input+" veces.";
 							next;
-							mes "But nothing happens.";
+							mes "Pero no pasa nada.";
 							close;
 						}
 					}
 				}
 				else {
-					mes "Nothing happens.";
+					mes "No pasa nada.";
 					close;
 				}
 			}
 		case 2:
-			mes "You do nothing.";
+			mes "No haces nada.";
 			close;
 		}
 	}
 	else {
-		mes "- A carpet with an intricate pattern on it -";
+		mes "- Una alfombra con un patron intrincado -";
 		close;
 	}
 }
 
 bra_in01,151,180,3	script	Mirror#bra	CLEAR_NPC,{
 	if (brazil_ghost > 0) {
-		mes "- You can see a clean mirror without any marks or dust -";
+		mes "- Puedes ver un espejo limpio sin marcas ni polvo -";
 		next;
-		switch(select("Examine it.:Ignore.")) {
+		switch(select("Examinarlo.:Ignorar.")) {
 		case 1:
-			mes "- What was the next line to that spell now? -";
+			mes "- Cual era la siguiente linea del hechizo? -";
 			input .@input$;
 			next;
 			mes "["+strcharinfo(0)+"]";
@@ -2348,46 +2348,46 @@ bra_in01,151,180,3	script	Mirror#bra	CLEAR_NPC,{
 			.@braspell$ = "Where are you mom?";
 			.@chkspell = compare(.@braspell$,.@input$);
 			if (!.@chkspell) {
-				mes "Seems like you said something wrong.";
+				mes "Parece que dijiste algo mal.";
 				close;
 			}
 			else {
 				if (brazil_ghost == 6) {
 					mes "[Distant Sound]";
-					mes "^FF0000kihe! hit! hit! hit! hit!^000000";
+					mes "^FF0000kije! jit! jit! jit! jit!^000000";
 					next;
 					mes "[Distant Sound]";
-					mes "^FF0000kihe! hit! hit! hit! hit!^000000";
-					mes "^FF0000kihe! hit! hit! hit! hit!^000000";
+					mes "^FF0000kije! jit! jit! jit! jit!^000000";
+					mes "^FF0000kije! jit! jit! jit! jit!^000000";
 					next;
 					mes "[Distant Sound]";
-					mes "Behind you...";
+					mes "Detras de ti...";
 					enablenpc "Ghost#bra";
 					next;
 					emotion ET_HUK, playerattached();
 					mes "["+strcharinfo(0)+"]";
-					mes "The stories about the ghost are true~!";
+					mes "Las historias del fantasma son ciertas~!";
 					next;
 					mes "[Ghost]";
-					mes "^FF0000my baby....^000000";
+					mes "^FF0000mi bebe....^000000";
 					next;
 					mes "[Ghost]";
-					mes "^FF0000I can't see.... my eye....^000000";
-					mes "^FF0000What's going on....?^000000";
+					mes "^FF0000No puedo ver.... mi ojo....^000000";
+					mes "^FF0000Que esta pasando....?^000000";
 					next;
-					mes "- You take a deep breath and then look at the Ghost and notice it has an eye patch -";
-					next;
-					mes "[Ghost]";
-					mes "^FF0000My eyes are so tight... can you take this off?^000000";
-					next;
-					mes "You step carefully towards the ghost.";
-					next;
-					mes "His face was covered with dust making strange contortions with it's face.";
+					mes "- Respiras profundo y luego miras al Fantasma y notas que tiene un parche en el ojo -";
 					next;
 					mes "[Ghost]";
-					mes "^FF0000Come on help mom.....^000000";
+					mes "^FF0000Mis ojos estan muy apretados... puedes quitar esto?^000000";
 					next;
-					switch(select("Take the eye bandage off.:Run away~.")) {
+					mes "Te acercas cuidadosamente al fantasma.";
+					next;
+					mes "Su cara estaba cubierta de polvo haciendo contorsiones extranas con su rostro.";
+					next;
+					mes "[Ghost]";
+					mes "^FF0000Vamos ayuda a mama.....^000000";
+					next;
+					switch(select("Quitar la venda del ojo.:Huir~.")) {
 					case 1:
 						while(1) {
 							.@cpudice = rand(1,6);
@@ -2401,7 +2401,7 @@ bra_in01,151,180,3	script	Mirror#bra	CLEAR_NPC,{
 						if (.@cpudice > .@pcdice) {
 							specialeffect2 EF_DEVIL;
 							mes "[Ghost]";
-							mes "^FF0000Go away!^000000";
+							mes "^FF0000Vete!^000000";
 							brazil_ghost = 1;
 							changequest 60354,2208;
 							percentheal -50,-50;
@@ -2414,7 +2414,7 @@ bra_in01,151,180,3	script	Mirror#bra	CLEAR_NPC,{
 							emotion ET_STARE, playerattached();
 							mes "[Ghost]";
 							mes "^FF0000Ahh!^000000";
-							mes "The Ghost disappeared into the toilet.";
+							mes "El Fantasma desaparecio en el inodoro.";
 							brazil_ghost = 7;
 							changequest 60354,60355;
 							close2;
@@ -2423,7 +2423,7 @@ bra_in01,151,180,3	script	Mirror#bra	CLEAR_NPC,{
 							end;
 						}
 					case 2:
-						mes "You run away from the ghost.";
+						mes "Huyes del fantasma.";
 						close2;
 						brazil_ghost = 1;
 						changequest 60354,2208;
@@ -2434,17 +2434,17 @@ bra_in01,151,180,3	script	Mirror#bra	CLEAR_NPC,{
 					close;
 				}
 				else {
-					mes "Nothing happens.";
+					mes "No pasa nada.";
 					close;
 				}
 			}
 		case 2:
-			mes "You do nothing.";
+			mes "No haces nada.";
 			close;
 		}
 	}
 	else {
-		mes "- You can see a clean mirror without any marks or dust -";
+		mes "- Puedes ver un espejo limpio sin marcas ni polvo -";
 		close;
 	}
 }
@@ -2460,85 +2460,85 @@ OnInit:
 bra_in01,7,181,5	script	Curator#bra	4_M_BRZ_MAN2,{
 	if (BaseLevel < 40) {
 		mes "[Curator]";
-		mes "I'm sorry but this area is under construction right now.";
+		mes "Lo siento pero esta area esta en construccion ahora mismo.";
 		close;
 	}
 	if ((brazil_ghost > 0) && (brazil_ghost < 7)) {
 		if (countitem(11515) > 0) {
 			mes "[Curator]";
-			mes "What can I do for you?";
+			mes "En que puedo ayudarte?";
 			next;
-			select("I need to use the bathroom.");
+			select("Necesito usar el bano.");
 			mes "[Curator]";
-			mes "Sorry we are remodeling inside right now so, it's closed.";
-			mes "Please use the other one.";
+			mes "Lo siento estamos remodelando adentro asi que esta cerrado.";
+			mes "Por favor usa el otro.";
 			next;
-			switch(select("But I forgot something inside.:Give up.")) {
+			switch(select("Pero olvide algo adentro.:Rendirse.")) {
 			case 1:
 				mes "[Curator]";
-				mes "That's tooooo bad.";
-				mes "But my manager ordered me to stop anyone from entering this bathroom so, I should follow his orders.";
+				mes "Que maaal.";
+				mes "Pero mi jefe me ordeno que no dejara entrar a nadie a este bano asi que, debo seguir sus ordenes.";
 				next;
-				select("It's such a hot day!");
+				select("Hace tanto calor!");
 				mes "[Curator]";
-				mes "It's always hot in Brasilis but today is ridiculously hot.";
-				mes "Maybe I need to drink some coconut juice to cool down.";
+				mes "Siempre hace calor en Brasilis pero hoy esta ridiculamente caluroso.";
+				mes "Quizas necesite tomar algo de jugo de coco para refrescarme.";
 				next;
-				mes "You give a coconut to the Curator.";
-				next;
-				mes "[Curator]";
-				mes "Oh really can I have it?";
-				mes "Thanks a lot!";
+				mes "Le das un coco al Curador.";
 				next;
 				mes "[Curator]";
-				mes "Pay it forward right?";
-				mes "Ok I'll let you through this one time.";
+				mes "Oh en serio puedo tenerlo?";
+				mes "Muchas gracias!";
 				next;
-				mes "The curator looks around calmly then opens the door.";
+				mes "[Curator]";
+				mes "Hoy por ti, manana por mi, verdad?";
+				mes "Ok te dejare pasar esta unica vez.";
+				next;
+				mes "El curador mira calmadamente alrededor y luego abre la puerta.";
 				delitem 11515,1; //Coconut
 				brazil_ghost = 2;
 				close2;
 				warp "bra_in01",138,176;
 				end;
 			case 2:
-				mes "You give up trying to enter.";
+				mes "Te rindes intentando entrar.";
 				close;
 			}
 		}
 		else {
 			mes "[Curator]";
-			mes "What can I do for you?";
+			mes "En que puedo ayudarte?";
 			next;
-			select("I need to use the bathroom.");
+			select("Necesito usar el bano.");
 			mes "[Curator]";
-			mes "Sorry we are remodeling inside right now so, it's closed.";
-			mes "Please use the other one.";
+			mes "Lo siento estamos remodelando adentro asi que esta cerrado.";
+			mes "Por favor usa el otro.";
 			next;
-			switch(select("But I forgot something inside.:Give up.")) {
+			switch(select("Pero olvide algo adentro.:Rendirse.")) {
 			case 1:
 				mes "[Curator]";
-				mes "That's tooooo bad.";
-				mes "But my manager ordered me to stop anyone from entering this bathroom so, I should follow his orders.";
+				mes "Que maaal.";
+				mes "Pero mi jefe me ordeno que no dejara entrar a nadie a este bano asi que, debo seguir sus ordenes.";
 				next;
-				select("It's such a hot day!");
+				select("Hace tanto calor!");
 				mes "[Curator]";
-				mes "It's always hot in Brasilis but today is ridiculously hot.";
-				mes "Maybe I need to drink some coconut juice to cool down.";
+				mes "Siempre hace calor en Brasilis pero hoy esta ridiculamente caluroso.";
+				mes "Quizas necesite tomar algo de jugo de coco para refrescarme.";
 				close;
 			case 2:
-				mes "You give up trying to enter.";
+				mes "Te rindes intentando entrar.";
 				close;
 			}
 		}
 	}
 	else if (brazil_ghost > 6) {
 		mes "[Curator]";
-		mes "Hey thanks for the Coconut earlier it really helped me cool down.";
+		mes "Oye gracias por el Coco de antes, realmente me ayudo a refrescarme.";
 		close;
 	}
 	else {
 		mes "[Curator]";
-		mes "Is it just me? Or is it hotter than it's ever been today!";
+		mes "Soy yo? O hace mas calor que nunca hoy!";
 		close;
 	}
 }
@@ -2548,7 +2548,7 @@ OnTouch_:
 	if (brazil_ghost > 6)
 		warp "bra_in01",138,176;
 	else {
-		mes "The entrance has been blocked.";
+		mes "La entrada ha sido bloqueada.";
 		close;
 	}
 	end;
@@ -2561,27 +2561,27 @@ bra_in01,206,188,1	script	Open Manhole#todunbra	CLEAR_NPC,{
 	if (brazil_ghost == 7) {
 		enablenpc "Ghost#bra_end";
 		mes "[Ghost]";
-		mes "I am a ghost who died while wandering the jungle many years ago.";
+		mes "Soy un fantasma que murio mientras vagaba por la jungla hace muchos anos.";
 		next;
 		mes "[Ghost]";
-		mes "I found a pipeline in the jungle and followed the voice of a man to this very spot.";
+		mes "Encontre una tuberia en la jungla y segui la voz de un hombre hasta este mismo lugar.";
 		next;
 		mes "[Ghost]";
-		mes "That's also where I hurt one of my eyes while walking around in the dark.";
+		mes "Tambien fue donde me lastime uno de mis ojos mientras caminaba en la oscuridad.";
 		next;
 		mes "[Ghost]";
-		mes "I wandered these sewers for days until I found the end of this line connected to the toilet in the museum. I shouted forever begging for help but no one answered my calls.";
+		mes "Vague por estas alcantarillas por dias hasta que encontre el final de esta linea conectada al inodoro del museo. Grite por siempre pidiendo ayuda pero nadie respondio mis llamados.";
 		next;
 		mes "[Ghost]";
-		mes "You finally answered my call but it's already way too late. Thank you for at least checking. No one else has bothered to this day.";
+		mes "Tu finalmente respondiste a mi llamado pero ya es demasiado tarde. Gracias por al menos verificar. Nadie mas se ha molestado hasta hoy.";
 		next;
 		mes "[Ghost]";
-		mes "There are many dangerous creatures at the end of this sewer.";
-		mes "You seem brave though. I bet you wouldn't worry about the monsters there anyways.";
+		mes "Hay muchas criaturas peligrosas al final de esta alcantarilla.";
+		mes "Pero tu pareces valiente. Apuesto a que no te preocuparian los monstruos de ahi de todos modos.";
 		next;
 		mes "[Ghost]";
-		mes "I guess now I can finally rest in peace.";
-		mes "Thank you friend.";
+		mes "Supongo que ahora finalmente puedo descansar en paz.";
+		mes "Gracias amigo.";
 		brazil_ghost = 8;
 		//completequest 2208;
 		completequest 60355;
@@ -2604,21 +2604,21 @@ bra_dun01,87,43,1	script	Pipe#bra	CLEAR_NPC,{
 
 bra_fild01,323,136,1	script	Pipe#brafild	CLEAR_NPC,{
 	if (brazil_ghost > 6) {
-		mes "You see a rusty pipe. It seems to be linked to somewhere beneath the jungle.";
+		mes "Ves una tuberia oxidada. Parece estar conectada a algun lugar debajo de la jungla.";
 		next;
-		switch(select("Examine it:Ignore.")) {
+		switch(select("Examinarla:Ignorar.")) {
 		case 1:
-			mes "You swim through a gap in the pipe and are swept by a sudden rush of water.";
+			mes "Nadas a traves de un hueco en la tuberia y eres arrastrado por una corriente repentina de agua.";
 			close2;
 			warp "bra_in01",206,182;
 			end;
 		case 2:
-			mes "It might be dangerous, I better not act rashly.";
+			mes "Podria ser peligroso, mejor no actuo precipitadamente.";
 			close;
 		}
 	}
 	else {
-		mes "You see a rusty pipe. It seems to be linked to somewhere beneath the jungle.";
+		mes "Ves una tuberia oxidada. Parece estar conectada a algun lugar debajo de la jungla.";
 		close;
 	}
 }
@@ -2637,9 +2637,9 @@ brasilis,315,334,5	script	Shaman#nk	4_F_BRZ_INDOLD,{
 	.@iara_re = checkquest(4135,PLAYTIME);
 	if ((.@iara_re == 0) || (.@iara_re == 1)) {
 		mes "[Anori]";
-		mes "I'm still preparing.";
-		mes "I don't require your help at this time.";
-		mes "Please come back later...";
+		mes "Aun estoy preparando.";
+		mes "No requiero tu ayuda en este momento.";
+		mes "Por favor regresa mas tarde...";
 		close;
 	}
 	else {
@@ -2647,24 +2647,24 @@ brasilis,315,334,5	script	Shaman#nk	4_F_BRZ_INDOLD,{
 		.@iara_q = checkquest(4133);
 		if ((.@iara_q == 0) || (.@iara_q == 1)) {
 			mes "[Anori]";
-			mes "To block Iara ";
-			mes "seducing the tribes";
-			mes "we need a purifying potion...";
+			mes "Para bloquear a Iara ";
+			mes "de seducir a las tribus";
+			mes "necesitamos una pocion purificadora...";
 			next;
 			mes "[Anori]";
-			mes "Did you bring the materials";
-			mes "to make the purifying potion?";
+			mes "Trajiste los materiales";
+			mes "para hacer la pocion purificadora?";
 			next;
 			if ((countitem(950) > 19) && (countitem(7172) > 9) && (countitem(1054) > 2)) {
 				mes "[Anori]";
-				mes "Um... it seems to be okay.";
-				mes "I'll make you a potion which will";
-				mes "weaken Iara's power.";
+				mes "Um... parece estar bien.";
+				mes "Te hare una pocion que";
+				mes "debilitara el poder de Iara.";
 				next;
 				mes "[Anori]";
-				mes "Let's see grind this...";
-				mes "and mix in that...";
-				mes "then add some magic...";
+				mes "Veamos moler esto...";
+				mes "y mezclar eso...";
+				mes "luego agregar algo de magia...";
 				next;
 				setquest 4135;
 				erasequest 4133;
@@ -2675,157 +2675,157 @@ brasilis,315,334,5	script	Shaman#nk	4_F_BRZ_INDOLD,{
 				delitem 1054,3; //Lip_Of_Ancient_Fish
 				getitem 11517,2; //Puri_Potion
 				mes "[Anori]";
-				mes "Here, it's completed.";
-				mes "Take this.";
-				mes "It will make Iara stop";
-				mes "training at the cave";
-				mes "for a while.";
+				mes "Aqui, esta completada.";
+				mes "Toma esto.";
+				mes "Hara que Iara deje de";
+				mes "entrenar en la cueva";
+				mes "por un tiempo.";
 				next;
 				mes "[Anori]";
-				mes "Please block the Iara threatening the security of the tribe.";
+				mes "Por favor bloquea a Iara que amenaza la seguridad de la tribu.";
 				close;
 			}
 			else {
 				mes "[Anori]";
-				mes "You haven't brought enough materials yet.";
-				mes "We cannot make the purification potion with only these.";
+				mes "Aun no has traido suficientes materiales.";
+				mes "No podemos hacer la pocion de purificacion solo con esto.";
 				close;
 			}
 		}
 		else {
 			if (BaseLevel < 40) {
 				mes "[Anori]";
-				mes "Ah... we need a strong adventurer.";
-				mes "The tribe is facing a major threat.";
+				mes "Ah... necesitamos un aventurero fuerte.";
+				mes "La tribu enfrenta una gran amenaza.";
 				close;
 			}
 			.@re_q = checkquest(4134);
 			if (.@re_q == 2) {
 				mes "[Anori]";
-				mes "you are...";
-				mes "the adventurer who came for the";
-				mes "purification potion...";
+				mes "tu eres...";
+				mes "el aventurero que vino por la";
+				mes "pocion de purificacion...";
 				next;
 				mes "[Anori]";
-				mes "Maybe because of the purification potion...";
-				mes "After that, the Iara stopped seducing tribesmen but the effect didn't last long.";
+				mes "Quizas por la pocion de purificacion...";
+				mes "Despues de eso, Iara dejo de seducir a los hombres de la tribu pero el efecto no duro mucho.";
 				next;
 				mes "[Anori]";
-				mes "Could you get the same";
-				mes "materials as before...";
-				mes "I need your power.";
+				mes "Podrias conseguir los mismos";
+				mes "materiales que antes...";
+				mes "Necesito tu poder.";
 				next;
-				switch(select("No.:Okay, I'll do it.")) {
+				switch(select("No.:Esta bien, lo hare.")) {
 				case 1:
 					mes "[Anori]";
-					mes "This, ah...";
-					mes "There is no other way.";
+					mes "Esto, ah...";
+					mes "No hay otra manera.";
 					close;
 				case 2:
 					mes "[Anori]";
-					mes "You are truly brave!";
-					mes "I, on behalf of the tribe,";
-					mes "offer you my thanks.";
+					mes "Eres verdaderamente valiente!";
+					mes "Yo, en nombre de la tribu,";
+					mes "te ofrezco mi agradecimiento.";
 					next;
 					mes "[Anori]";
-					mes "Materials are the same as before.";
-					mes "If you just get^ff0000 20 Hearts of Mermaids,";
-					mes "10 Leopard Claws and";
-					mes "3 Ancient Lips^000000,";
-					mes "I will make you a potion that purifies evil spirits";
-					mes "by using a secret formula handed down to the tribe.";
+					mes "Los materiales son los mismos que antes.";
+					mes "Si solo consigues^ff0000 20 Corazones de Sirena,";
+					mes "10 Garras de Leopardo y";
+					mes "3 Labios Antiguos^000000,";
+					mes "te hare una pocion que purifica espiritus malignos";
+					mes "usando una formula secreta transmitida a la tribu.";
 					next;
 					mes "[Anori]";
-					mes "The destiny of the tribe is up to you.";
-					mes "please get the materials quickly.";
-					mes "I will be preparing to make";
-					mes "the purification potion right here.";
+					mes "El destino de la tribu esta en tus manos.";
+					mes "por favor consigue los materiales rapidamente.";
+					mes "Estare preparando para hacer";
+					mes "la pocion de purificacion justo aqui.";
 					setquest 4133;
 					close;
 				}
 			}
 			else {
 				mes "[Anori]";
-				mes "There are some people I haven't seen before around here.";
-				mes "It's a good sign...";
+				mes "Hay algunas personas que no habia visto antes por aqui.";
+				mes "Es una buena senal...";
 				next;
 				mes "[Anori]";
-				mes "Hey you...";
-				mes "Could you listen to my stories for a moment.";
-				mes "There's an emergency in our tribe.";
+				mes "Oye tu...";
+				mes "Podrias escuchar mis historias por un momento.";
+				mes "Hay una emergencia en nuestra tribu.";
 				next;
-				if(select("No.:Okay.") == 1) {
+				if(select("No.:Esta bien.") == 1) {
 					mes "[Anori]";
-					mes "You are a heartless person...";
-					mes "You don't seem the helpful type.";
-					mes "Just keep on going your way.";
+					mes "Eres una persona sin corazon...";
+					mes "No pareces del tipo que ayuda.";
+					mes "Solo sigue tu camino.";
 					close;
 				}
 				mes "[Anori]";
-				mes "Thank you, I met a kind person.";
-				mes "It's a secret of our tribe that";
-				mes "you cannot tell anyone.";
+				mes "Gracias, conoci a una persona amable.";
+				mes "Es un secreto de nuestra tribu que";
+				mes "no puedes contarle a nadie.";
 				next;
 				mes "[Anori]";
-				mes "Lately young men from";
-				mes "the tribe are disappearing.";
-				mes "Our entire tribe is being threatened.";
+				mes "Ultimamente jovenes de";
+				mes "la tribu estan desapareciendo.";
+				mes "Toda nuestra tribu esta siendo amenazada.";
 				next;
 				mes "[Anori]";
-				mes "It is likely because of a witch called Iara.";
-				mes "She is a water nymph seducing the hearts of young tribesmen at a cave behind the waterfall.";
+				mes "Es probable que sea por una bruja llamada Iara.";
+				mes "Es una ninfa del agua que seduce los corazones de los jovenes de la tribu en una cueva detras de la cascada.";
 				next;
 				mes "[Anori]";
-				mes "How can I stop these young tribesmen?";
-				mes "But I discovered a way to make a purification potion to reverse the effects of the Iara's spells.";
+				mes "Como puedo detener a estos jovenes de la tribu?";
+				mes "Pero descubri una forma de hacer una pocion de purificacion para revertir los efectos de los hechizos de Iara.";
 				next;
 				mes "[Anori]";
-				mes "This potion has been handed down from many generations in our tribe.";
-				mes "This purification potion possesses the power to cleanse evil spirits.";
+				mes "Esta pocion ha sido transmitida de muchas generaciones en nuestra tribu.";
+				mes "Esta pocion de purificacion posee el poder de limpiar espiritus malignos.";
 				next;
 				mes "[Anori]";
-				mes "If you could get the materials";
-				mes "I will make you";
-				mes "the purification potion.";
-				mes "Could you do that for me?";
+				mes "Si pudieras conseguir los materiales";
+				mes "te hare";
+				mes "la pocion de purificacion.";
+				mes "Podrias hacer eso por mi?";
 				next;
-				switch(select("No.:Yes, I can.")) {
+				switch(select("No.:Si, puedo.")) {
 				case 1:
 					mes "[Anori]";
 					mes "Hm...";
-					mes "Well, then.";
-					mes "If you change your mind you can come to me again.";
+					mes "Bueno, entonces.";
+					mes "Si cambias de opinion puedes venir a mi de nuevo.";
 					next;
 					mes "[Anori]";
-					mes "You shouldn't talk about";
-					mes "what you heard now to anyone";
-					mes "It's kind of embarrassing...";
+					mes "No deberias hablar sobre";
+					mes "lo que escuchaste ahora a nadie";
+					mes "Es algo vergonzoso...";
 					close;
 				case 2:
 					mes "[Anori]";
-					mes "Oh! You are the savior";
-					mes "of our tribe indeed.";
-					mes "On behalf of the tribe, I offer you my thanks.";
+					mes "Oh! Eres el salvador";
+					mes "de nuestra tribu sin duda.";
+					mes "En nombre de la tribu, te ofrezco mi agradecimiento.";
 					next;
 					mes "[Anori]";
-					mes "Well, what we need is this.";
-					mes "It's all you can get from near here.";
-					mes "Note down well.";
+					mes "Bueno, lo que necesitamos es esto.";
+					mes "Todo lo puedes conseguir de cerca de aqui.";
+					mes "Anota bien.";
 					next;
 					mes "[Anori]";
-					mes "^ff0000 20 Hearts of Mermaids";
-					mes "10 Leopard Claws";
-					mes "3 Ancient Lips^000000";
-					mes "are the only ones that are needed as the materials.";
+					mes "^ff0000 20 Corazones de Sirena";
+					mes "10 Garras de Leopardo";
+					mes "3 Labios Antiguos^000000";
+					mes "son los unicos que se necesitan como materiales.";
 					next;
 					mes "[Anori]";
-					mes "When you get those, I will make you a potion that purifies evil spirits using a secret formula handed down to the tribe.";
+					mes "Cuando los consigas, te hare una pocion que purifica espiritus malignos usando una formula secreta transmitida a la tribu.";
 					setquest 4133;
 					next;
 					mes "[Anori]";
-					mes "The destiny of the tribe is up to you.";
-					mes "I hope you move quickly.";
-					mes "Even at this moment, the village men are being seduced and slipping way...";
+					mes "El destino de la tribu esta en tus manos.";
+					mes "Espero que te muevas rapido.";
+					mes "Incluso en este momento, los hombres de la aldea estan siendo seducidos y escapandose...";
 					close;
 				}
 			}
@@ -2836,27 +2836,27 @@ brasilis,315,334,5	script	Shaman#nk	4_F_BRZ_INDOLD,{
 bra_dun02,157,74,5	script	Iara#nk	4_F_BRZ_WOMAN,2,2,{
 	if (countitem(11517) > 0) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Should I use a Purification Potion?";
+		mes "Deberia usar una Pocion de Purificacion?";
 		next;
-		switch(select("Yes.:No.")) {
+		switch(select("Si.:No.")) {
 		case 1:
 			specialeffect EF_MAPPILLAR;
 			mes "[Iara]";
-			mes "Ah...this light is...";
-			mes "It's like getting cleansed of evil thoughts";
-			mes "from deep within my heart.";
+			mes "Ah...esta luz es...";
+			mes "Es como ser limpiada de pensamientos malignos";
+			mes "desde lo profundo de mi corazon.";
 			next;
 			mes "[Iara]";
-			mes "At last I can forget the curse that I placed on myself when I drowned in the water.";
+			mes "Al fin puedo olvidar la maldicion que me puse cuando me ahogue en el agua.";
 			next;
 			mes "[Iara]";
-			mes "Do you think I can be born again as a kind water nymph?";
+			mes "Crees que puedo renacer como una buena ninfa del agua?";
 			next;
 			specialeffect EF_GHOST;
 			mes "[Iara]";
-			mes "Ah... Thank you for helping me recover my consciousness for a while.";
-			mes "But... I think that the curse has been with me too long.";
-			mes "Get away from me quickly.";
+			mes "Ah... Gracias por ayudarme a recuperar mi conciencia por un momento.";
+			mes "Pero... creo que la maldicion ha estado conmigo demasiado tiempo.";
+			mes "Alejate de mi rapidamente.";
 			delitem 11517,1; //Puri_Potion
 			if (checkre(0)) {
 				percentheal 100,100;
@@ -2877,12 +2877,12 @@ bra_dun02,157,74,5	script	Iara#nk	4_F_BRZ_WOMAN,2,2,{
 			specialeffect EF_DEVIL;
 			next;
 			mes "[Iara]";
-			mes "The curse is too strong for me to keep contained.";
-			mes "Leave now while you are safe.";
+			mes "La maldicion es demasiado fuerte para que la contenga.";
+			mes "Vete ahora mientras estes a salvo.";
 			close;
 		case 2:
 			mes "[" + strcharinfo(0) + "]";
-			mes "(I guess I should ignore her.)";
+			mes "(Supongo que deberia ignorarla.)";
 			close;
 		}
 	}
@@ -2897,7 +2897,7 @@ bra_dun02,157,74,5	script	Iara#nk	4_F_BRZ_WOMAN,2,2,{
 			sc_start SC_CONFUSION,60000,0;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Ugh! What's this strange voice?";
+		mes "Ugh! Que es esta voz extrana?";
 		close;
 	}
 	end;
@@ -2914,7 +2914,7 @@ OnTouch:
 			sc_start SC_CONFUSION,60000,0;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Ugh! What's this strange voice?";
+		mes "Ugh! Que es esta voz extrana?";
 		close;
 	}
 	end;
@@ -2922,19 +2922,19 @@ OnTouch:
 
 bra_fild01,188,301,5	script	Native Warrior#nk	4_M_BRZ_INDIAN,{
 	mes "[Native Warrior]";
-	mes "Ah... the face I would never forget even in my dreams.";
+	mes "Ah... la cara que nunca olvidaria ni en mis suenos.";
 	next;
 	mes "[Native Warrior]";
-	mes "When will she come out of the waterfall again...?";
+	mes "Cuando saldra de la cascada otra vez...?";
 	next;
 	if ((checkquest(4133) >= 0) || (checkquest(4134) >= 0)) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "(Wh...what's this guy?)";
+		mes "(Qu...que le pasa a este tipo?)";
 	}
 	else {
 		mes "[" + strcharinfo(0) + "]";
-		mes "(This guy will never";
-		mes "get over Iara's curse...)";
+		mes "(Este tipo nunca";
+		mes "superara la maldicion de Iara...)";
 	}
 	close;
 }

@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Wanderer Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Muad_Dib, Meyraw
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.5
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Job change Quest from Dancer / Gypsy -> Wanderer.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version.
 //= 1.1 Updated dialogue to be more official / accurate. Huge thanks to Muad_Dib! [Masao]
 //= 1.2 Fixed an endless loop in dialogue.
@@ -21,93 +21,93 @@
 xmas,162,209,5	script	Aspiring Wanderer, Soy	714,{
 	if (job_wan == 0) {
 		mes "[Soy]";
-		mes "Mimi, what should I do?";
-		mes "My heart is beating so fast. Ahhh~";
+		mes "Mimi, que deberia hacer?";
+		mes "Mi corazon late muy rapido. Ahhh~";
 		next;
 		mes "[Mimi]";
-		mes "Why is you face so flushed? Ha ha ha.";
+		mes "Por que tienes la cara tan roja? Ja ja ja.";
 		next;
 		mes "[Soy]";
-		mes "Don't make fun of me Mimi~";
-		mes "I have dreamed of being at Dancer Kim's stage for a very long time!";
+		mes "No te burles de mi Mimi~";
+		mes "He sonado con estar en el escenario de Dancer Kim por mucho tiempo!";
 		emotion ET_SHY, getnpcid(0, "Aspiring Wanderer, Soy");
 		next;
 		mes "[Soy]";
-		mes "I might lose my senses if I really see her dancing like a beautiful angel sent from above.";
+		mes "Podria perder los sentidos si realmente la veo bailar como un angel hermoso enviado desde arriba.";
 		next;
 		mes "[Mimi]";
-		mes "Calm down, Soy.";
-		mes "You are going to faint even before the performance starts. Ha ha.";
+		mes "Calmate, Soy.";
+		mes "Te vas a desmayar antes de que empiece la presentacion. Ja ja.";
 		next;
 		mes "[Mimi]";
-		mes "But I understand you.";
-		mes "Many people are looking forward to meeting the best Wanderer in the world.";
+		mes "Pero te entiendo.";
+		mes "Mucha gente esta ansiosa por conocer a la mejor Wanderer del mundo.";
 		if (BaseJob != Job_Dancer || BaseLevel < 99) close;
 		next;
 		select("Dancer Kim?:Wanderer?");
 		emotion ET_HUK, getnpcid(0, "Aspiring Wanderer, Soy");
 		mes "[Soy]";
-		mes "What? You don't know the famous Wanderer, Dancer Kim?";
-		mes "Oh my, oh my!!!";
-		mes "You seem to know the art of dancing but how come you don't know her?";
-		mes "Oh, no!";
+		mes "Que? No conoces a la famosa Wanderer, Dancer Kim?";
+		mes "Ay cielos, ay cielos!!!";
+		mes "Parece que conoces el arte del baile pero como es que no la conoces?";
+		mes "Ay, no!";
 		next;
 		mes "[Mimi]";
-		mes "A Wanderer is a free-spirited person who wanders about the world with the wind and the stars.";
-		mes "Rhythm and Music accompany them wherever they go.";
+		mes "Una Wanderer es una persona de espiritu libre que vaga por el mundo con el viento y las estrellas.";
+		mes "El Ritmo y la Musica las acompanan a donde quiera que vayan.";
 		next;
 		mes "[Mimi]";
-		mes "Dancer Kim is the most famous Wanderer who tours the world with the Maestro Guitar Dong as the team <Nollio>.";
+		mes "Dancer Kim es la Wanderer mas famosa que recorre el mundo con el Maestro Guitar Dong como el equipo <Nollio>.";
 		next;
 		mes "[Mimi]";
-		mes "Soy and myself are Aspiring Wanderers, and there will be a performance of <Nollio> in this town soon, so we are eagerly looking forward to see it.";
+		mes "Soy y yo somos Aspirantes a Wanderer, y habra una presentacion de <Nollio> en este pueblo pronto, asi que estamos ansiosas por verla.";
 		next;
 		mes "[Soy]";
-		mes "If you are a true Dancer, you must be struck with her Dance!";
-		mes "Will I ever meet a Maestro like Guitar Song someday, Mimi?";
+		mes "Si eres una verdadera Dancer, debes quedar impactada con su Danza!";
+		mes "Alguna vez conocere a un Maestro como Guitar Song, Mimi?";
 		next;
 		emotion ET_SMILE, getnpcid(0, "Aspiring Wanderer, Soy");
 		mes "[Mimi]";
-		mes "Just hang in there, Soy. Ha ha.";
+		mes "Solo aguanta, Soy. Ja ja.";
 		next;
-		switch(select("Where is the performance?:End the conversation.")) {
+		switch(select("Donde es la presentacion?:Terminar la conversacion.")) {
 		case 1:
 			mes "[Soy]";
-			mes "Right in front of the Christmas tree!";
-			mes "White snow, beautiful melody, and my captivating dance.";
-			mes "Don't you think it would be a great performance?";
+			mes "Justo frente al arbol de Navidad!";
+			mes "Nieve blanca, melodia hermosa, y mi danza cautivadora.";
+			mes "No crees que seria una gran presentacion?";
 			set job_wan,1;
 			close;
 		case 2:
 			mes "[Mimi]";
-			mes "If you are interested in becoming a Wanderer, just come back to me anytime. Although I'm not perfect, I will try my best to help you.";
+			mes "Si te interesa convertirte en Wanderer, solo regresa conmigo cuando quieras. Aunque no soy perfecta, hare mi mejor esfuerzo para ayudarte.";
 			close;
 		}
 	} else if (job_wan == 1) {
 		if (strnpcinfo(0) == "Aspiring Wanderer, Soy") {
 			mes "[Soy]";
-			mes "The performance will be held in front of the Christmas tree here in Lutie.";
-			mes "I can't wait! Ah~ I'm losing my senses, Mimi.";
+			mes "La presentacion sera frente al arbol de Navidad aqui en Lutie.";
+			mes "No puedo esperar! Ah~ Estoy perdiendo los sentidos, Mimi.";
 		} else {
 			mes "[Mimi]";
-			mes "A Wanderer's dancing charm is higher than that of a dancer or gypsy, everyone will lose their souls when they see their performance.";
+			mes "El encanto del baile de una Wanderer es mayor que el de una bailarina o gypsy, todos perderan el alma cuando vean su presentacion.";
 			next;
 			mes "[Mimi]";
-			mes "I want to become a Wanderer, but I'm still a dancer.";
-			mes "But I think^3131FF it's better to learn Gypsy's unique skills first, and then become a Wanderer^000000. Soy can't wait to become a Wanderer.";
+			mes "Quiero convertirme en Wanderer, pero todavia soy bailarina.";
+			mes "Pero creo que^3131FF es mejor aprender las habilidades unicas de Gypsy primero, y luego convertirse en Wanderer^000000. Soy no puede esperar para convertirse en Wanderer.";
 		}
 		close;
 	} else if (job_wan == 10) {
 		mes "[Soy]";
-		mes "<Nollio> is the best!!";
+		mes "<Nollio> es lo mejor!!";
 		close;
 	} else {
 		if (strnpcinfo(0) == "Aspiring Wanderer, Soy") {
 			mes "[Soy]";
-			mes "I want to become an famous Wanderer too, Mimi.";
+			mes "Yo tambien quiero convertirme en una Wanderer famosa, Mimi.";
 		} else {
 			mes "[Mimi]";
-			mes "Not sure if I'm greedy, but I need to learn all Dancer and Gypsy skills before I can become a Wanderer.";
+			mes "No se si soy ambiciosa, pero necesito aprender todas las habilidades de Dancer y Gypsy antes de poder convertirme en Wanderer.";
 		}
 		close;
 	}
@@ -117,41 +117,41 @@ xmas,163,209,3	duplicate(Aspiring Wanderer, Soy)	Aspiring Wanderer, Mimi	714
 xmas,132,143,5	script	Performance Manager#wnd	713,{
 	mes "[Performance Manager]";
 	if (job_wan == 0) {
-		mes "Oh, what should I do?";
+		mes "Oh, que deberia hacer?";
 		close;
 	} else if (job_wan == 1) {
-		mes "Oh, what should I do?";
-		mes "Why did they do this?";
+		mes "Oh, que deberia hacer?";
+		mes "Por que hicieron esto?";
 		next;
 		emotion ET_SHY, getnpcid(0, "Aspiring Wanderer, Soy");
 		mes "[Performance Manager]";
-		mes "Hey, you there!";
-		mes "Please listen to my story.";
-		mes "Actually, I shouldn't tell anyone.";
-		mes "But I'm so overwhelmed that I might go crazy. Ahhhh~~!";
+		mes "Hey, tu de ahi!";
+		mes "Por favor escucha mi historia.";
+		mes "En realidad, no deberia contarle a nadie.";
+		mes "Pero estoy tan abrumado que podria volverme loco. Ahhhh~~!";
 		next;
 		while (1) {
 			set .@loop,0;
-			switch(select("Sorry, I don't care.:What's the matter?:Why are you telling me this?")) {
+			switch(select("Perdon, no me importa.:Que paso?:Por que me cuentas esto?")) {
 			case 1:
 				mes "[Performance Manager]";
-				mes "That's a bit harsh don't you think?";
+				mes "Eso es un poco duro no crees?";
 				close;
 			case 2:
 				mes "[Performance Manager]";
-				mes "The performance is supposed to be soon!";
+				mes "Se supone que la presentacion es pronto!";
 				next;
 				mes "[Performance Manager]";
-				mes "Those people don't feel any responsibility..";
-				mes "We're all expecting them and I've promoted them a lot.";
+				mes "Esa gente no siente ninguna responsabilidad..";
+				mes "Todos los esperamos y los promocione mucho.";
 				next;
 				set .@loop,1;
 				break;
 			case 3:
 				emotion ET_ANGER;
 				mes "[Performance Manager]";
-				mes "I told you that I'm overwhelmed!";
-				mes "You don't understand me!";
+				mes "Te dije que estoy abrumado!";
+				mes "No me entiendes!";
 				next;
 				break;
 			}
@@ -159,111 +159,111 @@ xmas,132,143,5	script	Performance Manager#wnd	713,{
 		}
 		while (1) {
 			set .@loop,0;
-			switch(select("Is there a problem?:Who do you mean?:It has nothing to do with me.")) {
+			switch(select("Hay un problema?:A quienes te refieres?:No tiene nada que ver conmigo.")) {
 			case 1:
 				mes "[Performance Manager]";
-				mes "How could they do that?";
-				mes "People will throw snowballs!";
-				mes "Maybe they will even throw a big snowman, no!";
+				mes "Como pudieron hacer eso?";
+				mes "La gente lanzara bolas de nieve!";
+				mes "Tal vez incluso lancen un muneco de nieve grande, no!";
 				next;
 				emotion ET_KEK;
 				mes "[Performance Manager]";
-				mes "People might grab me by the collar!!";
-				mes "Swing swing, dangling dangling!!";
-				mes "This is awful.";
+				mes "La gente podria agarrarme del cuello!!";
+				mes "Sacudir sacudir, colgando colgando!!";
+				mes "Esto es terrible.";
 				next;
 				set .@loop,1;
 				break;
 			case 2:
 				mes "[Performance Manager]";
-				mes "Who?!";
-				mes "It's <Nollio>!";
-				mes "You call that a question?";
-				mes "They are the worst people in the world.";
+				mes "Quienes?!";
+				mes "Es <Nollio>!";
+				mes "Eso es una pregunta?";
+				mes "Son las peores personas del mundo.";
 				next;
 				break;
 			case 3:
 				mes "[Performance Manager]";
-				mes "What a heartless thing to say!";
+				mes "Que cosa tan insensible de decir!";
 				close;
 			}
 			if (.@loop) break;
 		}
 		while (1) {
 			set .@loop,0;
-			switch(select("Are you afraid of people?:The performers caused trouble?:Ignore him.")) {
+			switch(select("Le tienes miedo a la gente?:Los artistas causaron problemas?:Ignorarlo.")) {
 			case 1:
 				mes "[Performance Manager]";
-				mes "Wouldn't you be afraid of all the eyes of people if you were me?";
-				mes "I am in charge of this performance! A lot of people are looking forward to see it and there are many sponsors who are supporting us! I'm so stressed.";
+				mes "No tendrias miedo de todas las miradas de la gente si fueras yo?";
+				mes "Estoy a cargo de esta presentacion! Mucha gente espera verla y hay muchos patrocinadores apoyandola! Estoy muy estresado.";
 				next;
 				break;
 			case 2:
 				mes "[Performance Manager]";
-				mes "Yes!";
-				mes "<Nollio> has cancelled their performance!";
+				mes "Si!";
+				mes "<Nollio> cancelo su presentacion!";
 				next;
 				mes "[Performance Manager]";
-				mes "And they didn't give me any reason whatsoever!";
+				mes "Y no me dieron ninguna razon!";
 				next;
 				mes "[Performance Manager]";
-				mes "Besides the money I spent for promoting and setting up the stage..";
-				mes "How can I handle all the angry people?";
+				mes "Aparte del dinero que gaste en promocion y montaje del escenario..";
+				mes "Como puedo manejar a toda la gente enojada?";
 				next;
 				set .@loop,1;
 				break;
 			case 3:
 				mes "[Performance Manager]";
-				mes "Hey, where are you going!";
+				mes "Hey, a donde vas!";
 				close;
 			}
 			if (.@loop) break;
 		}
 		mes "[" + strcharinfo(0) + "]";
-		mes "I see that you are worried that the performance is going down the drain.";
-		mes "You wanted to make a successful performance to meet the fan's expectations.";
+		mes "Veo que estas preocupado porque la presentacion se ira por la borda.";
+		mes "Querias hacer una presentacion exitosa para cumplir las expectativas de los fans.";
 		next;
 		mes "[Performance Manager]";
-		mes "I really don't know how I should manage this.";
-		mes "Why did they suddenly cancel the performance?";
-		mes "Do you know?";
+		mes "Realmente no se como deberia manejar esto.";
+		mes "Por que cancelaron la presentacion de repente?";
+		mes "Sabes?";
 		next;
 		mes "[Performance Manager]";
-		mes "Why is <Nollio> taking this kind of attitude towards me?";
-		mes "Did I make any mistakes? After making a contract with them, I did everything they demanded of me!";
+		mes "Por que <Nollio> esta tomando esta actitud conmigo?";
+		mes "Cometi algun error? Despues de hacer un contrato con ellos, hice todo lo que me pidieron!";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "It's because...";
+		mes "Es porque...";
 		input .@inputstr$;
 		mes "^3131FF" + .@inputstr$ + "^000000";
 		mes "......";
 		next;
 		emotion ET_ANGER;
 		mes "[Performance Manager]";
-		mes "What the hell are you talking about?";
-		mes "Are you teasing me because I'm emotionally unstable?";
+		mes "De que diablos hablas?";
+		mes "Te estas burlando de mi porque estoy emocionalmente inestable?";
 		next;
 		mes "[Performance Manager]";
-		mes "Oh, I'm so worried that I'm having heart palpitations and I'm starting to feel dizzy!";
+		mes "Oh, estoy tan preocupado que tengo palpitaciones y estoy empezando a sentirme mareado!";
 		next;
 		mes "[Performance Manager]";
-		mes "Hey! Can you please go out and find the Maestro Guitar Song?";
+		mes "Hey! Puedes salir a buscar al Maestro Guitar Song?";
 		next;
-		switch(select("Ah, okay.:Why should I do that?:I won't!")) {
+		switch(select("Ah, esta bien.:Por que deberia hacer eso?:No lo hare!")) {
 		case 1:
 			break;
 		case 2:
 			emotion ET_FRET;
 			mes "[Performance Manager]";
-			mes "You're asking me why!?";
+			mes "Me preguntas por que!?";
 			mes "Ahh, no.....";
-			mes "It's because you seem like a similar artist.";
-			mes "You also wanted to watch the performance, didn't you?";
+			mes "Es porque pareces un artista similar.";
+			mes "Tu tambien querias ver la presentacion, no?";
 			next;
 			break;
 		case 3:
 			mes "[Performance Manager]";
-			mes "You are so cold-hearted....";
+			mes "Eres muy insensible....";
 			close;
 		}
 		if (VIP_SCRIPT) {
@@ -273,147 +273,147 @@ xmas,132,143,5	script	Performance Manager#wnd	713,{
 			next;
 		}
 		mes "[Performance Manager]";
-		mes "I would grab them by their collars if I could!";
-		mes "I would tell them Why are you spoiling the performance? but for now, dealing with the angry sponsors is hard enough... Oh, no!";
+		mes "Los agarraria del cuello si pudiera!";
+		mes "Les diria Por que estan arruinando la presentacion? pero por ahora, lidiar con los patrocinadores enojados es suficientemente dificil... Ay, no!";
 		next;
 		mes "[Performance Manager]";
-		mes "I don't know where Guitar Song is, but it is clear that he likes to visit the Comodo Casino!";
-		mes "Hu, Hurry up!! Oh, I really feel dizzy! Guitar Song!!!";
+		mes "No se donde esta Guitar Song, pero es seguro que le gusta visitar el Casino de Comodo!";
+		mes "Apurate!! Ay, realmente me siento mareado! Guitar Song!!!";
 		set job_wan,2;
 		setquest 2218;
 		close;
 	} else if (job_wan == 2) {
-		mes "I am not sure if Guitar Song is in Comodo, you should go there and find him!";
+		mes "No estoy seguro si Guitar Song esta en Comodo, deberias ir y buscarlo!";
 		close;
 	} else if (job_wan == 9) {
-		mes "They came back!!";
+		mes "Regresaron!!";
 		close;
 	} else if (job_wan == 10) {
-		mes "Thanks to you, the performance was successful.";
-		mes "You are so competent!";
-		mes "In return, I will prepare the stage for you someday.";
+		mes "Gracias a ti, la presentacion fue un exito.";
+		mes "Eres muy competente!";
+		mes "A cambio, preparare el escenario para ti algun dia.";
 		close;
 	}
-	mes "Ahhh, so distracting!";
+	mes "Ahhh, que distraccion!";
 	close;
 }
 
 comodo,140,86,5	script	Cheerless Maestro	479,{
 	if (job_wan < 2) {
 		mes "[Cheerless Maestro]";
-		mes "You can dance ~";
-		mes "You can do your work ~";
-		mes "You are the dancing Queen ~";
-		mes "I am the tambourine King ~";
+		mes "Puedes bailar ~";
+		mes "Puedes hacer tu trabajo ~";
+		mes "Tu eres la reina del baile ~";
+		mes "Yo soy el rey de la pandereta ~";
 		next;
 		mes "[Cheerless Maestro]";
-		mes "Whew...";
+		mes "Uff...";
 		close;
 	} else if (job_wan == 2) {
 		mes "[Cheerless Maestro]";
-		mes "You can dance ~";
-		mes "You can do your work ~";
-		mes "You are the dancing Queen ~";
-		mes "I am the tambourine King ~";
+		mes "Puedes bailar ~";
+		mes "Puedes hacer tu trabajo ~";
+		mes "Tu eres la reina del baile ~";
+		mes "Yo soy el rey de la pandereta ~";
 		next;
-		mes "- You found a Maestro -";
-		mes "- singing a weird song. -";
+		mes "- Encontraste a un Maestro -";
+		mes "- cantando una cancion rara. -";
 		next;
-		if(select("That's a weird song.:Ignore it.") == 2) {
-			mes "- What a weird person, I better stay away. -";
+		if(select("Esa es una cancion rara.:Ignorarlo.") == 2) {
+			mes "- Que persona tan rara, mejor me alejo. -";
 			close;
 		}
 		emotion ET_HUK;
 		mes "[Cheerless Maestro]";
-		mes "What?!";
-		mes "Are you ignoring my immortal masterpiece <Tambourine King>? You are the first person who's ever slapped me in the face.";
+		mes "Que?!";
+		mes "Estas ignorando mi obra maestra inmortal <Rey de la Pandereta>? Eres la primera persona que me abofetea en la cara.";
 		next;
-		select("I didn't slap you.");
+		select("No te abofetee.");
 		emotion ET_SURPRISE;
 		mes "[Cheerless Maestro]";
-		mes "Oh! Lady, looking at your appearance you must be a dancer, right?";
+		mes "Oh! Senora, por tu apariencia debes ser una bailarina, verdad?";
 		next;
 		mes "[Cheerless Maestro]";
-		mes "Do you have a Bard or Minstrel traveling together with you?";
-		mes "If you don't, how about making a traveling troupe with me?";
+		mes "Tienes un Bardo o Minstrel viajando contigo?";
+		mes "Si no, que tal hacer un grupo de viaje conmigo?";
 		next;
 		mes "[Cheerless Maestro]";
-		mes "The name of the team is <Guitar Song's Agony>.";
-		mes "This name expresses the excruciating pain it takes to create art works.";
+		mes "El nombre del equipo es <La Agonia de Guitar Song>.";
+		mes "Este nombre expresa el dolor insoportable que se necesita para crear obras de arte.";
 		next;
 		mes "[Cheerless Maestro]";
-		mes "It has an edgy kind of name So I think that it will be a very popular group.";
+		mes "Tiene un nombre atrevido asi que creo que sera un grupo muy popular.";
 		next;
-		select("Are you Guitar Song?");
+		select("Eres Guitar Song?");
 		emotion ET_SHY;
 		mes "[Guitar Song]";
-		mes "Huh... I'm a bit disappointed that you finally recognize me now.";
-		mes "Yes, I am the handsome Guitar Song in the famous group <Nollio>.";
-		mes "Ha ha ha!";
+		mes "Jum... estoy un poco decepcionado de que finalmente me reconoces.";
+		mes "Si, soy el guapo Guitar Song del famoso grupo <Nollio>.";
+		mes "Ja ja ja!";
 		next;
 		mes "[Guitar Song]";
-		mes "So how about it? Isn't that a tempting offer to you?";
-		mes "I'm a really famous Maestro at the peak of my popularity. People are dying to work with me, but you are indifferent to me lady.";
+		mes "Y que dices? No es una oferta tentadora?";
+		mes "Soy un Maestro realmente famoso en la cima de mi popularidad. La gente muere por trabajar conmigo, pero tu eres indiferente conmigo senora.";
 		next;
-		select("Where is Dancer Kim?:Why'd you cancel the performance?");
+		select("Donde esta Dancer Kim?:Por que cancelaron la presentacion?");
 		mes "[Guitar Song]";
-		mes "Why are you asking me that question so suddenly?";
-		mes "Come on, let's just talk about a pleasant matter.";
-		mes "Dancer Kim and the performance have nothing to do with me.";
+		mes "Por que me haces esa pregunta tan de repente?";
+		mes "Vamos, hablemos de algo agradable.";
+		mes "Dancer Kim y la presentacion no tienen nada que ver conmigo.";
 		next;
-		select("What do you mean?");
+		select("Que quieres decir?");
 		mes "[Guitar Song]";
-		mes "Hey, I told you to stop talking about this matter....";
-		mes "I don't want to think about it. It just hurts my feelings.";
+		mes "Hey, te dije que dejaras de hablar de eso....";
+		mes "No quiero pensar en ello. Solo me lastima los sentimientos.";
 		next;
-		mes "- Guitar Song is adamantly refusing to talk. What should I do to hear the story about <Nollio>? -";
+		mes "- Guitar Song se niega rotundamente a hablar. Que deberia hacer para escuchar la historia sobre <Nollio>? -";
 		set job_wan,3;
 		close;
 	} else if (job_wan == 3) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "(Would it be possible for me to make him tell me what happened with Nollio?)";
+		mes "(Sera posible que lo haga contarme lo que paso con Nollio?)";
 		next;
-		switch(select("Use Dazzler:Use Lullaby:Use Lucky Luck")) {
+		switch(select("Usar Dazzler:Usar Lullaby:Usar Lucky Luck")) {
 		case 1:
 			if (getskilllv("DC_UGLYDANCE") == 5 || rand(100) >= 80) {
-				mes "- You get closer to Song's ear. -";
+				mes "- Te acercas al oido de Song. -";
 				next;
 				mes "[" + strcharinfo(0) + "]";
-				mes "Okay-";
+				mes "Ok-";
 				next;
 				mes "[" + strcharinfo(0) + "]";
 				mes "Oi-!!!!!";
 				specialeffect EF_STUNATTACK;
 				next;
 				mes "[Guitar Song]";
-				mes "Wh...what!! What are you doing?!?";
-				mes "You almost damaged my eardrum.";
+				mes "Qu...que!! Que estas haciendo?!?";
+				mes "Casi me danas el timpano.";
 				emotion ET_FRET;
 				next;
 				mes "[" + strcharinfo(0) + "]";
-				mes "Hey, cheer up!!!";
+				mes "Hey, animate!!!";
 				next;
 				mes "[Guitar Song]";
-				mes "What are you talking about?";
+				mes "De que hablas?";
 				next;
 				mes "[" + strcharinfo(0) + "]";
-				mes "You should know, people are addicted to your music?";
-				mes "So many people are supporting you with anticipation.";
-				mes "Would you break your promise and let people down? Not giving people any reason?";
+				mes "Deberias saber, la gente es adicta a tu musica?";
+				mes "Tanta gente te apoya con anticipacion.";
+				mes "Romperias tu promesa y decepcionarias a la gente? Sin darle razones?";
 				next;
 			} else {
 				mes "[" + strcharinfo(0) + "]";
-				mes "Okay-";
+				mes "Ok-";
 				next;
 				mes "[" + strcharinfo(0) + "]";
 				mes "Aaaaahhh!!!!!";
 				next;
 				mes "[Guitar Song]";
-				mes "What... what are you doing?!! What's wrong with you!";
-				mes "Security!!!";
+				mes "Que... que estas haciendo?!! Que te pasa!";
+				mes "Seguridad!!!";
 				next;
 				mes "[Black-suit Guards]";
-				mes "Please stop this.";
+				mes "Por favor detente.";
 				close2;
 				warp "comodo",117,98;
 				end;
@@ -421,360 +421,360 @@ comodo,140,86,5	script	Cheerless Maestro	479,{
 			break;
 		case 2:
 			if (getskilllv("BD_LULLABY") == 0) {
-				mes "- You cannot use this skill without learning it. -";
+				mes "- No puedes usar esta habilidad sin aprenderla. -";
 				close;
 			}
 			mes "[" + strcharinfo(0) + "]";
-			mes "Looks like I will not get answer even if I force him.";
+			mes "Parece que no obtendre una respuesta aunque lo fuerce.";
 			close;
 		case 3:
 			if (getskilllv("DC_FORTUNEKISS") == 0) {
-				mes "- You cannot use this skill without learning it. -";
+				mes "- No puedes usar esta habilidad sin aprenderla. -";
 				close;
 			}
 			emotion ET_QUESTION, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "Ah, ah my Guitar Song~";
+			mes "Ah, ah mi Guitar Song~";
 			next;
 			mes "[Guitar Song]";
-			mes "What? I've got goose bumps.";
+			mes "Que? Se me puso la piel de gallina.";
 			next;
 			emotion ET_QUESTION, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "I've been watching <Nollio> for years.";
+			mes "He estado viendo a <Nollio> por anos.";
 			next;
 			mes "[Guitar Song]";
-			mes "I know that we are that popular! Ha ha ha!";
+			mes "Se que somos asi de populares! Ja ja ja!";
 			next;
 			emotion ET_QUESTION, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "I've seen other Maestro's performances but there was no one better than Guitar Song.";
+			mes "He visto presentaciones de otros Maestros pero no hubo nadie mejor que Guitar Song.";
 			next;
 			mes "[Guitar Song]";
-			mes "He he he! Yes, I know I am super great!";
+			mes "Je je je! Si, se que soy super genial!";
 			next;
 			emotion ET_BEST, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "Oh... When I hear Guitar Song's performance for the first time I has a crush on you immediately.";
+			mes "Oh... Cuando escuche la presentacion de Guitar Song por primera vez me enamore de ti inmediatamente.";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "It felt like hearing mommy's lullaby~ It was so beautiful and moving... You are the best artist of our time.";
+			mes "Se sentia como escuchar la cancion de cuna de mama~ Era tan hermosa y conmovedora... Eres el mejor artista de nuestro tiempo.";
 			next;
 			specialeffect EF_STEAL;
 			mes "[Guitar Song]";
-			mes "Ha ha ha. I know that well, but it feels good to hear a compliment from you!";
+			mes "Ja ja ja. Lo se bien, pero se siente bien escuchar un cumplido tuyo!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "So I was looking forward to seeing your performance in Lutie this time.";
-			mes "But after I heard the performance got cancelled, I felt so sad.";
+			mes "Asi que estaba ansiosa por ver tu presentacion en Lutie esta vez.";
+			mes "Pero despues de escuchar que la presentacion fue cancelada, me senti muy triste.";
 			next;
 			emotion ET_CRY, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "Now I can't hear Guitar Song's melody~~";
-			mes "I wanted to dance to your music like a beautiful butterfly.";
-			mes "Is there no way for my dream to be true now? Sob sob...";
+			mes "Ahora no puedo escuchar la melodia de Guitar Song~~";
+			mes "Queria bailar con tu musica como una hermosa mariposa.";
+			mes "No hay forma de que mi sueno se haga realidad ahora? Sniff sniff...";
 			next;
 			mes "[Guitar Song]";
-			mes "Huh huh! No, that is not...";
+			mes "Ju ju! No, eso no es...";
 			next;
 			emotion ET_CRY, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "I am really happy to meet you in person, but I hope to see your performance in the beautiful snowy town, Lutie.. Sob sob...";
+			mes "Estoy muy feliz de conocerte en persona, pero espero ver tu presentacion en el hermoso pueblo nevado, Lutie.. Sniff sniff...";
 			next;
 			emotion ET_CRY, playerattached();
 			mes "[" + strcharinfo(0) + "]";
-			mes "Why in the world don't you show us the performance, Guitar Song?";
-			mes "Don't you like me? Sob sob..";
+			mes "Por que en el mundo no nos muestras la presentacion, Guitar Song?";
+			mes "No te agrado? Sniff sniff..";
 			next;
 			emotion ET_HUK;
 			mes "[Guitar Song]";
-			mes "No, it's not that kind of reason!";
+			mes "No, no es por esa razon!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "Then please tell me, I really love your music... but now I feel so blue...";
+			mes "Entonces por favor dime, realmente amo tu musica... pero ahora me siento muy triste...";
 			emotion ET_QUESTION;
 			next;
 			break;
 		}
 		mes "[Guitar Song]";
-		mes "Oh, no! You know...";
-		mes "I want to have a performance, too!";
-		mes "But I cannot do it all by myself!";
+		mes "Oh, no! Sabes...";
+		mes "Yo tambien quiero tener una presentacion!";
+		mes "Pero no puedo hacerlo solo!";
 		next;
 		emotion ET_ANGER;
 		mes "[Guitar Song]";
-		mes "It's all because of Dancer Kim!";
-		mes "One day, she suddenly got mad and told me that she would quit <Nollio>!";
-		mes "I was also tired of here unpredictable feelings, too!";
+		mes "Todo es culpa de Dancer Kim!";
+		mes "Un dia, de repente se enojo y me dijo que dejaria <Nollio>!";
+		mes "Yo tambien estaba cansado de sus sentimientos impredecibles!";
 		next;
 		mes "[Guitar Song]";
-		mes "Pshaw.";
+		mes "Bah.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Why did she get mad so suddenly?";
+		mes "Por que se enojo tan de repente?";
 		next;
 		emotion ET_SWEAT;
 		mes "[Guitar Song]";
-		mes "I don't know! She must be holding a grudge for something.";
-		mes "That's what she's like.";
-		mes "She suddenly disappeared and sent me a letter telling me that the team would be disbanded.";
+		mes "No se! Debe estar resentida por algo.";
+		mes "Asi es ella.";
+		mes "De repente desaparecio y me envio una carta diciendo que el equipo se disolveria.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Where is Dancer Kim now?";
+		mes "Donde esta Dancer Kim ahora?";
 		next;
 		mes "[Guitar Song]";
-		mes "Well, the letter was sent from Hugel.";
-		mes "I guess she might be back at her hometown.";
-		mes "That's where I met her for the first time.";
+		mes "Bueno, la carta fue enviada desde Hugel.";
+		mes "Supongo que podria estar de vuelta en su pueblo natal.";
+		mes "Ahi es donde la conoci por primera vez.";
 		next;
 		emotion ET_THINK;
 		mes "[Guitar Song]";
-		mes "Although she loses her temper easily, her dance is so wonderful....";
-		mes "I don't know what I am doing wrong.";
+		mes "Aunque pierde los estribos facilmente, su baile es tan maravilloso....";
+		mes "No se que estoy haciendo mal.";
 		set job_wan,4;
 		changequest 2218,2219;
 		next;
 		mes "[Guitar Song]";
-		mes "She smiled so happily that she likes the new song so much..";
-		mes "Who can dance to my music so wonderfully as she did?";
-		mes "Now my music and my life is history... (muttering).";
+		mes "Ella sonreia tan felizmente diciendo que le gustaba mucho la nueva cancion..";
+		mes "Quien puede bailar con mi musica tan maravillosamente como ella?";
+		mes "Ahora mi musica y mi vida son historia... (murmurando).";
 		close;
 	} else if (job_wan > 3 && job_wan < 8) {
 		mes "[Guitar Song]";
-		mes "Dancer Kim is probably addicted to the monster races in Hugel again!";
-		mes "Back in the day when she was addicted to the monster races, who do you think got her out of it?";
+		mes "Dancer Kim probablemente esta adicta a las carreras de monstruos en Hugel otra vez!";
+		mes "En los viejos tiempos cuando ella era adicta a las carreras de monstruos, quien crees que la saco de eso?";
 		close;
 	} else if (job_wan == 8) {
 		emotion ET_SURPRISE;
-		mes "- You tell him what happened in Hugel and ask him to go back to Lutie. -";
+		mes "- Le cuentas lo que paso en Hugel y le pides que regrese a Lutie. -";
 		next;
 		mes "[Guitar Song]";
 		mes "Oh oh~";
-		mes "You are silly Dancer Kim~";
-		mes "Without me, who else can take care of such a lady like you~";
+		mes "Tonta Dancer Kim~";
+		mes "Sin mi, quien mas puede cuidar a una dama como tu~";
 		next;
 		mes "[Guitar Song]";
-		mes "I'll go there right away and scold her.";
+		mes "Ire ahi de inmediato y la reganare.";
 		set job_wan,9;
 		close;
 	} else if (job_wan == 9) {
 		mes "[Guitar Song]";
-		mes "Okay, I will go to the Christmas tree in Lutie where the performance is supposed to be held.";
+		mes "Bien, ire al arbol de Navidad en Lutie donde se supone que sera la presentacion.";
 		close;
 	}
 	mes "[Cheerless Maestro]";
-	mes "Where is my partner...";
+	mes "Donde esta mi companera...";
 	close;
 }
 
 hu_in01,305,251,5	script	Vacant Looking Lady#wnd	879,{
 	if (job_wan < 4) {
 		mes "[Vacant Looking Lady]";
-		mes "(blank...)";
+		mes "(vacio...)";
 		close;
 	} else if (job_wan == 4) {
 		mes "[Vacant Looking Lady]";
-		mes "Sob... sob...";
+		mes "Sniff... sniff...";
 		next;
-		select("Why are you crying?");
+		select("Por que estas llorando?");
 		emotion ET_CRY;
 		mes "[Vacant Looking Lady]";
-		mes "I gave up my dream...";
-		mes "*Sob *Sob.";
+		mes "Renuncie a mi sueno...";
+		mes "*Sniff *Sniff.";
 		next;
-		select("What do you mean?");
+		select("Que quieres decir?");
 		mes "[Vacant Looking Lady]";
-		mes "I said goodbye to my partner who had been working with me for a long time.";
+		mes "Me despedi de mi companero con quien habia trabajado por mucho tiempo.";
 		next;
-		select("Why did you say goodbye?");
+		select("Por que te despediste?");
 		emotion ET_CRY;
 		mes "[Vacant Looking Lady]";
-		mes "it's because... sob... sob!";
+		mes "Es porque... sniff... sniff!";
 		next;
-		select("You can tell me everything.");
+		select("Puedes contarme todo.");
 		mes "[Vacant Looking Lady]";
-		mes "When Wanderers and Maestro's get together, their abilities become stronger.";
-		next;
-		mes "[Vacant Looking Lady]";
-		mes "So when they travel, they often get together and perform duets.";
-		mes "They have a good time dancing and playing music.";
+		mes "Cuando los Wanderers y Maestros se juntan, sus habilidades se vuelven mas fuertes.";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "A few days ago, with my partner Guitar Song. I showed a beautiful dance to his music to many people as we usually do.";
+		mes "Asi que cuando viajan, a menudo se juntan y hacen duetos.";
+		mes "Se la pasan bien bailando y tocando musica.";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "I was really proud of being a Wanderer after I drew all of that enthusiastic applause.";
-		mes "Guitar Song also praised me.";
-		mes "I was so happy that day.";
+		mes "Hace unos dias, con mi companero Guitar Song. Mostre un hermoso baile con su musica a mucha gente como siempre hacemos.";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "But...";
+		mes "Estaba muy orgullosa de ser una Wanderer despues de recibir todo ese entusiasta aplauso.";
+		mes "Guitar Song tambien me elogio.";
+		mes "Estaba tan feliz ese dia.";
 		next;
-		select("What happened next?");
 		mes "[Vacant Looking Lady]";
-		mes "The following morning, I woke up and washed my fave and was looking for something to eat in my room..";
+		mes "Pero...";
+		next;
+		select("Que paso despues?");
+		mes "[Vacant Looking Lady]";
+		mes "A la manana siguiente, me desperte, me lave la cara y estaba buscando algo de comer en mi habitacion..";
 		next;
 		emotion ET_HUK;
 		mes "[Vacant Looking Lady]";
-		mes "Then Guitar Song suddenly opened the door of my room for some reason and said ^3131FFHey! What the hell are.. you doing here?^000000 and then he threw me out of my room!";
+		mes "Entonces Guitar Song de repente abrio la puerta de mi habitacion por alguna razon y dijo ^3131FFHey! Que diablos estas.. haciendo aqui?^000000 y luego me echo de mi habitacion!";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "We've been together for a long time but how can he do such a thing to me?";
-		mes "At first, I thought he was kidding around with me! But when he kicked me out of my room...";
+		mes "Hemos estado juntos por mucho tiempo pero como puede hacerme algo asi?";
+		mes "Al principio, pense que estaba bromeando conmigo! Pero cuando me echo de mi habitacion...";
 		next;
 		emotion ET_CRY;
 		mes "[Vacant Looking Lady]";
-		mes "Why didn't he recognize my face?";
-		mes "Do you think he doesn't want to see my face without makeup?";
-		mes "Boo hoo hoo!";
+		mes "Por que no reconocio mi cara?";
+		mes "Crees que no quiere ver mi cara sin maquillaje?";
+		mes "Buaaaa!";
 		next;
-		select("So you disbanded the team?");
+		select("Entonces disolviste el equipo?");
 		emotion ET_CRY;
 		mes "[Vacant Looking Lady]";
-		mes "Are you also ignoring my wounded self-respect as a woman?";
+		mes "Tu tambien estas ignorando mi autoestima herida como mujer?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "No! He is really a caring man!";
-		mes "But I don't think you disbanded your precious team just because of that.";
+		mes "No! El realmente es un hombre atento!";
+		mes "Pero no creo que hayas disuelto tu preciado equipo solo por eso.";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "You're right.";
-		mes "It's not just because of that.";
-		mes "The real reason why I disbanded the team is...";
+		mes "Tienes razon.";
+		mes "No es solo por eso.";
+		mes "La verdadera razon por la que disolvi el equipo es...";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "After that day, I went to my hometown, Hugel and I just stayed indoors.";
-		mes "It was then when Shide comforted me with sweet cakes.";
+		mes "Despues de ese dia, fui a mi pueblo natal, Hugel y solo me quede encerrada.";
+		mes "Fue entonces cuando Shide me consolo con pasteles dulces.";
 		next;
 		emotion ET_SHY;
 		mes "[Vacant Looking Lady]";
-		mes "Shide's cake is so wonderful!";
-		mes "It is the most famous cake in Hugel with soft sponge cake and fresh fruits and sweet chocolate cream!";
+		mes "El pastel de Shide es tan maravilloso!";
+		mes "Es el pastel mas famoso de Hugel con suave bizcocho y frutas frescas y crema de chocolate dulce!";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "It felt like all the angels of happiness came to comfort me when I tasted that sweet cake.";
+		mes "Senti como si todos los angeles de la felicidad vinieran a consolarme cuando probe ese dulce pastel.";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "So I ate it every morning and every night.";
+		mes "Asi que lo comi cada manana y cada noche.";
 		next;
-		select("Oh, you wouldn't...");
+		select("Oh, no lo hiciste...");
 		emotion ET_CRY;
 		mes "[Vacant Looking Lady]";
-		mes "The angel of happiness took back my sadness and gave me a lot of belly fat!";
-		mes "Boo hoo hoo hoo!!";
+		mes "El angel de la felicidad se llevo mi tristeza y me dio mucha grasa en la barriga!";
+		mes "Buaaaa!";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "Now I can't wear my dancing clothes!";
-		mes "I am not a dancer who dances like a beautiful butterfly anymore!";
+		mes "Ahora no puedo usar mi ropa de baile!";
+		mes "Ya no soy una bailarina que baila como una hermosa mariposa!";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "What is worse, it became hard to bend my waist forward!";
-		mes "Boo hoo hoo!";
+		mes "Lo que es peor, se me hizo dificil doblar la cintura hacia adelante!";
+		mes "Buaaaa!";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "The performance day is approaching, but the angel of happiness brought me a big obstacle.";
-		mes "Now I've fallen into despair again!";
-		mes "I can't let Guitar Song and my fans see me like this!";
+		mes "El dia de la presentacion se acerca, pero el angel de la felicidad me trajo un gran obstaculo.";
+		mes "Ahora he caido en la desesperacion otra vez!";
+		mes "No puedo dejar que Guitar Song y mis fans me vean asi!";
 		next;
 		mes "[Vacant Looking Lady]";
-		mes "<Nollio> is over! Boo hoo hoo!";
+		mes "<Nollio> se acabo! Buaaaa!";
 		set job_wan,5;
 		close;
 	} else if (job_wan == 5) {
 		emotion ET_CRY;
 		mes "[Vacant Looking Lady]";
-		mes "Not long ago, I was like a beautiful dove, but now I am just a fat chicken.";
-		mes "Sob sob...!";
-		mes "I think the life of Wanderer Dancer Kim is over now.";
-		mes "Boo hoo hoo hoo!";
+		mes "No hace mucho, era como una hermosa paloma, pero ahora solo soy una gallina gorda.";
+		mes "Sniff sniff...!";
+		mes "Creo que la vida de la Wanderer Dancer Kim se acabo.";
+		mes "Buaaaa!";
 		next;
-		if(select("Hey, don't give up.:I feel sorry for you.") == 2) {
+		if(select("Hey, no te rindas.:Lo siento por ti.") == 2) {
 			mes "[Dancer Kim]";
-			mes "My life cannot get out of abyss now......";
+			mes "Mi vida no puede salir del abismo ahora......";
 			close;
 		}
 		mes "[Dancer Kim]";
-		mes "But I already told Guitar Song that it's all over.";
-		mes "Even if it's not over, I cannot do anything right now.";
+		mes "Pero ya le dije a Guitar Song que todo se acabo.";
+		mes "Incluso si no se acabara, no puedo hacer nada ahora.";
 		next;
-		select("If you give up, it will be over.");
+		select("Si te rindes, se acabara.");
 		mes "[Dancer Kim]";
-		mes "But in this situation...";
-		mes "Do I really have a way to change it?";
+		mes "Pero en esta situacion...";
+		mes "Realmente tengo una forma de cambiarla?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Exercise is the best way!";
-		mes "If you work hard, your bossy will be lighter than before!";
+		mes "El ejercicio es la mejor forma!";
+		mes "Si te esfuerzas, tu cuerpo sera mas ligero que antes!";
 		next;
 		mes "[Dancer Kim]";
-		mes "But I get tired and give up easily.";
-		mes "I think I am going to give up.";
+		mes "Pero me canso y me rindo facilmente.";
+		mes "Creo que me voy a rendir.";
 		next;
-		if(select("Well, there's no other way.:Let's work together.") == 1) {
+		if(select("Bueno, no hay otra forma.:Hagamoslo juntas.") == 1) {
 			mes "[Dancer Kim]";
-			mes "No dreams and no hope...";
+			mes "Sin suenos y sin esperanza...";
 			close;
 		}
 		emotion ET_HUK;
 		mes "[Dancer Kim]";
-		mes "Will you exercise together with me?";
-		mes "Really?";
+		mes "Vas a hacer ejercicio conmigo?";
+		mes "En serio?";
 		next;
 		mes "[Dancer Kim]";
-		mes "I'm sure that I would try harder if I had someone to workout with.";
+		mes "Estoy segura de que me esforzaria mas si tuviera a alguien para entrenar conmigo.";
 		next;
 		mes "[Dancer Kim]";
-		mes "I feel better now!";
-		mes "I think I'm gaining strength again!";
-		mes "Let's work together!";
+		mes "Me siento mejor ahora!";
+		mes "Creo que estoy ganando fuerza de nuevo!";
+		mes "Trabajemos juntas!";
 		next;
-		select("What should we do first?");
+		select("Que deberiamos hacer primero?");
 		mes "[Dancer Kim]";
-		mes "I have a good idea!";
+		mes "Tengo una buena idea!";
 		next;
 		mes "[Dancer Kim]";
-		mes "Meet me at Abyss Lake.";
-		mes "I'll see you there.";
-		mes "Just go one field South and one field West from here in Hugel.";
-		mes "I'll meet you there.";
+		mes "Encontremonos en Abyss Lake.";
+		mes "Te veo ahi.";
+		mes "Solo ve un campo al Sur y uno al Oeste desde aqui en Hugel.";
+		mes "Te veo ahi.";
 		set job_wan,6;
 		changequest 2219,2220;
 		close;
 	} else if (job_wan == 6 || job_wan == 7) {
 		mes "[Dancer Kim]";
-		mes "I'll meet you at Abyss Lake.";
+		mes "Te veo en Abyss Lake.";
 		close;
 	} else if (job_wan == 8) {
 		mes "[Dancer Kim]";
-		mes "Please tell Guitar Song to go to Lutie";
-		mes "I'll go there after I've packed my luggage!";
+		mes "Por favor dile a Guitar Song que vaya a Lutie";
+		mes "Yo ire despues de empacar mis cosas!";
 		close;
 	}
 	mes "[Vacant Looking Lady]";
-	mes "Where is my partner......";
+	mes "Donde esta mi companero......";
 	close;
 }
 
 hu_fild05,342,130,5	script	Dancer Kim#fild	879,{
 	if (job_wan == 6) {
 		mes "[Dancer Kim]";
-		mes "Exercising together is good but if we compete for it, I think we'll get a better effect!";
+		mes "Hacer ejercicio juntas es bueno pero si competimos, creo que tendremos un mejor efecto!";
 		next;
 		mes "[Dancer Kim]";
-		mes "From now on, let's compete to see who defeats the Yellow Novus first!";
+		mes "De ahora en adelante, compitamos para ver quien derrota al Yellow Novus primero!";
 		next;
 		mes "[Dancer Kim]";
-		mes "You need to defeat 50 Yellow Novus!";
-		mes "Are you ready?";
+		mes "Necesitas derrotar 50 Yellow Novus!";
+		mes "Estas lista?";
 		next;
-		if(select("No.:Yes.") == 1) {
+		if(select("No.:Si.") == 1) {
 			mes "[Dancer Kim]";
-			mes "Hurry up before I lose interest!";
+			mes "Apurate antes de que pierda interes!";
 			close;
 		}
 		mes "[Dancer Kim]";
-		mes "Good! Then ready, set~~";
-		mes "Go!";
+		mes "Bien! Entonces listas~~";
+		mes "Ya!";
 		set job_wan,7;
 		changequest 2220,2221;
 		close;
@@ -782,71 +782,71 @@ hu_fild05,342,130,5	script	Dancer Kim#fild	879,{
 		if (checkquest(2221,PLAYTIME) == 0 || checkquest(2221,PLAYTIME) == 1) {
 			if (checkquest(2221,HUNTING) == 2) {
 				mes "[Dancer Kim]";
-				mes "Whew!";
-				mes "Looks like I've lost!";
+				mes "Uff!";
+				mes "Parece que perdi!";
 				next;
 				mes "[Dancer Kim]";
-				mes "This feeling reminds me of the past where I've crossed the borders of many continents.";
+				mes "Este sentimiento me recuerda al pasado donde cruce las fronteras de muchos continentes.";
 				next;
 				mes "[Dancer Kim]";
-				mes "Ah! Look at this!";
-				mes "I'm getting slimmer, can you see it?";
+				mes "Ah! Mira esto!";
+				mes "Me estoy poniendo mas delgada, puedes verlo?";
 				next;
 				mes "[Dancer Kim]";
-				mes "I feel that my body is full of power.";
-				mes "I suddenly want to see my good partner Guitar Song.";
-				mes "I want to start dancing again.";
+				mes "Siento que mi cuerpo esta lleno de energia.";
+				mes "De repente quiero ver a mi buen companero Guitar Song.";
+				mes "Quiero empezar a bailar de nuevo.";
 				next;
-				select("How about dancing in Lutie?");
+				select("Que tal bailar en Lutie?");
 				emotion ET_SURPRISE;
 				mes "[Dancer Kim]";
-				mes "Ah! Christmas Village! Yes! Yes!";
-				mes "My dream to dance in Lutie will finally come true.";
+				mes "Ah! La Villa Navidena! Si! Si!";
+				mes "Mi sueno de bailar en Lutie finalmente se hara realidad.";
 				next;
 				mes "[Dancer Kim]";
-				mes "I want to dance and jump all day to bring people happiness!";
-				mes "So I will go to Lutie.";
+				mes "Quiero bailar y saltar todo el dia para traer felicidad a la gente!";
+				mes "Asi que ire a Lutie.";
 				next;
 				mes "[Dancer Kim]";
-				mes "Ah, do me a favor, please.";
-				mes "Can you bring Guitar Song to Lutie?";
-				mes "Say that his partner is waiting for him.";
+				mes "Ah, hazme un favor, por favor.";
+				mes "Puedes traer a Guitar Song a Lutie?";
+				mes "Dile que su companera lo esta esperando.";
 				next;
-				select("No problem!");
+				select("No hay problema!");
 				mes "[Dancer Kim]";
-				mes "You're a good person. I'm really happy that I met you.";
-				mes "Thank god for sending such a stubborn person to me!";
+				mes "Eres buena persona. Estoy muy feliz de haberte conocido.";
+				mes "Gracias a dios por enviarme a una persona tan terca!";
 				set job_wan,8;
 				changequest 2221,2222;
 				close;
 			} else {
 				mes "[Dancer Kim]";
-				mes "Does it look easy to you?";
-				mes "But I'm sure I have a better chance to win.";
+				mes "Se ve facil para ti?";
+				mes "Pero estoy segura de que tengo mejor oportunidad de ganar.";
 				close;
 			}
 		} else if (checkquest(2221,PLAYTIME) == 2) {
 			mes "[Dancer Kim]";
-			mes "Oh, you came back to me.";
-			mes "I'm so tired. I don't give up halfway. It's a good exercise for me. I will have to give up Nollio to another Wanderer, it's all over....";
+			mes "Oh, regresaste conmigo.";
+			mes "Estoy tan cansada. No me rindo a medias. Es buen ejercicio para mi. Tendre que dejar Nollio a otra Wanderer, se acabo....";
 			next;
-			mes "- Dancer Kim dropped down by grief and fatigue -";
+			mes "- Dancer Kim se derrumbo por la pena y la fatiga -";
 			set job_wan,6;
 			changequest 2221,2220;
 			close;
 		} else {
 			mes "[Dancer Kim]";
-			mes "Huh...?";
+			mes "Eh...?";
 			set job_wan,6;
 			close;
 		}
 	} else if (job_wan == 8) {
 		mes "[Dancer Kim]";
-		mes "Please tell Song, I will be waiting for him at the Christmas tree.";
+		mes "Por favor dile a Song, lo estare esperando en el arbol de Navidad.";
 		close;
 	}
 	mes "[Dancer Kim]";
-	mes "Hunting Novus is the best exercise, I think.";
+	mes "Cazar Novus es el mejor ejercicio, creo.";
 	close;
 }
 
@@ -855,13 +855,13 @@ OnTouch:
 	if (job_wan == 7) {
 		switch(rand(3)) {
 		case 0:
-			mapannounce "hu_fild05","Dancer Kim: Hey, how did you get so fast? I've only got few myself...",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+			mapannounce "hu_fild05","Dancer Kim: Hey, como te hiciste tan rapida? Yo solo llevo unas pocas...",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
 			break;
 		case 1:
-			mapannounce "hu_fild05","Dancer Kim: Errrgghh! Hey Novus! I'm gonna get you~",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+			mapannounce "hu_fild05","Dancer Kim: Errrgghh! Hey Novus! Te voy a atrapar~",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
 			break;
 		case 2:
-			mapannounce "hu_fild05","Dancer Kim: Oh, are you tired already? Is this my victory? Ho ho ho.",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+			mapannounce "hu_fild05","Dancer Kim: Oh, ya estas cansada? Es mi victoria? Jo jo jo.",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
 			break;
 		}
 	}
@@ -896,32 +896,32 @@ OnTouch:
 xmas,147,135,5	script	Dancer Kim#xmas	485,{
 	if (job_wan == 9) {
 		if (BaseJob != Job_Dancer && BaseLevel < 99 && JobLevel < 50) {
-			mes "- You can't continue the quest because the condition for the quest is not appropriate. -";
+			mes "- No puedes continuar la mision porque las condiciones no son apropiadas. -";
 			close;
 		}
 		if (SkillPoint) {
-			mes "- You can't continue the quest because you have remaining skill points. -";
+			mes "- No puedes continuar la mision porque tienes puntos de habilidad restantes. -";
 			close;
 		}
 		if (checkweight(1201,2) == 0) {
-			mes "- You need to empty your inventory if you want to continue the quest. -";
+			mes "- Necesitas vaciar tu inventario si quieres continuar la mision. -";
 			close;
 		}
 		if (ismounting()) {
 			mes "[Dancer Kim]";
-			mes "Please get off of that creature you're riding on.";
-			mes "Then talk to me again.";
+			mes "Por favor bajate de esa criatura en la que estas montada.";
+			mes "Despues habla conmigo de nuevo.";
 			close;
 		}
-		mes "- <Nollio> is performing. -";
+		mes "- <Nollio> esta actuando. -";
 		next;
 		emotion ET_DELIGHT, getnpcid(0, "Guitar Song#xmas");
 		emotion ET_DELIGHT;
 		mes "[Guitar Song]";
-		mes "One! Two! Three!";
-		mes "Blue fish dancing~";
-		mes "Fan! Fan! Fan! I am your fan~";
-		mes "With a strong mind and strong will, I complete fishing~";
+		mes "Uno! Dos! Tres!";
+		mes "Pez azul bailando~";
+		mes "Fan! Fan! Fan! Soy tu fan~";
+		mes "Con mente fuerte y voluntad fuerte, completo la pesca~";
 		next;
 		emotion ET_DELIGHT, getnpcid(0, "Spectator#xmas1");
 		emotion ET_DELIGHT, getnpcid(0, "Spectator#xmas2");
@@ -931,10 +931,10 @@ xmas,147,135,5	script	Dancer Kim#xmas	485,{
 		emotion ET_DELIGHT, getnpcid(0, "Mimi#xmas");
 		mes "[Spectators]";
 		mes "AAAAhhhhhhhhh - - !!!";
-		mes "So cool! Nollio is the best!!!";
+		mes "Que genial! Nollio es lo mejor!!!";
 		next;
 		mes "[Guitar Song]";
-		mes "Hello, ladies and gentlemen!";
+		mes "Hola, damas y caballeros!";
 		next;
 		emotion ET_THROB, getnpcid(0, "Spectator#xmas1");
 		emotion ET_THROB, getnpcid(0, "Spectator#xmas2");
@@ -943,10 +943,10 @@ xmas,147,135,5	script	Dancer Kim#xmas	485,{
 		emotion ET_THROB, getnpcid(0, "Soy#xmas");
 		emotion ET_THROB, getnpcid(0, "Mimi#xmas");
 		mes "[Spectators]";
-		mes "Hello!!!!!";
+		mes "Hola!!!!!";
 		next;
 		mes "[Guitar Song]";
-		mes "We are the romantic Wanderer team <Nollio> who stroll along the world following love and wind!";
+		mes "Somos el romantico equipo Wanderer <Nollio> que recorre el mundo siguiendo el amor y el viento!";
 		next;
 		emotion ET_THROB, getnpcid(0, "Spectator#xmas1");
 		emotion ET_THROB, getnpcid(0, "Spectator#xmas2");
@@ -959,36 +959,36 @@ xmas,147,135,5	script	Dancer Kim#xmas	485,{
 		next;
 		emotion ET_BEST;
 		mes "[Dancer Kim]";
-		mes "It's so fascinating that I can dance in a snowy, beautiful village,";
-		mes "I'm so glad that I came here, Lutie.";
+		mes "Es tan fascinante poder bailar en un pueblo nevado y hermoso,";
+		mes "Estoy tan contenta de haber venido aqui, Lutie.";
 		next;
 		mes "[Spectators]";
 		mes "Yayyyy~";
 		next;
 		mes "[Dancer Kim]";
-		mes "In fact, this wonderfull performance would have been cancelled because of my carelessness.";
+		mes "De hecho, esta maravillosa presentacion habria sido cancelada por mi descuido.";
 		next;
 		mes "[Guitar Song]";
-		mes "I unintentionally made her upset.";
-		mes "Let me take this opportunity to say to her that I'm sorry.";
+		mes "Sin querer la hice enojar.";
+		mes "Dejame aprovechar esta oportunidad para decirle que lo siento.";
 		next;
 		mes "[Dancer Kim]";
-		mes "It's okay.";
-		mes "I'm sorry for behaving as I did.";
+		mes "Esta bien.";
+		mes "Lamento haberme comportado como lo hice.";
 		next;
 		mes "[Dancer Kim]";
-		mes "In fact there is a friend who cheered me up and helped me get through the hardships I faced when I was depressed in my hometown.";
+		mes "De hecho hay una amiga que me animo y me ayudo a superar las dificultades que enfrente cuando estaba deprimida en mi pueblo natal.";
 		next;
 		mes "[Dancer Kim]";
-		mes "You may love my friend's dance more than mine in the future.";
-		mes "She has a great talent.";
+		mes "Puede que ames el baile de mi amiga mas que el mio en el futuro.";
+		mes "Ella tiene un gran talento.";
 		next;
 		mes "[Dancer Kim]";
-		mes "Introducing!";
+		mes "Presentandoles!";
 		next;
 		mes "[Dancer Kim]";
-		mapannounce "xmas","Dancer Kim: Introducing the rising Wanderer! " + strcharinfo(0) + "!",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
-		mes "This rising Wanderer star, " + strcharinfo(0) + "!";
+		mapannounce "xmas","Dancer Kim: Presentandoles a la nueva estrella Wanderer! " + strcharinfo(0) + "!",bc_map,"0xffff00"; //FW_NORMAL 12 0 0
+		mes "Esta nueva estrella Wanderer, " + strcharinfo(0) + "!";
 		jobchange roclass(eaclass()|EAJL_THIRD);
 		set job_wan,10;
 		getitem 2795,1; //Green_Apple_Ring
@@ -996,23 +996,23 @@ xmas,147,135,5	script	Dancer Kim#xmas	485,{
 		completequest 2222;
 		next;
 		mes "[Dancer Kim]";
-		mes "Ha ha ha, are you surprised?";
-		mes "Don't look so puzzled?";
-		mes "You led me here, you deserve it.";
+		mes "Ja ja ja, estas sorprendida?";
+		mes "No pongas esa cara de confundida.";
+		mes "Tu me trajiste aqui, lo mereces.";
 		next;
 		mes "[Dancer Kim]";
-		mes "Oh! You are like a beautiful swan!";
-		mes "The goddess must be jealous to see your beauty.";
+		mes "Oh! Eres como un hermoso cisne!";
+		mes "La diosa debe estar celosa al ver tu belleza.";
 		next;
 		mes "[Dancer Kim]";
-		mes "" + strcharinfo(0) + "! I hope to see your beautiful exploits in the future.";
-		mes "Also, I hope you to meet your precious Maestro.";
-		mes "Let's perform together later, shall we? Ha ha.";
+		mes "" + strcharinfo(0) + "! Espero ver tus hermosas hazanas en el futuro.";
+		mes "Tambien, espero que conozcas a tu preciado Maestro.";
+		mes "Actuemos juntas despues, te parece? Ja ja.";
 		next;
 		mes "[Guitar Song]";
-		mes "Thanks to you, I didn't lose my precious partner.";
-		mes "Thank you a lot.";
-		mes "Soon I will make a song for you, so wait for it.";
+		mes "Gracias a ti, no perdi a mi preciada companera.";
+		mes "Muchas gracias.";
+		mes "Pronto hare una cancion para ti, asi que esperala.";
 		close2;
 		disablenpc "Dancer Kim#xmas";
 		disablenpc "Guitar Song#xmas";

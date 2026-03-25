@@ -18,7 +18,7 @@
 //============================================================
 lighthalzen,303,303,6	script	Giacomo Girolamo#kiup2	4_M_KHMAN,3,3,{
 	if ((MaxWeight - Weight) < 1000 || !checkweight(1201, 1)) {
-		mes "^FF0000 Check up your inventory. You got too many items to carry out the quest. ^000000";
+		mes "^FF0000 Revisa tu inventario. Tienes demasiados objetos para realizar la mision. ^000000";
 		close;
 	}
 	if (lhz_curse > 30) {
@@ -26,59 +26,59 @@ lighthalzen,303,303,6	script	Giacomo Girolamo#kiup2	4_M_KHMAN,3,3,{
 			if (Sex == SEX_MALE) {
 				emotion ET_HNG;
 				mes "[Giacomo Girolamo]";
-				mes "....a guy....?";
+				mes "....un chico....?";
 				next;
 				mes "[Giacomo Girolamo]";
-				mes "Ah! Hey! Man!";
+				mes "Ah! Oye! Amigo!";
 				next;
-				select("What's up?");
+				select("Que pasa?");
 				emotion ET_QUESTION, playerattached();
 				mes "[Giacomo Girolamo]";
-				mes "Have you ever heard of horrific human experimentation committed in Rekenber Corporation whose head office is here in Lighthalzen?";
+				mes "Alguna vez escuchaste sobre los horribles experimentos humanos cometidos en la Corporacion Rekenber cuya oficina central esta aqui en Lighthalzen?";
 				next;
-				select("Whaaat?! human experimentation?");
+				select("Queeee?! Experimentos humanos?");
 				emotion ET_HUK, playerattached();
 				mes "[Giacomo Girolamo]";
-				mes "Yea! human experimentation!!";
-				mes "There are a lot of rumors that horrible human experimentation is actually performed, but these people in the slum....don't want to believe that due to the welfare movement from Rekenber.";
+				mes "Si! Experimentos humanos!!";
+				mes "Hay muchos rumores de que se realizan horribles experimentos humanos, pero esta gente del barrio bajo....no quiere creerlo debido al movimiento de bienestar de Rekenber.";
 				next;
 				emotion ET_PROFUSELY_SWEAT;
 				mes "[Giacomo Girolamo]";
-				mes "Well! and those rich people, seem to know something but they never mention that...";
+				mes "Bueno! y esos ricos parecen saber algo pero nunca lo mencionan...";
 				next;
 				mes "[Giacomo Girolamo]";
-				mes "Ahh!! And this is a secret that just SOME PEOPLE know. I heard that from Rekenber Lab.,.. a person named...um...Wol....";
+				mes "Ahh!! Y esto es un secreto que solo ALGUNAS PERSONAS saben. Escuche que del Laboratorio Rekenber,.. una persona llamada...um...Wol....";
 				next;
 				emotion ET_SCRATCH;
 				mes "[Giacomo Girolamo]";
-				mes "Anyway!! A scientist named Wolf.. something suddenly got sacked. and he must be related with this rumor, I think...";
+				mes "De todos modos!! Un cientifico llamado Wolf.. algo fue despedido de repente. y debe estar relacionado con este rumor, creo...";
 				next;
-				select("You mean... Wolfchev?");
+				select("Te refieres a... Wolfchev?");
 				emotion ET_SURPRISE;
 				mes "[Giacomo Girolamo]";
-				mes "Ohhhh?! yeah Wolfchev!! That's right, the name was Wolfchev.. The mad scientist..";
+				mes "Ohhhh?! si Wolfchev!! Asi es, el nombre era Wolfchev.. El cientifico loco..";
 				next;
 				emotion ET_OK;
 				mes "[Giacomo Girolamo]";
-				mes "I suppose you can then understand the story faster... I am sure that he's involved in the rumor. I swear.";
+				mes "Supongo que entonces puedes entender la historia mas rapido... Estoy seguro de que esta involucrado en el rumor. Lo juro.";
 				next;
 				mes "[Giacomo Girolamo]";
-				mes "By the way..what about you? Is there anything that you know about him?";
+				mes "Por cierto..y tu? Hay algo que sepas sobre el?";
 				next;
-				if (select("Pretend you know nothing.", "Tell him what you know.") == 1) {
+				if (select("Fingir que no sabes nada.", "Contarle lo que sabes.") == 1) {
 					mes "["+ strcharinfo(0) +"]";
-					mes "Not really. I've ever heard of his name, but I don't know anything about him..";
+					mes "No realmente. He escuchado su nombre, pero no se nada sobre el..";
 					next;
 					mes "[Giacomo Girolamo]";
-					mes "Hm.... You sound suspicious, dude! huh?";
+					mes "Hm.... Suenas sospechoso, amigo! eh?";
 					next;
 				} else {
 					mes "["+ strcharinfo(0) +"]";
-					mes "He happens to research into Human 'Homunculus' without telling that to Rekenber Corp., and there was a whistle-blower who reported to the corp. so he was fired.";
+					mes "Resulta que investigaba sobre 'Homunculus' humanos sin decirselo a la Corp. Rekenber, y hubo un informante que le reporto a la corporacion, asi que fue despedido.";
 					next;
 					emotion ET_BEST;
 					mes "[Giacomo Girolamo]";
-					mes "Oh! Man..! You seem to know pretty much! By any chance, are you concerned with Rekenber??";
+					mes "Oh! Amigo..! Parece que sabes bastante! Por casualidad, tienes algo que ver con Rekenber??";
 					next;
 					emotion ET_THINK;
 					mes "["+ strcharinfo(0) +"]";
@@ -87,91 +87,91 @@ lighthalzen,303,303,6	script	Giacomo Girolamo#kiup2	4_M_KHMAN,3,3,{
 				}
 				emotion ET_SCRATCH;
 				mes "[Giacomo Girolamo]";
-				mes "Don't worry. I didn't mean anything.";
+				mes "No te preocupes. No quise decir nada.";
 				next;
 				mes "[Giacomo Girolamo]";
-				mes "Well! I am just curious only because some people in the slum and some adventurers were missing,";
-				mes "and I heard that Rekenber was doing human experimentation with those missing people. Hope you don't get me wrong.";
+				mes "Bueno! Solo tengo curiosidad porque algunas personas del barrio bajo y algunos aventureros desaparecieron,";
+				mes "y escuche que Rekenber estaba haciendo experimentos humanos con esas personas desaparecidas. Espero que no me malinterpretes.";
 				next;
 				lght_duk01 = 1;
 				setquest 5109;
-				mes "Actually, it is not a funny rumor.";
-				mes "Should investigate the lab where the experiment was carried out.";
+				mes "De hecho, no es un rumor gracioso.";
+				mes "Deberia investigar el laboratorio donde se llevaron a cabo los experimentos.";
 				close;
 			} else {
 				emotion ET_THROB;
 				mes "[Giacomo Girolamo]";
-				mes "Oh! What a beautiful lady!!";
+				mes "Oh! Que hermosa dama!!";
 				next;
 				emotion ET_QUESTION;
 				mes "[Giacomo Girolamo]";
-				mes "How come a beauty is here, in a place with dangerous rumor?";
+				mes "Como es que una belleza esta aqui, en un lugar con rumores peligrosos?";
 				next;
-				switch(select("Walking...", "To hang out...", "Shopping...")) {
+				switch(select("Caminando...", "Paseando...", "De compras...")) {
 				case 1:
 					mes "[Giacomo Girolamo]";
-					mes "Ahh.. Lady, you are so graceful even when you are just walking.....";
+					mes "Ahh.. Dama, eres tan elegante incluso cuando solo caminas.....";
 					next;
 					break;
 				case 2:
 					mes "[Giacomo Girolamo]";
-					mes "Lady. You are a dignified lady even if you hang out in this poor town...";
+					mes "Dama. Eres una dama digna incluso si paseas por este pueblo pobre...";
 					next;
 					break;
 				case 3:
 					mes "[Giacomo Girolamo]";
-					mes "Ahh.. Lady.. Shopping in the slum!!.. Are you a type who needs to look around every single shop?";
+					mes "Ahh.. Dama.. De compras en el barrio bajo!!.. Eres del tipo que necesita ver cada tienda?";
 					next;
 					break;
 				}
 			}
 			select("... .... ... ....");
 			mes "[Giacomo Girolamo]";
-			mes "Well, how dare I ask you and be interested in what the lady does...";
+			mes "Bueno, como me atrevo a preguntarte y estar interesado en lo que la dama hace...";
 			next;
 			emotion ET_OK;
 			mes "[Giacomo Girolamo]";
-			mes "I just hope that the lady gets out of this town with dangerous rumors..";
+			mes "Solo espero que la dama salga de este pueblo con rumores peligrosos..";
 			next;
-			select("Dangerous rumors?");
+			select("Rumores peligrosos?");
 			emotion ET_QUESTION, playerattached();
 			mes "[Giacomo Girolamo]";
-			mes "Ah... Lady may not have heard of the rumor.";
+			mes "Ah... La dama quiza no haya escuchado el rumor.";
 			next;
 			mes "[Giacomo Girolamo]";
-			mes "Recently, some people from this town, actually from the slum...and some adventurers are missing...";
+			mes "Recientemente, algunas personas de este pueblo, de hecho del barrio bajo...y algunos aventureros estan desaparecidos...";
 			next;
 			mes "[Giacomo Girolamo]";
-			mes "and then the rumor came up, since disappearance cases happen pretty often, that Rekenber is committing a horrible human experimentation in their secret lab.";
+			mes "y entonces surgio el rumor, ya que los casos de desaparicion ocurren bastante seguido, de que Rekenber esta cometiendo horribles experimentos humanos en su laboratorio secreto.";
 			next;
-			select("Excuse me?! human experimentation?");
+			select("Disculpa?! Experimentos humanos?");
 			emotion ET_HUK, playerattached();
 			mes "[Giacomo Girolamo]";
-			mes "Yea! human experimentation!!";
-			mes "There are a lot of rumors that horrible human experimentation is actually performed, but these people in the slum....don't want to believe that due to the welfare movement from Rekenber.";
+			mes "Si! Experimentos humanos!!";
+			mes "Hay muchos rumores de que se realizan horribles experimentos humanos, pero esta gente del barrio bajo....no quiere creerlo debido al movimiento de bienestar de Rekenber.";
 			next;
 			mes "[Giacomo Girolamo]";
-			mes "Well! the rich people either want to believe..I think.. Ah!! And couple of weeks ago. um. what's his name? Wolfchev??";
+			mes "Bueno! los ricos tampoco quieren creer..creo.. Ah!! Y hace un par de semanas. um. como se llamaba? Wolfchev??";
 			next;
 			mes "[Giacomo Girolamo]";
-			mes "Anyway!! that research got fired from the lab. I think he must be involved with this rumor.";
+			mes "De todos modos!! ese investigador fue despedido del laboratorio. Creo que debe estar involucrado con este rumor.";
 			next;
 			mes "[Giacomo Girolamo]";
-			mes "So, please, lady. Please don't be in a place like this and stay in safe ways.";
+			mes "Asi que, por favor, dama. No estes en un lugar como este y mantente en caminos seguros.";
 			next;
 			lght_duk01 = 1;
 			setquest 5109;
-			mes "............ It seems a pretty serious matter.";
-			mes "Should investigate the lab where the experiment was carried out.";
+			mes "............ Parece ser un asunto bastante serio.";
+			mes "Deberia investigar el laboratorio donde se llevaron a cabo los experimentos.";
 			close;
 		} else {
 			mes "[Giacomo Girolamo]";
 			if (Sex == SEX_MALE) {
 				emotion ET_WRAP;
-				mes "Take care yourself and don't disappear!";
+				mes "Cuidate y no desaparezcas!";
 			} else {
 				emotion ET_BIGTHROB;
-				mes "Be careful, Lady.";
+				mes "Ten cuidado, Dama.";
 			}
 			close;
 		}
@@ -179,109 +179,109 @@ lighthalzen,303,303,6	script	Giacomo Girolamo#kiup2	4_M_KHMAN,3,3,{
 		if (Sex == SEX_MALE) {
 			emotion ET_DELIGHT;
 			mes "[Giacomo Girolamo]";
-			mes "Only those beautiful ladies are the reason of my life~!";
-			mes "I, Giacomo Girolamo Casanova de Seingalt am never interested in guys like you though!!";
+			mes "Solo esas hermosas damas son la razon de mi vida~!";
+			mes "Yo, Giacomo Girolamo Casanova de Seingalt jamas estoy interesado en tipos como tu!!";
 			next;
 			emotion ET_FRET;
 			mes "[Giacomo Girolamo]";
-			mes "but I can listen to you...you wanna say anything to me?";
+			mes "pero puedo escucharte...quieres decirme algo?";
 			next;
-			switch(select("No..?", "About ladies..", "You Womanizer!!", "Envy you...", "What's the rumor lately?")) {
+			switch(select("No..?", "Sobre las damas..", "Mujeriego!!", "Te envidio...", "Cual es el rumor ultimamente?")) {
 			case 1:
 				emotion ET_SCRATCH;
 				mes "[Giacomo Girolamo]";
-				mes "Hey you, get out of my way then..";
+				mes "Oye tu, quitate de mi camino entonces..";
 				close;
 			case 2:
 				emotion ET_FRET;
 				mes "[Giacomo Girolamo]";
-				mes "I don't feel like talking about my precious ladies making fun of them. You do it with your friends.";
+				mes "No tengo ganas de hablar de mis preciosas damas burlandome de ellas. Hazlo con tus amigos.";
 				close;
 			case 3:
 				mes "[Giacomo Girolamo]";
-				mes "Hey.. Excuse me!!! but I'm not a 'Womanizer', I am just a person who adores ladies.";
+				mes "Oye.. Disculpa!!! pero no soy un 'Mujeriego', soy solo una persona que adora a las damas.";
 				next;
 				emotion ET_OK;
 				mes "[Giacomo Girolamo]";
-				mes "Of course..... Yea... If I'm a womanizer, all the men on earth are too! I'm just Casanova. umhahahaha.";
+				mes "Por supuesto..... Si... Si soy un mujeriego, todos los hombres de la tierra tambien lo son! Solo soy Casanova. umjajajaja.";
 				close;
 			case 4:
 				emotion ET_QUESTION;
 				mes "[Giacomo Girolamo]";
-				mes "Haa.. Do you....? not have any woman but your sister and mother around you?";
+				mes "Haa.. Acaso....? no tienes ninguna mujer aparte de tu hermana y madre a tu alrededor?";
 				next;
 				mes "[Giacomo Girolamo]";
 				mes "... .... ...";
 				next;
 				emotion ET_PROFUSELY_SWEAT;
 				mes "[Giacomo Girolamo]";
-				mes "Oh...... sorry.. I got your point....";
+				mes "Oh...... perdon.. entendi tu punto....";
 				close;
 			case 5:
 				mes "[Giacomo Girolamo]";
-				mes "You.. are not like how you seem? Interesting..";
+				mes "Tu.. no eres como pareces? Interesante..";
 				next;
 				mes "[Giacomo Girolamo]";
-				mes "Yea, actually recently a lot of people from the slum and some wandering adventurers got disappeared. and I don't know why.";
+				mes "Si, de hecho recientemente mucha gente del barrio bajo y algunos aventureros errantes desaparecieron. y no se por que.";
 				next;
 				mes "[Giacomo Girolamo]";
-				mes "You gotta be careful too..";
+				mes "Tu tambien debes tener cuidado..";
 				close;
 			}
 		} else {
 			emotion ET_QUESTION;
 			mes "[Giacomo Girolamo]";
-			mes "Hey, lady?";
+			mes "Oye, dama?";
 			next;
 			mes "[Giacomo Girolamo]";
 			switch(rand(1,10)) {
 			case 1:
-				mes "Wasn't it painful when you fell down from Heaven, my Angel?";
+				mes "No te dolio cuando caiste del Cielo, mi Angel?";
 				next;
 				break;
 			case 2:
-				mes "You must be tired. Because you are always wandering my mind.";
+				mes "Debes estar cansada. Porque siempre andas vagando por mi mente.";
 				next;
 				break;
 			case 3:
-				mes "Are you not tired of walking around in my dream last night?";
+				mes "No estas cansada de caminar por mi sueno de anoche?";
 				next;
 				break;
 			case 4:
-				mes "Excuse me. But I think I lost my heart. Could you please borrow me yours?";
+				mes "Disculpa. Pero creo que perdi mi corazon. Podrias prestarme el tuyo?";
 				next;
 				break;
 			case 5:
-				mes "Do you believe in love at first sight?? Or can we start again..?";
+				mes "Crees en el amor a primera vista?? O podemos empezar de nuevo..?";
 				next;
 				break;
 			case 6:
-				mes "I am so sorry but, can you kiss with a person who just met?? Noo? Ok then let me introduce myself.";
+				mes "Lo siento mucho pero, puedes besar a una persona que acabas de conocer?? Nooo? Ok entonces dejame presentarme.";
 				next;
 				break;
 			case 7:
-				mes "I'm so lost here since it's the first time. Can you let me know which is the way to your heart?";
+				mes "Estoy tan perdido aqui ya que es la primera vez. Puedes decirme cual es el camino a tu corazon?";
 				next;
 				break;
 			case 8:
-				mes "Give me a map please.. To get a way....I'm fallen in your eyes.";
+				mes "Dame un mapa por favor.. Para encontrar un camino....estoy perdido en tus ojos.";
 				next;
 				break;
 			case 9:
-				mes "Your eyes....I wanna be forever there.";
+				mes "Tus ojos....quiero estar ahi para siempre.";
 				next;
 				break;
 			case 10:
-				mes "I promise that I will be your everything in any case, in any difficult situation.";
+				mes "Prometo que sere tu todo en cualquier caso, en cualquier situacion dificil.";
 				next;
 				break;
 			}
 			emotion ET_BIGTHROB;
 			mes "[Giacomo Girolamo]";
-			mes "Today is the first day we met, but I love you, Lady <3 ";
+			mes "Hoy es el primer dia que nos conocimos, pero te amo, Dama <3 ";
 			next;
 			mes "[Giacomo Girolamo]";
-			mes "And I am telling you this because I'm just worried about you. You need to get out of this town which is full of disappearance cases.";
+			mes "Y te digo esto porque me preocupo por ti. Necesitas salir de este pueblo que esta lleno de casos de desaparicion.";
 			close;
 		}
 	}
@@ -299,7 +299,7 @@ lhz_dun03,239,78,1	script	lhz_dun03_lhz_dun04	WARPNPC,1,1,{
 
 OnTouch:
 	if (lght_duk01 > 0 && lght_duk01 < 6) {
-		mes "In order to investigate human experimentation, I had to go down whilst I didn't want to because of gruesome sound.";
+		mes "Para investigar los experimentos humanos, tuve que bajar aunque no queria debido al sonido espantoso.";
 		close2;
 		if (lght_duk01 < 3) {
 			warp "que_lhz", 245, 56;
@@ -310,8 +310,8 @@ OnTouch:
 		}
 	} else {
 		if (lhz_curse < 31) {
-			mes "- Whistling sound -";
-			mes "From below, there comes a gruesome sound mingling with the wind.";
+			mes "- Sonido silbante -";
+			mes "Desde abajo, llega un sonido espantoso mezclado con el viento.";
 			close2;
 		}
 		warp "lhz_dun04", 245, 56;
@@ -333,19 +333,19 @@ OnInit:
 	end;
 
 OnTimer60000:
-	mapannounce "que_lhz", "Man's whisper: Pl.. please.. save me.. I don't wanna die.. wouaaaa..", bc_map, "0x7DCBF0";
+	mapannounce "que_lhz", "Susurro de hombre: Po.. por favor.. salvenme.. No quiero morir.. buaaaa..", bc_map, "0x7DCBF0";
 	end;
 
 OnTimer120000:
-	mapannounce "que_lhz", "Woman's whisper: .. Save.. aaaah.. us...", bc_map, "0x7DCBF0";
+	mapannounce "que_lhz", "Susurro de mujer: .. Salven.. aaaah.. nos...", bc_map, "0x7DCBF0";
 	end;
 
 OnTimer180000:
-	mapannounce "que_lhz", "Kid's whisper: Bawwww~ Where am I? Mama......aaaa....", bc_map, "0x7DCBF0";
+	mapannounce "que_lhz", "Susurro de nino: Buaaaa~ Donde estoy? Mama......aaaa....", bc_map, "0x7DCBF0";
 	end;
 
 OnTimer240000:
-	mapannounce "que_lhz", "Oldman's whisper: Kirk...hel...help......", bc_map, "0x7DCBF0";
+	mapannounce "que_lhz", "Susurro de anciano: Kirk...ayu...ayuda......", bc_map, "0x7DCBF0";
 	end;
 
 OnTimer300000:
@@ -355,12 +355,12 @@ OnTimer300000:
 
 OnTouch:
 	if (lght_duk01 == 1) {
-		mes "I arrived at a research facility which seems it has been used till these days.";
+		mes "Llegue a una instalacion de investigacion que parece haber sido usada hasta estos dias.";
 		next;
-		mes "There are some destroyed part, but the basic facility seem fine.";
+		mes "Hay algunas partes destruidas, pero la instalacion basica parece estar bien.";
 		next;
 		lght_duk01 = 2;
-		mes "Get around a little more...";
+		mes "Exploremos un poco mas...";
 		close;
 	}
 	end;
@@ -373,35 +373,35 @@ OnTouch:
 	if (lght_duk01 == 2) {
 		emotion ET_HUK, playerattached();
 		mes "["+ strcharinfo(0) +"]";
-		mes "You!!!! are Wolfchev?";
+		mes "Tu!!!! eres Wolfchev?";
 		next;
 		emotion ET_KIK;
 		mes "[Wolfchev]";
-		mes "A Human! kaahaha. People tend to hate this place, why are you here?";
+		mes "Un Humano! kaajaja. La gente suele odiar este lugar, por que estas aqui?";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "You!!! I heard that you were committing human experimentation. Wolfchev!!";
+		mes "Tu!!! Escuche que estabas realizando experimentos humanos. Wolfchev!!";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "And I see that you are still committing that!!!";
+		mes "Y veo que sigues haciendolo!!!";
 		next;
 		emotion ET_KIK;
 		mes "[Wolfchev]";
-		mes "Kihihihi. I can see that you know something about me. Is that you who accused me?";
-		mes "How dare you come back to me after you did that. Kihihih";
+		mes "Kijijiji. Puedo ver que sabes algo sobre mi. Fuiste tu quien me acuso?";
+		mes "Como te atreves a volver a mi despues de hacer eso. Kijijij";
 		next;
 		mes "[Wolfchev]";
-		mes "I feel good to see a human";
-		mes "in a long time, but I gotta go. Kihihihi.";
+		mes "Me siento bien al ver a un humano";
+		mes "despues de mucho tiempo, pero debo irme. Kijijiji.";
 		next;
-		mes "- Wolfchev ran away giving a awkward laughing sound. -";
+		mes "- Wolfchev huyo dando una risa incomoda. -";
 		next;
 		erasequest 5109;
 		setquest 5110;
 		lght_duk01 = 3;
 		emotion ET_HUK, playerattached();
 		mes "["+ strcharinfo(0) +"]";
-		mes "Whoa! Wolfchev, stop!";
+		mes "Oye! Wolfchev, detente!";
 		close2;
 		warp "que_lhz", 96, 136;
 	}
@@ -410,38 +410,38 @@ OnTouch:
 
 que_lhz,94,119,4	script	Researcher#03	4_LGTSCIENCE,{
 	if ((MaxWeight - Weight) < 1000 || !checkweight(1201, 1)) {
-		mes "^FF0000 Check up your inventory. You got too many items to carry out the quest. ^000000";
+		mes "^FF0000 Revisa tu inventario. Tienes demasiados objetos para realizar la mision. ^000000";
 		close;
 	}
 	if (lght_duk01 == 3) {
 		emotion ET_PROFUSELY_SWEAT;
 		mes "[Wolfchev]";
-		mes "(Gasping) Pshaw... you are still following me. Hey, why do you keep following me?";
+		mes "(Jadeando) Pfff... aun me sigues. Oye, por que sigues siguiendome?";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "Wolfchev.. You said before. that you are doing research for everybody.";
+		mes "Wolfchev.. Tu dijiste antes. que haces investigacion para todos.";
 		next;
 		mes "[Wolfchev]";
-		mes "I might have said that.... so what?";
+		mes "Puede que haya dicho eso.... y que?";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "But, your experiment seem really dangerous. How come this is what everybody wants?";
+		mes "Pero, tu experimento parece realmente peligroso. Como es que esto es lo que todos quieren?";
 		next;
 		emotion ET_KIK;
 		mes "[Wolfchev]";
-		mes "Everyone has a desire to be stronger and wants to dominate others so those other people obey and admire you. Do you not have that desire?";
+		mes "Todos tienen el deseo de ser mas fuertes y quieren dominar a otros para que esas personas obedezcan y te admiren. Acaso no tienes ese deseo?";
 		next;
 		mes "["+ strcharinfo(0) +"]";
 		mes "... .... ...";
 		next;
 		mes "[Wolfchev]";
-		mes "If you want to save yourself, should stop following me. Bugger off.";
+		mes "Si quieres salvarte, deja de seguirme. Largarte.";
 		next;
-		mes "Wolfchev is again running away with a strange sound.";
+		mes "Wolfchev esta huyendo de nuevo con un sonido extrano.";
 		next;
 		lght_duk01 = 4;
 		mes "["+ strcharinfo(0) +"]";
-		mes "Awwww!! You!! running away again..... Stop!";
+		mes "Agggg!! Tu!! huyendo de nuevo..... Detente!";
 		close2;
 		warp "que_lhz", 148, 215;
 	}
@@ -450,82 +450,82 @@ que_lhz,94,119,4	script	Researcher#03	4_LGTSCIENCE,{
 
 que_lhz,147,224,4	script	Researcher#04	4_LGTSCIENCE,{
 	if ((MaxWeight - Weight) < 1000 || !checkweight(1201, 1)) {
-		mes "^FF0000 Check up your inventory. You got too many items to carry out the quest. ^000000";
+		mes "^FF0000 Revisa tu inventario. Tienes demasiados objetos para realizar la mision. ^000000";
 		close;
 	}
 	if (lght_duk01 == 4) {
 		mes "[Wolfchev]";
-		mes "You are pretty persistent, aren't you? Or I think.......that you like me, huh? Kihihii.";
+		mes "Eres bastante persistente, no? O creo.......que te gusto, eh? Kijijii.";
 		next;
 		emotion ET_THINK;
 		mes "["+ strcharinfo(0) +"]";
 		mes "... .... ...";
 		next;
 		specialeffect EF_SIGHTRASHER;
-		mes "Wolfchev mocked you at your silence and pressed a button in his hand. Then guinea pigs woken up around him.";
+		mes "Wolfchev se burlo de tu silencio y presiono un boton en su mano. Entonces los conejillos de indias despertaron a su alrededor.";
 		next;
 		for(.@i = 1; .@i < 9; .@i++)
 			donpcevent "Human Guinea pig#0"+.@i+"::OnEnable";
 		mes "[Wolfchev]";
-		mes "Again.. it's time to say goodbye.";
+		mes "De nuevo.. es hora de despedirse.";
 		next;
 		emotion ET_SURPRISE;
 		mes "[Wolfchev]";
-		mes "Well! May be....";
+		mes "Bueno! Tal vez....";
 		next;
 		mes "[Wolfchev]";
-		mes "If you come to me for the experimentation, I can treat you better.";
+		mes "Si vienes a mi para la experimentacion, puedo tratarte mejor.";
 		next;
 		donpcevent "#Eventctrl::OnEnable";
 		progressbar "FF00FF", 5;
 		emotion ET_HUK;
 		mes "[Wolfchev]";
-		mes "Oh my,... What happened?";
+		mes "Dios mio,... Que paso?";
 		next;
 		donpcevent "#Eventctrl::OnEnable2";
 		for(.@i = 1; .@i < 9; .@i++)
 			donpcevent "Human Guinea pig#0"+.@i+"::OnDisable";
 		mes "[Wolfchev]";
-		mes "No! Don't come to me! Don't!!";
+		mes "No! No vengan a mi! No!!";
 		next;
 		lght_duk01 = 5;
-		mes "First of all, I gotta handle those guinea pigs!";
+		mes "Primero que nada, tengo que lidiar con esos conejillos de indias!";
 		close;
 	} else if (lght_duk01 == 5) {
 		.@i = rand(1,3);
 		if (.@i == 2) {
-			mes "Wolfchev is confused and has no idea now since those monsters are attacking him too.";
+			mes "Wolfchev esta confundido y no tiene idea ahora ya que esos monstruos tambien lo estan atacando.";
 			next;
 			specialeffect EF_STUNATTACK;
 			specialeffect EF_STUNATTACK;
-			mes "- Hit him to wake him up -";
+			mes "- Golpealo para despertarlo -";
 			next;
 			specialeffect EF_DARKBREATH;
 			emotion ET_STARE_ABOUT;
 			mes "["+ strcharinfo(0) +"]";
-			mes "Hey Dude! Anyway let's get out of here first! Isn't there any place where they cannot reach?";
+			mes "Oye amigo! De todos modos salgamos de aqui primero! No hay algun lugar al que no puedan llegar?";
 			next;
 			mes "[Wolfchev]";
-			mes "Oooops.. then my....my lab....to my lab...";
+			mes "Uuups.. entonces mi....mi laboratorio....a mi laboratorio...";
 			next;
 			mes "["+ strcharinfo(0) +"]";
-			mes "Your lab?? Okay, where's that?";
+			mes "Tu laboratorio?? Bueno, donde esta?";
 			next;
 			mes "[Wolfchev]";
-			mes "to the north....... . Not so far from here..";
+			mes "al norte....... . No muy lejos de aqui..";
 			next;
 			erasequest 5110;
 			setquest 5111;
 			lght_duk01 = 6;
-			mes "Go to '^0000FFWolfchev's Lab^000000' at the 12 o'clock direction...";
+			mes "Ve al '^0000FFLaboratorio de Wolfchev^000000' en la direccion de las 12...";
 			close;
 		} else {
 			emotion ET_CONFUSE;
-			mes "Wolfchev is confused and has no idea now since those monsters are attacking him too.";
+			mes "Wolfchev esta confundido y no tiene idea ahora ya que esos monstruos tambien lo estan atacando.";
 			close;
 		}
 	} else if (lght_duk01 == 6) {
-		mes "Go to '^0000FFWolfchev's Lab^000000' at the 12 o'clock direction...";
+		mes "Ve al '^0000FFLaboratorio de Wolfchev^000000' en la direccion de las 12...";
 		close;
 	}
 	end;
@@ -538,12 +538,12 @@ que_lhz,148,251,0	script	#Move2lab	-1,12,0,{
 
 OnTouch:
 	if (lght_duk01 == 6) {
-		mes "I arrived at '^0000FFWolfchev's Lab^000000'.";
+		mes "Llegue al '^0000FFLaboratorio de Wolfchev^000000'.";
 		close2;
 		warp "lhz_dun04", 148, 269;
 		end;
 	} else {
-		mes "I still have something to do with Wolfchev.";
+		mes "Aun tengo algo que hacer con Wolfchev.";
 		close;
 	}
 }
@@ -652,7 +652,7 @@ que_lhz,140,224,2	duplicate(Human Guinea pig#01)	Human Guinea pig#08	2224
 //============================================================
 lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 	if ((MaxWeight - Weight) < 1000 || !checkweight(1201, 1)) {
-		mes "^FF0000You cannot continue the process due to possessing too many belongings.^000000";
+		mes "^FF0000No puedes continuar el proceso porque tienes demasiadas pertenencias.^000000";
 		close;
 	}
 	.@quest_time = checkquest(5112, PLAYTIME);
@@ -663,91 +663,91 @@ lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 	}
 	if (lght_duk01 < 6) {
 		mes "[Researcher]";
-		mes "What! Do you have any business here?";
+		mes "Que! Tienes algun asunto aqui?";
 		next;
-		if (select("Yes I do!!", "Umm.. No..") == 1) {
+		if (select("Si, tengo!!", "Umm.. No..") == 1) {
 			mes "[Researcher]";
-			mes "Why don't stop staring at other's laboratory, and be on your way?";
+			mes "Por que no dejas de mirar el laboratorio ajeno y sigues tu camino?";
 			close;
 		}
 		mes "[Researcher]";
-		mes "Stop wondering here, and be on your way. Will you? Khh Khh.";
+		mes "Deja de deambular por aqui y sigue tu camino. Quieres? Kjj Kjj.";
 		close;
 	} else if (lght_duk01 == 6) {
-		mes "It seems experimental creatures cannot come near the laboratory, just like Wolfchev said.";
+		mes "Parece que las criaturas experimentales no pueden acercarse al laboratorio, tal como dijo Wolfchev.";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "Hey, is there any way to stop those creatures? You should know something, you made those things!";
+		mes "Oye, hay alguna forma de detener a esas criaturas? Deberias saber algo, tu hiciste esas cosas!";
 		next;
 		mes "[Wolfchev]";
-		mes "Urrgg.. I didn't expect them to loose control like that...";
+		mes "Urrgg.. No esperaba que perdieran el control asi...";
 		next;
 		mes "[Wolfchev]";
-		mes "What is wrong with this whole thing?";
+		mes "Que esta mal con todo esto?";
 		next;
 		mes "[Wolfchev]";
-		mes "Urr.. I think they will ruin my whole laboratory!";
+		mes "Urr.. Creo que van a arruinar todo mi laboratorio!";
 		next;
 		emotion ET_BLABLA, playerattached();
 		mes "["+ strcharinfo(0) +"]";
-		mes "Hey! Wolfchev!!";
+		mes "Oye! Wolfchev!!";
 		next;
 		mes "[Wolfchev]";
-		mes "You!? Hey, please stop them!";
-		mes "Creatures are ^9f6077organically connected with same job field^000000.";
+		mes "Tu!? Oye, por favor detenlos!";
+		mes "Las criaturas estan ^9f6077conectadas organicamente con el mismo campo laboral^000000.";
 		next;
 		mes "[Wolfchev]";
-		mes "There is one special creature being their ^46B951boss position^000000...";
-		mes "If you could deactivate that creature, all ^A1BB44slave creatures^000000 walking around here will stop moving right away.";
+		mes "Hay una criatura especial en su ^46B951posicion de jefe^000000...";
+		mes "Si pudieras desactivar a esa criatura, todas las ^A1BB44criaturas esclavas^000000 caminando por aqui dejaran de moverse de inmediato.";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "Boss creature?";
-		mes "Hey! Wolfchev! Where is that ^46B951Boss creature^000000?";
+		mes "Criatura jefe?";
+		mes "Oye! Wolfchev! Donde esta esa ^46B951Criatura jefe^000000?";
 		next;
 		mes "[Wolfchev]";
-		mes "Inside.. of laboratory.. It should be waken up now. It's sad to destroy my life of work, but I can't take this any more.. ...";
+		mes "Dentro.. del laboratorio.. Ya deberia estar despierta. Es triste destruir el trabajo de mi vida, pero ya no puedo soportar esto.. ...";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "How can I get into the Wolfchev's laboratory?";
+		mes "Como puedo entrar al laboratorio de Wolfchev?";
 		next;
 		mes "[Wolfchev]";
-		mes "Oh.. Wait!";
-		mes "I will help you get in there.";
+		mes "Oh.. Espera!";
+		mes "Te ayudare a entrar ahi.";
 		next;
 		mes "[Wolfchev]";
-		mes "Good news is that boss creatures are not set up to wake up all at once, even though slaves are.";
+		mes "La buena noticia es que las criaturas jefe no estan configuradas para despertar todas a la vez, aunque las esclavas si.";
 		next;
 		erasequest 5111;
 		lght_duk01 = 7;
 		for(.@i = 5113; .@i <= 5125; .@i++)
 			setquest .@i;
 		mes "[Wolfchev]";
-		mes "But still, it is really dangerous since we don't know when they will escape from there.";
-		mes "So, please prepare your party members, and take care of those boss creatures. I'm not sure how long this place can hold.";
+		mes "Pero aun asi, es realmente peligroso ya que no sabemos cuando escaparan de ahi.";
+		mes "Asi que, por favor prepara a los miembros de tu grupo, y encargense de esas criaturas jefe. No estoy seguro de cuanto tiempo aguantara este lugar.";
 		close;
 	} else if (lght_duk01 > 6) {
 		if (getcharid(1) > 0) {
 			mes "[Wolfchev]";
-			mes "Are you all set there? I will prepare the entrance if you are the leader of that party.";
+			mes "Estan todos listos? Preparare la entrada si eres el lider de ese grupo.";
 			next;
-			switch(select("Any warnings?", "Going into the laboratory", "Do not enter")) {
+			switch(select("Alguna advertencia?", "Entrar al laboratorio", "No entrar")) {
 			case 1:
 				mes "[Wolfchev]";
-				mes "I didn't know pressing the emergency alarm would cause such problem. The management system seems to be changed to emergency mode.";
+				mes "No sabia que presionar la alarma de emergencia causaria tal problema. El sistema de gestion parece haber cambiado a modo de emergencia.";
 				next;
 				mes "[Wolfchev]";
-				mes "There are so many systems set up inside of the laboratory, so eve I cannot be sure how systems are twisted by now.";
+				mes "Hay tantos sistemas configurados dentro del laboratorio, que incluso yo no puedo estar seguro de como estan los sistemas ahora.";
 				next;
 				mes "[Wolfchev]";
-				mes "Ah! If the emergency system is activating, only the leader of party should control everything. It is a lot of pressure I understand.";
+				mes "Ah! Si el sistema de emergencia esta activo, solo el lider del grupo deberia controlar todo. Es mucha presion, lo entiendo.";
 				next;
 				mes "[Wolfchev]";
-				mes "And just so you know, please do not touch random things out of curiosity. I don't want you to get hurt.";
+				mes "Y para que sepas, por favor no toques cosas al azar por curiosidad. No quiero que te lastimes.";
 				close;
 			case 2:
 				if (.@quest_time == 0) {
 					mes "[Wolfchev]";
-					mes "I'm sorry, but it seems you still cannot enter to the laboratory yet. Will you come back later? The system is kind of tricky you know.";
+					mes "Lo siento, pero parece que aun no puedes entrar al laboratorio. Podrias volver despues? El sistema es algo complicado, sabes.";
 					close;
 				} else {
 					//if (.@quest_time == 2)
@@ -757,32 +757,32 @@ lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 					if (!.@killed_bosses) {
 						if (lght_duk01 == 9) {
 							mes "[Wolfchev]";
-							mes "You came back, Ka Ha Ha.";
+							mes "Volviste, Ka Ja Ja.";
 							next;
 							mes "[Wolfchev]";
-							mes "After you left, I was fixing some system parts. And then suddenly strange thing happened.";
+							mes "Despues de que te fuiste, estaba arreglando algunas partes del sistema. Y de repente algo extrano paso.";
 							next;
 							mes "["+ strcharinfo(0) +"]";
-							mes "What was that?";
+							mes "Que fue eso?";
 							next;
 							mes "[Wolfchev]";
-							mes "All those boss creatures you took care of started to regenerate themselves..";
+							mes "Todas esas criaturas jefe que eliminaste empezaron a regenerarse..";
 							next;
 							mes "["+ strcharinfo(0) +"]";
-							mes "What.. How is that possible...?!";
+							mes "Que.. Como es posible...?!";
 							next;
 							mes "[Wolfchev]";
-							mes "I am also completely lost here.. But, this should not be happening..";
+							mes "Yo tambien estoy completamente perdido aqui.. Pero, esto no deberia estar pasando..";
 							next;
 							mes "["+ strcharinfo(0) +"]";
 							mes "... .... ...";
 							next;
 							mes "[Wolfchev]";
-							mes "As you can see, you are the only one I can trust. Would you and your party help me once again deactivating those creatures?";
+							mes "Como puedes ver, eres el unico en quien puedo confiar. Tu y tu grupo podrian ayudarme una vez mas a desactivar esas criaturas?";
 							next;
-							if (select("I am not sure", "Why not") == 1) {
+							if (select("No estoy seguro", "Por que no") == 1) {
 								mes "[Wolfchev]";
-								mes "I see. I understand why you are hesitating, and don't want to press you any more. But, still I'm not sure why you want go there anyways,";
+								mes "Ya veo. Entiendo por que dudas, y no quiero presionarte mas. Pero, aun no estoy seguro de por que quieres ir ahi de todos modos,";
 								next;
 							} else {
 								for(.@i = 5113; .@i <= 5125; .@i++) {
@@ -790,20 +790,20 @@ lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 								}
 								lght_duk01 = 10;
 								mes "[Wolfchev]";
-								mes "Thank you very much. "+strcharinfo(0)+"";
-								mes "I will help you get in the laboratory right away.";
+								mes "Muchas gracias. "+strcharinfo(0)+"";
+								mes "Te ayudare a entrar al laboratorio de inmediato.";
 								next;
 							}
 						} else {
 							mes "[Wolfchev]";
-							mes "Hmm.. Those boss creatures regenerating once again..";
+							mes "Hmm.. Esas criaturas jefe se estan regenerando otra vez..";
 							next;
 							mes "[Wolfchev]";
-							mes "Can you help me just one more time?";
+							mes "Puedes ayudarme solo una vez mas?";
 							next;
-							if (select("I am not sure", "Why not") == 1) {
+							if (select("No estoy seguro", "Por que no") == 1) {
 								mes "[Wolfchev]";
-								mes "I see. I understand why you are hesitating, and don't want to press you any more. But, still I'm not sure why you want go there anyways,";
+								mes "Ya veo. Entiendo por que dudas, y no quiero presionarte mas. Pero, aun no estoy seguro de por que quieres ir ahi de todos modos,";
 								next;
 							} else {
 								for(.@i = 5113; .@i <= 5125; .@i++) {
@@ -811,8 +811,8 @@ lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 								}
 								lght_duk01 = 10;
 								mes "[Wolfchev]";
-								mes "Thank you. "+strcharinfo(0)+"";
-								mes "You want to get in there fast, right?";
+								mes "Gracias. "+strcharinfo(0)+"";
+								mes "Quieres entrar ahi rapido, verdad?";
 								next;
 							}
 						}
@@ -821,13 +821,13 @@ lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 				if (is_party_leader() == true) {
 					if (instance_create("Wolfchev's Laboratory") < 0) {
 						mes "[Wolfchev]";
-						mes "Hmm.. Lab entering system is a bit weird. Would wait for me to check the system?";
+						mes "Hmm.. El sistema de entrada del laboratorio esta un poco raro. Podrias esperar a que revise el sistema?";
 						close;
 					}
 					mes "[Wolfchev]";
-					mes "Please hold on...";
+					mes "Espera un momento...";
 					next;
-					mes "Wolfchev starts to control certain gear.";
+					mes "Wolfchev comienza a controlar cierto equipo.";
 					next;
 					progressbar "FF00FF", 2;
 					mes "[Wolfchev]";
@@ -835,61 +835,61 @@ lhz_dun04,151,276,3	script	Researcher#memo	4_LGTSCIENCE,{
 					mes "^0000ff"+ strcharinfo(1) +"^000000 party leader's name ^0000ff"+ strcharinfo(0) +"^000000!!.";
 					next;
 					mes "[Wolfchev]";
-					mes "Now, your party is free to pass the entrance.";
+					mes "Ahora, tu grupo es libre de pasar por la entrada.";
 					close;
 				} else {
 					mes "[Wolfchev]";
-					mes "You are not the ^0000ffLeader of the party^000000, are you? Please go get the leader.";
+					mes "No eres el ^0000ffLider del grupo^000000, verdad? Por favor ve a buscar al lider.";
 					close;
 				}
 			case 3:
 				mes "[Wolfchev]";
-				mes "Need more preparation? Please, we don't have all day.";
+				mes "Necesitas mas preparacion? Por favor, no tenemos todo el dia.";
 				close;
 			}
 		} else {
 			mes "[Wolfchev]";
-			mes "Are you trying to go there along? That is a suicide! Our lab entering system is not as easy as you thinkz`.";
+			mes "Intentas ir ahi solo? Eso es un suicidio! Nuestro sistema de entrada al laboratorio no es tan facil como crees.";
 			close;
 		}
 	} else {
 		mes "[Wolfchev]";
-		mes "Woot! Something weird just happen. If this keep happening, maybe we should try other way..";
+		mes "Uy! Algo raro acaba de pasar. Si esto sigue pasando, tal vez deberiamos intentar de otra forma..";
 		close;
 	}
 }
 
 lhz_dun04,147,279,0	script	Laboratory Entrance#memo	CLEAR_NPC,{
 	if ((MaxWeight - Weight) < 1000 || !checkweight(1201, 1)) {
-		mes "^FF0000You cannot continue the process due to possessing too many belongings.^000000";
+		mes "^FF0000No puedes continuar el proceso porque tienes demasiadas pertenencias.^000000";
 		close;
 	}
 	.@lhz_time = checkquest(5112, PLAYTIME);
 	if (lght_duk01 < 7) {
-		mes "It says,";
-		mes "'^0000FF****'s laboratory member only^000000'";
+		mes "Dice,";
+		mes "'^0000FFSolo miembros del laboratorio de ****^000000'";
 		close;
 	}
 	if (.@lhz_time == -1) {
-		mes "This is an entrance towards Wolfchev's laboratory. Something is howling over the entrance.";
+		mes "Esta es una entrada hacia el laboratorio de Wolfchev. Algo esta aullando sobre la entrada.";
 		next;
-		if (select("Go inside", "Think one more time") == 2) {
-			mes "You have stopped entering to Wolfchev's laboratory.";
+		if (select("Entrar", "Pensarlo una vez mas") == 2) {
+			mes "Has dejado de entrar al laboratorio de Wolfchev.";
 			close;
 		}
 		if (instance_enter("Wolfchev's Laboratory") != IE_OK) {  // probably missing failure cases
-			mes "^FF0000Warning^000000";
+			mes "^FF0000Advertencia^000000";
 			mes ""+ strcharinfo(0) +". . .";
-			mes "^FF0000Unregistered personnel^000000";
+			mes "^FF0000Personal no registrado^000000";
 			next;
 			pushpc 0, 10;
 			percentheal -5,0;
 			specialeffect EF_AUTOCOUNTER;
 			specialeffect2 EF_BASH;
-			mes "You have been wounded by laboratory entrance system attack.";
+			mes "Has sido herido por el ataque del sistema de entrada del laboratorio.";
 			close;
 		}
-		mapannounce "lhz_dun04","Laboratory entrance system ["+ strcharinfo(1) +"] member ["+ strcharinfo(0) +"] access granted..",bc_map,"0x0DF297";
+		mapannounce "lhz_dun04","Sistema de entrada del laboratorio ["+ strcharinfo(1) +"] miembro ["+ strcharinfo(0) +"] acceso concedido..",bc_map,"0x0DF297";
 		setquest 5112;
 		//warp "1@lhz", 45, 148;
 		close;
@@ -897,9 +897,9 @@ lhz_dun04,147,279,0	script	Laboratory Entrance#memo	CLEAR_NPC,{
 		mes "Di Rit- Di- Di- Dit-";
 		next;
 		mes ""+ strcharinfo(0) +". . .";
-		mes "^FF0000Forbidden personnel^000000";
+		mes "^FF0000Personal prohibido^000000";
 		next;
-		mes "The system denied your entrance.";
+		mes "El sistema denego tu entrada.";
 		close;
 	} else if (.@lhz_time >= 1) {
 		mes "Di Rit- Di- Di- Dit-";
@@ -908,11 +908,11 @@ lhz_dun04,147,279,0	script	Laboratory Entrance#memo	CLEAR_NPC,{
 			//recall_completequest 5112;
 		erasequest 5112;
 		mes ""+ strcharinfo(0) +". . .";
-		mes "^FF0000Access denial has been deactivated.^000000";
+		mes "^FF0000La denegacion de acceso ha sido desactivada.^000000";
 		close;
 	} else {
 		mes "^FF0000Error! Error!^000000";
-		mes "^FF0000Please try again.^000000";
+		mes "^FF0000Por favor intenta de nuevo.^000000";
 		close;
 	}
 }
@@ -934,15 +934,15 @@ OnType_02:
 	donpcevent instance_npcname("Manual Sheet#1_1")+"::OnEnable";
 	donpcevent instance_npcname("Valve#1_2")+"::OnEnable";
 	donpcevent instance_npcname("Valve#1_3")+"::OnEnable";
-	mapannounce instance_mapname("1@lhz"),"[Security System] the persons concerned, access with the emergency access method.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] los involucrados, accedan con el metodo de acceso de emergencia.",bc_map,"0xff9977";
 	end;
 
 OnTimer1000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] This is a warning notice! Warning notice! Intruder Detected.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Este es un aviso de advertencia! Aviso de advertencia! Intruso Detectado.",bc_map,"0xff9977";
 	end;
 
 OnTimer2000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, The Lab No.1's security system will be activated.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el sistema de seguridad del Lab No.1 sera activado.",bc_map,"0xff9977";
 	end;
 
 OnTimer7000:
@@ -957,7 +957,7 @@ OnTimer7000:
 
 OnEnable:
 	.@map$ = instance_mapname("1@lhz");
-	mapannounce .@map$,"[Security System] Security system Activated !! Experimental animals are released. The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce .@map$,"[Sistema de Seguridad] Sistema de seguridad Activado!! Los animales experimentales han sido liberados. Los involucrados deben evacuar.",bc_map,"0xff9977";
 	areamonster .@map$,35,159,50,169,"Starving Lab animal",2242,rand(10,15),instance_npcname(strnpcinfo(0))+"::OnMyMobDead";
 	initnpctimer;
 	end;
@@ -970,7 +970,7 @@ OnTimer180000:
 	stopnpctimer;
 	if (mobcount(instance_mapname("1@lhz"), instance_npcname(strnpcinfo(0))+"::OnMyMobDead") < 1) {
 		donpcevent instance_npcname("Lab1#1_1")+"::OnType_02";
-		mapannounce instance_mapname("1@lhz"),"[Security System] The Lab No.1's security system has been stopped.",bc_map,"0xff9977";
+		mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] El sistema de seguridad del Lab No.1 ha sido detenido.",bc_map,"0xff9977";
 	} else {
 		initnpctimer;
 	}
@@ -979,7 +979,7 @@ OnTimer180000:
 OnMyMobDead:
 	if (mobcount(instance_mapname("1@lhz"), instance_npcname(strnpcinfo(0))+"::OnMyMobDead") < 1) {
 		donpcevent instance_npcname("Lab1#1_1")+"::OnType_02";
-		mapannounce instance_mapname("1@lhz"),"[Security System] The Lab No.1's security system has been stopped.",bc_map,"0xff9977";
+		mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] El sistema de seguridad del Lab No.1 ha sido detenido.",bc_map,"0xff9977";
 		stopnpctimer;
 	}
 	end;
@@ -988,10 +988,10 @@ OnMyMobDead:
 // Emergency Access Valve Manual
 //============================================================
 1@lhz,39,168,0	script	Manual Sheet#1_1	CLEAR_NPC,{
-	mes "There are valve manual sheets littered on the floor.";
+	mes "Hay hojas del manual de valvulas tiradas en el piso.";
 	next;
 	if (is_party_leader() == true) {
-		mes "You the party leader, started to read the manual.";
+		mes "Tu, el lider del grupo, empezaste a leer el manual.";
 		next;
 		mes "[Emergency Access Valve Manual]";
 		switch(lght_duk02) {
@@ -999,57 +999,57 @@ OnMyMobDead:
 			switch(rand(1,6)) {
 			case 1:
 				lght_duk02 = 1;
-				mes "Turn the left valve Clockwise twice, Counterclockwise once, Clockwise once";
+				mes "Gira la valvula izquierda en sentido horario dos veces, antihorario una vez, horario una vez";
 				break;
 			case 2:
 				lght_duk02 = 2;
-				mes "Turn the left valve Clockwise once, Counterclockwise twice, Clockwise once";
+				mes "Gira la valvula izquierda en sentido horario una vez, antihorario dos veces, horario una vez";
 				break;
 			case 3:
 				lght_duk02 = 3;
-				mes "Turn the left valve Clockwise once, Counterclockwise once, Clockwise twice";
+				mes "Gira la valvula izquierda en sentido horario una vez, antihorario una vez, horario dos veces";
 				break;
 			case 4:
 				lght_duk02 = 4;
-				mes "Turn the right valve Counterclockwise twice, Clockwise once, Counterclockwise once";
+				mes "Gira la valvula derecha en sentido antihorario dos veces, horario una vez, antihorario una vez";
 				break;
 			case 5:
 				lght_duk02 = 5;
-				mes "Turn the right valve Counterclockwise once, Clockwise twice, Counterclockwise once";
+				mes "Gira la valvula derecha en sentido antihorario una vez, horario dos veces, antihorario una vez";
 				break;
 			case 6:
 				lght_duk02 = 6;
-				mes "Turn the right valve Counterclockwise once, Clockwise once, Counterclockwise twice";
+				mes "Gira la valvula derecha en sentido antihorario una vez, horario una vez, antihorario dos veces";
 				break;
 			default:
-				mes "This is a unknown Error. If you get the same problem after trying one more time, contact GM.";
+				mes "Este es un error desconocido. Si tienes el mismo problema despues de intentar una vez mas, contacta a un GM.";
 				break;
 			}
 			break;
 		case 1:
-			mes "Turn the left valve Clockwise twice, Counterclockwise once, Clockwise once";
+			mes "Gira la valvula izquierda en sentido horario dos veces, antihorario una vez, horario una vez";
 			break;
 		case 2:
-			mes "Turn the left valve Clockwise once, Counterclockwise twice, Clockwise once";
+			mes "Gira la valvula izquierda en sentido horario una vez, antihorario dos veces, horario una vez";
 			break;
 		case 3:
-			mes "Turn the left valve Clockwise once, Counterclockwise once, Clockwise twice";
+			mes "Gira la valvula izquierda en sentido horario una vez, antihorario una vez, horario dos veces";
 			break;
 		case 4:
-			mes "Turn the right valve Counterclockwise twice, Clockwise once, Counterclockwise once";
+			mes "Gira la valvula derecha en sentido antihorario dos veces, horario una vez, antihorario una vez";
 			break;
 		case 5:
-			mes "Turn the right valve Counterclockwise once, Clockwise twice, Counterclockwise once";
+			mes "Gira la valvula derecha en sentido antihorario una vez, horario dos veces, antihorario una vez";
 			break;
 		case 6:
-			mes "Turn the right valve Counterclockwise once, Clockwise once, Counterclockwise twice";
+			mes "Gira la valvula derecha en sentido antihorario una vez, horario una vez, antihorario dos veces";
 			break;
 		default:
-			mes "This is an unknown error. If you get the same problem after trying one more time, contact a GM.";
+			mes "Este es un error desconocido. Si tienes el mismo problema despues de intentar una vez mas, contacta a un GM.";
 			break;
 		}
 	} else {
-		mes "Let your party leader handle the valve.";
+		mes "Deja que el lider de tu grupo maneje la valvula.";
 	}
 	close;
 
@@ -1067,17 +1067,17 @@ OnEnable:
 //============================================================
 1@lhz,41,172,0	script	Valve#1_2	CLEAR_NPC,{
 	.@open_portal = 0;
-	mes "This is the left valve for the emergency access.";
+	mes "Esta es la valvula izquierda para el acceso de emergencia.";
 	if (is_party_leader() == true) {
 		next;
-		mes "To which direction do you wish to turn?";
+		mes "En que direccion deseas girar?";
 		next;
 		if (lght_duk02 < 1 || lght_duk02 > 3) {
 			for(.@i = 1; .@i <= 4; .@i++) {
-				select("Clockwise", "Counterclockwise");
-				mes "-A metal sound-";
+				select("Sentido horario', 'Sentido antihorario");
+				mes "-Un sonido metalico-";
 				if (.@i != 4)
-					mes "and, to which direction then?";
+					mes "y, en que direccion entonces?";
 				next;
 			}
 		} else {
@@ -1085,7 +1085,7 @@ OnEnable:
 			// lght_duk02 == 2 : Clockwise, Counterclockwise, Counterclockwise, Clockwise
 			// lght_duk02 == 3 : Clockwise, Counterclockwise, Clockwise, Clockwise
 			for(.@i = 1; .@i <= 4; .@i++) {
-				switch(select("Clockwise", "Counterclockwise")) {
+				switch(select("Sentido horario", "Sentido antihorario")) {
 				case 1:
 					if ((.@i == 1 || .@i == 4) || (.@i == 2 && lght_duk02 == 1) || (.@i == 3 && lght_duk02 == 3)) {
 						.@open_portal += 1;
@@ -1095,23 +1095,23 @@ OnEnable:
 						.@open_portal += 1;
 					}
 				}
-				mes "-A metal sound-";
+				mes "-Un sonido metalico-";
 				if (.@i != 4)
-					mes "and, to which direction then?";
+					mes "y, en que direccion entonces?";
 				next;
 			}
 		}
 		if (.@open_portal == 4) {
 			donpcevent instance_npcname("#potal_01")+"::OnEnable";
 			lght_duk02 = 0;
-			mes "-Door opened-";
+			mes "-Puerta abierta-";
 			next;
-			mes "The door which connects to the Lab No.2 is now open.";
+			mes "La puerta que conecta al Lab No.2 esta ahora abierta.";
 		} else {
 			lght_duk02 = 0;
-			mes "Nothing happened.";
+			mes "Nada paso.";
 			next;
-			mes "You need to review the manual.";
+			mes "Necesitas revisar el manual.";
 		}
 	}
 	close;
@@ -1130,17 +1130,17 @@ OnEnable:
 //============================================================
 1@lhz,52,172,0	script	Valve#1_3	CLEAR_NPC,{
 	.@open_portal = 0;
-	mes "This is the left valve for the emergency access.";
+	mes "Esta es la valvula izquierda para el acceso de emergencia.";
 	if (is_party_leader() == true) {
 		next;
-		mes "To which direction do you wish to turn?";
+		mes "En que direccion deseas girar?";
 		next;
 		if (lght_duk02 < 4 || lght_duk02 > 6) {
 			for(.@i = 1; .@i <= 4; .@i++) {
-				select("Clockwise", "Counterclockwise");
-				mes "-A metal sound-";
+				select("Sentido horario', 'Sentido antihorario");
+				mes "-Un sonido metalico-";
 				if (.@i != 4)
-					mes "and, to which direction then?";
+					mes "y, en que direccion entonces?";
 				next;
 			}
 		} else {
@@ -1148,7 +1148,7 @@ OnEnable:
 			// lght_duk02 == 5 : Counterclockwise, Clockwise, Clockwise, Counterclockwise
 			// lght_duk02 == 6 : Counterclockwise, Clockwise, Counterclockwise, Counterclockwise
 			for(.@i = 1; .@i <= 4; .@i++) {
-				switch(select("Clockwise", "Counterclockwise")) {
+				switch(select("Sentido horario", "Sentido antihorario")) {
 				case 1:
 					if ((.@i == 2 && lght_duk02 != 4) || (.@i == 3 && lght_duk02 != 6))
 						.@open_portal += 1;
@@ -1158,23 +1158,23 @@ OnEnable:
 						.@open_portal += 1;
 					break;
 				}
-				mes "-A metal sound-";
+				mes "-Un sonido metalico-";
 				if (.@i != 4)
-					mes "and, to which direction then?";
+					mes "y, en que direccion entonces?";
 				next;
 			}
 		}
 		if (.@open_portal == 4) {
 			donpcevent instance_npcname("#potal_01")+"::OnEnable";
 			lght_duk02 = 0;
-			mes "-Door opened-";
+			mes "-Puerta abierta-";
 			next;
-			mes "The door which connects to the Lab No.2 is now open.";
+			mes "La puerta que conecta al Lab No.2 esta ahora abierta.";
 		} else {
 			lght_duk02 = 0;
-			mes "Nothing happened.";
+			mes "Nada paso.";
 			next;
-			mes "You need to review the manual.";
+			mes "Necesitas revisar el manual.";
 		}
 	}
 	close;
@@ -1201,7 +1201,7 @@ OnDisable:
 	end;
 
 OnEnable:
-	mapannounce instance_mapname("1@lhz"),"[Management System] The door which connects to the Lab No.2 is now open.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] La puerta que conecta al Lab No.2 esta ahora abierta.",bc_map,"0xff9977";
 	enablenpc instance_npcname("#potal_01");
 	end;
 
@@ -1244,95 +1244,95 @@ OnEnable:
 	end;
 
 OnTimer1000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] This is a warning notice! Warning notice! Intruder Detected in The Lab No.2!!",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Este es un aviso de advertencia! Aviso de advertencia! Intruso Detectado en el Lab No.2!!",bc_map,"0xff9977";
 	end;
 
 OnTimer3000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, The Lab No.2 Security system will start working.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el sistema de seguridad del Lab No.2 comenzara a funcionar.",bc_map,"0xff9977";
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure in the Lab No.2 is too high.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias en el Lab No.2 es demasiado alta.",bc_map,"0xff99ff";
 	end;
 
 OnTimer8000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] First security system activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Primer sistema de seguridad activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl2#mob02")+"::On01";
 	end;
 
 OnTimer10000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer190000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer303000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, Second Security system will start working.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el segundo sistema de seguridad comenzara a funcionar.",bc_map,"0xff9977";
 	end;
 
 OnTimer308000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Second security system activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Segundo sistema de seguridad activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl2#mob02")+"::On02";
 	end;
 
 OnTimer370000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer550000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer603000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, Third Security system will start working.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el tercer sistema de seguridad comenzara a funcionar.",bc_map,"0xff9977";
 	end;
 
 OnTimer608000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Third security system activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Tercer sistema de seguridad activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl2#mob02")+"::On03";
 	end;
 
 OnTimer730000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer903000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, Fourth Security system will start working.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el cuarto sistema de seguridad comenzara a funcionar.",bc_map,"0xff9977";
 	end;
 
 OnTimer908000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Fourth security system activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Cuarto sistema de seguridad activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl2#mob02")+"::On04";
 	end;
 
 OnTimer910000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer1090000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	end;
 
 OnTimer1203000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, Fifth Security system will start working.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el quinto sistema de seguridad comenzara a funcionar.",bc_map,"0xff9977";
 	end;
 
 OnTimer1208000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Fifth security system activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Quinto sistema de seguridad activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl2#mob02")+"::On05";
 	end;
 
 OnTimer1270000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Warning! The pipe pressure is too high. Open the valve.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Advertencia! La presion de las tuberias es demasiado alta. Abran la valvula.",bc_map,"0xff99ff";
 	donpcevent instance_npcname("Lab2#2_2")+"::OnPipePressure";
 	stopnpctimer;
 	end;
@@ -1413,7 +1413,7 @@ OnTimer63000:
 		donpcevent instance_npcname("#2_3")+"::OnEnable";
 		stopnpctimer;
 	} else {
-		mapannounce instance_mapname("1@lhz"),"[Management System] Pipe explosion detected! When "+ (3 - 'broken_pipes) +" more break, the system will stop.",bc_map,"0xff99ff";
+		mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Explosion de tuberia detectada! Cuando "+ (3 - 'broken_pipes) +" mas se rompan, el sistema se detendra.",bc_map,"0xff99ff";
 	}
 	end;
 }
@@ -1432,11 +1432,11 @@ OnEnable:
 	end;
 
 OnTimer1000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] System Freezes! System Freezes! Evacuate from the Lab in 10 seconds.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Sistema congelado! Sistema congelado! Evacuen del laboratorio en 10 segundos.",bc_map,"0xff99ff";
 	end;
 
 OnTimer11000:
-	mapannounce instance_mapname("1@lhz"),"[Management System] Evacuate!!",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] Evacuen!!",bc_map,"0xff99ff";
 	enablenpc instance_npcname("#2_3");
 	end;
 
@@ -1518,7 +1518,7 @@ OnMyMobDead:
 	if (mobcount(instance_mapname("1@lhz"),instance_npcname("MobCtrl2#mob02")+"::OnMyMobDead") < 1) {
 		donpcevent instance_npcname("#potal_02")+"::OnEnable";
 		donpcevent instance_npcname("Lab2#2_1")+"::OnDisable";
-		mapannounce instance_mapname("1@lhz"),"[Security System] The Security system of The Lab No.2 has been stopped.",bc_map,"0xff9977";
+		mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] El sistema de seguridad del Lab No.2 ha sido detenido.",bc_map,"0xff9977";
 	}
 	end;
 }
@@ -1533,7 +1533,7 @@ OnMyMobDead:
 		disablenpc();
 		end;
 	} else {
-		mes "Let your party leader handle the valve.";
+		mes "Deja que el lider de tu grupo maneje la valvula.";
 		close;
 	}
 
@@ -1570,7 +1570,7 @@ OnDisable:
 	end;
 
 OnEnable:
-	mapannounce instance_mapname("1@lhz"),"[Management System] The door which connects to the Lab No.3 is now open.",bc_map,"0xff99ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] La puerta que conecta al Lab No.3 esta ahora abierta.",bc_map,"0xff99ff";
 	enablenpc instance_npcname("#potal_02");
 	end;
 
@@ -1612,40 +1612,40 @@ OnDisable:
 	end;
 
 OnTimer1000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] This is a warning notice! Warning notice!",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Este es un aviso de advertencia! Aviso de advertencia!",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl3#mob03")+"::OnDisable";
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Intruder Detected in The Lab No.3!!",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Intruso Detectado en el Lab No.3!!",bc_map,"0xff9977";
 	end;
 
 OnTimer7000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] In 5 seconds, The Security system of The Lab No.3 will start working.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] En 5 segundos, el sistema de seguridad del Lab No.3 comenzara a funcionar.",bc_map,"0xff9977";
 	end;
 
 OnTimer12000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] First security system of The Lab No.3 activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Primer sistema de seguridad del Lab No.3 activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl3#mob03")+"::On01";
 	end;
 
 OnTimer192000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Second security system of The Lab No.3 activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Segundo sistema de seguridad del Lab No.3 activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl3#mob03")+"::On02";
 	end;
 
 OnTimer372000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Third security system of The Lab No.3 activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Tercer sistema de seguridad del Lab No.3 activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl3#mob03")+"::On03";
 	end;
 
 OnTimer552000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Fourth security system of The Lab No.3activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Cuarto sistema de seguridad del Lab No.3 activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl3#mob03")+"::On04";
 	end;
 
 OnTimer732000:
-	mapannounce instance_mapname("1@lhz"),"[Security System] Fifth security system of The Lab No.3 activated !! The persons concerned have to evacuate.",bc_map,"0xff9977";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] Quinto sistema de seguridad del Lab No.3 activado!! Los involucrados deben evacuar.",bc_map,"0xff9977";
 	donpcevent instance_npcname("MobCtrl3#mob03")+"::On05";
 	stopnpctimer;
 	end;
@@ -1753,7 +1753,7 @@ OnMyMobDead:
 	if (mobcount(instance_mapname("1@lhz"),instance_npcname("MobCtrl3#mob03")+"::OnMyMobDead") < 1) {
 		donpcevent instance_npcname("#potal_03")+"::OnEnable";
 		donpcevent instance_npcname("Lab3#3_1")+"::OnDisable";
-		mapannounce instance_mapname("1@lhz"),"[Security System] The Security system of The Lab No.3 has been stopped.",bc_map,"0xff9977";
+		mapannounce instance_mapname("1@lhz"),"[Sistema de Seguridad] El sistema de seguridad del Lab No.3 ha sido detenido.",bc_map,"0xff9977";
 	}
 	end;
 }
@@ -1768,7 +1768,7 @@ OnInstanceInit:
 	end;
 
 OnEnable:
-	mapannounce instance_mapname("1@lhz"),"[Management System] The door which connects to the Lab No.4 is now open.",bc_map,"0x7799ff";
+	mapannounce instance_mapname("1@lhz"),"[Sistema de Gestion] La puerta que conecta al Lab No.4 esta ahora abierta.",bc_map,"0x7799ff";
 	enablenpc instance_npcname("#potal_03");
 	end;
 
@@ -1814,7 +1814,7 @@ OnDisable:
 	end;
 
 OnTimer1000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: Who are you....",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: Quien eres....",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Seyren Windsor#boss01");
 	end;
 
@@ -1823,7 +1823,7 @@ OnTimer2000:
 	end;
 
 OnTimer3000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: Do not approach more...",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: No te acerques mas...",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Gertie Wie#boss03");
 	end;
 
@@ -1832,7 +1832,7 @@ OnTimer4000:
 	end;
 
 OnTimer5000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: This is a very dangerous place..",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: Este es un lugar muy peligroso..",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Trentini#boss05");
 	end;
 
@@ -1841,7 +1841,7 @@ OnTimer6000:
 	end;
 
 OnTimer7000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: You won't go out alive....",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: No saldras vivo....",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Alphochio Basil#boss07");
 	end;
 
@@ -1850,7 +1850,7 @@ OnTimer8000:
 	end;
 
 OnTimer9000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: If you don't want to be a part of us....",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: Si no quieres ser parte de nosotros....",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Randel Lawrence#boss09");
 	end;
 
@@ -1859,7 +1859,7 @@ OnTimer10000:
 	end;
 
 OnTimer11000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: Leave now....",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: Vete ahora....",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Kathryne Keyron#boss11");
 	end;
 
@@ -1868,7 +1868,7 @@ OnTimer12000:
 	end;
 
 OnTimer13000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: Before this place is thoroughly filled with sorrow and pain....",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: Antes de que este lugar se llene completamente de tristeza y dolor....",bc_map,"0x7DCBF0";
 	specialeffect EF_SPHERE,AREA,instance_npcname("Howard Alt-Eisen#boss13");
 	end;
 
@@ -1885,7 +1885,7 @@ OnTimer16000:
 	end;
 
 OnTimer17000:
-	mapannounce instance_mapname("1@lhz"),"Whisper: Ah....it....it's too late......",bc_map,"0x7DCBF0";
+	mapannounce instance_mapname("1@lhz"),"Susurro: Ah....es....es demasiado tarde......",bc_map,"0x7DCBF0";
 	donpcevent instance_npcname("MobCtrl4#mob04")+"::OnEnable";
 	stopnpctimer;
 	end;
@@ -1999,31 +1999,31 @@ OnMyMobDead:
 		.@map$ = instance_mapname("1@lhz");
 
 		if (strnpcinfo(0) == "Seyren Windsor#boss01")
-			mapannounce .@map$,"Awww... Where are all my fellows....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Awww... Donde estan todos mis companeros....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Cecile Damon#boss02")
-			mapannounce .@map$,"Any..one, please help.. please.....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Al..guien, por favor ayuden.. por favor.....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Gertie Wie#boss03")
-			mapannounce .@map$,".. did I act too.. rashly...?",bc_map,"0xFD3B02";
+			mapannounce .@map$,".. actue demasiado.. precipitadamente...?",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Eremes Guile#boss04")
-			mapannounce .@map$,"Ah..... I am absolutely defeated....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Ah..... Estoy completamente derrotado....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Trentini#boss05")
-			mapannounce .@map$,"ah.. If I.. ever can ... dance and.... sing...happily....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"ah.. Si yo.. pudiera alguna vez ... bailar y.... cantar...felizmente....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Chen Liu#boss06")
-			mapannounce .@map$,"I.... am so .. sorry....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Lo.... siento .. tanto....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Alphochio Basil#boss07")
-			mapannounce .@map$,"...the new song......was ....for.....her....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"...la nueva cancion......era ....para.....ella....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Flamel Emul#boss08")
-			mapannounce .@map$,"Ha...I wanted to show.... the new potion....",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Ja...Queria mostrar.... la nueva pocion....",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Randel Lawrence#boss09")
-			mapannounce .@map$,"Wooooo.. everyone got defeated.....??",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Wooooo.. todos fueron derrotados.....??",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Celia Alde#boss10")
-			mapannounce .@map$,"No..... this experiment is.....dang...",bc_map,"0xFD3B02";
+			mapannounce .@map$,"No..... este experimento es.....rayos...",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Kathryne Keyron#boss11")
-			mapannounce .@map$,"awww.. is everyone Ok....?",bc_map,"0xFD3B02";
+			mapannounce .@map$,"awww.. estan todos bien....?",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Margaretha Sorin#boss12")
-			mapannounce .@map$,"My good boy.. Don't cry... ah.... our Great Odin.. please save us...",bc_map,"0xFD3B02";
+			mapannounce .@map$,"Mi buen chico.. No llores... ah.... nuestro Gran Odin.. por favor salvanos...",bc_map,"0xFD3B02";
 		else if (strnpcinfo(0) == "Howard Alt-Eisen#boss13")
-			mapannounce .@map$,"oh...no.... can't breath.... and my sister...?? sister!!",bc_map,"0xFD3B02";
+			mapannounce .@map$,"oh...no.... no puedo respirar.... y mi hermana...?? hermana!!",bc_map,"0xFD3B02";
 
 		donpcevent instance_npcname("Wolfchev#last")+"::OnEnable";
 		donpcevent instance_npcname(strnpcinfo(0))+"::OnDisable";
@@ -2048,7 +2048,7 @@ OnMyMobDead:
 //============================================================
 1@lhz,137,156,7	script	Wolfchev#last	4_LGTSCIENCE,{
 	if ((MaxWeight - Weight) < 1000 || !checkweight(1201, 1)) {
-		mes "^FF0000 Check up your inventory. You got too many items to carry out the quest. ^000000";
+		mes "^FF0000 Revisa tu inventario. Tienes demasiados objetos para realizar la mision. ^000000";
 		close;
 	}
 	for(.@i = 5113; .@i <= 5125; .@i++) {
@@ -2069,40 +2069,40 @@ OnMyMobDead:
 		if (lght_duk01 == 8) {
 			// First time beating the instance.
 			mes "[Wolfchev]";
-			mes "You finally defeated my Boss creature.";
+			mes "Finalmente derrotaste a mi criatura jefe.";
 			next;
 			mes "[Wolfchev]";
-			mes "Finally. is this the result?? For whom did I experiment? Did they cheat me?";
+			mes "Finalmente. este es el resultado?? Para quien experimente? Me enganaron?";
 			next;
 			mes "[Wolfchev]";
-			mes "The button was supposed to be pressed for an emergency case...but..";
+			mes "El boton se suponia que era para un caso de emergencia...pero..";
 			next;
 			mes "[Wolfchev]";
-			mes "Hey... You and I met by a bad connection....";
+			mes "Oye... Tu y yo nos conocimos por una mala conexion....";
 			next;
 			mes "[Wolfchev]";
-			mes "But...., you helped me... How could you do that?";
+			mes "Pero...., me ayudaste... Como pudiste hacer eso?";
 			next;
 			mes "["+ strcharinfo(0) +"]";
-			mes "When I met you for the first time, you seemed mad but sad, even if you could commit those cruel and horrific experiments.";
+			mes "Cuando te conoci por primera vez, parecias loco pero triste, incluso si podias cometer esos crueles y horribles experimentos.";
 			next;
 			mes "["+ strcharinfo(0) +"]";
-			mes "But actually, you did that because you was lonely,.. you just concentrated on that for this reason, huh?";
+			mes "Pero en realidad, lo hiciste porque estabas solo,.. solo te concentraste en eso por esta razon, no?";
 			next;
 			mes "[Wolfchev]";
-			mes "HAHAHAHA. Loneliness... you say?";
+			mes "JAJAJAJA. Soledad... dices?";
 			next;
 			mes "[Wolfchev]";
-			mes "It might be seen like that to you. But, it isn't. Loneliness is just a good and easy excuse of the losers.";
+			mes "Puede que lo veas asi. Pero, no lo es. La soledad es solo una buena y facil excusa de los perdedores.";
 			next;
 			mes "[Wolfchev]";
-			mes "I'm so happy doing experiments pursuing for a perfection, I never feel lonely.";
+			mes "Soy tan feliz haciendo experimentos buscando la perfeccion, nunca me siento solo.";
 			next;
 			mes "[Wolfchev]";
-			mes "Anyway, since I realized that Rekenber betrayed me, I cannot just let them do what they want.";
+			mes "De todos modos, ya que me di cuenta de que Rekenber me traiciono, no puedo dejarlos hacer lo que quieran.";
 			next;
 			mes "[Wolfchev]";
-			mes "For now, I will leave them alone, but I will make them cry and regret for trying to remove Wolfchev.";
+			mes "Por ahora, los dejare en paz, pero los hare llorar y arrepentirse por intentar eliminar a Wolfchev.";
 			next;
 			mes "["+ strcharinfo(0) +"]";
 			mes "... .... ... ....";
@@ -2110,33 +2110,33 @@ OnMyMobDead:
 			lght_duk01 = 9;
 			callsub L_Reward;
 			mes "[Wolfchev]";
-			mes "aaaaaah, "+ strcharinfo(0) +" Thank you so much to remove my boys who had gone mad. Not a big gift but I wish you don't deny, I don't need this anymore.";
+			mes "aaaaaah, "+ strcharinfo(0) +" Muchas gracias por eliminar a mis chicos que se habian vuelto locos. No es un gran regalo pero espero que no lo rechaces, ya no lo necesito.";
 			next;
 			mes "[Wolfchev]";
-			mes "And, if you can...hope you to come back often, especially with your friends. I want the place to be with human heart again so the sadness in here gets disappear.";
+			mes "Y, si puedes...espero que vuelvas seguido, especialmente con tus amigos. Quiero que este lugar tenga corazon humano de nuevo para que la tristeza de aqui desaparezca.";
 			next;
-			mes "I looked at Wolfchev again before leaving his lab. and I could feel that he was not obsessed anymore..";
+			mes "Mire a Wolfchev de nuevo antes de dejar su laboratorio. y pude sentir que ya no estaba obsesionado..";
 			close2;
 			warp "lhz_dun04", 147, 273;
 			end;
 		} else {
 			mes "[Wolfchev]";
-			mes "You did defeat all of the Boss creatures. Thank you again.";
+			mes "Derrotaste a todas las criaturas jefe. Gracias de nuevo.";
 			next;
 			callsub L_Reward;
 			mes "[Wolfchev]";
-			mes "I say again, "+ strcharinfo(0) +" Thank you so much to remove my boys who had gone mad. Not a big gift but I wish you don't deny, I don't need this anymore.";
+			mes "Lo digo de nuevo, "+ strcharinfo(0) +" Muchas gracias por eliminar a mis chicos que se habian vuelto locos. No es un gran regalo pero espero que no lo rechaces, ya no lo necesito.";
 			next;
 			mes "[Wolfchev]";
-			mes "Khahaha, See you again. Do you want to get out of here now?";
+			mes "Kjajaja, Nos vemos de nuevo. Quieres salir de aqui ahora?";
 			next;
-			if (select("Not yet", "Yes") == 1) {
+			if (select("Aun no", "Si") == 1) {
 				mes "[Wolfchev]";
-				mes "Then tell me when you want to.";
+				mes "Entonces dime cuando quieras.";
 				close;
 			}
 			mes "[Wolfchev]";
-			mes "Then I will send you out.";
+			mes "Entonces te enviare afuera.";
 			close2;
 			warp "lhz_dun04", 147, 273;
 			end;
@@ -2144,36 +2144,36 @@ OnMyMobDead:
 	} else {
 		if (.@all_quests_complete == 0) {
 			mes "[Wolfchev]";
-			mes "I was looking at the system.... don't know who made this..... but it's so complicated to get..no idea...";
+			mes "Estaba mirando el sistema.... no se quien hizo esto..... pero es tan complicado de entender..ni idea...";
 			next;
 		} else {
 			mes "[Wolfchev]";
-			mes "kakakaah.. Thank you. You handled those Boss creatures well...";
+			mes "kakakaaj.. Gracias. Manejaste bien a esas criaturas jefe...";
 			next;
 		}
 		if (lght_duk01 == 7) {
 			lght_duk01 = 8;
 			mes "[Wolfchev]";
-			mes "While you were struggling...";
+			mes "Mientras luchabas...";
 			next;
 			mes "[Wolfchev]";
-			mes "I figured something out... and there's a system error which doesn't let us come and go freely, so you could help me in 72 hours... Go somewhere to rest before you come back.";
+			mes "Descubri algo... y hay un error del sistema que no nos deja ir y venir libremente, asi que podrias ayudarme en 72 horas... Ve a algun lugar a descansar antes de volver.";
 			next;
 			mes "[Wolfchev]";
-			mes "Ah... and I can send you out of my laboratory. Do you want?";
+			mes "Ah... y puedo enviarte fuera de mi laboratorio. Quieres?";
 			next;
 		} else {
 			mes "[Wolfchev]";
-			mes "Do you want to get out of here now?";
+			mes "Quieres salir de aqui ahora?";
 			next;
 		}
-		if (select("Not yet", "Yes") == 1) {
+		if (select("Aun no", "Si") == 1) {
 			mes "[Wolfchev]";
-			mes "Then tell me when you want to.";
+			mes "Entonces dime cuando quieras.";
 			close;
 		}
 		mes "[Wolfchev]";
-		mes "Then I will send you out.";
+		mes "Entonces te enviare afuera.";
 		close2;
 		warp "lhz_dun04", 147, 273;
 		end;
