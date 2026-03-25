@@ -26,83 +26,83 @@ xmas_in,100,96,4	script	Father Christmas::Santa2	718,{
 	mes "[Santa Claus]";
 	if(xmas_npc==0) set xmas_npc, 1; // For Lutie & Bard quest
 	if(#event_xmas > 0 && #event_xmas < 30 ) goto L_Start;
-	mes "Merry Christmas!";
+	mes "Feliz Navidad!";
 	if(Class==0 || #event_xmas>=30 ) close; //anti exploit protection
-	mes "I have a gift for you! Ho Ho Ho!";
+	mes "Tengo un regalo para ti! Jo Jo Jo!";
 	getitem rand(664,667),1; //gives one of 4 gift boxes
 	set #event_xmas,#event_xmas+1;
 	close;
 
 L_Start:
-	mes "I'm having a bit of a problem...";
-	mes "Do you care to listen?";
+	mes "Tengo un pequeno problema...";
+	mes "Te importaria escuchar?";
 	next;
-	menu "Listen to Santa Claus.",M_0, "Give Santa Claus proof.",M_1, "Cancel.",M_End;
+	menu "Escuchar a Santa Claus.",M_0, "Darle a Santa Claus la prueba.",M_1, "Cancelar.",M_End;
 
 	M_0:
 		mes "[Santa Claus]";
-		mes "My problem is this.";
-		mes "There seems to be a man out there";
-		mes "that is impersonating me and spreading";
-		mes "terror throughout the land.";
+		mes "Mi problema es este.";
+		mes "Parece que hay un hombre alla afuera";
+		mes "que me esta suplantando y esparciendo";
+		mes "terror por toda la tierra.";
 		next;
 		mes "[Santa Claus]";
-		mes "Like the Grinch of legend, he's taking";
-		mes "all the childrens' toys and keeping them";
-		mes "for himself.";
+		mes "Como el Grinch de la leyenda, esta tomando";
+		mes "todos los juguetes de los ninos y guardandoselos";
+		mes "para el mismo.";
 		next;
 		mes "[Santa Claus]";
-		mes "I'm too busy here creating my batch of ";
-		mes "toys for next year, so I can't go";
-		mes "out and find him myself.";
-		mes "So I would like you to go out and";
-		mes "Destroy this man for me.";
+		mes "Estoy muy ocupado aqui creando mi lote de";
+		mes "juguetes para el proximo ano, asi que no puedo";
+		mes "salir a buscarlo yo mismo.";
+		mes "Asi que me gustaria que fueras";
+		mes "y destruyeras a este hombre por mi.";
 		next;
 		mes "[Santa Claus]";
-		mes "He has in his posession one of my";
-		mes "magic sacks, however, so he will";
-		mes "escape into it to another place each";
-		mes "time you attack him.";
+		mes "El tiene en su posesion uno de mis";
+		mes "sacos magicos, sin embargo, asi que";
+		mes "escapara dentro de el a otro lugar cada";
+		mes "vez que lo ataques.";
 		next;
 		mes "[Santa Claus]";
-		mes "However,";
-		mes "In his haste, he tends to drop things.";
-		mes "If by chance he drops one of his Stockings";
-		mes "With Holes that he uses to steal the";
-		mes "poor childrens' toys, pick it up.";
+		mes "Sin embargo,";
+		mes "En su prisa, tiende a dejar caer cosas.";
+		mes "Si por casualidad deja caer uno de sus Calcetines";
+		mes "Con Agujeros que usa para robar los";
+		mes "juguetes de los pobres ninos, recogelo.";
 		next;
 		mes "[Santa Claus]";
-		mes "If you collect 3 of these, I will give";
-		mes "you a prototype mystery box that";
-		mes "I've been keeping around the";
-		mes "lab. It spits out random presents";
-		mes "and saves me a ton of work.";
+		mes "Si recolectas 3 de estos, te dare";
+		mes "un prototipo de caja misteriosa que";
+		mes "he estado guardando cerca del";
+		mes "laboratorio. Escupe regalos aleatorios";
+		mes "y me ahorra mucho trabajo.";
 		close;
 	M_1:
 		mes "[Santa Claus]";
 		if(countitem(7034) < 3) goto L_NotEnuf;
 		delitem 7034,3;
-		mes "Seems you've been doing a";
-		mes "good job of taking down those";
-		mes "fake Santas. Keep it up!";
+		mes "Parece que has estado haciendo un";
+		mes "buen trabajo derribando a esos";
+		mes "Santas falsos. Sigue asi!";
 		next;
 		getitem 644,1; //Gift Box Prototype
 		set #event_xmas,#event_xmas+1;
 		mes "[Santa Claus]";
-		mes "There's your reward.";
-		mes "If you get 3 more, I'll give you another.";
-		mes "Hope you get a good item.";
+		mes "Ahi esta tu recompensa.";
+		mes "Si consigues 3 mas, te dare otra.";
+		mes "Espero que te toque un buen objeto.";
 		close;
-	
+
 		L_NotEnuf:
-			mes "You don't have enough socks as proof.";
-			mes "Go take down those evil Santas";
-			mes "and get more for me and I'll reward you.";
+			mes "No tienes suficientes calcetines como prueba.";
+			mes "Ve a derribar a esos Santas malvados";
+			mes "y consigue mas para mi y te recompensare.";
 			close;
 	M_End:
 		mes "[Santa Claus]";
-		mes "I see. Well, at the very least";
-		mes "we shall meet again on Christmas morning.";
+		mes "Ya veo. Bueno, al menos";
+		mes "nos veremos de nuevo en la manana de Navidad.";
 		close;
 
 OnInit:

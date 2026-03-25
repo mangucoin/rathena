@@ -1,109 +1,109 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Renewal Acolyte Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Kisuka
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.2
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Job Change to Acolyte Class
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Kisuka]
 //= 1.1 Added back the npcs used for the priest quest.
 //= 1.2 Added support for Baby classes. [Euphy]
-//============================================================ 
+//============================================================
 prt_church,184,41,4	script	Cleric#aco	60,{
 	if (Upper == 1) {
 		if (ADVJOB == Job_High_Priest || ADVJOB == Job_Champion) {
 			if (Class == Job_Novice_High) {
 				mes "[Father Mareusis]";
-				mes "Ah, I sense you have endured";
-				mes "a past life experience. You must have learned many things before entering Valhalla.";
+				mes "Ah, siento que has soportado";
+				mes "una experiencia de vida pasada. Debes haber aprendido muchas cosas antes de entrar al Valhalla.";
 				next;
 				if (!callfunc("F_CanChangeJob")) {
 					mes "[Father Mareusis]";
-					mes "Unfortunately, I don't think you're ready to become an Acolyte yet. Please finish learning all of the Basic Skills first.";
+					mes "Desafortunadamente, no creo que estes listo para convertirte en Acolyte todavia. Por favor, termina de aprender todas las Basic Skills primero.";
 					next;
 					mes "[Father Mareusis]";
-					mes "In the meantime,";
-					mes "I will wait until";
-					mes "you are ready.";
-					mes "May God be";
-					mes "with you.";
+					mes "Mientras tanto,";
+					mes "esperare hasta";
+					mes "que estes listo.";
+					mes "Que Dios este";
+					mes "contigo.";
 					close;
 				}
 				mes "[Father Mareusis]";
-				mes "Well, I welcome you";
-				mes "back from Valhalla and";
-				mes "wish you luck on your";
-				mes "new life's journey.";
+				mes "Bien, te doy la bienvenida";
+				mes "de vuelta del Valhalla y";
+				mes "te deseo suerte en tu";
+				mes "nuevo viaje de vida.";
 				next;
 				skill "NV_TRICKDEAD",0,SKILL_PERM;
 				jobchange Job_Acolyte_High;
 				skill "AL_HOLYLIGHT",1,SKILL_PERM;
 				mes "[Father Mareusis]";
-				mes "Now, venture forth and seek those who need your help. May God light your path.";
+				mes "Ahora, aventurate y busca a quienes necesiten tu ayuda. Que Dios ilumine tu camino.";
 				close;
 			}else{
 				mes "[Father Mareusis]";
-				mes "Now, venture forth to seek people who need your help. May God enlighten your way.";
+				mes "Ahora, aventurate a buscar personas que necesiten tu ayuda. Que Dios ilumine tu camino.";
 				close;
 			}
 		}else{
 			mes "[Father Mareusis]";
-			mes "I sense that you have endured a past life experience. You must have learned many things before entering Valhalla.";
+			mes "Siento que has soportado una experiencia de vida pasada. Debes haber aprendido muchas cosas antes de entrar al Valhalla.";
 			next;
 			mes "[Father Mareusis]";
-			mes "However, I can tell that you are not suited to be an Acolyte. Please remember who you were in your past life and find your path.";
+			mes "Sin embargo, puedo notar que no eres apto para ser un Acolyte. Por favor, recuerda quien fuiste en tu vida pasada y encuentra tu camino.";
 			close;
 		}
 	}
 	mes "[Father Mareusis]";
-	mes "What is it that you seek?";
+	mes "Que es lo que buscas?";
 	next;
-	switch(select("Change your job to acolyte.:Ask the requirements to be an acolyte.:Quit it.")) {
+	switch(select("Cambiar tu trabajo a Acolyte.:Preguntar los requisitos para ser Acolyte.:Dejarlo.")) {
 	case 1:
 		mes "[Father Mareusis]";
 		if(BaseJob != Job_Novice) {
 			if(BaseJob == Job_Acolyte)
-				mes "Are you feeling okay today? I can tell by your attire that you are already an Acolyte. You're not joking around, are you?";
+				mes "Te sientes bien hoy? Puedo ver por tu atuendo que ya eres un Acolyte. No estas bromeando, verdad?";
 			else
-				mes "I'm sorry but it seems you already have your own job, aren't you?";
+				mes "Lo siento, pero parece que ya tienes tu propio trabajo, no es asi?";
 			close;
 		}else{
-			mes "Do you truly wish to become a servant of God?";
-			mes "Let's see whether you are ready for it or not... Hmm...";
+			mes "Realmente deseas convertirte en un servidor de Dios?";
+			mes "Veamos si estas listo para ello o no... Hmm...";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Father Mareusis]";
-				mes "Oh my?! You haven't accomplished the basic practice yet?! You have a long way to go! Come again after increasing your job level!";
+				mes "Oh! No has completado la practica basica todavia?! Te falta mucho camino! Vuelve despues de aumentar tu nivel de trabajo!";
 				close;
 			}
 			mes "[Father Mareusis]";
-			mes "Hmm... your job level is enough...";
-			mes "Good. Now I will give you the qualification to become an Acolyte.";
+			mes "Hmm... tu nivel de trabajo es suficiente...";
+			mes "Bien. Ahora te dare la cualificacion para convertirte en Acolyte.";
 			next;
 			mes "[Father Mareusis]";
-			mes "Always remember to be thankful to God, who takes care of us all the time. In chaos and times of difficulty, face your hardships with unwavering faith.";
+			mes "Recuerda siempre estar agradecido con Dios, quien cuida de nosotros todo el tiempo. En el caos y los momentos dificiles, enfrenta tus dificultades con fe inquebrantable.";
 			callfunc "Job_Change",Job_Acolyte;
 			getitem 1545,1;	// N_Mace
 			next;
 			mes "[Father Mareusis]";
-			mes "Lastly, I want to sincerely congratulate you on persevering through your trial of penance.";
+			mes "Por ultimo, quiero felicitarte sinceramente por perseverar a traves de tu prueba de penitencia.";
 			close;
 		}
 	case 2:
 		mes "[Father Mareusis]";
-		mes "Do you wish to become an Acolyte?";
-		mes "Then, you must fulfill the following requirements thinking those are the practices given by God.";
+		mes "Deseas convertirte en un Acolyte?";
+		mes "Entonces, debes cumplir los siguientes requisitos pensando que son las practicas dadas por Dios.";
 		next;
 		mes "[Father Mareusis]";
-		mes "First, you have to reach at least Novice Job Level 9 and learn all of the Basic Skills.";
-		mes "This is the most basic thing to do, so you need to regard it as the way of training yourself.";
+		mes "Primero, debes alcanzar al menos Novice Job Level 9 y aprender todas las Basic Skills.";
+		mes "Esta es la cosa mas basica que hacer, asi que debes considerarlo como un camino de entrenamiento.";
 		next;
 		mes "[Father Mareusis]";
-		mes "When you think you fulfilled this requirement, then come back to me again. Then you will have a holy job in which you can spread God's will.";
+		mes "Cuando creas que has cumplido este requisito, vuelve a verme. Entonces tendras un trabajo sagrado en el que puedes difundir la voluntad de Dios.";
 		close;
 	case 3:
 		close;
@@ -114,33 +114,33 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 	mes "[Father Rubalkabara]";
 	if (BaseJob == Job_Novice) {
 		if (job_acolyte_q == 6) {
-			mes "Please take care. They should know that you've met me by the time you arrive at the Prontera Sanctuary.";
+			mes "Por favor cuidate. Ellos deberian saber que me has visitado cuando llegues al Santuario de Prontera.";
 			next;
 			mes "[Father Rubalkabara]";
-			mes "I've sent a carrier pigeon with a message. I hope it will arrive there safely...";
+			mes "He enviado una paloma mensajera con un mensaje. Espero que llegue a salvo...";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 2) {
-				mes "Oh...? You must be the one who aspires to become an Acolyte. I've already received news from the Sanctuary that you might be coming.";
+				mes "Oh...? Debes ser quien aspira a convertirse en Acolyte. Ya recibi noticias del Santuario de que podrias venir.";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "Now, your name was " + strcharinfo(0) + ", right? Excellent, thank you for visiting me.";
+				mes "Ahora, tu nombre era " + strcharinfo(0) + ", verdad? Excelente, gracias por visitarme.";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "I believe you've been told much about Acolytes from Friar Mareusis. Plus, there's plenty of helpful people in the Prontera Sanctuary.";
+				mes "Creo que te han contado mucho sobre los Acolytes por parte del Fraile Mareusis. Ademas, hay mucha gente servicial en el Santuario de Prontera.";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "I guess there's really no need for me to teach you much. Besides, I'm sure your someone from your generation may have trouble listening to an old man like me. Hahaha~";
+				mes "Supongo que realmente no necesito ensenarte mucho. Ademas, estoy seguro de que alguien de tu generacion podria tener problemas escuchando a un viejo como yo. Jajaja~";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "Still, lessons may come from the places you'd least expect. God loves to teach his children in strange ways. You'll see.";
+				mes "Aun asi, las lecciones pueden venir de los lugares que menos esperas. A Dios le encanta ensenar a sus hijos de formas extranias. Ya lo veras.";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "Well, I'll send the message telling them that you've come to visit me. So, you may now return to the Prontera Sanctuary.";
+				mes "Bien, enviare el mensaje diciendo que viniste a visitarme. Asi que puedes regresar al Santuario de Prontera.";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "Farewell.";
+				mes "Hasta pronto.";
 				close2;
 				savepoint "prt_fild03",361,255,1,1;
 				set job_acolyte_q,6;
@@ -148,40 +148,40 @@ prt_fild03,365,255,2	script	Ascetic#aco	89,{
 			}
 			else {
 				mes "Oh...";
-				mes "Are you one of the";
-				mes "Acolyte applicants...?";
-				mes "Let's see...";
+				mes "Eres uno de los";
+				mes "aspirantes a Acolyte...?";
+				mes "Veamos...";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "Your name is " + strcharinfo(0) + "?";
-				mes "I don't think your name";
-				mes "is on my list. Hmmm...";
+				mes "Tu nombre es " + strcharinfo(0) + "?";
+				mes "No creo que tu nombre";
+				mes "este en mi lista. Hmmm...";
 				next;
 				mes "[Father Rubalkabara]";
-				mes "Why don't you go back to the Prontera Sanctuary and check again?";
+				mes "Por que no regresas al Santuario de Prontera y verificas de nuevo?";
 				close;
 			}
 		}
 		else {
-			mes "Huh? What brings you here? This is a very dangerous place for a Novice like yourself!";
+			mes "Eh? Que te trae por aqui? Este es un lugar muy peligroso para un Novice como tu!";
 			close;
 		}
 	}
 	else if (BaseJob == Job_Acolyte) callfunc "F_FatherRub";
 	else {
 		if (BaseJob == Job_Priest) {
-			mes "Greetings.";
+			mes "Saludos.";
 			next;
 			mes "[Father Rubalkabara]";
-			mes "Welcome to the Deep. Feel free to sit and contemplate God's message with me. This place is beautiful, even if danger accompanies its sense of serenity...";
+			mes "Bienvenido a las Profundidades. Sientete libre de sentarte y contemplar el mensaje de Dios conmigo. Este lugar es hermoso, aunque el peligro acompana su sensacion de serenidad...";
 			close;
 		}
 		else {
-			mes "Oh ho...";
-			mes "Have you come into the Deep here for training? Or are you just a Wanderer?";
+			mes "Oh jo...";
+			mes "Has venido a las Profundidades aqui para entrenar? O solo eres un Wanderer?";
 			next;
 			mes "[Father Rubalkabara]";
-			mes "Whoever you are, please take care of yourself. The monsters in here are shockingly strong, contrary to their cute appearance.";
+			mes "Quienquiera que seas, por favor cuidate. Los monstruos aqui son increiblemente fuertes, contrario a su apariencia tierna.";
 			close;
 		}
 	}
@@ -191,24 +191,24 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 	mes "[Mother Mathilda]";
 	if (BaseJob == Job_Novice) {
 		if (job_acolyte_q == 7) {
-			mes "I will send a carrier pigeon to the Prontera Sanctuary. When you return, the Priest there should already have received my message.";
+			mes "Enviare una paloma mensajera al Santuario de Prontera. Cuando regreses, el Sacerdote ahi ya deberia haber recibido mi mensaje.";
 			next;
 			mes "[Mother Mathilda]";
-			mes "I will pray to God, and hope that you become an Acolyte soon.";
+			mes "Le rezare a Dios, y espero que te conviertas en Acolyte pronto.";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 3) {
-				mes "Ah, you must be one of the Acolyte applicants. I sincerely welcome you.";
+				mes "Ah, debes ser uno de los aspirantes a Acolyte. Te doy la bienvenida sinceramente.";
 				next;
 				mes "[Mother Mathilda]";
-				mes "What is your name? " + strcharinfo(0) + "? Let's see... Ah, you're on my list.";
+				mes "Como te llamas? " + strcharinfo(0) + "? Veamos... Ah, estas en mi lista.";
 				next;
 				mes "[Mother Mathilda]";
-				mes "I will send a message to the Sanctuary confirming that you, " + strcharinfo(0) + " visited me and completed your penance.";
+				mes "Enviare un mensaje al Santuario confirmando que tu, " + strcharinfo(0) + " me visitaste y completaste tu penitencia.";
 				next;
 				mes "[Mother Mathilda]";
-				mes "Please return to the Prontera Sanctuary and speak to the Priest in charge.";
+				mes "Por favor regresa al Santuario de Prontera y habla con el Sacerdote a cargo.";
 				close2;
 				savepoint "moc_fild07",35,355,1,1;
 				set job_acolyte_q,7;
@@ -216,21 +216,21 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 			}
 			else {
 				mes "Ah...!";
-				mes "You must be one";
-				mes "of the Acolyte applicants.";
-				mes "I sincerely welcome you.";
+				mes "Debes ser uno";
+				mes "de los aspirantes a Acolyte.";
+				mes "Te doy la bienvenida sinceramente.";
 				next;
 				mes "[Mother Mathilda]";
-				mes "Now, what is your name?";
-				mes "" + strcharinfo(0) + "? Let's see...";
+				mes "Ahora, como te llamas?";
+				mes "" + strcharinfo(0) + "? Veamos...";
 				next;
 				mes "[Mother Mathilda]";
 				mes "Hmm...";
-				mes "It seems your name";
-				mes "is not on my list...";
+				mes "Parece que tu nombre";
+				mes "no esta en mi lista...";
 				next;
 				mes "[Mother Mathilda]";
-				mes "Perhaps you should return to the Prontera Sanctuary and check the destination for your penance trial once again.";
+				mes "Tal vez deberias regresar al Santuario de Prontera y verificar el destino de tu prueba de penitencia una vez mas.";
 				close;
 			}
 		}
@@ -242,15 +242,15 @@ moc_fild07,41,355,4	script	Ascetic#2aco	95,{
 	else if (BaseJob == Job_Acolyte) callfunc "F_MotherMart";
 	else {
 		if (BaseJob == Job_Priest) {
-			mes "Hello there~";
+			mes "Hola~";
 			next;
 			mes "[Mother Mathilda]";
-			mes "How is your practice coming along? I certainly hope you're enjoying living in the grace of God.";
+			mes "Como va tu practica? Ciertamente espero que estes disfrutando vivir en la gracia de Dios.";
 			close;
 		}
 		else {
-			mes "May God";
-			mes "be with you...";
+			mes "Que Dios";
+			mes "este contigo...";
 			close;
 		}
 	}
@@ -260,32 +260,32 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 	mes "[Father Yosuke]";
 	if (BaseJob == Job_Novice) {
 		if (job_acolyte_q == 8) {
-			mes "What?";
+			mes "Que?";
 			next;
 			mes "[Father Yosuke]";
-			mes "Have you any more business with me?! You don't! Go back to the Sanctuary now!";
+			mes "Tienes algun otro asunto conmigo?! No tienes! Regresa al Santuario ahora!";
 			close;
 		}
 		if (job_acolyte_q != 0) {
 			if (job_acolyte_q == 4) {
 				mes "Hey.";
-				mes "Whatever you are,";
-				mes "you look like an";
-				mes "Acolyte applicant.";
-				mes "Right?";
+				mes "Lo que sea que seas,";
+				mes "pareces un aspirante";
+				mes "a Acolyte.";
+				mes "Verdad?";
 				next;
 				mes "[Father Yosuke]";
-				mes "Not bad, not bad. You withstood the penance trial pretty well.";
-				mes "So what's your name?";
+				mes "Nada mal, nada mal. Resististe la prueba de penitencia bastante bien.";
+				mes "Entonces, como te llamas?";
 				next;
 				mes "[Father Yosuke]";
-				mes "" + strcharinfo(0) + ", huh?";
+				mes "" + strcharinfo(0) + ", eh?";
 				next;
 				mes "[Father Yosuke]";
-				mes "Okay. I'll send a message to the Sanctuary that you, " + strcharinfo(0) + ", came to visit me.";
+				mes "De acuerdo. Enviare un mensaje al Santuario de que tu, " + strcharinfo(0) + ", viniste a visitarme.";
 				next;
 				mes "[Father Yosuke]";
-				mes "Now go back to the Santuary and finish becoming an Acolyte, kid.";
+				mes "Ahora regresa al Santuario y termina de convertirte en Acolyte, chico.";
 				close2;
 				savepoint "prt_fild00",206,230,1,1;
 				set job_acolyte_q,8;
@@ -293,24 +293,24 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			}
 			else {
 				mes "Hey.";
-				mes "You look like an Acolyte Applicant. Am I right?";
+				mes "Pareces un aspirante a Acolyte. Estoy en lo correcto?";
 				next;
 				mes "[Father Yosuke]";
-				mes "Not bad at all, you've made it all the way here from Prontera. So what's your name, kid?";
+				mes "Nada mal, has llegado hasta aqui desde Prontera. Entonces, como te llamas, chico?";
 				next;
 				mes "[Father Yosuke]";
-				mes "" + strcharinfo(0) + ", huh? Why isn't your name on my list?";
+				mes "" + strcharinfo(0) + ", eh? Por que no esta tu nombre en mi lista?";
 				next;
 				mes "[Father Yosuke]";
-				mes "You probably made a mistake. Go back to the Santuary, and check with the Bishop.";
+				mes "Probablemente cometiste un error. Regresa al Santuario y verifica con el Obispo.";
 				close;
 			}
 		}
 		else {
-			mes "You...";
+			mes "Tu...";
 			mes "Novice.";
-			mes "There something";
-			mes "you wanna tell me?";
+			mes "Hay algo";
+			mes "que quieras decirme?";
 			close;
 		}
 	}
@@ -320,12 +320,12 @@ prt_fild00,208,218,6	script	Ascetic#3aco	98,{
 			mes "Hey...";
 			next;
 			mes "[Father Yosuke]";
-			mes "If you like, come sit here with me and meditate the great truths. God's majesty is truly inspiring...";
+			mes "Si quieres, ven a sentarte aqui conmigo y meditar sobre las grandes verdades. La majestuosidad de Dios es verdaderamente inspiradora...";
 			close;
 		}
 		else {
-			mes "Do you have anything to say? Because unfortunately for you,";
-			mes "I don't any replies.";
+			mes "Tienes algo que decir? Porque desafortunadamente para ti,";
+			mes "no tengo respuestas.";
 			close;
 		}
 	}

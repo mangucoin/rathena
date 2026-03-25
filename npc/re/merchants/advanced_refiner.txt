@@ -1,6 +1,6 @@
 //===== rAthena Script =======================================
 //= Advanced Refiner
-//===== Description: =========================================
+//= Description: =========================================
 //= [Official Conversion]
 //= Refiner that uses Enriched ores to increase upgrade success.
 //===== Changelog: ===========================================
@@ -14,59 +14,59 @@
 malangdo,221,174,6	script	Holink#mal_cash	559,{
 	disable_items;
 	mes "[Holink]";
-	mes "I am the meow~ Blacksmith Holink~";
-	mes "Master of refining, Holink~";
-	mes "I am the special cat Holink who learned from Morocc~";
-	mes "My daughter is so proud of me, Holink~";
-	mes "What should Holink~ refine today?";
+	mes "Soy el miau~ Herrero Holink~";
+	mes "Maestro del refinamiento, Holink~";
+	mes "Soy el gato especial Holink que aprendio de Morocc~";
+	mes "Mi hija esta muy orgullosa de mi, Holink~";
+	mes "¿Que deberia refinar Holink~ hoy?";
 	next;
 
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for (set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[Empty]" ) +":";
+		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[Vacio]" ) +":";
 	set .@part, .@indices[ select(.@menu$) ];
 
 	if (!getequipisequiped(.@part)) {
 		mes "[Holink]";
 		switch(.@part) {
 		case EQI_HEAD_TOP:
-			mes "My teacher Aragam said meow~";
-			mes "There's no cure for stupidity...";
+			mes "Mi maestro Aragam dijo miau~";
+			mes "No hay cura para la estupidez...";
 			break;
 		case EQI_ARMOR:
-			mes "There's nothing to see here, meow!!";
+			mes "¡No hay nada que ver aqui, miau!";
 			break;
 		case EQI_HAND_L:
-			mes "Meow? What do you want me to do with this left hand...?";
+			mes "¿Miau? ¿Que quieres que haga con esta mano izquierda...?";
 			break;
 		case EQI_HAND_R:
-			mes "Meow? What do you want me to do with this right hand...?";
+			mes "¿Miau? ¿Que quieres que haga con esta mano derecha...?";
 			break;
 		case EQI_GARMENT:
-			mes "Meow? You don't have anything on.";
+			mes "¿Miau? No llevas nada puesto.";
 			break;
 		case EQI_SHOES:
-			mes "Kyang~! Do not mess with my sensitive olfactory, meow~.";
+			mes "¡Kyang~! No molestes mi sensible olfato, miau~.";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "Meow? Where is the accessory?";
+			mes "¿Miau? ¿Donde esta el accesorio?";
 			break;
 		case EQI_HEAD_MID:
 		case EQI_HEAD_LOW:
-			mes "Meow? You talking about the other head parts, meow?~";
+			mes "¿Miau? ¿Hablas de las otras partes de la cabeza, miau?~";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		mes "[Holink]";
-		mes "Even Aragam can't refine such a thing, meow.";
+		mes "Ni siquiera Aragam puede refinar algo asi, miau.";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= 10) {
 		mes "[Holink]";
-		mes "Meow~ Perfect refining. Did Aragam do this, meow?~";
+		mes "Miau~ Refinamiento perfecto. ¿Esto lo hizo Aragam, miau?~";
 		close;
 	}
 	mes "[Holink]";
@@ -81,7 +81,7 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	if( .@itemtype == IT_ARMOR ){
 		.@equip_lv = getequiparmorlv( .@part );
 		.@type$ = "armor";
-		mes "You have chosen an armor, meow~";
+		mes "Has elegido una armadura, miau~";
 
 		switch(.@equip_lv) {
 			case 1:
@@ -98,21 +98,21 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		switch( .@equip_lv ){
 			case 1: // Level 1 Weapon
 				.@price = 500;
-				mes "A level 1 weapon...?";
+				mes "¿Un arma de nivel 1...?";
 				break;
 			case 2: // Level 2 Weapon
 				.@price = 2000;
-				mes "Meow, a level 2 weapon...?";
+				mes "Miau, ¿un arma de nivel 2...?";
 				break;
 			case 3: // Level 3 Weapon
 				.@price = 20000;
-				mes "Meow Meow~~ A level 3 weapon~~";
+				mes "Miau Miau~~ Un arma de nivel 3~~";
 				break;
 			case 4: // Level 4 Weapon
 				.@price = 50000;
-				mes "Me-Meow!... A level 4 weapon...!";
-				mes "I've only seen it twice while";
-				mes "learning from Aragam... Me-Meow!!";
+				mes "¡Mi-Miau!... ¡Un arma de nivel 4...!";
+				mes "Solo lo he visto dos veces mientras";
+				mes "aprendia de Aragam... ¡Mi-Miau!!";
 				break;
 			default:
 				// TODO:
@@ -123,48 +123,48 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		close;
 	}
 
-	mes "You need ^ff9999"+getitemname(.@material)+"^000000 and ^ff9999"+.@price+"^000000 Zeny for this refine, meow~";
-	mes "Want to continue, meow?~";
+	mes "Necesitas ^ff9999"+getitemname(.@material)+"^000000 y ^ff9999"+.@price+"^000000 Zeny para este refinamiento, miau~";
+	mes "¿Quieres continuar, miau?~";
 	next;
-	if(select("Yes!!:No!!") == 2) {
+	if(select("¡¡Si!!:¡¡No!!") == 2) {
 		mes "[Holink]";
-		mes "Kyack!!";
-		mes "You don't believe in refine master Holink, meow?~";
+		mes "¡¡Kyack!!";
+		mes "¿No confias en el maestro refinador Holink, miau?~";
 		close;
 	}
 	if (getequippercentrefinery(.@part, true) < 100) {
 		mes "[Holink]";
-		mes "Meow!!";
+		mes "¡¡Miau!!";
 		if (.@type$ == "armor")
-			mes "This armor was already refined so many times, meow.";
+			mes "Esta armadura ya fue refinada muchas veces, miau.";
 		else {
-			mes "Danger. Danger~";
-			mes "This weapon was refined a lot, meow~";
+			mes "Peligro. Peligro~";
+			mes "Esta arma fue refinada mucho, miau~";
 			next;
 			mes "[Holink]";
 		}
-		mes "You might break it if you continue";
-		mes "to try refining this item further, meow.";
+		mes "Podrias romperla si continuas";
+		mes "intentando refinar este objeto, miau.";
 		next;
 		mes "[Holink]";
-		mes "Once the "+.@type$+" is broken, you can";
-		mes "never use it again, meow. Not to mention... all current";
-		mes "^ff0000cards and enchantments will vanish for sure^000000.";
-		mes "You still want to try, meow~?";
+		mes "Una vez que el "+.@type$+" se rompa, no podras";
+		mes "usarlo nunca mas, miau. Sin mencionar... todas las";
+		mes "^ff0000cartas y encantamientos actuales desapareceran seguro^000000.";
+		mes "¿Aun quieres intentarlo, miau~?";
 		next;
-		if(select("Yes, I do!!:Forget about it!!") == 2) {
+		if(select("¡¡Si, quiero!!:¡¡Olvidalo!!") == 2) {
 			mes "[Holink]";
-			mes "Meow! Wise choice, meow.";
-			mes "But!!";
-			mes "I am not happy to see you doubting the refine master Holink, meow~";
+			mes "¡Miau! Sabia decision, miau.";
+			mes "¡¡Pero!!";
+			mes "No estoy contento de verte dudando del maestro refinador Holink, miau~";
 			close;
 		}
 	}
 	if (countitem(.@material) == 0 || Zeny < .@price) {
 		mes "[Holink]";
-		mes "You don't have the ingredients.";
-		mes "You need ^ff9999"+getitemname(.@material)+"^000000 and ^ff9999"+.@price+"^000000 Zeny, meow~";
-		mes "Go get it, meow~";
+		mes "No tienes los ingredientes.";
+		mes "Necesitas ^ff9999"+getitemname(.@material)+"^000000 y ^ff9999"+.@price+"^000000 Zeny, miau~";
+		mes "Ve a conseguirlos, miau~";
 		close;
 	}
 	delitem .@material,1;
@@ -175,28 +175,28 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		callfunc("F_IsEquipRefineHack", .@part, .@refinerycnt)) {
 		mes "[Holink]";
 		emotion ET_FRET;
-		mes "Wait a second...";
-		mes "Do you think I'm stupid?!";
-		mes "You switched the item while I wasn't looking! Get out of here!";
+		mes "Espera un segundo...";
+		mes "¡¿Crees que soy tonto?!";
+		mes "¡Cambiaste el objeto mientras no miraba! ¡Fuera de aqui!";
 		close;
 	}
 
 	if (getequippercentrefinery(.@part, true) > rand(100)) {
 		successrefitem .@part;
 		mes "[Holink]";
-		mes "Me~ Me~ Meow! Fun fun refining~";
+		mes "Mi~ Mi~ ¡Miau! Divertido divertido refinar~";
 		next;
 		emotion ET_CHUP;
 		mes "[Holink]";
-		mes "Perfect!! Perfect, meow!!";
-		mes "I am the disciple of the refining wizard Aragam~";
-		mes "Holink!!";
-		mes "Another day of successful refining, meow!!";
+		mes "¡¡Perfecto!! ¡¡Perfecto, miau!!";
+		mes "Soy el discipulo del mago del refinamiento Aragam~";
+		mes "¡¡Holink!!";
+		mes "¡¡Otro dia de refinamiento exitoso, miau!!";
 		close;
 	}
 	failedrefitem .@part;
 	mes "[Holink]";
-	mes "Meo~ Meow~ Kyaaak!!";
+	mes "¡Miau~ Miau~ Kyaaak!!";
 	next;
 	switch(rand(1,5)) {
 		case 1: emotion ET_CRY; break;
@@ -206,17 +206,17 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		case 5: emotion ET_BIGTHROB; break;
 	}
 	mes "[Holink]";
-	mes "Meow!! Aaaaakk~~!!!!";
-	mes "Kyaaak!! I have failed, meow!!";
+	mes "¡¡Miau!! ¡¡Aaaaakk~~!!!!";
+	mes "¡¡Kyaaak!! ¡¡He fallado, miau!!";
 	next;
 	mes "[Holink]";
 	mes "......";
 	mes "......";
-	mes "All~ Everything~ Broken, meow...";
+	mes "Todo~ Todito~ Roto, miau...";
 	next;
 	mes "[Holink]";
-	mes "Meow.... Master Aragam once said,";
-	mes "learn from your failures...";
-	mes "Human, this one failure will be the beginning of your success in the future.";
+	mes "Miau.... El maestro Aragam dijo una vez,";
+	mes "aprende de tus fracasos...";
+	mes "Humano, este fracaso sera el comienzo de tu exito en el futuro.";
 	close;
 }

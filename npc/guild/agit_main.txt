@@ -612,28 +612,28 @@ OnRecvCastle:
 	}
 	if (is_guild_leader(.@GID) == false) {
 		mes "["+strnpcinfo(1)+"]";
-		mes "No matter how much you pester me, I'll still follow my master ^ff0000"+GetGuildMaster(.@GID)+"^000000. Where are the Guardians?! Send these ruffians away right now!";
+		mes "No importa cuanto me molestes, seguire a mi amo ^ff0000"+GetGuildMaster(.@GID)+"^000000. Donde estan los Guardianes?! Saquen a estos rufianes ahora mismo!";
 		close;
 	}
 	mes "["+strnpcinfo(1)+"]";
-	mes "Welcome. My honorable master, ^ff0000"+strcharinfo(0)+"^000000...";
-	mes "Your humble servent, "+strnpcinfo(1)+", is here to serve you.";
+	mes "Bienvenido. Mi honorable amo, ^ff0000"+strcharinfo(0)+"^000000...";
+	mes "Tu humilde sirviente, "+strnpcinfo(1)+", esta aqui para servirte.";
 	next;
-	switch (select("Castle briefing:Invest in commercial growth:Invest in Castle Defenses:Summon Guardian:Hire / Fire a Kafra Employee:Go into Master's room")) {
+	switch (select("Informe del Castillo:Invertir en crecimiento comercial:Invertir en Defensas del Castillo:Invocar Guardian:Contratar / Despedir Empleada Kafra:Ir a la habitacion del Maestro")) {
 	case 1:
 		mes "["+strnpcinfo(1)+"]";
-		mes "I will report the Castle briefing, Master.";
+		mes "Reportare el informe del Castillo, Maestro.";
 		mes " ";
-		mes "^0000ffNow, the commercial growth level is "+GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY)+".";
+		mes "^0000ffActualmente, el nivel de crecimiento comercial es "+GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY)+".";
 		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)) {
-			mes " You invested "+GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)+" times in past 1 day.";
+			mes " Invertiste "+GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)+" veces en el ultimo dia.";
 		}
-		mes " Now, the Castle Defense level is "+GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE)+".^000000";
+		mes " Actualmente, el nivel de Defensa del Castillo es "+GetCastleData(strnpcinfo(2),CD_CURRENT_DEFENSE)+".^000000";
 		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)) {
-			mes " ^0000ff- You invested "+GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)+" times in past 1 day.^000000";
+			mes " ^0000ff- Invertiste "+GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)+" veces en el ultimo dia.^000000";
 		}
 		mes " ";
-		mes "That's all I have to report, Master.";
+		mes "Eso es todo lo que tengo para reportar, Maestro.";
 		close;
 	case 2:
 		set .@Economy,GetCastleData(strnpcinfo(2),CD_CURRENT_ECONOMY);
@@ -662,43 +662,43 @@ OnRecvCastle:
 			set .@eco_invest,.@eco_invest*4;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "If you invest in commercial growth, the quantity of goods made by the guild will increase. Therfore, if you consider our future, investments will be a necessity.";
+		mes "Si inviertes en crecimiento comercial, la cantidad de bienes producidos por el guild aumentara. Por lo tanto, si consideras nuestro futuro, las inversiones seran una necesidad.";
 		mes " ";
-		mes "Initially, you are able to invest just once but if you pay more money, you will be able to invest twice.";
+		mes "Inicialmente, solo puedes invertir una vez pero si pagas mas dinero, podras invertir dos veces.";
 		if (.@Economy >= 100) {
 			mes " ";
-			mes "^ff0000The commercial growth level of our Castle is at it's highest, 100%. No more investments are needed. Just as I have expected from a great economist like you, Master.^000000";
+			mes "^ff0000El nivel de crecimiento comercial de nuestro Castillo esta en su maximo, 100%. No se necesitan mas inversiones. Justo como esperaba de un gran economista como tu, Maestro.^000000";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY) >= 2) {
 			mes " ";
-			mes "^ff0000You have already invested twice today. You cannot invest any more.^000000 I expect riches of the guild to grow at a high rate.";
+			mes "^ff0000Ya invertiste dos veces hoy. No puedes invertir mas.^000000 Espero que las riquezas del guild crezcan a un ritmo alto.";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY) == 0) {
 			mes " ";
-			mes "The current investment amount required is ^ff0000"+.@eco_invest+"^000000 zeny. Will you invest?";
+			mes "La cantidad de inversion requerida actualmente es ^ff0000"+.@eco_invest+"^000000 zeny. Quieres invertir?";
 		}
 		else {
 			mes " ";
-			mes "You've invested once today... if you wish to invest once more, ^ff0000"+.@eco_invest+"^000000 more zeny will be needed.";
+			mes "Ya invertiste una vez hoy... si deseas invertir una vez mas, se necesitaran ^ff0000"+.@eco_invest+"^000000 zeny mas.";
 		}
 		next;
-		switch (select("Invest in commercial growth:Cancel")) {
+		switch (select("Invertir en crecimiento comercial:Cancelar")) {
 		case 1:
 			if (Zeny < .@eco_invest) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "I'm sorry but there is not enough zeny to invest. You will have to try again when you have the funds, Master.";
+				mes "Lo siento pero no hay suficiente zeny para invertir. Tendras que intentar de nuevo cuando tengas los fondos, Maestro.";
 				close;
 			}
 			set Zeny, Zeny - .@eco_invest;
 			SetCastleData strnpcinfo(2),CD_INVESTED_ECONOMY,GetCastleData(strnpcinfo(2),CD_INVESTED_ECONOMY)+1;
 			mes "[ "+strnpcinfo(1)+"]";
-			mes "We finished the investment safely. I expect that our growth level will be increased by tomorrow.";
+			mes "Terminamos la inversion exitosamente. Espero que nuestro nivel de crecimiento aumente para manana.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "I'll do as you bid, my master... There is no hurry. We will do our best.";
+			mes "Hare lo que ordenes, mi amo... No hay prisa. Haremos nuestro mejor esfuerzo.";
 			close;
 		}
 	case 3:
@@ -728,9 +728,9 @@ OnRecvCastle:
 			set .@def_invest,.@def_invest*4;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "If you raise Castle Defenses, the durability of Guardians and the Emperium will increase. Therefore, if you consider our coming battles, some investment in this area will be required.";
+		mes "Si aumentas las Defensas del Castillo, la durabilidad de los Guardianes y el Emperium aumentara. Por lo tanto, si consideras nuestras batallas venideras, sera necesaria alguna inversion en esta area.";
 		mes " ";
-		mes "Originally you can invest just once but if you pay more money, you can invest twice.";
+		mes "Originalmente puedes invertir solo una vez pero si pagas mas dinero, podras invertir dos veces.";
 		if (.@Defence >= 100) {
 			mes " ";
 			mes "^ff0000But the Castle Defense level of our Castle is at it's highest, 100%. No more investments are needed. Just as I have expected from a great strategist like you, Master.^000000";

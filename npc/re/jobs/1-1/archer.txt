@@ -1,97 +1,97 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Renewal Archer Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Kisuka
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Job Change to Archer Class
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Kisuka]
 //= 1.1 Added support for Baby classes. [Euphy]
-//============================================================ 
+//============================================================
 payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Sniper || ADVJOB == Job_Clown || ADVJOB == Job_Gypsy)) {
 			mes "[Archer Guildsman]";
-			mes "Hey, I know you.";
-			mes "You took this test";
-			mes "before, didn't you?";
+			mes "Hey, te conozco.";
+			mes "Ya hiciste esta prueba";
+			mes "antes, verdad?";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Ah, you must have been";
-			mes "to Valhalla and been reborn.";
-			mes "Wow, that's so impressive!";
+			mes "Ah, debes haber ido";
+			mes "al Valhalla y renacido.";
+			mes "Wow, eso es impresionante!";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Archer Guildsman]";
 				mes "Err...";
-				mes "You'd better learn all the Basic Skills first before you can become an Archer.";
+				mes "Mejor aprende todas las Basic Skills primero antes de poder convertirte en Archer.";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Alright, see you later.";
+				mes "Bien, nos vemos luego.";
 				close;
 			}
 			mes "[Archer Guildsman]";
-			mes "Well then. I don't";
-			mes "need to say anything else.";
-			mes "I know you'll make a great Archer...";
+			mes "Bueno entonces. No necesito";
+			mes "decir nada mas.";
+			mes "Se que seras un gran Archer...";
 			next;
 			skill "NV_TRICKDEAD",0,SKILL_PERM;
 			jobchange Job_Archer_high;
 			skill "AC_MAKINGARROW",1,SKILL_PERM;
 			skill "AC_CHARGEARROW",1,SKILL_PERM;
 			mes "[Archer Guildsman]";
-			mes "Although there's no special";
-			mes "reward for you this time, I hope you understand. Take care of yourself.";
+			mes "Aunque no hay recompensa especial";
+			mes "para ti esta vez, espero que entiendas. Cuidate mucho.";
 			close;
 		}else{
 			mes "[Archer Guildsman]";
 			mes "Oh...?";
-			mes "Hey, what are";
-			mes "you doing here...?";
+			mes "Hey, que estas";
+			mes "haciendo aqui...?";
 			next;
 			mes "[Archer Guildsman]";
-			mes "I can tell that you're not cut out to be an Archer. It sort of feels like you're meant to do";
-			mes "something else...";
+			mes "Puedo notar que no estas hecho para ser un Archer. Se siente como que estas destinado a hacer";
+			mes "algo mas...";
 			close;
 		}
 	}
 	mes "[Archer Guildsman]";
-	mes "Nice to meet you. How may I help you?";
+	mes "Gusto en conocerte. En que puedo ayudarte?";
 	next;
-	switch(select("I want to be an Archer.:I need the requirements, please.:Nothing, thanks.")) {
+	switch(select("Quiero ser un Archer.:Necesito los requisitos, por favor.:Nada, gracias.")) {
 	case 1:
 		mes "[Archer Guildsman]";
 		if(BaseJob != Job_Novice) {
 			if(BaseJob == Job_Archer)
-				mes "Haha, you are kidding me...";
+				mes "Jaja, me estas tomando el pelo...";
 			else {
-				mes "I feel sorry but only Novices can change their job.";
-				mes "You already have your own decent job, don't you?";
+				mes "Lo siento pero solo los Novices pueden cambiar de trabajo.";
+				mes "Tu ya tienes tu propio trabajo decente, no?";
 			}
 			close;
 		}else{
-			mes "You are... "+strcharinfo(0)+", right?";
+			mes "Tu eres... "+strcharinfo(0)+", verdad?";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Archer Guildsman]";
-				mes "Well, you're not at the right skill level.";
-				mes "Your job level must be at least ^4A4AFF10^000000 and your Basic Skill level should reach ^4A4AFFlevel 9";
+				mes "Bueno, no estas en el nivel de habilidad correcto.";
+				mes "Tu nivel de trabajo debe ser al menos ^4A4AFF10^000000 y tu nivel de Basic Skill debe alcanzar ^4A4AFFnivel 9";
 				next;
 				mes "[Archer Guildsman]";
-				mes "Because an Archer needs extremely high concentration, so we do not accept those who have little patience.";
+				mes "Porque un Archer necesita una concentracion extremadamente alta, asi que no aceptamos a quienes tienen poca paciencia.";
 				close;
 			}
 			mes "[Archer Guildsman]";
-			mes "Your Basic Skill is now enough..";
-			mes "....Hm~~ so you are now ready to be an Archer. I will take the step right away.";
+			mes "Tu Basic Skill ya es suficiente..";
+			mes "....Hm~~ asi que ya estas listo para ser un Archer. Procedere de inmediato.";
 			next;
 			mes "[Archer Guildsman]";
-			mes "Congratulations! You are now an Archer! Also, we hope that you actively participate in many programs for the revival of the Archer Guild.";
-			mes "Ah, items have arrived from the Production Department. Here, take these! These are all yours!";
+			mes "Felicidades! Ahora eres un Archer! Tambien, esperamos que participes activamente en muchos programas para el resurgimiento del Archer Guild.";
+			mes "Ah, llegaron items del Departamento de Produccion. Toma, son todos tuyos!";
 			callfunc "Job_Change",Job_Archer;
 			getitem 1742,1;	// N_Composite_Bow
 			getitem 12004,1;	// Arrow_Container
@@ -99,31 +99,31 @@ payon_in02,64,71,4	script	Archer Guildsman#archer	85,{
 			getitem 12008,1;	// Fire_Arrow_Container
 			next;
 			mes "[Archer Guildsman]";
-			mes "Having a bow and arrows, now you became a real Archer.";
-			mes "If you open the arrow container, there are arrows in it and then you can equip them.";
-			mes "Well, I expect to hear better news from you. It's time to say goodbye.";
-			mes "Bye.";
+			mes "Teniendo un arco y flechas, ahora te has convertido en un verdadero Archer.";
+			mes "Si abres el contenedor de flechas, hay flechas dentro y luego puedes equiparlas.";
+			mes "Bueno, espero escuchar mejores noticias tuyas. Es hora de despedirnos.";
+			mes "Adios.";
 			close;
 		}
 	case 2:
 		mes "[Archer Guildsman]";
-		mes "An Archer has skills using a bow and has various talents.";
-		mes "The greatest ability of an Archer is attacking enemies from a long distance.";
+		mes "Un Archer tiene habilidades con el arco y posee varios talentos.";
+		mes "La mayor habilidad de un Archer es atacar enemigos desde larga distancia.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Although an Archer has weaker HP, he or she can shoot enemies at a long range,";
-		mes "so an Archer is safer in a real battle.";
+		mes "Aunque un Archer tiene HP mas bajo, el o ella puede disparar a enemigos desde lejos,";
+		mes "asi que un Archer esta mas seguro en una batalla real.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "Although an Archer in Ragnarok has lower HP, he or she has high accuracy and attack rate so that the archer can kill monsters before they get close to an Archer.";
+		mes "Aunque un Archer en Ragnarok tiene HP mas bajo, el o ella tiene alta precision y velocidad de ataque para poder matar monstruos antes de que se acerquen a un Archer.";
 		next;
 		mes "[Archer Guildsman]";
-		mes "^8C2121An Archer can change jobs to a Hunter.^000000";
-		mes "^8C2121Other than Hunter, if you are a man, you can change your job to Bard and if you are a woman, you can change your job to Dancer.^000000";
+		mes "^8C2121Un Archer puede cambiar de trabajo a Hunter.^000000";
+		mes "^8C2121Aparte de Hunter, si eres hombre, puedes cambiar tu trabajo a Bard y si eres mujer, puedes cambiar tu trabajo a Dancer.^000000";
 		close;
 	case 3:
 		mes "[Archer Guildsman]";
-		mes "If you have any questions, feel free to come and ask me.";
+		mes "Si tienes alguna pregunta, sientete libre de venir y preguntarme.";
 		close;
 	}
 }
