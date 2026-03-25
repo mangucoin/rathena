@@ -1,21 +1,21 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Card Trader
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Elias (og2)
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.4
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project; SVN r15340+
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Card and Points Trader
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 Translated from the Official [Elias]
 //= 1.1 Fixed variables and optimized script [Elias]
 //= 1.2 Fixed char being stuck with breaks [Elias] (bugreport:5374)
 //= 1.3 Optimized: reduced from 123kb to 7kb! [Euphy]
 //= 1.4 Variables don't need to load OnInit. [Euphy]
 //= 1.4a Misc. [Capuche]
-//============================================================ 
+//============================================================
 
 prontera,115,90,0	script	Putty	4_F_01,{
 	disable_items;
@@ -62,46 +62,46 @@ prontera,115,90,0	script	Putty	4_F_01,{
 	.@points = oversea_event9;
 	if (!.@points) {
 		mes "[Putty]";
-		mes "Hi there.";
-		mes "I don't know if I can be";
-		mes "of any assistance, but I";
-		mes "am trying to help older veterans";
-		mes "by exchaning the cards that";
-		mes "they are no longer using.";
+		mes "Hola.";
+		mes "No se si puedo serte";
+		mes "de alguna ayuda, pero";
+		mes "estoy tratando de ayudar a veteranos";
+		mes "intercambiando las cartas que";
+		mes "ya no estan usando.";
 		next;
-		switch(select("Ask for more information!","I don't have any cards right now.")) {
+		switch(select("Pedir mas informacion!","No tengo ninguna carta ahora.")) {
 		case 1:
 			mes "[Putty]";
-			mes "I am giving 1 point for each card that you bring me.";
-			mes "The points can be used to exchange for items that I have.";
+			mes "Estoy dando 1 punto por cada carta que me traigas.";
+			mes "Los puntos se pueden usar para intercambiar por items que tengo.";
 			next;
 			mes "[Putty]";
-			mes "For ^CC0000100 points^000000: ^0000CC1 Old Card Album^000000.";
-			mes "For ^CC000050 points^000000: ^0000CC20 Yggdrasil Berry^000000.";
-			mes "For ^CC000020 points^000000: ^0000CC10 Blue Potion^000000.";
-			mes "For ^CC00001 point^000000: ^0000CC4 Honey^000000.";
+			mes "Por ^CC0000100 puntos^000000: ^0000CC1 Old Card Album^000000.";
+			mes "Por ^CC000050 puntos^000000: ^0000CC20 Yggdrasil Berry^000000.";
+			mes "Por ^CC000020 puntos^000000: ^0000CC10 Blue Potion^000000.";
+			mes "Por ^CC00001 punto^000000: ^0000CC4 Honey^000000.";
 			next;
 			break;
 		case 2:
 			mes "[Putty]";
-			mes "Well, remember this offer!";
+			mes "Bueno, recuerda esta oferta!";
 			close;
 		}
 	} else {
 		mes "[Putty]";
-		mes "Welcome back!";
-		mes "I see you already have some";
-		mes "trading points. Actually, you currently have ^00cc00" + .@points + "^000000.";
+		mes "Bienvenido de vuelta!";
+		mes "Veo que ya tienes algunos";
+		mes "puntos de intercambio. De hecho, actualmente tienes ^00cc00" + .@points + "^000000.";
 		next;
 		mes "[Putty]";
-		mes "Would you like to exchange these";
-		mes "points now, or you would like to exchange more cards?";
+		mes "Te gustaria intercambiar estos";
+		mes "puntos ahora, o quieres intercambiar mas cartas?";
 		next;
 	}
-	switch(select("I would like to exchange cards.","Can I exchange the points?")) {
+	switch(select("Me gustaria intercambiar cartas.","Puedo intercambiar los puntos?")) {
 	case 1:
 		mes "[Putty]";
-		mes "Please tell me what card you want to exchange.";
+		mes "Por favor dime que carta quieres intercambiar.";
 		next;
 		input .@i$;
 		.@input$ = "_"+.@i$;
@@ -117,27 +117,27 @@ prontera,115,90,0	script	Putty	4_F_01,{
 		}
 		freeloop(0);
 		mes "[Putty]";
-		if (!.@card) mes "Please, come back here if you want to exchange a monster card.";
+		if (!.@card) mes "Por favor, vuelve aqui si quieres intercambiar una carta de monstruo.";
 		else {
 			.@count = countitem(.@card);
 			if (!.@count) {
-				mes "You don't have any ^0055FF"+callfunc("F_GetPlural",getitemname(.@card))+"^000000 with you!";
+				mes "No tienes ninguna ^0055FF"+callfunc("F_GetPlural",getitemname(.@card))+"^000000 contigo!";
 				close;
 			}
-			mes "You've got ^0055FF"+callfunc("F_InsertPlural",.@count,getitemname(.@card))+"^000000.";
+			mes "Tienes ^0055FF"+callfunc("F_InsertPlural",.@count,getitemname(.@card))+"^000000.";
 			mes " ";
-			mes "Would you like to exchange 1 point for each of them?";
+			mes "Te gustaria intercambiar 1 punto por cada una de ellas?";
 			next;
-			switch(select("Yes, please!","No, thank you.")) {
+			switch(select("Si, por favor!","No, gracias.")) {
 				case 1:
 					delitem .@card,.@count;
 					oversea_event9 = (.@points+.@count);
 					mes "[Putty]";
-					mes "Alright, you have received ^CC0000"+.@count+"^000000 points.";
+					mes "Listo, has recibido ^CC0000"+.@count+"^000000 puntos.";
 					break;
 				case 2:
 					mes "[Putty]";
-					mes "Okay, let me know if I can help you with something else.";
+					mes "Esta bien, avisame si puedo ayudarte con algo mas.";
 					break;
 			}
 		}
@@ -145,54 +145,54 @@ prontera,115,90,0	script	Putty	4_F_01,{
 	case 2:
 		if (.@points) {
 			mes "[Putty]";
-			mes "These are the items that I have.";
+			mes "Estos son los items que tengo.";
 			next;
-			switch(select("1 Old Card Album - 50 Points","20 Yggdrasil Berry - 50 Points","10 Blue Potion - 20 Points","4 Honey - 1 Point","^777777Nerver mind.^000000")) {
+			switch(select("1 Old Card Album - 50 Puntos","20 Yggdrasil Berry - 50 Puntos","10 Blue Potion - 20 Puntos","4 Honey - 1 Punto","^777777No importa.^000000")) {
 				case 1:
 					if (.@points < 100) break;
 					mes "[Putty]";
-					mes "Great, I wish you the best";
-					mes "of luck with this album. I have a";
-					mes "very good feeling about this one!";
+					mes "Genial, te deseo la mejor";
+					mes "de las suertes con este album. Tengo un";
+					mes "muy buen presentimiento sobre este!";
 					oversea_event9 = .@points - 100;
 					getitem 616,1;
 					close;
 				case 2:
 					if (.@points < 50) break;
 					mes "[Putty]";
-					mes "Oh, you must like adventures.";
-					mes "Here you go, just what you need!";
+					mes "Oh, te deben gustar las aventuras.";
+					mes "Aqui tienes, justo lo que necesitas!";
 					oversea_event9 = .@points - 50;
 					getitem 607,20;
 					close;
 				case 3:
 					if (.@points < 20) break;
 					mes "[Putty]";
-					mes "Blue Potions? Are you sure?";
-					mes "If that's what you want, here they are!";
+					mes "Blue Potions? Estas seguro?";
+					mes "Si eso es lo que quieres, aqui estan!";
 					oversea_event9 = .@points - 20;
 					getitem 505,10;
 					close;
 				case 4:
 					if (.@points < 1) break;
 					mes "[Putty]";
-					mes "It took many bees";
-					mes "to make all of this.";
-					mes "Make good use of it.";
+					mes "Se necesitaron muchas abejas";
+					mes "para hacer toda esta miel.";
+					mes "Usalas bien.";
 					oversea_event9 = .@points - 1;
 					getitem 518,4;
 					close;
 				case 5:
 					mes "[Putty]";
-					mes "Alright, come back when you have more points.";
+					mes "Bien, vuelve cuando tengas mas puntos.";
 					close;
 				}
 			mes "[Putty]";
-			mes "Sorry, but you don't have enough points.";
+			mes "Lo siento, pero no tienes suficientes puntos.";
 			close;
 		} else {
 			mes "[Putty]";
-			mes "You have 0 points. You need at least 1 point to exchange.";
+			mes "Tienes 0 puntos. Necesitas al menos 1 punto para intercambiar.";
 			close;
 		}
 	}

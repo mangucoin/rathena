@@ -9,7 +9,7 @@
 //===== Description: =========================================
 //= Trades a few shurikens + ninja stones for elemental kunai.
 //===== Additional Comments: =================================
-//= 1.0 Added the npc. It uses a function that sends the item 
+//= 1.0 Added the npc. It uses a function that sends the item
 //=     id of the 2 required items plus the amount. Can trade
 //=     up to 500 units (5,000 kunais) at once. [erKURITA]
 //= 1.1 Officialized script [Playtester]
@@ -21,13 +21,13 @@
 que_ng,72,29,3	script	Kunai Merchant Kashin	83,{
 	if(BaseClass == Job_Ninja) {
 		mes "[Kashin]";
-		mes "I am Kashin, distributor";
-		mes "of Kunai for Ninjas. Take";
-		mes "a look around and let me";
-		mes "know if you're interested";
-		mes "in any of my wares.";
+		mes "Soy Kashin, distribuidor";
+		mes "de Kunai para Ninjas. Echa";
+		mes "un vistazo y avisame";
+		mes "si te interesa";
+		mes "alguno de mis productos.";
 		next;
-		switch(select("10 Fell Poison Kunai:10 Icicle Kunai:10 High Wind Kunai:10 Black Earth Kunai:10 Heat Wave Kunai:Cancel")) {
+		switch(select("10 Fell Poison Kunai:10 Icicle Kunai:10 High Wind Kunai:10 Black Earth Kunai:10 Heat Wave Kunai:Cancelar")) {
 		case 1: callfunc "Kunai_Trade",13250,20,7524,1,13259; break;
 		case 2: callfunc "Kunai_Trade",13251,8,7522,2,13255; break;
 		case 3: callfunc "Kunai_Trade",13252,4,7523,2,13257; break;
@@ -35,20 +35,20 @@ que_ng,72,29,3	script	Kunai Merchant Kashin	83,{
 		case 5: callfunc "Kunai_Trade",13254,1,7521,2,13258; break;
 		case 6:
 			mes "[Kashin]";
-			mes "Well then, thank you";
-			mes "for visiting my shop.";
-			mes "Please come to me when";
-			mes "you need to buy some";
-			mes "Kunais. Goodbye for now~";
+			mes "Bueno entonces, gracias";
+			mes "por visitar mi tienda.";
+			mes "Por favor ven a verme cuando";
+			mes "necesites comprar algunos";
+			mes "Kunais. Adios por ahora~";
 			close;
 		}
 	}
 	mes "[Kashin]";
-	mes "I am Kashin, distributor";
-	mes "of Kunai for Ninjas. If you";
-	mes "have any friends that are";
-	mes "Ninjas, then you might";
-	mes "want to tell them about me.";
+	mes "Soy Kashin, distribuidor";
+	mes "de Kunai para Ninjas. Si";
+	mes "tienes amigos que sean";
+	mes "Ninjas, entonces podrias";
+	mes "querer contarles sobre mi.";
 	close;
 }
 
@@ -58,49 +58,49 @@ function	script	Kunai_Trade	{
 	.@item_id = getarg(4);
 
 	mes "[Kashin]";
-	mes "You can exchange";
-	mes .@req_amount[0] +" "+ getitemname(.@item_req[0]) +" and";
-	mes .@req_amount[1] +" "+ getitemname(.@item_req[1]) +" for every";
-	mes "set of 10 "+ getitemname(.@item_id) +".";
+	mes "Puedes intercambiar";
+	mes .@req_amount[0] +" "+ getitemname(.@item_req[0]) +" y";
+	mes .@req_amount[1] +" "+ getitemname(.@item_req[1]) +" por cada";
+	mes "set de 10 "+ getitemname(.@item_id) +".";
 	next;
 	mes "[Kashin]";
-	mes "I can only give you a maximum of 500 sets of Kunais at a time.";
-	mes "If you want to cancel the trade, then please enter ''0.'' How many";
-	mes "Kunai sets would you like?";
+	mes "Solo puedo darte un maximo de 500 sets de Kunais a la vez.";
+	mes "Si quieres cancelar el intercambio, entonces por favor ingresa ''0.'' Cuantos";
+	mes "sets de Kunai te gustarian?";
 	next;
 	input .@amount;
 	if(.@amount < 1 || .@amount > 500) {
 		mes "[Kashin]";
-		mes "Eh? I'm sorry, but";
-		mes "I can't give you that";
-		mes "many Kunai sets. Please";
-		mes "enter a value less than 500.";
+		mes "Eh? Lo siento, pero";
+		mes "no puedo darte tantos";
+		mes "sets de Kunai. Por favor";
+		mes "ingresa un valor menor a 500.";
 		close;
 	}
 	if (countitem(.@item_req[0]) < .@amount*.@req_amount[0] || countitem(.@item_req[1]) < .@amount*.@req_amount[1]) {
 		mes "[Kashin]";
-		mes "Hmm, you don't have";
-		mes "enough items for this";
-		mes "Kunai exchange. Please";
-		mes "check your items again.";
+		mes "Hmm, no tienes";
+		mes "suficientes objetos para este";
+		mes "intercambio de Kunai. Por favor";
+		mes "revisa tus objetos de nuevo.";
 		close;
  	}
 	if (checkweight(.@item_id, .@amount*10) == 0) {
 		mes "[Kashin]";
-		mes "Hmm, it seems like your";
-		mes "Inventory doesn't have";
-		mes "enough space to store";
-		mes "more items. You better";
-		mes "free up some space first.";
+		mes "Hmm, parece que tu";
+		mes "Inventario no tiene";
+		mes "suficiente espacio para guardar";
+		mes "mas objetos. Mejor";
+		mes "libera algo de espacio primero.";
 		close;
 	}
 	mes "[Kashin]";
-	mes "Great, everything is in";
-	mes "order, so let's go ahead";
-	mes "and complete this trade.";
-	mes "I'm sure that you'll be";
-	mes "quite satisfied with";
-	mes "these Kunais.";
+	mes "Genial, todo esta en";
+	mes "orden, asi que procedamos";
+	mes "a completar este intercambio.";
+	mes "Estoy seguro de que estaras";
+	mes "muy satisfecho con";
+	mes "estos Kunais.";
 	delitem .@item_req[0],.@req_amount[0]*.@amount;
 	delitem .@item_req[1],.@req_amount[1]*.@amount;
 	getitem .@item_id,10*.@amount;

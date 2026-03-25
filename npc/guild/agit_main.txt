@@ -370,17 +370,17 @@ OnRecvCastle:
 			end;
 		case 2:
 			mes "[Kafra Employee]";
-			mes "Please choose";
-			mes "your destination.";
+			mes "Por favor elige";
+			mes "tu destino.";
 			next;
-			switch (select(.@destination$+" -> 200z:Cancel")) {
+			switch (select(.@destination$+" -> 200z:Cancelar")) {
 			case 1:
 				if (Zeny < 200) {
 					mes "[Kafra Employee]";
-					mes "I'm sorry, but you don't have";
-					mes "enough zeny for the Teleport";
-					mes "Service. The fee to teleport";
-					mes "to "+.@destination$+" is 200 zeny.";
+					mes "Lo siento, pero no tienes";
+					mes "suficiente zeny para el Servicio";
+					mes "de Teletransporte. La tarifa para";
+					mes "teletransportarte a "+.@destination$+" es 200 zeny.";
 					close2;
 					cutin "",255;
 					end;
@@ -398,40 +398,40 @@ OnRecvCastle:
 		case 3:
 			if (BaseClass != Job_Merchant) {
 				mes "[Kafra Employee]";
-				mes "I'm sorry, but the";
-				mes "Pushcart rental service";
-				mes "is only available to Merchants,";
+				mes "Lo siento, pero el";
+				mes "servicio de renta de Carrito";
+				mes "solo esta disponible para Merchants,";
 				mes "Blacksmiths, Master Smiths,";
 				mes "Alchemists, Biochemists,";
-				mes "Mechanics and Geneticists.";
+				mes "Mechanics y Geneticists.";
 				close2;
 				cutin "",255;
 				end;
 			}
 			if (checkcart()) {
 				mes "[Kafra Employee]";
-				mes "You already have";
-				mes "a Pushcart equipped.";
-				mes "Unfortunately, we can't";
-				mes "rent more than one to";
-				mes "each customer at a time.";
+				mes "Ya tienes";
+				mes "un Carrito equipado.";
+				mes "Desafortunadamente, no podemos";
+				mes "rentar mas de uno a";
+				mes "cada cliente a la vez.";
 				close2;
 				cutin "",255;
 				end;
 			}
 			mes "[Kafra Employee]";
-			mes "The Pushcart rental";
-			mes "fee is 800 zeny. Would";
-			mes "you like to rent a Pushcart?";
+			mes "La tarifa de renta";
+			mes "del Carrito es 800 zeny. Te";
+			mes "gustaria rentar un Carrito?";
 			next;
-			switch (select("Rent a Pushcart.:Cancel")) {
+			switch (select("Rentar un Carrito.:Cancelar")) {
 			case 1:
 				if (Zeny < 800) {
 					mes "[Kafra Employee]";
-					mes "I'm sorry, but you";
-					mes "don't have enough";
-					mes "zeny to pay the Pushcart";
-					mes "rental fee of 800 zeny.";
+					mes "Lo siento, pero no";
+					mes "tienes suficiente";
+					mes "zeny para pagar la tarifa";
+					mes "de renta de Carrito de 800 zeny.";
 					close2;
 					cutin "",255;
 					end;
@@ -449,15 +449,15 @@ OnRecvCastle:
 			}
 		case 4:
 			mes "[Kafra Employee]";
-			mes "We, here at Kafra Corporation,";
-			mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
+			mes "Nosotros, en la Corporacion Kafra,";
+			mes "siempre nos esforzamos por brindarte los mejores servicios. Esperamos satisfacer tus necesidades de aventura y estandares de excelencia.";
 			close2;
 			cutin "",255;
 			end;
 		}
 	}
 	mes "[Kafra Employee]";
-	mes "I am instructed to only offer my services to the ^ff0000"+GetGuildName(.@GID)+"^000000 Guild. Please try another Kafra Employee around here. Sorry for the inconvenience.";
+	mes "Tengo instrucciones de solo ofrecer mis servicios al Guild ^ff0000"+GetGuildName(.@GID)+"^000000. Por favor intenta con otra Empleada Kafra por aqui. Disculpa las molestias.";
 	close2;
 	cutin "",255;
 	end;
@@ -606,8 +606,8 @@ OnRecvCastle:
 
 	if (.@GID == 0) {
 		mes "["+strnpcinfo(1)+"]";
-		mes "I have been waiting for a master to fulfill my destiny.";
-		mes "Brave soul... fate will guide you towards your future...";
+		mes "He estado esperando a un amo para cumplir mi destino.";
+		mes "Alma valiente... el destino te guiara hacia tu futuro...";
 		close;
 	}
 	if (is_guild_leader(.@GID) == false) {
