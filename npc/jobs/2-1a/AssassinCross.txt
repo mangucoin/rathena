@@ -1,26 +1,26 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Advance Class jobchanger after kRO Normals.
 //===== By: ==================================================
 //= Nana
 //= finished, optimized and tested by Lupus
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.3
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Advance Class jobchanger after kRO Normals.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.1 Made all into functions, additional checks, etc. [Lupus]
 //= 1.2 Made numbers into constants. [Vicious]
 //= 1.3 Now saves/restores all the quest skills [Lupus]
-//============================================================ 
+//============================================================
 
 valkyrie,44,58,5	script	Assassin Cross#Valkyrie	725,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Assassin Cross]";
-			mes "Congratulations...";
+			mes "Felicidades...";
 			next;
 			mes "[Assassin Cross]";
 			mes "...";
@@ -32,69 +32,69 @@ valkyrie,44,58,5	script	Assassin Cross#Valkyrie	725,{
 			mes "[Assassin Cross]";
 			mes "...";
 			mes "......";
-			mes "Honor to";
-			mes "the warriors.";
+			mes "Honor a";
+			mes "los guerreros.";
 			close;
 		}
 		mes "[Assassin Cross]";
-		mes "We are the warriors";
-		mes "of the desert. Nobody";
-		mes "looks down upon us.";
-		mes "Nobody...";
+		mes "Somos los guerreros";
+		mes "del desierto. Nadie";
+		mes "nos menosprecia.";
+		mes "Nadie...";
 		close;
 	}
 	else if (ADVJOB == Job_Assassin_Cross && Class == Job_Thief_High && JobLevel > 39) {
 		mes "[Assassin Cross]";
-		mes "The time has come.";
-		mes "The world needs you...";
-		mes "More than ever.";
+		mes "El momento ha llegado.";
+		mes "El mundo te necesita...";
+		mes "Más que nunca.";
 		next;
 		mes "[Assassin Cross]";
-		mes "I ask that you continue to live in the shadows, but as an even greater Assassin with a new appearance.";
+		mes "Te pido que sigas viviendo en las sombras, pero como un Assassin aún más grande con una nueva apariencia.";
 		next;
 		mes "[Assassin Cross]";
-		mes "Will you become";
-		mes "an Assassin Cross?";
+		mes "¿Te convertirás";
+		mes "en un Assassin Cross?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("No.:Sí.") == 1) {
 			mes "[Assassin Cross]";
-			mes "When you are";
-			mes "ready, come back.";
+			mes "Cuando estés";
+			mes "listo, regresa.";
 			next;
 			mes "[Assassin Cross]";
-			mes "Honor to";
-			mes "the warriors.";
+			mes "Honor a";
+			mes "los guerreros.";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Assassin Cross]";
-			mes "You still haven't";
-			mes "learned everything";
-			mes "that you can.";
+			mes "Aún no has";
+			mes "aprendido todo";
+			mes "lo que puedes.";
 			next;
 			mes "[Assassin Cross]";
-			mes "Use all your";
-			mes "Skill Points";
-			mes "and then come back.";
+			mes "Usa todos tus";
+			mes "puntos de habilidad";
+			mes "y luego regresa.";
 			close;
 		}
 		jobchange Job_Assassin_Cross;
 		set ADVJOB,0;
 		mes "[Assassin Cross]";
-		mes "Congratulations.";
-		mes "As an Assassin Cross,";
-		mes "I hope that you fight for a brighter future within the darkness.";
+		mes "Felicidades.";
+		mes "Como Assassin Cross,";
+		mes "espero que luches por un futuro más brillante dentro de la oscuridad.";
 		close;
 	}
 	mes "[Assassin Cross]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenido";
+	mes "a Valhalla,";
+	mes "el Salón del Honor.";
 	next;
 	mes "[Assassin Cross]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors.";
+	mes "Por favor ponte";
+	mes "cómodo";
+	mes "mientras estés aquí.";
+	mes "Honor a los guerreros.";
 	close;
 }

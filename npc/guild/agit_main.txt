@@ -797,12 +797,12 @@ OnRecvCastle:
 			}
 			if (GetCastleData(strnpcinfo(2),.@GDnum) == 1) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Master, you already have summoned that Guardian. We cannot summon another.";
+				mes "Maestro, ya invocaste a ese Guardian. No podemos invocar otro.";
 				close;
 			}
 			if (Zeny < 10000) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Well... I'm sorry but we don't have funds to summon the Guardian. We failed to summon the Guardian.";
+				mes "Bueno... lo siento pero no tenemos fondos para invocar al Guardian. No pudimos invocar al Guardian.";
 				close;
 			}
 			set Zeny, Zeny - 10000;
@@ -813,70 +813,70 @@ OnRecvCastle:
 			else { set .@type,1286; }
 			guardian strnpcinfo(2),.@guardianposx[.@UseGID],.@guardianposy[.@UseGID],getmonsterinfo(.@type, MOB_NAME),.@type,"Guardian#"+strnpcinfo(2)+"::OnGuardianDied",.@UseGID;
 			mes "["+strnpcinfo(1)+"]";
-			mes "We completed the summoning of the Guardian. Our defenses are now increased with it in place.";
+			mes "Completamos la invocacion del Guardian. Nuestras defensas ahora estan reforzadas con el en su lugar.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "I did as you ordered. But please remember if you the have money to spare, it'll be better to set it up.";
+			mes "Hice lo que ordenaste. Pero por favor recuerda que si tienes dinero de sobra, sera mejor instalarlo.";
 			close;
 		}
 	case 5:
 		if (GetCastleData(strnpcinfo(2),CD_ENABLED_KAFRA) == 1) {
 			mes "["+strnpcinfo(1)+"]";
-			mes "We are currently hiring a Kafra Employee... Do you want to fire the Kafra Employee?";
+			mes "Actualmente tenemos contratada una Empleada Kafra... Quieres despedir a la Empleada Kafra?";
 			next;
-			switch (select("Fire:Cancel")) {
+			switch (select("Despedir:Cancelar")) {
 			case 1:
 				cutin "kafra_01",2;
-				mes "[ Hired Kafra Employee ]";
-				mes "I worked so hard... How can you do that, Master?... Please... Please reconsider... Check it again, Master... Please...";
+				mes "[ Empleada Kafra Contratada ]";
+				mes "Trabaje tan duro... Como puedes hacer eso, Maestro?... Por favor... Por favor reconsidera... Revisalo de nuevo, Maestro... Por favor...";
 				next;
-				switch (select("Fire:Cancel")) {
+				switch (select("Despedir:Cancelar")) {
 				case 1:
-					mes "[ Hired Kafra Employee ]";
-					mes "Oh, my goodness! This is nonsense!";
+					mes "[ Empleada Kafra Contratada ]";
+					mes "Oh, Dios mio! Esto es un disparate!";
 					next;
 					cutin "",255;
 					break;
 				case 2:
-					mes "[ Hired Kafra Employee ]";
-					mes "I'll work hard for you... Thank you!";
+					mes "[ Empleada Kafra Contratada ]";
+					mes "Trabajare duro por ti... Gracias!";
 					close;
 				}
 				break;
 			case 2:
 				mes "["+strnpcinfo(1)+"]";
-				mes "She worked hard in my opinion. It was a good decision to keep her.";
+				mes "En mi opinion, ella trabajo duro. Fue una buena decision mantenerla.";
 				close;
 			}
 			disablenpc "Kafra Staff#"+strnpcinfo(2);
 			SetCastleData strnpcinfo(2),CD_ENABLED_KAFRA,0;
 			mes "["+strnpcinfo(1)+"]";
 			mes "....";
-			mes "I have discharged the Kafra Employee... But... are you unsatisfied with something?";
+			mes "He despedido a la Empleada Kafra... Pero... estas insatisfecho con algo?";
 			close;
 		}
 		mes "["+strnpcinfo(1)+"]";
-		mes "Will you contact the kafra Main Office and Hire a Employee for our Castle?";
-		mes "^ff0000 10,000 zeny is required for their services. ";
+		mes "Quieres contactar a la Oficina Principal de Kafra y Contratar una Empleada para nuestro Castillo?";
+		mes "^ff0000 Se requieren 10,000 zeny por sus servicios. ";
 		next;
-		switch (select("Hire.:Cancel")) {
+		switch (select("Contratar.:Cancelar")) {
 		case 1:
 			if (getgdskilllv(.@GID,10001) == 0) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Master, we can't hire a Kafra Employee because we don't have a contract with the Kafra Main Office. If you want to obtain a contract with the Kafra Main Office, you will need to learn the Guild skill first.";
+				mes "Maestro, no podemos contratar una Empleada Kafra porque no tenemos un contrato con la Oficina Principal de Kafra. Si quieres obtener un contrato con la Oficina Principal de Kafra, necesitaras aprender la habilidad de Guild primero.";
 				close;
 			}
 			if (Zeny < 10000) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Well... I'm sorry but we don't have enough funds to hire a Kafra Employee.";
+				mes "Bueno... lo siento pero no tenemos suficientes fondos para contratar una Empleada Kafra.";
 				close;
 			}
 			set Zeny, Zeny - 10000;
 			enablenpc "Kafra Staff#"+strnpcinfo(2);
 			SetCastleData strnpcinfo(2),CD_ENABLED_KAFRA,1;
 			mes "["+strnpcinfo(1)+"]";
-			mes "We obtained a contract with the kafra Main Office, and hired a Kafra Employee.";
+			mes "Obtuvimos un contrato con la Oficina Principal de Kafra, y contratamos una Empleada Kafra.";
 			next;
 			cutin "kafra_01",2;
 			mes "[ Hired Kafra Employee ]";

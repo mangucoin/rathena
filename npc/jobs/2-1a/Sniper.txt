@@ -1,83 +1,83 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Advance Class jobchanger after kRO Normals.
 //===== By: ==================================================
 //= Nana
 //= finished, optimized and tested by Lupus
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.3
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Advance Class jobchanger after kRO Normals.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.1 Made all into functions, additional checks, etc. [Lupus]
 //= 1.2 Made numbers into constants. [Vicious]
 //= 1.3 Now saves/restores all the quest skills [Lupus]
-//============================================================ 
+//============================================================
 
 valkyrie,44,55,5	script	Sniper#Valkyrie	727,{
 	if (ADVJOB == 0 || Upper != 1) {
 		set .@karma_d,rand(1,10);
 		if (.@karma_d > 4) {
 			mes "[Sniper]";
-			mes "Congratulations.";
-			mes "Honor to the warriors!";
+			mes "Felicidades.";
+			mes "¡Honor a los guerreros!";
 			close;
 		}
 		mes "[Sniper]";
-		mes "One shot.";
-		mes "One kill.";
-		mes "It's not so hard";
-		mes "once you develop the";
-		mes "vision for that style";
-		mes "of battling.";
+		mes "Un tiro.";
+		mes "Una muerte.";
+		mes "No es tan difícil";
+		mes "una vez que desarrollas";
+		mes "la visión para ese estilo";
+		mes "de combate.";
 		close;
 	}
 	else if (ADVJOB == Job_Sniper && Class == Job_Archer_High && JobLevel > 39) {
 		mes "[Sniper]";
-		mes "The world is in";
-		mes "need of mighty Bowmen";
-		mes "like you. Are you ready for";
-		mes "the awesome responsibility?";
+		mes "El mundo necesita";
+		mes "arqueros poderosos";
+		mes "como tú. ¿Estás listo para";
+		mes "la gran responsabilidad?";
 		next;
 		mes "[Sniper]";
-		mes "Are you willing to";
-		mes "take the next step and";
-		mes "become a Sniper?";
+		mes "¿Estás dispuesto a";
+		mes "dar el siguiente paso y";
+		mes "convertirte en Sniper?";
 		next;
-		if (select("No.:Yes.") == 1) {
+		if (select("No.:Sí.") == 1) {
 			mes "[Sniper]";
-			mes "When you're ready,";
-			mes "feel free to come back.";
-			mes "Honor to the warriors!";
+			mes "Cuando estés listo,";
+			mes "no dudes en regresar.";
+			mes "¡Honor a los guerreros!";
 			close;
 		}
 		if (SkillPoint) {
 			mes "[Sniper]";
-			mes "It is still possible for you to learn more skills. Please use";
-			mes "all of your remaining Skill Points before returning to me.";
+			mes "Aún es posible que aprendas más habilidades. Por favor usa";
+			mes "todos tus puntos de habilidad restantes antes de regresar conmigo.";
 			close;
 		}
 		jobchange Job_Sniper;
 		set ADVJOB,0;
 		mes "[Sniper]";
-		mes "Congratulations!";
-		mes "As a Sniper, I hope";
-		mes "that the minions of evil";
-		mes "will never be safe so";
-		mes "long as they are in";
-		mes "your sight!";
+		mes "¡Felicidades!";
+		mes "Como Sniper, espero";
+		mes "que los secuaces del mal";
+		mes "nunca estén a salvo mientras";
+		mes "estén en";
+		mes "tu mira.";
 		close;
 	}
 	mes "[Sniper]";
-	mes "Welcome";
-	mes "to Valhalla,";
-	mes "the Hall of Honor.";
+	mes "Bienvenido";
+	mes "a Valhalla,";
+	mes "el Salón del Honor.";
 	next;
 	mes "[Sniper]";
-	mes "Please make";
-	mes "yourself comfortable";
-	mes "while you are here.";
-	mes "Honor to the warriors!";
+	mes "Por favor ponte";
+	mes "cómodo";
+	mes "mientras estés aquí.";
+	mes "¡Honor a los guerreros!";
 	close;
 }

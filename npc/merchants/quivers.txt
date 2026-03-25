@@ -27,28 +27,28 @@
 payon_in01,5,134,5	script	Inventor Jaax	89,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
 		mes "[Inventor Jaax]";
-		mes "Hey, you're carrying";
-		mes "way too much stuff. Why don't you stash it away in Kafra Storage? We can talk after you do that, right?";
+		mes "Hey, llevas demasiadas";
+		mes "cosas encima. Por que no las guardas en el Almacen Kafra? Podemos hablar despues de eso, verdad?";
 		close;
 	}
 	mes "[Inventor Jaax]";
-	mes "My name is Jaax.";
-	mes "Without ego, I can";
-	mes "say that I am perhaps the";
-	mes "^663300greatest inventor of our time^000000.";
+	mes "Mi nombre es Jaax.";
+	mes "Sin ego, puedo";
+	mes "decir que soy quizas el";
+	mes "^663300mayor inventor de nuestro tiempo^000000.";
 	next;
 	mes "[Inventor Jaax]";
-	mes "This time, I've";
-	mes "created something";
-	mes "truly extraordinary. I call them... ^663300Magic Quivers^000000 !! This will be remembered in history as an";
-	mes "arrow revolution!";
+	mes "Esta vez, he";
+	mes "creado algo";
+	mes "verdaderamente extraordinario. Los llamo... ^663300Carcajes Magicos^000000!! Esto sera recordado en la historia como una";
+	mes "revolucion de flechas!";
 	emotion ET_BEST;
 	next;
 	mes "[Inventor Jaax]";
-	mes "I've studied magic and quivers for years, working night and day until I finally figured how to condense arrows with magic! With magic quivers, you'll be carrying more arrows, but with less weight!";
+	mes "He estudiado magia y carcajes por anos, trabajando dia y noche hasta que finalmente descubri como condensar flechas con magia! Con los carcajes magicos, llevaras mas flechas, pero con menos peso!";
 	next;
 	mes "[Inventor Jaax]";
-	mes "Would you like to try using one of my arrow quivers? I have no doubt that someone like you can appreciate my genius!";
+	mes "Te gustaria probar uno de mis carcajes de flechas? No tengo duda de que alguien como tu puede apreciar mi genialidad!";
 	next;
 	switch(select("Quiver:Iron Arrow Quiver:Steel Arrow Quiver:Oridecon Arrow Quiver:Fire Arrow Quiver:Silver Arrow Quiver:Wind Arrow Quiver:Stone Arrow Quiver:Crystal Arrow Quiver:Shadow Arrow Quiver:Immaterial Arrow Quiver:Rusty Arrow Quiver")) {
 	case 1: callsub S_BuyQuiver,1750,500,500,12004;
@@ -64,11 +64,6 @@ payon_in01,5,134,5	script	Inventor Jaax	89,{
 	case 11: callsub S_BuyQuiver,1757,500,500,12014;
 	case 12: callsub S_BuyQuiver,1762,500,500,12015;
 	}
-	//This doesn't seem to be accessable...
-	//mes "[Inventor Jaax]";
-	//mes "Is there";
-	//mes "anything you want?";
-	//close;
 
 S_BuyQuiver:
 	.@item_id = getarg(0);
@@ -77,99 +72,99 @@ S_BuyQuiver:
 
 	if (countitem(.@item_id) >= .@amount) {
 		mes "[Inventor Jaax]";
-		mes "Excellent!";
-		mes "Are you carrying any Arrows with you? I'll provide you with a quiver that can carry "+ .@amount +" of your "+ getitemname(.@item_id) +"s for only ^FF3131"+ .@zeny_req +" Zeny^000000.";
+		mes "Excelente!";
+		mes "Llevas Flechas contigo? Te proporcionare un carcaj que puede llevar "+ .@amount +" de tus "+ getitemname(.@item_id) +"s por solo ^FF3131"+ .@zeny_req +" Zeny^000000.";
 		next;
-		switch(select("Store as many Arrows in quivers as possible:Purchase 1 quiver:Cancel")) {
+		switch(select("Guardar tantas Flechas en carcajes como sea posible:Comprar 1 carcaj:Cancelar")) {
 		case 1:
 			.@arrows = countitem(.@item_id);
 			set .@quiver,.@arrows / .@amount;
 			set .@arrows_used,.@quiver * .@amount;
 			.@arrow_zeny01 = .@quiver * .@zeny_req;
-			mes "Number of";
-			mes "Arrows: ^3131FF"+.@arrows+" ^000000";
-			mes "Maximum Number";
-			mes "of Purchasable";
-			mes "Quivers: ^3131FF"+.@quiver+" ^000000";
-			mes "Zeny required: ^3131FF"+.@arrow_zeny01+" Zeny^000000";
+			mes "Numero de";
+			mes "Flechas: ^3131FF"+.@arrows+" ^000000";
+			mes "Numero Maximo";
+			mes "de Carcajes";
+			mes "Comprables: ^3131FF"+.@quiver+" ^000000";
+			mes "Zeny requerido: ^3131FF"+.@arrow_zeny01+" Zeny^000000";
 			next;
 			mes "[Inventor Jaax]";
-			mes "Would you like to";
-			mes "buy as many Quivers";
-			mes "as you can for the Arrows";
-			mes "you are currently carrying?";
+			mes "Te gustaria comprar";
+			mes "tantos Carcajes";
+			mes "como puedas con las Flechas";
+			mes "que llevas actualmente?";
 			next;
-			if (select("Yes:Cancel") == 1) {
+			if (select("Si:Cancelar") == 1) {
 				if (.@arrow_zeny01 < Zeny) {
 					mes "[Inventor Jaax]";
-					mes "There you go!";
-					mes "Just remember, ^FF0000you won't be able to use the Quiver when your carried weight is 90% of your maximum weight limit^000000.";
+					mes "Aqui tienes!";
+					mes "Solo recuerda, ^FF0000no podras usar el Carcaj cuando tu peso cargado sea el 90% de tu limite de peso maximo^000000.";
 					set Zeny, Zeny-.@arrow_zeny01;
 					delitem .@item_id,.@arrows_used;// Arrow
 					getitem getarg(3),.@quiver; //Quiver
 					next;
 					mes "[Inventor Jaax]";
-					mes "So...";
-					mes "Just keep track";
-					mes "of how much you're";
-					mes "carrying from time";
-					mes "to time and you should";
-					mes "be alright.";
+					mes "Asi que...";
+					mes "Solo lleva la cuenta";
+					mes "de cuanto estas";
+					mes "cargando de vez";
+					mes "en cuando y deberias";
+					mes "estar bien.";
 					close;
 				}
 				else {
 					mes "[Inventor Jaax]";
-					mes "I'm sorry, but you don't have enough Zeny. I can't just give these away after working years";
-					mes "to develop this revolutionary technology!";
+					mes "Lo siento, pero no tienes suficiente Zeny. No puedo simplemente regalar estos despues de trabajar anos";
+					mes "para desarrollar esta tecnologia revolucionaria!";
 					close;
 				}
 			}
 			mes "[Inventor Jaax]";
-			mes "You changed your mind?";
-			mes "When the glory of owning";
-			mes "a quiver is so close?";
+			mes "Cambiaste de opinion?";
+			mes "Cuando la gloria de tener";
+			mes "un carcaj esta tan cerca?";
 			close;
 		case 2:
 			if (Zeny > .@zeny_req) {
 				mes "[Inventor Jaax]";
-				mes "There you go!";
-				mes "Just remember, ^FF0000you won't be able to use the Quiver when your carried weight is 90% of your maximum weight limit^000000.";
+				mes "Aqui tienes!";
+				mes "Solo recuerda, ^FF0000no podras usar el Carcaj cuando tu peso cargado sea el 90% de tu limite de peso maximo^000000.";
 				Zeny = Zeny -.@zeny_req;
 				delitem .@item_id,.@amount;// Arrow
 				getitem getarg(3),1; //Quiver
 				next;
 				mes "[Inventor Jaax]";
-				mes "So...";
-				mes "Just keep track";
-				mes "of how much you're";
-				mes "carrying from time";
-				mes "to time and you should";
-				mes "be alright.";
+				mes "Asi que...";
+				mes "Solo lleva la cuenta";
+				mes "de cuanto estas";
+				mes "cargando de vez";
+				mes "en cuando y deberias";
+				mes "estar bien.";
 				close;
 			}
 			else {
 				mes "[Inventor Jaax]";
-				mes "You don't even";
-				mes "have "+ .@zeny_req +" Zeny?";
-				mes "I'm so sorry. I had no";
-				mes "idea that you were so...";
-				mes "^333333Destitute^000000.";
+				mes "Ni siquiera";
+				mes "tienes "+ .@zeny_req +" Zeny?";
+				mes "Lo siento mucho. No tenia";
+				mes "idea de que estuvieras tan...";
+				mes "^333333En la ruina^000000.";
 				close;
 			}
 		case 3:
 			mes "[Inventor Jaax]";
-			mes "What...?";
-			mes "Do you not see that this invention can forever change the way Arrows are carried?! The future is now!";
+			mes "Que...?";
+			mes "No ves que este invento puede cambiar para siempre la forma en que se llevan las Flechas?! El futuro es ahora!";
 			close;
 		}
 	}
 	else {
 		mes "[Inventor Jaax]";
-		mes "You can carry a maximum of "+ .@amount +" Arrows within this quiver. It was made using my secret method,";
-		mes "so the total weight of the Arrows and Quiver is less than carrying the Arrows alone.";
+		mes "Puedes llevar un maximo de "+ .@amount +" Flechas dentro de este carcaj. Fue hecho usando mi metodo secreto,";
+		mes "asi que el peso total de las Flechas y el Carcaj es menor que llevar las Flechas solas.";
 		next;
 		mes "[Inventor Jaax]";
-		mes "It's a miracle of science! One that you can experience for yourself if you bring me at least "+ .@amount +" Arrows and "+ .@zeny_req +" Zeny for each Quiver.";
+		mes "Es un milagro de la ciencia! Uno que puedes experimentar por ti mismo si me traes al menos "+ .@amount +" Flechas y "+ .@zeny_req +" Zeny por cada Carcaj.";
 		close;
 	}
 }

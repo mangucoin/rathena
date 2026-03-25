@@ -184,16 +184,16 @@ alberta,214,77,6	script	Captain Janssen	709,{
 			next;
 			if (Zeny < 10000) {
 				mes "[Captain Janssen]";
-				mes "...I'm sorry, but I don't think you have 10,000 Zeny. Thank you for your kindness, but I need more than that.";
+				mes "...Lo siento, pero creo que no tienes 10,000 Zeny. Gracias por tu amabilidad, pero necesito mas que eso.";
 				close;
 			} else {
 				mes "["+.@name$+"]";
-				mes "I don't know why you'd need so much money, but here. You can take it.";
+				mes "No se por que necesitarias tanto dinero, pero aqui tienes. Puedes tomarlo.";
 				next;
-				mes "^0000ffYou have donated 10,000 Zeny to Captain Janssen^000000.";
+				mes "^0000ffHas donado 10,000 Zeny al Capitan Janssen^000000.";
 				next;
 				mes "[Captain Janssen]";
-				mes "Thank you so much! Now I can stock up on food and materials for my ship. You're kind, very kind!";
+				mes "Muchas gracias! Ahora puedo abastecerme de comida y materiales para mi barco. Eres amable, muy amable!";
 				set Zeny, Zeny-10000;
 				set in_102tower,1;
 				close;
@@ -211,29 +211,29 @@ e_tower,81,105,0	script	Tower Protection Stone	406,{
 	set .@etower_timer2,checkquest(60201,PLAYTIME); // 4 hours
 
 	if (!instance_check_party(.@party_id,2)) {
-		mes "Make or join a party with more than 1 member and try again.";
+		mes "Crea o unete a un grupo con mas de 1 miembro e intenta de nuevo.";
 		close;
 	}
 	switch(.@etower_timer) {
 	case -1:
 		if (is_party_leader() == true) {
-			mes "Confirmed the party has been made. Would you like to reserve entrance to the Endless Tower?";
+			mes "Se confirmo que el grupo ha sido creado. Te gustaria reservar la entrada a la Endless Tower?";
 			next;
-			switch(select("Generate dungeon "+.@md_name$+":Enter the dungeon:Return to Alberta:Cancel")) {
+			switch(select("Generar calabozo "+.@md_name$+":Entrar al calabozo:Volver a Alberta:Cancelar")) {
 			case 1:
 				if (instance_create(.@md_name$) < 0) {
-					mes "Party Name: "+ getpartyname(.@party_id);
-					mes "Party Leader: "+strcharinfo(0);
-					mes "^0000ff"+.@md_name$+" ^000000- Reservation Failed!";
+					mes "Nombre del grupo: "+ getpartyname(.@party_id);
+					mes "Lider del grupo: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000- Reserva fallida!";
 					close;
 				}
-				mes "^0000ff"+.@md_name$+"^000000 - Try to reserve";
-				mes "After making a reservation, you have to talk to NPC behind and select the menu 'Enter the Dungeon' to enter the dungeon.";
+				mes "^0000ff"+.@md_name$+"^000000 - Intentando reservar";
+				mes "Despues de hacer la reserva, debes hablar con el NPC de atras y seleccionar el menu 'Entrar al Calabozo' para entrar.";
 				close;
 			case 2:
 				callsub L_Enter,0,1;
 			case 3:
-				mes "I will move you to Alberta.";
+				mes "Te llevare a Alberta.";
 				close2;
 				warp "alberta",223,36;
 				end;
@@ -241,11 +241,11 @@ e_tower,81,105,0	script	Tower Protection Stone	406,{
 				close;
 			}
 		}
-		switch(select("Enter the "+.@md_name$+":Return to Alberta:Cancel")) {
+		switch(select("Entrar a "+.@md_name$+":Volver a Alberta:Cancelar")) {
 		case 1:
 			callsub L_Enter,1,1;
 		case 2:
-			mes "I will move you to Alberta.";
+			mes "Te llevare a Alberta.";
 			close2;
 			warp "alberta",223,36;
 			end;
@@ -255,13 +255,13 @@ e_tower,81,105,0	script	Tower Protection Stone	406,{
 	case 0:
 	case 1:
 		if (.@etower_timer2 < 2 && getcharid(1) == etower_partyid) {
-			mes "If you have the dungeon generated already, you can enter it. ";
+			mes "Si ya tienes el calabozo generado, puedes entrar. ";
 			next;
-			switch(select("Enter the "+.@md_name$+":Return to Alberta:Cancel")) {
+			switch(select("Entrar a "+.@md_name$+":Volver a Alberta:Cancelar")) {
 			case 1:
 				callsub L_Enter,0,0;
 			case 2:
-				mes "I will move you to Alberta.";
+				mes "Te llevare a Alberta.";
 				close2;
 				warp "alberta",223,36;
 				end;
@@ -277,9 +277,9 @@ e_tower,81,105,0	script	Tower Protection Stone	406,{
 			set .@dun_m,(.@dun_ent_t - (.@dun_h * 3600)) / 60;
 			set .@dun_s,.@dun_ent_t - ((.@dun_h * 3600) + (.@dun_m * 60));
 
-			mes "Due to the tower's aftereffects, you cannot enter the dungeon right now, " + .@dun_h + "hours " + .@dun_m + "minutes " + .@dun_s + "seconds left to enter the next dungeon.";
+			mes "Debido a los efectos residuales de la torre, no puedes entrar al calabozo ahora mismo, " + .@dun_h + " horas " + .@dun_m + " minutos " + .@dun_s + " segundos restantes para entrar al siguiente calabozo.";
 			next;
-			mes "It is dangerous here. Let me move you to Alberta.";
+			mes "Es peligroso aqui. Dejame llevarte a Alberta.";
 			close2;
 			warp "alberta",223,36;
 			end;
@@ -288,24 +288,24 @@ e_tower,81,105,0	script	Tower Protection Stone	406,{
 		set etower_timer,0;
 		erasequest 60200;
 		erasequest 60201;
-		mes "^0000ffThe records and after effects related to the Endless Tower have been removed. You can generate and enter the Endless Tower again.^000000";
+		mes "^0000ffLos registros y efectos residuales relacionados con la Endless Tower han sido eliminados. Puedes generar y entrar a la Endless Tower de nuevo.^000000";
 		close;
 	}
 
 L_Enter:
 	switch(instance_enter("Endless Tower")) {
 	case IE_OTHER:
-		mes "An unknown error has occurred.";
+		mes "Ha ocurrido un error desconocido.";
 		close;
 	case IE_NOINSTANCE:
-		mes "The memorial dungeon Endless Tower does not exist.";
-		mes "The party leader did not generate the dungeon yet.";
+		mes "El calabozo memorial Endless Tower no existe.";
+		mes "El lider del grupo aun no ha generado el calabozo.";
 		close;
 	case IE_NOMEMBER:
-		mes "You can enter the dungeon after making the party.";
+		mes "Puedes entrar al calabozo despues de crear el grupo.";
 		close;
 	case IE_OK:
-		mapannounce "e_tower", strcharinfo(0) +" of the party, "+ getpartyname( getcharid(1) ) +", is entering the dungeon, Endless Tower.",bc_map,"0x00ff99",FW_NORMAL,12;
+		mapannounce "e_tower", strcharinfo(0) +" del grupo, "+ getpartyname( getcharid(1) ) +", esta entrando al calabozo, Endless Tower.",bc_map,"0x00ff99",FW_NORMAL,12;
 		if (getarg(1)) {
 			set etower_timer,gettimetick(2);
 			set etower_partyid, getcharid(1);
@@ -321,7 +321,7 @@ L_Enter:
 e_tower,30,30,2	script	Huge Vortex	844,2,2,{
 	end;
 OnTouch:
-	mapannounce "e_tower","[ " + strcharinfo(0) + " ], seems to be engulfed by a huge vortex",bc_map,"0x00ff99",FW_NORMAL,12;
+	mapannounce "e_tower","[ " + strcharinfo(0) + " ], parece ser tragado por un enorme vortice",bc_map,"0x00ff99",FW_NORMAL,12;
 	warp "alberta",223,36;
 	end;
 }
@@ -329,33 +329,33 @@ OnTouch:
 // Original name: "#102Administrator Mode104"
 e_tower,1,1,2	script	#102Administrator Mode	844,{
 	callfunc "F_GM_NPC";
-	mes "Please enter the password";
+	mes "Por favor ingresa la contrasena";
 	set .@i, callfunc("F_GM_NPC","dmc2008",1);
 	next;
 	if (.@i == 1) {
-		switch(select("Generate Purification Stone:Remove Purification Stone:Cancel")) {
+		switch(select("Generar Piedra de Purificacion:Remover Piedra de Purificacion:Cancelar")) {
 		case 1:
-			mes "Create the Purification Stone that stays for 30 minutes.";
+			mes "Crear la Piedra de Purificacion que dura 30 minutos.";
 			donpcevent "Purification Stone#et1::OnEnable";
 			break;
 		case 2:
-			mes "Destroy the Purification Stone immediately";
+			mes "Destruir la Piedra de Purificacion inmediatamente";
 			donpcevent "Purification Stone#et1::OnDisable";
 			break;
 		case 3:
-			mes "You have canceled it.";
+			mes "Has cancelado.";
 			break;
 		}
 		close;
 	} else {
-		mes "Enter the password exactly.";
+		mes "Ingresa la contrasena correctamente.";
 		close;
 	}
 }
 
 e_tower,69,117,4	script	Purification Stone#et1	406,{
 	set etower_timer,0;
-	mes "^0000ffThe records and aftereffects related to the Endless Tower have been removed. You can generate and enter the Endless Tower again.^000000";
+	mes "^0000ffLos registros y efectos residuales relacionados con la Endless Tower han sido eliminados. Puedes generar y entrar a la Endless Tower de nuevo.^000000";
 	close;
 
 OnInit:
@@ -376,7 +376,7 @@ OnTimer1000:
 	end;
 
 OnTimer1740000:
-	mapannounce "e_tower", "The Purification Stone will be destroyed in one minute.",bc_map,"0x00ff99";
+	mapannounce "e_tower", "La Piedra de Purificacion sera destruida en un minuto.",bc_map,"0x00ff99";
 	end;
 
 OnTimer1800000:
@@ -387,7 +387,7 @@ OnTimer1800000:
 e_tower,151,185,4	script	Purification Stone#et2	844,{
 	callfunc "F_GM_NPC";
 	set etower_timer,0;
-	mes "^0000ffThe records and aftereffects related to the Endless Tower have been removed. You can generate and enter the Endless Tower again.^000000";
+	mes "^0000ffLos registros y efectos residuales relacionados con la Endless Tower han sido eliminados. Puedes generar y entrar a la Endless Tower de nuevo.^000000";
 	close2;
 	warp "e_tower",75,108;
 	end;
@@ -1189,8 +1189,8 @@ function	script	F_Tower_Warp	{
 // Levels 1-25
 //============================================================
 1@tower,50,360,0	script	Immortal Brazier#	844,{
-	mes "- A Message is Engraved on the Brazier -";
-	mes "The one who scatters the ashes of the darkness in this place shall become one step closer to Naght Sieger, the Hegemon King of the Darkness...";
+	mes "- Un Mensaje esta Grabado en el Brasero -";
+	mes "Aquel que esparza las cenizas de la oscuridad en este lugar se acercara un paso mas a Naght Sieger, el Rey Hegemon de la Oscuridad...";
 	next;
 
 	setarray .@level$[1],"26th","51st","76th";
@@ -1198,12 +1198,12 @@ function	script	F_Tower_Warp	{
 	set .@i, select("26th Level:51st Level:76th Level");
 
 	if (countitem(6000) < .@i) {
-		mes "-Warning-";
-		mes "To warp to the "+.@level$[.@i]+" Level, you need "+.@i+" Ashes of the Darkness.";
+		mes "-Advertencia-";
+		mes "Para teletransportarte al Nivel "+.@level$[.@i]+", necesitas "+.@i+" Cenizas de la Oscuridad.";
 		close;
 	}
 	delitem 6000,.@i; //Dark_Ashes
-	mapannounce instance_mapname("1@tower"), strcharinfo(0)+". You will be warped to the "+.@level$[.@i]+" Level.",bc_map,"0x00ff99";
+	mapannounce instance_mapname("1@tower"), strcharinfo(0)+". Seras teletransportado al Nivel "+.@level$[.@i]+".",bc_map,"0x00ff99";
 	warp instance_mapname(.@map$[.@i]),52,354;
 	close;
 
@@ -1212,7 +1212,7 @@ OnInstanceInit:
 	end;
 
 OnTimer10000:
-	mapannounce instance_mapname("1@tower"), "Notice : Taming a monster does not count towards defeating them.",bc_map,"0xff0000";
+	mapannounce instance_mapname("1@tower"), "Aviso: Domar un monstruo no cuenta como derrotarlo.",bc_map,"0xff0000";
 	stopnpctimer;
 	end;
 }
@@ -1273,7 +1273,7 @@ OnMyMobDead:
 		initnpctimer;
 		//SetItemPartyInMap in_102floor .@level
 	} else
-		mapannounce .@map$, "Remaining Monsters on the "+callfunc("F_GetNumSuffix",.@level)+" Level - "+.@mob_dead_num,bc_map,"0x00ff99";
+		mapannounce .@map$, "Monstruos restantes en el Nivel "+callfunc("F_GetNumSuffix",.@level)+" - "+.@mob_dead_num,bc_map,"0x00ff99";
 	end;
 
 OnTimer5000:

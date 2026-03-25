@@ -1,4 +1,4 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Blessed Refiner
 //===== Description: =========================================
 //= [Official Conversion]
@@ -17,55 +17,55 @@
 -	script	::BlacksmithDister	-1,{
 	disable_items;
 	mes "[Blacksmith Dister]";
-	mes "In this highly competitive society, we must be different in order to survive!";
-	mes "I only refine equipment at the +6 ~ 12 levels.";
+	mes "¡En esta sociedad tan competitiva, debemos ser diferentes para sobrevivir!";
+	mes "Solo refino equipo en los niveles +6 ~ 12.";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "I will need ^ff9999Blessed Oridecon^000000 for weapons, and ^ff9999Blessed Elunium^000000 for armors.";
-	mes "Failed refines ^FF0000will not break or reduce the refine level^000000.";
+	mes "Necesitare ^ff9999Blessed Oridecon^000000 para armas, y ^ff9999Blessed Elunium^000000 para armaduras.";
+	mes "Los refinamientos fallidos ^FF0000no romperan ni reduciran el nivel de refinamiento^000000.";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "How about it? Do you want to refine?";
+	mes "¿Que dices? ¿Quieres refinar?";
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
-		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[Unequipped]" ) +":";
+		set .@menu$, .@menu$ + ( getequipisequiped(.@indices[.@i]) ? getequipname(.@indices[.@i]) : F_getpositionname(.@indices[.@i]) +"-[Sin equipar]" ) +":";
 	set .@part, .@indices[ select(.@menu$) ];
 	if (!getequipisequiped(.@part)) {
 		mes "[Blacksmith Dister]";
 		switch(.@part) {
 		case EQI_HEAD_TOP:
-			mes "I'm a blacksmith, not a hairstylist.";
+			mes "Soy herrero, no estilista.";
 			break;
 		case EQI_ARMOR:
-			mes "With my hammer, I will make you a star of the sky.";
+			mes "Con mi martillo, te hare una estrella del cielo.";
 			break;
 		case EQI_HAND_L:
 		case EQI_HAND_R:
-			mes "Making artificial hands is not my specialty.";
+			mes "Hacer manos artificiales no es mi especialidad.";
 			break;
 		case EQI_GARMENT:
-			mes "Bring out the item so I can refine it!";
+			mes "¡Saca el objeto para que pueda refinarlo!";
 			break;
 		case EQI_SHOES:
-			mes "Where is this weird smell coming from?";
+			mes "¿De donde viene este olor tan raro?";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "Where is the accessory?";
+			mes "¿Donde esta el accesorio?";
 			break;
 		case EQI_HEAD_MID:
-			mes "What do you want me to refine?";
+			mes "¿Que quieres que refine?";
 			break;
 		case EQI_HEAD_LOW:
-			mes "Huh? What do you want me to do?";
+			mes "¿Eh? ¿Que quieres que haga?";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		mes "[Blacksmith Dister]";
-		mes "This item cannot be refined.";
+		mes "Este objeto no se puede refinar.";
 		close;
 	}
 	.@equip_id = getequipid(.@part);
@@ -75,7 +75,7 @@
 
 	if (.@equip_refine < 6 || .@equip_refine > 12) {
 		mes "[Blacksmith Dister]";
-		mes "This equipment has refined to "+.@equip_refine+". I only handle items with refine levels from +6 to +12!";
+		mes "Este equipo esta refinado a "+.@equip_refine+". ¡Solo trabajo con objetos de nivel de refinamiento +6 a +12!";
 		close;
 	}
 	if( .@itemtype == IT_ARMOR ){
@@ -122,31 +122,31 @@
 	}
 	set .@ore$,"^ff9999Blessed "+.@type$+" Ore^000000";
 	mes "[Blacksmith Dister]";
-	mes "This "+.@type$+" has been refined to "+.@equip_refine+". To refine it, I need "+.@ore$+" and a "+callfunc("F_InsertComma",.@price)+" zeny refining fee.";
-	mes "Do you want to proceed?";
+	mes "Este "+.@type$+" ha sido refinado a "+.@equip_refine+". Para refinarlo, necesito "+.@ore$+" y una tarifa de refinamiento de "+callfunc("F_InsertComma",.@price)+" zeny.";
+	mes "¿Quieres continuar?";
 	next;
-	if(select("Yes:No") == 2) {
+	if(select("Si:No") == 2) {
 		mes "[Blacksmith Dister]";
-		mes "I am busy, don't joke with me!";
+		mes "¡Estoy ocupado, no bromees conmigo!";
 		close;
 	}
 	if (getequippercentrefinery(.@part) < 100) {
 		mes "[Blacksmith Dister]";
-		mes "This "+.@type$+" has been refined many times. Although it will not disappear upon failure, the "+.@ore$+" will disappear!";
+		mes "Este "+.@type$+" ha sido refinado muchas veces. Aunque no desaparecera si falla, ¡el "+.@ore$+" si desaparecera!";
 		next;
 		mes "[Blacksmith Dister]";
-		mes "Of course, the refining fee will not be returned! Do you want to continue?";
+		mes "Por supuesto, ¡la tarifa de refinamiento no sera devuelta! ¿Quieres continuar?";
 		next;
-		if(select("Yes:No") == 2) {
+		if(select("Si:No") == 2) {
 			mes "[Blacksmith Dister]";
-			mes "Good. I'd be sad if it failed, too.";
+			mes "Bien. Yo tambien me pondria triste si fallara.";
 			close;
 		}
 	}
 	if (countitem(.@material) == 0 || Zeny < .@price) {
 		mes "[Blacksmith Dister]";
-		mes "Materials insufficient.";
-		mes "To refine a level "+.@equip_lv+" "+.@type$+", I need "+.@ore$+" and a "+callfunc("F_InsertComma",.@price)+" zeny refining fee.";
+		mes "Materiales insuficientes.";
+		mes "Para refinar un "+.@type$+" de nivel "+.@equip_lv+", necesito "+.@ore$+" y una tarifa de refinamiento de "+callfunc("F_InsertComma",.@price)+" zeny.";
 		close;
 	}
 	delitem .@material,1;
@@ -157,16 +157,16 @@
 		close;
 
 	mes "[Blacksmith Dister]";
-	mes "Tac! Tac! Tac!";
+	mes "¡Tac! ¡Tac! ¡Tac!";
 	if (getequippercentrefinery(.@part, true) > rand(100)) {
 		specialeffect EF_BLESSING;
 		successrefitem .@part;
 		next;
 		mes "[Blacksmith Dister]";
-		mes "Hahahahahaha!!!";
+		mes "¡¡¡Jajajajajaja!!!";
 		next;
 		mes "[Blacksmith Dister]";
-		mes "Refine was a huge success~ Hahaha!";
+		mes "¡El refinamiento fue un gran exito~ Jajaja!";
 		close;
 	}
 	specialeffect EF_CURSEATTACK;
@@ -174,13 +174,13 @@
 	next;
 	emotion (!rand(5))?ET_ANGER:ET_HUK;
 	mes "[Blacksmith Dister]";
-	mes "Oh my goodness!!!!";
+	mes "¡¡¡Dios mio!!!!";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "Oh! Although it was blessed by "+.@ore$+" to retain the equipment...";
+	mes "¡Oh! Aunque fue bendecido por "+.@ore$+" para conservar el equipo...";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "My mood is worse when I fail!!";
+	mes "¡¡Mi humor empeora cuando fallo!!";
 	close;
 }
 prt_in,52,56,3	duplicate(BlacksmithDister)	Blacksmith Dister#prt	826
