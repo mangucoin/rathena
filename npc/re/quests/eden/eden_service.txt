@@ -18,33 +18,33 @@
 // Goods Cabinets :: pare_service
 //============================================================
 -	script	Goods Cabinet#00::pggc	-1,{
-	mes "It is a Goods Storage Cabinet.";
-	mes "A message is written on a piece of paper.";
+	mes "Es un Gabinete de Almacenamiento de Bienes.";
+	mes "Un mensaje esta escrito en un pedazo de papel.";
 	next;
-	mes "+ Cabinet is exclusively +";
-	mes "+ for the Eden group +";
-	mes "If you want to use this";
-	mes "cabinet please check";
-	mes "the following:";
+	mes "+ El gabinete es exclusivo +";
+	mes "+ para el Grupo Eden +";
+	mes "Si quieres usar este";
+	mes "gabinete por favor revisa";
+	mes "lo siguiente:";
 	next;
-	mes "1.Are you a member";
-	mes "   of Eden group?";
-	mes "2.Have you learned";
-	mes "   enough basic skills?";
-	mes "3.Cabinet fee is";
+	mes "1.Eres miembro";
+	mes "   del Grupo Eden?";
+	mes "2.Has aprendido";
+	mes "   suficientes habilidades basicas?";
+	mes "3.La tarifa del gabinete es";
 	mes "  ^4d4dff500 zeny^000000!";
 	next;
 	if (callfunc("F_HasEdenGroupMark")) {
-		mes "You need to insert zeny to use the cabinet.";
-		mes "Cost : 500 Zeny ";
-		mes "Would you like to use it?";
+		mes "Necesitas insertar zeny para usar el gabinete.";
+		mes "Costo : 500 Zeny ";
+		mes "Te gustaria usarlo?";
 		next;
-		switch(select("Use the Cabinet.:Cancel.")) {
+		switch(select("Usar el Gabinete.:Cancelar.")) {
 			case 1:
 				if (Zeny > 499) {
 					if(!callfunc("F_CanOpenStorage")){
-						mes "The cabinet is not working for me.";
-						mes "Maybe I am not yet qualified to use Cabinet.";
+						mes "El gabinete no funciona para mi.";
+						mes "Tal vez aun no estoy calificado para usar el Gabinete.";
 						close;
 					}
 					set Zeny, Zeny - 500;
@@ -52,15 +52,15 @@
 					openstorage;
 					end;
 				}
-				mes "I don't have enough zeny.";
-				mes "I need at least 500 zeny to use the Cabinet.";
+				mes "No tengo suficiente zeny.";
+				mes "Necesito al menos 500 zeny para usar el Gabinete.";
 				close;
 			case 2:
-				mes "I will use it next time.";
+				mes "Lo usare la proxima vez.";
 				close;
 		}
 	}
-	mes "I need an Eden Group Mark to use this Cabinet.";
+	mes "Necesito una Insignia del Grupo Eden para usar este Gabinete.";
 	close;
 }
 moc_para01,173,120,0	duplicate(pggc)	Goods Cabinet#01	111

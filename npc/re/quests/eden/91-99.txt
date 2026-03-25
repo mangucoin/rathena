@@ -19,49 +19,49 @@
 
 moc_para01,48,177,3	script	91-99 Mission Board	857,{
 	if (!callfunc("F_HasEdenGroupMark")) {
-		mes "Wait a minute!";
-		mes "-You need to have an-";
-		mes "-^4d4dff'Eden Group Mark'^000000-";
-		mes "-to receive these missions.-";
+		mes "Espera un momento!";
+		mes "-Necesitas tener una-";
+		mes "-^4d4dff'Insignia del Grupo Eden'^000000-";
+		mes "-para recibir estas misiones.-";
 		next;
-		switch(select("Just walk away.:^0000FFEden Group^000000 missions?:How can I be a member of the ^0000FFEden Group^000000?")) {
+		switch(select("Solo irme.:Misiones del ^0000FFGrupo Eden^000000?:Como puedo ser miembro del ^0000FFGrupo Eden^000000?")) {
 		case 1:
 			close;
 		case 2:
-			mes "::The Eden Group Missions";
-			mes "::are basically missions";
-			mes "::requested by";
-			mes "::people from all around the kingdom.";
-			mes "::We just categorize them.";
+			mes "::Las Misiones del Grupo Eden";
+			mes "::son basicamente misiones";
+			mes "::solicitadas por";
+			mes "::personas de todo el reino.";
+			mes "::Solo las categorizamos.";
 			next;
-			mes "::In the Eden Group,";
-			mes "::we sorted out the missions";
-			mes "::according to the level of difficulty.";
-			mes "::According to this level,";
-			mes "::you can find";
-			mes "::missions that";
-			mes "::suit you.";
+			mes "::En el Grupo Eden,";
+			mes "::clasificamos las misiones";
+			mes "::segun el nivel de dificultad.";
+			mes "::Segun este nivel,";
+			mes "::puedes encontrar";
+			mes "::misiones que";
+			mes "::se adapten a ti.";
 			next;
-			mes "::When you are done,";
-			mes "::you can come back";
-			mes "::to the mission board.";
+			mes "::Cuando termines,";
+			mes "::puedes regresar";
+			mes "::al tablero de misiones.";
 			next;
-			mes "::Then you will be";
-			mes "::rewarded!!";
-			mes "::Simple, isn't it!!";
-			mes "::No commission required!!";
+			mes "::Entonces seras";
+			mes "::recompensado!!";
+			mes "::Simple, verdad!!";
+			mes "::Sin comision requerida!!";
 			close;
 		case 3:
-			mes "::You can become a member";
-			mes "::of the Eden Group";
-			mes "::to ^0000FFLaime Evenor^000000,";
-			mes "::who is waiting on the 1st floor.";
+			mes "::Puedes hacerte miembro";
+			mes "::del Grupo Eden";
+			mes "::con ^0000FFLaime Evenor^000000,";
+			mes "::quien esta esperando en el 1er piso.";
 			next;
-			mes "::If you become a member,";
-			mes "::you will get an";
-			mes "::\"^006400Eden Group Mark^000000\".";
-			mes "::Then you will be able";
-			mes "::to see the mission board.";
+			mes "::Si te haces miembro,";
+			mes "::obtendras una";
+			mes "::\"^006400Insignia del Grupo Eden^000000\".";
+			mes "::Entonces podras";
+			mes "::ver el tablero de misiones.";
 			close;
 		}
 	}
@@ -80,25 +80,25 @@ moc_para01,48,177,3	script	91-99 Mission Board	857,{
 			96000,102000,110000,
 			102000,108000,
 			110000,138000,118000,96000,134000;
-		mes "You must be within level 91-99 to accept these missions.";
+		mes "Debes estar entre nivel 91-99 para aceptar estas misiones.";
 		for(set .@quest,4181; .@quest<=4196; set .@quest,.@quest+1) {
 			set .@hunting, checkquest(.@quest,HUNTING);
 			if (.@hunting == 0 || .@hunting == 1) {
 				next;
-				mes ":: You cannot proceed in";
+				mes ":: No puedes continuar con";
 				mes ":: ^0000FF"+.@names$[.@quest-4181]+" Hunting^000000.";
-				mes ":: The registration to the mission";
-				mes ":: is cancelled.";
+				mes ":: El registro de la mision";
+				mes ":: esta cancelado.";
 				erasequest .@quest;
 				close;
 			} else if (.@hunting == 2) {
 				next;
-				mes ":: You added information";
-				mes ":: about the mission";
+				mes ":: Has agregado informacion";
+				mes ":: sobre la mision";
 				mes ":: ^0000FF"+.@names$[.@quest-4181]+" Hunting^000000";
-				mes ":: on the mission board.";
-				mes ":: You've got a";
-				mes ":: salutary experience.";
+				mes ":: en el tablero de misiones.";
+				mes ":: Has obtenido una";
+				mes ":: experiencia valiosa.";
 				erasequest .@quest;
 				getexp .@exp[.@quest-4181],0;
 				close;
@@ -106,55 +106,55 @@ moc_para01,48,177,3	script	91-99 Mission Board	857,{
 		}
 		close;
 	}
-	mes "[91-99 Mission Board]";
-	mes "There are several requests on this board.";
+	mes "[Tablero de Misiones 91-99]";
+	mes "Hay varias solicitudes en este tablero.";
 	next;
-	switch(select("^8B4513Turtle Island^000000:^8B4513Glast Heim^000000:^8B4513Rachel / Veins^000000:^8B4513Expansion Cities^000000:^8B4513Other regions^000000")) {
+	switch(select("^8B4513Turtle Island^000000:^8B4513Glast Heim^000000:^8B4513Rachel / Veins^000000:^8B4513Ciudades de Expansion^000000:^8B4513Otras regiones^000000")) {
 	case 1:
 		mes "^8B4513Turtle Island^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes "Que monstruo cazaras o ya terminaste de cazar?";
 		next;
 		switch(select("^0000FFSolider^000000:^0000FFFreezer^000000:^0000FFHeater^000000")) {
-			case 1: callsub L_Quest,4181,"Solider",90000,"¼Ö¸®´õÄ«µå","There is a monster that only can be found on ^8B4513Turtle Island^000000.";
-			case 2: callsub L_Quest,4182,"Freezer",94000,"ÇÁ¸®ÀúÄ«µå","There is a monster that only can be found on ^8B4513Turtle Island^000000.";
-			case 3: callsub L_Quest,4183,"Heater",114000,"È÷ÅÍÄ«µå","There is a monster that only can be found on ^8B4513Turtle Island^000000.";
+			case 1: callsub L_Quest,4181,"Solider",90000,"ï¿½Ö¸ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se puede encontrar en ^8B4513Turtle Island^000000.";
+			case 2: callsub L_Quest,4182,"Freezer",94000,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se puede encontrar en ^8B4513Turtle Island^000000.";
+			case 3: callsub L_Quest,4183,"Heater",114000,"ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se puede encontrar en ^8B4513Turtle Island^000000.";
 		}
 	case 2:
 		mes "^8B4513Glast Heim^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes "Que monstruo cazaras o ya terminaste de cazar?";
 		next;
 		switch(select("^0000FFInjustice^000000:^0000FFRybio^000000:^0000FFDark Priest^000000")) {
-			case 1: callsub L_Quest,4184,"Injustice",96000,"ÀÎÀú½ºÆ¼½ºÄ«µå","There is a monster only found in ^8B4513Glast Heim prison^000000.";
-			case 2: callsub L_Quest,4185,"Rybio",96000,"¸®ºñ¿ÀÄ«µå","There is a monster only found in ^8B4513Glast Heim prison^000000.";
-			case 3: callsub L_Quest,4186,"Dark Priest",146000,"´ÙÅ©ÇÁ¸®½ºÆ®Ä«µå","There is a monster only found in ^8B4513Glast Heim prison^000000.";
+			case 1: callsub L_Quest,4184,"Injustice",96000,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en la ^8B4513prision de Glast Heim^000000.";
+			case 2: callsub L_Quest,4185,"Rybio",96000,"ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en la ^8B4513prision de Glast Heim^000000.";
+			case 3: callsub L_Quest,4186,"Dark Priest",146000,"ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en la ^8B4513prision de Glast Heim^000000.";
 		}
 	case 3:
 		mes "^8B4513Rachel / Veins^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes "Que monstruo cazaras o ya terminaste de cazar?";
 		next;
 		switch(select("^0000FFStapo^000000:^0000FFRoween^000000:^0000FFSiroma^000000")) {
-			case 1: callsub L_Quest,4187,"Stapo",96000,"½ºÅÂÆ÷Ä«µå","There is a monster only found in ^8B4513Veins^000000.";
-			case 2: callsub L_Quest,4188,"Roween",102000,"·Î¿ìÀ©Ä«µå","There is a monster only found in ^8B4513Rachel^000000.";
-			case 3: callsub L_Quest,4189,"Siroma",110000,"½Ã·Î¸¶Ä«µå","There is a monster only found in ^8B4513Ice Dungeon^000000.";
+			case 1: callsub L_Quest,4187,"Stapo",96000,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en ^8B4513Veins^000000.";
+			case 2: callsub L_Quest,4188,"Roween",102000,"ï¿½Î¿ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en ^8B4513Rachel^000000.";
+			case 3: callsub L_Quest,4189,"Siroma",110000,"ï¿½Ã·Î¸ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en el ^8B4513Calabozo de Hielo^000000.";
 		}
 	case 4:
-		mes "^8B4513Expansion Cities^000000.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes "^8B4513Ciudades de Expansion^000000.";
+		mes "Que monstruo cazaras o ya terminaste de cazar?";
 		next;
 		switch(select("^0000FFShinobi^000000:^0000FFEvil Nymph^000000")) {
-			case 1: callsub L_Quest,4190,"Shinobi",102000,"½Ã³ëºñÄ«µå","There is a monster only found in ^8B4513Amatsu Dungeon^000000.";
-			case 2: callsub L_Quest,4191,"Evil Nymph",108000,"¿ä¼±³àÄ«µå","There is a monster only found in ^8B4513Kunlun Dungeon^000000.";
+			case 1: callsub L_Quest,4190,"Shinobi",102000,"ï¿½Ã³ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en el ^8B4513Calabozo de Amatsu^000000.";
+			case 2: callsub L_Quest,4191,"Evil Nymph",108000,"ï¿½ä¼±ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en el ^8B4513Calabozo de Kunlun^000000.";
 		}
 	case 5:
-		mes "Other Regions.";
-		mes "Which monster will you hunt or have you finished hunting?";
+		mes "Otras Regiones.";
+		mes "Que monstruo cazaras o ya terminaste de cazar?";
 		next;
 		switch(select("^0000FFDeviruchi^000000:^0000FFMineral^000000:^0000FFKaho^000000:^0000FFNeraid^000000:^0000FFDisguise^000000")) {
-			case 1: callsub L_Quest,4192,"Deviruchi",110000,"µ¥ºñ·çÄ¡Ä«µå","There is a monster only found in ^8B4513Geffen Dungeon^000000.";
-			case 2: callsub L_Quest,4193,"Mineral",138000,"¹Ì³×¶ö","There is a monster only found in ^8B4513Einbech Dungeon^000000.";
-			case 3: callsub L_Quest,4194,"Kaho",118000,"Ä«È£Ä«µå","There is a monster found in ^8B4513Nogg Road Magma 1^000000.";
-			case 4: callsub L_Quest,4195,"Neraid",96000,"³×·¹ÀÌµåÄ«µå","There is a monster only found in ^8B4513Comodo Dungeon^000000.";
-			case 5: callsub L_Quest,4196,"Disguise",134000,"µð½º°¡ÀÌÁîÄ«µå","There is a monster only found in ^8B4513Niflheim^000000.";
+			case 1: callsub L_Quest,4192,"Deviruchi",110000,"ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en el ^8B4513Calabozo de Geffen^000000.";
+			case 2: callsub L_Quest,4193,"Mineral",138000,"ï¿½Ì³×¶ï¿½","Hay un monstruo que solo se encuentra en el ^8B4513Calabozo de Einbech^000000.";
+			case 3: callsub L_Quest,4194,"Kaho",118000,"Ä«È£Ä«ï¿½ï¿½","Hay un monstruo que se encuentra en ^8B4513Nogg Road Magma 1^000000.";
+			case 4: callsub L_Quest,4195,"Neraid",96000,"ï¿½×·ï¿½ï¿½Ìµï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en el ^8B4513Calabozo de Comodo^000000.";
+			case 5: callsub L_Quest,4196,"Disguise",134000,"ï¿½ð½º°ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½","Hay un monstruo que solo se encuentra en ^8B4513Niflheim^000000.";
 		}
 	}
 	end;
@@ -166,19 +166,19 @@ L_Quest:
 	.@cutin$ = getarg(3);
 	set .@playtime, checkquest(.@quest2,PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
-		mes "[91-99 Mission Board]";
-		mes "You need to wait 3 hours before you can take this mission again.";
+		mes "[Tablero de Misiones 91-99]";
+		mes "Necesitas esperar 3 horas antes de poder tomar esta mision de nuevo.";
 		close;
 	}
 	set .@hunting, checkquest(.@quest1,HUNTING);
 	if (.@hunting == 0 || .@hunting == 1) {
-		mes "[91-99 Mission Board]";
-		mes "Have you finished hunting all 30 "+getarg(1)+getarg(5,"")+" yet?";
+		mes "[Tablero de Misiones 91-99]";
+		mes "Ya terminaste de cazar los 30 "+getarg(1)+getarg(5,"")+"?";
 		close;
 	} else if (.@hunting == 2) {
-		mes "[91-99 Mission Board]";
-		mes "You have completed the hunting.";
-		mes "Please accept this reward as a compensation.";
+		mes "[Tablero de Misiones 91-99]";
+		mes "Has completado la caza.";
+		mes "Por favor acepta esta recompensa como compensacion.";
 		erasequest .@quest1;
 		if (.@playtime > -1) erasequest .@quest2;
 		setquest .@quest2;
@@ -195,21 +195,21 @@ L_Quest:
 	}/* else if (.@hunting == 3) {
 //		recall_completequest .@quest1
 		erasequest .@quest1;
-		mes "[91-99 Mission Board]";
-		mes "You have re-accepted the "+getarg(1)+" Hunting mission.";
+		mes "[Tablero de Misiones 91-99]";
+		mes "Has re-aceptado la mision de Caza de "+getarg(1)+".";
 		close;
 	}*/ else {
-		mes "[91-99 Mission Board]";
+		mes "[Tablero de Misiones 91-99]";
 		mes getarg(4);
 		next;
 		if (.@cutin$ != "") cutin .@cutin$,3;
-		mes "[91-99 Mission Board]";
-		mes "Hunt 30 "+getarg(1)+" monsters there and post your success on this board.";
+		mes "[Tablero de Misiones 91-99]";
+		mes "Caza 30 monstruos "+getarg(1)+" ahi y publica tu exito en este tablero.";
 		next;
 		if (.@cutin$ != "") cutin .@cutin$,255;
-		if(select("I'll hunt them.:No thanks.") == 1) {
-			mes "[91-99 Mission Board]";
-			mes "When you have completed the mission, post it on this board and collect your reward.";
+		if(select("Los cazare.:No gracias.") == 1) {
+			mes "[Tablero de Misiones 91-99]";
+			mes "Cuando hayas completado la mision, publicalo en este tablero y recoge tu recompensa.";
 			if (.@playtime > -1) erasequest .@quest2;
 			setquest .@quest1;
 		}
