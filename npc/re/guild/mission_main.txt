@@ -15,8 +15,8 @@ function calcexp;
 function calcjobexp;
 
 	if (!checkweight(1201,3)){
-		mes "You have too many items to proceed with the quest.";
-		mes "Please lighten your load and try again.";
+		mes "Tienes demasiados objetos para continuar con la mision.";
+		mes "Por favor aligera tu carga e intenta de nuevo.";
 		close;
 	}
 
@@ -53,10 +53,10 @@ function calcjobexp;
 	.@npcname$ = .npcname$[.@zoneid];
 
 	mes .@npcname$;
-	mes "We provide missions and daily quests that you can complete in the region of " + .region$[.@zoneid] + ".";
-	mes "There are simple daily quests as well as missions that you have to complete within the siege hours only. So, think about it~";
+	mes "Proporcionamos misiones y misiones diarias que puedes completar en la region de " + .region$[.@zoneid] + ".";
+	mes "Hay misiones diarias simples asi como misiones que debes completar solo durante las horas de asedio. Asi que, piensalo~";
 	next;
-	switch(select("Conquering " + .region$[.@zoneid], "Guild Dungeon Daily Quests", "About quests", "I don't need it.")){
+	switch(select("Conquistar " + .region$[.@zoneid], "Misiones Diarias de Mazmorra de Gremio", "Sobre las misiones", "No lo necesito.")){
 		case 1: // Conquering.
 			.@gid = getcharid(2);
 			if(.@gid && is_guild_leader() == true){

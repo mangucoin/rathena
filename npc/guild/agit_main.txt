@@ -773,14 +773,14 @@ OnRecvCastle:
 		mes "Por favor selecciona un guardian para defendernos.";
 		next;
 		for( set .@i, 0; .@i <= 7 ; set .@i, .@i+1 ) {
-			if (.@guardiantype[.@i] == 1) { set .@type$,"Guardian Soldier"; }
-			else if (.@guardiantype[.@i] == 2) { set .@type$,"Guardian Archer"; }
-			else { set .@type$,"Guardian Knight"; }
+			if (.@guardiantype[.@i] == 1) { set .@type$,"Guardian Soldado"; }
+			else if (.@guardiantype[.@i] == 2) { set .@type$,"Guardian Arquero"; }
+			else { set .@type$,"Guardian Caballero"; }
 			if (guardianinfo(strnpcinfo(2),.@i,0)) {
-				setarray .@gname$[.@i], .@type$ + " - Implemented (" + guardianinfo(strnpcinfo(2),.@i,2) + "/" + guardianinfo(strnpcinfo(2),.@i,1) + ")";
+				setarray .@gname$[.@i], .@type$ + " - Instalado (" + guardianinfo(strnpcinfo(2),.@i,2) + "/" + guardianinfo(strnpcinfo(2),.@i,1) + ")";
 			}
 			else {
-				setarray .@gname$[.@i], .@type$ + " - Not Implemented";
+				setarray .@gname$[.@i], .@type$ + " - No Instalado";
 			}
 		}
 		set .@menu$,.@gname$[0]+":"+.@gname$[1]+":"+.@gname$[2]+":"+.@gname$[3]+":"+.@gname$[4]+":"+.@gname$[5]+":"+.@gname$[6]+":"+.@gname$[7];
@@ -968,16 +968,16 @@ OnRecvCastle:
 	mes "'Solo los verdaderamente valientes pueden tomar la prueba.'";
 	next;
 	mes " ";
-	mes "There's a small lever. Will you pull it?";
+	mes "Hay una pequena palanca. Quieres jalarla?";
 	next;
-	if(select("Pull.:Don't pull.") == 1) {
+	if(select("Jalar.:No jalar.") == 1) {
 		if (getcharid(2) == .@GID) {
 			close2;
 			warp .@destination$,.@coordinates[0],.@coordinates[1];
 			end;
 		}
 		mes " ";
-		mes "Nothing happened.";
+		mes "No paso nada.";
 		close;
 	}
 	close;

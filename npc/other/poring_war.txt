@@ -22,26 +22,26 @@
 prt_fild08,159,371,3	script	Poring War Recruiter#wop	909,{
 	mes "[Poring]";
 	mes "!!!!!";
-	mes "Whoa-! Humans, ring~!!";
-	mes "Gotta hide, hide, right~!";
-	mes "They're tempting us with Jellopy! Don't be fooled!";
+	mes "Whoa-! Humanos, ring~!!";
+	mes "Hay que esconderse, esconderse, verdad~!";
+	mes "Nos tienten con Jellopy! No se dejen enganar!";
 	next;
 	mes "[Poring]";
 	mes "Hwak!!";
-	mes "Ring, Ring~ What's wrong with you people..?";
-	mes "Hey.. Hey, there. Hu.. Humans...";
+	mes "Ring, Ring~ Que les pasa a ustedes..?";
+	mes "Oye.. Oye, tu. Hu.. Humanos...";
 	mes "Poring..";
 	next;
 	mes "[Poring]";
-	mes "I.. I've got some interesting work for ya.. Would you be interested?";
-	mes "We.. we porings need lots and lots of brave human worriers, ring~.";
+	mes "Te.. tengo un trabajo interesante para ti.. Te interesa?";
+	mes "No.. nosotros los porings necesitamos muchos y muchos valientes guerreros humanos, ring~.";
 	next;
-	switch(select("Alright, I'm with you!:What's that?:Ignore")) {
+	switch(select("Esta bien, estoy contigo!:Que es eso?:Ignorar")) {
 	case 1:
 		if (Zeny > 499) {
 			mes "[Poring]";
-			mes "Oh, and there's an entrance fee of 500 zeny, ring.";
-			mes "Have a good time, ring.";
+			mes "Oh, y hay una tarifa de entrada de 500 zeny, ring.";
+			mes "Que la pases bien, ring.";
 			delitem 7773,countitem(7773);
 			set Zeny,Zeny-500;
 			close2;
@@ -49,20 +49,20 @@ prt_fild08,159,371,3	script	Poring War Recruiter#wop	909,{
 			end;
 		} else {
 			mes "[Poring]";
-			mes "Oh, and there's an entrance fee of 500 zeny, ring.";
+			mes "Oh, y hay una tarifa de entrada de 500 zeny, ring.";
 			mes "...........";
-			mes "Hey, that's life, ring. We need zeny too you know~!";
+			mes "Oye, asi es la vida, ring. Nosotros tambien necesitamos zeny~!";
 			close;
 		}
 	case 2:
 		mes "[Poring]";
-		mes "That's.. because there's been a.. slight confliction in our.. Ring Society..";
-		mes "So we've got to.............have a battle to settle this problem..";
-		mes "You'll see when you get there!";
+		mes "Es.. porque ha habido un.. pequeno conflicto en nuestra.. Sociedad Ring..";
+		mes "Asi que tenemos que.............tener una batalla para resolver este problema..";
+		mes "Lo veras cuando llegues ahi!";
 		close;
 	case 3:
 		mes "[Poring]";
-		mes "Huhhhh! Hu.. Humans are so cold and cruel!!!";
+		mes "Huhhhh! Hu.. Los Humanos son tan frios y crueles!!!";
 		close;
 	}
 }
@@ -71,15 +71,15 @@ prt_fild08,159,371,3	script	Poring War Recruiter#wop	909,{
 //============================================================
 poring_w01,100,97,3	script	Poring Vending Machine#w	909,{
 	if (checkweight(714,3) == 0) {
-		mes "- You are carrying too much items in order to use the Vending Machine. -";
+		mes "- Estas cargando demasiados items para usar la Maquina Expendedora. -";
 		close;
 	}
-	mes "It's a vending machine. You can use Poring Coints to purchase.";
+	mes "Es una maquina expendedora. Puedes usar Poring Coins para comprar.";
 	next;
-	if(select("Purchase.:Read the descriptions of goods.") == 1) {
-		mes "You need Poring Coins to purchase items.";
-		mes "You cannot use any zeny.";
-		mes "Item name - Price Poring Coin(P.Co)";
+	if(select("Comprar.:Leer las descripciones de los productos.") == 1) {
+		mes "Necesitas Poring Coins para comprar items.";
+		mes "No puedes usar zeny.";
+		mes "Nombre del item - Precio Poring Coin(P.Co)";
 		next;
 		switch(select("Marvelous Medal - 4 P.Co:Union of Tribe - 20 P.Co:Poring Box - 30 P.Co:Next")) {
 		case 1:
@@ -89,8 +89,8 @@ poring_w01,100,97,3	script	Poring Vending Machine#w	909,{
 		case 3:
 			callsub S_PoringVending,12109,30;
 		case 4:
-			mes "This is a special item.";
-			mes "Item name - Poring Coin(P.Co)";
+			mes "Este es un item especial.";
+			mes "Nombre del item - Poring Coin(P.Co)";
 			next;
 			switch(select("Wild Rose - 15 P.Co:Doppelganger - 20 P.Co:Egnigem Cenia - 20 P.Co:Collection Item")) {
 			case 1:
@@ -100,10 +100,10 @@ poring_w01,100,97,3	script	Poring Vending Machine#w	909,{
 			case 3:
 				callsub S_PoringVending,12302,20;
 			case 4:
-				mes "Figures of 1st Job Class Characters including Novice are finally on sale!";
-				mes "Figures except for Novice are all ^4d4dffCharacter bound items^000000.";
-				mes "Please be aware before you make a purchase~";
-				mes "Item name - Poring Coin(P.Co)";
+				mes "Las figuras de Personajes de 1ra Clase incluyendo Novice estan finalmente a la venta!";
+				mes "Las figuras excepto la de Novice son todas ^4d4dffitems ligados al personaje^000000.";
+				mes "Por favor ten cuidado antes de hacer una compra~";
+				mes "Nombre del item - Poring Coin(P.Co)";
 				next;
 				switch(select("Novice Figure - 50 P.Co:Swordman Figure - 100 P.Co:Thief Figure - 100 P.Co:Merchant Figure - 100 P.Co:Acolyte Figure - 100 P.Co:Mage Figure - 100 P.Co:Archer Figure - 100 P.Co:Random Draw - 50 P.Co:Cancel")) {
 				case 1:

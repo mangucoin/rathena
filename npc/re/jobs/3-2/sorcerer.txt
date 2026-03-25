@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Sorcerer Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Muad_Dib
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.3
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Job change Quest from Sage / Professor -> Sorcerer.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Masao]
 //= 1.1 Cleaning. [Euphy]
 //= 1.2 Updated script, optimized. [Euphy]
@@ -19,97 +19,97 @@
 gef_tower,102,34,5	script	Merito	742,{
 	mes "[Merito]";
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "You packed so much in your bag. Try again after emptying your bag.";
+		mes "Empacaste demasiado en tu bolsa. Intenta de nuevo despues de vaciarla.";
 		close;
 	}
 	if (Class == Job_Sorcerer || Class == Job_Sorcerer_T || Class == Job_Baby_Sorcerer) {
-		mes "Please get on with the sprits well~ You should~!";
+		mes "Por favor llevate bien con los espiritus~ Deberias~!";
 		close;
 	}
 	if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
-		mes "Wow~ you are a young adventurer. I envy you.";
+		mes "Wow~ eres un aventurero joven. Te envidio.";
 		close;
 	}
 	if (BaseJob != Job_Sage) {
-		mes "Ahh~ I think you don't need to have a conversation with me.";
+		mes "Ahh~ creo que no necesitas tener una conversacion conmigo.";
 		close;
 	}
 	if (job_soc == 0) {
-		mes "Welcome. What can I help you with?";
+		mes "Bienvenido. En que puedo ayudarte?";
 		next;
-		select("Do you know about Sorcerers?");
+		select("Sabes sobre los Sorcerers?");
 		mes "[Merito]";
-		mes "Wouldn't it be more comfortable to just live as a scholar? Sorcerers are busy communicating with the spirits and don't have much time to read books...";
+		mes "No seria mas comodo simplemente vivir como un academico? Los Sorcerers estan ocupados comunicandose con los espiritus y no tienen mucho tiempo para leer libros...";
 		next;
 		mes "[Merito]";
-		mes "What made you want to be a sorcerer?";
+		mes "Que te hizo querer ser un Sorcerer?";
 		next;
-		if(select("The spirit of fire led me here.:The spirit of water led me here.:The spirit of earth led me here:The spirit of meat led me here.") == 4) {
+		if(select("El espiritu del fuego me trajo aqui.:El espiritu del agua me trajo aqui.:El espiritu de la tierra me trajo aqui:El espiritu de la carne me trajo aqui.") == 4) {
 			mes "[Merito]";
-			mes "That kind of spirit doesn't exist!";
+			mes "Ese tipo de espiritu no existe!";
 			close;
 		}
 		mes "[Merito]";
-		mes "Oh, I see.";
-		mes "You must be born with the natural ability to see that you already communicated with the spirits, or you must be an excellent liar.";
+		mes "Oh, ya veo.";
+		mes "Debes haber nacido con la habilidad natural de ver que ya te comunicaste con los espiritus, o debes ser un excelente mentiroso.";
 		next;
 		mes "[Merito]";
-		mes "Hmm... Then first, can you write down your name on this list?";
+		mes "Hmm... Entonces primero, puedes escribir tu nombre en esta lista?";
 		next;
-		if(select("Write name.:I won't.") == 2) {
+		if(select("Escribir nombre.:No lo hare.") == 2) {
 			mes "[Merito]";
-			mes "Well, okay. See you again when you get a chance.";
+			mes "Bueno, esta bien. Nos vemos cuando tengas la oportunidad.";
 			close;
 		}
 		mes "[Merito]";
-		mes "So, you are [" + strcharinfo(0) + "].";
+		mes "Entonces, tu eres [" + strcharinfo(0) + "].";
 		next;
 		mes "[Merito]";
-		mes "Give me a second to register your name.";
-		mes "Talk to me again in a second.";
+		mes "Dame un segundo para registrar tu nombre.";
+		mes "Habla conmigo de nuevo en un momento.";
 		set job_soc,1;
 		close;
 	} else if (job_soc == 1) {
-		mes "Good, then I'll give you a short explanation about the Sorcerer.";
+		mes "Bien, entonces te dare una breve explicacion sobre el Sorcerer.";
 		next;
 		mes "[Merito]";
-		mes "[" + strcharinfo(0) + "], can you handle magic skillfully?";
+		mes "[" + strcharinfo(0) + "], puedes manejar la magia con habilidad?";
 		next;
-		if(select("Yes, I can.:No, I'm not really good at it.") == 2) {
+		if(select("Si, puedo.:No, no soy muy bueno en eso.") == 2) {
 			mes "[Merito]";
-			mes "What!? You don't know how to use magic?";
-			mes "What are you doing here then? Get out of here. Right now!";
+			mes "Que!? No sabes como usar magia?";
+			mes "Que haces aqui entonces? Vete de aqui. Ahora mismo!";
 			close;
 		}
 		mes "[Merito]";
-		mes "Okay, that should be obvious.";
-		mes "Of course, Sorcerers use magic, too. But, do you know the main difference Sorcerers have from other magical jobs?";
+		mes "Bien, eso deberia ser obvio.";
+		mes "Por supuesto, los Sorcerers usan magia tambien. Pero, sabes la principal diferencia que tienen los Sorcerers de otros trabajos magicos?";
 		next;
-		switch(select("They know how to sing.:They're all old fogies.:They can deal with the spirits.")) {
+		switch(select("Saben como cantar.:Todos son viejos.:Pueden tratar con los espiritus.")) {
 		case 1:
 			mes "[Merito]";
-			mes "Well maybe some but that's not the main difference.";
+			mes "Bueno, quiza algunos, pero esa no es la principal diferencia.";
 			close;
 		case 2:
 			mes "[Merito]";
-			mes "What! How dare you!?!";
+			mes "Que! Como te atreves!?!";
 			close;
 		case 3:
 			break;
 		}
 		mes "[Merito]";
-		mes "That's right. That is the most distinguishing feature that Sorcerers have.";
+		mes "Asi es. Esa es la caracteristica mas distintiva que tienen los Sorcerers.";
 		next;
 		mes "[Merito]";
-		mes "When the people who want to be a Sorcerer come, the first thing we do is to check whether they can communicate with spirits or not.";
+		mes "Cuando las personas que quieren ser Sorcerer vienen, lo primero que hacemos es verificar si pueden comunicarse con los espiritus o no.";
 		next;
 		mes "[Merito]";
-		mes "So that's the basic introduction, so you just need to decide whether or not you want to take the qualification test.";
+		mes "Asi que esa es la introduccion basica, solo necesitas decidir si quieres o no tomar la prueba de cualificacion.";
 		next;
 		mes "[Merito]";
-		mes "Well, it's all up to you. What are you going to do?";
+		mes "Bueno, depende de ti. Que vas a hacer?";
 		next;
-		switch(select("I will take the test.:I'll do it later.")) {
+		switch(select("Tomare la prueba.:Lo hare despues.")) {
 		case 1:
 			if (VIP_SCRIPT) {
 				callfunc "VIP_Third_Class";
@@ -118,18 +118,18 @@ gef_tower,102,34,5	script	Merito	742,{
 				next;
 			}
 			mes "[Merito]";
-			mes "Okay. ";
-			mes "Then I'll hand it over to Karacas who is on the 4th floor. He will guide you through the process of the test.";
+			mes "De acuerdo. ";
+			mes "Entonces te lo pasare a Karacas que esta en el 4to piso. El te guiara a traves del proceso de la prueba.";
 			set job_soc,2;
 			setquest 12096;
 			close;
 		case 2:
 			mes "[Merito]";
-			mes "What? I was sure that you wanted to become a Sorcerer.";
+			mes "Que? Estaba seguro de que querias convertirte en Sorcerer.";
 			close;
 		}
 	} else {
-		mes "How about your test? Well, Karacas is a little lazy, so that might bother you some... kkk";
+		mes "Como va tu prueba? Bueno, Karacas es un poco flojo, asi que eso podria molestarte algo... jjj";
 		close;
 	}
 }
@@ -137,93 +137,93 @@ gef_tower,102,34,5	script	Merito	742,{
 gef_tower,113,161,5	script	Karacas	754,{
 	mes "[Karacas]";
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "Oh, it seems that you're too heavy. Empty your bag and then come again.";
+		mes "Oh, parece que estas muy pesado. Vacia tu bolsa y luego ven de nuevo.";
 		close;
 	}
 	if (Class == Job_Sorcerer || Class == Job_Sorcerer_T || Class == Job_Baby_Sorcerer) {
-		mes "You look happy. Have a great journey.";
+		mes "Te ves feliz. Que tengas un gran viaje.";
 		close;
 	}
 	if (BaseLevel < 99 || JobLevel < 50 || SkillPoint != 0) {
-		mes "Is there anything I can do for you?";
+		mes "Hay algo que pueda hacer por ti?";
 		close;
 	}
 	if (BaseJob != Job_Sage) {
-		mes "I belong to the Sorcerer association. I don't think you have any business with me.";
+		mes "Pertenezco a la asociacion de Sorcerers. No creo que tengas algun asunto conmigo.";
 		close;
 	}
 	if (job_soc < 2) {
-		mes "More people are visiting Geffen Tower these days.";
+		mes "Mas gente esta visitando Geffen Tower estos dias.";
 		close;
 	} else if (job_soc == 2) {
 		mes "....";
 		next;
-		select("Ah... excuse me~");
+		select("Ah... disculpe~");
 		mes "[Karacas]";
 		mes "... (Z z z~)";
 		next;
-		select("Hm hm!!!~");
+		select("Ejem ejem!!!~");
 		mes "[Karacas]";
 		mes "Aaaak!! ";
-		mes "Oh, my... ";
+		mes "Ay, Dios... ";
 		next;
 		mes "[Karacas]";
-		mes "Wh... where are you from?";
+		mes "De... de donde vienes?";
 		next;
-		select("Merito told me to visit you.");
+		select("Merito me dijo que te visitara.");
 		mes "[Karacas]";
-		mes "I see, give me a moment.";
-		mes "The list... has already arrived.";
+		mes "Ya veo, dame un momento.";
+		mes "La lista... ya ha llegado.";
 		next;
 		mes "[Karacas]";
-		mes "So, you are [" + strcharinfo(0) + "]... right?";
+		mes "Entonces, tu eres [" + strcharinfo(0) + "]... verdad?";
 		next;
-		if(select("Yes, I am.:No, I'm not!") == 2) {
+		if(select("Si, soy yo.:No, no soy yo!") == 2) {
 			mes "[Karacas]";
-			mes "Oh, there must be some mistake in the list, I think. Will you come again later?";
+			mes "Oh, debe haber algun error en la lista, creo. Podrias venir de nuevo despues?";
 			close;
 		}
 		mes "[Karacas]";
-		mes "Before you take the Sorcerer test, let me give you the basic information.";
+		mes "Antes de que tomes la prueba de Sorcerer, dejame darte la informacion basica.";
 		next;
 		mes "[Karacas]";
-		mes "The way to get a Sorcerer registration ticket is really simple. You just need to go and find one of each spirit scattered around the world, and then convert their power into the shape of a certain material.";
+		mes "La forma de obtener un boleto de registro de Sorcerer es realmente simple. Solo necesitas ir y encontrar uno de cada espiritu disperso por el mundo, y luego convertir su poder en la forma de cierto material.";
 		next;
 		mes "[Karacas]";
-		mes "Sounds easy, right?";
+		mes "Suena facil, verdad?";
 		next;
-		select("Ahh... sir. Is that really possible?");
+		select("Ahh... senor. Eso realmente es posible?");
 		mes "[Karacas]";
-		mes "Well, it is impossible to meet every spirit by yourself. You need to train yourself very hard to give a shape to the spirits and see them clearly through your eyes.";
-		next;
-		mes "[Karacas]";
-		mes "So, usually we perform a certain ceremony parade toward the place where we can feel the spirits.";
+		mes "Bueno, es imposible encontrar cada espiritu por ti mismo. Necesitas entrenarte muy duro para dar forma a los espiritus y verlos claramente a traves de tus ojos.";
 		next;
 		mes "[Karacas]";
-		mes "I will tell you how to do that. So listen carefully.";
+		mes "Asi que, usualmente realizamos cierto desfile ceremonial hacia el lugar donde podemos sentir a los espiritus.";
 		next;
 		mes "[Karacas]";
-		mes "Usually we cannot see the spirits with our eyes but there is a way to realize the part of the spirits through a special medium.";
+		mes "Te dire como hacerlo. Asi que escucha con atencion.";
 		next;
 		mes "[Karacas]";
-		mes "For example, if you visit the place where the spirit of wind stays with a certain amount of Wind of Verdure, the reaction of the spirit is amplified.";
+		mes "Usualmente no podemos ver a los espiritus con nuestros ojos pero hay una forma de percibir la parte de los espiritus a traves de un medio especial.";
 		next;
 		mes "[Karacas]";
-		mes "Likewise, if you approach the place where the spirit of fire seems to stay while you have a certain amount of Red Blood, the spirit will show the adverse reaction.";
+		mes "Por ejemplo, si visitas el lugar donde el espiritu del viento permanece con cierta cantidad de Wind of Verdure, la reaccion del espiritu se amplifica.";
 		next;
 		mes "[Karacas]";
-		mes "Sorcerers use this basic principle, this is the essential knowledge that Sorcerers need to have to reach the spirits.";
-		next;
-		select("So communicating with spirits...");
-		mes "[Karacas]";
-		mes "Right~";
-		mes "This job is based on the power of spirits.";
+		mes "De la misma manera, si te acercas al lugar donde el espiritu del fuego parece permanecer mientras tienes cierta cantidad de Red Blood, el espiritu mostrara la reaccion adversa.";
 		next;
 		mes "[Karacas]";
-		mes "Hmm, but it might be hard for someone like you who's focused only on reading books...";
+		mes "Los Sorcerers usan este principio basico, este es el conocimiento esencial que los Sorcerers necesitan tener para alcanzar a los espiritus.";
+		next;
+		select("Entonces comunicarse con los espiritus...");
+		mes "[Karacas]";
+		mes "Correcto~";
+		mes "Este trabajo esta basado en el poder de los espiritus.";
 		next;
 		mes "[Karacas]";
-		mes "First, you need to bring the following materials needed for the test.";
+		mes "Hmm, pero podria ser dificil para alguien como tu que solo se ha enfocado en leer libros...";
+		next;
+		mes "[Karacas]";
+		mes "Primero, necesitas traer los siguientes materiales necesarios para la prueba.";
 		next;
 		mes "[Karacas]";
 		mes "3 Wind of Verdure.";
@@ -232,83 +232,83 @@ gef_tower,113,161,5	script	Karacas	754,{
 		mes "3 Green Live.";
 		next;
 		mes "[Karacas]";
-		mes "When you bring these materials, I'll tell you the next step.";
+		mes "Cuando traigas estos materiales, te dire el siguiente paso.";
 		set job_soc,3;
 		changequest 12096,12097;
 		close;
 	} else if (job_soc == 3) {
 		if (countitem(992) > 2 && countitem(991) > 2 && countitem(990) > 2 && countitem(993) > 2) {
-			mes "Oh, you have all the materials.";
+			mes "Oh, tienes todos los materiales.";
 			next;
-			select("What should I do next?");
+			select("Que debo hacer ahora?");
 			mes "[Karacas]";
-			mes "I'll tell you about it now. First, I'll tell you the places for the test. You better write them down.";
-			next;
-			mes "[Karacas]";
-			mes "1. 1st floor of Ice Cave";
-			mes "2. 1st floor of Thor Volcano Dungeon";
-			mes "3. 3rd floor of Mjolnir Dead Pit";
-			mes "4. 2nd floor of Kunlun Dungeon";
+			mes "Te lo dire ahora. Primero, te dire los lugares de la prueba. Mejor anotalos.";
 			next;
 			mes "[Karacas]";
-			mes "We have set up the detecting poles in these 4 places so that ordinary people can communicate with the spirits.";
+			mes "1. 1er piso de Ice Cave";
+			mes "2. 1er piso de Thor Volcano Dungeon";
+			mes "3. 3er piso de Mjolnir Dead Pit";
+			mes "4. 2do piso de Kunlun Dungeon";
 			next;
 			mes "[Karacas]";
-			mes "Be aware that these detecting poles are activated only when you have more than the certain amount of property stones.";
+			mes "Hemos colocado los postes detectores en estos 4 lugares para que las personas comunes puedan comunicarse con los espiritus.";
 			next;
 			mes "[Karacas]";
-			mes "You need to prepare at least 3 small stones for each property. For example, you need Wind of Verdure, not Rough Wind.";
-			next;
-			select("So I need the property stones...");
-			mes "[Karacas]";
-			mes "Yes, you have quick wits!";
+			mes "Ten en cuenta que estos postes detectores se activan solo cuando tienes mas de cierta cantidad de piedras de propiedad.";
 			next;
 			mes "[Karacas]";
-			mes "Once you bring the stones to the poles, put them into the property decomposing machine which is attached to the pole. The detecting pole will be activated, and you can communicate with the spirit.";
+			mes "Necesitas preparar al menos 3 piedras pequenas para cada propiedad. Por ejemplo, necesitas Wind of Verdure, no Rough Wind.";
+			next;
+			select("Entonces necesito las piedras de propiedad...");
+			mes "[Karacas]";
+			mes "Si, tienes un ingenio rapido!";
 			next;
 			mes "[Karacas]";
-			mes "If you succeed, you can extract a part of the spirit as a reagent. If you fail, the property stone will break up.";
+			mes "Una vez que lleves las piedras a los postes, ponlas en la maquina de descomposicion de propiedades que esta adjunta al poste. El poste detector se activara, y podras comunicarte con el espiritu.";
 			next;
 			mes "[Karacas]";
-			mes "Of course if you are lucky enough, if you fail, a Wind of Verdure can be changed into a Rough Wind... Well, that's not a common situation so let's leave that out of the discussion for now.";
-			next;
-			select("What if I run out of stones?");
-			mes "[Karacas]";
-			mes "Ahahaha... If you run out of property stones, you simply have to get more.";
+			mes "Si tienes exito, podras extraer una parte del espiritu como reactivo. Si fallas, la piedra de propiedad se rompera.";
 			next;
 			mes "[Karacas]";
-			mes "So people who have this test usually start with as many property stones as they can carry. The amount I told you to get is just the bare minimum.";
+			mes "Por supuesto si tienes suficiente suerte, si fallas, un Wind of Verdure puede cambiarse a un Rough Wind... Bueno, esa no es una situacion comun asi que dejemos eso fuera de la discusion por ahora.";
+			next;
+			select("Que pasa si me quedo sin piedras?");
+			mes "[Karacas]";
+			mes "Ahahaha... Si te quedas sin piedras de propiedad, simplemente tienes que conseguir mas.";
 			next;
 			mes "[Karacas]";
-			mes "If you are an advanced Sorcerer, you will be able to talk with spirits without going through this process again. But beginners need to use that kind of medium to talk with them.";
-			next;
-			select("So the reagent is...?");
-			mes "[Karacas]";
-			mes "We don't know which reagent is going to be made from the spirits. It differs by the state of spirits.";
+			mes "Asi que las personas que toman esta prueba usualmente comienzan con tantas piedras de propiedad como puedan cargar. La cantidad que te dije que consiguieras es solo el minimo.";
 			next;
 			mes "[Karacas]";
-			mes "When you succeed in getting 3 different kinds of reagents, you can come back.";
+			mes "Si eres un Sorcerer avanzado, podras hablar con los espiritus sin pasar por este proceso de nuevo. Pero los principiantes necesitan usar ese tipo de medio para hablar con ellos.";
+			next;
+			select("Entonces el reactivo es...?");
+			mes "[Karacas]";
+			mes "No sabemos que reactivo va a ser creado por los espiritus. Difiere por el estado de los espiritus.";
 			next;
 			mes "[Karacas]";
-			mes "A reagent that one spirit makes won't be over 2 kinds so if you're going to make 3 kinds of reagents, I suggest you go around several places.";
+			mes "Cuando logres obtener 3 tipos diferentes de reactivos, puedes volver.";
 			next;
 			mes "[Karacas]";
-			mes "Have any questions?";
+			mes "Un reactivo que un espiritu hace no sera de mas de 2 tipos asi que si vas a hacer 3 tipos de reactivos, te sugiero que vayas a varios lugares.";
 			next;
-			if(select("No.:Please explain it again.") == 2) {
+			mes "[Karacas]";
+			mes "Tienes alguna pregunta?";
+			next;
+			if(select("No.:Por favor explicamelo de nuevo.") == 2) {
 				mes "[Karacas]";
-				mes "Haha, then can I have a cup of water for a minute? Please come and find me again later.";
+				mes "Jaja, entonces puedo tomar un vaso de agua por un minuto? Por favor ven a buscarme de nuevo despues.";
 				next;
 			}
 			mes "[Karacas]";
-			mes "Then I'll write down the progress that I've summarized shortly. Wait...";
+			mes "Entonces escribire el progreso que he resumido brevemente. Espera...";
 			next;
-			mes "^000099You got a paper on which the way of communicating with spirits is written. For more information please open your quest window^000000.";
+			mes "^000099Obtuviste un papel en el que esta escrita la forma de comunicarse con los espiritus. Para mas informacion por favor abre tu ventana de quests^000000.";
 			set job_soc,4;
 			changequest 12097,12098;
 			close;
 		}
-		mes "Before I let you know the progressing way, you'll need to bring some required material.";
+		mes "Antes de que te diga la forma de proceder, necesitaras traer algun material requerido.";
 		next;
 		mes "[Karacas]";
 		mes "3 Wind of Verdure.";
@@ -317,16 +317,16 @@ gef_tower,113,161,5	script	Karacas	754,{
 		mes "3 Green Live.";
 		next;
 		mes "[Karacas]";
-		mes "When you bring these basic things, I'll guide you to the next step.";
+		mes "Cuando traigas estas cosas basicas, te guiare al siguiente paso.";
 		close;
 	} else if (job_soc == 4) {
 		if (countitem(6276) && countitem(6278) && countitem(6277)) {
-			mes "Wow~ your skill is good.";
-			mes "I thought you'd be overwhelmed by the spirits but you've managed to get the effective medicine!";
+			mes "Wow~ tu habilidad es buena.";
+			mes "Pense que serias abrumado por los espiritus pero lograste obtener la medicina efectiva!";
 			next;
-			select("Is this all I need to do?");
+			select("Es todo lo que necesito hacer?");
 			mes "[Karacas]";
-			mes "Well done. First, I will organize the miraculous medicine so please wait a moment.";
+			mes "Bien hecho. Primero, organizare la medicina milagrosa asi que por favor espera un momento.";
 			delitem 6276,1; //Clear_Reagent
 			delitem 6278,1; //Black_Reagent
 			delitem 6277,1; //Red_Reagent
@@ -334,47 +334,47 @@ gef_tower,113,161,5	script	Karacas	754,{
 			completequest 12098;
 			close;
 		}
-		mes "It's not an easy thing to get the desired effect by communicating with spirits.";
+		mes "No es facil obtener el efecto deseado al comunicarse con los espiritus.";
 		next;
 		mes "[Karacas]";
-		mes "Don't give up and keep on trying~";
+		mes "No te rindas y sigue intentando~";
 		close;
 	} else if (job_soc == 5) {
-		mes "Originally my teacher needs to check the Sorcerer job change but after he went out to find the spirit of fish, I can't see him. So I'll check it myself.";
+		mes "Originalmente mi maestro necesita verificar el cambio de trabajo a Sorcerer pero despues de que salio a buscar el espiritu del pez, no puedo verlo. Asi que lo verificare yo mismo.";
 		next;
 		mes "[Karacas]";
-		mes "Dear [" + strcharinfo(0) + "],";
-		mes "you went around the rough wilds to open the door as a Sorcerer and passed all the requirements that our Academy has given.";
+		mes "Querido [" + strcharinfo(0) + "],";
+		mes "fuiste por las tierras salvajes para abrir la puerta como Sorcerer y pasaste todos los requisitos que nuestra Academia ha dado.";
 		next;
 		mes "[Karacas]";
-		mes "Of course it is just a beginning, we don't know which spirit you're going to commune with or what kind of hardships await you.";
+		mes "Por supuesto es solo el comienzo, no sabemos con que espiritu vas a comunicarte o que tipo de dificultades te esperan.";
 		next;
 		mes "[Karacas]";
-		mes "But with the ability you've shown until now, you will be capable to do anything from now on. Dear [" + strcharinfo(0) + "]";
+		mes "Pero con la habilidad que has mostrado hasta ahora, seras capaz de hacer cualquier cosa de ahora en adelante. Querido [" + strcharinfo(0) + "]";
 		next;
 		mes "[Kalakas]";
 		if (BaseLevel < 99 || JobLevel < 50 || SkillPoint) {
-			mes "Before I appointed you the need job, please check on your own body status. ";
+			mes "Antes de que te asigne el nuevo trabajo, por favor verifica tu propio estado. ";
 			next;
 			mes "[Kalakas]";
-			mes "You must have the etiquette of your job now before you accept the new job! ";
+			mes "Debes tener la etiqueta de tu trabajo actual antes de aceptar el nuevo trabajo! ";
 			close;
 		}
 		if (ismounting()) {
-			mes "Good, before we get started...";
-			mes "Please unequip your riding pet~";
+			mes "Bien, antes de empezar...";
+			mes "Por favor desequipa tu mascota de montura~";
 			close;
 		}
-		mes "Moreover, I formally acknowledge that you've completed all the job transfer tests of the Sorcerer Academy.";
+		mes "Ademas, reconozco formalmente que has completado todas las pruebas de transferencia de trabajo de la Academia de Sorcerers.";
 		next;
 		mes "[Karacas]";
-		mes "Congratulations, [" + strcharinfo(0) + "]";
+		mes "Felicidades, [" + strcharinfo(0) + "]";
 		jobchange roclass(eaclass()|EAJL_THIRD);
 		getitem 5756,1; //Wind_Whisper
 		getitem 2795,1; //Green_Apple_Ring
 		next;
 		mes "[Karacas]";
-		mes "I hope that you gain more communion with spirits from now on.";
+		mes "Espero que ganes mas comunion con los espiritus de ahora en adelante.";
 		close;
 	}
 }
@@ -391,33 +391,33 @@ gef_tower,113,161,5	script	Karacas	754,{
 		set .@soc_ran, rand(1,70);
 		if (.@soc_ran < 10) {
 			if (countitem(.@id[2]) == 0) {
-				mes "You got a reagent by communicating with an unseen spirit.";
+				mes "Obtuviste un reactivo al comunicarte con un espiritu invisible.";
 				getitem .@id[2],1; //Clear_Reagent,Black_Reagent,Red_Reagent
 				close;
 			}
-			mes "It doesn't seem like you got anything special from the spirits.";
+			mes "No parece que hayas obtenido algo especial de los espiritus.";
 			close;
 		} else if (.@soc_ran > 9 && .@soc_ran < 16) {
 			if (countitem(.@id[3]) == 0) {
-				mes "You got a reagent by communicating with an unseen spirit.";
+				mes "Obtuviste un reactivo al comunicarte con un espiritu invisible.";
 				getitem .@id[3],1; //Clear_Reagent,Black_Reagent,Red_Reagent
 				close;
 			}
-			mes "It doesn't seem like you got anything special from the spirits.";
+			mes "No parece que hayas obtenido algo especial de los espiritus.";
 			close;
 		} else if (.@soc_ran == 56) {
-			mes "The spirit combined the property stones into a huge property stone.";
+			mes "El espiritu combino las piedras de propiedad en una gran piedra de propiedad.";
 			getitem .@id[1],1; //Flame_Heart,Mistic_Frozen,Great_Nature,Rough_Wind
 			close;
 		} else {
-			mes "You used the property stones but it looks like you failed to communicate with the spirits.";
+			mes "Usaste las piedras de propiedad pero parece que fallaste al comunicarte con los espiritus.";
 			close;
 		}
 	}
-	mes "I can see the detecting staff that's been installed by the Sorcerer Union to communicate with the spirits.";
+	mes "Puedo ver el poste detector que fue instalado por la Union de Sorcerers para comunicarse con los espiritus.";
 	if (job_soc == 4 && countitem(.@id[0]) < 3) {
 		next;
-		mes "If you have the suitable property stones, you should be able to commune with the spirits.";
+		mes "Si tienes las piedras de propiedad adecuadas, deberias poder comunicarte con los espiritus.";
 	}
 	close;
 }

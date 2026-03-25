@@ -1766,10 +1766,10 @@ OnTouch_:
 		mes "Debo haberte subestimado... No esperaba verte de nuevo.";
 		next;
 		mes "[Mysterious Voice]";
-		mes "I can smell your sweat, hear the gasps of your exhaustion in combat. Ah~ The human desire for victory always excites me.";
+		mes "Puedo oler tu sudor, escuchar los jadeos de tu agotamiento en combate. Ah~ El deseo humano de victoria siempre me emociona.";
 		next;
 		mes "[Mysterious Voice]";
-		mes "I now allow you to come receive an audience from me. Come to me, to Naght Sieger the Hegemon-King of the Darkness!";
+		mes "Ahora te permito venir a recibir una audiencia conmigo. Ven a mi, a Naght Sieger, el Rey Hegemon de la Oscuridad!";
 		close2;
 		warp instance_mapname("6@tower"),32,12;
 	}
@@ -1844,7 +1844,7 @@ OnMyMobDead:
 	set .@map$, instance_mapname("5@tower");
 	set .@mob_dead_num,mobcount(.@map$,instance_npcname("#102FShadowDust1")+"::OnMyMobDead");
 	if (.@mob_dead_num < 1) {
-		mapannounce .@map$, "Mysterious Voice: Who are you to dare intrude upon my sanctuary?!",bc_map,"0xffff00";
+		mapannounce .@map$, "Voz Misteriosa: Quienes son ustedes para atreverse a invadir mi santuario?!",bc_map,"0xffff00";
 		donpcevent instance_npcname("#102FShadowDust")+"::OnDisable";
 		donpcevent instance_npcname("Lucid Crystal#102")+"::OnEnable";
 		//SetItemPartyInMap in_102floor 100
@@ -1905,21 +1905,21 @@ OnEnable:
 
 5@tower,71,1,0	script	#Manager Mode5	844,{
 	callfunc "F_GM_NPC";
-	mes "This NPC manages the crystal on the 100th Level. Please enter the password.";
+	mes "Este NPC administra el cristal del Nivel 100. Por favor ingresa la contrasena.";
 	set .@i, callfunc("F_GM_NPC","dmc2008",1);
 	next;
 	if (.@i == 1) {
 		donpcevent instance_npcname("Lucid Crystal#102")+"::OnEnable";
-		mes "The 100th Level's crystal has been activated.";
+		mes "El cristal del Nivel 100 ha sido activado.";
 	} else
-		mes "Please enter the correct password.";
+		mes "Por favor ingresa la contrasena correcta.";
 	close;
 }
 
 // Level 101
 //============================================================
 6@tower,45,89,2	script	Life Spring#1	844,{
-	mes "^0066ffYou took a sip of the spring's clear water, and you feel invigorated.^000000";
+	mes "^0066ffTomaste un sorbo del agua cristalina del manantial, y te sientes revitalizado.^000000";
 	heal (MaxHp-Hp),(MaxSp-Sp);
 	close;
 
@@ -1982,24 +1982,24 @@ OnEnable:
 	end;
 
 OnTimer500:
-	mapannounce instance_mapname("6@tower"),"Guests, huh? I hope you've come here knowing that you'll be buried in this place. If you didn't know, well... it's too late!",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Invitados, eh? Espero que hayan venido sabiendo que seran enterrados en este lugar. Si no lo sabian, bueno... es demasiado tarde!",bc_map,"0x00ffcc";
 	end;
 
 OnTimer5500:
-	mapannounce instance_mapname("6@tower"),"This is why you adventurers always end up dead.",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Por eso ustedes los aventureros siempre terminan muertos.",bc_map,"0x00ffcc";
 	end;
 
 OnTimer10500:
-	mapannounce instance_mapname("6@tower"),"I may applaud you for your courage... Of course, I intend to play with you a little bit first.",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Puedo aplaudir su coraje... Por supuesto, pretendo jugar con ustedes un poco primero.",bc_map,"0x00ffcc";
 	end;
 
 OnTimer15500:
-	mapannounce instance_mapname("6@tower"),"You know, I like watching humans running around in fear.",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Saben, me gusta ver a los humanos correr aterrados.",bc_map,"0x00ffcc";
 	end;
 
 OnTimer20500:
 	set .@map$, instance_mapname("6@tower");
-	mapannounce .@map$,"Let's see who runs fastest. Are you ready?",bc_map,"0x00ffcc";
+	mapannounce .@map$,"Veamos quien corre mas rapido. Estan listos?",bc_map,"0x00ffcc";
 	stopnpctimer;
 	areamonster .@map$,151,66,153,106,"Bone Guardian",1152,50,instance_npcname("#1st Beeper")+"::OnMyMobDead";
 	areamonster .@map$,158,66,160,106,"Bone Guardian",1152,50,instance_npcname("#1st Beeper")+"::OnMyMobDead";
@@ -2013,7 +2013,7 @@ OnMyMobDead:
 		//SetItemPartyInMap in_102floor 101
 	}
 	else
-		mapannounce .@map$,"Remaining Targets " + .@mob_dead_num + "ea",bc_map,"0x00ff99";
+		mapannounce .@map$,"Objetivos restantes " + .@mob_dead_num,bc_map,"0x00ff99";
 	end;
 }
 
@@ -2025,16 +2025,16 @@ OnEnable:
 	end;
 
 OnTimer500:
-	mapannounce instance_mapname("6@tower"),"Well, I guess they aren't too challenging for you.",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Bueno, supongo que no son muy desafiantes para ustedes.",bc_map,"0x00ffcc";
 	end;
 
 OnTimer5500:
-	mapannounce instance_mapname("6@tower"),"Let's speed up a little bit, shall we?",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Aceleremos un poco, les parece?",bc_map,"0x00ffcc";
 	end;
 
 OnTimer10500:
 	set .@map$, instance_mapname("6@tower");
-	mapannounce .@map$,"I demand an encore!",bc_map,"0x00ffcc";
+	mapannounce .@map$,"Exijo un encore!",bc_map,"0x00ffcc";
 	stopnpctimer;
 	areamonster .@map$,151,66,153,106,"Wind Guardian",1263,30,instance_npcname("#2nd Beeper")+"::OnMyMobDead";
 	areamonster .@map$,158,66,160,106,"Wind Guardian",1263,30,instance_npcname("#2nd Beeper")+"::OnMyMobDead";
@@ -2048,7 +2048,7 @@ OnMyMobDead:
 		//SetItemPartyInMap in_102floor 102
 	}
 	else
-		mapannounce .@map$,"Remaining Targets " + .@mob_dead_num + "ea",bc_map,"0x00ff99";
+		mapannounce .@map$,"Objetivos restantes " + .@mob_dead_num,bc_map,"0x00ff99";
 	end;
 }
 
@@ -2060,16 +2060,16 @@ OnEnable:
 	end;
 
 OnTimer500:
-	mapannounce instance_mapname("6@tower"),"Yes, this is getting exciting!",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Si, esto se esta poniendo emocionante!",bc_map,"0x00ffcc";
 	end;
 
 OnTimer5500:
-	mapannounce instance_mapname("6@tower"),"I'll remember you as one of a few that have managed to entertain me.",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Los recordare como uno de los pocos que lograron entretenerme.",bc_map,"0x00ffcc";
 	end;
 
 OnTimer10500:
 	set .@map$, instance_mapname("6@tower");
-	mapannounce .@map$,"How would you like to play one more round?",bc_map,"0x00ffcc";
+	mapannounce .@map$,"Les gustaria jugar una ronda mas?",bc_map,"0x00ffcc";
 	stopnpctimer;
 	areamonster .@map$,151,66,153,106,"Sword Edge Guardian",1132,20,instance_npcname("#3rd Beeper")+"::OnMyMobDead";
 	areamonster .@map$,158,66,160,106,"Sword Edge Guardian",1132,20,instance_npcname("#3rd Beeper")+"::OnMyMobDead";
@@ -2083,7 +2083,7 @@ OnMyMobDead:
 		//SetItemPartyInMap in_102floor 103
 	}
 	else
-		mapannounce .@map$,"Remaining Targets " + .@mob_dead_num + "ea",bc_map,"0x00ff99";
+		mapannounce .@map$,"Objetivos restantes " + .@mob_dead_num,bc_map,"0x00ff99";
 	end;
 }
 
@@ -2095,16 +2095,16 @@ OnEnable:
 	end;
 
 OnTimer500:
-	mapannounce instance_mapname("6@tower"),"Okay, the time has come to make my appearance!",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Bien, ha llegado el momento de hacer mi aparicion!",bc_map,"0x00ffcc";
 	end;
 
 OnTimer5500:
-	mapannounce instance_mapname("6@tower"),"Do you want to know who I am?",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"Quieren saber quien soy?",bc_map,"0x00ffcc";
 	end;
 
 OnTimer10500:
 	set .@map$, instance_mapname("6@tower");
-	mapannounce .@map$,"You'll soon know. Mine is the face of death!",bc_map,"0x00ffcc";
+	mapannounce .@map$,"Pronto lo sabran. El mio es el rostro de la muerte!",bc_map,"0x00ffcc";
 	stopnpctimer;
 	monster .@map$,156,147,"Naght Sieger",1956,1,instance_npcname("#4th Beeper")+"::OnMyMobDead";
 	end;
@@ -2116,31 +2116,31 @@ OnMyMobDead:
 
 6@tower,169,127,2	script	Lost Soul#102	796,{
 	if (checkweight(1201,1) == 0) {
-		mes "You're carrying too much stuff. Why don't you put some of it away, and then come back?";
+		mes "Estas cargando demasiadas cosas. Por que no guardas algunas y luego vuelves?";
 		close;
 	}
 	mes "[Lost Souls]";
-	mes "It's you that have liberated us from the evil Naght Sieger.";
+	mes "Son ustedes quienes nos han liberado del malvado Naght Sieger.";
 	next;
 	mes "[Lost Souls]";
-	mes "Thank you so much. Now we can escape from this cold and dark place... to heaven.";
+	mes "Muchas gracias. Ahora podemos escapar de este lugar frio y oscuro... al cielo.";
 	next;
 	if ((countitem(13412) > 0) && (countitem(13413) > 0)) {
 		mes "[Lost Souls]";
-		mes "Hey, you have the remnants of Naght Sieger with you.";
+		mes "Oye, tienes los restos de Naght Sieger contigo.";
 		next;
 		mes "[Lost Souls]";
-		mes "They may appear to be one-handed swords, but I can put them together to make a two-handed one if you want. That's the only way I can repay you for freeing me.";
+		mes "Pueden parecer espadas de una mano, pero puedo unirlas para hacer una de dos manos si quieres. Es la unica forma en que puedo pagarte por liberarme.";
 		next;
-		switch(select("Make a Two-Handed Sword.:No, thanks.")) {
+		switch(select("Crear una Espada de Dos Manos.:No, gracias.")) {
 		case 1:
 			mes "[Lost Souls]";
-			mes "If it is already upgraded or has a card inside, those effects will be disappear. Is this ok with you?";
+			mes "Si ya esta mejorada o tiene una carta dentro, esos efectos desapareceran. Estas de acuerdo?";
 			next;
-			switch(select("It's fine with me. Please make one.:No way!")) {
+			switch(select("Esta bien. Por favor crea una.:De ninguna manera!")) {
 			case 1:
 				mes "[Lost Souls]";
-				mes "Good, then I'll combine these to create a two-handed sword.";
+				mes "Bien, entonces combinare estas para crear una espada de dos manos.";
 				next;
 				delitem 13412,1; //Twin_Edge_B
 				delitem 13413,1; //Twin_Edge_R
@@ -2148,23 +2148,23 @@ OnMyMobDead:
 				break;
 			case 2:
 				mes "[Lost Souls]";
-				mes "I see. I guess you aren't as greedy or ambitious as those other adventurers.";
+				mes "Ya veo. Supongo que no eres tan codicioso o ambicioso como esos otros aventureros.";
 				next;
 				break;
 			}
 			break;
 		case 2:
 			mes "[Lost Souls]";
-			mes "I see. I guess you aren't as greedy or ambitious as those other adventurers.";
+			mes "Ya veo. Supongo que no eres tan codicioso o ambicioso como esos otros aventureros.";
 			next;
 			break;
 		}
 	}
 	mes "[Lost Souls]";
-	mes "I'd like to talk to you more, but I've... I've got to go now.";
+	mes "Me gustaria hablar mas contigo, pero yo... tengo que irme ahora.";
 	next;
 	mes "[Lost Souls]";
-	mes "Farewell, young adventurer. I wish you good luck.";
+	mes "Adios, joven aventurero. Te deseo buena suerte.";
 	close2;
 	warp "alberta",223,36;
 	end;
@@ -2181,15 +2181,15 @@ OnEnable:
 	end;
 
 OnTimer500:
-	mapannounce instance_mapname("6@tower"),"This... This can't be happening! I can't be defeated!",bc_map,"0xffff00";
+	mapannounce instance_mapname("6@tower"),"Esto... Esto no puede estar pasando! No puedo ser derrotado!",bc_map,"0xffff00";
 	end;
 
 OnTimer5500:
-	mapannounce instance_mapname("6@tower"),"Nooo! My soul... My shell...! Nooo~!",bc_map,"0xffff00";
+	mapannounce instance_mapname("6@tower"),"Nooo! Mi alma... Mi cuerpo...! Nooo~!",bc_map,"0xffff00";
 	end;
 
 OnTimer10500:
-	mapannounce instance_mapname("6@tower"),"Naght Sieger's body has turned into dark ashes that scattered in the wind.",bc_map,"0x00ffcc";
+	mapannounce instance_mapname("6@tower"),"El cuerpo de Naght Sieger se ha convertido en cenizas oscuras que se dispersaron con el viento.",bc_map,"0x00ffcc";
 	stopnpctimer;
 	end;
 }

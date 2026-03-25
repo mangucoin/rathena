@@ -114,17 +114,17 @@ function	script	F_Invest_Status	{
 //callfunc "F_Invest_Abyss","<variable>","<NPC name>"{,"<addon message>"};
 function	script	F_Invest_Abyss	{
 	.@npc_name$ = getarg(1);
-	mes "There are 2 ways to invest, by Zeny or the Investment Certificate given out by the Cat Paw Merchant Guild.";
-	mes "Which way would you like to make your investment?";
+	mes "Hay 2 formas de invertir, con Zeny o con el Certificado de Inversion otorgado por el Gremio de Mercaderes Cat Paw.";
+	mes "De que forma te gustaria hacer tu inversion?";
 	next;
-	switch(select("Invest with Zeny.:Invest with Investment Certificates.:Cancel")) {
+	switch(select("Invertir con Zeny.:Invertir con Certificados de Inversion.:Cancelar")) {
 	case 1:
 		mes .@npc_name$;
-		mes "So you've decided to invest in Zeny.";
-		mes "Minimum investment unit is ^4d4dff10,000 Zeny^000000.";
-		mes "You can invest a maximum of 50 units which is ^4d4dff500,000 Zeny^000000.";
+		mes "Asi que decidiste invertir en Zeny.";
+		mes "La unidad minima de inversion es ^4d4dff10,000 Zeny^000000.";
+		mes "Puedes invertir un maximo de 50 unidades que son ^4d4dff500,000 Zeny^000000.";
 		next;
-		switch(select("1 unit 10,000 Zeny:10 units 100,000 Zeny:50 units 500,000 Zeny:Another amount:Cancel")) {
+		switch(select("1 unidad 10,000 Zeny:10 unidades 100,000 Zeny:50 unidades 500,000 Zeny:Otra cantidad:Cancelar")) {
 		case 1:
 			set .@units,1;
 			break;
@@ -136,46 +136,46 @@ function	script	F_Invest_Abyss	{
 			break;
 		case 4:
 			mes .@npc_name$;
-			mes "Please enter the amount you want to invest.";
-			mes "Please choose between 1 to 200.";
-			mes "Please enter 0 to cancel.";
+			mes "Por favor ingresa la cantidad que deseas invertir.";
+			mes "Por favor elige entre 1 y 200.";
+			mes "Por favor ingresa 0 para cancelar.";
 			next;
 			input .@units;
 			if (.@units < 0 || .@units > 200) {
 				mes .@npc_name$;
-				mes "You've exceeded the amount per investment.";
-				mes "Please try again.";
+				mes "Has excedido la cantidad por inversion.";
+				mes "Por favor intenta de nuevo.";
 				close;
 			} else if (.@units == 0) {
 				mes .@npc_name$;
-				mes "Canceled.";
+				mes "Cancelado.";
 				close;
 			} else
 				break;
 		case 5:
 			mes .@npc_name$;
-			mes "Canceled.";
+			mes "Cancelado.";
 			close;
 		}
 		set .@zeny, .@units * 10000;
 		if (Zeny < .@zeny) {
 			mes .@npc_name$;
-			mes "You do not have enough money.";
+			mes "No tienes suficiente dinero.";
 			close;
 		}
 		mes .@npc_name$;
-		mes "You've invested "+callfunc("F_InsertPlural",.@units,"unit")+" "+callfunc("F_InsertComma",.@zeny)+" Zeny"+getarg(2,"")+".";
-		mes "Not much but this is a small gift. You can exchange it with items in Malangdo.";
+		mes "Has invertido "+callfunc("F_InsertPlural",.@units,"unit")+" "+callfunc("F_InsertComma",.@zeny)+" Zeny"+getarg(2,"")+".";
+		mes "No es mucho, pero este es un pequeno regalo. Puedes canjearlo por objetos en Malangdo.";
 		set Zeny, Zeny-.@zeny;
 		setd getarg(0), getd(getarg(0)) + .@units;
 		getitem 6488,.@units; //Thanks_Invest_Ticket
 		close;
 	case 2:
 		mes .@npc_name$;
-		mes "Wow, you've brought Investment Certificates.";
-		mes "How many certificates will you submit?";
+		mes "Vaya, trajiste Certificados de Inversion.";
+		mes "Cuantos certificados vas a entregar?";
 		next;
-		switch(select("1 Investment Certificate:5 Investment Certificates:Another amount:Cancel")) {
+		switch(select("1 Certificado de Inversion:5 Certificados de Inversion:Otra cantidad:Cancelar")) {
 		case 1:
 			set .@tickets,1;
 			break;
@@ -184,43 +184,43 @@ function	script	F_Invest_Abyss	{
 			break;
 		case 3:
 			mes .@npc_name$;
-			mes "Please enter the number of Investment Certificates you want to submit.";
-			mes "Please choose between 1 to 20.";
-			mes "Please enter 0 to cancel.";
+			mes "Por favor ingresa la cantidad de Certificados de Inversion que deseas entregar.";
+			mes "Por favor elige entre 1 y 20.";
+			mes "Por favor ingresa 0 para cancelar.";
 			next;
 			input .@tickets;
 			if (.@tickets < 0 || .@tickets > 20) {
 				mes .@npc_name$;
-				mes "You've exceeded the amount per investment.";
-				mes "Please try again.";
+				mes "Has excedido la cantidad por inversion.";
+				mes "Por favor intenta de nuevo.";
 				close;
 			} else if (.@tickets == 0) {
 				mes .@npc_name$;
-				mes "Canceled.";
+				mes "Cancelado.";
 				close;
 			} else
 				break;
 		case 4:
 			mes .@npc_name$;
-			mes "Canceled.";
+			mes "Cancelado.";
 			close;
 		}
 		if (countitem(6489) < .@tickets) {
 			mes .@npc_name$;
-			mes "Looks like you have fewer Investment Certificates than you want to submit.";
+			mes "Parece que tienes menos Certificados de Inversion de los que quieres entregar.";
 			close;
 		}
 		set .@units, .@tickets * 10;
 		mes .@npc_name$;
-		mes .@tickets+" Investment Certificate"+((.@tickets == 1)?" is":"s are")+" the same as an investment of "+.@units+" units ("+((.@units < 100)?.@units:insertchar(""+.@units,",",1))+"0,000z)"+getarg(2,"")+".";
-		mes "Not much but this is a small gift. You can exchange it with items in Malangdo.";
+		mes .@tickets+" Certificado"+((.@tickets == 1)?" de Inversion es":"s de Inversion son")+" equivalente a una inversion de "+.@units+" unidades ("+((.@units < 100)?.@units:insertchar(""+.@units,",",1))+"0,000z)"+getarg(2,"")+".";
+		mes "No es mucho, pero este es un pequeno regalo. Puedes canjearlo por objetos en Malangdo.";
 		delitem 6489,.@tickets; //Cats_Invest_Certif
 		setd getarg(0), getd(getarg(0)) + .@units;
 		getitem 6488,.@units; //Thanks_Invest_Ticket
 		close;
 	case 3:
 		mes .@npc_name$;
-		mes "Canceled.";
+		mes "Cancelado.";
 		close;
 	}
 }
@@ -325,7 +325,7 @@ OnCalculate:
 	}
 	end;
 OnInvest_start:
-	announce "From now on, we are going to start the investments to connect the 'Abyss Gate' in the WOE areas: Valkyrie Realm, Greenwood Lake, Luina, Britoniah.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "A partir de ahora, vamos a comenzar las inversiones para conectar la 'Puerta del Abismo' en las areas de WOE: Valkyrie Realm, Greenwood Lake, Luina, Britoniah.",bc_all,0xFF0000; //FW_NORMAL 10
 	set $fund_prt01,0;
 	set $fund_prt02,0;
 	set $fund_prt03,0;
@@ -349,12 +349,12 @@ OnInvest_start:
 	donpcevent "Investment_total#fund00::OnEnable";
 	end;
 OnInvest_stop:
-	announce "We've finished the investments to connect the 'Abyss Gate'.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Hemos terminado las inversiones para conectar la 'Puerta del Abismo'.",bc_all,0xFF0000; //FW_NORMAL 10
 	donpcevent "Investment_total#fund00::OnReset";
 	donpcevent "#fund_master::OnCalculate_Election";
 	end;
 OnResult:
-	announce "We've got the results of the investments for the 'Abyss Gate'. You can check through the Investment Status Board in each WOE area.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Tenemos los resultados de las inversiones para la 'Puerta del Abismo'. Puedes verificarlos en el Tablero de Estado de Inversiones en cada area de WOE.",bc_all,0xFF0000; //FW_NORMAL 10
 	if ($2011_agit_invest == 4) {
 		set $fund_prt01,0;
 		set $fund_prt02,0;
@@ -391,22 +391,22 @@ OnReset:
 
 prt_gld,2,2,0	script	Investment_total#fund00	844,{
 	callfunc "F_GM_NPC";
-	mes "Is this not working properly?";
+	mes "Esto no esta funcionando correctamente?";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) == 1) {
-		mes "If you think the investment timer is dead, please adjust the timer.";
+		mes "Si crees que el temporizador de inversiones esta muerto, por favor ajusta el temporizador.";
 		next;
-		switch(select("Turn on the timer:Cancel")) {
+		switch(select("Activar el temporizador:Cancelar")) {
 		case 1:
 			donpcevent "Investment_total#fund00::OnTimerReset";
-			mes "You've turned on the timer.";
+			mes "Has activado el temporizador.";
 			close;
 		case 2:
-			mes "Canceled.";
+			mes "Cancelado.";
 			close;
 		}
 	} else {
-		mes "I don't need to adjust anything now.";
+		mes "No necesito ajustar nada ahora.";
 		close;
 	}
 
@@ -452,7 +452,7 @@ OnTimer3600000:
 			if ($agit_result_timer % 10 == 5 || $agit_result_timer % 10 == 0 || $agit_result_timer == 58) {
 				set $agit_result_notice, $agit_result_notice+1;
 				donpcevent "Investment_total#fund00::OnVarInit";
-				announce "No. "+$agit_result_notice+" Interim statement is now available. You can check through the Investment Status Board in each WOE area.",bc_all,0xFF0000; //FW_NORMAL 10
+				announce "El informe parcial No. "+$agit_result_notice+" ya esta disponible. Puedes verificarlo en el Tablero de Estado de Inversiones en cada area de WOE.",bc_all,0xFF0000; //FW_NORMAL 10
 			}
 
 			donpcevent "Investment_total#fund00::OnTimerReset";
@@ -467,8 +467,8 @@ OnTimer3600000:
 
 prt_gld,164,98,3	script	Revoting Manager#Invest1	421,{
 	mes "[Revoting Manager]";
-	mes "We are not accepting additional votes.";
-	mes "Please wait for our results announcement.";
+	mes "No estamos aceptando votos adicionales.";
+	mes "Por favor espera el anuncio de nuestros resultados.";
 	close;
 OnInit:
 	set .@invest_status, callfunc("F_Invest_Status");
@@ -538,7 +538,7 @@ OnTimer60000:
 		set $agit_revoting_timer, $agit_revoting_timer+1;
 		donpcevent "Revoting Manager#Invest1::OnTimerReset";
 	} else if (.@revote == 30) {
-		announce "Cat Paw Merchant Guild: Now we are going to close the additional vote. We will announce the results soon.",bc_all,0xFF0000; //FW_NORMAL 10
+		announce "Gremio de Mercaderes Cat Paw: Ahora vamos a cerrar la votacion adicional. Anunciaremos los resultados pronto.",bc_all,0xFF0000; //FW_NORMAL 10
 		donpcevent "Revoting Manager#Invest2::OnDisable";
 		donpcevent "Revoting Manager#Invest1::OnEnable";
 		set $agit_revoting_timer, $agit_revoting_timer+1;
@@ -559,7 +559,7 @@ prt_gld,164,98,3	script	Revoting Manager#Invest2	421,{
 	set .@invest, $2011_agit_invest;
 	if (.@invest < 11) {
 		mes "[Revoting Manager]";
-		mes "No! This is not the time to take a revote.";
+		mes "No! Este no es el momento para una revotacion.";
 		close2;
 		disablenpc "Revoting Manager#Invest2";
 		end;
@@ -567,22 +567,22 @@ prt_gld,164,98,3	script	Revoting Manager#Invest2	421,{
 	set .@playtime, checkquest(7349,PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
 		mes "[Revoting Manager]";
-		mes "You've already participated in the vote.";
-		mes "Please relax and wait for the results.";
+		mes "Ya participaste en la votacion.";
+		mes "Por favor relajate y espera los resultados.";
 		close;
 	} else if (.@playtime == 2)
 		erasequest 7349;
 	mes "[Revoting Manager]";
-	mes "Would you like to participate in the vote for choosing where to connect the 'Abyss Gate'?";
+	mes "Te gustaria participar en la votacion para elegir donde conectar la 'Puerta del Abismo'?";
 	next;
-	if(select("Participate in the vote.:Skip for now.") == 2) {
+	if(select("Participar en la votacion.:Pasar por ahora.") == 2) {
 		mes "[Revoting Manager]";
-		mes "You've canceled the vote.";
+		mes "Has cancelado la votacion.";
 		close;
 	}
 	mes "[Revoting Manager]";
-	mes "You can vote once and won't need to invest for your choice.";
-	mes "Plesae choose one WOE area.";
+	mes "Puedes votar una vez y no necesitaras invertir para tu eleccion.";
+	mes "Por favor elige un area de WOE.";
 	next;
 
 	// Create menu.
@@ -600,8 +600,8 @@ prt_gld,164,98,3	script	Revoting Manager#Invest2	421,{
 	set .@vote, select(implode(.@menu$,":"))-1;
 
 	mes "[Revoting Manager]";
-	mes "You've voted for "+.@menu$[.@vote]+".";
-	mes "Thanks for voting.";
+	mes "Has votado por "+.@menu$[.@vote]+".";
+	mes "Gracias por votar.";
 	setquest 7349;
 	setd "$fund_"+.@candidates$[.@vote]+"_extra", getd("$fund_"+.@candidates$[.@vote]+"_extra") + 1;
 	close;
@@ -634,16 +634,16 @@ OnNotice_on:
 	initnpctimer;
 	end;
 OnTimer5000:
-	announce "Cat Paw Merchant Guild: As no WOE area has reached the maximum investment level to connect the 'Abyss Gate'...",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Gremio de Mercaderes Cat Paw: Como ninguna area de WOE ha alcanzado el nivel maximo de inversion para conectar la 'Puerta del Abismo'...",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer8000:
-	announce "Cat Paw Merchant Guild: We were about to connect the 'Abyss Gate' to the WOE area which invested most.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Gremio de Mercaderes Cat Paw: Ibamos a conectar la 'Puerta del Abismo' al area de WOE que mas invirtio.",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer11000:
-	announce "Cat Paw Merchant Guild: However, there were areas which invested the same amount. So we will put them to a vote.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Gremio de Mercaderes Cat Paw: Sin embargo, hubo areas que invirtieron la misma cantidad. Asi que lo pondremos a votacion.",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer14000:
-	announce "Cat Paw Merchant Guild: Additional votes will be available for 30 minutes. You can vote in Valkyrie Realm.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Gremio de Mercaderes Cat Paw: Los votos adicionales estaran disponibles por 30 minutos. Puedes votar en Valkyrie Realm.",bc_all,0xFF0000; //FW_NORMAL 10
 	end;
 OnTimer20000:
 	explode(.@candidates$, callsub(OnGetCandidates, $2011_agit_invest),"|");
@@ -657,7 +657,7 @@ OnTimer20000:
 		else if (.@candidates$[.@i] == "prt")
 			set .@choices$[.@i],"Valkyrie Realm";
 	}
-	announce "Cat Paw Merchant Guild: The candidates for the additional vote are... "+implode(.@choices$," vs. ")+".",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Gremio de Mercaderes Cat Paw: Los candidatos para la votacion adicional son... "+implode(.@choices$," vs. ")+".",bc_all,0xFF0000; //FW_NORMAL 10
 	set $fund_prt_extra,0;
 	set $fund_pay_extra,0;
 	set $fund_gef_extra,0;
@@ -670,7 +670,7 @@ OnTimer20000:
 
 /*
 prtg_cas01,2,2,0	script	Abrai	55,{
-	mes "I should quit my steward job.";
+	mes "Deberia renunciar a mi trabajo de mayordomo.";
 	close;
 OnAgitInvest:
 	switch(callfunc("F_Invest_Status")) {
@@ -702,195 +702,195 @@ OnAgitInvest:
 		set .@npc$,"alde";
 		set .@name$,"Megrez";
 		set .@realm$,"Luina";
-		set .@intro$,"Luina Branch Manager in Al De Baran";
+		set .@intro$,"Gerente de Sucursal de Luina en Al De Baran";
 	} else if (compare(strnpcinfo(4),"gef")) {
 		set .@npc$,"gef";
 		set .@name$,"Meraq";
 		set .@realm$,"Britoniah";
-		set .@intro$,"Britoniah Branch Manager";
+		set .@intro$,"Gerente de Sucursal de Britoniah";
 	} else if (compare(strnpcinfo(4),"pay")) {
 		set .@npc$,"pay";
 		set .@name$,"Phecda";
 		set .@realm$,"Greenwood Lake";
-		set .@intro$,"Payon Greenwood Lake Branch Manager";
+		set .@intro$,"Gerente de Sucursal de Payon Greenwood Lake";
 	} else if (compare(strnpcinfo(4),"prt")) {
 		set .@npc$,"prt";
 		set .@name$,"Dubae";
 		set .@realm$,"Valkyrie Realm";
-		set .@intro$,"Prontera Valkyrie Realm Branch Manager";
+		set .@intro$,"Gerente de Sucursal de Prontera Valkyrie Realm";
 	}
 	set .@n$,"["+.@name$+"]";
 
 	mes .@n$;
-	mes "I'm "+.@name$+", the "+.@intro$+" of the Cat Paw Merchant Guild.";
-	mes "I consult about investments for the Abyss Gate development.";
-	mes "How may I help you?";
+	mes "Soy "+.@name$+", el "+.@intro$+" del Gremio de Mercaderes Cat Paw.";
+	mes "Consulto sobre inversiones para el desarrollo de la Puerta del Abismo.";
+	mes "En que puedo ayudarte?";
 	next;
-	switch(select("What is the Abyss Gate?:Investing in the gate development?:I want to invest in this area.:Cancel")) {
+	switch(select("Que es la Puerta del Abismo?:Invertir en el desarrollo de la puerta?:Quiero invertir en esta area.:Cancelar")) {
 	case 1:
 		mes .@n$;
-		mes "It is only called the Abyss Gate for convenience but it's simply a ^4d4dffgap to another dimension^000000.";
+		mes "Solo se le llama Puerta del Abismo por conveniencia, pero es simplemente una ^4d4dffgrieta a otra dimension^000000.";
 		next;
 		mes .@n$;
-		mes "More of these gaps are found here and there after Morocc created the Crack of Dimension.";
-		mes "I personally think that the Abyss Gate found recently is part of the past or even from the future.";
+		mes "Se encuentran mas de estas grietas aqui y alla despues de que Morocc creo la Grieta de la Dimension.";
+		mes "Personalmente creo que la Puerta del Abismo encontrada recientemente es parte del pasado o incluso del futuro.";
 		next;
 		mes .@n$;
-		mes "It is said that the Abyss Gate forcefully connects to another dimension beyond our world.";
-		mes "Probably because there are those that follow the Emperium's power.";
+		mes "Se dice que la Puerta del Abismo conecta a la fuerza con otra dimension mas alla de nuestro mundo.";
+		mes "Probablemente porque hay quienes siguen el poder del Emperium.";
 		next;
 		mes .@n$;
-		mes "There are a total of 4 Abyss Gates found so far. They all connect to the Agit region overflowing with the Emperium's force.";
+		mes "Hay un total de 4 Puertas del Abismo encontradas hasta ahora. Todas conectan a la region Agit rebosante de la fuerza del Emperium.";
 		next;
 		mes .@n$;
-		mes "We named each by dimension beyond the gap.";
-		mes "^4d4dffWay of the Warrior, Hill of the Dead, Winds of the Ancient, and the Hero's Tears.^000000";
-		mes "And all these four gaps are called the ^4d4dffAbyss Gate^000000.";
+		mes "Le pusimos nombre a cada una por la dimension mas alla de la grieta.";
+		mes "^4d4dffCamino del Guerrero, Colina de los Muertos, Vientos de lo Antiguo, y las Lagrimas del Heroe.^000000";
+		mes "Y estas cuatro grietas juntas se llaman la ^4d4dffPuerta del Abismo^000000.";
 		next;
 		mes .@n$;
-		mes "The gap may lead to the past, future or even an unknown world.";
-		mes "The power the Abyss Gate holds is both fearful but sweet";
+		mes "La grieta puede llevar al pasado, al futuro o incluso a un mundo desconocido.";
+		mes "El poder que tiene la Puerta del Abismo es tanto temible como tentador.";
 		next;
 		mes .@n$;
-		mes "Are you also interested in exploring the Abyss Gate?";
-		mes "Ha ha. You'll need to go through several steps before exploring.";
+		mes "Tu tambien estas interesado en explorar la Puerta del Abismo?";
+		mes "Ja ja. Necesitaras pasar por varios pasos antes de explorar.";
 		next;
 		mes .@n$;
-		mes "If you are interested,";
-		mes "will you take the time to sit down and talk about investing in maintaining the Abyss Gate?";
+		mes "Si estas interesado,";
+		mes "te tomarias el tiempo de sentarte y hablar sobre invertir en el mantenimiento de la Puerta del Abismo?";
 		close;
 	case 2:
 		mes .@n$;
-		mes "Are you curious about investing in the Gate development?";
-		mes "What do you want to know about?";
+		mes "Tienes curiosidad sobre invertir en el desarrollo de la Puerta?";
+		mes "Que quieres saber?";
 		next;
-		switch(select("About the Gate?:About investments?:How to invest?:Benefits from investing?")) {
+		switch(select("Sobre la Puerta?:Sobre las inversiones?:Como invertir?:Beneficios de invertir?")) {
 		case 1:
 			mes .@n$;
-			mes "The Gate is what it is named after, a door.";
-			mes "A dimensional passageway that connects here to there.";
+			mes "La Puerta es lo que su nombre indica, una puerta.";
+			mes "Un pasaje dimensional que conecta aqui con alla.";
 			next;
 			mes .@n$;
-			mes "The Abyss Gate was created as a very unstable path from beyond the dimensional gap,";
-			mes "therefore traveling through the Gate will need an artificial dimension connection.";
+			mes "La Puerta del Abismo fue creada como un camino muy inestable desde mas alla de la grieta dimensional,";
+			mes "por lo tanto viajar a traves de la Puerta necesitara una conexion dimensional artificial.";
 			next;
 			mes .@n$;
-			mes "Humans are far from having the advanced technology that's needed";
-			mes "but our Cat Paw Merchant Guild holds the high technology to use the Crack of Dimension.";
+			mes "Los humanos estan lejos de tener la tecnologia avanzada que se necesita";
+			mes "pero nuestro Gremio de Mercaderes Cat Paw posee la alta tecnologia para usar la Grieta de la Dimension.";
 			next;
 			mes .@n$;
-			mes "So we made a proposal.";
-			mes "With the promise of support the Cat Paw Merchant Guild and paying for the immense expense for maintaining the connection with the Gate,";
-			mes "we will make the connection to the Crack of Dimension.";
+			mes "Asi que hicimos una propuesta.";
+			mes "Con la promesa de apoyar al Gremio de Mercaderes Cat Paw y pagar el inmenso gasto de mantener la conexion con la Puerta,";
+			mes "haremos la conexion a la Grieta de la Dimension.";
 			next;
 			mes .@n$;
-			mes "Of course working on the Crack of Dimension is no easy job and it does come with risks.";
-			mes "There are cases where people go missing from traveling between.";
+			mes "Por supuesto, trabajar en la Grieta de la Dimension no es facil y conlleva riesgos.";
+			mes "Hay casos donde personas desaparecen al viajar entre dimensiones.";
 			next;
 			mes .@n$;
-			mes "The best maintaining duration is about 4 days";
-			mes "You invest in us and we create the door that connects to the dimensional gap.";
+			mes "La mejor duracion de mantenimiento es de unos 4 dias.";
+			mes "Tu inviertes en nosotros y nosotros creamos la puerta que conecta a la grieta dimensional.";
 			next;
 			mes .@n$;
-			mes "Doesn't this sound like the perfect win-win proposal?";
+			mes "No te parece la propuesta perfecta donde todos ganan?";
 			close;
 		case 2:
 			mes .@n$;
-			mes "Forcing through the unstable dimensional gap and creating a passageway is very dangerous.";
-			mes "Not to mention the huge resources needed.";
+			mes "Forzar el paso a traves de la grieta dimensional inestable y crear un pasaje es muy peligroso.";
+			mes "Sin mencionar los enormes recursos necesarios.";
 			next;
 			mes .@n$;
-			mes "If you take care of the charges and also the danger pay by investing in the Cat Paw Merchant Guild,";
-			mes "we'll create and maintain the gate regardless of the risks.";
+			mes "Si te encargas de los cargos y tambien del pago de riesgo invirtiendo en el Gremio de Mercaderes Cat Paw,";
+			mes "crearemos y mantendremos la puerta sin importar los riesgos.";
 			next;
 			mes .@n$;
-			mes "But then of course the money involved for the gate costs will be extreme.";
-			mes "It will be easy if you can find investors to share the amount.";
+			mes "Pero claro, el dinero involucrado para los costos de la puerta sera extremo.";
+			mes "Sera mas facil si encuentras inversores para compartir la cantidad.";
 			next;
 			mes .@n$;
-			mes "There is a basic charge to start connecting the gate.";
-			mes "Results depend on the how much investment money is collected.";
+			mes "Hay un cargo basico para comenzar a conectar la puerta.";
+			mes "Los resultados dependen de cuanto dinero de inversion se recaude.";
 			next;
 			mes .@n$;
-			mes "The Abyss Gate exists in each Agit region.";
-			mes "Can you imagine how much money and sacrifice our guild will have to go through to develop in all areas?";
+			mes "La Puerta del Abismo existe en cada region Agit.";
+			mes "Te imaginas cuanto dinero y sacrificio tendra que pasar nuestro gremio para desarrollar en todas las areas?";
 			next;
 			mes .@n$;
-			mes "This explains the regional competition in investments.";
-			mes "If not enough gate maintenance costs are collected then it is obvious the region with the most investments will receive the benefits";
+			mes "Esto explica la competencia regional en inversiones.";
+			mes "Si no se recaudan suficientes costos de mantenimiento de la puerta, entonces es obvio que la region con mas inversiones recibira los beneficios.";
 			next;
 			mes .@n$;
-			mes "If ^4d4dffthe Abyss Gate is successfully connected then the dungeon of the hideout area";
-			mes "will be open to others instead of being guild exclusive^000000 which will be very attractive for investment.";
+			mes "Si ^4d4dffla Puerta del Abismo se conecta exitosamente entonces la mazmorra del area del escondite";
+			mes "estara abierta para otros en lugar de ser exclusiva del gremio^000000, lo cual sera muy atractivo para la inversion.";
 			next;
 			mes .@n$;
-			mes "But then again, this is only for when the gate is connected.";
+			mes "Pero de nuevo, esto es solo para cuando la puerta esta conectada.";
 			close;
 		case 3:
 			mes .@n$;
-			mes "It's simple.";
-			mes "Visit the branch manager of the ^4d4dffregion you want to invest in during the investment duration^000000 and make your investment.";
+			mes "Es simple.";
+			mes "Visita al gerente de sucursal de la ^4d4dffregion en la que quieres invertir durante el periodo de inversion^000000 y haz tu inversion.";
 			next;
 			mes .@n$;
-			mes "We usually receive ^4d4dffthe common currency here, Zeny^000000.";
-			mes "But since we're talking about supporting our Cat Paw Merchant Guild, you can also invest with items in demand in Malangdo.";
+			mes "Usualmente recibimos ^4d4dffla moneda comun aqui, Zeny^000000.";
+			mes "Pero como estamos hablando de apoyar a nuestro Gremio de Mercaderes Cat Paw, tambien puedes invertir con objetos demandados en Malangdo.";
 			next;
 			mes .@n$;
-			mes "Provide the items in need to Namis in Malangdo who is in charge of general affairs in our guild.";
-			mes "Bring back your Investment Certificate to add it to the investment tribute.";
+			mes "Proporciona los objetos necesarios a Namis en Malangdo, quien esta a cargo de asuntos generales en nuestro gremio.";
+			mes "Trae de vuelta tu Certificado de Inversion para agregarlo al tributo de inversion.";
 			next;
 			mes .@n$;
-			mes "You must visit and invest at the region you want in order for your investment to be counted as a tribute.";
+			mes "Debes visitar e invertir en la region que desees para que tu inversion cuente como tributo.";
 			close;
 		case 4:
 			mes .@n$;
-			mes "The Abyss Gate is basically contracting and connecting with the castle that owns the Agit;";
-			mes "therefore, we will provide all we have once the costs for connecting and maintaining the gate are sufficient.";
+			mes "La Puerta del Abismo es basicamente contratar y conectar con el castillo que posee el Agit;";
+			mes "por lo tanto, proporcionaremos todo lo que tenemos una vez que los costos para conectar y mantener la puerta sean suficientes.";
 			next;
 			mes .@n$;
-			mes "In terms of the minimum and maximum costs for the whole work,";
-			mes "if the collected investment ^4d4dffexceeds the minimum costs^000000, we can connect you to the ^4d4dffdeepest layer of an unknown guild dungeon^000000.";
+			mes "En terminos de los costos minimos y maximos para todo el trabajo,";
+			mes "si la inversion recaudada ^4d4dffsupera los costos minimos^000000, podemos conectarte a la ^4d4dffcapa mas profunda de una mazmorra de gremio desconocida^000000.";
 			next;
 			mes .@n$;
-			mes "If investments exceed the maximum costs, that region will be connected to the";
-			mes "^4d4dffAbyss Gate^000000 regardless of the investment rank which includes the deepest layer of the guild dungeon.";
+			mes "Si las inversiones superan los costos maximos, esa region se conectara a la";
+			mes "^4d4dffPuerta del Abismo^000000 sin importar el rango de inversion, lo cual incluye la capa mas profunda de la mazmorra del gremio.";
 			next;
 			mes .@n$;
-			mes "^ff0000If there is no Agit region that reached the maximum investment, then the region with the";
-			mes "highest investment participation will get the Abyss Gate connected with the investment collected from all regions.^000000";
+			mes "^ff0000Si no hay region Agit que alcance la inversion maxima, entonces la region con la";
+			mes "mayor participacion en inversiones obtendra la Puerta del Abismo conectada con la inversion recaudada de todas las regiones.^000000";
 			next;
 			mes .@n$;
-			mes "Once the Abyss Gate is connected, the deepest layer (2F) of the guild dungeon";
-			mes "will be open to all adventurers that participated in the regional investment.";
+			mes "Una vez que la Puerta del Abismo este conectada, la capa mas profunda (2F) de la mazmorra del gremio";
+			mes "estara abierta a todos los aventureros que participaron en la inversion regional.";
 			next;
 			mes .@n$;
-			mes "Visits to the dungeon will be counted for the next investment for the Agit region";
-			mes "so being in good terms with the guild that claims the Agit castle will be a bonus.";
+			mes "Las visitas a la mazmorra contaran para la proxima inversion de la region Agit,";
+			mes "asi que estar en buenos terminos con el gremio que reclama el castillo Agit sera una ventaja.";
 			next;
 			mes .@n$;
-			mes "By the way, it isn't easy to maintain the connection with the Abyss Gate and investments and reconnection is needed weekly";
-			mes "so please continue your support and investment if you want the power of the unknown.";
+			mes "Por cierto, no es facil mantener la conexion con la Puerta del Abismo y se necesitan inversiones y reconexion semanalmente,";
+			mes "asi que por favor continua tu apoyo e inversion si quieres el poder de lo desconocido.";
 			close;
 		}
 	case 3:
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-			mes "- Currently you're carrying -";
-			mes "- too many items with you. -";
-			mes "- Please try again after you -";
-			mes "- lose some weight. -";
+			mes "- Actualmente estas cargando -";
+			mes "- demasiados objetos contigo. -";
+			mes "- Por favor intenta de nuevo -";
+			mes "- despues de aligerar tu carga. -";
 			close;
 		}
 		if (countitem(6488) >= 4800) {
 			mes .@n$;
-			mes "You have too many Thank You Tickets to receive any more.";
-			mes "Cannot give you any more tickets. Please use your ticket and come back.";
-			mes "The ticket can be exchanged with various items in Malangdo.";
+			mes "Tienes demasiados Tickets de Agradecimiento para recibir mas.";
+			mes "No puedo darte mas tickets. Por favor usa tus tickets y vuelve.";
+			mes "Los tickets se pueden canjear por varios objetos en Malangdo.";
 			close;
 		}
 		if (callfunc("F_Invest_Status") != 1) {
 			mes .@n$;
-			mes "We do not receive investments now.";
-			mes "Please come back during the investment duration.";
+			mes "No recibimos inversiones ahora.";
+			mes "Por favor vuelve durante el periodo de inversion.";
 			close;
 		}
 		set .@guild, getcharid(2);
@@ -899,41 +899,41 @@ OnAgitInvest:
 			set .@owner_id[.@i], getcastledata(.@npc$+"g_cas0"+.@i,CD_GUILD_ID);
 			set .@owner_name$[.@i], getguildname(.@owner_id[.@i]);
 			if (.@guild == .@owner_id[.@i]) {
-				set .@menu$, .@menu$+.@castle_name$[.@i]+" ["+.@owner_name$[.@i]+"] Guild:";
+				set .@menu$, .@menu$+.@castle_name$[.@i]+" ["+.@owner_name$[.@i]+"] Gremio:";
 				set .@castles_owned, .@castles_owned | (1<<.@i);
 			} else
-				set .@menu$, .@menu$+"^aaaaaaNot the guild that claimed "+.@castle_name$[.@i]+"^000000:";
+				set .@menu$, .@menu$+"^aaaaaNo es el gremio que reclamo "+.@castle_name$[.@i]+"^000000:";
 		}
 		mes .@n$;
-		mes "Would you like to invest in the ^4d4dff"+.@realm$+"^000000 region?";
-		mes "If there is a castle occupied already, you will invest in the castle and the guild that is occupying it.";
+		mes "Te gustaria invertir en la region ^4d4dff"+.@realm$+"^000000?";
+		mes "Si hay un castillo ya ocupado, invertiras en el castillo y el gremio que lo ocupa.";
 		next;
 		if (.@castles_owned) {
-			set .@i, select(.@menu$+"Cancel");
+			set .@i, select(.@menu$+"Cancelar");
 			if (.@i == 6) {
 				mes .@n$;
-				mes "Canceled.";
+				mes "Cancelado.";
 				close;
 			}
 			if (.@guild != .@owner_id[.@i]) {
 				mes .@n$;
-				mes "The guild that is occupying "+.@castle_name$[.@i]+" is "+.@owner_name$[.@i]+".";
-				mes "Doesn't look like your guild.";
+				mes "El gremio que ocupa "+.@castle_name$[.@i]+" es "+.@owner_name$[.@i]+".";
+				mes "No parece ser tu gremio.";
 				close;
 			}
 			mes .@n$;
-			mes "Invest under "+.@castle_name$[.@i]+"'s"+.@owner_name$[.@i]+" guild name.";
+			mes "Invertir bajo el nombre del gremio de "+.@castle_name$[.@i]+" "+.@owner_name$[.@i]+".";
 			callfunc "F_Invest_Abyss","$fund_"+.@npc$+"0"+.@i,.@n$;
 			end;
 		} else {
 			mes .@n$;
-			callfunc "F_Invest_Abyss","$fund_"+.@npc$+"_extra",.@n$," for "+.@realm$;
+			callfunc "F_Invest_Abyss","$fund_"+.@npc$+"_extra",.@n$," para "+.@realm$;
 			end;
 		}
 	case 4:
 		mes .@n$;
-		mes "Is that so?";
-		mes "Please come back whenever you are interested in investing in the Abyss Gate development.";
+		mes "Es asi?";
+		mes "Por favor vuelve cuando estes interesado en invertir en el desarrollo de la Puerta del Abismo.";
 		close;
 	}
 }
@@ -943,56 +943,56 @@ OnAgitInvest:
 	if (compare(strnpcinfo(4),"alde")) {
 		set .@npc$,"alde";
 		set .@name$,"Alkor";
-		set .@gate$,"Hero's Tears";
+		set .@gate$,"Lagrimas del Heroe";
 		set .@realm$,"Luina";
 	} else if (compare(strnpcinfo(4),"gef")) {
 		set .@npc$,"gef";
 		set .@name$,"Mizar";
-		set .@gate$,"Hill of the Dead";
+		set .@gate$,"Colina de los Muertos";
 		set .@realm$,"Britoniah";
 	} else if (compare(strnpcinfo(4),"pay")) {
 		set .@npc$,"pay";
 		set .@name$,"Alkaid";
-		set .@gate$,"Winds of the Ancient";
+		set .@gate$,"Vientos de lo Antiguo";
 		set .@realm$,"Greenwood Lake";
 	} else if (compare(strnpcinfo(4),"prt")) {
 		set .@npc$,"prt";
 		set .@name$,"Arios";
-		set .@gate$,"Way of the Warrior";
+		set .@gate$,"Camino del Guerrero";
 		set .@realm$,"Valkyrie Realm";
 	}
 	set .@n$,"["+.@name$+"]";
 
 	if (callfunc("F_Invest_Status") != 3) {
 		mes .@n$;
-		mes "There are currently no connected dungeon gates.";
+		mes "Actualmente no hay puertas de mazmorra conectadas.";
 		close;
 	}
 	set .@status, getd("$"+.@npc$+"_invest_result");
 	if (.@status == 3) {
 		mes .@n$;
-		mes "We've successfully connected the Abyss Gate ["+.@gate$+"] with the help from your investment.";
-		mes "The Agit dungeon will be open to everyone with a small entrance fee in "+.@realm$+".";
+		mes "Hemos conectado exitosamente la Puerta del Abismo ["+.@gate$+"] con la ayuda de tu inversion.";
+		mes "La mazmorra Agit estara abierta para todos con una pequena tarifa de entrada en "+.@realm$+".";
 		next;
 		mes .@n$;
-		mes "Please visit as often as possible since the entrance fee is saved as an investment for the region.";
-		mes "Do you want to enter the Agit dungeon?";
+		mes "Por favor visita tan seguido como sea posible ya que la tarifa de entrada se guarda como inversion para la region.";
+		mes "Quieres entrar a la mazmorra Agit?";
 		next;
-		set .@i, select(.@realm$+" Dungeon 1F - 10000z:"+.@realm$+" Dungeon 2F - 10000z:Cancel");
+		set .@i, select("Mazmorra "+.@realm$+" 1F - 10000z:Mazmorra "+.@realm$+" 2F - 10000z:Cancelar");
 		if (.@i == 3) {
 			mes .@n$;
-			mes "Canceled.";
+			mes "Cancelado.";
 			close;
 		}
 		if (Zeny < 10000) {
 			mes .@n$;
-			mes "I'm collecting a small entrance fee.";
-			mes "Your contribution will be saved for the next investment.";
-			mes "Entrance fee is 10000z.";
+			mes "Estoy cobrando una pequena tarifa de entrada.";
+			mes "Tu contribucion se guardara para la proxima inversion.";
+			mes "La tarifa de entrada es de 10000z.";
 			close;
 		}
 		mes .@n$;
-		mes "I'm sending you to the "+.@realm$+" Agit Dungeon "+.@i+"F.";
+		mes "Te envio a la Mazmorra Agit de "+.@realm$+" "+.@i+"F.";
 		set Zeny, Zeny-10000;
 		setd "$fund_"+.@npc$+"_extra", getd("$fund_"+.@npc$+"_extra") + 1;
 		close2;
@@ -1007,13 +1007,13 @@ OnAgitInvest:
 		end;
 	} else if (.@status == 2) {
 		mes .@n$;
-		mes "The "+.@realm$+" Agit Dungeon 2F is now available but since it is not connected with the Abyss Gate,";
-		mes "the Agit dungeon is only accessible to the Agit guild.";
+		mes "La Mazmorra Agit 2F de "+.@realm$+" ya esta disponible pero como no esta conectada con la Puerta del Abismo,";
+		mes "la mazmorra Agit solo es accesible para el gremio Agit.";
 		close;
 	} else {
 		mes .@n$;
-		mes .@realm$+" was not chosen to be connected with a gate this time.";
-		mes "Please wait for the next investment duration.";
+		mes .@realm$+" no fue elegida para ser conectada con una puerta esta vez.";
+		mes "Por favor espera al proximo periodo de inversion.";
 		close;
 	}
 	end;
@@ -1037,44 +1037,44 @@ OnAgitInvest:
 		}
 		set .@notice, $agit_result_notice;
 		if (.@notice < 1 || .@notice > 12) {
-			mes "There are currently no investment sums available.";
+			mes "Actualmente no hay sumas de inversion disponibles.";
 			close;
 		}
-		mes callfunc("F_GetNumSuffix",.@notice)+" total (unit in 10,000z)";
+		mes callfunc("F_GetNumSuffix",.@notice)+" total (unidad en 10,000z)";
 		for(set .@i,1; .@i<=5; set .@i,.@i+1) {
 			set .@map$, .@npc$+"g_cas0"+.@i;
 			set .@fund[.@i], getd("$@vfund_"+.@npc$+"0"+.@i);
-			mes getcastlename(.@map$)+" "+getguildname(getcastledata(.@map$,CD_GUILD_ID))+" Guild: "+.@fund[.@i];
+			mes getcastlename(.@map$)+" "+getguildname(getcastledata(.@map$,CD_GUILD_ID))+" Gremio: "+.@fund[.@i];
 		}
 		set .@fund[0], getd("$@vfund_"+.@npc$+"_extra");
 		mes .@realm$+" normal: "+.@fund[0];
-		mes .@realm$+" Investment Grand Total: "+(.@fund[0]+.@fund[1]+.@fund[2]+.@fund[3]+.@fund[4]+.@fund[5]);
+		mes .@realm$+" Gran Total de Inversion: "+(.@fund[0]+.@fund[1]+.@fund[2]+.@fund[3]+.@fund[4]+.@fund[5]);
 		close;
 	} else if (.@invest_status == 2) {
-		mes "!- Notice -!";
-		mes "No sums are available because the total investment amount is currently being calculated.";
-		mes "Please wait for the announcement of the results.";
+		mes "!- Aviso -!";
+		mes "No hay sumas disponibles porque el monto total de inversion se esta calculando actualmente.";
+		mes "Por favor espera el anuncio de los resultados.";
 		close;
 	} else if (.@invest_status == 3) {
 		setarray .@invest_result[0], $prt_invest_result,$pay_invest_result,$gef_invest_result,$alde_invest_result;
 		setarray .@invest_region$[0],  "Valkyrie Realm",  "Greenwood Lake",       "Britoniah",            "Luina";
-		mes "!- Investment Results of All Agit Regions -!";
+		mes "!- Resultados de Inversion de Todas las Regiones Agit -!";
 		for(set .@i,0; .@i<4; set .@i,.@i+1) {
 			if (.@invest_result[.@i] == 1)
-				mes "^aaaaaa["+.@invest_region$[.@i]+"] below minimum^000000";
+				mes "^aaaaaa["+.@invest_region$[.@i]+"] por debajo del minimo^000000";
 			else if (.@invest_result[.@i] == 2) {
-				mes "["+.@invest_region$[.@i]+"] minimum achieved";
-				mes "-> Guild Dungeon Deepest Layer (2F) available";
+				mes "["+.@invest_region$[.@i]+"] minimo alcanzado";
+				mes "-> Capa Mas Profunda de Mazmorra de Gremio (2F) disponible";
 			} else if (.@invest_result[.@i] == 3) {
-				mes "^4d4dff["+.@invest_region$[.@i]+"] maximum achieved^000000";
-				mes "-> Abyss Gate available";
+				mes "^4d4dff["+.@invest_region$[.@i]+"] maximo alcanzado^000000";
+				mes "-> Puerta del Abismo disponible";
 			} else
-				mes "No data for ["+.@invest_region$[.@i]+"].";
+				mes "Sin datos para ["+.@invest_region$[.@i]+"].";
 		}
 		close;
 	} else {
-		mes "!- Notice -!";
-		mes "No investment information will be announced now.";
+		mes "!- Aviso -!";
+		mes "No se anunciara informacion de inversiones ahora.";
 		close;
 	}
 }
@@ -1101,50 +1101,50 @@ OnAgitInvest:
 	set .@GID, getcastledata(strnpcinfo(4),CD_GUILD_ID);
 	if (getcharid(2) != .@GID) {
 		mes "[Gate Manager]";
-		mes "You don't seem to be the member of guild owning this castle.";
-		mes "If you need any help, please visit any of our guild members at "+.@realm$+" Square.";
+		mes "No pareces ser miembro del gremio dueno de este castillo.";
+		mes "Si necesitas ayuda, por favor visita a cualquiera de nuestros miembros del gremio en la Plaza de "+.@realm$+".";
 		close;
 	}
 	mes "[Gate Manager]";
-	mes "Hello, I am the Gate Manager from Cat Paw Merchant Guild warp department.";
-	mes "How may I help you today?";
+	mes "Hola, soy el Administrador de Puertas del departamento de teletransporte del Gremio de Mercaderes Cat Paw.";
+	mes "En que puedo ayudarte hoy?";
 	next;
-	switch(select("Invest for gate connection:Deepest Layer Dungeon Access:Abyss Gate Access:Cancel")) {
+	switch(select("Invertir para conexion de puerta:Acceso a Capa Mas Profunda de Mazmorra:Acceso a Puerta del Abismo:Cancelar")) {
 	case 1:
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
 			mes "[Gate Manager]";
-			mes "You have too many items to receive the Thank You Ticket as a small gift for your investment.";
-			mes "Please come back after making room in your inventory.";
+			mes "Tienes demasiados objetos para recibir el Ticket de Agradecimiento como pequeno regalo por tu inversion.";
+			mes "Por favor vuelve despues de hacer espacio en tu inventario.";
 			close;
 		}
 		if (countitem(6488) >= 4800) {
 			mes "[Gate Manager]";
-			mes "You have too many Thank You Tickets to receive any more.";
-			mes "Cannot give you any more tickets. Please use your ticket and come back.";
-			mes "The ticket can be exchanged with various items in Malangdo.";
+			mes "Tienes demasiados Tickets de Agradecimiento para recibir mas.";
+			mes "No puedo darte mas tickets. Por favor usa tus tickets y vuelve.";
+			mes "Los tickets se pueden canjear por varios objetos en Malangdo.";
 			close;
 		}
 		if (callfunc("F_Invest_Status") != 1) {
 			mes "[Gate Manager]";
-			mes "We do not receive investments now.";
-			mes "Please come back during the investment duration.";
+			mes "No recibimos inversiones ahora.";
+			mes "Por favor vuelve durante el periodo de inversion.";
 			close;
 		}
 		if (getcharid(2) != .@GID) {
 			mes "[Gate Manager]";
-			mes "You don't seem to be the member of the guild owning this castle.";
-			mes "Please use the normal investment from "+.@realm$+" Square.";
+			mes "No pareces ser miembro del gremio dueno de este castillo.";
+			mes "Por favor usa la inversion normal desde la Plaza de "+.@realm$+".";
 			close;
 		}
 		mes "[Gate Manager]";
-		mes "Proceed investing under your guild name.";
+		mes "Procede a invertir bajo el nombre de tu gremio.";
 		callfunc "F_Invest_Abyss","$fund_"+.@npc$+"0"+.@id,"[Gate Manager]";
 		end;
 	case 2:
 		callsub L_Enter,1,.@realm$,.@npc$;
 		mes "[Gate Manager]";
-		mes "You are interested in exploring the "+.@realm$+" Guild Dungeon Deepest Layer (2F).";
-		mes "Let me guide you. Good luck.";
+		mes "Estas interesado en explorar la Capa Mas Profunda (2F) de la Mazmorra de Gremio de "+.@realm$+".";
+		mes "Dejame guiarte. Buena suerte.";
 		close2;
 		if (compare(strnpcinfo(2),"alde")) {
 			switch(.@id) {
@@ -1183,7 +1183,7 @@ OnAgitInvest:
 	case 3:
 		callsub L_Enter,2,.@realm$,.@npc$;
 		mes "[Gate Manager]";
-		mes "Let me guide you to the Abyss Gap connected with "+.@realm$+", the Abyss Gate 'Way of the Warrior'.";
+		mes "Dejame guiarte a la Grieta del Abismo conectada con "+.@realm$+", la Puerta del Abismo 'Camino del Guerrero'.";
 		close2;
 		if (compare(strnpcinfo(2),"alde")) {
 			switch(.@id) {
@@ -1221,7 +1221,7 @@ OnAgitInvest:
 		end;
 	case 4:
 		mes "[Gate Manager]";
-		mes "Canceled.";
+		mes "Cancelado.";
 		close;
 	}
 	end;
@@ -1234,21 +1234,21 @@ L_Enter:
 			return;
 		else {
 			mes "[Gate Manager]";
-			mes getarg(1)+" was not chosen to be connected with a gate this time.";
-			mes "Please wait for the next investment duration.";
+			mes getarg(1)+" no fue elegida para ser conectada con una puerta esta vez.";
+			mes "Por favor espera al proximo periodo de inversion.";
 			close;
 		}
 	} else if (.@invest_status < 3) {
 		mes "[Gate Manager]";
-		mes "There are currently no connected dungeon gates.";
-		mes "A gate will be connected as soon as the investment results are available.";
-		mes "Please wait.";
+		mes "Actualmente no hay puertas de mazmorra conectadas.";
+		mes "Una puerta se conectara tan pronto como los resultados de inversion esten disponibles.";
+		mes "Por favor espera.";
 		close;
 	} else {
 		mes "[Gate Manager]";
-		mes "The gate will disappear soon.";
-		mes "The dungeon is no longer accessible.";
-		mes "Please try again next time.";
+		mes "La puerta desaparecera pronto.";
+		mes "La mazmorra ya no es accesible.";
+		mes "Por favor intenta de nuevo la proxima vez.";
 		close;
 	}
 }
@@ -1256,27 +1256,27 @@ L_Enter:
 // Item Investments :: tooja_namis
 //============================================================
 malangdo,218,126,4	script	Cat Paw Merchants Notice	857,{
-	mes "<< Cat Paw Merchants Notice >>";
-	mes "'^C379CEInvest Unused Items for Prizes!^000000'";
+	mes "<< Aviso de Mercaderes Cat Paw >>";
+	mes "'^C379CEInvierte Objetos No Usados por Premios!^000000'";
 	next;
-	switch(select("Read Notice:Check Event 1:Check Event 2")) {
+	switch(select("Leer Aviso:Ver Evento 1:Ver Evento 2")) {
 	case 1:
-		mes "- Notice -";
-		mes "Hello all Cat Paw Merchants customers! With your love, we Cat Paw Merchants are growing every day. All executives and staff members promise to do our best to further our frontier and development.";
+		mes "- Aviso -";
+		mes "Hola a todos los clientes de Mercaderes Cat Paw! Con su carino, nosotros los Mercaderes Cat Paw crecemos cada dia. Todos los ejecutivos y miembros del personal prometemos hacer nuestro mejor esfuerzo para avanzar nuestra frontera y desarrollo.";
 		next;
-		mes "- Event Notice! -";
-		mes " An Event called '^C379CEInvest Unused Items for Prizes!^000000' is under way, where you could exchange unused items in your storage for Investment Certificate of the Cat Paw Merchants.";
+		mes "- Aviso de Evento! -";
+		mes " Un Evento llamado '^C379CEInvierte Objetos No Usados por Premios!^000000' esta en curso, donde podrias intercambiar objetos no usados de tu almacen por Certificados de Inversion de los Mercaderes Cat Paw.";
 		next;
-		mes "Exchangeable items will be announced on a separate sheet. Thank you for your time.";
-		mes "- From all the employees of Cat Paw Merchants -";
+		mes "Los objetos intercambiables se anunciaran en una hoja separada. Gracias por tu tiempo.";
+		mes "- De todos los empleados de Mercaderes Cat Paw -";
 		next;
-		mes "There is a small warning at the bottom.";
+		mes "Hay una pequena advertencia al final.";
 		mes " ";
-		mes "^FF0000This event could be changed or repealed due to the Merchants' situation.^000000";
+		mes "^FF0000Este evento podria ser cambiado o revocado debido a la situacion de los Mercaderes.^000000";
 		close;
 	case 2:
-		mes "'^C379CEInvest Unused Items for Prizes!^000000'";
-		mes "There are details of Event 1.";
+		mes "'^C379CEInvierte Objetos No Usados por Premios!^000000'";
+		mes "Aqui estan los detalles del Evento 1.";
 		next;
 		setarray .@event1$[0],
 			"Wings of the Insect Queen","Crown of the Fly King","I hear Dragon Scales are tough 01","The Meaning of the Mother's Nightmare",
@@ -1284,100 +1284,100 @@ malangdo,218,126,4	script	Cat Paw Merchants Notice	857,{
 			"Planting trees on Mellow Island","Ancient language research","Weapons made of sharp teeth","Toy boss doll 01",
 			"A tiger is just a cat after all","The shattered spear and shield?","Toy boss doll 02","Best in summer! Cold scales",
 			"Piece of Thanatos' armor","I hear Dragon Scales are tough 02","The identity of the creepy eye","If only I could see!";
-		set .@menu$, "Quit:"+implode(.@event1$[0],":");
+		set .@menu$, "Salir:"+implode(.@event1$[0],":");
 		while(1) {
 			set .@i, select(.@menu$)-1;
 			switch(.@i) {
 				case 0: close;
-				case 1: set .@str$,"2 Pieces of Queen's Wing"; break;
-				case 2: set .@str$,"2 Broken Crowns"; break;
-				case 3: set .@str$,"2 Fire Dragon Scales"; break;
-				case 4: set .@str$,"3 Mother's Nightmares"; break;
-				case 5: set .@str$,"5 Gemstones"; break;
-				case 6: set .@str$,"5 Heroic Emblems"; break;
-				case 7: set .@str$,"3 Taeguk Plates"; break;
-				case 8: set .@str$,"3 Broken Pharaoh Symbols and 3 Tutankhamen's Masks"; break;
-				case 9: set .@str$,"2 Pocket Watches"; break;
-				case 10: set .@str$,"3 Young Twigs"; break;
-				case 11: set .@str$,"5 Rossata Pieces"; break;
-				case 12: set .@str$,"5 Fangs of Garm"; break;
-				case 13: set .@str$,"3 Baphomet Dolls"; break;
-				case 14: set .@str$,"1 Tiger's Footskin and 5 Tiger Skins"; break;
-				case 15: set .@str$,"3 Broken Shield Pieces and 3 Shining Spear Blades"; break;
-				case 16: set .@str$,"3 Osiris Dolls"; break;
-				case 17: set .@str$,"1 Ice Scale"; break;
-				case 18: set .@str$,"1 Skeletal Armor Piece"; break;
-				case 19: set .@str$,"1 Darkred Scale Piece"; break;
-				case 20: set .@str$,"2 Wills of Red Darkness"; break;
-				case 21: set .@str$,"2 Foolishness of the Blind"; break;
+				case 1: set .@str$,"2 Piezas de Ala de Reina"; break;
+				case 2: set .@str$,"2 Coronas Rotas"; break;
+				case 3: set .@str$,"2 Escamas de Dragon de Fuego"; break;
+				case 4: set .@str$,"3 Pesadillas de Madre"; break;
+				case 5: set .@str$,"5 Gemas"; break;
+				case 6: set .@str$,"5 Emblemas Heroicos"; break;
+				case 7: set .@str$,"3 Placas Taeguk"; break;
+				case 8: set .@str$,"3 Simbolos Rotos de Faraon y 3 Mascaras de Tutankhamen"; break;
+				case 9: set .@str$,"2 Relojes de Bolsillo"; break;
+				case 10: set .@str$,"3 Ramitas Jovenes"; break;
+				case 11: set .@str$,"5 Piezas de Rossata"; break;
+				case 12: set .@str$,"5 Colmillos de Garm"; break;
+				case 13: set .@str$,"3 Munecas de Baphomet"; break;
+				case 14: set .@str$,"1 Piel de Pata de Tigre y 5 Pieles de Tigre"; break;
+				case 15: set .@str$,"3 Piezas de Escudo Roto y 3 Hojas de Lanza Brillante"; break;
+				case 16: set .@str$,"3 Munecas de Osiris"; break;
+				case 17: set .@str$,"1 Escama de Hielo"; break;
+				case 18: set .@str$,"1 Pieza de Armadura Esqueletica"; break;
+				case 19: set .@str$,"1 Pieza de Escama Rojo Oscuro"; break;
+				case 20: set .@str$,"2 Voluntades de Oscuridad Roja"; break;
+				case 21: set .@str$,"2 Necedades del Ciego"; break;
 			}
 			mes "["+.@event1$[.@i-1]+"]";
-			mes .@str$+" for one Cat Paw Merchants Investment Certificate.";
+			mes .@str$+" por un Certificado de Inversion de Mercaderes Cat Paw.";
 			next;
 		}
 	case 3:
-		mes "Look out for the next '^C379CEInvest Unused Items for Prizes!^000000' Event 2!! Coming up real soon!";
+		mes "Estate atento al proximo Evento 2 de '^C379CEInvierte Objetos No Usados por Premios!^000000'!! Muy pronto!";
 		close;
 	}
 }
 
 malangdo,218,123,1	script	Namis#invest	545,4,4,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "- Currently you're carrying -";
-		mes "- too many items with you. -";
-		mes "- Please try again after you -";
-		mes "- lose some weight. -";
+		mes "- Actualmente estas cargando -";
+		mes "- demasiados objetos contigo. -";
+		mes "- Por favor intenta de nuevo -";
+		mes "- despues de aligerar tu carga. -";
 		close;
 	}
 	emotion ET_HUK;
 	emotion ET_FRET;
 	emotion ET_ANGER;
 	mes "[Namis]";
-	mes "Purr-Purr-Purrr-Purrrr-Pur~ Meow!!";
-	mes "Wh-- What? How rude. You scared me.";
+	mes "Purr-Purr-Purrr-Purrrr-Pur~ Miau!!";
+	mes "Qu-- Que? Que grosero. Me asustaste.";
 	next;
-	switch(select("What do you need? I'll invest!:What's the purpose of this event?:Were you asleep?")) {
+	switch(select("Que necesitas? Voy a invertir!:Cual es el proposito de este evento?:Estabas dormido?")) {
 	case 1:
 		break;
 	case 2:
 		mes "[Namis]";
-		mes "So, another pushover in contract with the Cat Paw Merchants?";
+		mes "Asi que, otro ingenuo en contrato con los Mercaderes Cat Paw?";
 		next;
-		select("Huh? What! You calling me a pushover?");
+		select("Eh? Que! Me estas llamando ingenuo?");
 		mes "[Namis]";
-		mes "I'll say this just once, so you listen good!";
-		mes "We, the Cat Paw Merchants have planned an event for loyal workers like yourself.";
-		next;
-		mes "[Namis]";
-		mes "Run along to your storage and bring back rotting antiques to us and we'll exchange them for the oh-so valuable 'Cat Paw Merchants Investment Certificate'.";
+		mes "Solo lo dire una vez, asi que escucha bien!";
+		mes "Nosotros, los Mercaderes Cat Paw hemos planeado un evento para trabajadores leales como tu.";
 		next;
 		mes "[Namis]";
-		mes "It will be wise for you to do so because the Cat Paw Merchants are doing this at a loss!";
+		mes "Ve a tu almacen y trae de vuelta antiguedades en mal estado y las cambiaremos por el tan valioso 'Certificado de Inversion de Mercaderes Cat Paw'.";
 		next;
 		mes "[Namis]";
-		mes "Details are on the notice.";
+		mes "Sera sabio de tu parte hacerlo porque los Mercaderes Cat Paw estan haciendo esto a perdida!";
+		next;
+		mes "[Namis]";
+		mes "Los detalles estan en el aviso.";
 		close;
 	case 3:
 		mes "[Namis]";
-		mes "Hick- Slurp-";
-		mes "Remember, human! There's no other cat who works as hard as I do.";
+		mes "Hip- Slurp-";
+		mes "Recuerda, humano! No hay otro gato que trabaje tan duro como yo.";
 		close;
 	}
 	mes "[Namis]";
-	mes "You must be here to participate in the '^C379CEInvest Unused Items for Prizes!^000000' event of the Cat Paw Merchants.";
+	mes "Debes estar aqui para participar en el evento '^C379CEInvierte Objetos No Usados por Premios!^000000' de los Mercaderes Cat Paw.";
 	next;
 	mes "[Namis]";
-	mes "So, which event do you wish to participate in?";
+	mes "Entonces, en cual evento deseas participar?";
 	next;
-	switch(select("Not interested:Event 1 Items:Event 2 Items")) {
+	switch(select("No me interesa:Objetos del Evento 1:Objetos del Evento 2")) {
 	case 1:
 		mes "[Namis]";
-		mes "Don't you mess with a busy cat!";
+		mes "No molestes a un gato ocupado!";
 		close;
 	case 2:
 		mes "[Namis]";
-		mes "So you're in for Event 1.";
-		mes "Choose from the shown list.";
+		mes "Asi que vas por el Evento 1.";
+		mes "Elige de la lista mostrada.";
 		next;
 		setarray .@event1$[0],
 			"Wings of the Insect Queen","Crown of the Fly King","I hear Dragon Scales are tough 01","The Meaning of the Mother's Nightmare",
@@ -1387,32 +1387,32 @@ malangdo,218,123,1	script	Namis#invest	545,4,4,{
 			"Piece of Thanatos' armor","I hear Dragon Scales are tough 02","The identity of the creepy eye","If only I could see!";
 		set .@i, select(implode(.@event1$[0],":"))-1;
 		switch(.@i+1) {
-			case 1: callsub L_Check,"2 Pieces of Queen's Wing",6326,2,"Wings of the Insect Queen? What a pitiful name. I would've given some cool names!",.@event1$[.@i];
-			case 2: callsub L_Check,"2 Broken Crowns",7754,2,"For crying out loud! Those cats working on these events must be playing around. Can't they think of a better name?",.@event1$[.@i];
-			case 3: callsub L_Check,"2 Fire Dragon Scales",7451,2,"Dragon scales? Well... I guess they are tough. But what are they going to use them for?",.@event1$[.@i];
-			case 4: callsub L_Check,"3 Mother's Nightmares",7020,3,"Even though I don't have the authority to find out, I wonder what they're doing with the collected items?",.@event1$[.@i];
-			case 5: callsub L_Check,"5 Gemstones",7300,5,"Something useful for a change. The ore will end up as nice pieces of jewelry.",.@event1$[.@i];
-			case 6: callsub L_Check,"5 Heroic Emblems",968,5,"Good, good. This is the kind of name I wanted!",.@event1$[.@i];
-			case 7: callsub L_Check,"3 Taeguk Plates",7169,3,"Taking in something like this, maybe they're up to something dangerous.",.@event1$[.@i];
-			case 8: callsub L_Check,"3 Broken Pharaoh Symbols and 3 Tutankhamen's Masks",7113,3,"I hear the pyramids are in Morocc, but I've never been there. Some humans call it Morco.",.@event1$[.@i],7114,3;
-			case 9: callsub L_Check,"2 Pocket Watches",7513,2,"Those lazy merchants, why do they need pocket watches they don't even use?",.@event1$[.@i];
-			case 10: callsub L_Check,"3 Young Twigs",7018,3,"Mellow Island has a climate like with where we cats used to live. But the trees die out sometimes due to it being an island.",.@event1$[.@i];
-			case 11: callsub L_Check,"5 Rossata Pieces",7211,5,"I guess they collect these because humans have them, but what's the use of researching ancient languages?",.@event1$[.@i];
-			case 12: callsub L_Check,"5 Fangs of Garm",7036,5,"Weak humans need sharp weapons, but cats already have nice and sharp claws, so why are we collecting these!!",.@event1$[.@i];
-			case 13: callsub L_Check,"3 Baphomet Dolls",750,3,"Baphomet dolls are great for playing around with.",.@event1$[.@i];
-			case 14: callsub L_Check,"1 Tiger's Footskin and 5 Tiger Skins",1030,1,"Did you know that tigers are cats too? Therefore, cats are better than tigers.",.@event1$[.@i],1029,5;
-			case 15: callsub L_Check,"3 Broken Shield Pieces and 3 Shining Spear Blades",7108,3,"I don't know what they want with these.",.@event1$[.@i],7109,3;
-			case 16: callsub L_Check,"3 Osiris Dolls",751,3,"Shame~ I never got to play with an Osiris doll.",.@event1$[.@i];
-			case 17: callsub L_Check,"1 Ice Scale",7562,1,"Mellow Island is a fabulous place to live. But the ships are too hot.",.@event1$[.@i];
-			case 18: callsub L_Check,"1 Skeletal Armor Piece",7450,1,"Ewww... Why would they collect something so creepy?",.@event1$[.@i];
-			case 19: callsub L_Check,"1 Darkred Scale Piece",6091,1,"Dragon scales? Well... I guess they are tough. But what are they going to use them for?",.@event1$[.@i];
-			case 20: callsub L_Check,"2 Wills of Red Darkness",7566,2,"Interesting! Does it scream or something when I poke it in the eye?",.@event1$[.@i];
-			case 21: callsub L_Check,"2 Foolishness of the Blind",7021,2,"This blind man is foolish in not knowing that gathering 300 cats cures blindness...",.@event1$[.@i];
+			case 1: callsub L_Check,"2 Piezas de Ala de Reina",6326,2,"Alas de la Reina Insecto? Que nombre tan patetico. Yo le habria puesto nombres geniales!",.@event1$[.@i];
+			case 2: callsub L_Check,"2 Coronas Rotas",7754,2,"Por favor! Esos gatos que trabajan en estos eventos deben estar jugando. No pueden pensar en un mejor nombre?",.@event1$[.@i];
+			case 3: callsub L_Check,"2 Escamas de Dragon de Fuego",7451,2,"Escamas de dragon? Bueno... supongo que son resistentes. Pero para que las van a usar?",.@event1$[.@i];
+			case 4: callsub L_Check,"3 Pesadillas de Madre",7020,3,"Aunque no tengo la autoridad para averiguarlo, me pregunto que hacen con los objetos recolectados?",.@event1$[.@i];
+			case 5: callsub L_Check,"5 Gemas",7300,5,"Algo util para variar. El mineral terminara como bonitas piezas de joyeria.",.@event1$[.@i];
+			case 6: callsub L_Check,"5 Emblemas Heroicos",968,5,"Bien, bien. Este es el tipo de nombre que queria!",.@event1$[.@i];
+			case 7: callsub L_Check,"3 Placas Taeguk",7169,3,"Aceptando algo como esto, tal vez estan tramando algo peligroso.",.@event1$[.@i];
+			case 8: callsub L_Check,"3 Simbolos Rotos de Faraon y 3 Mascaras de Tutankhamen",7113,3,"Escuche que las piramides estan en Morocc, pero nunca he estado ahi. Algunos humanos lo llaman Morco.",.@event1$[.@i],7114,3;
+			case 9: callsub L_Check,"2 Relojes de Bolsillo",7513,2,"Esos mercaderes flojos, para que necesitan relojes de bolsillo que ni usan?",.@event1$[.@i];
+			case 10: callsub L_Check,"3 Ramitas Jovenes",7018,3,"La Isla Mellow tiene un clima como donde soliamos vivir los gatos. Pero los arboles mueren a veces por ser una isla.",.@event1$[.@i];
+			case 11: callsub L_Check,"5 Piezas de Rossata",7211,5,"Supongo que las recolectan porque los humanos las tienen, pero de que sirve investigar idiomas antiguos?",.@event1$[.@i];
+			case 12: callsub L_Check,"5 Colmillos de Garm",7036,5,"Los humanos debiles necesitan armas afiladas, pero los gatos ya tenemos garras bonitas y afiladas, asi que por que estamos recolectando estas!!",.@event1$[.@i];
+			case 13: callsub L_Check,"3 Munecas de Baphomet",750,3,"Las munecas de Baphomet son geniales para jugar.",.@event1$[.@i];
+			case 14: callsub L_Check,"1 Piel de Pata de Tigre y 5 Pieles de Tigre",1030,1,"Sabias que los tigres tambien son gatos? Por lo tanto, los gatos son mejores que los tigres.",.@event1$[.@i],1029,5;
+			case 15: callsub L_Check,"3 Piezas de Escudo Roto y 3 Hojas de Lanza Brillante",7108,3,"No se que quieren con estas.",.@event1$[.@i],7109,3;
+			case 16: callsub L_Check,"3 Munecas de Osiris",751,3,"Que pena~ Nunca pude jugar con una muneca de Osiris.",.@event1$[.@i];
+			case 17: callsub L_Check,"1 Escama de Hielo",7562,1,"La Isla Mellow es un lugar fabuloso para vivir. Pero los barcos son demasiado calientes.",.@event1$[.@i];
+			case 18: callsub L_Check,"1 Pieza de Armadura Esqueletica",7450,1,"Puaj... Por que recolectarian algo tan espeluznante?",.@event1$[.@i];
+			case 19: callsub L_Check,"1 Pieza de Escama Rojo Oscuro",6091,1,"Escamas de dragon? Bueno... supongo que son resistentes. Pero para que las van a usar?",.@event1$[.@i];
+			case 20: callsub L_Check,"2 Voluntades de Oscuridad Roja",7566,2,"Interesante! Grita o algo cuando le pico el ojo?",.@event1$[.@i];
+			case 21: callsub L_Check,"2 Necedades del Ciego",7021,2,"Este ciego es necio por no saber que juntar 300 gatos cura la ceguera...",.@event1$[.@i];
 		}
 	case 3:
 		mes "[Namis]";
-		mes "Participate in Event 2?";
-		mes "It is not yet in motion. Wait for it!";
+		mes "Participar en el Evento 2?";
+		mes "Aun no esta en marcha. Espera!";
 		close;
 	}
 	end;
@@ -1426,22 +1426,22 @@ L_Check:
 	}
 	if (countitem(getarg(1)) < getarg(2) || .@items == 1) {
 		mes "[Namis]";
-		mes "You don't have the items?";
-		mes getarg(0)+" exchange for one Cat Paw Merchants Investment Certificate.";
+		mes "No tienes los objetos?";
+		mes getarg(0)+" a cambio de un Certificado de Inversion de Mercaderes Cat Paw.";
 		next;
 		mes "[Namis]";
-		mes "Don't bother me and look up the details on the board over there!";
+		mes "No me molestes y busca los detalles en el tablero de alla!";
 		close;
 	}
 	mes "[Namis]";
-	mes "'^8E5601"+getarg(4)+" Event^000000'";
-	mes "Seems to be the right items.";
+	mes "'^8E5601Evento "+getarg(4)+"^000000'";
+	mes "Parecen ser los objetos correctos.";
 	mes getarg(3);
-	mes "Oh! Almost forgot. Will you invest?";
+	mes "Oh! Casi lo olvido. Vas a invertir?";
 	next;
-	if(select("Invest:Don't Invest") == 2) {
+	if(select("Invertir:No invertir") == 2) {
 		mes "[Namis]";
-		mes "Don't you mess with a busy cat!";
+		mes "No molestes a un gato ocupado!";
 		close;
 	}
 	delitem getarg(1),getarg(2);
@@ -1449,7 +1449,7 @@ L_Check:
 		delitem getarg(5),getarg(6);
 	getitem 6489,1; //Cats_Invest_Certif
 	mes "[Namis]";
-	mes "Here's your Certificate. Always be grateful to the Merchants for these events!";
+	mes "Aqui esta tu Certificado. Siempre agradece a los Mercaderes por estos eventos!";
 	close;
 OnTouch:
 	if (rand(2))
@@ -1463,26 +1463,26 @@ OnTouch:
 //============================================================
 malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 	if (MaxWeight - Weight < 4500 || checkweight(1201,1) == 0) {
-		mes "- Currently you're carrying -";
-		mes "- too many items with you. -";
-		mes "- Please try again after you -";
-		mes "- lose some weight. -";
+		mes "- Actualmente estas cargando -";
+		mes "- demasiados objetos contigo. -";
+		mes "- Por favor intenta de nuevo -";
+		mes "- despues de aligerar tu carga. -";
 		close;
 	}
 	mes "[Vending Machine Notice]";
-	mes "^6815EA1. Don't kick the machine please. @_@";
-	mes "2. You can only insert Invest Thanks Ticket.";
-	mes "3. About the Jelly Box, if you open it, it gives you a random item.";
-	mes "4. Hope you enjoy~^000000";
-	mes "- Mr. Cat, the Machine Owner -";
+	mes "^6815EA1. No patees la maquina por favor. @_@";
+	mes "2. Solo puedes insertar Ticket de Agradecimiento de Inversion.";
+	mes "3. Sobre la Caja de Gelatina, si la abres, te da un objeto al azar.";
+	mes "4. Esperamos que lo disfrutes~^000000";
+	mes "- Sr. Gato, el Dueno de la Maquina -";
 	next;
-	switch(select("Finish:Purchase:Red Paw Jelly Bag (5 Tickets):Black Paw Jelly Bag (50 Tickets)")) {
+	switch(select("Terminar:Comprar:Bolsa de Gelatina de Pata Roja (5 Tickets):Bolsa de Gelatina de Pata Negra (50 Tickets)")) {
 	case 1:
 		close;
 	case 2:
-		mes "The Vending Machine is selling items in the following list.";
+		mes "La Maquina Expendedora vende objetos de la siguiente lista.";
 		next;
-		switch(select("Finish:1 Siege Arrow Quiver A (2 Tickets):1 Siege Arrow Quiver S (2 Tickets):30 White Potion (12 Tickets):30 White Slim Potion (14 Tickets):10 Dark Water (20 Tickets):20 Siege_Violet_Potion (30 Tickets):10 Coldproof Potion (30 Tickets):10 Thunderproof Potion (30 Tickets):10 Earthproof Potion (30 Tickets):10 Fireproof Potion (30 Tickets):10 Elemental Converter[Fire] (30 Tickets):10 Elemental Converter[Water] (30 Tickets):10 Elemental Converter[Wind] (30 Tickets):10 Elemental Converter[Earth] (30 Tickets)")) {
+		switch(select("Terminar:1 Carcaj de Flechas de Asedio A (2 Tickets):1 Carcaj de Flechas de Asedio S (2 Tickets):30 Pocion Blanca (12 Tickets):30 Pocion Blanca Delgada (14 Tickets):10 Agua Oscura (20 Tickets):20 Siege_Violet_Potion (30 Tickets):10 Pocion Anticongelante (30 Tickets):10 Pocion Antitruenos (30 Tickets):10 Pocion Antiterrestre (30 Tickets):10 Pocion Antifuego (30 Tickets):10 Convertidor Elemental[Fuego] (30 Tickets):10 Convertidor Elemental[Agua] (30 Tickets):10 Convertidor Elemental[Viento] (30 Tickets):10 Convertidor Elemental[Tierra] (30 Tickets)")) {
 			case 1: close;
 			case 2: callsub L_Purchase,2,12678,1; //Siege_Arrow_Quiver_A
 			case 3: callsub L_Purchase,2,12677,1; //Siege_Arrow_Quiver_S
@@ -1494,17 +1494,17 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 			case 9: callsub L_Purchase,30,12121,10; //Resist_Wind
 			case 10: callsub L_Purchase,30,12120,10; //Resist_Earth
 			case 11: callsub L_Purchase,30,12118,10; //Resist_Fire
-			case 12: callsub L_Purchase,30,12114,10,"Elemental Converter[Fire]"; //Elemental_Fire
-			case 13: callsub L_Purchase,30,12115,10,"Elemental Converter[Water]"; //Elemental_Water
-			case 14: callsub L_Purchase,30,12117,10,"Elemental Converter[Wind]"; //Elemental_Wind
-			case 15: callsub L_Purchase,30,12116,10,"Elemental Converter[Earth]"; //Elemental_Earth
+			case 12: callsub L_Purchase,30,12114,10,"Convertidor Elemental[Fuego]"; //Elemental_Fire
+			case 13: callsub L_Purchase,30,12115,10,"Convertidor Elemental[Agua]"; //Elemental_Water
+			case 14: callsub L_Purchase,30,12117,10,"Convertidor Elemental[Viento]"; //Elemental_Wind
+			case 15: callsub L_Purchase,30,12116,10,"Convertidor Elemental[Tierra]"; //Elemental_Earth
 		}
 		end;
 	case 3:
-		mes "Red Paw Jelly Bag Button chosen. Need to insert 5 ^FF0000Invest Thanks Ticket^000000 and a random item will appear.";
+		mes "Boton de Bolsa de Gelatina de Pata Roja seleccionado. Necesitas insertar 5 ^FF0000Ticket de Agradecimiento de Inversion^000000 y aparecera un objeto al azar.";
 		next;
 		if (countitem(6488) < 5) {
-			mes "You don't have enough ^FF0000Invest Thanks Ticket^000000 to proceed.";
+			mes "No tienes suficientes ^FF0000Ticket de Agradecimiento de Inversion^000000 para continuar.";
 			close;
 		}
 		delitem 6488,5; //Thanks_Invest_Ticket
@@ -1523,15 +1523,15 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 		else if (.@i <= 1150) callsub L_Bag,12293,5; //Dried_Yggdrasilberry
 		else if (.@i <= 1250) callsub L_Bag,12679,1; //Sg_White_Potion_Box
 		else if (.@i <= 1471) callsub L_Bag,603,1; //Old_Blue_Box
-		else if (.@i <= 1571) callsub L_Bag,12550,1,"Poison Bottle Box(30)"; //Poison_Bottle_Box2
+		else if (.@i <= 1571) callsub L_Bag,12550,1,"Caja de Botella de Veneno(30)"; //Poison_Bottle_Box2
 		else if (.@i <= 1671) callsub L_Bag,12020,10; //Water_Of_Darkness
 		else if (.@i <= 1871) callsub L_Bag,12030,5; //Box_Of_Grudge
 		else if (.@i <= 2071) callsub L_Bag,12031,5; //Sleepy_Box
 		else if (.@i <= 2371) callsub L_Bag,12033,2; //Box_Of_Sunlight
-		else if (.@i <= 2571) callsub L_Bag,12114,5,"Elemental Converter[Fire]"; //Elemental_Fire
-		else if (.@i <= 2771) callsub L_Bag,12115,5,"Elemental Converter[Water]"; //Elemental_Water
-		else if (.@i <= 2971) callsub L_Bag,12117,5,"Elemental Converter[Wind]"; //Elemental_Wind
-		else if (.@i <= 3171) callsub L_Bag,12116,5,"Elemental Converter[Earth]"; //Elemental_Earth
+		else if (.@i <= 2571) callsub L_Bag,12114,5,"Convertidor Elemental[Fuego]"; //Elemental_Fire
+		else if (.@i <= 2771) callsub L_Bag,12115,5,"Convertidor Elemental[Agua]"; //Elemental_Water
+		else if (.@i <= 2971) callsub L_Bag,12117,5,"Convertidor Elemental[Viento]"; //Elemental_Wind
+		else if (.@i <= 3171) callsub L_Bag,12116,5,"Convertidor Elemental[Tierra]"; //Elemental_Earth
 		else if (.@i <= 3271) callsub L_Bag,12680,1; //Sg_Blue_Potion_Box
 		else if (.@i <= 3471) callsub L_Bag,12118,5; //Resist_Fire
 		else if (.@i <= 3671) callsub L_Bag,12119,5; //Resist_Water
@@ -1570,10 +1570,10 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 		else callsub L_Bag,12016,10; //Speed_Up_Potion
 		end;
 	case 4:
-		mes "Black Paw Jelly Bag Button chosen. Need to insert 50 ^FF0000Invest Thanks Ticket^000000 and a random item will appear.";
+		mes "Boton de Bolsa de Gelatina de Pata Negra seleccionado. Necesitas insertar 50 ^FF0000Ticket de Agradecimiento de Inversion^000000 y aparecera un objeto al azar.";
 		next;
 		if (countitem(6488) < 50) {
-			mes "You don't have enough ^FF0000Invest Thanks Ticket^000000 to proceed.";
+			mes "No tienes suficientes ^FF0000Ticket de Agradecimiento de Inversion^000000 para continuar.";
 			close;
 		}
 		delitem 6488,50; //Thanks_Invest_Ticket
@@ -1592,15 +1592,15 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 		else if (.@i <= 840) callsub L_Bag,12293,10; //Dried_Yggdrasilberry
 		else if (.@i <= 940) callsub L_Bag,12679,1; //Sg_White_Potion_Box
 		else if (.@i <= 1140) callsub L_Bag,603,1; //Old_Blue_Box
-		else if (.@i <= 1240) callsub L_Bag,12550,1,"Poison Bottle Box(30)"; //Poison_Bottle_Box2
+		else if (.@i <= 1240) callsub L_Bag,12550,1,"Caja de Botella de Veneno(30)"; //Poison_Bottle_Box2
 		else if (.@i <= 1340) callsub L_Bag,12020,20; //Water_Of_Darkness
 		else if (.@i <= 1440) callsub L_Bag,12030,10; //Box_Of_Grudge
 		else if (.@i <= 1540) callsub L_Bag,12031,10; //Sleepy_Box
 		else if (.@i <= 1690) callsub L_Bag,12033,4; //Box_Of_Sunlight
-		else if (.@i <= 1790) callsub L_Bag,12114,10,"Elemental Converter[Fire]"; //Elemental_Fire
-		else if (.@i <= 1890) callsub L_Bag,12115,10,"Elemental Converter[Water]"; //Elemental_Water
-		else if (.@i <= 1990) callsub L_Bag,12117,10,"Elemental Converter[Wind]"; //Elemental_Wind
-		else if (.@i <= 2090) callsub L_Bag,12116,10,"Elemental Converter[Earth]"; //Elemental_Earth
+		else if (.@i <= 1790) callsub L_Bag,12114,10,"Convertidor Elemental[Fuego]"; //Elemental_Fire
+		else if (.@i <= 1890) callsub L_Bag,12115,10,"Convertidor Elemental[Agua]"; //Elemental_Water
+		else if (.@i <= 1990) callsub L_Bag,12117,10,"Convertidor Elemental[Viento]"; //Elemental_Wind
+		else if (.@i <= 2090) callsub L_Bag,12116,10,"Convertidor Elemental[Tierra]"; //Elemental_Earth
 		else if (.@i <= 2190) callsub L_Bag,12680,1; //Sg_Blue_Potion_Box
 		else if (.@i <= 2290) callsub L_Bag,12118,10; //Resist_Fire
 		else if (.@i <= 2390) callsub L_Bag,12119,10; //Resist_Water
@@ -1652,21 +1652,21 @@ malangdo,215,119,4	script	Thanks Ticket Machine	564,{
 //callsub L_Purchase,<ticket cost>,<reward ID>,<reward amount>{,<reward name>};
 L_Purchase:
 	if (countitem(6488) < getarg(0)) {
-		mes "You don't have enough ^FF0000Invest Thanks Ticket^000000 to proceed.";
+		mes "No tienes suficientes ^FF0000Ticket de Agradecimiento de Inversion^000000 para continuar.";
 		close;
 	}
 	delitem 6488,getarg(0); //Thanks_Invest_Ticket
 	getitem getarg(1),getarg(2);
-	mes "- Done! -";
+	mes "- Listo! -";
 	next;
-	mes "The item ^0000FF"+((getargcount() > 3)?getarg(3,""):getitemname(getarg(1)))+"^000000 has been obtained.";
+	mes "El objeto ^0000FF"+((getargcount() > 3)?getarg(3,""):getitemname(getarg(1)))+"^000000 ha sido obtenido.";
 	close;
 
 //callsub L_Bag,<reward ID>,<reward amount>{,<reward name>};
 L_Bag:
 	getitem getarg(0),getarg(1);
-	mes "- Done! -";
+	mes "- Listo! -";
 	next;
-	mes "The item ^0000FF"+((getargcount() > 2)?getarg(2,""):getitemname(getarg(0)))+"^000000 has been obtained.";
+	mes "El objeto ^0000FF"+((getargcount() > 2)?getarg(2,""):getitemname(getarg(0)))+"^000000 ha sido obtenido.";
 	close;
 }

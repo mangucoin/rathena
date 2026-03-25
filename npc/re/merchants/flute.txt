@@ -1,91 +1,91 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Falcon & Wolf Flute Trader
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Masao, Muad_Dib, Ziu
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.2a
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Sells Falcon Flute and Wolf Flute.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Masao]
 //= 1.1 Added Baby Hunter and Baby Ranger check. bugreport:5728 [Masao]
 //= 1.2 Added Wolf Flute trader, optimized. [Euphy]
 //= 1.2a Fixed some conditions. [Euphy]
-//============================================================ 
+//============================================================
 
 // Falcon Flute :: falcon_flute
 //============================================================
 -	script	Falcon Flute Trader::fflute	-1,{
 	mes "[Falcon Flute Trader]";
 	if (BaseJob == Job_Hunter) {
-		mes "Do you need a Falcon?";
-		mes "With a magical Flute, you can call your Falcon from anywhere!";
+		mes "¿Necesitas un Halcon?";
+		mes "¡Con una Flauta magica, puedes llamar a tu Halcon desde cualquier lugar!";
 		next;
 		mes "[Falcon Flute Trader]";
-		mes "It's marvelous, isn't it? Ha ha ha!";
+		mes "¡Es maravilloso, ¿no?! ¡Ja ja ja!";
 		next;
 		mes "[Falcon Flute Trader]";
-		mes "Why I'm selling these Falcon Flutes?";
-		mes "It's because I have no clue how they work.";
-		mes "Ha ha ha!";
+		mes "¿Por que vendo estas Flautas de Halcon?";
+		mes "Es porque no tengo idea de como funcionan.";
+		mes "¡Ja ja ja!";
 		next;
 		mes "[Falcon Flute Trader]";
-		mes "Of course, you'll need the Skill ^ff0000Falcon Mastery^000000.";
-		mes "I don't have the Skill, so I don't know how to handle Falcons.";
-		mes "As it's for now, I may never have a Falcon.";
+		mes "Por supuesto, necesitaras la Habilidad ^ff0000Falcon Mastery^000000.";
+		mes "No tengo la Habilidad, asi que no se como manejar Halcones.";
+		mes "Por ahora, puede que nunca tenga un Halcon.";
 		next;
 		mes "[Falcon Flute Trader]";
-		mes "But I can't give you one for free!";
-		mes "I have to make money since i also need to eat!";
+		mes "¡Pero no puedo darte una gratis!";
+		mes "¡Tengo que ganar dinero ya que tambien necesito comer!";
 		next;
 		mes "[Falcon Flute Trader]";
-		mes "If you need a Falcon Flute I will sell them for 12,500 zeny. Or is that too expensive?";
+		mes "Si necesitas una Flauta de Halcon las vendo por 12,500 zeny. ¿O es demasiado caro?";
 		next;
 		if (eaclass()&EAJL_THIRD) {
 			mes "[Falcon Flute Trader]";
-			mes "For Rangers, however, I have a special price of 10,000 zeny!";
+			mes "Sin embargo, para Rangers, ¡tengo un precio especial de 10,000 zeny!";
 			set .@price,10000;
 			next;
 		} else
 			set .@price,12500;
-		if(select("Don't buy one:Buy a Falcon Flute") == 1) {
+		if(select("No comprar una:Comprar una Flauta de Halcon") == 1) {
 			mes "[Falcon Flute Trader]";
-			mes "That's too bad. If you need one, come back!";
+			mes "Que lastima. ¡Si necesitas una, vuelve!";
 			close;
 		}
 		if (Zeny >= .@price) {
 			if (countitem(12848) >= 1) {
 				mes "[Falcon Flute Trader]";
-				mes "As I can see you already have a Falcon Flute!";
-				mes "Don't worry, my young friend, once you've purchased the Falcon Flute you won't need to do so again";
-				mes "since the Falcon Flute won't disappear upon usage, isn't that great?";
+				mes "¡Puedo ver que ya tienes una Flauta de Halcon!";
+				mes "No te preocupes, joven amigo, una vez que hayas comprado la Flauta de Halcon no necesitaras hacerlo de nuevo";
+				mes "ya que la Flauta de Halcon no desaparece al usarla, ¿no es genial?";
 				close;
 			}
 			mes "[Falcon Flute Trader]";
-			mes "Here, take this flute.";
-			mes "With it you can whistle for your Falcon from anywhere.";
+			mes "Aqui tienes, toma esta flauta.";
+			mes "Con ella puedes silbar para llamar a tu Halcon desde cualquier lugar.";
 		  	set Zeny, Zeny - .@price;
 			getitem 12848,1; //Falcon_Flute
 			next;
 			mes "[Falcon Flute Trader]";
-			mes "Just a reminder.";
-			mes "You need the Skill ^ff0000Falcon Mastery^000000 in order to use it!";
+			mes "Solo un recordatorio.";
+			mes "¡Necesitas la Habilidad ^ff0000Falcon Mastery^000000 para poder usarla!";
 			close;
 		}
 		mes "[Falcon Flute Trader]";
-		mes "I'm sorry but you don't have enough money to buy a Falcon Flute, please come back when you have more money!";
+		mes "Lo siento pero no tienes suficiente dinero para comprar una Flauta de Halcon, ¡por favor vuelve cuando tengas mas dinero!";
 		close;
 	}
 	if (BaseJob == Job_Archer) {
-		mes "Hello, young one!";
-		mes "Currently I can't help you,";
-		mes "but why don't you return to me when you've become a great Hunter and learned how to handle Falcons properly?";
+		mes "¡Hola, joven!";
+		mes "Actualmente no puedo ayudarte,";
+		mes "pero ¿por que no vuelves a visitarme cuando te hayas convertido en un gran Hunter y hayas aprendido a manejar Halcones correctamente?";
 		close;
 	}
-	mes "Isn't it a beautiful day today?";
+	mes "¿No es un dia hermoso hoy?";
 	close;
 }
 hu_in01,386,306,3	duplicate(fflute)	Falcon Flute Trader#fft	51
@@ -97,50 +97,50 @@ tur_dun01,89,170,5	script	Expert Flute Crafter	59,{
 	if (Class == Job_Ranger || Class == Job_Ranger_T || Class == Job_Baby_Ranger) {
 		if (countitem(6124)) {
 			mes "[Expert Flute Crafter]";
-			mes "The Wolf Flute you have is crafted by myself, with wood.";
-			mes "You can come back here and find me if you lose your Wolf flute!";
+			mes "La Flauta de Lobo que tienes esta hecha por mi, con madera.";
+			mes "¡Puedes volver aqui y encontrarme si pierdes tu Flauta de Lobo!";
 			next;
 			mes "[Expert Flute Crafter]";
-			mes "The flute can only be crafted by me.";
-			mes "It is just a little matter for me to craft another flute!!";
+			mes "La flauta solo puede ser hecha por mi.";
+			mes "¡¡Es solo un pequeño asunto para mi hacer otra flauta!!";
 			close;
 		}
 		mes "[Expert Flute Crafter]";
-		mes "Do you need anything?";
-		mes "A new Wolf Flute?";
+		mes "¿Necesitas algo?";
+		mes "¿Una nueva Flauta de Lobo?";
 		next;
-		switch(select("Please give me a new Wolf Flute.:No.")) {
+		switch(select("Por favor dame una nueva Flauta de Lobo.:No.")) {
 		case 1:
 			if (countitem(7150) && Zeny >= 100000) {
 				mes "[Expert Flute Crafter]";
-				mes "Have you brought all the materials?";
-				mes "Wow! All your materials are not bad!";
-				mes "That's good enough.";
+				mes "¿Has traido todos los materiales?";
+				mes "¡Wow! ¡Todos tus materiales no estan nada mal!";
+				mes "Eso es suficiente.";
 				next;
 				mes "[Expert Flute Crafter]";
-				mes "Here's the new Wolf Flute.";
-				mes "Hope you are ready to use it.";
+				mes "Aqui esta la nueva Flauta de Lobo.";
+				mes "Espero que estes listo para usarla.";
 				delitem 7150,1; //Bamboo_Cut
 				set Zeny, Zeny-100000;
 				getitem 6124,1; //Wolf's_Flute
 				close;
 			}
 			mes "[Expert Flute Crafter]";
-			mes "If you want to craft a new Wolf Flute, I need you to bring me ^4d4dff1 Bamboo Cut and 100,000 zeny.^000000";
+			mes "Si quieres fabricar una nueva Flauta de Lobo, necesito que me traigas ^4d4dff1 Bamboo Cut y 100,000 zeny.^000000";
 			next;
 			mes "[Expert Flute Crafter]";
-			mes "^4d4dffBamboo Cut can be obtained from Kapha or Karakasa.^000000";
+			mes "^4d4dffBamboo Cut se puede obtener de Kapha o Karakasa.^000000";
 			close;
 		case 2:
 			mes "[Expert Flute Crafter]";
-			mes "If you do not summon a wolf, then you don't need the Wolf Flute.";
-			mes "You can come back here and find me if you change your mind.";
-			mes "Isn't that right?";
+			mes "Si no invocas un lobo, entonces no necesitas la Flauta de Lobo.";
+			mes "Puedes volver aqui y encontrarme si cambias de opinion.";
+			mes "¿No es asi?";
 			close;
 		}
 	}
 	mes "[Expert Flute Crafter]";
-	mes "Eeehh? You are not a Ranger?";
-	mes "Then this flute is totally useless for you!";
+	mes "¿Eeehh? ¿No eres un Ranger?";
+	mes "¡Entonces esta flauta es totalmente inutil para ti!";
 	close;
 }

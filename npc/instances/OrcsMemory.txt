@@ -41,25 +41,25 @@ gef_fild10,242,202,0	script	Dimensional Gorge Piece	406,{
 	set .@md_name$,"Orc's Memory";
 
 	if (!instance_check_party(.@party_id,2,30,80)) {
-		mes "Only users between Levels ^ff000030 ~ 80^000000 can enter this Dungeon.";
+		mes "Solo usuarios entre Niveles ^ff000030 ~ 80^000000 pueden entrar a este Calabozo.";
 		close;
 	}
 
 	set .@orctime,checkquest(12059,PLAYTIME);
 	if (.@orctime == -1) {
 		if (is_party_leader() == true) {
-			mes "Party status confirmed. Would you like to book entrance to the "+.@md_name$+"?";
+			mes "Estado del grupo confirmado. Te gustaria reservar la entrada a "+.@md_name$+"?";
 			next;
-			switch(select("Reserve the "+.@md_name$+":Enter the Dungeon:Cancel")) {
+			switch(select("Reservar "+.@md_name$+":Entrar al Calabozo:Cancelar")) {
 			case 1:
 				if (instance_create(.@md_name$) < 0) {
-					mes "Party Name: "+ getpartyname(.@party_id);
-					mes "Party Leader: "+strcharinfo(0);
-					mes "^0000ff"+.@md_name$+" ^000000 - Reservation Failed.";
+					mes "Nombre del grupo: "+ getpartyname(.@party_id);
+					mes "Lider del grupo: "+strcharinfo(0);
+					mes "^0000ff"+.@md_name$+" ^000000 - Reserva fallida.";
 					close;
 				}
-				mes "^0000ff"+.@md_name$+"^000000- Attempting to book an entrance";
-				mes "After making a reservation, you have to select 'Enter the Dungeon' from the menu if you wish to enter the "+.@md_name$+".";
+				mes "^0000ff"+.@md_name$+"^000000- Intentando reservar entrada";
+				mes "Despues de hacer la reserva, debes seleccionar 'Entrar al Calabozo' del menu si deseas entrar a "+.@md_name$+".";
 				close;
 			case 2:
 				callsub L_Enter,0;

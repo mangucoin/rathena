@@ -1,16 +1,16 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Mercenary related NPCs
-//===== By: ================================================== 
+//===== By: ==================================================
 //= L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.5
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Sells Lancer, Sword, and Archer mercenaries,
 //= along with related mercenary items.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version. [L0ne_W0lf]
 //= 1.1 Optimization. [Zephyrus]
 //= 1.2 Removed redundent input. [L0ne_W0lf]
@@ -19,7 +19,7 @@
 //= 1.5 Added Mercenary Guild Switch & fixed a bug
 //=		in izlude duplicate. [Capuche]
 //= 1.5a Change to F_GM_NPC function in Mercenary Guild Switch
-//============================================================ 
+//============================================================
 
 -	script	Mercenary Manager#main	-1,{
 	setarray .@name$, 	"Spear", 			"Sword", 			"Bow";
@@ -30,17 +30,17 @@
 		if( compare( .@npc$,.@name$[.@type] ) ) break;
 	.@faith_merc = mercenary_get_faith(getd(.@faith$[.@type]));
 	mes "[Mercenary Manager]";
-	mes "Welcome to the";
-	mes .@name$[.@type] + " Mercenary Guild.";
-	mes "What can I do for you?";
+	mes "Bienvenido al Gremio";
+	mes "de Mercenarios " + .@name$[.@type] + ".";
+	mes "En que puedo ayudarte?";
 	next;
-	switch(select("Hire Mercenary:Mercenary Info:Nothing:10th Grade Mercenaries")) {
+	switch(select("Contratar Mercenario:Info de Mercenarios:Nada:Mercenarios de Grado 10")) {
 		case 1:
 			mes "[Mercenary Manager]";
-			mes "You want to hire a";
-			mes .@name$[.@type] + " Mercenary?";
-			mes "Which Grade were you";
-			mes "interested in hiring?";
+			mes "Quieres contratar un";
+			mes "Mercenario " + .@name$[.@type] + "?";
+			mes "Que Grado te";
+			mes "interesa contratar?";
 			next;
 			for (.@i = 1; .@i <= 9; .@i++)
 				.@menu$ = .@menu$ + callfunc("F_GetNumSuffix",.@i) + " Grade " + .@name$[.@type] + " Mercenary:";
@@ -51,159 +51,160 @@
 			setarray .@FaithCost[7], 50,100,300;
 			.@FaithCost = .@FaithCost[.@Grade];
 			mes "[Mercenary Manager]";
-			mes "So you want to hire a " + callfunc("F_GetNumSuffix",.@Grade);
-			mes "Grade " + .@name$[.@type] + " Mercenary?";
-			mes "You need to have attained";
-			mes "Base Level " + .@BaseLevel + " or higher, and";
-			mes "must pay the " + .@ZenyCost + ",000 zeny fee.";
+			mes "Asi que quieres contratar un Mercenario";
+			mes "de " + callfunc("F_GetNumSuffix",.@Grade);
+			mes "Grado " + .@name$[.@type] + "?";
+			mes "Necesitas haber alcanzado";
+			mes "Nivel Base " + .@BaseLevel + " o superior, y";
+			mes "debes pagar la tarifa de " + .@ZenyCost + ",000 zeny.";
 			next;
-			if(select("Yes:No") == 2) {
+			if(select("Si:No") == 2) {
 				mes "[Mercenary Manager]";
-				mes "Oh, really? Well, now";
-				mes "might not be a good time";
-				mes "for you to consider hiring";
-				mes "a Mercenary, but please feel";
-				mes "free to come back if your";
-				mes "needs change. Thank you~";
+				mes "Oh, en serio? Bueno, puede que";
+				mes "ahora no sea un buen momento";
+				mes "para que consideres contratar";
+				mes "un Mercenario, pero sientete";
+				mes "libre de volver si tus";
+				mes "necesidades cambian. Gracias~";
 			}
 			else if(.@FaithCost && .@faith_merc < .@FaithCost) {
 				mes "[Mercenary Manager]";
-				mes "Oh... Your Loyalty rating";
-				mes "with the " + .@name$[.@type] + " Mercenary";
-				mes "Guild isn't high enough to";
-				mes "hire this Mercenary. Please";
-				mes "come back after you earn";
-				mes "" + .@FaithCost + " or more Loyalty with us.";
+				mes "Oh... Tu calificacion de Lealtad";
+				mes "con el Gremio de Mercenarios " + .@name$[.@type];
+				mes "no es lo suficientemente alta para";
+				mes "contratar este Mercenario. Por favor";
+				mes "vuelve despues de ganar";
+				mes "" + .@FaithCost + " o mas de Lealtad con nosotros.";
 			}
 			else if (BaseLevel < .@BaseLevel) {
 				mes "[Mercenary Manager]";
-				mes "I'm sorry, but your Base";
-				mes "Level isn't high enough";
-				mes "to hire this Mercenary.";
-				mes "Please come back to me";
-				mes "once you reach Base Level " + .@BaseLevel + ".";
+				mes "Lo siento, pero tu Nivel";
+				mes "Base no es lo suficientemente alto";
+				mes "para contratar este Mercenario.";
+				mes "Por favor vuelve a verme";
+				mes "una vez que alcances el Nivel Base " + .@BaseLevel + ".";
 			}
 			else if (Zeny < .@ZenyCost * 1000) {
 				mes "[Mercenary Manager]";
-				mes "I'm sorry, but you";
-				mes "don't have enough zeny";
-				mes "to hire this Mercenary.";
-				mes "The hiring fee is " + .@ZenyCost + ",000 zeny.";
+				mes "Lo siento, pero";
+				mes "no tienes suficiente zeny";
+				mes "para contratar este Mercenario.";
+				mes "La tarifa de contratacion es de " + .@ZenyCost + ",000 zeny.";
 			}
 			else {
 				mes "[Mercenary Manager]";
-				mes "Great! Our Mercenaries";
-				mes "are sincere and devoted";
-				mes "to protecting their clients.";
-				mes "Summoned Mercenaries will";
-				mes "offer their support to you for";
-				mes "30 minutes. Take care now.";
+				mes "Genial! Nuestros Mercenarios";
+				mes "son sinceros y dedicados";
+				mes "a proteger a sus clientes.";
+				mes "Los Mercenarios invocados";
+				mes "ofreceran su apoyo por";
+				mes "30 minutos. Cuidate.";
 				Zeny = Zeny - (.@ZenyCost * 1000);
 				getitem .@item[.@type] - 10 + .@Grade, 1;
 			}
 			close;
 		case 2:
 			mes "[Mercenary Manager]";
-			mes "Mercenaries are soldiers";
-			mes "that will fight at your side";
-			mes "on the battlefield, but there";
-			mes "are a few terms and conditions";
-			mes "you must fulfill to hire them.";
+			mes "Los Mercenarios son soldados";
+			mes "que pelearan a tu lado";
+			mes "en el campo de batalla, pero hay";
+			mes "algunos terminos y condiciones";
+			mes "que debes cumplir para contratarlos.";
 			next;
 			mes "[Mercenary Manager]";
-			mes "You must fulfill a level";
-			mes "requirement and pay a zeny";
-			mes "fee to hire a Mercenary.";
-			mes "Higher grade Mercenaries";
-			mes "will also require that you";
-			mes "build a Loyalty rating with us.";
+			mes "Debes cumplir un requisito de nivel";
+			mes "y pagar una tarifa en zeny";
+			mes "para contratar un Mercenario.";
+			mes "Los Mercenarios de grado superior";
+			mes "tambien requieren que construyas";
+			mes "una calificacion de Lealtad con nosotros.";
 			next;
 			mes "[Mercenary Manager]";
-			mes "Mercenary contracts can't be";
-			mes "transferred to other people,";
-			mes "and we only allow a 5 Base Level difference between the Mercenary";
-			mes "and client so you can't hire one much stronger than you.";
+			mes "Los contratos de Mercenarios no pueden";
+			mes "ser transferidos a otras personas,";
+			mes "y solo permitimos una diferencia de 5 Niveles Base entre el Mercenario";
+			mes "y el cliente, asi que no puedes contratar uno mucho mas fuerte que tu.";
 			next;
 			mes "[Mercenary Manager]";
-			mes "Well, you can figure out the";
-			mes "details when you actually form";
-			mes "a contract with one of our";
-			mes "Mercenaries, and receive";
-			mes "the Summon Scroll that will";
-			mes "call a Mercenary to your side.";
+			mes "Bueno, puedes averiguar los";
+			mes "detalles cuando realmente formes";
+			mes "un contrato con uno de nuestros";
+			mes "Mercenarios, y recibas";
+			mes "el Pergamino de Invocacion que";
+			mes "llamara a un Mercenario a tu lado.";
 			next;
 			mes "[Mercenary Manager]";
-			mes "You can't give this scroll";
-			mes "to anyone else, and the";
-			mes "Mercenary will only remain";
-			mes "with you for 30 minutes after";
-			mes "you summon him. Don't forget";
-			mes "about the time limit, okay?";
+			mes "No puedes darle este pergamino";
+			mes "a nadie mas, y el";
+			mes "Mercenario solo permanecera";
+			mes "contigo por 30 minutos despues";
+			mes "de que lo invoques. No olvides";
+			mes "el limite de tiempo, si?";
 			close;
 		case 3:
 			mes "[Mercenary Manager]";
-			mes "No? You didn't need any";
-			mes "help? Well, feel free to";
-			mes "ask me if you have any";
-			mes "questions about Mercenaries.";
+			mes "No? No necesitabas";
+			mes "ayuda? Bueno, sientete libre";
+			mes "de preguntarme si tienes alguna";
+			mes "pregunta sobre los Mercenarios.";
 			close;
 		case 4:
 			mes "[Mercenary Manager]";
-			mes "10th Grade Mercenaries are";
-			mes "the best we have to offer,";
-			mes "and we use different criteria";
-			mes "for our clients to hire them.";
-			mes "There's no zeny fee, but you";
-			mes "must have 500 Loyalty.";
+			mes "Los Mercenarios de Grado 10 son";
+			mes "lo mejor que tenemos para ofrecer,";
+			mes "y usamos criterios diferentes";
+			mes "para que nuestros clientes los contraten.";
+			mes "No hay tarifa en zeny, pero debes";
+			mes "tener 500 de Lealtad.";
 			next;
 			mes "[Mercenary Manager]";
-			mes "Once you make a contract";
-			mes "with a 10th Grade Mercenary,";
-			mes "your Loyalty rating will be";
-			mes "decreased by 400. In other";
-			mes "words, you pay 400 Loyalty";
-			mes "to hire a 10th Grade Mercenary.";
+			mes "Una vez que hagas un contrato";
+			mes "con un Mercenario de Grado 10,";
+			mes "tu calificacion de Lealtad sera";
+			mes "reducida en 400. En otras";
+			mes "palabras, pagas 400 de Lealtad";
+			mes "para contratar un Mercenario de Grado 10.";
 			next;
 			mes "[Mercenary Manager]";
-			mes "You must also be at";
-			mes "Base Level 90 or higher to";
-			mes "hire a 10th Grade Mercenary.";
-			mes "Are you still interested in";
-			mes "forming this contract?";
+			mes "Tambien debes ser de";
+			mes "Nivel Base 90 o superior para";
+			mes "contratar un Mercenario de Grado 10.";
+			mes "Aun te interesa";
+			mes "formar este contrato?";
 			next;
-			if (select("Yes:No") == 2) {
+			if (select("Si:No") == 2) {
 				mes "[Mercenary Manager]";
-				mes "I understand... It takes";
-				mes "hard work and sacrifice to";
-				mes "even reach the point where";
-				mes "you can hire a 10th Grade";
-				mes "Mercenary. Have you considered";
-				mes "hiring a lower grade Mercenary?";
+				mes "Entiendo... Se necesita";
+				mes "trabajo duro y sacrificio para";
+				mes "incluso llegar al punto donde";
+				mes "puedes contratar un Mercenario de";
+				mes "Grado 10. Has considerado";
+				mes "contratar un Mercenario de menor grado?";
 			}
 			else if (.@faith_merc < 500) {
 				mes "[Mercenary Manager]";
-				mes "I'm sorry, but your";
-				mes "Loyalty rating is too";
-				mes "low to hire a 10th Grade";
-				mes "Mercenary. You must have";
-				mes "500 or more Loyalty to";
-				mes "form a contract with one.";
+				mes "Lo siento, pero tu";
+				mes "calificacion de Lealtad es";
+				mes "demasiado baja para contratar un";
+				mes "Mercenario de Grado 10. Debes tener";
+				mes "500 o mas de Lealtad para";
+				mes "formar un contrato con uno.";
 			}
 			else if (BaseLevel < 90) {
 				mes "[Mercenary Manager]";
-				mes "I'm sorry, but you must";
-				mes "be at Base Level 90 or";
-				mes "higher to form a contract";
-				mes "with a 10th Grade Mercenary.";
+				mes "Lo siento, pero debes";
+				mes "ser de Nivel Base 90 o";
+				mes "superior para formar un contrato";
+				mes "con un Mercenario de Grado 10.";
 			}
 			else {
 				mes "[Mercenary Manager]";
-				mes "Congratulations! It looks";
-				mes "like you're planning in taking";
-				mes "on some very dangerous work";
-				mes "since you're hiring a 10th";
-				mes "Grade Mercenary. I wish you";
-				mes "the best of luck with him.";
+				mes "Felicidades! Parece";
+				mes "que estas planeando enfrentar";
+				mes "un trabajo muy peligroso";
+				mes "ya que estas contratando un";
+				mes "Mercenario de Grado 10. Te deseo";
+				mes "la mejor de las suertes con el.";
 				mercenary_set_faith getd(.@faith$[.@type]),-400;
 				getitem .@item[.@type],1;
 			}
@@ -217,11 +218,11 @@ pay_arche,99,167,4	duplicate(Mercenary Manager#main)	Mercenary Manager#Bow	4_M_J
 //============================================================
 -	script	Mercenary Merchant#dummy::MercMerchant	-1,{
 	mes "[Mercenary Goods Merchant]";
-	mes "Hello, I sell goods";
-	mes "that Mercenaries can";
-	mes "use. Is there anything";
-	mes "in particular that";
-	mes "you're looking for?";
+	mes "Hola, vendo productos";
+	mes "que los Mercenarios pueden";
+	mes "usar. Hay algo en";
+	mes "particular que";
+	mes "estes buscando?";
 	next;
 	setarray .@item, 12184,	12185,	12241,	12242,	12243;
 	setarray .@cost, 2500,	5000,	800,	1500,	3000;
@@ -233,57 +234,57 @@ pay_arche,99,167,4	duplicate(Mercenary Manager#main)	Mercenary Manager#Bow	4_M_J
 	.@str_cost$ = (.@len <= 3)? .@str$ : insertchar(.@str$,",",.@len-3);
 	mes "[Mercenary Goods Merchant]";
 	mes getitemname(.@item[.@m]);
-	mes "each cost " + .@str_cost$ + " zeny.";
-	mes "How many would you like?";
+	mes "cada uno cuesta " + .@str_cost$ + " zeny.";
+	mes "Cuantos te gustaria?";
 	next;
 	input .@input;
 	if (!.@input) {
 		mes "[Mercenary Goods Merchant]";
-		mes "You changed your mind?";
-		mes "Alright, feel free to come";
-		mes "back to me whenever you want";
-		mes "to buy any Mercenary Potions.";
+		mes "Cambiaste de opinion?";
+		mes "Bien, sientete libre de volver";
+		mes "a mi cuando quieras";
+		mes "comprar Pociones de Mercenario.";
 		close;
 	}
 	else if (.@input < 0 || .@input > 10000) {
 		mes "[Mercenary Goods Merchant]";
-		mes "I'm sorry, but you";
-		mes "can only buy up to";
-		mes "10,000 of these potions";
-		mes "at a time. Please enter";
-		mes "a number from 1 to 10,000.";
+		mes "Lo siento, pero solo";
+		mes "puedes comprar hasta";
+		mes "10,000 de estas pociones";
+		mes "a la vez. Por favor ingresa";
+		mes "un numero del 1 al 10,000.";
 		close;
 	}
 	else if (set(.@total_po, .@input * .@cost[.@m]) > Zeny) {
 		mes "[Mercenary Goods Merchant]";
-		mes "I'm sorry, but you don't";
-		mes "have enough zeny for this";
-		mes "many potions. Well, I'll be";
-		mes "be here when you're ready";
-		mes "to purchase something";
-		mes "for your Mercenaries.";
+		mes "Lo siento, pero no tienes";
+		mes "suficiente zeny para tantas";
+		mes "pociones. Bueno, estare";
+		mes "aqui cuando estes listo";
+		mes "para comprar algo";
+		mes "para tus Mercenarios.";
 		close;
 	}
 	else if (!checkweight(.@item[.@m], .@input)) {
 		mes "[Mercenary Goods Merchant]";
-		mes "If I gave you that many";
-		mes "potions, you wouldn't be";
-		mes "able to carry them with you.";
-		mes "Please come back after";
-		mes "you free up some space";
-		mes "in your Inventory.";
+		mes "Si te diera tantas";
+		mes "pociones, no podrias";
+		mes "cargarlas contigo.";
+		mes "Por favor vuelve despues";
+		mes "de liberar algo de espacio";
+		mes "en tu Inventario.";
 		close;
 	}
 	mes "[Mercenary Goods Merchant]";
-	if (.@input == 1) 
-		mes "Here's your " + getitemname(.@item[.@m]) + ".";
+	if (.@input == 1)
+		mes "Aqui tienes tu " + getitemname(.@item[.@m]) + ".";
 	else {
-		mes "Here you are, this is exactly";
+		mes "Aqui tienes, esto es exactamente";
 		mes callfunc("F_InsertPlural",.@input,getitemname(.@item[.@m])) + ".";
 	}
-	mes "Thank you, and please come";
-	mes "again when you need more";
-	mes "potions for your Mercenaries.";
+	mes "Gracias, y por favor vuelve";
+	mes "cuando necesites mas";
+	mes "pociones para tus Mercenarios.";
 	Zeny = Zeny - .@total_po;
 	getitem .@item[.@m], .@input;
 	close;
@@ -301,25 +302,25 @@ pay_arche,102,167,5	duplicate(MercMerchant)	Mercenary Merchant#Bow	4_F_CAPEGIRL
 		if (.@npc$ == .@name$[.@type]) break;
 
 	mes "[Checker]";
-	mes "Please input a password.";
+	mes "Por favor ingresa una contrasena.";
 	next;
 	.@i = callfunc("F_GM_NPC",1854,0,0,10000);
 	mes "[Checker]";
 	if (.@i == -2)
 		mes "Error.";
 	else if (.@i == 0)
-		mes "Wrong number";
+		mes "Numero incorrecto";
 	else if (.@i == 1) {
-		mes "Please select.";
+		mes "Por favor selecciona.";
 		next;
-		switch( select( "Turn off Mercenary NPC","Turn on Mercenary NPC" ) ) {
+		switch( select( "Desactivar NPC de Mercenarios","Activar NPC de Mercenarios" ) ) {
 		case 1:
-			mes "NPCs are turned off.";
+			mes "Los NPCs han sido desactivados.";
 			disablenpc "Mercenary Manager#" + .@name$[.@type];
 			disablenpc "Mercenary Merchant#" + .@name$[.@type];
 			break;
 		case 2:
-			mes "NPCs are turned on.";
+			mes "Los NPCs han sido activados.";
 			enablenpc "Mercenary Manager#" + .@name$[.@type];
 			enablenpc "Mercenary Merchant#" + .@name$[.@type];
 			break;
