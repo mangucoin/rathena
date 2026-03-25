@@ -1,90 +1,90 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Bossnia Warp NPCs
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Masao
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.3
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Bossnia MVP event.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 Converted from the official script.
 //= 1.1 Optimized. [Euphy]
 //= 1.2 Moved spawns and warps (by Masao) to this file. [Euphy]
 //= 1.3 Added VIP features. [Euphy]
-//============================================================ 
+//============================================================
 
 // Entrance NPCs
 //============================================================
 prontera,132,125,4	script	Bossnia Staff#1	908,{
 	mes "[Riss]";
-	mes "Hello?";
-	mes "I found some beautiful places";
-	mes "while I travelled all over the world.";
-	mes "I am an adventurer.";
-	mes "Haha~";
+	mes "Hola?";
+	mes "Encontre algunos lugares hermosos";
+	mes "mientras viajaba por todo el mundo.";
+	mes "Soy un aventurero.";
+	mes "Jaja~";
 	next;
 	mes "[Riss]";
-	mes "What? My name is...";
+	mes "Que? Mi nombre es...";
 	mes "'Bossnia Staff'?? No no...";
-	mes "Well, my name is not so important.";
-	mes "Sometimes you should be generous.";
-	mes "No time for considering that kind of small stuff";
-	mes "when you have to concentrate on more important things.";
+	mes "Bueno, mi nombre no es tan importante.";
+	mes "A veces deberias ser generoso.";
+	mes "No hay tiempo para pensar en cosas pequenas";
+	mes "cuando tienes que concentrarte en cosas mas importantes.";
 	next;
 	mes "[Riss]";
-	mes "Hum... anyway I want to say... something..";
-	mes "While I was travelling through some places,";
-	mes "I found a really fearful place.";
+	mes "Hum... de todos modos quiero decir... algo..";
+	mes "Mientras viajaba por algunos lugares,";
+	mes "encontre un lugar realmente aterrador.";
 	next;
 	mes "[Riss]";
-	mes "Most of the time when you come to a place,";
-	mes "there is one strong and fearful monster.";
-	mes "Isn't it?";
+	mes "La mayoria de las veces cuando llegas a un lugar,";
+	mes "hay un monstruo fuerte y temible.";
+	mes "No es asi?";
 	next;
 	mes "[Riss]";
-	mes "But... but... in there...";
-	mes "There are lots of fearful and strong monsters in there...";
-	mes "That was really frightful.";
+	mes "Pero... pero... ahi dentro...";
+	mes "Hay muchos monstruos temibles y fuertes ahi dentro...";
+	mes "Eso fue realmente espantoso.";
 	next;
 	mes "[Riss]";
-	mes "If I had reacted a bit later... a few seconds...";
-	mes "I might have been killed.";
+	mes "Si hubiera reaccionado un poco mas tarde... unos segundos...";
+	mes "Podria haber muerto.";
 	next;
 	mes "[Riss]";
-	mes "What?";
-	mes "You want to go in there?";
-	mes "Oh~ Boy~ you didn't get me.";
-	mes "In there.......";
+	mes "Que?";
+	mes "Quieres ir ahi?";
+	mes "Oh~ Chico~ no me entendiste.";
+	mes "Ahi dentro.......";
 	next;
 	mes "[Riss]";
-	mes "Uh... you already know?";
-	mes "Although you know the place, you want to go in...";
-	mes "Good, I will send you there.";
-	mes "But after you went there, don't hold";
+	mes "Uh... ya lo sabes?";
+	mes "Aunque conoces el lugar, quieres entrar...";
+	mes "Bien, te enviare ahi.";
+	mes "Pero despues de que vayas, no me guardes";
 
 	// If the VIP system is enabled, players pay a Reset Stone for 5 entrances (with a choice of warps).
 	// If it's disabled, players pay 5,000z per entrance.
 	if (VIP_SCRIPT) {
-		mes "a grudge against me. It'll cost you 1 Reset Stone for 5 access.";
+		mes "rencor. Te costara 1 Reset Stone por 5 accesos.";
 		next;
 		mes "[Riss]";
 		if (bossnia_event > 0) {
 			set .@type,1;
-			mes "Remaining access: "+bossnia_event;
+			mes "Accesos restantes: "+bossnia_event;
 		} else if (countitem(6320)) {
 			set .@type,2;
-			mes "Do you want to go?";
+			mes "Quieres ir?";
 		} else {
-			mes "You don't have a ticket now.....";
-			mes "So come to me again with a Reset Stone later.";
+			mes "No tienes un ticket ahora.....";
+			mes "Asi que vuelve a verme con una Reset Stone despues.";
 			close;
 		}
 		next;
-		if(select("Enter:Leave") == 2)
+		if(select("Entrar:Salir") == 2)
 			close;
-		set .@i, select("First:Second:Third:Fourth");
+		set .@i, select("Primero:Segundo:Tercero:Cuarto");
 		switch(select("Warp 1:Warp 2:Warp 3:Warp 4")) {
 			case 1: set .@x,31; set .@y,208; break;
 			case 2: set .@x,31; set .@y,31; break;
@@ -101,25 +101,25 @@ prontera,132,125,4	script	Bossnia Staff#1	908,{
 		warp "bossnia_0"+.@i,.@x,.@y;
 		close;
 	} else {
-		mes "a grudge against me. Also it costs 5,000 zeny.";
+		mes "rencor. Ademas cuesta 5,000 zeny.";
 		next;
 		if (Zeny > 4999) {
 			mes "[Riss]";
-			mes "Would you really like to take the challenge?";
-			mes "Ok, just choose the course.";
+			mes "Realmente quieres aceptar el desafio?";
+			mes "Bien, solo elige el curso.";
 			next;
-			set .@i, select("First:Second:Third:Fourth");
+			set .@i, select("Primero:Segundo:Tercero:Cuarto");
 			mes "[Riss]";
-			mes "Take care, boy~";
-			mes "Don't hold a grudge against me.";
+			mes "Cuidate, chico~";
+			mes "No me guardes rencor.";
 			close2;
 			set Zeny, Zeny - 5000;
 			warp "bossnia_0"+.@i,rand(202,204),rand(202,204);
 			end;
 		} else {
 			mes "[Riss]";
-			mes "You don't have enough money...";
-			mes "Come back when you have at least 5,000 zeny.";
+			mes "No tienes suficiente dinero...";
+			mes "Vuelve cuando tengas al menos 5,000 zeny.";
 			close;
 		}
 	}
