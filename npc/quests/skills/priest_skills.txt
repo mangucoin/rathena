@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Priest Skills Quests
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Lupus, Reddozen
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.5
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Quests for skills: Redempito
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.4 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
 //= 1.5 Replaced effect numerics with constants. [L0ne_W0lf]
 //============================================================
@@ -18,272 +18,271 @@ prt_church,111,112,1	script	Sister Linus	79,{
 	if (BaseJob == Job_Priest) {
 		if (PRIEST_SK == 100) {
 			if (getskilllv("PR_REDEMPTIO") == 0) {
-				mes "[Sister Linus]";
-				mes "Hm? We've met before,";
-				mes "haven't we? Then again,";
-				mes "all Priests begin to look";
-				mes "the same after a while. Ah,";
-				mes "were you one of the ones";
-				mes "to whom I taught Redemptio?";
+				mes "[Hermana Linus]";
+				mes "Hm? Nos hemos visto antes,";
+				mes "verdad? Aunque, todos los Priests";
+				mes "comienzan a verse igual despues de un tiempo. Ah,";
+				mes "eras uno de los que";
+				mes "les ensene Redemptio?";
 				next;
-				mes "[Sister Linus]";
-				mes "Ah, you've forgotten, have";
-				mes "you? Well, it's no problem for";
-				mes "me to teach you again. This skill enables you to revive your fallen";
-				mes "Party Members by sacrificing";
-				mes "your own life for them.";
+				mes "[Hermana Linus]";
+				mes "Ah, lo has olvidado,";
+				mes "verdad? Bueno, no hay problema para";
+				mes "mi ensenarte de nuevo. Esta habilidad te permite revivir a tus";
+				mes "Miembros de Grupo caidos sacrificando";
+				mes "tu propia vida por ellos.";
 				next;
-				mes "[Sister Linus]";
-				mes "^3131FFOh holy and venerable one,";
-				mes "we pray to you. Please show";
-				mes "us your mercy and guide us";
-				mes "with your light. Give us the";
-				mes "strength to walk the path of";
-				mes "love and sacrifice. Redemptio!^000000";
+				mes "[Hermana Linus]";
+				mes "^3131FFOh santo y venerable,";
+				mes "te rezamos. Por favor muestra";
+				mes "tu misericordia y guianos";
+				mes "con tu luz. Danos la";
+				mes "fuerza para caminar el sendero de";
+				mes "amor y sacrificio. Redemptio!^000000";
 				skill "PR_REDEMPTIO",1,SKILL_PERM;
 				next;
-				mes "[Sister Linus]";
-				mes "There...";
-				mes "You should be able";
-				mes "to perform Redemptio";
-				mes "now. I hope you use it";
-				mes "well on your adventures~";
+				mes "[Hermana Linus]";
+				mes "Listo...";
+				mes "Deberias poder";
+				mes "realizar Redemptio";
+				mes "ahora. Espero que lo uses";
+				mes "bien en tus aventuras~";
 				close;
 			}
 			else {
-				mes "[Sister Linus]";
-				mes "I'll always be praying";
-				mes "for your safety. Be careful,";
-				mes "and I hope that you can bring";
-				mes "love and compassion to all";
-				mes "whom you meet in your travels.";
+				mes "[Hermana Linus]";
+				mes "Siempre estare rezando";
+				mes "por tu seguridad. Ten cuidado,";
+				mes "y espero que puedas llevar";
+				mes "amor y compasion a todos";
+				mes "los que encuentres en tus viajes.";
 				close;
 			}
 		}
 		else if (PRIEST_SK == 0) {
 			set redemp,1014;
 			if (getskilllv("PR_REDEMPTIO")) {
-				mes "[Sister Linus]";
-				mes "I'll always be praying";
-				mes "for your safety. Be careful,";
-				mes "and I hope that you can bring";
-				mes "love and compassion to all";
-				mes "whom you meet in your travels.";
+				mes "[Hermana Linus]";
+				mes "Siempre estare rezando";
+				mes "por tu seguridad. Ten cuidado,";
+				mes "y espero que puedas llevar";
+				mes "amor y compasion a todos";
+				mes "los que encuentres en tus viajes.";
 				set PRIEST_SK,100;
 				close;
 			}
-			mes "[Sister Linus]";
-			mes "Please have mercy and";
-			mes "spread your light through";
-			mes "the world. Guide her with";
-			mes "your benevolent wisdom...";
-			mes "Bless her, and may she";
-			mes "be protected by your grace.";
+			mes "[Hermana Linus]";
+			mes "Por favor ten misericordia y";
+			mes "esparce tu luz por";
+			mes "el mundo. Guiala con";
+			mes "tu sabiduria benevolente...";
+			mes "Bendícela, y que ella";
+			mes "sea protegida por tu gracia.";
 			next;
-			select("Whom are you praying for, sister?");
-			mes "[Sister Linus]";
-			mes "Oh! You startled me!";
-			mes "Whom am I praying for?";
-			mes "Well, I once knew a young,";
-			mes "playful and merry nun who was";
-			mes "also a bit brazen. But I have";
-			mes "many joyful memories of her.";
+			select("Por quien esta rezando, hermana?");
+			mes "[Hermana Linus]";
+			mes "Oh! Me asustaste!";
+			mes "Por quien estoy rezando?";
+			mes "Bueno, una vez conoci a una joven,";
+			mes "juguetona y alegre monja que tambien";
+			mes "era un poco atrevida. Pero tengo";
+			mes "muchos recuerdos alegres de ella.";
 			next;
-			mes "[Sister Linus]";
-			mes "One day, a group of adventurers";
-			mes "came to Prontera Church in hopes of hiring a Priest to accompany";
-			mes "them to ^3131DDGlast Heim^000000. It must have been fate that she was the only";
-			mes "Priest that was available.";
+			mes "[Hermana Linus]";
+			mes "Un dia, un grupo de aventureros";
+			mes "vino a la Iglesia de Prontera con la esperanza de contratar a un Priest para acompanarlos";
+			mes "a ^3131DDGlast Heim^000000. Debio ser el destino que ella fuera la unica";
+			mes "Priest que estaba disponible.";
 			next;
-			mes "[Sister Linus]";
-			mes "I remember that she was";
-			mes "so determined to join those";
-			mes "adventurers, and we had no";
-			mes "choice but to let her go.";
-			mes "Still, many of us believed";
-			mes "that it was too dangerous...";
+			mes "[Hermana Linus]";
+			mes "Recuerdo que ella estaba";
+			mes "tan decidida a unirse a esos";
+			mes "aventureros, y no teniamos";
+			mes "mas opcion que dejarla ir.";
+			mes "Aun asi, muchos de nosotros creiamos";
+			mes "que era demasiado peligroso...";
 			next;
-			mes "[Sister Linus]";
-			mes "I hear that, at first, their";
-			mes "ragtag team was able to";
-			mes "successfully exterminate";
-			mes "a great number of monsters.";
-			mes "But supporting them as a Priest";
-			mes "must have been tough for her...";
+			mes "[Hermana Linus]";
+			mes "Escuche que, al principio, su";
+			mes "equipo improvisado pudo";
+			mes "exterminar exitosamente";
+			mes "un gran numero de monstruos.";
+			mes "Pero apoyarlos como Priest";
+			mes "debio ser duro para ella...";
 			next;
-			mes "[Sister Linus]";
-			mes "Then, tragedy struck.";
-			mes "Surrounded by Wanderers,";
-			mes "the adventurers quickly fell";
-			mes "in defeat, one by one. Soon,";
-			mes "the young nun was the only one of the group still standing.";
+			mes "[Hermana Linus]";
+			mes "Entonces, la tragedia ocurrio.";
+			mes "Rodeados por Wanderers,";
+			mes "los aventureros cayeron";
+			mes "rapidamente en derrota, uno por uno. Pronto,";
+			mes "la joven monja era la unica del grupo que seguia en pie.";
 			next;
-			mes "[Sister Linus]";
-			mes "Alone against impossible";
-			mes "odds, that poor girl had no";
-			mes "choice but to try a desperate";
-			mes "gamble. She began to chant";
-			mes "the ancient holy spell...";
+			mes "[Hermana Linus]";
+			mes "Sola contra probabilidades imposibles,";
+			mes "esa pobre chica no tenia";
+			mes "otra opcion que intentar una apuesta";
+			mes "desesperada. Comenzo a cantar";
+			mes "el antiguo hechizo sagrado...";
 			next;
-			select("Ancient spell...?");
-			mes "[Sister Linus]";
-			mes "Yes! ^FF0000Redemptio^000000!";
-			mes "A skill that only the";
-			mes "most talented Priests";
-			mes "can perform! And here she";
-			mes "was, a young nun with very";
-			mes "little experience, trying it!";
+			select("Hechizo antiguo...?");
+			mes "[Hermana Linus]";
+			mes "Si! ^FF0000Redemptio^000000!";
+			mes "Una habilidad que solo los";
+			mes "Priests mas talentosos";
+			mes "pueden realizar! Y ahi estaba ella,";
+			mes "una joven monja con muy";
+			mes "poca experiencia, intentandolo!";
 			next;
-			mes "[Sister Linus]";
-			mes "Redemptio is the last";
-			mes "resort skill that can be";
-			mes "used to nobly save the";
-			mes "lives of others at the cost";
-			mes "of ^3131FFsacrificing your own life^000000.";
+			mes "[Hermana Linus]";
+			mes "Redemptio es la habilidad de";
+			mes "ultimo recurso que puede ser";
+			mes "usada para salvar noblemente las";
+			mes "vidas de otros al costo";
+			mes "de ^3131FFsacrificar tu propia vida^000000.";
 			next;
-			mes "[Sister Linus]";
-			mes "Yes, I remember the days";
-			mes "she wasn't very interested";
-			mes "in studying the Priest and";
-			mes "Acolyte skills. Surprisingly,";
-			mes "she had learned enough to";
-			mes "attempt to cast Redemptio...";
+			mes "[Hermana Linus]";
+			mes "Si, recuerdo los dias en que";
+			mes "ella no estaba muy interesada";
+			mes "en estudiar las habilidades de";
+			mes "Priest y Acolyte. Sorprendentemente,";
+			mes "habia aprendido lo suficiente para";
+			mes "intentar lanzar Redemptio...";
 			next;
-			mes "[Sister Linus]";
-			mes "Miraculously, she succeeded";
-			mes "in reviving her party members.";
-			mes "They quickly used a Yggdrasil";
-			mes "Leaf to restore her life, and they defeated the Wanderers and";
-			mes "returned home safely.";
+			mes "[Hermana Linus]";
+			mes "Milagrosamente, logro";
+			mes "revivir a sus companeros de grupo.";
+			mes "Rapidamente usaron una Yggdrasil";
+			mes "Leaf para restaurar su vida, y derrotaron a los Wanderers y";
+			mes "regresaron a casa a salvo.";
 			next;
-			mes "[Sister Linus]";
-			mes "Because of this success, she";
-			mes "was promoted to High Priest";
-			mes "despite the many mistakes she";
-			mes "made in the past. Now she travels the world, helping adventurers";
-			mes "in any way that she can.";
+			mes "[Hermana Linus]";
+			mes "Debido a este exito, fue";
+			mes "promovida a High Priest";
+			mes "a pesar de los muchos errores que";
+			mes "cometio en el pasado. Ahora viaja por el mundo, ayudando a aventureros";
+			mes "de cualquier manera que pueda.";
 			next;
-			mes "[Sister Linus]";
-			mes "But, well, she'll";
-			mes "always be that spunky";
-			mes "and joyful girl to me.";
-			next;
-			mes "["+ strcharinfo(0) +"]";
-			mes "Wait, you still haven't";
-			mes "answered my question.";
-			mes "Are you praying for this";
-			mes "nun? And if so, is she";
-			mes "in some kind of danger?";
-			next;
-			mes "[Sister Linus]";
-			mes "Well, a few months ago,";
-			mes "she went on a mission to";
-			mes "^3131FFLighthalzen^000000, a city in the";
-			mes "Schwarzwald Republic. I was";
-			mes "just worried since I haven't";
-			mes "heard from her in a while.";
-			next;
-			mes "[Sister Linus]";
-			mes "I come here to pray for";
-			mes "her everyday, and hope that";
-			mes "she'll come back safely and";
-			mes "share stories of her adventures";
-			mes "with me. Ooh, we'll talk all night long! It'll be so much fun!";
-			next;
-			mes "[Sister Linus]";
-			mes "Goodness, I've been";
-			mes "running my mouth! I'm";
-			mes "sorry to keep you, did you";
-			mes "have somewhere to go? Well,";
-			mes "I'll be praying for your safety~";
+			mes "[Hermana Linus]";
+			mes "Pero, bueno, ella";
+			mes "siempre sera esa chica";
+			mes "animada y alegre para mi.";
 			next;
 			mes "["+ strcharinfo(0) +"]";
-			mes "Before I go, would you";
-			mes "please tell me the name";
-			mes "of that High Priest you were";
-			mes "talking about? If I see her,";
-			mes "I'll ask her to contact you.";
+			mes "Espera, todavia no has";
+			mes "respondido mi pregunta.";
+			mes "Estas rezando por esta";
+			mes "monja? Y si es asi, esta";
+			mes "en algun tipo de peligro?";
 			next;
-			mes "[Sister Linus]";
-			mes "Oh, thank you! Her name";
-			mes "is High Priest Sorin. Um,";
-			mes "^3131FFMargaretha Sorin^000000. If you";
-			mes "happen to find her, please";
-			mes "let her know that I am";
-			mes "praying for her safety.";
+			mes "[Hermana Linus]";
+			mes "Bueno, hace unos meses,";
+			mes "fue en una mision a";
+			mes "^3131FFLighthalzen^000000, una ciudad en la";
+			mes "Republica de Schwarzwald. Solo";
+			mes "estaba preocupada porque no he";
+			mes "sabido de ella en un tiempo.";
+			next;
+			mes "[Hermana Linus]";
+			mes "Vengo aqui a rezar por";
+			mes "ella todos los dias, y espero que";
+			mes "vuelva a salvo y";
+			mes "comparta historias de sus aventuras";
+			mes "conmigo. Ooh, hablaremos toda la noche! Sera tan divertido!";
+			next;
+			mes "[Hermana Linus]";
+			mes "Dios mio, he estado";
+			mes "hablando de mas! Lo";
+			mes "siento por detenerte, tenias";
+			mes "algun lugar adonde ir? Bueno,";
+			mes "estare rezando por tu seguridad~";
+			next;
+			mes "["+ strcharinfo(0) +"]";
+			mes "Antes de irme, podrias";
+			mes "decirme el nombre";
+			mes "de esa High Priest de la que";
+			mes "estabas hablando? Si la veo,";
+			mes "le pedire que te contacte.";
+			next;
+			mes "[Hermana Linus]";
+			mes "Oh, gracias! Su nombre";
+			mes "es High Priest Sorin. Um,";
+			mes "^3131FFMargaretha Sorin^000000. Si";
+			mes "la encuentras, por favor";
+			mes "hazle saber que estoy";
+			mes "rezando por su seguridad.";
 			set PRIEST_SK,1;
 			close;
 		}
 		else if (PRIEST_SK == 1) {
-			mes "[Sister Linus]";
-			mes "Oh, hello~";
-			mes "How are you";
-			mes "doing today?";
+			mes "[Hermana Linus]";
+			mes "Oh, hola~";
+			mes "Como estas";
+			mes "hoy?";
 			next;
-			if (select("Please teach me ^3131FFRedemptio^000000.:Cancel") == 1) {
-				mes "[Sister Linus]";
-				mes "Ooh, Redemptio would be";
-				mes "a good skill for you to learn~";
-				mes "It's difficult to cast, but when you succeed, you can revive all";
-				mes "of your defeated Party Members.";
+			if (select("Por favor ensenme ^3131FFRedemptio^000000.:Cancelar") == 1) {
+				mes "[Hermana Linus]";
+				mes "Ooh, Redemptio seria";
+				mes "una buena habilidad para que aprendas~";
+				mes "Es dificil de lanzar, pero cuando lo logras, puedes revivir a todos";
+				mes "tus Miembros de Grupo derrotados.";
 				next;
-				mes "[Sister Linus]";
-				mes "Of course, the drawback";
-				mes "is that you must ^3131FFsacrifice";
-				mes "your own life^000000 in order to";
-				mes "use the skill. Now, to learn";
-				mes "Redemptio, you must first";
-				mes "learn ^3131FFLevel 1 Resurrection^000000.";
+				mes "[Hermana Linus]";
+				mes "Por supuesto, la desventaja";
+				mes "es que debes ^3131FFsacrificar";
+				mes "tu propia vida^000000 para";
+				mes "usar la habilidad. Ahora, para aprender";
+				mes "Redemptio, primero debes";
+				mes "aprender ^3131FFNivel 1 de Resurrection^000000.";
 				next;
-				mes "[Sister Linus]";
-				mes "Ah, you must";
-				mes "also bring me";
-				mes "^3131FF30 Holy Waters and";
+				mes "[Hermana Linus]";
+				mes "Ah, tambien debes";
+				mes "traerme";
+				mes "^3131FF30 Holy Waters y";
 				mes "20 Blue Gemstones^000000";
-				mes "so you can attempt";
-				mes "to learn the skill.";
+				mes "para que puedas intentar";
+				mes "aprender la habilidad.";
 				set PRIEST_SK,2;
 				next;
-				mes "[Sister Linus]";
-				mes "Um, but if you fail to";
-				mes "learn Redemptio, you'll";
-				mes "lose 1 Holy Water and";
-				mes "1 Blue Gemstone and";
-				mes "you'll have to try it again...";
+				mes "[Hermana Linus]";
+				mes "Um, pero si fallas en";
+				mes "aprender Redemptio, perderas";
+				mes "1 Holy Water y";
+				mes "1 Blue Gemstone y";
+				mes "tendras que intentarlo de nuevo...";
 				close;
 			}
-			mes "[Sister Linus]";
-			mes "Praying gives me a";
-			mes "sense of peace and";
-			mes "comfort. Perhaps that";
-			mes "is one of the reasons";
-			mes "why I chose this job...";
+			mes "[Hermana Linus]";
+			mes "Rezar me da una";
+			mes "sensacion de paz y";
+			mes "consuelo. Quizas esa";
+			mes "es una de las razones";
+			mes "por las que elegi este trabajo...";
 			close;
 		}
 		else if (PRIEST_SK == 2) {
 			if (getskilllv("ALL_RESURRECTION") > 0) {
 				if (countitem(523) > 29 && countitem(717) > 19) {
-					mes "[Sister Linus]";
-					mes "Ooh, it seems like you've";
-					mes "brought everything that you";
-					mes "need to learn Redemptio.";
-					mes "Are you ready to try it? If you";
-					mes "fail, you'll lose 1 Holy Water";
-					mes "and 1 Blue Gemstone, okay?";
+					mes "[Hermana Linus]";
+					mes "Ooh, parece que has";
+					mes "traido todo lo que";
+					mes "necesitas para aprender Redemptio.";
+					mes "Estas listo para intentarlo? Si";
+					mes "fallas, perderas 1 Holy Water";
+					mes "y 1 Blue Gemstone, de acuerdo?";
 					next;
-					mes "[Sister Linus]";
-					mes "Now, please";
-					mes "concentrate and";
-					mes "repeat this special";
-					mes "prayer after me.";
+					mes "[Hermana Linus]";
+					mes "Ahora, por favor";
+					mes "concentrate y";
+					mes "repite esta oracion";
+					mes "especial despues de mi.";
 					next;
-					mes "[Sister Linus]";
-					mes "^3131FFOh holy and venerable one,";
-					mes "we pray to you. Please show";
-					mes "us your mercy and guide us";
-					mes "with your light. Give us the";
-					mes "strength to walk the path of";
-					mes "love and sacrifice. Redemptio!^000000";
+					mes "[Hermana Linus]";
+					mes "^3131FFOh santo y venerable,";
+					mes "te rezamos. Por favor muestra";
+					mes "tu misericordia y guianos";
+					mes "con tu luz. Danos la";
+					mes "fuerza para caminar el sendero de";
+					mes "amor y sacrificio. Redemptio!^000000";
 					next;
 					set .@redem_s,JobLevel+getskilllv("ALL_RESURRECTION");
 					set .@red_suc,rand(1,100);
@@ -300,13 +299,13 @@ prt_church,111,112,1	script	Sister Linus	79,{
 
 					if (.@success) {
 						specialeffect2 EF_HEALSP;
-						mes "[Sister Linus]";
-						mes "Congratulations!";
-						mes "You successfully";
-						mes "learned Redemptio!";
-						mes "Please remember to only";
-						mes "use this skill in the most";
-						mes "critical situations.";
+						mes "[Hermana Linus]";
+						mes "Felicidades!";
+						mes "Has aprendido";
+						mes "Redemptio exitosamente!";
+						mes "Por favor recuerda solo";
+						mes "usar esta habilidad en las";
+						mes "situaciones mas criticas.";
 						delitem 717,20; //Blue_Gemstone
 						delitem 523,30; //Holy_Water
 						set PRIEST_SK,100;
@@ -315,13 +314,13 @@ prt_church,111,112,1	script	Sister Linus	79,{
 					}
 					else {
 						specialeffect2 EF_POISONHIT;
-						mes "[Sister Linus]";
-						mes "Oh no! I'm sorry,";
-						mes "but you failed to";
-						mes "learn Redemptio. Well,";
-						mes "I'll be waiting right here,";
-						mes "so we can try again when";
-						mes "you're ready, okay?";
+						mes "[Hermana Linus]";
+						mes "Oh no! Lo siento,";
+						mes "pero fallaste en";
+						mes "aprender Redemptio. Bueno,";
+						mes "estare esperando aqui,";
+						mes "para que podamos intentar de nuevo cuando";
+						mes "estes listo, de acuerdo?";
 						delitem 717,1; //Blue_Gemstone
 						delitem 523,1; //Holy_Water
 						close;
@@ -329,49 +328,49 @@ prt_church,111,112,1	script	Sister Linus	79,{
 
 				}
 				else {
-					mes "[Sister Linus]";
-					mes "If you want to try to learn";
-					mes "Redemptio, please bring";
-					mes "^3131FF20 Blue Gemstones^000000 and";
-					mes "^3131FF30 Holy Waters^000000. Ah, and";
-					mes "you need to learn ^3131FFLevel 1";
-					mes "Resurrection^000000 beforehand.";
+					mes "[Hermana Linus]";
+					mes "Si quieres intentar aprender";
+					mes "Redemptio, por favor trae";
+					mes "^3131FF20 Blue Gemstones^000000 y";
+					mes "^3131FF30 Holy Waters^000000. Ah, y";
+					mes "necesitas aprender ^3131FFNivel 1";
+					mes "de Resurrection^000000 previamente.";
 					close;
 				}
 			}
 			else {
-				mes "[Sister Linus]";
-				mes "If you want to try to learn";
-				mes "Redemptio, please bring";
-				mes "^3131FF20 Blue Gemstones^000000 and";
-				mes "^3131FF30 Holy Waters^000000. Ah, and";
-				mes "you need to learn ^3131FFLevel 1";
-				mes "Resurrection^000000 beforehand.";
+				mes "[Hermana Linus]";
+				mes "Si quieres intentar aprender";
+				mes "Redemptio, por favor trae";
+				mes "^3131FF20 Blue Gemstones^000000 y";
+				mes "^3131FF30 Holy Waters^000000. Ah, y";
+				mes "necesitas aprender ^3131FFNivel 1";
+				mes "de Resurrection^000000 previamente.";
 				close;
 			}
 		}
 	}
 	else {
-		mes "[Sister Linus]";
-		mes "Please have mercy and";
-		mes "spread your light through";
-		mes "the world. Guide her with";
-		mes "your benevolent wisdom...";
-		mes "Bless her, and may she";
-		mes "be protected by your grace.";
+		mes "[Hermana Linus]";
+		mes "Por favor ten misericordia y";
+		mes "esparce tu luz por";
+		mes "el mundo. Guiala con";
+		mes "tu sabiduria benevolente...";
+		mes "Bendícela, y que ella";
+		mes "sea protegida por tu gracia.";
 		close;
 	}
 }
 
-//============================================================ 
+//============================================================
 // Old changelog
-//============================================================ 
+//============================================================
 //= 1.0 for fully working skills only [Lupus]
 //= 1.1 Added more new skill quests for more classes [Lupus]
 //= Somehow eA engine doesn't let you keep learn't skill V_V'
 //= 1.2 Added to correct locations, correct NPC's, fixed
 //= some of the items required and made them into real
-//= quests. [Reddozen] 
+//= quests. [Reddozen]
 //= 1.3 Fixed bugs and minor typos. Optimized [Lupus]
 //= 1.3a fixed an item ID typo, thx 2Spiritual Kid
 //= 1.3b Splitted into different files [DracoRPG]

@@ -32,13 +32,13 @@ OnStart:
 
 	// delay before match begins
 	sleep 6000;
-	mapannounce "bat_a01", "The rules are simple. The first team to break the opponent's Emperium wins!", bc_map;
+	mapannounce "bat_a01", "Las reglas son simples. ~El primer equipo en destruir el Emperium del oponente gana!", bc_map;
 	sleep 3000;
 	for ( .@i = 5; .@i > 0; --.@i ) {
 		mapannounce "bat_a01", "["+ .@i +"]", bc_map;
 		sleep 1000;
 	}
-	mapannounce "bat_a01", "Start!", bc_map;
+	mapannounce "bat_a01", "~Comiencen!", bc_map;
 
 	// spawn Emperiums
 	bg_monster .red,"bat_a01",171,346, "--ja--",1915, strnpcinfo(3)+"::OnRedDown";
@@ -53,12 +53,12 @@ OnStart:
 	killmonster "bat_a01", strnpcinfo(3)+"::OnRedDown";
 	killmonster "bat_a01", strnpcinfo(3)+"::OnBlueDown";
 	if ( .winside ) {
-		mapannounce "bat_a01", "- "+( (.winside == .red)? "Red" : "Blue" )+" Team is victorious! -", bc_map;
+		mapannounce "bat_a01", "- ~El Equipo "+( (.winside == .red)? "Rojo" : "Azul" )+" es victorioso! -", bc_map;
 		bg_get_data .winside, 1;
 		for ( .@i = 0; .@i < $@arenamemberscount; ++.@i )
 			getitem .rewarditem[0], .rewarditem[1], $@arenamembers[.@i];
 	} else
-		mapannounce "bat_a01", "- The match has ended in a draw! -", bc_map;
+		mapannounce "bat_a01", "- ~La partida ha terminado en empate! -", bc_map;
 	sleep 5000;
 	bg_warp .red, "prontera", 155,182;
 	bg_warp .blue, "prontera", 158,182;
@@ -73,7 +73,7 @@ OnStart:
 OnRedDown:  callsub L_EmpDown, "Red", .blue;
 OnBlueDown: callsub L_EmpDown, "Blue", .red;
 L_EmpDown:
-	mapannounce "bat_a01", strcharinfo(0) +" has destroyed "+ getarg(0) +" Team's Emperium.", bc_map;
+	mapannounce "bat_a01", strcharinfo(0) +" ha destruido el Emperium del Equipo "+ getarg(0) +".", bc_map;
 	.winside = getarg(1);
 	awake strnpcinfo(0);
 	end;
@@ -92,7 +92,7 @@ OnBlueQuit: callsub L_Quit, .blue, "Blue";
 L_Quit:
 	percentheal 100, 100;
 	if ( !bg_get_data( getarg(0), 0 ) )
-		mapannounce "bat_a01", "All "+ getarg(1) +" team members have quit!", bc_map, 0xff3333;
+		mapannounce "bat_a01", "~Todos los miembros del equipo "+ getarg(1) +" se han retirado!", bc_map, 0xff3333;
 	end;
 }
 

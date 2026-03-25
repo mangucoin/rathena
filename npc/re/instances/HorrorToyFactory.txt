@@ -201,16 +201,16 @@ xmas,233,305,4	script	Factory Dimension Telep	PORTAL,{
 			mes "No tienes apoyo? Por favor organiza un grupo y vuelve si vas a entrar solo.";
 			close;
 		case 0:
-			mapannounce "xmas", getpartyname( getcharid(1) ) +" party's party member "+ strcharinfo(0) +" has entered the Horror Toy Factory.", bc_map, "0x00ff99";
+			mapannounce "xmas", "El miembro " + strcharinfo(0) + " del grupo " + getpartyname( getcharid(1) ) +" ha entrado a la Fabrica de Juguetes del Horror.", bc_map, "0x00ff99";
 			setquest 12331;// Trail of Toy Factory
 			end;
 		}
 	case 0:
 	case 1:
-		mes "You already have a trail of dimensional shifting. Your access has been denied.";
+		mes "Ya tienes un rastro de cambio dimensional. Tu acceso ha sido denegado.";
 		close;
 	case 2:
-		mes "^0000ffThe trail of dimensional shifting disappeared. You are allowed to use Factory Dimension Teleporter.^000000";
+		mes "^0000ffEl rastro del cambio dimensional desaparecio. Se te permite usar el Teletransportador Dimensional de la Fabrica.^000000";
 		erasequest 12331;
 		close;
 	}
@@ -219,25 +219,25 @@ xmas,233,305,4	script	Factory Dimension Telep	PORTAL,{
 1@xm_d,112,20,6	script	Catherine Jet Johnson#0	4_F_SKULL06GIRL,{
 	if (getstatus(SC_MONSTER_TRANSFORM,1) > 0) {
 		mes "[Catherine Jet Johnson]";
-		mes "You cannot come here if you are under the effect of a monster transformation.";
+		mes "No puedes venir aqui si estas bajo el efecto de una transformacion de monstruo.";
 		next;
 		mes "[Catherine Jet Johnson]";
-		mes "Please wait until the transformation is finished. You cannot move to another area until you become normal.";
+		mes "Por favor espera hasta que la transformacion termine. No puedes moverte a otra area hasta que vuelvas a la normalidad.";
 		close;
 	}
 	if (is_party_leader() == false) {
 		mes "[Catherine Jet Johnson]";
-		mes "Eh.. Give me a second. I am talking to the person in charge. Please wait.";
+		mes "Eh.. Dame un segundo. Estoy hablando con la persona a cargo. Por favor espera.";
 		close;
 	}
 	mes "[Catherine Jet Johnson]";
-	mes "Everyone is in their mortal corruptible state right?";
-	npctalk "Catherine Jet Johnson: Everyone is in their mortal corruptible state right?";
+	mes "Todos estan en su estado mortal corruptible, verdad?";
+	npctalk "Catherine Jet Johnson: Todos estan en su estado mortal corruptible, verdad?";
 	next;
-	switch( select( "Quit the story", "Listen to her story.", "I know your situation. Let's start quickly!" ) ) {
+	switch( select( "Dejar la historia", "Escuchar su historia.", "Conozco tu situacion. Comencemos rapido!" ) ) {
 	case 1:
 		mes "[Catherine Jet Johnson]";
-		mes "Oh, dear. Let me know when you are ready.";
+		mes "Oh, cielos. Avisame cuando estes listo.";
 		close;
 	case 2:
 		donpcevent instance_npcname("Catherine Jet Johnson#01") + "::OnStart";
@@ -255,43 +255,43 @@ OnStart:
 	enablenpc instance_npcname("Catherine Jet Johnson#01");
 	disablenpc instance_npcname("Catherine Jet Johnson#0");
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: This area was Factory No.1. It used to be the place where the toys and dolls were stored before given as presents.";
+	npctalk "Catherine Jet Johnson: Esta area era la Fabrica No.1. Solia ser el lugar donde los juguetes y munecas se almacenaban antes de ser dados como regalos.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: Ah, I remember several things. If someone wasn't in the employee's uniform, the guards used to come and scold them....";
+	npctalk "Catherine Jet Johnson: Ah, recuerdo varias cosas. Si alguien no tenia el uniforme de empleado, los guardias venian y los regañaban....";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: By the way...";
+	npctalk "Catherine Jet Johnson: Por cierto...";
 	donpcevent instance_npcname("#fac1ct") + "::OnStart";
 	sleep 3000;
-	mapannounce 'xm_d_map$, "Factory announcement: Wake up, toy factory working time has come...", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Despierten, el horario de trabajo de la fabrica de juguetes ha llegado...", bc_map, "0x00ff44";
 	sleep 6000;
-	npctalk "Catherine Jet Johnson: Wh.. What happened? Toys and dolls are wandering instead of human workers. As if they are employees...";
+	npctalk "Catherine Jet Johnson: Qu.. Que paso? Juguetes y munecas deambulan en lugar de trabajadores humanos. Como si fueran empleados...";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: I think other spirits have inhabited the empty factory for too long.";
+	npctalk "Catherine Jet Johnson: Creo que otros espiritus han habitado la fabrica vacia por demasiado tiempo.";
 	sleep 3000;
-	mapannounce 'xm_d_map$, "Factory announcement: Waste and other debris should be kept clear from work areas. This is to keep you safe at all times.", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Los desechos y otros escombros deben mantenerse alejados de las areas de trabajo. Esto es para mantenerlos seguros en todo momento.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: It's just like when humans worked here.";
+	npctalk "Catherine Jet Johnson: Es justo como cuando los humanos trabajaban aqui.";
 	sleep 3000;
-	mapannounce 'xm_d_map$, "Factory announcement: Let's make presents for every child's dream today.", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Hagamos regalos para el sueno de cada nino hoy.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: But, it's not the time to be happy. Once we find the last factory area, we will need to halt all production lines.";
+	npctalk "Catherine Jet Johnson: Pero, no es momento de estar felices. Una vez que encontremos la ultima area de la fabrica, necesitaremos detener todas las lineas de produccion.";
 	sleep 1000;
-	mapannounce 'xm_d_map$, "Factory announcement: Please start product line No.1. Don't forget to wear a safety helmet! This means you Bob!", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Por favor inicien la linea de produccion No.1. No olviden usar casco de seguridad! Esto va por ti Bob!", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: Ah, maybe we should restore those toys and gift boxes to their original condition.";
+	npctalk "Catherine Jet Johnson: Ah, tal vez deberiamos devolver esos juguetes y cajas de regalo a su condicion original.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: Eh? I... I mean... To return them as they were.. Yes... We need to fight them? I don't know how exactly.";
+	npctalk "Catherine Jet Johnson: Eh? Yo... Quiero decir... Devolverlos como estaban.. Si... Necesitamos pelear con ellos? No se exactamente como.";
 	sleep 2000;
-	mapannounce 'xm_d_map$, "Factory announcement: All employees must wear a proper uniform and identification. Please check with security if you do not have yours.", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Todos los empleados deben usar uniforme e identificacion adecuados. Por favor consulten con seguridad si no tienen los suyos.", bc_map, "0x00ff44";
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: Good heavens, I hope the guards are still human. There were boxes of uniforms near here in the past..";
+	npctalk "Catherine Jet Johnson: Cielo santo, espero que los guardias sigan siendo humanos. Habia cajas de uniformes cerca de aqui en el pasado..";
 	enablenpc instance_npcname("Employees' Uniform Box#1");
 	enablenpc instance_npcname("Employees' Uniform Box#2");
 	enablenpc instance_npcname("Employees' Uniform Box#3");
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: Ah, they are behind me. You'd better change into the uniform. Fortunately, I still have my employee card.";
+	npctalk "Catherine Jet Johnson: Ah, estan detras de mi. Sera mejor que te cambies al uniforme. Afortunadamente, todavia tengo mi tarjeta de empleada.";
 	sleep 5000;
-	npctalk "Catherine Jet Johnson: I will find my way around here. Let's meet near the second production line. Cheer up, it's a toy factory. It can't be all that bad!!";
+	npctalk "Catherine Jet Johnson: Encontrare mi camino por aqui. Encontremonos cerca de la segunda linea de produccion. Animo, es una fabrica de juguetes. No puede ser tan malo!!";
 	sleep 6000;
 	disablenpc instance_npcname("Catherine Jet Johnson#01");
 	disablenpc instance_npcname("#bgm01");
@@ -302,17 +302,17 @@ OnStart2:
 	enablenpc instance_npcname("Catherine Jet Johnson#01");
 	disablenpc instance_npcname("Catherine Jet Johnson#0");
 	sleep 3000;
-	npctalk "Catherine Jet Johnson: Ah.. We have explored here before? Okay, let's meet at the same spot again.";
+	npctalk "Catherine Jet Johnson: Ah.. Ya exploramos aqui antes? Bien, encontremonos en el mismo lugar de nuevo.";
 	sleep 6000;
 	disablenpc instance_npcname("Catherine Jet Johnson#01");
 	enablenpc instance_npcname("Employees' Uniform Box#1");
 	enablenpc instance_npcname("Employees' Uniform Box#2");
 	enablenpc instance_npcname("Employees' Uniform Box#3");
-	mapannounce 'xm_d_map$, "Factory announcement: Wake up, toy factory working time has come...", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Despierten, el horario de trabajo de la fabrica de juguetes ha llegado...", bc_map, "0x00ff44";
 	sleep 6000;
-	mapannounce 'xm_d_map$, "Factory announcement: Waste and other debris should be kept clear from work areas. This is to keep you safe at all times.", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Los desechos y otros escombros deben mantenerse alejados de las areas de trabajo. Esto es para mantenerlos seguros en todo momento.", bc_map, "0x00ff44";
 	sleep 6000;
-	mapannounce 'xm_d_map$, "Factory announcement: Let's make presents for every child's dream today.", bc_map, "0x00ff44";
+	mapannounce 'xm_d_map$, "Anuncio de fabrica: Hagamos regalos para el sueno de cada nino hoy.", bc_map, "0x00ff44";
 	donpcevent instance_npcname("#fac1ct") + "::OnStart";
 	disablenpc instance_npcname("#bgm01");
 	end;
@@ -330,12 +330,12 @@ OnTouch:
 	playBGM "52";
 	.@mob_id_transform = getstatus(SC_MONSTER_TRANSFORM,1);
 	if (.@mob_id_transform == 1246 || .@mob_id_transform < 1) {
-		mes "^0000ffYou put on a factory uniform. There still seems to be a few uniforms left in the box.^000000";
+		mes "^0000ffTe pones un uniforme de fabrica. Todavia parecen quedar algunos uniformes en la caja.^000000";
 		transform 1246,180000;// COOKIE_XMAS
 		close;
 	}
-	mes "^ff0000You are in transformation.";
-	mes "You cannot use the uniform box when already transformed.^000000";
+	mes "^ff0000Estas transformado.";
+	mes "No puedes usar la caja de uniformes cuando ya estas transformado.^000000";
 	close;
 }
 1@xm_d,116,16,6	duplicate(Employees' Uniform Box#1)	Employees' Uniform Box#2	4_NONMYSTCASE
@@ -358,7 +358,7 @@ OnMyMobDead:
 OnTimer1000:
 	killmonster 'xm_d_map$, instance_npcname("#fac1ct") + "::OnMyMobDead";
 	enablenpc instance_npcname("#fac1bs");
-	mapannounce 'xm_d_map$, "Coordinator's announcement: Huh? Where's everyone! How dare workers be absent from the line!", bc_map, "0xff8800";
+	mapannounce 'xm_d_map$, "Anuncio del Coordinador: Eh? Donde estan todos! Como se atreven los trabajadores a ausentarse de la linea!", bc_map, "0xff8800";
 	for ( .@i = 61; .@i <= 89; .@i++ )
 		disablenpc instance_npcname( "alert#"+ .@i );
 	stopnpctimer;
@@ -370,17 +370,17 @@ OnTimer1000:
 		.@mob_id_transform = getstatus(SC_MONSTER_TRANSFORM,1);
 		mes "[Coordinator]";
 		if (.@mob_id_transform == 1246) {
-			mes "I can't find the other workers. We don't have time for dawdling. Children are waiting for presents.";
+			mes "No puedo encontrar a los otros trabajadores. No tenemos tiempo para holgazanear. Los ninos esperan regalos.";
 			next;
 			mes "[Coordinator]";
-			mes "Hurry up! Carry ^ff0000the gift box over there^000000 and move to the east.";
+			mes "Apurate! Lleva ^ff0000la caja de regalo de alla^000000 y muevete al este.";
 			enablenpc instance_npcname("#pck1");
-			npctalk "Coordinator: Hurry up! Carry the gift box over there and move to the east.";
+			npctalk "Coordinator: Apurate! Lleva la caja de regalo de alla y muevete al este.";
 		}
 		else if (.@mob_id_transform == 1249)
-			mes "Why are you hanging around! Carry ^ff0000the gift box over here^000000 and move to the east.";
+			mes "Por que estas rondando! Lleva ^ff0000la caja de regalo de aqui^000000 y muevete al este.";
 		else {
-			mes "What!? Humans!!!";
+			mes "Que!? Humanos!!!";
 			donpcevent instance_npcname("#fac1bs") + "::OnAlert";
 		}
 		close;
@@ -391,7 +391,7 @@ OnAlert:
 	.@npc_name$ = instance_npcname("#fac1bs");
 	.@event$ = .@npc_name$ + "::OnMyMobDead";
 	killmonster 'xm_d_map$, .@event$;
-	npctalk "Coordinator: Guard! Where is a guard! Humans are invading!!";
+	npctalk "Coordinator: Guardia! Donde hay un guardia! Los humanos estan invadiendo!!";
 	sleep 3000;
 	disablenpc .@npc_name$;
 	for ( .@i = 0; .@i <= 10; .@i++ ) {
@@ -407,7 +407,7 @@ OnTimer60000:
 	.@npc_name$ = instance_npcname("#fac1bs");
 	killmonster 'xm_d_map$, .@npc_name$ + "::OnMyMobDead";
 	enablenpc .@npc_name$;
-	npctalk "Coordinator: This kind of thing happens a lot these days...";
+	npctalk "Coordinator: Este tipo de cosas pasan mucho ultimamente...";
 	stopnpctimer;
 	end;
 }
@@ -416,13 +416,13 @@ OnTimer60000:
 	progressbar "ffff00",1;
 	.@mob_id_transform = getstatus(SC_MONSTER_TRANSFORM,1);
 	if (.@mob_id_transform == 1246) {
-		mes "^0000ffYou are carrying the packaged present.^000000";
+		mes "^0000ffEstas cargando el regalo empacado.^000000";
 		transform 1249,180000;// MYSTCASE
 	}
 	else if (.@mob_id_transform == 1249)
-		mes "^009900The box is in your hands. You cannot carry more than one box.^000000";
+		mes "^009900La caja esta en tus manos. No puedes cargar mas de una caja.^000000";
 	else
-		mes "^ff0000You are not in uniform. The Coordinator won't let you pick it up.^000000";
+		mes "^ff0000No tienes uniforme. El Coordinador no te dejara recogerla.^000000";
 	close;
 }
 
@@ -451,25 +451,25 @@ OnTouch:
 OnStart:
 	.@r = rand(1,10);
 	if (.@r == 1)
-		mapannounce 'xm_d_map$, "Factory announcement: Outsiders are spotted on the product line. Guards, please move out immediately.",bc_map,"0x00ffff";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Se detectaron intrusos en la linea de produccion. Guardias, movilicense inmediatamente.",bc_map,"0x00ffff";
 	else if (.@r == 2)
-		mapannounce 'xm_d_map$, "Factory announcement: Invaders have been identified. Distinction Code AX0829. Type: Human. Chase them away.", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Se han identificado invasores. Codigo de Distincion AX0829. Tipo: Humano. Persiguanlos.", bc_map, "0x00ffff";
 	else if (.@r == 3)
-		mapannounce 'xm_d_map$, "Guard's announcement: Please leave here immediately, outsiders.", bc_map, "0xffff00";
+		mapannounce 'xm_d_map$, "Anuncio del Guardia: Por favor vayanse de aqui inmediatamente, intrusos.", bc_map, "0xffff00";
 	else if (.@r == 4)
-		mapannounce 'xm_d_map$, "Factory announcement: Outsiders, hold up your hands and surrender. Otherwise, I will shoot you.", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Intrusos, levanten las manos y rindanse. De lo contrario, les disparare.", bc_map, "0x00ffff";
 	else if (.@r == 5)
-		mapannounce 'xm_d_map$, "Factory announcement: Dispatch the guards. Suppress the invaders.", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Envien a los guardias. Sometan a los invasores.", bc_map, "0x00ffff";
 	else if (.@r == 6)
-		mapannounce 'xm_d_map$, "CAUTION: The plant manger is coming to inspect. Wipe out the outsiders.", bc_map, "0xff4444";
+		mapannounce 'xm_d_map$, "PRECAUCION: El gerente de planta viene a inspeccionar. Eliminen a los intrusos.", bc_map, "0xff4444";
 	else if (.@r == 7)
-		mapannounce 'xm_d_map$, "Factory announcement: Not good news. Outside creatures are detected. Guards, please mobilize.", bc_map, "0x00ff88";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Malas noticias. Se detectaron criaturas externas. Guardias, movilicense.", bc_map, "0x00ff88";
 	else if (.@r == 8)
-		mapannounce 'xm_d_map$, "Factory announcement: Outsiders or invaders are obstacles to factory's operation. You can kill them if necessary.", bc_map, "0xff9999";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Los intrusos o invasores son obstaculos para la operacion de la fabrica. Pueden matarlos si es necesario.", bc_map, "0xff9999";
 	else if (.@r == 9)
-		mapannounce 'xm_d_map$, "Factory announcement: Okay that's it, party's over! Get out of my house!", bc_map, "0x00ffff";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Bien, eso es todo, la fiesta se acabo! Salgan de mi casa!", bc_map, "0x00ffff";
 	else
-		mapannounce 'xm_d_map$, "Guard's announcement: Invaders are spotted! They seem human! I will blip them off!", bc_map, "0xffff00";
+		mapannounce 'xm_d_map$, "Anuncio del Guardia: Se detectaron invasores! Parecen humanos! Los eliminare!", bc_map, "0xffff00";
 	end;
 }
 
@@ -566,12 +566,12 @@ OnMyMobDead:
 1@xm_d,185,100,6	script	Catherine Jet Johnson#2	4_F_SKULL06GIRL,{
 	if (is_party_leader() == true) {
 		mes "[Catherine Jet Johnson]";
-		mes "Lucky you got here safely.";
+		mes "Que suerte que llegaste a salvo.";
 		next;
-		switch( select( "Quit the story", "Listen to her tactics.", "I know what to do. Proceed quickly!" ) ) {
+		switch( select( "Dejar la historia", "Escuchar sus tacticas.", "Se que hacer. Procedamos rapido!" ) ) {
 		case 1:
 			mes "[Catherine Jet Johnson]";
-			mes "Oh, dear. Let me know when you are ready.";
+			mes "Oh, cielos. Avisame cuando estes listo.";
 			close;
 		case 2:
 			donpcevent instance_npcname("Catherine Jet Johnson#21") + "::OnStart";
@@ -582,7 +582,7 @@ OnMyMobDead:
 		}
 	}
 	mes "[Catherine Jet Johnson]";
-	mes "Hold on~ I am talking to your manager, so please wait.";
+	mes "Espera~ Estoy hablando con tu lider, asi que por favor espera.";
 	close;
 }
 
@@ -598,25 +598,25 @@ S_Skip:
 	disablenpc instance_npcname("Catherine Jet Johnson#2");
 	sleep 3000;
 	if (getarg(0) == 1)
-		npctalk "Catherine Jet Johnson: If you find all clues, search other places. I will look for the spot where I met the doll maker last time I was here.";
+		npctalk "Catherine Jet Johnson: Si encuentras todas las pistas, busca en otros lugares. Buscare el lugar donde vi al fabricante de munecas la ultima vez que estuve aqui.";
 	else {
-		npctalk "Catherine Jet Johnson: This place was Factory No.2.";
+		npctalk "Catherine Jet Johnson: Este lugar era la Fabrica No.2.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: It used to be filled with people, but now it isn't.";
+		npctalk "Catherine Jet Johnson: Solia estar lleno de gente, pero ahora no.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: Ah, I realized something while coming here. Some...Children...";
+		npctalk "Catherine Jet Johnson: Ah, me di cuenta de algo mientras venia aqui. Algunos...Ninos...";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: How can I say.. There were lots of very scary, but awfully sad, looking souls.";
+		npctalk "Catherine Jet Johnson: Como decirlo.. Habia muchas almas de aspecto muy aterrador, pero terriblemente tristes.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: How pitiful they are, but please make them rest if they attack you. Fortunately, they won't come at me.";
+		npctalk "Catherine Jet Johnson: Que lastima me dan, pero por favor hazlos descansar si te atacan. Afortunadamente, no vendran a por mi.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: If you see a worker toy on duty while searching here, would you ask it about the doll maker?";
+		npctalk "Catherine Jet Johnson: Si ves un juguete trabajador de turno mientras buscas aqui, podrias preguntarle sobre el fabricante de munecas?";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: He might be sent to Heaven if they recall the memory of doll maker. That's the best hope.";
+		npctalk "Catherine Jet Johnson: Podria ser enviado al Cielo si recuerdan la memoria del fabricante de munecas. Esa es la mejor esperanza.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: If you find all clues, search other places. I will look for the spot where I met the doll maker last time I was here.";
+		npctalk "Catherine Jet Johnson: Si encuentras todas las pistas, busca en otros lugares. Buscare el lugar donde vi al fabricante de munecas la ultima vez que estuve aqui.";
 		sleep 5000;
-		npctalk "Catherine Jet Johnson: Sorry that I can't be a big help to you. See you in a minute.";
+		npctalk "Catherine Jet Johnson: Disculpa que no pueda ser de gran ayuda. Nos vemos en un momento.";
 	}
 	sleep 6000;
 	disablenpc instance_npcname("Catherine Jet Johnson#21");
@@ -641,12 +641,12 @@ OnTouch:
 	playBGM "128";
 	.@mob_id_transform = getstatus(SC_MONSTER_TRANSFORM,1);
 	if (.@mob_id_transform == 1246 || .@mob_id_transform == 1249 || .@mob_id_transform < 1) {
-		mes "^0000ff>You changed into uniform.^000000";
+		mes "^0000ff>Te cambiaste al uniforme.^000000";
 		transform 1246,300000;// COOKIE_XMAS
 		close;
 	}
-	mes "^ff0000You transformed into a different form.";
-	mes "You can't seem to put on the uniform over your fangs.^000000";
+	mes "^ff0000Te transformaste en una forma diferente.";
+	mes "Parece que no puedes ponerte el uniforme sobre tus colmillos.^000000";
 	close;
 }
 
@@ -676,12 +676,12 @@ OnStart:
 		enablenpc instance_npcname("#fac3wp");
 		enablenpc instance_npcname("#fac3wp2");
 		donpcevent instance_npcname("#fac2ct") + "::OnEnd";
-		mapannounce 'xm_d_map$, "Factory announcement: Everyone has gone home. The line is shut down and the employee's lounge is open.", bc_map, "0x00ff44";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Todos se han ido a casa. La linea esta cerrada y el salon de empleados esta abierto.", bc_map, "0x00ff44";
 		for ( .@i = 90; .@i <= 104; .@i++ )
 			disablenpc instance_npcname( "alert#"+ .@i );
 	}
 	else
-		mapannounce 'xm_d_map$, "Factory announcement: Now there are " + (10 - .@fac_open) + " people on the packaging line. Take care of yourself.", bc_map, "0x00ff44";
+		mapannounce 'xm_d_map$, "Anuncio de fabrica: Ahora hay " + (10 - .@fac_open) + " personas en la linea de empaque. Cuidate.", bc_map, "0x00ff44";
 	end;
 }
 
@@ -689,14 +689,14 @@ OnStart:
 	if (getstatus(SC_MONSTER_TRANSFORM,1) == 1246) {
 		.@num = atoi(strnpcinfo(2));
 		mes "[Worker]";
-		mes "Huh? What happened?";
+		mes "Eh? Que paso?";
 		next;
-		if (select( "No, nothing special", "Do you know about the doll maker?" ) == 1) {
+		if (select( "No, nada especial", "Sabes sobre el fabricante de munecas?" ) == 1) {
 			mes "[Worker]";
 			if (.@num == 8)
-				mes "I'm working now! I'm very busy!";
+				mes "Estoy trabajando ahora! Estoy muy ocupado!";
 			else
-				mes "I'm very busy with working, so could you stop chatting?";
+				mes "Estoy muy ocupado trabajando, podrias dejar de charlar?";
 			close;
 		}
 		close2;

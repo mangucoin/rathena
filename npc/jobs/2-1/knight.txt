@@ -1,17 +1,17 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Knight Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= PGRO TEAM (Aegis).
 //= Converted by kobra_k88
 //= Further bugfixed and tested by Lupus
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 3.3
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Job Change quest for Knight class.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 Fully working.  Please comment out any pre-existing warps for the
 //= test rooms in any other files so that the ones specified here can work.
 //= 1.1 Fixed a major bug.  Now using the initnpctimer command,
@@ -40,201 +40,200 @@
 //= 3.1 Modified the quest to renewal. [Vali] (Thanks to Muad_Dib for the necessary info).
 //= 3.2 More Renewal updates and some optimization. [Euphy]
 //= 3.3 Fixed missing changequest. [Joseph]
-//============================================================ 
+//============================================================
 
 prt_in,88,101,4	script	Chivalry Captain#knt	56,{
 	mes "[Captain Herman]";
 	if (Upper == 1) {
-		mes "Hm? You're... What is it about you? I've been an honorable Knight for a long time, but I cannot understand this feeling I'm getting from you...";
+		mes "¿Hm? Tú eres... ¿Qué es lo que tienes? He sido un honorable Knight por mucho tiempo, pero no puedo entender este sentimiento que me produces...";
 		next;
 		mes "[Captain Herman]";
-		mes "May god bless your body and soul, warrior. I hope you will show your courage and protect those who are weaker than you.";
+		mes "Que dios bendiga tu cuerpo y alma, guerrero. Espero que muestres tu valentía y protejas a los más débiles que tú.";
 		close;
 	}
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
-			mes "Ah, a member of our Chivalry.";
-			mes "I hope you are living up to my expectations. We have vowed to be strong for our kingdom, even if death is upon us...";
+			mes "Ah, un miembro de nuestra Caballería.";
+			mes "Espero que estés cumpliendo con mis expectativas. Hemos jurado ser fuertes por nuestro reino, incluso si la muerte nos acecha...";
 			close;
 		}
 		else if (BaseClass == Job_Novice) {
-			mes "Welcome,";
-			mes "this is the";
-			mes "Prontera Chivalry.";
-			mes "What brings you here?";
+			mes "Bienvenido,";
+			mes "esta es la";
+			mes "Caballería de Prontera.";
+			mes "¿Qué te trae por aquí?";
 			next;
-			switch(select("I want to change my job to Swordman.:I want to change my job to a Knight.:Just visiting.")) {
+			switch(select("Quiero cambiar mi trabajo a Swordman.:Quiero cambiar mi trabajo a Knight.:Solo estoy de visita.")) {
 			case 1:
 				mes "[Captain Herman]";
-				mes "A-ha~";
-				mes "A Swordman, you say?";
-				mes "I'm sorry, "+((Sex==SEX_MALE)?"lad":"lass")+", but you've";
-				mes "come to the wrong place!";
+				mes "¡A-ja~!";
+				mes "¿Un Swordman, dices?";
+				mes "Lo siento, "+((Sex==SEX_MALE)?"muchacho":"muchacha")+", ¡pero has";
+				mes "venido al lugar equivocado!";
 				next;
 				mes "[Captain Herman]";
-				mes "This isn't the Swordsman guild, it's the Prontera Chivalry! If you wish to become a Swordman, visit the Swordman Guild located in Izlude.";
+				mes "¡Este no es el gremio de Swordman, es la Caballería de Prontera! Si deseas ser un Swordman, visita el Gremio de Swordman ubicado en Izlude.";
 				close;
 			case 2:
 				mes "[Captain Herman]";
-				mes "Ah, I see that you have great ambition. But you must first become a Swordman before becoming";
-				mes "a Knight. One step at a time...";
+				mes "Ah, veo que tienes gran ambición. Pero primero debes convertirte en Swordman antes de ser";
+				mes "un Knight. Un paso a la vez...";
 				next;
 				mes "[Captain Herman]";
-				mes "First, visit the Swordman guild in Izlude. Then, come visit us again once you have become a well experienced Swordman.";
+				mes "Primero, visita el gremio de Swordman en Izlude. Luego, vuelve a visitarnos cuando te hayas convertido en un Swordman experimentado.";
 				close;
 			case 3:
 				mes "[Captain Herman]";
-				mes "Aha~";
-				mes "You must have lots of free time. Why don't you go hunt some monsters instead of wandering about aimlessly?";
+				mes "¡Aja~!";
+				mes "Debes tener mucho tiempo libre. ¿Por qué no vas a cazar monstruos en vez de andar vagando sin rumbo?";
 				close;
 			}
 		}
 		else {
-			mes "Welcome. We, the proud Knights of the Prontera Chivalry, will give our lives for king and country! Please enjoy your stay.";
+			mes "Bienvenido. Nosotros, los orgullosos Knights de la Caballería de Prontera, ¡daremos nuestras vidas por el rey y la patria! Por favor disfruta tu estadía.";
 			close;
 		}
 	}
 	if (KNIGHT_Q == 0) {
-		mes "Welcome, this is";
-		mes "the Prontera Chivalry.";
-		mes "What brings you here?";
+		mes "Bienvenido, esta es";
+		mes "la Caballería de Prontera.";
+		mes "¿Qué te trae por aquí?";
 		next;
-		if (select("I want to change my job to a Knight.:Just visiting.") == 1) {
+		if (select("Quiero cambiar mi trabajo a Knight.:Solo estoy de visita.") == 1) {
 			mes "[Captain Herman]";
 			mes "Ohh...";
-			mes "A young "+((Sex==SEX_MALE)?"man":"lady")+" who wishes";
-			mes "to become a Knight!";
-			mes "Our Prontera Chivalry";
-			mes "will assist you.";
+			mes "¡Un joven "+((Sex==SEX_MALE)?"hombre":"dama")+" que desea";
+			mes "convertirse en Knight!";
+			mes "Nuestra Caballería de Prontera";
+			mes "te asistirá.";
 			next;
 			mes "[Captain Herman]";
-			mes "First of all, I am the captain of the Prontera Chivalry, Herman Phon Efesirsus. I'm pleased to meet young people eager to join the Prontera Chivalry.";
+			mes "Primero que nada, soy el capitán de la Caballería de Prontera, Herman Phon Efesirsus. Es un placer conocer jóvenes ansiosos por unirse a la Caballería de Prontera.";
 			next;
 			mes "[Captain Herman]";
-			mes "We only accept Swordmen";
-			mes "who are at least Job Level 40.";
-			mes "We cannot consider applicants that are not yet experienced enough to become Knights.";
+			mes "Solo aceptamos Swordmen";
+			mes "que sean al menos Job Level 40.";
+			mes "No podemos considerar solicitantes que aún no tengan suficiente experiencia para convertirse en Knights.";
 			next;
 			mes "[Captain Herman]";
-			mes "Once you apply, and we find";
-			mes "you eligible, we will begin the job change procedure. Would you";
-			mes "like to apply now?";
+			mes "Una vez que apliques, y te encontremos elegible, comenzaremos el procedimiento de cambio de trabajo. ¿Te gustaría";
+			mes "aplicar ahora?";
 			next;
-			if (select("Yes, I would like to apply.:I'd like to think about it please.") == 1) {
+			if (select("Sí, me gustaría aplicar.:Me gustaría pensarlo, por favor.") == 1) {
 				mes "[Captain Herman]";
 				if (JobLevel < 40) {
-					mes "Ah, you are not yet ready to become a Knight! Didn't I specifically mention the Job Level 40 requirement?";
+					mes "¡Ah, aún no estás listo para ser un Knight! ¿No mencioné específicamente el requisito de Job Level 40?";
 					next;
 					mes "[Captain Herman]";
-					mes "Of course I understand your strong desire to join us, but now is not the time. Go out and fight some more monsters. We will be here waiting.";
+					mes "Por supuesto que entiendo tu fuerte deseo de unirte a nosotros, pero ahora no es el momento. Ve y pelea contra más monstruos. Estaremos aquí esperando.";
 					close;
 				}
 				if (SkillPoint) {
-					mes "Ah...!";
-					mes "You cannot change jobs if you have unused skill points remaining. Return when you have used";
-					mes "all of your skill points.";
+					mes "¡Ah...!";
+					mes "No puedes cambiar de trabajo si tienes puntos de habilidad sin usar. Regresa cuando hayas usado";
+					mes "todos tus puntos de habilidad.";
 					close;
 				}
 				set KNIGHT_Q,1;
 				setquest 9000;
-				mes "Let me see...";
-				mes "Your name is";
+				mes "Déjame ver...";
+				mes "Tu nombre es";
 				mes strcharinfo(0) + "...";
-				mes "Is that right?";
+				mes "¿Correcto?";
 				next;
 				mes "[Captain Herman]";
-				mes "Let me explain the job change procedure. You must visit a series of Knights and pass each";
-				mes "of their tests.";
+				mes "Déjame explicarte el procedimiento de cambio de trabajo. Debes visitar a una serie de Knights y pasar cada";
+				mes "una de sus pruebas.";
 				next;
 				mes "[Captain Herman]";
-				mes "Once all the tests are completed, every Knight involved in your testing will gather and discuss your performance.";
+				mes "Una vez completadas todas las pruebas, cada Knight involucrado en tu evaluación se reunirá y discutirá tu desempeño.";
 				next;
 				mes "[Captain Herman]";
-				mes "The Knights must unanimously approve of you before you can join the Prontera Chivalry. If only one person objects, you must";
-				mes "start over.";
+				mes "Los Knights deben aprobar unánimemente antes de que puedas unirte a la Caballería de Prontera. Si una sola persona objeta, deberás";
+				mes "empezar de nuevo.";
 				next;
 				mes "[Captain Herman]";
-				mes "But I believe if you persist with an earnest heart, you shall be acknowledged by the Knights and ultimately recognized as a member of our Chivalry.";
+				mes "Pero creo que si persistes con un corazón sincero, serás reconocido por los Knights y finalmente aceptado como miembro de nuestra Caballería.";
 				next;
 				mes "[Captain Herman]";
-				mes "So, let's not waste any more time talking! Go and meet these Knights and begin their tests. Once you have completed all of the tests, come back to me.";
+				mes "Así que, ¡no perdamos más tiempo hablando! Ve y conoce a estos Knights y comienza sus pruebas. Una vez que hayas completado todas las pruebas, regresa conmigo.";
 				close;
 			}
 			mes "[Captain Herman]";
-			mes "Oh...!";
-			mes "Well, I don't want to pressure you. Take your time and think it over. Return when you are ready to";
-			mes "change jobs, for we will be waiting.";
+			mes "¡Oh...!";
+			mes "Bueno, no quiero presionarte. Tómate tu tiempo y piénsalo. Regresa cuando estés listo para";
+			mes "cambiar de trabajo, estaremos esperando.";
 			close;
 		}
 		mes "[Captain Herman]";
-		mes "Come to think of it, aren't you a Swordman? It looks like you've encountered many foes in battle.";
+		mes "Ahora que lo pienso, ¿no eres un Swordman? Parece que te has enfrentado a muchos enemigos en batalla.";
 		next;
 		mes "[Captain Herman]";
-		mes "You should consider changing jobs to a Knight. Come and talk to me if you are interested.";
+		mes "Deberías considerar cambiar tu trabajo a Knight. Ven y habla conmigo si estás interesado.";
 		next;
 		mes "[Captain Herman]";
-		mes "Please take";
-		mes "your time in";
-		mes "looking around.";
-		mes "Good day.";
+		mes "Por favor tómate";
+		mes "tu tiempo para";
+		mes "mirar alrededor.";
+		mes "Buen día.";
 		close;
 	}
 	else if (KNIGHT_Q == 1) {
-		mes "Mmm?";
+		mes "¿Mmm?";
 		mes strcharinfo(0) + ",";
-		mes "what can I do for you?";
-		mes "Ah, you don't know";
-		mes "who to visit?";
+		mes "¿qué puedo hacer por ti?";
+		mes "Ah, ¿no sabes";
+		mes "a quién visitar?";
 		next;
 		mes "[Captain Herman]";
-		mes "I believe the Knights in charge of testing have set an order in which you must visit them. I suppose it helps the testing process.";
+		mes "Creo que los Knights a cargo de las pruebas han establecido un orden en el que debes visitarlos. Supongo que ayuda al proceso de evaluación.";
 		next;
 		mes "[Captain Herman]";
-		mes "First, go and visit";
-		mes "Sir Andrew for your first test. Don't be too nervous, he'll explain everything once you talk to him.";
+		mes "Primero, ve y visita";
+		mes "a Sir Andrew para tu primera prueba. No estés muy nervioso, él te explicará todo cuando hables con él.";
 		close;
 	}
 	else if (KNIGHT_Q == 2) callsub L_Mission,0;
 	else if (KNIGHT_Q == 3) callsub L_Mission,0;
 	else if (KNIGHT_Q == 4) {
 		callsub L_Mission,1;
-		mes "It appears that you have finished one test. Let's see. Sir Andrew, who must this Swordman visit next?";
+		mes "Parece que has terminado una prueba. Veamos. Sir Andrew, ¿a quién debe visitar este Swordman a continuación?";
 		next;
 		mes "[Sir Andrew]";
-		mes "I said to";
-		mes "visit Sir Siracuse.";
-		mes "Funny, I thought I told";
-		mes "you. Did I forget...?";
+		mes "Dije que";
+		mes "visitara a Sir Siracuse.";
+		mes "Qué curioso, pensé que te";
+		mes "lo había dicho. ¿Se me olvidó...?";
 		next;
 		mes "[Captain Herman]";
-		mes "Did you hear?";
-		mes "Go to Sir Siracuse and take his test. Once you complete his test, do not forget who you're supposed to visit next as well.";
+		mes "¿Escuchaste?";
+		mes "Ve con Sir Siracuse y toma su prueba. Una vez que completes su prueba, no olvides a quién debes visitar después.";
 		close;
 	}
 	else if (KNIGHT_Q == 5) callsub L_Mission,0;
 	else if (KNIGHT_Q == 6) {
 		callsub L_Mission,1;
-		mes "Let's see...";
-		mes "You've completed two tests.";
-		mes "Sir Siracuse, who must this Swordman visit next?";
+		mes "Veamos...";
+		mes "Has completado dos pruebas.";
+		mes "Sir Siracuse, ¿a quién debe visitar este Swordman a continuación?";
 		next;
 		mes "[Sir Siracuse]";
-		mes "Oh...!";
-		mes "Um, who was next...?";
-		mes "Right! Sir Windsor!";
+		mes "¡Oh...!";
+		mes "Um, ¿quién seguía...?";
+		mes "¡Cierto! ¡Sir Windsor!";
 		next;
 		mes "[Captain Herman]";
-		mes "Head over to";
-		mes "Sir Windsor Benedict for your next test. Listen carefully to the Knights in charge of testing so that you don't feel lost, alright?";
+		mes "Dirígete a";
+		mes "Sir Windsor Benedict para tu siguiente prueba. Escucha atentamente a los Knights a cargo de las pruebas para que no te sientas perdido, ¿de acuerdo?";
 		close;
 	}
 	else if (KNIGHT_Q == 7) callsub L_Mission,0;
 	else if (KNIGHT_Q == 8) {
 		callsub L_Mission,1;
-		mes "Sir Windor...?";
-		mes "Who must this";
-		mes "Swordman visit";
-		mes "next?";
+		mes "¿Sir Windsor...?";
+		mes "¿A quién debe";
+		mes "visitar este Swordman";
+		mes "a continuación?";
 		next;
 		mes "[Sir Windsor]";
 		mes "...";
@@ -247,114 +246,113 @@ prt_in,88,101,4	script	Chivalry Captain#knt	56,{
 		mes "...Amy Beatrice.";
 		next;
 		mes "[Captain Herman]";
-		mes "Ah, go and visit";
-		mes "Lady Amy and take her test. Make sure you pay attention to who you must go to for your next test.";
+		mes "Ah, ve y visita";
+		mes "a Lady Amy y toma su prueba. Asegúrate de prestar atención a quién debes ir para tu siguiente prueba.";
 		close;
 	}
 	else if (KNIGHT_Q == 9) callsub L_Mission,0;
 	else if (KNIGHT_Q == 10) {
 		callsub L_Mission,1;
-		mes "Let's see...";
-		mes "Lady Amy, who";
-		mes "must this Swordman";
-		mes "visit next?";
+		mes "Veamos...";
+		mes "Lady Amy, ¿a quién";
+		mes "debe visitar este Swordman";
+		mes "a continuación?";
 		next;
 		mes "[Lady Amy]";
 		mes "Oh...";
-		mes "I said to visit";
-		mes "Sir Edmond!";
-		mes "Tee hee~";
+		mes "¡Dije que visitara";
+		mes "a Sir Edmond!";
+		mes "¡Ji ji~!";
 		next;
 		mes "[Captain Herman]";
-		mes "Now, go and speak";
-		mes "to Sir Edmond. He will";
-		mes "be in charge of your";
-		mes "next test.";
+		mes "Ahora, ve y habla";
+		mes "con Sir Edmond. Él estará";
+		mes "a cargo de tu";
+		mes "siguiente prueba.";
 		close;
 	}
 	else if (KNIGHT_Q == 11) callsub L_Mission,0;
 	else if (KNIGHT_Q == 12) {
 		callsub L_Mission,1;
-		mes "Don't you only have to visit one more person? The Knight in";
-		mes "charge of the final test";
-		mes "is Sir Gray Prospheiro.";
+		mes "¿Solo te falta visitar a una persona más? El Knight a cargo de la prueba final";
+		mes "es Sir Gray Prospheiro.";
 		next;
 		mes "[Sir Edmond]";
-		mes "This world operates according";
-		mes "to the law of cause and effect.";
-		mes "All will be revealed in the end.";
+		mes "Este mundo opera según";
+		mes "la ley de causa y efecto.";
+		mes "Todo se revelará al final.";
 		next;
 		mes "[Captain Herman]";
-		mes "Be alert and do";
-		mes "your best, as this";
-		mes "is the last test.";
+		mes "Mantente alerta y da";
+		mes "lo mejor de ti, ya que";
+		mes "esta es la última prueba.";
 		next;
 		mes "[Captain Herman]";
-		mes "Return to me";
-		mes "after you have";
-		mes "completed the";
-		mes "final test.";
+		mes "Regresa conmigo";
+		mes "después de que hayas";
+		mes "completado la";
+		mes "prueba final.";
 		close;
 	}
 	else if (KNIGHT_Q == 13) {
-		mes "Finish the last test.";
-		mes "Once that is complete, all the Knights involved in your testing shall gather, and we will evaluate your performance.";
+		mes "Termina la última prueba.";
+		mes "Una vez completada, todos los Knights involucrados en tu evaluación se reunirán, y evaluaremos tu desempeño.";
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
 		if (SkillPoint) {
-			mes "Oh...!";
-			mes "You cannot change jobs if you have unused skill points remaining. Return once you have distributed all your skill points.";
+			mes "¡Oh...!";
+			mes "No puedes cambiar de trabajo si tienes puntos de habilidad sin usar. Regresa cuando hayas distribuido todos tus puntos de habilidad.";
 			close;
 		}
-		mes "Oh, have you completed all the tests? But not everyone who completes the tests can";
-		mes "become a Knight.";
+		mes "Oh, ¿has completado todas las pruebas? Pero no todos los que completan las pruebas pueden";
+		mes "convertirse en Knight.";
 		next;
 		mes "[Captain Herman]";
-		mes "During the test we see how loyal, honorable and strong you are. We also see if you were courteous and if you know the value of modesty and reverence.";
+		mes "Durante la prueba vemos qué tan leal, honorable y fuerte eres. También vemos si fuiste cortés y si conoces el valor de la modestia y la reverencia.";
 		next;
 		mes "[Captain Herman]";
-		mes "Through this process, I have also observed your actions. All seven of our opinions will be reflected in the decision of your job change.";
+		mes "A través de este proceso, también he observado tus acciones. Las siete opiniones se reflejarán en la decisión de tu cambio de trabajo.";
 		next;
 		mes "[Captain Herman]";
-		mes "Then...";
-		mes "We shall listen";
-		mes "to everyone's thoughts!";
-		mes "Andrew, what do you think?";
+		mes "Entonces...";
+		mes "¡Escuchemos";
+		mes "los pensamientos de todos!";
+		mes "Andrew, ¿qué opinas?";
 		next;
 		mes "[Sir Andrew]";
 		if (JobLevel == 50) {
-			mes "What can I say?";
-			mes "I approve!";
-			mes "Having lived as";
-			mes "a Swordsman up";
-			mes "until now";
-			mes "is enough.";
+			mes "¿Qué puedo decir?";
+			mes "¡Apruebo!";
+			mes "Haber vivido como";
+			mes "Swordman hasta";
+			mes "ahora";
+			mes "es suficiente.";
 		}
 		else {
-			mes "This one has";
-			mes "gathered items";
-			mes "that are troublesome";
-			mes "to obtain. I approve!";
-			mes "I believe "+((Sex==SEX_MALE)?"":"s")+"he will continue to be loyal after becoming a Knight.";
+			mes "Este ha recolectado";
+			mes "objetos que son";
+			mes "difíciles de obtener.";
+			mes "¡Apruebo!";
+			mes "Creo que "+((Sex==SEX_MALE)?"":"")+"seguirá siendo leal después de convertirse en Knight.";
 		}
 		next;
 		mes "[Captain Herman]";
 		mes "Hmm.";
-		mes "What a nice review.";
-		mes "Siracuse, what are your thoughts?";
+		mes "Qué buena evaluación.";
+		mes "Siracuse, ¿cuáles son tus opiniones?";
 		next;
 		mes "[Sir Siracuse]";
-		mes "Heh, very well. Not quite what";
-		mes "I would want, but hopefully will become better in the future.";
+		mes "Je, muy bien. No es exactamente lo que";
+		mes "yo quisiera, pero espero que mejore en el futuro.";
 		next;
 		mes "[Sir Siracuse]";
-		mes "After becoming a Knight, you must build a good reputation through honor. Ehh... I approve.";
+		mes "Después de convertirte en Knight, debes construir una buena reputación a través del honor. Ehh... Apruebo.";
 		next;
 		mes "[Captain Herman]";
-		mes "Okay...";
+		mes "Bien...";
 		mes "Windsor,";
-		mes "what about you?";
+		mes "¿qué dices tú?";
 		next;
 		mes "[Sir Windsor]";
 		mes "...";
@@ -364,104 +362,104 @@ prt_in,88,101,4	script	Chivalry Captain#knt	56,{
 		mes "......";
 		next;
 		mes "[Sir Windsor]";
-		mes "....Approved.";
+		mes "....Aprobado.";
 		next;
 		mes "[Captain Herman]";
-		mes "I don't think";
-		mes "he disapproves.";
-		mes "Then, let's listen";
-		mes "to Amy's opinion.";
+		mes "No creo que";
+		mes "él desapruebe.";
+		mes "Entonces, escuchemos";
+		mes "la opinión de Amy.";
 		next;
 		mes "[Lady Amy]";
 		if (Sex == SEX_MALE) {
-			mes "Mmm~ He's so polite!";
-			mes "He'll grow to be a wonderful Knight. And he's got such cute widdle cheeeeks~ Hee hee!";
+			mes "¡Mmm~ Es tan educado!";
+			mes "Crecerá para ser un maravilloso Knight. ¡Y tiene unas mejillitas tan lindas~! ¡Ji ji!";
 		}
 		else {
-			mes "Mmm~ She should be great!";
-			mes "She's very courteous and also very cute, so a few more points! Heh~";
-			mes "I shouldn't be saying things like this!";
+			mes "¡Mmm~ Debería ser genial!";
+			mes "Es muy cortés y también muy linda, ¡así que unos puntos extra! ¡Je~!";
+			mes "¡No debería estar diciendo cosas así!";
 		}
 		next;
 		mes "[Captain Herman]";
-		mes "Well...";
-		mes "A strange review,";
-		mes "but I believe";
-		mes "she approves.";
-		mes "Edmond, speak";
-		mes "your mind.";
+		mes "Bueno...";
+		mes "Una evaluación extraña,";
+		mes "pero creo que";
+		mes "ella aprueba.";
+		mes "Edmond, di";
+		mes "lo que piensas.";
 		next;
 		mes "[Sir Edmond]";
 		if (Sex == SEX_MALE) {
-			mes "He seems a little rough, but something bright shines within him. With polish and refinement, his true value will shine forth";
-			mes "as the sun.";
+			mes "Parece un poco rudo, pero algo brillante resplandece dentro de él. Con pulido y refinamiento, su verdadero valor brillará";
+			mes "como el sol.";
 		}
 		else {
-			mes "It's difficult to see, but there is a spiritual beauty within her. With polish and refinement, her true value will glow as resplendently";
-			mes "as the moon.";
+			mes "Es difícil de ver, pero hay una belleza espiritual dentro de ella. Con pulido y refinamiento, su verdadero valor resplandecerá";
+			mes "como la luna.";
 		}
 		next;
 		mes "[Captain Herman]";
-		mes "Lastly...";
-		mes "Gray. I would like";
-		mes "to hear your thoughts.";
+		mes "Por último...";
+		mes "Gray. Me gustaría";
+		mes "escuchar tus opiniones.";
 		next;
 		mes "[Gray]";
-		mes "A young "+((Sex==SEX_MALE)?"gentleman":"lady")+" coming here with the determination to become a Knight is enough...";
+		mes "Un joven "+((Sex==SEX_MALE)?"caballero":"dama")+" que viene aquí con la determinación de convertirse en Knight es suficiente...";
 		next;
 		mes "[Captain Herman]";
-		mes "Everyone";
-		mes "has approved.";
-		mes "No one has opposed.";
-		mes "Then I shall tell";
-		mes "you my opinion.";
+		mes "Todos";
+		mes "han aprobado.";
+		mes "Nadie se ha opuesto.";
+		mes "Entonces te diré";
+		mes "mi opinión.";
 		next;
 		mes "[Captain Herman]";
-		mes "My decision is...";
+		mes "Mi decisión es...";
 		next;
 		mes "[Captain Herman]";
-		mes "I approve.";
+		mes "Apruebo.";
 		next;
 		mes "[Captain Herman]";
-		mes "You may not have finished all the tests perfectly, but you have all the necessary qualities to become";
-		mes "a Knight.";
+		mes "Puede que no hayas terminado todas las pruebas perfectamente, pero tienes todas las cualidades necesarias para convertirte";
+		mes "en Knight.";
 		next;
 		completequest 9012;
 		callfunc "Job_Change",Job_Knight;
 		callfunc "F_ClearJobVar"; // Clears all job variables for the current player
 		mes "[Captain Herman]";
-		mes "I hereby declare";
-		mes "you a member of";
-		mes "the Prontera Chivalry.";
-		mes "Protect the weak and";
-		mes "live with honor.";
+		mes "Por la presente te declaro";
+		mes "miembro de";
+		mes "la Caballería de Prontera.";
+		mes "Protege a los débiles y";
+		mes "vive con honor.";
 		next;
 		getitem 656,7; //Awakening_Potion
 		mes "[Captain Herman]";
 		mes "Oh...";
-		mes "We have prepared a small gift to congratulate you on your job change. Please use it when you are in battle as you honorably protect others.";
+		mes "Hemos preparado un pequeño regalo para felicitarte por tu cambio de trabajo. Por favor úsalo cuando estés en batalla mientras proteges honorablemente a otros.";
 		next;
 		mes "[Captain Herman]";
-		mes "Go forth!";
-		mes "The future of";
+		mes "¡Adelante!";
+		mes "¡El futuro de";
 		mes "Rune-Midgarts";
-		mes "rests on your";
-		mes "shoulders!";
+		mes "descansa sobre";
+		mes "tus hombros!";
 		close;
 	}
 L_Mission:
-	mes "Mmm?";
+	mes "¿Mmm?";
 	mes "Swordman " + strcharinfo(0) + ".";
-	mes "How are the tests?";
+	mes "¿Cómo van las pruebas?";
 	if (getarg(0)) {
-		mes "Ah~ You do not know";
-		mes "who to visit next?";
+		mes "¿Ah~ No sabes";
+		mes "a quién visitar después?";
 		next;
 		mes "[Captain Herman]";
 		return;
 	} else {
-		mes "It may be difficult,";
-		mes "but do your best.";
+		mes "Puede ser difícil,";
+		mes "pero da lo mejor de ti.";
 		close;
 	}
 }
@@ -470,107 +468,107 @@ prt_in,75,107,4	script	Sir Andrew#knt	65,{
 	mes "[Sir Andrew]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
-			mes "You must be";
-			mes "a member of";
-			mes "the Chivalry.";
-			mes "How are you doing?";
+			mes "Debes ser";
+			mes "un miembro de";
+			mes "la Caballería.";
+			mes "¿Cómo te va?";
 			next;
 			mes "[Sir Andrew]";
-			mes "You must work diligently to gather food as well as save zeny to buy equipment. Save everything you";
-			mes "find in battle, even the smallest Jellopy.";
+			mes "Debes trabajar diligentemente para reunir comida y también ahorrar zeny para comprar equipo. Guarda todo lo que";
+			mes "encuentres en batalla, incluso la más pequeña Jellopy.";
 			next;
 			mes "[Sir Andrew]";
-			mes "But it's not good";
-			mes "to be too greedy.";
-			mes "After all, we are Knights.";
+			mes "Pero no es bueno";
+			mes "ser demasiado codicioso.";
+			mes "Después de todo, somos Knights.";
 			close;
 		}
 		else if (BaseClass == Job_Novice) {
-			mes "Hey there,";
-			mes "little Novice.";
-			mes "Welcome to the";
-			mes "Prontera Chivalry.";
+			mes "Hola,";
+			mes "pequeño Novice.";
+			mes "Bienvenido a la";
+			mes "Caballería de Prontera.";
 			next;
 			mes "[Sir Andrew]";
-			mes "You might that you're";
-			mes "weak right now, but someday";
-			mes "you'll become stronger.";
+			mes "Puede que pienses que eres";
+			mes "débil ahora, pero algún día";
+			mes "te harás más fuerte.";
 			next;
 			mes "[Sir Andrew]";
-			mes "Dream of a bright future, and go look forward on the path that you choose to take.";
+			mes "Sueña con un futuro brillante, y avanza con esperanza en el camino que elijas tomar.";
 			close;
 		}
 		else {
-			mes "We, the members of the";
-			mes "Prontera Chivalry, are putting our best effort in protecting peace in this world.";
+			mes "Nosotros, los miembros de la";
+			mes "Caballería de Prontera, estamos poniendo nuestro mejor esfuerzo en proteger la paz de este mundo.";
 			next;
 			mes "[Sir Andrew]";
-			mes "Even during the battles we face each and every day, we dream of";
-			mes "a bright future that is to come.";
+			mes "Incluso durante las batallas que enfrentamos cada día, soñamos con";
+			mes "un futuro brillante que está por venir.";
 			close;
 		}
 	}
 	if (KNIGHT_Q == 0) {
-		mes "We, the members of the";
-		mes "Prontera Chivalry, are putting our best effort in protecting peace in this world.";
+		mes "Nosotros, los miembros de la";
+		mes "Caballería de Prontera, estamos poniendo nuestro mejor esfuerzo en proteger la paz de este mundo.";
 		next;
 		mes "[Sir Andrew]";
-		mes "Even during the battles we face each and every day, we dream of";
-		mes "a bright future that is to come.";
+		mes "Incluso durante las batallas que enfrentamos cada día, soñamos con";
+		mes "un futuro brillante que está por venir.";
 		close;
 	}
 	else if (KNIGHT_Q == 1) {
-		mes "Good day.";
-		mes "May I help you";
-		mes "with something?";
+		mes "Buen día.";
+		mes "¿Puedo ayudarte";
+		mes "en algo?";
 		next;
-		if (select("I would like to take the test.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba.:Oh, nada.") == 1) {
 			mes "[Sir Andrew]";
 			mes "Ah...";
-			mes "You wish";
-			mes "to become a Knight.";
-			mes "Your name is";
+			mes "Deseas";
+			mes "convertirte en Knight.";
+			mes "Tu nombre es";
 			mes strcharinfo(0) + ",";
-			mes "correct?";
+			mes "¿correcto?";
 			next;
 			mes "[Sir Andrew]";
-			mes "I am a Knight of";
-			mes "the Prontera Chivalry,";
+			mes "Soy un Knight de";
+			mes "la Caballería de Prontera,";
 			mes "Andrew Shylock.";
-			mes "I am in charge of";
-			mes "your first test.";
+			mes "Estoy a cargo de";
+			mes "tu primera prueba.";
 			next;
 			mes "[Sir Andrew]";
-			mes "I will be testing your sense of loyalty. Every Knight must possess this virtue. For this exam, you will be gathering prizes from";
-			mes "the battlefield.";
+			mes "Evaluaré tu sentido de lealtad. Todo Knight debe poseer esta virtud. Para este examen, recolectarás botines del";
+			mes "campo de batalla.";
 			next;
 			if (JobLevel == 50) {
 				mes "[Sir Andrew]";
-				mes "Mmm...?";
-				mes "Hold on there.";
-				mes "You look like you've";
-				mes "mastered being";
-				mes "a Swordsman.";
+				mes "¿Mmm...?";
+				mes "Espera un momento.";
+				mes "Parece que has";
+				mes "dominado el ser";
+				mes "un Swordman.";
 				next;
 				mes "[Sir Andrew]";
-				mes "Impressive...!";
-				mes "On second thought,";
-				mes "I don't think your";
-				mes "loyalty needs to";
-				mes "be tested.";
+				mes "¡Impresionante...!";
+				mes "Pensándolo bien,";
+				mes "no creo que tu";
+				mes "lealtad necesite";
+				mes "ser probada.";
 				next;
 				mes "[Sir Andrew]";
-				mes "Please go to my fellow Knight, Sir Siracuse, as he will give you your next test. Well done in mastering the Swordman job.";
+				mes "Por favor ve con mi compañero Knight, Sir Siracuse, ya que él te dará tu siguiente prueba. Bien hecho al dominar el trabajo de Swordman.";
 				set KNIGHT_Q,4;
 				changequest 9000,9003;
 				close;
 			}
 			mes "[Sir Andrew]";
-			mes "Without";
-			mes "further ado,";
-			mes "let's begin!";
-			mes "Go and gather the";
-			mes "following items...";
+			mes "Sin más";
+			mes "preámbulos,";
+			mes "¡comencemos!";
+			mes "Ve y recolecta los";
+			mes "siguientes objetos...";
 			next;
 			mes "[Sir Andrew]";
 			switch(rand(1,2)) {
@@ -590,25 +588,25 @@ prt_in,75,107,4	script	Sir Andrew#knt	65,{
 			mes "^236B8E"+.@items[11]+" "+getitemname(.@items[10])+"^000000,";
 			next;
 			mes "[Sir Andrew]";
-			mes "I shall be";
-			mes "waiting here for";
-			mes "you to bring the";
-			mes "items I've listed.";
-			mes "See you soon~";
+			mes "Estaré";
+			mes "esperándote aquí para";
+			mes "que traigas los";
+			mes "objetos que te listé.";
+			mes "¡Nos vemos pronto~!";
 			close;
 		}
 		else {
 			mes "[Sir Andrew]";
-			mes "Well, then...";
-			mes "Good day.";
+			mes "Bueno, entonces...";
+			mes "Buen día.";
 			close;
 		}
 	}
 	else if (KNIGHT_Q == 2 || KNIGHT_Q == 3) {
-		mes "Welcome back~";
-		mes "Did you gather";
-		mes "all the items?";
-		mes "Let's check and see...";
+		mes "¡Bienvenido de vuelta~!";
+		mes "¿Recolectaste";
+		mes "todos los objetos?";
+		mes "Revisemos...";
 		next;
 		switch(KNIGHT_Q) {
 		//Elder_Pixie's_Beard, Wing_Of_Red_Bat, Orcish_Voucher, Moth_Dust, Reptile_Tongue, Wild_Boar's_Mane
@@ -618,7 +616,7 @@ prt_in,75,107,4	script	Sir Andrew#knt	65,{
 		}
 		if (countitem(.@items[0]) >= .@items[1] && countitem(.@items[2]) >= .@items[3] && countitem(.@items[4]) >= .@items[5] && countitem(.@items[6]) >= .@items[7] && countitem(.@items[8]) >= .@items[9] && countitem(.@items[10]) >= .@items[11]) {
 			mes "[Sir Andrew]";
-			mes "Perfect! We appreciate your effort in gathering these items. Thesee will be used to support the Chivalry's finances.";
+			mes "¡Perfecto! Apreciamos tu esfuerzo en recolectar estos objetos. Serán usados para apoyar las finanzas de la Caballería.";
 			next;
 			delitem .@items[0],.@items[1];
 			delitem .@items[2],.@items[3];
@@ -630,16 +628,16 @@ prt_in,75,107,4	script	Sir Andrew#knt	65,{
 			else changequest 9002,9003;
 			set KNIGHT_Q,4;
 			mes "[Sir Andrew]";
-			mes "Please visit my fellow Knight, Sir Siracuse, and continue the tests with the dedication and loyalty you've shown to me this day.";
+			mes "Por favor visita a mi compañero Knight, Sir Siracuse, y continúa las pruebas con la dedicación y lealtad que me has demostrado hoy.";
 			close;
 		}
 		mes "[Sir Andrew]";
-		mes "Wait, wait...";
-		mes "I think you're";
-		mes "still missing some";
-		mes "items. In case you";
-		mes "forgot, let me";
-		mes "remind you...";
+		mes "Espera, espera...";
+		mes "Creo que todavía";
+		mes "te faltan algunos";
+		mes "objetos. En caso de";
+		mes "que hayas olvidado,";
+		mes "déjame recordarte...";
 		next;
 		mes "[Sir Andrew]";
 		mes "^236B8E"+.@items[1]+" "+getitemname(.@items[0])+"^000000,";
@@ -650,22 +648,22 @@ prt_in,75,107,4	script	Sir Andrew#knt	65,{
 		mes "^236B8E"+.@items[11]+" "+getitemname(.@items[10])+"^000000,";
 		next;
 		mes "[Sir Andrew]";
-		mes "Now, please take this test seriously and with sincerity.";
-		mes "Now, I'll be waiting for you";
-		mes "to complete this task.";
+		mes "Ahora, por favor toma esta prueba en serio y con sinceridad.";
+		mes "Estaré esperándote para que";
+		mes "completes esta tarea.";
 		close;
 	}
 	else if (KNIGHT_Q == 4) {
-		mes "Did you have something you needed to ask me? You should go and take the next test. Hurry, Sir Siracuse is waiting for you~";
+		mes "¿Tenías algo que preguntarme? Deberías ir a tomar la siguiente prueba. Apúrate, ¡Sir Siracuse te está esperando~!";
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
-		mes "You must have finished all the tests. Good job! You should go see our Captain so that we can all give our evaluation.";
+		mes "Debes haber terminado todas las pruebas. ¡Buen trabajo! Deberías ir a ver a nuestro Capitán para que todos demos nuestra evaluación.";
 		close;
 	}
 	else {
-		mes "Did you have something you needed to ask me? You should go and take your next test. Do your best.";
-		mes "I know you can do it!";
+		mes "¿Tenías algo que preguntarme? Deberías ir a tomar tu siguiente prueba. Da lo mejor de ti.";
+		mes "¡Sé que puedes hacerlo!";
 		close;
 	}
 }
@@ -674,383 +672,383 @@ prt_in,71,91,0	script	Sir Siracuse#knt	65,{
 	mes "[Sir Siracuse]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
-			mes "Hey there!";
-			mes "How are you doing?";
-			mes "The Chivalry's been";
-			mes "doing pretty well.";
+			mes "¡Hola!";
+			mes "¿Cómo te va?";
+			mes "La Caballería ha";
+			mes "estado bastante bien.";
 			next;
 			mes "[Sir Siracuse]";
-			mes "We've been";
-			mes "testing new members,";
-			mes "but not all of them";
-			mes "show as much promise";
-			mes "as you.";
+			mes "Hemos estado";
+			mes "evaluando nuevos miembros,";
+			mes "pero no todos muestran";
+			mes "tanto potencial";
+			mes "como tú.";
 			next;
 			mes "[Sir Siracuse]";
-			mes "I hope these new recruits all behave themselves, and don't";
-			mes "bring shame to the Chivalry.";
+			mes "Espero que estos nuevos reclutas se comporten bien, y no";
+			mes "traigan vergüenza a la Caballería.";
 			next;
 			mes "[Sir Siracuse]";
-			mes "If you catch any of the new guys acting in a way unbecoming of a Knight, scold them for me please?";
+			mes "Si encuentras a alguno de los nuevos actuando de forma indigna de un Knight, ¿los regañas por mí, por favor?";
 			close;
 		}
 		else if (BaseClass == Job_Novice) {
-			mes "Oh?";
-			mes "What is a Novice";
-			mes "doing here?";
+			mes "¿Oh?";
+			mes "¿Qué hace un Novice";
+			mes "por aquí?";
 			next;
 			mes "[Sir Siracuse]";
-			mes "Are you interested in becoming a Knight? You just can't change into a Knight from a Novice, you know.";
+			mes "¿Estás interesado en ser un Knight? No puedes cambiar a Knight directamente desde Novice, ¿sabes?";
 			next;
 			mes "[Sir Siracuse]";
-			mes "First, you have";
-			mes "to become a well";
-			mes "experienced Swordman";
-			mes "before you can consider";
-			mes "becoming a Knight.";
+			mes "Primero, tienes";
+			mes "que convertirte en un";
+			mes "Swordman experimentado";
+			mes "antes de que puedas considerar";
+			mes "ser un Knight.";
 			close;
 		}
 		else {
-			mes "Offense and defense.";
-			mes "Is there a way to have both without compromising one or the other?";
+			mes "Ataque y defensa.";
+			mes "¿Hay alguna forma de tener ambos sin comprometer uno u otro?";
 			next;
 			mes "[Sir Siracuse]";
-			mes "Two-handed weapons greatly";
-			mes "improve your offense but decrease your defenses. Is there something that can overcome this weakness?";
+			mes "Las armas a dos manos mejoran";
+			mes "mucho tu ataque pero reducen tus defensas. ¿Hay algo que pueda superar esta debilidad?";
 			next;
 			mes "[Sir Siracuse]";
-			mes "A weapon or some sort";
-			mes "of technique like that";
-			mes "would help Knights greatly...";
+			mes "Un arma o algún tipo";
+			mes "de técnica así";
+			mes "ayudaría mucho a los Knights...";
 			close;
 		}
 	}
 	if (KNIGHT_Q == 0) {
-		mes "Offense and defense.";
-		mes "Is there a way to have both without compromising one or the other?";
+		mes "Ataque y defensa.";
+		mes "¿Hay alguna forma de tener ambos sin comprometer uno u otro?";
 		next;
 		mes "[Sir Siracuse]";
-		mes "Two-handed weapons greatly";
-		mes "improve your offense but decrease your defenses. Is there something that can overcome this weakness?";
+		mes "Las armas a dos manos mejoran";
+		mes "mucho tu ataque pero reducen tus defensas. ¿Hay algo que pueda superar esta debilidad?";
 		next;
 		mes "[Sir Siracuse]";
-		mes "A weapon or some sort";
-		mes "of technique like that";
-		mes "would help Knights greatly...";
+		mes "Un arma o algún tipo";
+		mes "de técnica así";
+		mes "ayudaría mucho a los Knights...";
 		close;
 	}
 	else if (KNIGHT_Q == 1) {
-		mes "Eh?";
-		mes "Do you have";
-		mes "something to";
-		mes "ask me?";
+		mes "¿Eh?";
+		mes "¿Tienes";
+		mes "algo que";
+		mes "preguntarme?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Sir Siracuse]";
-			mes "Oh, to become";
-			mes "a Knight? Come to";
-			mes "think of it, aren't";
-			mes "you the "+((Sex==SEX_MALE)?"guy":"girl")+" that";
-			mes "just applied?";
+			mes "Oh, ¿para convertirte";
+			mes "en Knight? Ahora que lo";
+			mes "pienso, ¿no eres";
+			mes "el "+((Sex==SEX_MALE)?"chico":"chica")+" que";
+			mes "acaba de aplicar?";
 			next;
 			mes "[Sir Siracuse]";
-			mes "Let's see...";
-			mes "Your name was";
+			mes "Veamos...";
+			mes "Tu nombre era";
 			mes strcharinfo(0) + ".";
 			next;
 			mes "[Sir Siracuse]";
-			mes "But, before you come to me, you must visit the others. The way";
-			mes "I see it, you haven't proven that you know the basics. But I'll";
-			mes "reconsider once you";
-			mes "pass the first test.";
+			mes "Pero, antes de venir conmigo, debes visitar a los otros. Por lo";
+			mes "que veo, no has demostrado que conoces lo básico. Pero lo";
+			mes "reconsideraré una vez que";
+			mes "pases la primera prueba.";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Hmmm...?";
-		mes "Alright.";
-		mes "It's just that";
-		mes "you had that";
-		mes "look on your";
-		mes "face.";
+		mes "¿Hmmm...?";
+		mes "Está bien.";
+		mes "Es solo que";
+		mes "tenías esa";
+		mes "cara de";
+		mes "algo.";
 		close;
 	}
 	else if (KNIGHT_Q == 2 || KNIGHT_Q == 3) {
-		mes "Eh?";
-		mes "Do you have";
-		mes "something to";
-		mes "ask me?";
+		mes "¿Eh?";
+		mes "¿Tienes";
+		mes "algo que";
+		mes "preguntarme?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Sir Siracuse]";
-			mes "Hahaha~!";
-			mes "Aren't you supposed to be taking Andrew's test? You can't just skip that, you know! All of our tests are important.";
+			mes "¡Jajaja~!";
+			mes "¿No se supone que estás tomando la prueba de Andrew? ¡No puedes saltarte eso! Todas nuestras pruebas son importantes.";
 			next;
 			mes "[Sir Siracuse]";
-			mes "Speak to Sir Andrew first.";
-			mes "My test for you will come after you've finished his test.";
+			mes "Habla con Sir Andrew primero.";
+			mes "Mi prueba vendrá después de que termines la suya.";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Hmmm...?";
-		mes "Alright.";
-		mes "It's just that";
-		mes "you had that";
-		mes "look on your";
-		mes "face.";
+		mes "¿Hmmm...?";
+		mes "Está bien.";
+		mes "Es solo que";
+		mes "tenías esa";
+		mes "cara de";
+		mes "algo.";
 		close;
 	}
 	else if (KNIGHT_Q == 4 || KNIGHT_Q == 5) {
 		if (KNIGHT_Q == 4) {
-			mes "Oh?";
-			mes "Do you have";
-			mes "something to";
-			mes "ask me?";
+			mes "¿Oh?";
+			mes "¿Tienes";
+			mes "algo que";
+			mes "preguntarme?";
 			next;
-			if (select("Sir Andrew sent me to take your test.:Oh, nothing.") == 1) {
+			if (select("Sir Andrew me envió a tomar tu prueba.:Oh, nada.") == 1) {
 				mes "[Sir Siracuse]";
-				mes "I see, you've passed the first test. Very well, I'll make some time for you. Let me introduce myself. My name is James Siracuse.";
+				mes "Ya veo, pasaste la primera prueba. Muy bien, haré algo de tiempo para ti. Déjame presentarme. Mi nombre es James Siracuse.";
 				next;
 				mes "[Sir Siracuse]";
-				mes "This test will measure how much you know about Knighthood. More importantly, I want to know your thoughts about honor.";
+				mes "Esta prueba medirá cuánto sabes sobre la Caballería. Más importante, quiero conocer tus pensamientos sobre el honor.";
 				next;
 				mes "[Sir Siracuse]";
-				mes "Don't be nervous, I won't keep you too long. These will be quick questions. Plus, you still have to see the others, right?";
+				mes "No te pongas nervioso, no te retendré mucho. Serán preguntas rápidas. Además, aún tienes que ver a los otros, ¿verdad?";
 				next;
 				mes "[Sir Siracuse]";
-				mes "Well then,";
-				mes "let's begin.";
-				mes "Please answer";
-				mes "promptly.";
+				mes "Bueno entonces,";
+				mes "comencemos.";
+				mes "Por favor responde";
+				mes "con prontitud.";
 				next;
 			}
 			else {
 				mes "[Sir Siracuse]";
-				mes "Hmmm...?";
-				mes "Alright.";
-				mes "It's just that";
-				mes "you had that";
-				mes "look on your";
-				mes "face.";
+				mes "¿Hmmm...?";
+				mes "Está bien.";
+				mes "Es solo que";
+				mes "tenías esa";
+				mes "cara de";
+				mes "algo.";
 				close;
 			}
 		}
 		else if (KNIGHT_Q == 5) {
-			mes "What...";
-			mes "You again?";
+			mes "Qué...";
+			mes "¿Tú otra vez?";
 			next;
-			if (select("I wish to take the test again.:Oh, nothing.") == 1) {
+			if (select("Deseo tomar la prueba de nuevo.:Oh, nada.") == 1) {
 				mes "[Sir Siracuse]";
-				mes "Is that right?";
-				mes "Are you sure you're";
-				mes "prepared this time?";
+				mes "¿En serio?";
+				mes "¿Estás seguro de que";
+				mes "estás preparado esta vez?";
 				next;
 				mes "[Sir Siracuse]";
-				mes "Alright then,";
-				mes "here we go again...";
+				mes "Bueno entonces,";
+				mes "aquí vamos otra vez...";
 				next;
 			}
 			else {
 				mes "[Sir Siracuse]";
-				mes "Hmmm...?";
-				mes "Alright.";
-				mes "It's just that";
-				mes "you had that";
-				mes "look on your";
-				mes "face.";
+				mes "¿Hmmm...?";
+				mes "Está bien.";
+				mes "Es solo que";
+				mes "tenías esa";
+				mes "cara de";
+				mes "algo.";
 				close;
 			}
 		}
 		mes "[Sir Siracuse]";
-		mes "A Knight must possess great strength, defense, speed, and the skill to wield a Two-Handed Sword. Which of the following weapons are not affected by the Two Hand Quicken skill?";
+		mes "Un Knight debe poseer gran fuerza, defensa, velocidad y la habilidad de empuñar una Two-Handed Sword. ¿Cuál de las siguientes armas no se ve afectada por la habilidad Two Hand Quicken?";
 		next;
 		if (select("Katana:Slayer:Broadsword:Flamberge") != 4) {
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Wrong!";
-			mes "That's a Two-Handed Sword!";
-			mes "Are you sure you want to be a Knight? You don't even know the basics...";
+			mes "¡Incorrecto!";
+			mes "¡Esa es una Two-Handed Sword!";
+			mes "¿Estás seguro de que quieres ser Knight? Ni siquiera sabes lo básico...";
 			next;
 			mes "[Sir Siracuse]";
-			mes "If you're not sure about anything, go into town and ask any Knight. You need to learn more about Knights before applying for the job!";
+			mes "Si no estás seguro de algo, ve a la ciudad y pregúntale a cualquier Knight. ¡Necesitas aprender más sobre los Knights antes de aplicar para el trabajo!";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Good, now let me ask about some skills. Which of the following is not necessary to learn Bowling Bash?";
+		mes "Bien, ahora déjame preguntarte sobre algunas habilidades. ¿Cuál de las siguientes no es necesaria para aprender Bowling Bash?";
 		next;
 		if (select("Two Handed Sword Mastery Lv.5:Magnum Break Lv.3:Provoke Lv.10:Bash Lv.10") != 3) {
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Wrong!";
-			mes "You need that to learn Bowling Bash! You should learn more about the Knight class before applying for the job!";
+			mes "¡Incorrecto!";
+			mes "¡Necesitas eso para aprender Bowling Bash! ¡Deberías aprender más sobre la clase Knight antes de aplicar para el trabajo!";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Knights can also use Spears, unlike other jobs, and have skills related to Spears as well. What skills are not necessary to learn the skill Brandish Spear?";
+		mes "Los Knights también pueden usar Spears, a diferencia de otros trabajos, y tienen habilidades relacionadas con Spears. ¿Qué habilidades no son necesarias para aprender la habilidad Brandish Spear?";
 		next;
 		if (select("Pierce Lv.5:Spear Stab Lv.3:Spear Boomerang Lv.3:Peco Peco Ride Lv.1") != 3) {
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Wrong! You need to learn that to learn Brandish Spear! How can you not know about Knights if you want to become one?";
+			mes "¡Incorrecto! ¡Necesitas aprender eso para aprender Brandish Spear! ¿Cómo puedes no saber sobre Knights si quieres ser uno?";
 			next;
 			mes "[Sir Siracuse]";
-			mes "If you aren't sure about anything, go into town and ask any Knight";
-			mes "for help. Come back after you've learned more about Knights.";
+			mes "Si no estás seguro de algo, ve a la ciudad y pregúntale a cualquier Knight";
+			mes "por ayuda. Regresa después de que hayas aprendido más sobre Knights.";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Some Spears also have magical attributes, just like spells. Of the following, which can attack a Nightmare, which has the Ghost attribute?";
+		mes "Algunas Spears también tienen atributos mágicos, igual que los hechizos. De las siguientes, ¿cuál puede atacar a un Nightmare, que tiene el atributo Ghost?";
 		next;
 		if (select("Zephyrus:Lance:Bill Guisarme:Crescent Scythe") != 1) {
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Wrong! You'll be doing absolutely no damage with that type of Spear! Come back after you've learned more about Knights!";
+			mes "¡Incorrecto! ¡No harás absolutamente nada de daño con ese tipo de Spear! ¡Regresa después de que hayas aprendido más sobre Knights!";
 			next;
 			mes "[Sir Siracuse]";
-			mes "If you have a question, just ask any Knight in town. This is basic knowledge for us!";
+			mes "Si tienes alguna pregunta, solo pregúntale a cualquier Knight en la ciudad. ¡Este es conocimiento básico para nosotros!";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "When you become a Knight you can ride a Peco Peco. However, your attack speed decreases once you're mounted on a Peco Peco.";
+		mes "Cuando te conviertas en Knight podrás montar un Peco Peco. Sin embargo, tu velocidad de ataque disminuye una vez que estás montado en un Peco Peco.";
 		next;
 		mes "[Sir Siracuse]";
-		mes "But, you can counter this speed decrease as you learn the Cavalier Mastery skill. What percentage of your normal attack speed will you have after learning Level 3 Cavalier Mastery?";
+		mes "Pero, puedes contrarrestar esta disminución de velocidad al aprender la habilidad Cavalier Mastery. ¿Qué porcentaje de tu velocidad de ataque normal tendrás después de aprender Cavalier Mastery Level 3?";
 		next;
-		if (select("70 % of normal attack speed:80 % of normal attack speed:90 % of normal attack speed:100 % of normal attack speed") != 2) {
+		if (select("70 % de velocidad de ataque normal:80 % de velocidad de ataque normal:90 % de velocidad de ataque normal:100 % de velocidad de ataque normal") != 2) {
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Wrong!";
-			mes "Don't bother riding a Peco Peco if you don't know about Cavalier Mastery!";
+			mes "¡Incorrecto!";
+			mes "¡No te molestes en montar un Peco Peco si no sabes sobre Cavalier Mastery!";
 			next;
 			mes "[Sir Siracuse]";
-			mes "You better come back after you've learned a little more about Knights!";
+			mes "¡Mejor regresa después de que hayas aprendido un poco más sobre Knights!";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Good, good...";
-		mes "I'm pretty sure you know a decent amount about Knights. Now, let me ask you some personal questions about Knights.";
+		mes "Bien, bien...";
+		mes "Estoy bastante seguro de que sabes una cantidad decente sobre Knights. Ahora, déjame hacerte algunas preguntas personales sobre los Knights.";
 		next;
 		mes "[Sir Siracuse]";
-		mes "What should you do when you run into a Novice asking for help in town?";
+		mes "¿Qué deberías hacer cuando te encuentras con un Novice pidiendo ayuda en la ciudad?";
 		next;
-		switch(select("Tell the Novice of a reasonable hunting area.:Let the Novice fight while you take the damage.:Give the Novice a bunch of Zeny and items.")) {
+		switch(select("Decirle al Novice una zona de caza razonable.:Dejar que el Novice pelee mientras absorbes el daño.:Darle al Novice un montón de Zeny y objetos.")) {
 		case 1:
 			mes "[Sir Siracuse]";
-			mes "Of course, even a Novice needs to learn how to be independent. Giving good guidance to Novices is one of the best things we can do.";
+			mes "Por supuesto, incluso un Novice necesita aprender a ser independiente. Dar buena orientación a los Novices es una de las mejores cosas que podemos hacer.";
 			next;
 			break;
 		case 2:
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "You have the wrong idea. Do you really believe that is helping the Novice? Give a man a fish, he will eat for a day. Teach him to fish, he will eat for a lifetime!";
+			mes "Tienes la idea equivocada. ¿Realmente crees que eso ayuda al Novice? Dale un pescado a alguien, comerá por un día. ¡Enséñale a pescar, comerá toda la vida!";
 			close;
 		case 3:
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Do you really believe that this will truly help the poor Novice? It's generous but, they will not know the true value of zeny and items until they earn it themselves.";
+			mes "¿Realmente crees que eso ayudará verdaderamente al pobre Novice? Es generoso pero, no conocerán el verdadero valor del zeny y los objetos hasta que los ganen por sí mismos.";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Alright...";
-		mes "Now, how should";
-		mes "you act within";
-		mes "a party?";
+		mes "Bien...";
+		mes "Ahora, ¿cómo deberías";
+		mes "actuar dentro";
+		mes "de un grupo?";
 		next;
-		switch(select("Protect everyone in the front of the battle.:Gather monsters and destroy them at once.:Get as many items possible, at all cost.")) {
+		switch(select("Proteger a todos en el frente de batalla.:Reunir monstruos y destruirlos de una vez.:Obtener todos los objetos posibles, a toda costa.")) {
 		case 1:
 			mes "[Sir Siracuse]";
-			mes "That's it! Our strength and attacks are very important in a party. All Knights should engage in a battle with that mindset.";
+			mes "¡Eso es! Nuestra fuerza y ataques son muy importantes en un grupo. Todos los Knights deberían entrar en batalla con esa mentalidad.";
 			next;
 			break;
 		case 2:
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "Are you crazy? Don't you realize the flaw in that kind of thinking? You can't control large mobs. What if they kill you? Who will protect the innocent?";
+			mes "¿Estás loco? ¿No te das cuenta del defecto en ese tipo de pensamiento? No puedes controlar grandes turbas. ¿Y si te matan? ¿Quién protegerá a los inocentes?";
 			close;
 		case 3:
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "I see your greed and we will have none of it here! It seems you do not truly care for others!";
-			mes "Get lost!";
+			mes "¡Veo tu codicia y no la toleraremos aquí! ¡Parece que realmente no te importan los demás!";
+			mes "¡Fuera de aquí!";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Lastly...";
-		mes "what's the most";
-		mes "important value";
-		mes "a Knight must have?";
+		mes "Por último...";
+		mes "¿cuál es el valor";
+		mes "más importante";
+		mes "que debe tener un Knight?";
 		next;
-		switch(select("Honor:Wealth:Status")) {
+		switch(select("Honor:Riqueza:Estatus")) {
 		case 1:
 			mes "[Sir Siracuse]";
-			mes "Right, above all else, Knights must be honorable! We live and die for honor! Always keep that in mind.";
+			mes "¡Correcto, por encima de todo, los Knights deben ser honorables! ¡Vivimos y morimos por el honor! Siempre tenlo en mente.";
 			next;
 			break;
 		case 2:
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "You're scum! You strive to become a Knight for personal wealth? Get lost! We will not accept someone like you in our Chivalry!";
+			mes "¡Eres escoria! ¿Te esfuerzas por ser Knight por riqueza personal? ¡Fuera de aquí! ¡No aceptaremos a alguien como tú en nuestra Caballería!";
 			close;
 		case 3:
 			set KNIGHT_Q,5;
 			mes "[Sir Siracuse]";
-			mes "So you're trying to become famous through the Chivalry? That's pathetic. We won't accept someone like you in our Chivalry!";
+			mes "¿Así que intentas hacerte famoso a través de la Caballería? Qué patético. ¡No aceptaremos a alguien como tú en nuestra Caballería!";
 			close;
 		}
 		set KNIGHT_Q,6;
 		changequest 9003,9004;
 		mes "[Sir Siracuse]";
-		mes "Well then,";
-		mes "this is the";
-		mes "end of my test.";
+		mes "Bueno entonces,";
+		mes "este es el";
+		mes "fin de mi prueba.";
 		next;
 		mes "[Sir Siracuse]";
-		mes "For your next";
-		mes "test, please go";
-		mes "see Sir Windsor.";
-		mes "He's very quiet,";
-		mes "but don't let that";
-		mes "get to you.";
+		mes "Para tu siguiente";
+		mes "prueba, por favor ve";
+		mes "a ver a Sir Windsor.";
+		mes "Es muy callado,";
+		mes "pero no dejes que eso";
+		mes "te afecte.";
 		close;
 	}
 	else if (KNIGHT_Q == 6) {
-		mes "Oh?";
-		mes "Do you have";
-		mes "something to";
-		mes "ask me?";
+		mes "¿Oh?";
+		mes "¿Tienes";
+		mes "algo que";
+		mes "preguntarme?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Sir Siracuse]";
-			mes "Hey...";
-			mes "You already took my test, didn't you? You're done here. You should go visit Sir Windsor now...";
+			mes "Oye...";
+			mes "Ya tomaste mi prueba, ¿no? Terminaste aquí. Deberías ir a ver a Sir Windsor ahora...";
 			close;
 		}
 		mes "[Sir Siracuse]";
-		mes "Hmmm...?";
-		mes "Alright.";
-		mes "It's just that";
-		mes "you had that";
-		mes "look on your";
-		mes "face.";
+		mes "¿Hmmm...?";
+		mes "Está bien.";
+		mes "Es solo que";
+		mes "tenías esa";
+		mes "cara de";
+		mes "algo.";
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
-		mes "Mmm...?";
-		mes "You finished";
-		mes "everyone else's";
-		mes "tests as well?";
+		mes "¿Mmm...?";
+		mes "¿Terminaste";
+		mes "las pruebas";
+		mes "de todos también?";
 		next;
 		mes "[Sir Siracuse]";
-		mes "Well then,";
-		mes "go and see the";
-		mes "captain. We'll all";
-		mes "be there to evaluate";
-		mes "your performance.";
+		mes "Bueno entonces,";
+		mes "ve a ver al";
+		mes "capitán. Estaremos";
+		mes "todos allí para evaluar";
+		mes "tu desempeño.";
 		close;
 	}
 	else {
-		mes "Hey again.";
-		mes "Did you need something?";
-		mes "Sorry, but I'm busy at the moment. You should go and finish the rest of your tests.";
+		mes "Hola de nuevo.";
+		mes "¿Necesitabas algo?";
+		mes "Lo siento, pero estoy ocupado por el momento. Deberías ir a terminar el resto de tus pruebas.";
 		close;
 	}
 }
@@ -1065,22 +1063,22 @@ prt_in,79,94,4	script	Sir Windsor#knt	733,{
 	next;
 	mes "[Sir Windsor]";
 	if (BaseJob != Job_Swordman) {
-		if (BaseJob == Job_Knight) mes "Protect.";
+		if (BaseJob == Job_Knight) mes "Proteger.";
 		else if (BaseClass == Job_Novice) {
-			mes "...Go play";
-			mes "outside.";
+			mes "...Ve a jugar";
+			mes "afuera.";
 		}
 		else mes "...Hmpf.";
 		close;
 	}
 	if (KNIGHT_Q == 0) {
-		mes "...What?";
+		mes "...¿Qué?";
 		close;
 	}
 	else if (KNIGHT_Q >= 1 && KNIGHT_Q <= 5) {
-		mes "...What?";
+		mes "...¿Qué?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Sir Windsor]";
 			mes "...";
 			next;
@@ -1089,7 +1087,7 @@ prt_in,79,94,4	script	Sir Windsor#knt	733,{
 			mes "......";
 			next;
 			mes "[Sir Windsor]";
-			mes "...It's not my turn.";
+			mes "...No es mi turno.";
 			close;
 		}
 		mes "[Sir Windsor]";
@@ -1098,12 +1096,12 @@ prt_in,79,94,4	script	Sir Windsor#knt	733,{
 	}
 	else if (KNIGHT_Q == 6 || KNIGHT_Q == 7) {
 		if (KNIGHT_Q == 6) {
-			set .@mes$,"Sir Siracuse sent me to you.:Oh, nothing.";
-			mes ".....What?";
+			set .@mes$,"Sir Siracuse me envió contigo.:Oh, nada.";
+			mes ".....¿Qué?";
 			next;
 		}
 		else {
-			set .@mes$,"I want to try again!:...";
+			set .@mes$,"¡Quiero intentar de nuevo!:...";
 			next;
 		}
 		if (select(.@mes$) == 1) {
@@ -1119,13 +1117,13 @@ prt_in,79,94,4	script	Sir Windsor#knt	733,{
 			mes "......";
 			next;
 			mes "[Sir Windsor]";
-			if (KNIGHT_Q == 6) 
-				mes "...Follow me.";
+			if (KNIGHT_Q == 6)
+				mes "...Sígueme.";
 			else {
-				mes "...Fine.";
+				mes "...Bien.";
 				next;
 				mes "[Sir Windsor]";
-				mes "...This way.";
+				mes "...Por aquí.";
 			}
 			close2;
 			if(checkquest(9006) == -1) changequest 9005,9006;
@@ -1137,13 +1135,13 @@ prt_in,79,94,4	script	Sir Windsor#knt	733,{
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
-		mes "...Talk to";
-		mes "the captain.";
+		mes "...Habla con";
+		mes "el capitán.";
 		close;
 	}
 	else {
-		mes "...You're";
-		mes "done here.";
+		mes "...Terminaste";
+		mes "aquí.";
 		close;
 	}
 }
@@ -1159,9 +1157,9 @@ job_knt,89,106,4	script	Knight Windsor#knt	733,{
 	mes "......";
 	next;
 	mes "[Sir Windsor]";
-	mes "...Question?";
+	mes "...¿Pregunta?";
 	next;
-	set .@i, select("What kind of test is this?:How do I take the test?:I'd like to leave.:No.");
+	set .@i, select("¿Qué tipo de prueba es esta?:¿Cómo tomo la prueba?:Me gustaría irme.:No.");
 	mes "[Sir Windsor]";
 	mes "...";
 	if (.@i == 4) close;
@@ -1173,21 +1171,21 @@ job_knt,89,106,4	script	Knight Windsor#knt	733,{
 	case 1:
 		next;
 		mes "[Sir Windsor]";
-		mes "...You fight monsters.";
+		mes "...Peleas contra monstruos.";
 		next;
 		mes "[Sir Windsor]";
-		mes "...Kill them all.";
+		mes "...Mátalos a todos.";
 		next;
 		mes "[Sir Windsor]";
 		mes "...";
 		next;
 		mes "[Sir Windsor]";
-		mes "...Three stages.";
-		mes "Beat them all.";
+		mes "...Tres etapas.";
+		mes "Supéralas todas.";
 		next;
 		mes "[Sir Windsor]";
-		mes "......3 minutes";
-		mes "for each stage.";
+		mes "......3 minutos";
+		mes "para cada etapa.";
 		next;
 		mes "[Sir Windsor]";
 		mes "..........";
@@ -1195,23 +1193,23 @@ job_knt,89,106,4	script	Knight Windsor#knt	733,{
 	case 2:
 		next;
 		mes "[Sir Windsor]";
-		mes "...Go in the";
-		mes "waiting room.";
+		mes "...Entra en la";
+		mes "sala de espera.";
 		next;
 		mes "[Sir Windsor]";
-		mes "...Then it";
-		mes "will begin.";
+		mes "...Entonces";
+		mes "comenzará.";
 		next;
 		mes "[Sir Windsor]";
 		mes "...";
 		next;
 		mes "[Sir Windsor]";
-		mes "...You have to wait";
-		mes "if someone is testing.";
+		mes "...Tienes que esperar";
+		mes "si alguien está en prueba.";
 		next;
 		mes "[Sir Windsor]";
-		mes "...You can go in";
-		mes "after that person.";
+		mes "...Puedes entrar";
+		mes "después de esa persona.";
 		next;
 		mes "[Sir Windsor]";
 		mes "...";
@@ -1286,8 +1284,8 @@ OnMyMobDead:
 		mes "...";
 		next;
 		mes "[Sir Windsor]";
-		mes "...On to";
-		mes "the next level.";
+		mes "...Al";
+		mes "siguiente nivel.";
 		close2;
 		warp "job_knt",43,52;
 		donpcevent "Knight1::OnDisable";
@@ -1352,7 +1350,7 @@ OnMyMobDead:
 		mes "...Hmm.";
 		next;
 		mes "[Sir Windsor]";
-		mes "...One stage left.";
+		mes "...Queda una etapa.";
 		close2;
 		warp "job_knt",143,152;
 		donpcevent "Knight2::OnDisable";
@@ -1412,11 +1410,11 @@ OnMyMobDead:
 		mes "...";
 		next;
 		mes "[Sir Windsor]";
-		mes "...Very good.";
+		mes "...Muy bien.";
 		next;
 		mes "[Sir Windsor]";
-		mes "...Go talk to";
-		mes "Amy Beatrice now.";
+		mes "...Ve a hablar con";
+		mes "Amy Beatrice ahora.";
 		close2;
 		set KNIGHT_Q,8;
 		if(checkquest(9007) == -1) {
@@ -1450,338 +1448,338 @@ prt_in,69,107,6	script	Lady Amy#knt	728,{
 	mes "[Lady Amy]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
-			mes "Oh...!";
-			mes "I wonder, why";
-			mes "have you come";
-			mes "to visit me?";
+			mes "¡Oh...!";
+			mes "Me pregunto, ¿por qué";
+			mes "has venido";
+			mes "a visitarme?";
 			next;
 			mes "[Lady Amy]";
-			mes "You're not having";
-			mes "trouble as a Knight,";
-			mes "are you? Well, I think";
-			mes "you're doing well~";
+			mes "¿No estás teniendo";
+			mes "problemas como Knight,";
+			mes "verdad? Bueno, ¡creo";
+			mes "que lo estás haciendo bien~!";
 			next;
 			mes "[Lady Amy]";
-			mes "Of course~";
-			mes "You're a member of";
-			mes "the Prontera Chivalry~";
+			mes "¡Por supuesto~!";
+			mes "¡Eres un miembro de";
+			mes "la Caballería de Prontera~!";
 			close;
 		}
 		else if (BaseClass == Job_Novice) {
-			mes "Aww~";
-			mes "What a cute";
-			mes "little Novice!";
-			mes "Soooooo cute!";
+			mes "¡Aww~!";
+			mes "¡Qué lindo";
+			mes "pequeño Novice!";
+			mes "¡Tan lindoooo!";
 			next;
 			mes "[Lady Amy]";
-			mes "Heh heh...";
-			mes "Are you interested";
-			mes "in becoming a Knight";
-			mes "later on? You'd be";
-			mes "a great Knight~";
+			mes "Je je...";
+			mes "¿Estás interesado";
+			mes "en ser un Knight";
+			mes "más adelante? ¡Serías";
+			mes "un gran Knight~!";
 			next;
 			mes "[Lady Amy]";
-			mes "Remember, you're";
-			mes "going to be a Knight,";
-			mes "alright? Promise?";
+			mes "Recuerda, vas";
+			mes "a ser un Knight,";
+			mes "¿verdad? ¿Lo prometes?";
 			close;
 		}
 		else {
-			mes "Welcome to";
-			mes "the Prontera Chivalry~";
+			mes "¡Bienvenido a";
+			mes "la Caballería de Prontera~!";
 			next;
 			mes "[Lady Amy]";
-			mes "We're only Knights,";
-			mes "but hope you enjoy";
-			mes "your stay here.";
-			mes "Heh heh~";
+			mes "Solo somos Knights,";
+			mes "pero esperamos que disfrutes";
+			mes "tu estadía aquí.";
+			mes "¡Je je~!";
 			close;
 		}
 	}
 	if (KNIGHT_Q == 0) {
-		mes "Ooh, you're";
-		mes "a Swordsman...?";
-		mes "Did you come to";
-		mes "change jobs to";
+		mes "Ooh, ¿eres";
+		mes "un Swordman...?";
+		mes "¿Viniste a";
+		mes "cambiar de trabajo";
 		mes "a Knight?";
 		next;
 		mes "[Lady Amy]";
-		mes "To apply, talk";
-		mes "to the captain";
-		mes "all the way over";
-		mes "there. Hee hee~";
+		mes "Para aplicar, habla";
+		mes "con el capitán";
+		mes "que está por allá.";
+		mes "¡Ji ji~!";
 		close;
 	}
 	else if (KNIGHT_Q >= 1 && KNIGHT_Q <= 7) {
-		mes "Hmmm?";
-		mes "Why did you";
-		mes "come to Amy?";
+		mes "¿Hmmm?";
+		mes "¿Por qué viniste";
+		mes "donde Amy?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Lady Amy]";
-			mes "Mmm~";
-			mes "You applied to change jobs! Okay! You'll soon be a Knight with that kind of determination!";
+			mes "¡Mmm~!";
+			mes "¡Aplicaste para cambiar de trabajo! ¡Genial! ¡Pronto serás un Knight con esa determinación!";
 			next;
 			mes "[Lady Amy]";
-			mes "But...";
-			mes "You have to go";
-			mes "to the other Knights";
-			mes "before talking to Amy.";
+			mes "Pero...";
+			mes "Tienes que ir";
+			mes "con los otros Knights";
+			mes "antes de hablar con Amy.";
 			next;
 			mes "[Lady Amy]";
-			mes "I'd love to test";
-			mes "you from the beginning,";
-			mes "but I'm not allowed to.";
-			mes "Hee hee~";
+			mes "Me encantaría evaluarte";
+			mes "desde el principio,";
+			mes "pero no me dejan.";
+			mes "¡Ji ji~!";
 			close;
 		}
 		mes "[Lady Amy]";
-		mes "Aww~";
-		mes "Alright...";
+		mes "¡Aww~!";
+		mes "Está bien...";
 		close;
 	}
 	else if ((KNIGHT_Q == 8) || (KNIGHT_Q == 9)){
 		if (KNIGHT_Q == 8) {
-			mes "Hmmm?";
-			mes "Why did you";
-			mes "come to Amy?";
+			mes "¿Hmmm?";
+			mes "¿Por qué viniste";
+			mes "donde Amy?";
 			next;
-			if (select("Sir Windsor told me to--:Oh, nothing.") == 1) {
+			if (select("Sir Windsor me dijo que--:Oh, nada.") == 1) {
 				if(checkquest(9008) == -1) changequest 9007,9008;
 				mes "[Lady Amy]";
-				mes "Oh!";
-				mes "No need to say";
-				mes "anything more.";
-				mes "Welcome! It's time";
-				mes "to take Amy's test!";
+				mes "¡Oh!";
+				mes "No necesitas decir";
+				mes "nada más.";
+				mes "¡Bienvenido! ¡Es hora";
+				mes "de tomar la prueba de Amy!";
 				next;
 				mes "[Lady Amy]";
-				mes "My name is Amy Beatrice,";
-				mes "a proud Lady Knight of the Prontera Chivalry. Amy's test will test your etiquette as a Knight~";
+				mes "Mi nombre es Amy Beatrice,";
+				mes "una orgullosa Lady Knight de la Caballería de Prontera. ¡La prueba de Amy evaluará tu etiqueta como Knight~!";
 				next;
 				mes "[Lady Amy]";
-				mes "I'll tell you a story and you choose an answer whenever";
-				mes "I ask a question. Your etiquette will be judged on your answers.";
+				mes "Te contaré una historia y elegirás una respuesta cada vez que";
+				mes "haga una pregunta. Tu etiqueta será juzgada por tus respuestas.";
 				next;
 				mes "[Lady Amy]";
-				mes "So listen carefully";
-				mes "and answer as if you're";
-				mes "already a Knight, okay?";
+				mes "Así que escucha con atención";
+				mes "y responde como si ya";
+				mes "fueras un Knight, ¿de acuerdo?";
 				next;
 				mes "[Lady Amy]";
-				mes "Then,";
-				mes "let's begin!";
+				mes "Entonces,";
+				mes "¡comencemos!";
 				next;
 			}
 			else {
 				mes "[Lady Amy]";
 				mes "Aww...";
-				mes "Alright~";
+				mes "¡Está bien~!";
 				close;
 			}
 		}
 		else if (KNIGHT_Q == 9) {
-			mes "Hmmm?";
-			mes "Why did you";
-			mes "come to Amy?";
+			mes "¿Hmmm?";
+			mes "¿Por qué viniste";
+			mes "donde Amy?";
 			next;
-			if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+			if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 				mes "[Lady Amy]";
-				mes "Mmm~?";
-				mes "Have you learned";
-				mes "what you did wrong";
-				mes "last time? If you";
-				mes "fail again, I'm going";
-				mes "to be mad!";
+				mes "¿Mmm~?";
+				mes "¿Has aprendido";
+				mes "qué hiciste mal";
+				mes "la última vez? Si";
+				mes "fallas otra vez, ¡me voy";
+				mes "a enojar!";
 				next;
 				mes "[Lady Amy]";
-				mes "So listen carefully";
-				mes "and answer as if you";
-				mes "are a Knight.";
-				mes "Well then,";
-				mes "let's begin!";
+				mes "Así que escucha con atención";
+				mes "y responde como si";
+				mes "fueras un Knight.";
+				mes "Bueno entonces,";
+				mes "¡comencemos!";
 				next;
 				mes "[Lady Amy]";
-				mes "You are a Knight and you are looking for a party in Morocc.";
-				mes "How would you go about doing so?";
+				mes "Eres un Knight y estás buscando un grupo en Morocc.";
+				mes "¿Cómo lo harías?";
 				next;
 			}
 			else {
 				mes "[Lady Amy]";
 				mes "Aww...";
-				mes "Alright~";
+				mes "¡Está bien~!";
 				close;
 			}
 		}
-		mes "You are a Knight and you are looking for a party in Morocc.";
-		mes "How would you go about doing so?";
+		mes "Eres un Knight y estás buscando un grupo en Morocc.";
+		mes "¿Cómo lo harías?";
 		next;
-		if (select("Shout out that you are looking for a party.:Open a chat room and wait.:Look for people seeking Knights.") != 1)
+		if (select("Gritar que estás buscando grupo.:Abrir una sala de chat y esperar.:Buscar gente que necesite Knights.") != 1)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "You have formed a party with equal leveled players. There's a Priest, a Wizard, a Hunter, an Assassin, and a Blacksmith...";
+		mes "Has formado un grupo con jugadores de nivel similar. Hay un Priest, un Wizard, un Hunter, un Assassin, y un Blacksmith...";
 		next;
 		mes "[Lady Amy]";
-		mes "The six of you decide to go hunt and have decided to go to the Pyramids.";
+		mes "Los seis deciden ir a cazar y han decidido ir a las Pirámides.";
 		next;
 		mes "[Lady Amy]";
-		mes "You reach Level 4";
-		mes "of the Pyramids";
-		mes "with your party.";
-		mes "What should you do?";
+		mes "Llegas al Nivel 4";
+		mes "de las Pirámides";
+		mes "con tu grupo.";
+		mes "¿Qué deberías hacer?";
 		next;
-		if (select("Check out the area and plan ahead.:Gather monsters for your party members.:Lead the party slowly at the front.") != 2)
+		if (select("Explorar el área y planificar.:Reunir monstruos para los miembros de tu grupo.:Guiar al grupo lentamente al frente.") != 2)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "But some rude players came with a group of monsters and disappeared! What should you do?";
+		mes "¡Pero unos jugadores groseros vinieron con un grupo de monstruos y desaparecieron! ¿Qué deberías hacer?";
 		next;
-		if (select("Keep the monsters from reaching the party.:Defend while the party retreats.:Run away on your Peco Peco.") != 3)
+		if (select("Evitar que los monstruos lleguen al grupo.:Defender mientras el grupo se retira.:Huir en tu Peco Peco.") != 3)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "Luckily, you all lived through the crisis. But as you walk, you find a person, who is not in your party, collapsed on the ground.";
+		mes "Por suerte, todos sobrevivieron la crisis. Pero mientras caminan, encuentran a una persona, que no está en tu grupo, tirada en el suelo.";
 		next;
 		mes "[Lady Amy]";
-		mes "The person is asking politely for help. What should you do?";
+		mes "La persona está pidiendo ayuda amablemente. ¿Qué deberías hacer?";
 		next;
-		if (select("Ask your party's Priest to help.:Say you will help for Zeny.:Ignore and move on.") == 1)
+		if (select("Pedir a tu Priest del grupo que ayude.:Decir que ayudarás por Zeny.:Ignorar y seguir adelante.") == 1)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "You must bid farewell to your party members because you must go somewhere else.";
+		mes "Debes despedirte de los miembros de tu grupo porque debes ir a otro lugar.";
 		next;
 		mes "[Lady Amy]";
-		mes "But you find";
-		mes "a rare item during";
-		mes "the battle. What";
-		mes "should you do?";
+		mes "Pero encuentras";
+		mes "un objeto raro durante";
+		mes "la batalla. ¿Qué";
+		mes "deberías hacer?";
 		next;
-		if(select("Give it to who deserves it the most.:Pretend like nothing happened and keep it.:Decide with party who gets it.") != 2)
+		if(select("Dárselo a quien más lo merece.:Pretender que nada pasó y quedártelo.:Decidir con el grupo quién se lo queda.") != 2)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "You end up with the item and you go to Prontera to sell it. There are many people with shops and chat rooms opened selling items.";
+		mes "Terminas con el objeto y vas a Prontera a venderlo. Hay muchas personas con tiendas y salas de chat abiertas vendiendo objetos.";
 		next;
 		mes "[Lady Amy]";
-		mes "What should you";
-		mes "do to sell your item?";
+		mes "¿Qué deberías hacer";
+		mes "para vender tu objeto?";
 		next;
-		if (select("Shout out loud to everyone.:Open a chat room and wait.:Inquire if there is anyone that is interested.") != 1)
+		if (select("Gritar fuerte a todos.:Abrir una sala de chat y esperar.:Preguntar si alguien está interesado.") != 1)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "While you are waiting,";
-		mes "someone comes and begs";
-		mes "for items and zeny.";
-		mes "What do you do?";
+		mes "Mientras esperas,";
+		mes "alguien viene y te suplica";
+		mes "por objetos y zeny.";
+		mes "¿Qué haces?";
 		next;
-		if (select("Give them some Zeny and items.:Simply ignore them.:Give suggestions for a place to hunt.") == 3)
+		if (select("Darles algo de Zeny y objetos.:Simplemente ignorarlos.:Dar sugerencias de un lugar para cazar.") == 3)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "Now you decide to go to the Hidden Temple by yourself. You happily ride on your Peco Peco.";
+		mes "Ahora decides ir al Hidden Temple por tu cuenta. Montas felizmente tu Peco Peco.";
 		next;
 		mes "[Lady Amy]";
-		mes "But you run into";
-		mes "someone that is lost.";
-		mes "What should you do?";
+		mes "Pero te encuentras con";
+		mes "alguien que está perdido.";
+		mes "¿Qué deberías hacer?";
 		next;
-		if(select("Tell the person how to reach the exit.:Lead the person to the exit.:Give a Butterfly Wing.") != 3)
+		if(select("Decirle a la persona cómo llegar a la salida.:Guiar a la persona a la salida.:Darle un Butterfly Wing.") != 3)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "You've been hunting for a while, and now you're low on HP!";
-		mes "It's red now, which is very dangerous.";
+		mes "Has estado cazando por un rato, ¡y ahora tienes poco HP!";
+		mes "Está en rojo, lo cual es muy peligroso.";
 		next;
 		mes "[Lady Amy]";
-		mes "Ah, then a Priest";
-		mes "happens to walk by.";
-		mes "How would you ask";
-		mes "the Priest for a Heal?";
+		mes "Ah, entonces un Priest";
+		mes "pasa caminando por ahí.";
+		mes "¿Cómo le pedirías";
+		mes "al Priest un Heal?";
 		next;
-		if (select("Would it be possible to get a heal please?:Can I have a heal?:Heal plz!!") == 1)
+		if (select("¿Sería posible que me cures, por favor?:¿Me puedes curar?:Heal plz!!") == 1)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "You are now very";
-		mes "exhausted and it's time";
-		mes "to go back to town.";
+		mes "Ahora estás muy";
+		mes "agotado y es hora";
+		mes "de regresar a la ciudad.";
 		next;
 		mes "[Lady Amy]";
-		mes "You then find";
-		mes "a rare item on";
-		mes "the street.";
-		mes "What should";
-		mes "you do?";
+		mes "Entonces encuentras";
+		mes "un objeto raro";
+		mes "en la calle.";
+		mes "¿Qué deberías";
+		mes "hacer?";
 		next;
-		if (select("Pick it up and keep it.:Ask around to find the owner.:Simply walk by.") != 1)
+		if (select("Recogerlo y quedártelo.:Preguntar alrededor para encontrar al dueño.:Simplemente pasar de largo.") != 1)
 			set .@knight_t,.@knight_t+10;
 		mes "[Lady Amy]";
-		mes "Okay,";
-		mes "that was the";
-		mes "end of my test!";
+		mes "Bien,";
+		mes "¡ese fue el";
+		mes "fin de mi prueba!";
 		next;
 		mes "[Lady Amy]";
 		if (.@knight_t == 100) {
 			set KNIGHT_Q,10;
 			changequest 9008,9009;
-			mes "Well done, that kind of mentality is needed for a Knight! For your next test, visit Sir Edmond, please~";
+			mes "¡Bien hecho, ese tipo de mentalidad es la que necesita un Knight! Para tu siguiente prueba, visita a Sir Edmond, por favor~";
 			next;
 			mes "[Lady Amy]";
-			mes "I'll have nice comments about you for the captain. Do well on the tests you have left, okay?";
+			mes "Tendré buenos comentarios sobre ti para el capitán. Hazlo bien en las pruebas que te quedan, ¿de acuerdo?";
 			close;
 		}
 		else if (.@knight_t == 90) {
 			set KNIGHT_Q,10;
 			changequest 9008,9009;
-			mes "Well, it wasn't perfect,";
-			mes "but I think you know enough";
-			mes "about etiquette to be";
-			mes "a fine Knight.";
+			mes "Bueno, no fue perfecto,";
+			mes "pero creo que sabes suficiente";
+			mes "sobre etiqueta para ser";
+			mes "un buen Knight.";
 			next;
 			mes "[Lady Amy]";
-			mes "Now, it's time for you to go to Sir Edmond for your next test. Do well on the rest of your tests. You better promise~";
+			mes "Ahora, es hora de que vayas con Sir Edmond para tu siguiente prueba. Hazlo bien en el resto de tus pruebas. ¡Más te vale prometérmelo~!";
 			close;
 		}
 		set KNIGHT_Q,9;
 		mes "Mmm...";
-		mes "To be honest, I don't think your attitude is good enough to be a Knight quite yet.";
+		mes "Para ser honesta, no creo que tu actitud sea lo suficientemente buena para ser Knight aún.";
 		next;
 		mes "[Lady Amy]";
-		mes "If you really act like that, everyone will think Knights are rude! Think about how you answered my questions and come again later.";
+		mes "Si realmente actúas así, ¡todos pensarán que los Knights son groseros! Piensa en cómo respondiste mis preguntas y vuelve después.";
 		next;
 		mes "[Lady Amy]";
-		mes "If you want,";
-		mes "I'll let you";
-		mes "retake the test, okay?";
+		mes "Si quieres,";
+		mes "te dejaré";
+		mes "repetir la prueba, ¿sí?";
 		close;
 	}
 	else if (KNIGHT_Q == 10) {
-		mes "Hmmm?";
-		mes "Why did you";
-		mes "come to Amy?";
+		mes "¿Hmmm?";
+		mes "¿Por qué viniste";
+		mes "donde Amy?";
 		next;
 		mes "[Lady Amy]";
-		mes "You have to go to";
-		mes "Sir Edmond for your";
-		mes "next test, okay?";
+		mes "Tienes que ir con";
+		mes "Sir Edmond para tu";
+		mes "siguiente prueba, ¿de acuerdo?";
 		close;
 	}
 	else if (KNIGHT_Q == 14) {
-		mes "Wow~";
-		mes "Now it's time for";
-		mes "everyone to decide";
-		mes "on your job change!";
+		mes "¡Wow~!";
+		mes "¡Ahora es hora de que";
+		mes "todos decidan";
+		mes "sobre tu cambio de trabajo!";
 		next;
 		mes "[Lady Amy]";
-		mes "Let's go talk to our";
-		mes "captain. Don't worry";
-		mes "too much. It should";
-		mes "be okay.";
+		mes "Vamos a hablar con nuestro";
+		mes "capitán. No te preocupes";
+		mes "demasiado. Debería";
+		mes "estar bien.";
 		close;
 	}
 	else {
-		mes "Hmmm?";
-		mes "Why did you";
-		mes "come to Amy?";
+		mes "¿Hmmm?";
+		mes "¿Por qué viniste";
+		mes "donde Amy?";
 		next;
 		mes "[Lady Amy]";
-		mes "You still have";
-		mes "other tests to take.";
-		mes "Hurry and finish~";
+		mes "Todavía te quedan";
+		mes "otras pruebas.";
+		mes "¡Apúrate y termina~!";
 		close;
 	}
 }
@@ -1792,98 +1790,98 @@ prt_in,70,99,6	script	Sir Edmond#knt	734,{
 	mes "[Sir Edmond]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
-			mes "Think of your";
-			mes "mind as if it were";
-			mes "flowing water.";
+			mes "Piensa en tu";
+			mes "mente como si fuera";
+			mes "agua que fluye.";
 			next;
 			mes "[Sir Edmond]";
-			mes "Flowing water";
-			mes "avoids obstacles,";
-			mes "going on its way...";
+			mes "El agua que fluye";
+			mes "esquiva obstáculos,";
+			mes "siguiendo su camino...";
 			next;
 			mes "[Sir Edmond]";
-			mes "Knights must be";
-			mes "able to pass things,";
-			mes "like calm water, in";
-			mes "any situation.";
+			mes "Los Knights deben ser";
+			mes "capaces de dejar pasar las cosas,";
+			mes "como el agua tranquila, en";
+			mes "cualquier situación.";
 			close;
 		}
 		else if (BaseClass == Job_Novice) {
-			mes "Trees with deep roots don't sway with the wind. The fact that powerful skills must be built on strong basics is immutable...";
+			mes "Los árboles con raíces profundas no se mecen con el viento. El hecho de que las habilidades poderosas deben construirse sobre bases sólidas es inmutable...";
 			next;
 			mes "[Sir Edmond]";
-			mes "Your future";
-			mes "can even be";
-			mes "decided now...";
+			mes "Tu futuro";
+			mes "puede incluso ser";
+			mes "decidido ahora...";
 			close;
 		}
 		else {
-			mes "Everything in this world exists in harmony. Living without disrupting this harmony is the right way to live...";
+			mes "Todo en este mundo existe en armonía. Vivir sin perturbar esta armonía es la forma correcta de vivir...";
 			close;
 		}
 	}
 	if (KNIGHT_Q == 0) {
-		mes "Those with ominous thoughts will only dream such dreams. It's better to have no dreams at all than to have dreams of sadness and despair.";
+		mes "Aquellos con pensamientos ominosos solo soñarán tales sueños. Es mejor no tener sueños que tener sueños de tristeza y desesperación.";
 		close;
 	}
 	else if (KNIGHT_Q >= 1 && KNIGHT_Q <= 9) {
-		mes "What is it...";
-		mes "Wandering Swordman?";
+		mes "¿Qué es...";
+		mes "Swordman errante?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Sir Edmond]";
-			mes "A seed must first be nestled";
-			mes "in the earth before the seed may sprout. Then, the sprout must grow leaves before its buds blossom into flowers...";
+			mes "Una semilla primero debe ser";
+			mes "cobijada en la tierra antes de que pueda brotar. Luego, el brote debe crecer hojas antes de que sus capullos florezcan...";
 			next;
 			mes "[Sir Edmond]";
-			mes "If not...";
-			mes "The flower will";
-			mes "be incomplete.";
+			mes "Si no...";
+			mes "La flor será";
+			mes "incompleta.";
 			next;
 			mes "[Sir Edmond]";
-			mes "Go to the others";
-			mes "first, so that you";
-			mes "may find your path...";
+			mes "Ve con los otros";
+			mes "primero, para que puedas";
+			mes "encontrar tu camino...";
 			close;
 		}
 		mes "[Sir Edmond]";
-		mes "The life that you";
-		mes "want will soon be";
-		mes "before your eyes.";
-		mes "Everything will";
-		mes "come in perfect";
-		mes "order.";
+		mes "La vida que";
+		mes "deseas pronto estará";
+		mes "ante tus ojos.";
+		mes "Todo vendrá";
+		mes "en perfecto";
+		mes "orden.";
 		close;
 	}
 	else if (KNIGHT_Q == 10) {
-		mes "What is it...";
-		mes "Wandering Swordman.";
+		mes "¿Qué es...";
+		mes "Swordman errante.";
 		next;
-		if (select("Lady Amy sent me.:Oh, nothing.") == 1) {
+		if (select("Lady Amy me envió.:Oh, nada.") == 1) {
 			mes "[Sir Edmond]";
-			mes "It is now time to take my test. Please do your best, as you have done on the other tests.";
+			mes "Es hora de tomar mi prueba. Por favor da lo mejor de ti, como lo has hecho en las otras pruebas.";
 			next;
 			mes "[Sir Edmond]";
-			mes "My name is";
+			mes "Mi nombre es";
 			mes "Edmond Groster.";
-			mes "I am a member of";
-			mes "the Prontera Chivalry.";
+			mes "Soy miembro de";
+			mes "la Caballería de Prontera.";
 			next;
 			mes "[Sir Edmond]";
-			mes "Knights are in the position for others to follow. Therefore, you must modestly think about the world's order and have the personality to fit the role you will play.";
+			mes "Los Knights están en la posición de ser seguidos por otros. Por lo tanto, debes pensar modestamente sobre el orden del mundo y tener la personalidad adecuada para el rol que desempeñarás.";
 			next;
 			mes "[Sir Edmond]";
-			mes "You must not make careless decisions. Your will should bend as the reeds or be as firm as stone when the situation calls for it.";
+			mes "No debes tomar decisiones descuidadas. Tu voluntad debe doblarse como las cañas o ser firme como la piedra cuando la situación lo requiera.";
 			next;
 			mes "[Sir Edmond]";
-			mes "You must not kill monsters without reason and not take joy in doing so. Take this time to quietly think about this on your own...";
+			mes "No debes matar monstruos sin razón ni disfrutar haciéndolo. Tómate este tiempo para pensar tranquilamente sobre esto por tu cuenta...";
 			next;
 			mes "[Sir Edmond]";
-			mes "Then, we shall";
-			mes "begin the test.";
-			mes "Keep in mind";
-			mes "the quality of";
-			mes "reverence.";
+			mes "Entonces,";
+			mes "comenzaremos la prueba.";
+			mes "Ten en mente";
+			mes "la cualidad de";
+			mes "la reverencia.";
 			close2;
 			set KNIGHT_Q,11;
 			changequest 9009,9010;
@@ -1891,52 +1889,52 @@ prt_in,70,99,6	script	Sir Edmond#knt	734,{
 			end;
 		}
 		mes "[Sir Edmond]";
-		mes "The life you want";
-		mes "will soon be before";
-		mes "your eyes.";
+		mes "La vida que deseas";
+		mes "pronto estará ante";
+		mes "tus ojos.";
 		close;
 	}
 	else if (KNIGHT_Q == 11) {
-		mes "What is it...";
-		mes "Wandering Swordman?";
+		mes "¿Qué es...";
+		mes "Swordman errante?";
 		next;
-		if (select("I'm sorry, I didn't mean to...:Oh, nothing.") == 1) {
+		if (select("Lo siento, no quise...:Oh, nada.") == 1) {
 			mes "[Sir Edmond]";
-			mes "You were too careless in the last test. A Knight's sword exists to protect others, not to torment weaker monsters.";
+			mes "Fuiste demasiado descuidado en la última prueba. La espada de un Knight existe para proteger a otros, no para atormentar monstruos más débiles.";
 			next;
 			mes "[Sir Edmond]";
-			mes "In a world where everything exists in harmony, you can't have humans continuously destroying without purpose. This principle applies to the real world, not to this test alone.";
+			mes "En un mundo donde todo existe en armonía, no puedes tener humanos destruyendo continuamente sin propósito. Este principio aplica al mundo real, no solo a esta prueba.";
 			next;
 			mes "[Sir Edmond]";
-			mes "The test";
-			mes "shall begin.";
-			mes "Show me your";
-			mes "patience...";
+			mes "La prueba";
+			mes "comenzará.";
+			mes "Muéstrame tu";
+			mes "paciencia...";
 			close2;
 			warp "job_knt",143,57;
 			end;
 		}
 		mes "[Sir Edmond]";
-		mes "The life that you";
-		mes "want will soon be";
-		mes "before your eyes.";
-		mes "Everything will";
-		mes "come in perfect";
-		mes "order.";
+		mes "La vida que";
+		mes "deseas pronto estará";
+		mes "ante tus ojos.";
+		mes "Todo vendrá";
+		mes "en perfecto";
+		mes "orden.";
 		close;
 	}
 	else if (KNIGHT_Q == 12 || KNIGHT_Q == 13) {
-		mes "I have seen your character for myself. It is now time for you to take the last test. Go and speak";
-		mes "to Sir Gray...";
+		mes "He visto tu carácter por mí mismo. Es hora de que tomes la última prueba. Ve y habla";
+		mes "con Sir Gray...";
 		close;
 	}
 	else {
-		mes "Go and speak";
-		mes "to our captain.";
-		mes "The time has come";
-		mes "for all of us to";
-		mes "evaluate your";
-		mes "performance.";
+		mes "Ve y habla";
+		mes "con nuestro capitán.";
+		mes "Ha llegado el momento";
+		mes "de que todos";
+		mes "evaluemos tu";
+		mes "desempeño.";
 		close;
 	}
 }
@@ -2007,250 +2005,250 @@ prt_in,87,92,4	script	Sir Gray#knt	119,{
 	mes "[Sir Gray]";
 	if (BaseJob != Job_Swordman) {
 		if (BaseJob == Job_Knight) {
-			mes "The glint of light";
-			mes "that shines off this blade cannot be put into words. This is the weapon every Knight must have.";
+			mes "El destello de luz";
+			mes "que brilla en esta espada no puede expresarse con palabras. Esta es el arma que todo Knight debe tener.";
 			next;
 			mes "[Sir Gray]";
-			mes "Yes...";
-			mes "^3355FFClaymore^000000!";
-			mes "Every Knight";
-			mes "would want one!";
+			mes "Sí...";
+			mes "¡^3355FFClaymore^000000!";
+			mes "¡Todo Knight";
+			mes "querría una!";
 			next;
-			switch(select("About ^3355FFClaymore^000000:Buy Claymore:End Conversation")) {
+			switch(select("Sobre ^3355FFClaymore^000000:Comprar Claymore:Terminar conversación")) {
 			case 1:
 				mes "[Sir Gray]";
-				mes "Claymore, one of the best among the famous swords you can attain in Rune-Midgarts' Prontera!! Its value is priceless when considered by a Knight.";
+				mes "¡Claymore, una de las mejores entre las famosas espadas que puedes obtener en la Prontera de Rune-Midgarts! Su valor es incalculable para un Knight.";
 				next;
 				mes "[Sir Gray]";
-				mes "Now, the Prontera Chivalry is making these fabulous Claymores. For Knights, they are only ^3355FF74,000^000000 Zeny.";
+				mes "Ahora, la Caballería de Prontera está fabricando estas fabulosas Claymores. Para Knights, solo cuestan ^3355FF74,000^000000 Zeny.";
 				next;
 				mes "[Sir Gray]";
-				mes "But not only that, you need";
-				mes "1 ^3355FFSteel^000000 because of the Claymore's characteristics. If you like, I can create one for you. For the honor of the Prontera Chivalry!";
+				mes "Pero no solo eso, necesitas";
+				mes "1 ^3355FFSteel^000000 debido a las características de la Claymore. Si quieres, puedo crear una para ti. ¡Por el honor de la Caballería de Prontera!";
 				close;
 			case 2:
 				if (MaxWeight - Weight < 1800) {
 					mes "[Sir Gray]";
 					mes "Oh no...";
-					mes "It seems that you are carrying too many things. You don't have enough space for a heavy Claymore in your inventory.";
+					mes "Parece que estás cargando demasiadas cosas. No tienes suficiente espacio para una pesada Claymore en tu inventario.";
 					next;
 					mes "[Sir Gray]";
-					mes "Why don't you";
-					mes "go and organize";
-					mes "your items first.";
+					mes "¿Por qué no vas";
+					mes "y organizas";
+					mes "tus objetos primero?";
 					close;
 				}
 				else {
 					if ((Zeny > 73999) && (countitem(999) > 0) && (BaseJob == Job_Knight)) {
 						mes "[Sir Gray]";
-						mes "You are ready!";
-						mes "You must know the";
-						mes "true value of";
-						mes "a Claymore!";
-						mes "I shall make";
-						mes "it right now!!";
+						mes "¡Estás listo!";
+						mes "¡Debes conocer el";
+						mes "verdadero valor de";
+						mes "una Claymore!";
+						mes "¡La fabricaré";
+						mes "ahora mismo!!";
 						next;
 						mes "[Sir Gray]";
-						mes "The basics of";
-						mes "making the Claymore";
-						mes "is easy. Watch~!";
+						mes "Lo básico de";
+						mes "hacer la Claymore";
+						mes "es fácil. ¡Mira~!";
 						next;
-						mes "^3355FF*Stir Stir*^000000";
+						mes "^3355FF*Revuelve Revuelve*^000000";
 						mes "^3355FF*Ooncha Ooncha*^000000";
 						next;
 						mes "[Sir Gray]";
-						mes "Okay, it's ready!";
-						mes "Every Knight's pride:";
-						mes "a fine ^3355FFClaymore^000000.";
-						mes "You attained a reliable item.";
-						mes "It'll be a good companion on your adventures.";
+						mes "¡Listo, está lista!";
+						mes "El orgullo de todo Knight:";
+						mes "una fina ^3355FFClaymore^000000.";
+						mes "Obtuviste un objeto confiable.";
+						mes "Será una buena compañera en tus aventuras.";
 						delitem 999,1; //Steel
 						set Zeny, Zeny - 74000;
 						getitem 1163,1; //Claymore
 						close;
 					}
 					mes "[Sir Gray]";
-					mes "I realize you may really want a Claymore, but I can't make it without the materials.";
-					mes "^3355FF74,000 zeny^000000 and ^3355FF1 Steel!^000000.";
+					mes "Entiendo que realmente quieras una Claymore, pero no puedo hacerla sin los materiales.";
+					mes "^3355FF74,000 zeny^000000 y ^3355FF1 Steel!^000000.";
 					next;
 					mes "[Sir Gray]";
-					mes "Come back when";
-					mes "you have everything";
-					mes "ready. I shall be";
-					mes "waiting...";
+					mes "Regresa cuando";
+					mes "tengas todo";
+					mes "listo. Estaré";
+					mes "esperando...";
 					close;
 				}
 			case 3:
 				mes "[Sir Gray]";
-				mes "Any Knight should be able to wield a Claymore as if it were an extension of their body. I used to look forward to brandishing my Claymore in battle...";
+				mes "Todo Knight debería poder empuñar una Claymore como si fuera una extensión de su cuerpo. Yo solía esperar con ansias blandir mi Claymore en batalla...";
 				close;
 			}
 		}
 		else if (BaseClass == Job_Novice) {
-			mes "Believe it";
-			mes "or not, I was";
-			mes "once a Novice";
-			mes "as well.";
+			mes "Lo creas";
+			mes "o no, yo una vez";
+			mes "fui un Novice";
+			mes "también.";
 			next;
 			mes "[Sir Gray]";
-			mes "I never really planned to become a Knight, but I did decide to become a strong person. Somehow, along my journeys, I ended up joining the Prontera Chivalry. Ha ha ha!";
+			mes "Nunca planeé convertirme en Knight, pero sí decidí ser una persona fuerte. De alguna forma, durante mis viajes, terminé uniéndome a la Caballería de Prontera. ¡Ja ja ja!";
 			close;
 		}
-		mes "Young one,";
-		mes "use your time";
-		mes "wisely.";
+		mes "Joven,";
+		mes "usa tu tiempo";
+		mes "sabiamente.";
 		next;
 		mes "[Sir Gray]";
-		mes "No point in";
-		mes "harboring regret";
-		mes "once time has passed.";
+		mes "No tiene sentido";
+		mes "albergar arrepentimiento";
+		mes "una vez que el tiempo ha pasado.";
 		close;
 	}
 	if (KNIGHT_Q == 0) {
-		mes "Young one,";
-		mes "use your time";
-		mes "wisely.";
+		mes "Joven,";
+		mes "usa tu tiempo";
+		mes "sabiamente.";
 		next;
 		mes "[Sir Gray]";
-		mes "No point in";
-		mes "harboring regret";
-		mes "once time has passed.";
+		mes "No tiene sentido";
+		mes "albergar arrepentimiento";
+		mes "una vez que el tiempo ha pasado.";
 		close;
 	}
 	else if ((KNIGHT_Q == 12) || (KNIGHT_Q == 13)) {
 		if (KNIGHT_Q == 12) {
 			mes "Oh...";
-			mes "A young Swordman.";
-			mes "Yes, what can";
-			mes "I do for you?";
+			mes "Un joven Swordman.";
+			mes "Sí, ¿qué puedo";
+			mes "hacer por ti?";
 			next;
-			if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+			if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 				mes "[Sir Gray]";
-				mes "Hoho, I see.";
-				mes "So you took";
-				mes "everyone else's";
-				mes "test?";
+				mes "Jojo, ya veo.";
+				mes "¿Así que tomaste";
+				mes "las pruebas de";
+				mes "todos los demás?";
 				next;
 				mes "[Sir Gray]";
-				mes "Then shall";
-				mes "we begin mine?";
-				mes "It's not really";
-				mes "a test though.";
+				mes "¿Entonces";
+				mes "empezamos la mía?";
+				mes "Aunque en realidad no es";
+				mes "una prueba.";
 				next;
 				mes "[Sir Gray]";
-				mes "Let's talk";
-				mes "casually,";
-				mes "shall we?";
+				mes "Hablemos";
+				mes "casualmente,";
+				mes "¿te parece?";
 				next;
 				mes "[Sir Gray]";
-				mes "First...";
-				mes "Why did you";
-				mes "decide to become";
-				mes "a Knight?";
+				mes "Primero...";
+				mes "¿Por qué decidiste";
+				mes "convertirte";
+				mes "en Knight?";
 				next;
 			}
 			else {
 				mes "[Sir Gray]";
-				mes "Take care!";
+				mes "¡Cuídate!";
 				close;
 			}
 		}
 		else if (KNIGHT_Q == 13) {
-			mes "Ah, you again.";
-			mes "What brings you";
-			mes "to me?";
+			mes "Ah, tú otra vez.";
+			mes "¿Qué te trae";
+			mes "por aquí?";
 			next;
-			if (select("I've been thinking a lot.:Oh, nothing.") == 1) {
+			if (select("He estado pensando mucho.:Oh, nada.") == 1) {
 				mes "[Sir Gray]";
-				mes "Is that so...";
-				mes "I wonder if you";
-				mes "truly have...";
+				mes "¿Es así...?";
+				mes "Me pregunto si";
+				mes "realmente lo has hecho...";
 				next;
 				mes "[Sir Gray]";
-				mes "Then...";
-				mes "Like last time,";
-				mes "I will ask again...";
+				mes "Entonces...";
+				mes "Como la última vez,";
+				mes "preguntaré de nuevo...";
 				next;
 				mes "[Sir Gray]";
-				mes "First...";
-				mes "Why did you";
-				mes "decide to become";
-				mes "a Knight?";
+				mes "Primero...";
+				mes "¿Por qué decidiste";
+				mes "convertirte";
+				mes "en Knight?";
 				next;
 			}
 			else {
 				mes "[Sir Gray]";
-				mes "Take care!";
-				mes "Health is";
-				mes "every man's";
-				mes "treasure!";
+				mes "¡Cuídate!";
+				mes "¡La salud es";
+				mes "el tesoro";
+				mes "de todo hombre!";
 				close;
 			}
 		}
-		switch(select("To become stronger...:To help my guild...:Because I'm unsatisfied with myself right now...")) {
+		switch(select("Para volverme más fuerte...:Para ayudar a mi gremio...:Porque estoy insatisfecho conmigo mismo ahora...")) {
 		case 1:
 			mes "[Sir Gray]";
-			mes "To become stronger, you say?";
-			mes "Yes, Knights are indeed strong.";
-			mes "But why gain strength?";
+			mes "¿Para volverte más fuerte, dices?";
+			mes "Sí, los Knights son ciertamente fuertes.";
+			mes "¿Pero por qué ganar fuerza?";
 			next;
 			mes "[Sir Gray]";
-			mes "Is it to show off to others? To attain fame? Or do you have a diferent reason? What do you think is so good about gaining strength as a Knight?";
+			mes "¿Es para presumir ante otros? ¿Para obtener fama? ¿O tienes una razón diferente? ¿Qué crees que tiene de bueno ganar fuerza como Knight?";
 			next;
-			switch(select("Gain wealth and fame.:I can protect myself.:I can protect others.")) {
+			switch(select("Ganar riqueza y fama.:Puedo protegerme a mí mismo.:Puedo proteger a otros.")) {
 			case 1:
 				set .@knight_t,.@knight_t+10;
 				mes "[Sir Gray]";
-				mes "Of course, wealth and fame have their place in the world. But we as Knights must live for higher virtues.";
+				mes "Por supuesto, la riqueza y la fama tienen su lugar en el mundo. Pero nosotros como Knights debemos vivir por virtudes más elevadas.";
 				next;
 				break;
 			case 2:
 				mes "[Sir Gray]";
-				mes "Good thinking. You must first be able to protect yourself in order to protect others. To this end, you must constantly train, and never give in to laziness.";
+				mes "Buen pensamiento. Primero debes poder protegerte a ti mismo para poder proteger a otros. Para esto, debes entrenar constantemente y nunca ceder ante la pereza.";
 				next;
 				break;
 			case 3:
 				mes "[Sir Gray]";
-				mes "Ah, a wonderful idea. A Knight's strength must be used to protect the weak and defend righteousness.";
+				mes "Ah, una idea maravillosa. La fuerza de un Knight debe usarse para proteger a los débiles y defender la justicia.";
 				next;
 				mes "[Sir Gray]";
-				mes "Sadly, there are a few Knights who shame us by forgetting the ideals that should be basic to Knighthood...";
+				mes "Tristemente, hay algunos Knights que nos avergüenzan al olvidar los ideales que deberían ser básicos de la Caballería...";
 				next;
 				break;
 			}
 			break;
 		case 2:
 			mes "[Sir Gray]";
-			mes "Ah, to help your guild, or maybe even your party. Our wise and benevolent King Tristram the 3rd gave us these golden words...";
+			mes "Ah, para ayudar a tu gremio, o tal vez incluso a tu grupo. Nuestro sabio y benevolente Rey Tristram III nos dejó estas palabras doradas...";
 			next;
 			mes "[Sir Gray]";
-			mes "^8B7500Beyond the calm river, lies a dangerous waterfall. Therefore, you must always be prepared for everything...^000000";
+			mes "^8B7500Más allá del río tranquilo, yace una cascada peligrosa. Por lo tanto, siempre debes estar preparado para todo...^000000";
 			next;
 			mes "[Sir Gray]";
-			mes "So how do you";
-			mes "think you can";
-			mes "help your guild?";
+			mes "Entonces, ¿cómo crees";
+			mes "que puedes";
+			mes "ayudar a tu gremio?";
 			next;
-			switch(select("My guild needs me.:I can help gather funds for my guild.:I can protect my guild members.")) {
+			switch(select("Mi gremio me necesita.:Puedo ayudar a reunir fondos para mi gremio.:Puedo proteger a los miembros de mi gremio.")) {
 			case 1:
 				mes "[Sir Gray]";
-				mes "Anyone, anywhere in this world,";
-				mes "has a place where they are needed. Never neglect someone in need, even if he is not a guild member.";
+				mes "Cualquiera, en cualquier parte del mundo,";
+				mes "tiene un lugar donde es necesitado. Nunca descuides a alguien que necesite ayuda, incluso si no es miembro de tu gremio.";
 				next;
 				break;
 			case 2:
 				set .@knight_t,.@knight_t+10;
 				mes "[Sir Gray]";
-				mes "Of course wealth is important.";
-				mes "But we Knights must live for higher virtues.";
+				mes "Por supuesto, la riqueza es importante.";
+				mes "Pero nosotros los Knights debemos vivir por virtudes más elevadas.";
 				next;
 				break;
 			case 3:
 				mes "[Sir Gray]";
-				mes "Ah, a wonderful idea. A Knight's strength must be used to protect the weak and defend righteousness.";
+				mes "Ah, una idea maravillosa. La fuerza de un Knight debe usarse para proteger a los débiles y defender la justicia.";
 				next;
 				mes "[Sir Gray]";
-				mes "Sadly, there are a few Knights who shame us by forgetting the ideals that should be basic to Knighthood...";
+				mes "Tristemente, hay algunos Knights que nos avergüenzan al olvidar los ideales que deberían ser básicos de la Caballería...";
 				next;
 				break;
 			}
@@ -2258,250 +2256,250 @@ prt_in,87,92,4	script	Sir Gray#knt	119,{
 		case 3:
 			set .@knight_t,.@knight_t+5;
 			mes "[Sir Gray]";
-			mes "Satisfaction, you say.";
-			mes "It seems like you are";
-			mes "already a fine Swordman.";
-			mes "Is there a particular reason you wish to be a Knight?";
+			mes "¿Satisfacción, dices?";
+			mes "Parece que ya eres";
+			mes "un buen Swordman.";
+			mes "¿Hay alguna razón particular por la que deseas ser Knight?";
 			next;
 			mes "[Sir Gray]";
-			mes "I don't know about";
-			mes "Swordmen, but Knights do not allow self-indulgence. There are those so obsessed with gaining strength that they cannot control themselves.";
+			mes "No sé sobre";
+			mes "Swordmen, pero los Knights no permiten la autocomplacencia. Hay quienes están tan obsesionados con ganar fuerza que no pueden controlarse.";
 			next;
 			mes "[Sir Gray]";
-			mes "So...";
-			mes "What part of yourself";
-			mes "are you not satisfied";
-			mes "with right now?";
+			mes "Entonces...";
+			mes "¿Qué parte de ti mismo";
+			mes "no te satisface";
+			mes "ahora mismo?";
 			next;
-			switch(select("Skills.:Goal.:Appearance.")) {
+			switch(select("Habilidades.:Meta.:Apariencia.")) {
 			case 1:
 				set .@knight_t,.@knight_t+5;
 				mes "[Sir Gray]";
-				mes "Skill is something you gain with experience as a Knight. It cannot be your highest goal. Otherwise, you'll never be satisfied as a Knight.";
+				mes "La habilidad es algo que ganas con experiencia como Knight. No puede ser tu meta más alta. De lo contrario, nunca estarás satisfecho como Knight.";
 				next;
 				break;
 			case 2:
 				set .@knight_t,.@knight_t-5;
 				mes "[Sir Gray]";
-				mes "I see...";
-				mes "Always having a goal is very important. You may be full of ideas upon becoming a Knight, but that may change with time.";
+				mes "Ya veo...";
+				mes "Siempre tener una meta es muy importante. Puede que estés lleno de ideas al convertirte en Knight, pero eso puede cambiar con el tiempo.";
 				next;
 				break;
 			case 3:
 				set .@knight_t,.@knight_t+5;
 				mes "[Sir Gray]";
 				mes "Oh no...";
-				mes "What you see isn't what really counts. A Swordman may be stronger than a Knight, and even Knight may grow weak if he becomes lazy.";
+				mes "Lo que ves no es lo que realmente cuenta. Un Swordman puede ser más fuerte que un Knight, e incluso un Knight puede debilitarse si se vuelve perezoso.";
 				next;
 				break;
 			}
 			break;
 		}
 		mes "[Sir Gray]";
-		mes "I understand your thoughts,";
-		mes "but there are those who wish to";
-		mes "become Knights without thinking.";
+		mes "Entiendo tus pensamientos,";
+		mes "pero hay quienes desean";
+		mes "convertirse en Knights sin pensar.";
 		next;
 		mes "[Sir Gray]";
-		mes "Those are the ones who instigate problems and shame the honor of Knights, bringing irreversible results.";
+		mes "Esos son los que instigan problemas y avergüenzan el honor de los Knights, trayendo resultados irreversibles.";
 		next;
 		mes "[Sir Gray]";
-		mes "The same goes for you as well. Once you become a Knight, you can never become a Swordman again. The duties and responsibilities of a Knight will always be with you.";
+		mes "Lo mismo aplica para ti. Una vez que te conviertas en Knight, nunca podrás volver a ser Swordman. Los deberes y responsabilidades de un Knight siempre estarán contigo.";
 		next;
 		mes "[Sir Gray]";
-		mes "If you become a Knight right away, what are you going to do first?";
+		mes "Si te convirtieras en Knight ahora mismo, ¿qué es lo primero que harías?";
 		next;
-		switch(select("I am going to go straight to battle.:There are those waiting for me.:I will learn more about Knights.")) {
+		switch(select("Iré directo a la batalla.:Hay quienes me esperan.:Aprenderé más sobre los Knights.")) {
 		case 1:
 			mes "[Sir Gray]";
-			mes "Battle...?";
-			mes "And then?";
+			mes "¿Batalla...?";
+			mes "¿Y después?";
 			next;
-			switch(select("I will grow within a short period of time.:I would like to test my ability as a Knight.:I would like to go to more challenging places.")) {
+			switch(select("Creceré en poco tiempo.:Me gustaría probar mi habilidad como Knight.:Me gustaría ir a lugares más desafiantes.")) {
 			case 1:
 				set .@knight_t,.@knight_t+10;
 				mes "[Sir Gray]";
-				mes "Don't be in too much of a hurry to become strong. Even if you become";
-				mes "a Knight, you are still yourself.";
+				mes "No tengas demasiada prisa por volverte fuerte. Incluso si te conviertes";
+				mes "en Knight, sigues siendo tú mismo.";
 				next;
 				break;
 			case 2:
 				mes "[Sir Gray]";
-				mes "Testing yourself is a good thing. It's okay to be happy about how you change, but don't forget about the true qualities of being a Knight.";
+				mes "Ponerte a prueba es algo bueno. Está bien alegrarte por cómo cambias, pero no olvides las verdaderas cualidades de ser Knight.";
 				next;
 				break;
 			case 3:
 				mes "[Sir Gray]";
-				mes "Even if you become a Knight, you are not changing your inner self. No need to overwork yourself.";
-				mes "Relax and take things step by step.";
+				mes "Incluso si te conviertes en Knight, no estás cambiando tu ser interior. No necesitas sobreexigirte.";
+				mes "Relájate y toma las cosas paso a paso.";
 				next;
 				break;
 			}
 			break;
 		case 2:
 			mes "[Sir Gray]";
-			mes "Who is";
-			mes "waiting for you?";
+			mes "¿Quién";
+			mes "te está esperando?";
 			next;
-			switch(select("My friends.:My Guild members.:My Lover.")) {
+			switch(select("Mis amigos.:Los miembros de mi Gremio.:Mi amor.")) {
 			case 1:
 				mes "[Sir Gray]";
-				mes "I see, they would share in the joy of your achievements. Don't ever lose your kind heart, and always give help to your friends.";
+				mes "Ya veo, ellos compartirían la alegría de tus logros. Nunca pierdas tu buen corazón, y siempre brinda ayuda a tus amigos.";
 				next;
 				break;
 			case 2:
 				mes "[Sir Gray]";
-				mes "Those who would share in your happiness and hardship. As a Knight, you must always protect them.";
+				mes "Aquellos que compartirían tu felicidad y dificultades. Como Knight, siempre debes protegerlos.";
 				next;
 				break;
 			case 3:
 				mes "[Sir Gray]";
-				mes "Oh, youth!";
-				mes "Becoming a Knight";
-				mes "for your beloved!";
-				mes "Always protect "+((Sex==SEX_MALE)?"her":"him")+"...";
-				mes "Even at the sacrifice";
-				mes "of your own life!";
+				mes "¡Oh, juventud!";
+				mes "¡Convertirte en Knight";
+				mes "por tu ser amado!";
+				mes "Siempre protége"+((Sex==SEX_MALE)?"la":"lo")+"...";
+				mes "¡Incluso a costa";
+				mes "de tu propia vida!";
 				next;
 				mes "[Sir Gray]";
-				mes "Also...";
-				mes "Love them forever.";
-				mes "Sincere affection";
-				mes "is hard to find.";
+				mes "También...";
+				mes "Ámale por siempre.";
+				mes "El afecto sincero";
+				mes "es difícil de encontrar.";
 				next;
 				break;
 			}
 			break;
 		case 3:
 			mes "[Sir Gray]";
-			mes "Good attitude...";
-			mes "What do you plan";
-			mes "on learning?";
+			mes "Buena actitud...";
+			mes "¿Qué planeas";
+			mes "aprender?";
 			next;
-			switch(select("Comfortable places for Knights to go...:The different paths of a Knight...:Ways to get more money as a Knight...")) {
+			switch(select("Lugares cómodos para Knights...:Los diferentes caminos de un Knight...:Formas de ganar más dinero como Knight...")) {
 			case 1:
 				set .@knight_t,.@knight_t+5;
 				mes "[Sir Gray]";
-				mes "There are many places that are comfortable or uncomfortable in this world. However Knights must";
-				mes "be able to survive anywhere.";
+				mes "Hay muchos lugares cómodos o incómodos en este mundo. Sin embargo los Knights deben";
+				mes "poder sobrevivir en cualquier lugar.";
 				next;
 				break;
 			case 2:
 				mes "[Sir Gray]";
-				mes "There are many similar Knights outside in the world. Think of them as your seniors and ask many questions.";
+				mes "Hay muchos Knights similares afuera en el mundo. Piensa en ellos como tus superiores y hazles muchas preguntas.";
 				next;
 				break;
 			case 3:
 				set .@knight_t,.@knight_t+15;
 				mes "[Sir Gray]";
-				mes "Oh no. Do you hold wealth as a priority of being a Knight? We're not meant to be that way. Come again when you have thought";
-				mes "more about it...";
+				mes "Oh no. ¿Consideras la riqueza como prioridad de ser Knight? No estamos hechos para eso. Regresa cuando hayas pensado";
+				mes "más al respecto...";
 				next;
 				break;
 			}
 			break;
 		}
 		mes "[Sir Gray]";
-		mes "Oh no, we've been";
-		mes "talking too much...";
-		mes "I apologize for";
-		mes "keeping you here";
-		mes "for so long.";
+		mes "Oh no, hemos estado";
+		mes "hablando demasiado...";
+		mes "Me disculpo por";
+		mes "retenerte aquí";
+		mes "por tanto tiempo.";
 		next;
 		if (.@knight_t == 0) {
 			set KNIGHT_Q,14;
 			changequest 9011,9012;
 			mes "[Sir Gray]";
-			mes "I enjoyed talking with you. You remind me of myself as a young recruit. Shall we talk to the captain and decide on your";
-			mes "job change?";
+			mes "Disfruté hablar contigo. Me recuerdas a mí mismo cuando era joven recluta. ¿Vamos a hablar con el capitán y decidir sobre tu";
+			mes "cambio de trabajo?";
 			next;
 			mes "[Sir Gray]";
-			mes "Don't worry too";
-			mes "much, I have a very";
-			mes "high opinion of you.";
-			mes "Now, go~";
+			mes "No te preocupes";
+			mes "demasiado, tengo una muy";
+			mes "buena opinión de ti.";
+			mes "¡Ahora, ve~!";
 			close;
 		}
 		else if (.@knight_t == 5) {
 			set KNIGHT_Q,14;
 			changequest 9011,9012;
 			mes "[Sir Gray]";
-			mes "I enjoyed speaking with you. You can think about the principles of Knighthood more once you become a Knight.";
+			mes "Disfruté hablar contigo. Puedes pensar más sobre los principios de la Caballería una vez que te conviertas en Knight.";
 			next;
 			mes "[Sir Gray]";
-			mes "Then, shall we go to the captain and decide on your job change? Don't worry too much. You are good enough to be a Knight!";
+			mes "Entonces, ¿vamos con el capitán y decidimos sobre tu cambio de trabajo? No te preocupes demasiado. ¡Eres lo suficientemente bueno para ser Knight!";
 			close;
 		}
 		else if (.@knight_t == 10) {
 			set KNIGHT_Q,14;
 			changequest 9011,9012;
 			mes "[Sir Gray]";
-			mes "I enjoyed talking with you. Although, there were some";
-			mes "things that bothered me...";
+			mes "Disfruté hablar contigo. Aunque, hubo algunas";
+			mes "cosas que me molestaron...";
 			next;
 			mes "[Sir Gray]";
-			mes "You should go";
-			mes "to the captain";
-			mes "so we can decide";
-			mes "on your job change.";
+			mes "Deberías ir";
+			mes "con el capitán";
+			mes "para que decidamos";
+			mes "sobre tu cambio de trabajo.";
 			next;
 			mes "[Sir Gray]";
-			mes "Don't worry too much, coming to take my test means the others have acknowledged you as well.";
-			mes "Go now...!";
+			mes "No te preocupes demasiado, venir a tomar mi prueba significa que los otros también te han reconocido.";
+			mes "¡Ve ahora...!";
 			close;
 		}
 		else {
 			set KNIGHT_Q,13;
 			mes "[Sir Gray]";
-			mes "Conversing";
-			mes "with young ones";
-			mes "is always enjoyable...";
+			mes "Conversar";
+			mes "con jóvenes";
+			mes "siempre es agradable...";
 			next;
 			mes "[Sir Gray]";
-			mes "But it seems as though your dream is elsewhere, or that your focus is hazy. Spend more time as a Swordman, and come back";
-			mes "to me later.";
+			mes "Pero parece que tu sueño está en otro lugar, o que tu enfoque es difuso. Pasa más tiempo como Swordman, y regresa";
+			mes "conmigo después.";
 			next;
 			mes "[Sir Gray]";
-			mes "If you truly wish to become a Knight, you must change your outlook first. Then, we shall see.";
+			mes "Si realmente deseas convertirte en Knight, primero debes cambiar tu perspectiva. Entonces, ya veremos.";
 			close;
 		}
 	}
 	else if (KNIGHT_Q == 14) {
-		mes "I told you";
-		mes "to go to";
-		mes "the captain.";
+		mes "Te dije";
+		mes "que fueras";
+		mes "con el capitán.";
 		next;
 		mes "[Sir Gray]";
-		mes "Everyone will";
-		mes "carefully make";
-		mes "their decision,";
-		mes "so go now!";
+		mes "Todos";
+		mes "tomarán su decisión";
+		mes "cuidadosamente,";
+		mes "¡así que ve ahora!";
 		close;
 	}
 	else {
 		mes "Oh...";
-		mes "A young Swordman.";
-		mes "What can I do for you?";
+		mes "Un joven Swordman.";
+		mes "¿Qué puedo hacer por ti?";
 		next;
-		if (select("I would like to take the test to change jobs.:Oh, nothing.") == 1) {
+		if (select("Me gustaría tomar la prueba para cambiar de trabajo.:Oh, nada.") == 1) {
 			mes "[Sir Gray]";
-			mes "Hoho~";
-			mes "There are many";
-			mes "other younger";
-			mes "Knights in here.";
+			mes "¡Jojo~!";
+			mes "Hay muchos";
+			mes "otros Knights";
+			mes "más jóvenes aquí.";
 			next;
 			mes "[Sir Gray]";
-			mes "If you talk";
-			mes "to all of them,";
-			mes "I may review";
-			mes "you as well.";
+			mes "Si hablas";
+			mes "con todos ellos,";
+			mes "puede que te";
+			mes "evalúe también.";
 			close;
 		}
 		mes "[Sir Gray]";
-		mes "Take care!";
-		mes "Health is";
-		mes "every man's";
-		mes "treasure!";
+		mes "¡Cuídate!";
+		mes "¡La salud es";
+		mes "el tesoro";
+		mes "de todo hombre!";
 		close;
 	}
 }

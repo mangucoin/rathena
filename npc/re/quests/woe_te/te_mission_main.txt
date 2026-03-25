@@ -126,8 +126,8 @@ S_Coord:
 
 -	script	Training_Instructor_TE	-1,{
 	if (checkweight(1201,5) == 0) {
-		mes "You have too many items to proceed with the quest.";
-		mes "Please lighten your load and try again.";
+		mes "Tienes demasiados objetos para continuar con la mision.";
+		mes "Por favor reduce tu carga e intentalo de nuevo.";
 		close;
 	}
 	.@map$ = strnpcinfo(4);
@@ -135,72 +135,72 @@ S_Coord:
 		.@npc_name$ = "Mana";
 		.@fortress$ = "Kafragarten";
 		.@menu$ = callsub( S_Menu, .@quest_id,
-			7510,"1 Suspicious Poring",
-			7511,"10 Suspicious Poring",
-			7512,"30 Suspicious Poring",
-			7504,"Destroy 1 Emperium",
-			7505,"Destroy 3 Emperiums",
-			7506,"Destroy 5 Emperiums",
-			7513,"10 Kafra's Paychecks",
-			7514,"20 Kafra's Paychecks",
-			7515,"30 Kafra's Paychecks" );
+			7510,"1 Poring Sospechoso",
+			7511,"10 Porings Sospechosos",
+			7512,"30 Porings Sospechosos",
+			7504,"Destruir 1 Emperium",
+			7505,"Destruir 3 Emperiums",
+			7506,"Destruir 5 Emperiums",
+			7513,"10 Cheques de Kafra",
+			7514,"20 Cheques de Kafra",
+			7515,"30 Cheques de Kafra" );
 	}
 	else {
 		.@npc_name$ = "Rune";
 		.@fortress$ = "Gloria";
 		.@menu$ = callsub( S_Menu, .@quest_id,
-			7501,"1 Suspicious Babee",
-			7502,"10 Suspicious Babee",
-			7503,"30 Suspicious Babee",
-			7504,"Destroy 1 Emperium",
-			7505,"Destroy 3 Emperiums",
-			7506,"Destroy 5 Emperiums",
-			7507,"10 Small Wooden Boxes",
-			7508,"20 Small Wooden Boxes",
-			7509,"30 Small Wooden Boxes" );
+			7501,"1 Babee Sospechoso",
+			7502,"10 Babees Sospechosos",
+			7503,"30 Babees Sospechosos",
+			7504,"Destruir 1 Emperium",
+			7505,"Destruir 3 Emperiums",
+			7506,"Destruir 5 Emperiums",
+			7507,"10 Cajas de Madera Pequenas",
+			7508,"20 Cajas de Madera Pequenas",
+			7509,"30 Cajas de Madera Pequenas" );
 	}
 	mes "["+ .@npc_name$ +"]";
 	if (jobcanentermap("te_prtcas01") == 0) {
-		mes "Ah... you...";
-		mes "based on TE rules, I won't be ordering you or asking you favors unfortunately.";
+		mes "Ah... tu...";
+		mes "segun las reglas de TE, no te dare ordenes ni te pedire favores, desafortunadamente.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Hey now, since this place is just for primary and secondary job classes as well as users without expanded levels, could you leave if you got nothing else to do here?";
+		mes "Oye, ya que este lugar es solo para clases de trabajo primarias y secundarias asi como usuarios sin niveles expandidos, podrias irte si no tienes nada mas que hacer aqui?";
 		close;
 	}
-	mes "There are missions you can complete in TE region.";
-	mes "Let's see, what do you want?";
+	mes "Hay misiones que puedes completar en la region TE.";
+	mes "Veamos, que quieres?";
 	next;
-	switch( select( "Accept/Conform Missions", "What do you mean a mission?", "I don't have any." ) ) {
+	switch( select( "Aceptar/Verificar Misiones", "Que quieres decir con una mision?", "No tengo ninguna." ) ) {
 	case 1:
 		mes "["+ .@npc_name$ +"]";
 		if (BaseLevel < 70) {
-			mes "Mm, I'm sorry but missions are for users with ^4d4dff70 level^000000 or higher.";
-			mes "Honestly, it's hard to complete a mission if your level is too low.";
+			mes "Mm, lo siento pero las misiones son para usuarios de ^4d4dffnivel 70^000000 o superior.";
+			mes "Honestamente, es dificil completar una mision si tu nivel es demasiado bajo.";
 			close;
 		}
 		.@time_check = WoeTETimeStart(3600);
 		.@siege_check = agitcheck3();
-		mes "You already know that you have to accept a mission in a certain period of time, right?";
+		mes "Ya sabes que tienes que aceptar una mision en un periodo de tiempo determinado, verdad?";
 		if (.@time_check == 1 || .@siege_check == 1)
-			mes "Moreover, you have to keep in mind that you can't accept both high-level and low-level missions simultaneously if they are of the same content.";
+			mes "Ademas, debes tener en cuenta que no puedes aceptar misiones de alto nivel y bajo nivel simultaneamente si son del mismo contenido.";
 		else {
-			mes "Unfortunately, you can't accept missions right now.";
+			mes "Desafortunadamente, no puedes aceptar misiones ahora mismo.";
 			next;
 			mes "["+ .@npc_name$ +"]";
 			.@playtime_check2 = checkquest(7516,PLAYTIME);// A Break for Commercial Development
 			if (.@playtime_check2 == 2) {
 				erasequest 7516;
-				mes "Mm, you were taking a break?";
-				mes "Well, it doesn't matter anymore.";
+				mes "Mm, estabas tomando un descanso?";
+				mes "Bueno, ya no importa.";
 			}
-			mes "You can only check the results of the missions you've already accepted.";
+			mes "Solo puedes verificar los resultados de las misiones que ya aceptaste.";
 		}
 		next;
-		.@s = select( .@menu$ + "Cancel" ) -1;
+		.@s = select( .@menu$ + "Cancelar" ) -1;
 		mes "["+ .@npc_name$ +"]";
 		if (.@s == 9) {
-			mes "See you later then.";
+			mes "Nos vemos luego entonces.";
 			close;
 		}
 
@@ -216,9 +216,9 @@ S_Coord:
 
 		if (.@s == 0 || .@s == 1 || .@s == 2) {// Hunting suspicious quest
 			if (.@map$ == "te_alde_gld")
-				setarray .@mob_name$[0],"Porings","suspicious Porings";
+				setarray .@mob_name$[0],"Porings","Porings sospechosos";
 			else
-				setarray .@mob_name$[0],"Orc Babies","suspicious creatures";
+				setarray .@mob_name$[0],"Bebes Orc","criaturas sospechosas";
 
 			if (.@s == 0)
 				.@num_kill = 1;
@@ -238,9 +238,9 @@ S_Coord:
 			if (.@mission01 == 1) {
 				if (.@playtime_check == 0) {
 					if (.@hunting_check == 2) {
-						mes "You did it in time.";
-						mes "I don't understand why "+ .@mob_name$[0] +" appear at that time of the day.";
-						mes "Anyway, good job.";
+						mes "Lo lograste a tiempo.";
+						mes "No entiendo por que "+ .@mob_name$[0] +" aparecen a esa hora del dia.";
+						mes "De todas formas, buen trabajo.";
 						if (.@num_tool_box == 0) {
 							erasequest .@main_quest;
 							getitem 11558,5;// TE_White_Slim_Potion
@@ -249,46 +249,46 @@ S_Coord:
 						}
 						next;
 						mes "["+ .@npc_name$ +"]";
-						mes "Since you've done a good job, I'll let you open my tool box " + .@num_tool_box + " times.";
-						mes "Although you won't find anything mostly...";
-						mes "It's a bonus, so don't complaint even if you don't find anything.";
+						mes "Ya que hiciste un buen trabajo, te dejare abrir mi caja de herramientas " + .@num_tool_box + " veces.";
+						mes "Aunque la mayoria de las veces no encontraras nada...";
+						mes "Es un bonus, asi que no te quejes si no encuentras nada.";
 						next;
-						mes "Just like "+ .@npc_name$ +" said, you went through the box in front, and...";
+						mes "Tal como dijo "+ .@npc_name$ +", revisaste la caja de enfrente, y...";
 						erasequest .@main_quest;
 						getitem .@reward[0],.@reward[1];
 						getexp .@exp[0],.@exp[1];
 						callsub( S_Rentbox, .@num_tool_box );
 					}
-					callsub( S_Cancelquest, .@main_quest, .@npc_name$, "This mission is to eliminate "+ .@mob_name$[1] +" that secretly appear at the fortress in "+ .@fortress$ +"." );
+					callsub( S_Cancelquest, .@main_quest, .@npc_name$, "Esta mision es eliminar "+ .@mob_name$[1] +" que aparecen secretamente en la fortaleza de "+ .@fortress$ +"." );
 				}
-				mes "Time's up.";
-				mes "Unfortunately, mission failed!";
-				mes "Maybe next time!";
+				mes "Se acabo el tiempo.";
+				mes "Desafortunadamente, mision fallida!";
+				mes "Quiza la proxima vez!";
 				erasequest .@main_quest;
 				close;
 			}
 			if (.@time_check != 1 && .@siege_check != 1) {
-				mes "You're not on this mission currently.";
-				mes "Could you check again?";
+				mes "No estas en esta mision actualmente.";
+				mes "Podrias verificar de nuevo?";
 				close;
 			}
 			if (.@mission02 == 1 || .@mission03 == 1) {
 				if (.@num_tool_box == 0) {
-					mes "You are already on a high-level mission!";
-					mes "You cannot accept a low-level mission if you're already on a high-level mission of the same content!";
+					mes "Ya estas en una mision de alto nivel!";
+					mes "No puedes aceptar una mision de bajo nivel si ya estas en una mision de alto nivel del mismo contenido!";
 				}
 				else {
-					mes "You're already on a elimination mission!";
-					mes "I would like you to take care of what you already have unless you want to cancel it.";
+					mes "Ya estas en una mision de eliminacion!";
+					mes "Me gustaria que te encargues de lo que ya tienes a menos que quieras cancelarlo.";
 				}
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "It only makes sense that way, doesn't it?";
-				mes "Don't you think so?";
+				mes "Solo tiene sentido de esa manera, no crees?";
+				mes "No lo crees?";
 				close;
 			}
-			mes "I've been told that "+ .@mob_name$[1] +" appear during the busy siege hours at the fortress in "+ .@fortress$ +".";
-			mes "I would like you to ^4d4dffeliminate "+ .@num_kill +" or more of "+ .@mob_name$[1] +"^000000.";
+			mes "Me han dicho que "+ .@mob_name$[1] +" aparecen durante las horas de asedio en la fortaleza de "+ .@fortress$ +".";
+			mes "Me gustaria que ^4d4dffelmines "+ .@num_kill +" o mas de "+ .@mob_name$[1] +"^000000.";
 			callsub( S_Acceptquest, .@main_quest, .@npc_name$ );
 		}
 		else if (.@s == 3 || .@s == 4 || .@s == 5) {// Breaking Emperiums
@@ -313,81 +313,81 @@ S_Coord:
 			if (.@mission01 == 1) {
 				if (.@playtime_check == 0) {
 					if (.@hunting_check == 2) {
-						mes "Incredible!";
-						mes "Breaking Emperiums is definitely not an easy job.";
-						mes "You must be contributing a lot to your guild. Good job!";
+						mes "Increible!";
+						mes "Romper Emperiums definitivamente no es un trabajo facil.";
+						mes "Debes estar contribuyendo mucho a tu gremio. Buen trabajo!";
 						next;
 						mes "["+ .@npc_name$ +"]";
-						mes "Since you've done a good job, I'll let you open my tool box "+ .@num_tool_box +" times.";
-						mes "Although you won't find anything mostly...";
-						mes "It's a bonus, so don't complaint even if you don't find anything.";
+						mes "Ya que hiciste un buen trabajo, te dejare abrir mi caja de herramientas "+ .@num_tool_box +" veces.";
+						mes "Aunque la mayoria de las veces no encontraras nada...";
+						mes "Es un bonus, asi que no te quejes si no encuentras nada.";
 						next;
-						mes "Just like "+ .@npc_name$ +" said, you went through the box in front, and...";
+						mes "Tal como dijo "+ .@npc_name$ +", revisaste la caja de enfrente, y...";
 						erasequest .@main_quest;
 						setquest 7516;
 						getitem .@reward[0],.@reward[1];
 						getexp .@exp[0],.@exp[1];
 						callsub( S_Rentbox, .@num_tool_box );
 					}
-					callsub( S_Cancelquest, .@main_quest, .@npc_name$, "This mission is to ^4d4dff destroy Emperiums that exist all over Gloria and Kafragarten regions.^000000" );
+					callsub( S_Cancelquest, .@main_quest, .@npc_name$, "Esta mision es ^4d4dff destruir Emperiums que existen por toda la region de Gloria y Kafragarten.^000000" );
 				}
-				mes "Time's up.";
-				mes "Unfortunately, mission failed!";
-				mes "Maybe next time!";
+				mes "Se acabo el tiempo.";
+				mes "Desafortunadamente, mision fallida!";
+				mes "Quiza la proxima vez!";
 				erasequest .@main_quest;
 				close;
 			}
 			if (.@time_check != 1 && .@siege_check != 1) {
-				mes "You're not on this mission currently.";
-				mes "Could you check again?";
+				mes "No estas en esta mision actualmente.";
+				mes "Podrias verificar de nuevo?";
 				close;
 			}
 			if (.@mission02 == 1 || .@mission03 == 1) {
-				mes "You're already on a mission of the same content,";
-				mes "the level is different though";
-				mes "I would like you to take care of what you already have unless you want to cancel it.";
+				mes "Ya estas en una mision del mismo contenido,";
+				mes "aunque el nivel es diferente.";
+				mes "Me gustaria que te encargues de lo que ya tienes a menos que quieras cancelarlo.";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "It only makes sense that way, doesn't it?";
-				mes "Don't you think so?";
+				mes "Solo tiene sentido de esa manera, no crees?";
+				mes "No lo crees?";
 				close;
 			}
 			.@playtime_check2 = checkquest(7516,PLAYTIME);
 			if (.@playtime_check2 == 0) {
-				mes "There is something called 'commercial development level' in each fortress.";
-				mes "It increases as much as each guild invests.";
+				mes "Hay algo llamado 'nivel de desarrollo comercial' en cada fortaleza.";
+				mes "Aumenta tanto como cada gremio invierte.";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "However, this is closely related to Emperiums.";
-				mes "Destroying Emperiums repeatedly staggers commercial development level.";
+				mes "Sin embargo, esto esta estrechamente relacionado con los Emperiums.";
+				mes "Destruir Emperiums repetidamente reduce el nivel de desarrollo comercial.";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "So, now we take a break in order to prevent an excessive decrease in commercial development level.";
-				mes "See you in a bit.";
+				mes "Entonces, ahora tomamos un descanso para prevenir una disminucion excesiva en el nivel de desarrollo comercial.";
+				mes "Nos vemos en un rato.";
 				close;
 			}
 			else if (.@playtime_check2 == 2) {
 				erasequest 7516;
-				mes "The break for commercial development of the fortress is over now.";
-				mes "Good. Think about what kind of missions you want and come back again.";
+				mes "El descanso para el desarrollo comercial de la fortaleza ha terminado.";
+				mes "Bien. Piensa en que tipo de misiones quieres y vuelve de nuevo.";
 				close;
 			}
-			mes "What is the most important thing in siege battles?";
-			mes "It's destroying Emperiums! Let me give you that exact mission of destroying Emperiums!";
+			mes "Cual es lo mas importante en las batallas de asedio?";
+			mes "Es destruir Emperiums! Dejame darte esa mision exacta de destruir Emperiums!";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "Gloria or Kafragarten, wherever it is! Right now, at this very hour, ^4d4dffdestroy Emperiums!^000000";
-			mes "^4d4dffTarget number is "+ .@num_kill +" or more!^000000";
+			mes "Gloria o Kafragarten, donde sea! Ahora mismo, a esta misma hora, ^4d4dffdestruye Emperiums!^000000";
+			mes "^4d4dffEl numero objetivo es "+ .@num_kill +" o mas!^000000";
 			callsub( S_Acceptquest, .@main_quest, .@npc_name$ );
 		}
 		else if (.@s == 6 || .@s == 7 || .@s == 8) {
 			if (.@map$ == "te_alde_gld") {
 				.@item_quest = 7056;// Payroll_Of_Kafra
-				setarray .@string$[0], "paychecks", "I don't understand why Porings would steal Kafra's Paychecks", "Kafra's stolen paychecks";
+				setarray .@string$[0], "cheques", "No entiendo por que los Porings robarian los Cheques de Kafra", "los cheques robados de Kafra";
 			}
 			else {
 				.@item_quest = 6592;// Small_Wooden_Chest
-				setarray .@string$[0], "wooden boxes", "So, those Orc Babies were after this, huh?", "wooden boxes";
+				setarray .@string$[0], "cajas de madera", "Asi que esos Bebes Orc buscaban esto, eh?", "cajas de madera";
 			}
 			if (.@s == 6) {
 				.@num_tool_box = 1;
@@ -411,116 +411,116 @@ S_Coord:
 			if (.@mission01 == 1) {
 				if (.@playtime_check == 0) {
 					if (countitem(.@item_quest) > 9) {
-						mes .@num_items +" or more of "+ .@string$[0] +" let's see you've done it right.";
+						mes .@num_items +" o mas de "+ .@string$[0] +" veamos si lo hiciste bien.";
 						mes .@string$[1];
-						mes "Anyway, good job.";
+						mes "De todas formas, buen trabajo.";
 						next;
 						mes "["+ .@npc_name$ +"]";
-						mes "Let me take the rest of the "+ .@string$[0] +".";
-						mes "I'll return it to its original owner.";
+						mes "Dejame tomar el resto de los "+ .@string$[0] +".";
+						mes "Los devolvere a su dueno original.";
 						next;
 						mes "["+ .@npc_name$ +"]";
-						mes "Since you've done a good job, I'll let you open my tool box "+ .@num_tool_box +" times.";
-						mes "Although you won't find anything mostly...";
-						mes "It's a bonus, so don't complaint even if you don't find anything.";
+						mes "Ya que hiciste un buen trabajo, te dejare abrir mi caja de herramientas "+ .@num_tool_box +" veces.";
+						mes "Aunque la mayoria de las veces no encontraras nada...";
+						mes "Es un bonus, asi que no te quejes si no encuentras nada.";
 						next;
-						mes "Just like "+ .@npc_name$ +" said, you went through the box in front, and...";
+						mes "Tal como dijo "+ .@npc_name$ +", revisaste la caja de enfrente, y...";
 						delitem .@item_quest, countitem(.@item_quest);
 						erasequest .@main_quest;
 						getitem .@reward[0],.@reward[1];
 						getexp .@exp[0],.@exp[1];
 						callsub( S_Rentbox, .@num_tool_box );
 					}
-					callsub( S_Cancelquest, .@main_quest, .@npc_name$, "This mission is to ^4d4dffcollect "+ .@string$[2] +"^000000 at the fortress in "+ .@fortress$ +"." );
+					callsub( S_Cancelquest, .@main_quest, .@npc_name$, "Esta mision es ^4d4dffrecolectar "+ .@string$[2] +"^000000 en la fortaleza de "+ .@fortress$ +"." );
 				}
-				mes "Time's up.";
-				mes "Unfortunately, mission failed!";
-				mes "Maybe next time!";
+				mes "Se acabo el tiempo.";
+				mes "Desafortunadamente, mision fallida!";
+				mes "Quiza la proxima vez!";
 				erasequest .@main_quest;
 				close;
 			}
 			if (.@time_check != 1 && .@siege_check != 1) {
-				mes "You're not on this mission currently.";
-				mes "Could you check again?";
+				mes "No estas en esta mision actualmente.";
+				mes "Podrias verificar de nuevo?";
 				close;
 			}
 			if (.@mission02 == 1 || .@mission03 == 1) {
-				mes "You're already on a mission of the same content,";
-				mes "the level is different though";
-				mes "I would like you to take care of what you already have unless you want to cancel it.";
+				mes "Ya estas en una mision del mismo contenido,";
+				mes "aunque el nivel es diferente.";
+				mes "Me gustaria que te encargues de lo que ya tienes a menos que quieras cancelarlo.";
 				next;
 				mes "["+ .@npc_name$ +"]";
-				mes "It only makes sense that way, doesn't it?";
-				mes "Don't you think so?";
+				mes "Solo tiene sentido de esa manera, no crees?";
+				mes "No lo crees?";
 				close;
 			}
-			mes "Hmm you wouldn't believe it, but this mission is related to a theft.";
-			mes "They told me a bunch of "+ .@string$[2] +" is missing from the fortress in "+ .@fortress$ +".";
+			mes "Hmm no lo creeras, pero esta mision esta relacionada con un robo.";
+			mes "Me dijeron que un monton de "+ .@string$[2] +" desaparecieron de la fortaleza en "+ .@fortress$ +".";
 			next;
 			mes "["+ .@npc_name$ +"]";
-			mes "The thief probably took advantage of the siege hours.";
-			mes "It's a request to find ^4d4dff"+ .@num_items +" or more of "+ .@string$[2] +"^000000.";
+			mes "El ladron probablemente aprovecho las horas de asedio.";
+			mes "Es una solicitud para encontrar ^4d4dff"+ .@num_items +" o mas de "+ .@string$[2] +"^000000.";
 			callsub( S_Acceptquest, .@main_quest, .@npc_name$ );
 		}
 	case 2:
 		mes "["+ .@npc_name$ +"]";
-		mes "Since TE Region has more of a casual atmosphere,";
-		mes "it's not fun doing just siege battles, right?";
-		mes "So, I brought ^4d4dffsome works you can do during the siege hours^000000~";
+		mes "Ya que la Region TE tiene un ambiente mas casual,";
+		mes "no es divertido solo hacer batallas de asedio, verdad?";
+		mes "Asi que traje ^4d4dffalgunos trabajos que puedes hacer durante las horas de asedio^000000~";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "You can accept missions ^4d4dffstarting from 1 hour before the beginning of the siege and until the end of the siege battle TE^000000,";
-		mes "and every mission has ^4d4dffa 4-hour time limit^000000 for completion.";
+		mes "Puedes aceptar misiones ^4d4dffdesde 1 hora antes del inicio del asedio y hasta el final de la batalla de asedio TE^000000,";
+		mes "y cada mision tiene ^4d4dffun limite de tiempo de 4 horas^000000 para completarse.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Simply put, you accept a mission from me during the siege hours and";
-		mes "^4d4dffcome back to give me a report within the time limit^000000.";
+		mes "Simplemente, aceptas una mision mia durante las horas de asedio y";
+		mes "^4d4dffregresas a darme un reporte dentro del limite de tiempo^000000.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Try it for fun.";
+		mes "Intentalo por diversion.";
 		close;
 	case 3:
 		mes "["+ .@npc_name$ +"]";
-		mes "I see.";
-		mes "Come back anytime if you change your mind.";
-		mes "I might not be available, though. Hehehe.";
+		mes "Ya veo.";
+		mes "Regresa cuando quieras si cambias de opinion.";
+		mes "Puede que no este disponible, sin embargo. Jejeje.";
 		close;
 	}
 
 S_Cancelquest:
 	.@npc_name$ = getarg(1);
 	if (WoeTETimeStart(3600) == 1 || agitcheck3()) {
-		mes "It seems like you haven't accomplished the mission yet?";
+		mes "Parece que aun no has completado la mision?";
 		mes getarg(2);
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "Do you want to cancel by any chance?";
+		mes "Quieres cancelar por casualidad?";
 		next;
-		switch( select( "No.","Yes." ) ) {
+		switch( select( "No.","Si." ) ) {
 		case 1:
 			mes "["+ .@npc_name$ +"]";
-			mes "Good luck!";
+			mes "Buena suerte!";
 			close;
 		case 2:
 			mes "["+ .@npc_name$ +"]";
-			mes "As you wanted, this mission is canceled.";
+			mes "Como deseaste, esta mision ha sido cancelada.";
 			erasequest getarg(0);
 			close;
 		}
 	}
 	else {
-		mes "Hmm you still have some time left, but it's not the siege hour yet";
-		mes "I don't think you should go on.";
-		mes "You should cancel this mission. I would say it's failed.";
+		mes "Hmm aun te queda algo de tiempo, pero no es hora de asedio";
+		mes "No creo que debas continuar.";
+		mes "Deberias cancelar esta mision. Yo diria que fue fallida.";
 		next;
-		switch( select( "I would like to go on.","Yes, I'll cancel it." ) ) {
+		switch( select( "Me gustaria continuar.","Si, la cancelare." ) ) {
 		case 1:
 			mes "["+ .@npc_name$ +"]";
-			mes "I don't think it's worth it. Well, good luck!";
+			mes "No creo que valga la pena. Bueno, buena suerte!";
 			close;
 		case 2:
 			mes "["+ .@npc_name$ +"]";
-			mes "As you wanted, this mission is canceled.";
+			mes "Como deseaste, esta mision ha sido cancelada.";
 			erasequest getarg(0);
 			close;
 		}
@@ -529,16 +529,16 @@ S_Cancelquest:
 S_Acceptquest:
 	.@npc_name$ = getarg(1);
 	next;
-	switch( select( "Accept it.","Do not accept it." ) ) {
+	switch( select( "Aceptarla.","No aceptarla." ) ) {
 	case 1:
 		mes "["+ .@npc_name$ +"]";
-		mes "^4d4dffThe time limit is 4 hours.^000000";
-		mes "Accomplish the mission with in that time and report to me.";
+		mes "^4d4dffEl limite de tiempo es de 4 horas.^000000";
+		mes "Completa la mision dentro de ese tiempo y reportame.";
 		setquest getarg(0);
 		close;
 	case 2:
 		mes "["+ .@npc_name$ +"]";
-		mes "Try another mission then.";
+		mes "Intenta otra mision entonces.";
 		close;
 	}
 
@@ -547,10 +547,10 @@ S_Rentbox:
 	for ( .@count = 0; .@count < getarg(0); .@count++ ) {
 		.@miss_item01 = rand(100);
 		if (.@miss_item01 > 3)
-			mes "You didn't find anything.";
+			mes "No encontraste nada.";
 		else {
 			rentitem .@item_id[ .@miss_item01 ],86400;
-			mes "You found '"+ getitemname(.@item_id[ .@miss_item01 ]) +" !'";
+			mes "Encontraste '"+ getitemname(.@item_id[ .@miss_item01 ]) +" !'";
 		}
 	}
 	close;
@@ -558,7 +558,7 @@ S_Rentbox:
 S_Menu:
 	for ( .@i = 1; .@i < getargcount(); .@i += 2 ) {
 		if ( isbegin_quest(getarg(.@i)) )
-			.@menu$ = .@menu$ + getarg(.@i+1) + " ^4d4dffCheck the result^000000:";
+			.@menu$ = .@menu$ + getarg(.@i+1) + " ^4d4dffVerificar resultado^000000:";
 		else
 			.@menu$ = .@menu$ + getarg(.@i+1) + ":";
 		set getelementofarray( getarg(0),.@index ), getarg(.@i);

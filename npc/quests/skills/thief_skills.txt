@@ -1,152 +1,152 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Thief Skills Quests
-//===== By: ================================================== 
+//===== By: ==================================================
 //= kobra_k88
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.8
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
-//= Quests for skills: Sand Attack, Back Slide, Find Stone, 
+//===== Description: =========================================
+//= Quests for skills: Sand Attack, Back Slide, Find Stone,
 //= Stone Fling.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.5 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
 //= 1.6 Fixed a Exploit for Assassins and Rogues. (bugreport:2332) [Samuray22]
 //= 1.7 Updated to latest available official file. [Masao]
 //= 1.8 Fixed JobLevel requirement for Assassins and Rogues. [Joseph]
-//============================================================ 
+//============================================================
 
 moc_prydb1,154,128,4	script	Alcouskou	118,{
 	if (BaseClass == Job_Thief) {
 		mes "[Alcouskou]";
-		mes "As you live life you will encounter";
-		mes "many things. Sometimes you will";
-		mes "not understand and wonder why some";
-		mes "things are so important. You may consider it";
-		mes "as useless knowledge, but it isn't";
-		mes "Let me explain.";
+		mes "A medida que vives la vida encontraras";
+		mes "muchas cosas. A veces no";
+		mes "entenderas y te preguntaras por que algunas";
+		mes "cosas son tan importantes. Puede que lo consideres";
+		mes "como conocimiento inutil, pero no lo es.";
+		mes "Dejame explicarte.";
 		next;
-		switch (select("Sand Attack:Back Slide:Find Stone:Stone Fling:I will be back later.")) {
+		switch (select("Sand Attack:Back Slide:Find Stone:Stone Fling:Volvere despues.")) {
 		case 1:
 			switch (skill_thief_1) {
 			case 0:
 				if ((countitem(7041) > 4) && ((JobLevel > 24) || (BaseJob == Job_Assassin || BaseJob == Job_Rogue))) {
 					mes "[Alcouskou]";
-					mes "Luckily, you have brought some";
-					mes "sand with you. It is very important";
-					mes "to a thief to have a small quantity at";
-					mes "all times. Most people do not";
-					mes "realize the value of such a common";
-					mes "substance.";
+					mes "Por suerte, has traido algo de";
+					mes "arena contigo. Es muy importante";
+					mes "para un ladron tener una pequena cantidad en";
+					mes "todo momento. La mayoria de la gente no";
+					mes "se da cuenta del valor de una sustancia";
+					mes "tan comun.";
 					next;
 					mes "[Alcouskou]";
-					mes "In case you meet a powerful";
-					mes "monster in a dungeon with no";
-					mes "sand, you could use this sand to";
-					mes "blind the monster and flee.";
-					mes "You should have a special sand pocket.";
+					mes "En caso de que te encuentres con un monstruo";
+					mes "poderoso en una mazmorra sin";
+					mes "arena, podrias usar esta arena para";
+					mes "cegar al monstruo y huir.";
+					mes "Deberias tener un bolsillo especial para arena.";
 					next;
 					mes "[Alcouskou]";
-					mes "What? You don't expect me to";
-					mes "do that for you as well do you?";
-					mes "You must be very lazy! ! !";
-					mes "Very well, find the one named";
-					mes "RuRumuni. He will make you a";
-					mes "sturdy leather pocket.";
+					mes "Que? No esperas que yo";
+					mes "haga eso por ti tambien, verdad?";
+					mes "Debes ser muy perezoso!!!";
+					mes "Muy bien, encuentra al llamado";
+					mes "RuRumuni. El te hara un";
+					mes "bolso de cuero resistente.";
 					next;
 					mes "[Alcouskou]";
-					mes "I will be preparing for your";
-					mes "return. Find RuRumuni in";
-					mes "west Payon. That is where I";
-					mes "heard he is these days.";
+					mes "Estare preparando para tu";
+					mes "regreso. Encuentra a RuRumuni en";
+					mes "el oeste de Payon. Ahi es donde";
+					mes "escuche que esta estos dias.";
 					delitem 7041,5; //Fine_Grit
 					set skill_thief_1,1;
 					close;
 				}
 				mes "[Alcouskou]";
-				mes "The most important part";
-				mes "of being a good thief is stealth.";
-				mes "A thief should never be seen or";
-				mes "touched unless he wants to.";
-				mes "Some consider this cowardly";
-				mes "but I think differently.";
+				mes "La parte mas importante";
+				mes "de ser un buen ladron es el sigilo.";
+				mes "Un ladron nunca debe ser visto ni";
+				mes "tocado a menos que lo desee.";
+				mes "Algunos consideran esto cobarde";
+				mes "pero yo pienso diferente.";
 				next;
 				mes "[Alcouskou]";
-				mes "The way I see it, we live in a";
-				mes "world where survival of the fittest";
-				mes "rules our lives. ";
-				mes "They may think less of me for use";
-				mes "this special skill. . . What is this skill?";
-				mes "This is the sand blinding skill.";
+				mes "Como yo lo veo, vivimos en un";
+				mes "mundo donde la supervivencia del mas apto";
+				mes "gobierna nuestras vidas.";
+				mes "Pueden pensar menos de mi por usar";
+				mes "esta habilidad especial. . . Cual es esta habilidad?";
+				mes "Es la habilidad de cegar con arena.";
 				next;
 				mes "[Alcouskou]";
-				mes "If you can throw or kick sand";
-				mes "in the eyes of your opponent,";
-				mes "not only does their defense decrease,";
-				mes "but their ability to attack is impaired.";
-				mes "It is so effective, you may even stun them.";
+				mes "Si puedes lanzar o patear arena";
+				mes "a los ojos de tu oponente,";
+				mes "no solo su defensa disminuye,";
+				mes "sino que su capacidad de atacar se ve afectada.";
+				mes "Es tan efectivo que incluso puedes aturdirlos.";
 				next;
 				mes "[Alcouskou]";
-				mes "Well, we have to survive too.";
-				mes "Its either us or them. . .";
-				mes "I think it is important and vital";
-				mes "that we prepare a little sand.";
-				mes "What do you think? If you like it ";
-				mes "go and get five Fine Grit.";
+				mes "Bueno, tambien tenemos que sobrevivir.";
+				mes "Es ellos o nosotros. . .";
+				mes "Creo que es importante y vital";
+				mes "que preparemos un poco de arena.";
+				mes "Que piensas? Si te gusta";
+				mes "ve y consigue cinco Fine Grit.";
 				next;
 				mes "[Alcouskou]";
-				mes "I am sure you eager to learn this";
-				mes "skill, but you must first gather five Fine Grit";
-				mes "Until you have gathered them,";
-				mes "I cannot teach you this skill.";
-				mes "Don't be disappointed, hurry and gather them.";
+				mes "Estoy seguro de que estas ansioso por aprender esta";
+				mes "habilidad, pero primero debes reunir cinco Fine Grit.";
+				mes "Hasta que los hayas reunido,";
+				mes "no puedo ensenarte esta habilidad.";
+				mes "No te decepciones, apurate y reunelos.";
 				next;
 				mes "[Alcouskou]";
-				mes "Oh, I almost forgot! ! !";
-				mes "If you want to learn this ";
-				mes "special skill, be sure that";
-				mes "you are sufficiently experienced";
-				mes "to use this properly. This means";
-				mes "you should be at least job level 25.";
+				mes "Oh, casi lo olvido!!!";
+				mes "Si quieres aprender esta";
+				mes "habilidad especial, asegurate de que";
+				mes "tengas suficiente experiencia";
+				mes "para usar esto correctamente. Esto significa";
+				mes "que debes tener al menos nivel de trabajo 25.";
 				close;
 			case 1:
 				mes "[Alcouskou]";
-				mes "Go to west payon and find";
-				mes "RuRumuni. He will make you";
-				mes "fine durable pouch for your";
-				mes "sand.";
+				mes "Ve al oeste de Payon y encuentra";
+				mes "a RuRumuni. El te hara";
+				mes "un bolso de cuero fino y duradero para tu";
+				mes "arena.";
 				next;
 				mes "[Alcouskou]";
-				mes "I will take these five Fine Grit";
-				mes "and prepare them for you while I wait.";
+				mes "Tomare estos cinco Fine Grit";
+				mes "y los preparare para ti mientras espero.";
 				close;
 			case 2:
 				mes "[Alcouskou]";
-				mes "Okay! Great !!";
-				mes "What a fine pouch indeed!";
-				mes "Small and easy to carry, with enough";
-				mes "capacity for enough sand. ";
-				mes "This is a perfect ^3355FFLeather Bag of Infinity^000000 !!";
-				mes "for you to use with this skill.";
+				mes "Bien! Genial!!";
+				mes "Que bolso tan fino!";
+				mes "Pequeno y facil de llevar, con suficiente";
+				mes "capacidad para arena suficiente.";
+				mes "Este es un perfecto ^3355FFLeather Bag of Infinity^000000!!";
+				mes "para que uses con esta habilidad.";
 				next;
 				mes "[Alcouskou]";
-				mes "Well let's see what your skill";
-				mes "is like -";
-				mes "Try it out ! !";
+				mes "Bueno veamos cual es tu habilidad";
+				mes "- ";
+				mes "Pruebalo!!";
 				next;
 				mes "[Alcouskou]";
-				mes "AHhh, watch out for my eyes !!";
-				mes "^5533FF- *throwing sand* -^000000";
+				mes "AHhh, cuidado con mis ojos!!";
+				mes "^5533FF- *lanzando arena* -^000000";
 				next;
-				mes "^5533FF- *tossing sand* -^000000";
+				mes "^5533FF- *tirando arena* -^000000";
 				next;
 				mes "[Alcouskou]";
-				mes "Hoo Hoo Hoo... You are a";
-				mes "natural! ! ! Excellent !";
-				mes "I guess I have nothing more";
-				mes "that I can teach you.";
-				mes "I hope that this skill will";
-				mes "aid you in the future. -";
+				mes "Joo Joo Joo... Eres un";
+				mes "natural!!! Excelente!";
+				mes "Supongo que no tengo nada mas";
+				mes "que pueda ensenarte.";
+				mes "Espero que esta habilidad te";
+				mes "ayude en el futuro. -";
 				delitem 7042,1; //Leather_Bag_Of_Infinity
 				skill "TF_SPRINKLESAND",1,SKILL_PERM;
 				close;
@@ -154,7 +154,7 @@ moc_prydb1,154,128,4	script	Alcouskou	118,{
 	case 2:
 		if ((countitem(940) > 19) && ((JobLevel > 34) || (BaseJob == Job_Assassin || BaseJob == Job_Rogue))) {
 			mes "[Alcouskou]";
-			mes "Okay! Let's practice!";
+			mes "Bien! Practiquemos!";
 			next;
 			mes "[Alcouskou]";
 			mes "Suuu Suuu uk -";
@@ -166,85 +166,85 @@ moc_prydb1,154,128,4	script	Alcouskou	118,{
 			mes "Suk - Suuuk - - -";
 			next;
 			mes "[Alcouskou]";
-			mes "Great! -At this level,";
-			mes "I am sure you can increase";
-			mes "your skill on your own.";
+			mes "Genial! -A este nivel,";
+			mes "estoy seguro de que puedes aumentar";
+			mes "tu habilidad por tu cuenta.";
 			delitem 940,20; //Grasshopper's_Leg
 			skill "TF_BACKSLIDING",1,SKILL_PERM;
 			close;
 		}
 		mes "[Alcouskou]";
-		mes "Usually we like to think about";
-		mes "attacking and damage, but";
-		mes "it is important to realize that";
-		mes "fleeing is just as important";
-		mes "as attacking!";
-		mes "We pride ourselves in our";
+		mes "Normalmente nos gusta pensar en";
+		mes "atacar y dano, pero";
+		mes "es importante darse cuenta de que";
+		mes "huir es tan importante";
+		mes "como atacar!";
+		mes "Nos enorgullecemos de nuestra";
 		next;
 		mes "[Alcouskou]";
-		mes "speed and quick dodges,";
-		mes "but I am sure that at times you";
-		mes "have realized while fighting that";
-		mes "despite the fact that our dodging";
-		mes "is superior, if we are hit once we are";
-		mes "serious danger.";
+		mes "velocidad y esquivas rapidas,";
+		mes "pero estoy seguro de que a veces";
+		mes "te has dado cuenta mientras luchas que";
+		mes "a pesar de que nuestra esquiva";
+		mes "es superior, si nos golpean una vez estamos";
+		mes "en serio peligro.";
 		next;
 		mes "[Alcouskou]";
-		mes "It is true that at times we";
-		mes "can view others as humorous as";
-		mes "we easily dodge their attacks.";
-		mes "But if we are attacked by many at";
-		mes "once, you must remember that we";
-		mes "may not even have room to doge.";
+		mes "Es cierto que a veces";
+		mes "podemos ver a otros como graciosos cuando";
+		mes "esquivamos facilmente sus ataques.";
+		mes "Pero si somos atacados por muchos a";
+		mes "la vez, debes recordar que";
+		mes "puede que ni siquiera tengamos espacio para esquivar.";
 		next;
 		mes "[Alcouskou]";
-		mes "You must make a quick decision";
-		mes "to flee. Most would flee immediately,";
-		mes "but we don't need to.";
-		mes "Even if we don't see an opening,";
-		mes "our skill can allow us to slip out";
-		mes "of a very serious predicament.";
+		mes "Debes tomar una decision rapida";
+		mes "para huir. La mayoria huiria inmediatamente,";
+		mes "pero nosotros no necesitamos hacerlo.";
+		mes "Incluso si no vemos una abertura,";
+		mes "nuestra habilidad nos permite escabullirnos";
+		mes "de una situacion muy seria.";
 		next;
 		mes "[Alcouskou]";
-		mes "This skill uses our energies in";
-		mes "allowing us to slip out unnoticed.";
-		mes "In a short amount of time we can use";
-		mes "this skill to put a large amount of ";
-		mes "distance between us and our opponent.";
-		mes "This skill requires endless hours of";
+		mes "Esta habilidad usa nuestras energias para";
+		mes "permitirnos escabullirnos sin ser notados.";
+		mes "En poco tiempo podemos usar";
+		mes "esta habilidad para poner una gran cantidad de";
+		mes "distancia entre nosotros y nuestro oponente.";
+		mes "Esta habilidad requiere horas interminables de";
 		next;
 		mes "[Alcouskou]";
-		mes "practice for us to master.";
-		mes "If you wish to learn and practice,";
-		mes "you will need to prepare some items.";
-		mes "Prepare ^3355FF20 Grasshopper's Leg^";
-		mes "to begin your training.";
+		mes "practica para dominarla.";
+		mes "Si deseas aprender y practicar,";
+		mes "necesitaras preparar algunos objetos.";
+		mes "Prepara ^3355FF20 Grasshopper's Leg^";
+		mes "para comenzar tu entrenamiento.";
 		next;
 		mes "[Alcouskou]";
-		mes "Oh, by the way. . .";
-		mes "You need to have some background";
-		mes "in the skills of a thief to properly master";
-		mes "this skill. This means you require at";
-		mes "least the experience of job level ^3355FF35^000000 .";
-		mes "If not, I cannot teach you.";
+		mes "Oh, por cierto. . .";
+		mes "Necesitas tener algo de experiencia";
+		mes "en las habilidades de un ladron para dominar";
+		mes "esta habilidad correctamente. Esto significa que requieres";
+		mes "al menos la experiencia de nivel de trabajo ^3355FF35^000000.";
+		mes "Si no, no puedo ensenarte.";
 		close;
 	case 3:
 		if ((countitem(912) > 0) && (countitem(948) > 0) && (countitem(908) > 4) && ((JobLevel > 19) || (BaseJob == Job_Assassin || BaseJob == Job_Rogue))) {
 			mes "[Alcouskou]";
-			mes "Wow, you have already prepared?";
-			mes "Great, I see promise in you. -";
-			mes "Your zeal is truly sincere.";
-			mes "Okay, Shall we begin your training?";
-			mes "Stone throwing . . . . .";
-			mes "Find a smoot stone with a good weight.";
+			mes "Vaya, ya te preparaste?";
+			mes "Genial, veo promesa en ti. -";
+			mes "Tu entusiasmo es verdaderamente sincero.";
+			mes "Bien, comenzamos tu entrenamiento?";
+			mes "Lanzamiento de piedras. . . . .";
+			mes "Encuentra una piedra lisa con buen peso.";
 			next;
 			mes "[Alcouskou]";
-			mes "Picking the right stone is ";
-			mes "very important in being successful.";
-			mes "Well I could tell you a million";
-			mes "times but it is better to see for yourself.";
-			mes "Okay why don't you try the skill out";
-			mes "right here where I can watch you.";
+			mes "Elegir la piedra correcta es";
+			mes "muy importante para tener exito.";
+			mes "Bueno, podria decirtelo un millon de";
+			mes "veces pero es mejor que lo veas por ti mismo.";
+			mes "Bien, por que no pruebas la habilidad";
+			mes "aqui mismo donde pueda verte.";
 			next;
 			mes "^3355FF- Shweeput ! -^000000";
 			next;
@@ -253,12 +253,12 @@ moc_prydb1,154,128,4	script	Alcouskou	118,{
 			mes "^3355FF- Shyaaaakkk ! -^000000";
 			next;
 			mes "[Alcouskou]";
-			mes "Very nice. You seem to take up -";
-			mes "the skill easily.";
-			mes "You can improve your skill with";
-			mes "practice on your own time.";
-			mes "I hope it aids you in the future.";
-			mes ". . . . . Hope to see you soon";
+			mes "Muy bien. Pareces aprender -";
+			mes "la habilidad facilmente.";
+			mes "Puedes mejorar tu habilidad con";
+			mes "practica por tu cuenta.";
+			mes "Espero que te ayude en el futuro.";
+			mes ". . . . . Espero verte pronto";
 			delitem 912,1; //Zargon
 			delitem 948,1; //Bear's_Foot
 			delitem 908,5; //Spawn
@@ -266,64 +266,64 @@ moc_prydb1,154,128,4	script	Alcouskou	118,{
 			close;
 		}
 		mes "[Alcouskou]";
-		mes "The skilled and experienced";
-		mes "members of our guild are usually very handy!";
-		mes "They can pick up a small stone";
-		mes "by the road and use it to hit an";
-		mes "opponent accurately and quickly from";
-		mes "a distance.";
+		mes "Los miembros mas experimentados";
+		mes "de nuestro gremio suelen ser muy habiles!";
+		mes "Pueden recoger una pequena piedra";
+		mes "del camino y usarla para golpear a un";
+		mes "oponente con precision y rapidez desde";
+		mes "la distancia.";
 		next;
 		mes "[Alcouskou]";
-		mes "They realized what a waste it was";
-		mes "to not teach this skill to others. -";
-		mes "They founded a group to train";
-		mes "others in this skill. . .";
-		mes "That is how the ^3355FF' Find Stone '^000000 and";
-		mes "^3355FF' Stone Fling '^000000 skills came to be.";
+		mes "Se dieron cuenta de que era un desperdicio";
+		mes "no ensenar esta habilidad a otros. -";
+		mes "Fundaron un grupo para entrenar";
+		mes "a otros en esta habilidad. . .";
+		mes "Asi es como las habilidades ^3355FF' Find Stone '^000000 y";
+		mes "^3355FF' Stone Fling '^000000 llegaron a existir.";
 		next;
 		mes "[Alcouskou]";
-		mes "It is handy to be able to find a stone";
-		mes "in most any place and have the";
-		mes "ability to hurl it into a distanced enemy.";
-		mes "A very valuable skill indeed. -";
-		mes "Without costing you a zeny, you";
-		mes "can have this skill at your disposal.";
+		mes "Es util poder encontrar una piedra";
+		mes "en casi cualquier lugar y tener la";
+		mes "capacidad de lanzarla contra un enemigo distante.";
+		mes "Una habilidad muy valiosa. -";
+		mes "Sin costarte un zeny, puedes";
+		mes "tener esta habilidad a tu disposicion.";
 		next;
 		mes "[Alcouskou]";
-		mes "I really think of this as a great skill.";
-		mes "What do you think of it?";
-		mes ". . . . . Hah Hah Hah . . . . . .";
+		mes "Realmente pienso que es una gran habilidad.";
+		mes "Que piensas?";
+		mes ". . . . . Ja Ja Ja . . . . . .";
 		next;
 		mes "[Alcouskou]";
-		mes "^3355FF' Find Stone ! '^000000 skill";
-		mes "can be used in just about any location.";
-		mes "Picking stones off the ground that";
-		mes "are smooth and well weighted for";
-		mes "throwing. It does take some familiarity";
-		mes "and skill to learn this skill well.";
+		mes "La habilidad ^3355FF' Find Stone ! '^000000";
+		mes "se puede usar en casi cualquier lugar.";
+		mes "Recogiendo piedras del suelo que";
+		mes "son lisas y con buen peso para";
+		mes "lanzar. Requiere algo de familiaridad";
+		mes "y habilidad para aprenderla bien.";
 		next;
 		mes "[Alcouskou]";
-		mes "The small amount of training required";
-		mes "does require that you put in a full";
-		mes "effort . . .-";
-		mes ". . . . . *Ahem* . . . . .";
-		mes "Let first begin by practicing how to pick up";
-		mes "one ^3355FFBear's Footskin^000000 to familiarize the action.";
+		mes "La pequena cantidad de entrenamiento requerido";
+		mes "requiere que pongas un esfuerzo";
+		mes "completo . . .-";
+		mes ". . . . . *Ejem* . . . . .";
+		mes "Primero comencemos practicando como recoger";
+		mes "un ^3355FFBear's Footskin^000000 para familiarizarte con la accion.";
 		next;
 		mes "[Alcouskou]";
-		mes "And in lieu of a stone, try picking up";
-		mes " a ^3355FFZargon^000000 !";
-		mes "Would that be too little ?";
-		mes "Lets add ^3355FF5 Spawn^000000 !!";
-		mes "Show me your skill !";
-		mes "Retrieve these items by any means you see fit.";
+		mes "Y en lugar de una piedra, intenta recoger";
+		mes "un ^3355FFZargon^000000!";
+		mes "Seria eso muy poco?";
+		mes "Agreguemos ^3355FF5 Spawn^000000!!";
+		mes "Muestrame tu habilidad!";
+		mes "Consigue estos objetos por cualquier medio que veas conveniente.";
 		close;
 	case 4:
 		if ((countitem(910) > 1) && (countitem(911) > 1) && ((JobLevel > 14) || (BaseJob == Job_Assassin || BaseJob == Job_Rogue))) {
 			mes "[Alcouskou]";
-			mes "Wow! Have you already gathered the items!";
-			mes "Very well, do you wish to begin?";
-			mes "Prepare the items you have gathered ..";
+			mes "Vaya! Ya reuniste los objetos?";
+			mes "Muy bien, deseas comenzar?";
+			mes "Prepara los objetos que has reunido ..";
 			next;
 			mes "^3355FF- Shyuuk ! -^000000";
 			next;
@@ -333,140 +333,140 @@ moc_prydb1,154,128,4	script	Alcouskou	118,{
 			next;
 			mes "[Alcouskou]";
 			mes "Strike~~~!!";
-			mes "That was excellent !";
-			mes "You know have sufficient";
-			mes "power and skill.";
+			mes "Eso fue excelente!";
+			mes "Ahora tienes suficiente";
+			mes "poder y habilidad.";
 			next;
 			mes "[Alcouskou]";
-			mes "Okay, that is all there is";
-			mes "to it. How you use it in";
-			mes "the future is up to you ..";
-			mes "I wish you luck!";
+			mes "Bien, eso es todo.";
+			mes "Como lo uses en";
+			mes "el futuro depende de ti ..";
+			mes "Te deseo suerte!";
 			delitem 910,2; //Garlet
 			delitem 911,2; //Scell
 			skill "TF_THROWSTONE",1,SKILL_PERM;
 			close;
 		}
 		mes "[Alcouskou]";
-		mes "The skilled and experienced";
-		mes "members of our guild are usually very handy!";
-		mes "They can pick up a small stone";
-		mes "by the road and use it to hit an";
-		mes "opponent accurately and quickly from";
-		mes "a distance.";
+		mes "Los miembros mas experimentados";
+		mes "de nuestro gremio suelen ser muy habiles!";
+		mes "Pueden recoger una pequena piedra";
+		mes "del camino y usarla para golpear a un";
+		mes "oponente con precision y rapidez desde";
+		mes "la distancia.";
 		next;
 		mes "[Alcouskou]";
-		mes "They realized what a waste it was";
-		mes "to not teach this skill to others. -";
-		mes "They founded a group to train";
-		mes "others in this skill. . .";
-		mes "That is how the ^3355FF' Find Stone '^000000 and";
-		mes "^3355FF' Stone Fling '^000000 skills came to be.";
+		mes "Se dieron cuenta de que era un desperdicio";
+		mes "no ensenar esta habilidad a otros. -";
+		mes "Fundaron un grupo para entrenar";
+		mes "a otros en esta habilidad. . .";
+		mes "Asi es como las habilidades ^3355FF' Find Stone '^000000 y";
+		mes "^3355FF' Stone Fling '^000000 llegaron a existir.";
 		next;
 		mes "[Alcouskou]";
-		mes "It is handy to be able to find a stone";
-		mes "in most any place and have the";
-		mes "ability to hurl it into a distanced enemy.";
-		mes "A very valuable skill indeed. -";
-		mes "Without costing you a zeny, you";
-		mes "can have this skill at your disposal.";
+		mes "Es util poder encontrar una piedra";
+		mes "en casi cualquier lugar y tener la";
+		mes "capacidad de lanzarla contra un enemigo distante.";
+		mes "Una habilidad muy valiosa. -";
+		mes "Sin costarte un zeny, puedes";
+		mes "tener esta habilidad a tu disposicion.";
 		next;
 		mes "[Alcouskou]";
-		mes "I really think of this as a great skill.";
-		mes "What do you think of it?";
-		mes ". . . . . Hah Hah Hah . . . . . .";
+		mes "Realmente pienso que es una gran habilidad.";
+		mes "Que piensas?";
+		mes ". . . . . Ja Ja Ja . . . . . .";
 		next;
 		mes "[Alcouskou]";
 		mes "^3355FFStone Fling !!^000000";
-		mes "This skill can be used so";
-		mes "readily and does not take any";
-		mes "extra money if you can pick up";
-		mes "stones well . . .";
-		mes "If you don't know how to choose";
+		mes "Esta habilidad se puede usar tan";
+		mes "facilmente y no cuesta";
+		mes "dinero extra si puedes recoger";
+		mes "piedras bien . . .";
+		mes "Si no sabes como elegir";
 		next;
 		mes "[Alcouskou]";
-		mes "stones well, you can always buy";
-		mes "them from those who can.";
-		mes "And if you can choose stones well,";
-		mes "it could be very profitable for you.";
-		mes "What do you think? Do you like the idea?";
+		mes "piedras bien, siempre puedes comprarlas";
+		mes "de quienes si pueden.";
+		mes "Y si puedes elegir piedras bien,";
+		mes "podria ser muy rentable para ti.";
+		mes "Que piensas? Te gusta la idea?";
 		next;
 		mes "[Alcouskou]";
-		mes "If you wish to master this skill,";
-		mes "you will have to train quite a bit.";
-		mes "The training also requires some items";
-		mes "that won't be easy to find. . .";
-		mes "Of course, I am sure it won't be";
-		mes "impossible with your skill . .";
+		mes "Si deseas dominar esta habilidad,";
+		mes "tendras que entrenar bastante.";
+		mes "El entrenamiento tambien requiere algunos objetos";
+		mes "que no seran faciles de encontrar. . .";
+		mes "Por supuesto, estoy seguro de que no sera";
+		mes "imposible con tu habilidad . .";
 		next;
 		mes "[Alcouskou]";
-		mes "You will need two ^3355FF' Garlet '^000000";
-		mes "and two ^3355FF' Scell '^000000 to start with.";
-		mes "Make sure they are similar to stones";
-		mes "and able to be thrown. When you";
-		mes "have gathered these items, I will be";
-		mes "happy to teach you.";
+		mes "Necesitaras dos ^3355FF' Garlet '^000000";
+		mes "y dos ^3355FF' Scell '^000000 para empezar.";
+		mes "Asegurate de que sean similares a piedras";
+		mes "y que se puedan lanzar. Cuando";
+		mes "hayas reunido estos objetos, estare";
+		mes "feliz de ensenarte.";
 		close;
 	case 5:
 		mes "[Alcouskou]";
-		mes "It seems you are not very experienced. . .";
-		mes "We may need some more time to consider you.";
+		mes "Parece que no tienes mucha experiencia. . .";
+		mes "Necesitaremos mas tiempo para considerarte.";
 		close;
 	}
 }
 	mes "[Alcouskou]";
-	mes "Most thieves and assassins";
-	mes "have the basic skills to do";
-	mes "well at their job. However,";
-	mes "the skills that I can teach them";
-	mes "cannot be learned anywhere else.";
-	mes "If you every decide to";
+	mes "La mayoria de ladrones y asesinos";
+	mes "tienen las habilidades basicas para";
+	mes "hacer bien su trabajo. Sin embargo,";
+	mes "las habilidades que puedo ensenarles";
+	mes "no se pueden aprender en ningun otro lugar.";
+	mes "Si alguna vez decides";
 	next;
 	mes "[Alcouskou]";
-	mes "become a thief or assassin,";
-	mes "or know someone who is,";
-	mes "come to me or send them to me.";
-	mes "These new skills should be";
-	mes "taught to all who want to learn them.";
+	mes "convertirte en ladron o asesino,";
+	mes "o conoces a alguien que lo sea,";
+	mes "ven a mi o envialos a mi.";
+	mes "Estas nuevas habilidades deberian ser";
+	mes "ensenadas a todos los que quieran aprenderlas.";
 	close;
 }
 
 payon,91,77,3	script	Bag Seller	99,{
 	mes "[RuRumuni]";
-	mes "I am a humble merchant here";
-	mes "in Payon. I buy the leather";
-	mes "hides of animals brought in by";
-	mes "the hunters and make leather";
-	mes "pouches to sell. I grew up";
-	mes "around leather working and am quite good at it.";
+	mes "Soy un humilde comerciante aqui";
+	mes "en Payon. Compro los cueros";
+	mes "de animales traidos por";
+	mes "los cazadores y hago bolsos de cuero";
+	mes "para vender. Creci";
+	mes "rodeado de trabajo en cuero y soy bastante bueno en ello.";
 	next;
 	switch (skill_thief_1) {
 	case 0:
 		mes "[RuRumuni]";
-		mes "There is a thief guild in the";
-		mes "area of Morocc. I know one there";
-		mes "that sends me thieves in need";
-		mes "of items I make such as a";
+		mes "Hay un gremio de ladrones en la";
+		mes "zona de Morocc. Conozco a uno alli";
+		mes "que me envia ladrones que necesitan";
+		mes "objetos que hago como un";
 		mes "^3355FF' Leather Bag of Infinity '^000000.";
-		mes "They visit my store often.";
+		mes "Visitan mi tienda a menudo.";
 		close;
 	case 1:
 		if ((countitem(952) > 0) && (countitem(1055) > 0) && (countitem(1025) > 0)) {
 			mes "[RuRumuni]";
-			mes "Ahhh... You have come for a leather bag.";
-			mes "Very good, very good.";
-			mes "I will make you the leather bag";
-			mes "right away if you wait just a bit.";
+			mes "Ahhh... Has venido por un bolso de cuero.";
+			mes "Muy bien, muy bien.";
+			mes "Te hare el bolso de cuero";
+			mes "inmediatamente si esperas un momento.";
 			mes "TuTak TuTak Shyuku Shyuku Shyuku";
 			mes "- - - - -";
 			next;
 			mes "[RuRumuni]";
-			mes "Okay, here it is all done.";
-			mes "Take this leather bag";
-			mes "to the Thief guild's Alcouskou";
-			mes "If you take him this, he will";
-			mes "teach you the skill that you ";
-			mes "wish to learn.";
+			mes "Bien, aqui esta todo listo.";
+			mes "Lleva este bolso de cuero";
+			mes "al Alcouskou del gremio de ladrones.";
+			mes "Si le llevas esto, el te";
+			mes "ensenara la habilidad que";
+			mes "deseas aprender.";
 			delitem 952,1; //Cactus_Needle
 			delitem 1055,1; //Earthworm_Peeling
 			delitem 1025,1; //Spiderweb
@@ -475,34 +475,34 @@ payon,91,77,3	script	Bag Seller	99,{
 			close;
 		}
 		mes "[RuRumuni]";
-		mes "Find Alcouskou of the thief guild";
-		mes "to place and order for a leather bag of infinity.";
-		mes "You should know that the leather bag of infinity";
-		mes "takes much time and skill to make.";
-		mes "In order to make such an item, you";
-		mes "must provide me with the materials.";
+		mes "Encuentra a Alcouskou del gremio de ladrones";
+		mes "para hacer un pedido de un leather bag of infinity.";
+		mes "Debes saber que el leather bag of infinity";
+		mes "requiere mucho tiempo y habilidad para hacer.";
+		mes "Para hacer tal objeto, debes";
+		mes "proporcionarme los materiales.";
 		next;
-		mes "The items needed as materials are";
-		mes "these items. ..";
+		mes "Los objetos necesarios como materiales son";
+		mes "estos objetos. ..";
 		mes "^3355FF' Earthworm Peeling '^000000";
 		mes "^3355FF' Cobweb '^000000";
 		mes "^3355FF' Cactus Needle '^000000";
-		mes "I need one of each.";
+		mes "Necesito uno de cada uno.";
 		close;
 	case 2:
 		mes "[RuRumuni]";
-		mes "Here is your leather bag of infinity.";
-		mes "Take this to the Thief guilds";
-		mes "Alcouskou and let him know ";
-		mes "that you are now ready to learn";
-		mes "the skill.";
+		mes "Aqui esta tu leather bag of infinity.";
+		mes "Lleva esto al Alcouskou del gremio";
+		mes "de ladrones y hazle saber";
+		mes "que ya estas listo para aprender";
+		mes "la habilidad.";
 		close;
 	}
 }
 
-//============================================================ 
+//============================================================
 // Old changelog
-//============================================================ 
+//============================================================
 //= 1.0 Fully working
 //= 1.1 Changed Sand Attack requirements from 5 Grit to 5 Fine Grit and a
 //=     Leather Bag of Infinity.  These are the official RO requirements
@@ -514,4 +514,4 @@ payon,91,77,3	script	Bag Seller	99,{
 //= 1.4 Fixed exploit [Lupus]
 //= 1.4a Fixed some typos [IVBela]
 //= 1.4b changed perm. variables to temp ones [Lupus]
-//============================================================ 
+//============================================================

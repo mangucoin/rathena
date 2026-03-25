@@ -9,8 +9,8 @@
 
 te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many items to proceed with the quest.";
-		mes "Please lighten your load and try again.";
+		mes "Tienes demasiados objetos para continuar con la mision.";
+		mes "Por favor reduce tu carga e intentalo de nuevo.";
 		close;	}
 
 	.@guild_id = getcastledata("te_aldecas1",1);
@@ -19,34 +19,34 @@ te_aldecas1,226,34,3	script	Blacksmith Cano#tegod01	4_M_RACHMAN1,{
 
 	mes "["+ .@npc_name$ +"]";
 	if (.@guild_id != getcharid(2)) {
-		mes "You... don't look familiar to me... ?";
-		mes "Are you going to threaten me?";
-		mes "No, right?";
+		mes "Tu... no me pareces conocido... ?";
+		mes "Vas a amenazarme?";
+		mes "No, verdad?";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "I have my reasons.";
-		mes "Please, pretend not to see me.";
+		mes "Tengo mis razones.";
+		mes "Por favor, finge no verme.";
 		close;
 	}
 	if (WoeTETimeStart(14400) == 1 || agitcheck3() == 1) {// cannot start the quest 4 hours before and during WOE TE
-		mes "From now on, I'll stay here quietly and not interrupt anyone until the siege ends.";
-		mes "Don't worry about me.";
+		mes "De ahora en adelante, me quedare aqui callado y no interrumpire a nadie hasta que termine el asedio.";
+		mes "No te preocupes por mi.";
 		close;
 	}
 	if (is_guild_leader() == false) {
-		mes "I feel so grateful all the time about you letting me stay here.";
-		mes "It's nothing special... but if you want, I'll make you tools that could be of use.";
+		mes "Siempre me siento muy agradecido de que me dejes quedarme aqui.";
+		mes "No es nada especial... pero si quieres, te hare herramientas que podrian ser utiles.";
 		next;
 		mes "["+ .@npc_name$ +"]";
-		mes "I mean if the guild master wants it.";
-		mes "I'm also a master who pursues the ultimate way.";
-		mes "I hope I can find that way here.";
+		mes "Me refiero a si el lider del gremio lo desea.";
+		mes "Tambien soy un maestro que persigue el camino definitivo.";
+		mes "Espero poder encontrar ese camino aqui.";
 		close;
 	}
 	if ($2012_tegod_kafra == 0) {// event status
-		mes "Ah... Master.";
-		mes "I feel so thankful all the time.";
-		mes "Since I owe you big time, I'll help you with anything anytime.";
+		mes "Ah... Maestro.";
+		mes "Siempre me siento muy agradecido.";
+		mes "Ya que te debo mucho, te ayudare con lo que sea en cualquier momento.";
 		next;
 		switch( select( "Make Jormungand.","Fuse materials.","Relax." ) ) {
 		case 1:

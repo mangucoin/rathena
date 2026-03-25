@@ -187,7 +187,7 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 				mes "Oh, kamu anggotanya.";
 				mes "Apakah kamu ingin pergi ke area misterius itu?";
 				next;
-				switch(select("Let's go.:No, thanks.")) {
+				switch(select("Ayo pergi.:Tidak, terima kasih.")) {
 				case 1:
 					mes "[Morestone]";
 					mes "Aku harap kamu menikmatinya, temanku.";
@@ -205,8 +205,8 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 				set $@gdeventv_a1,1;
 				set $@gdevents_a$,.@chk_yourgdname$;
 				mes "[Dwarf]";
-				mes "Help me!";
-				mes "Please, help me!";
+				mes "Tolong aku!";
+				mes "Kumohon, tolong aku!";
 				next;
 				switch(select("Apa yang terjadi?:Tidak jadi.")) {
 				case 1:
@@ -214,43 +214,43 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 					mes "Aku Morestone dan aku mengumpulkan permata langka.";
 					next;
 					mes "[Morestone]";
-					mes "In my travels, I was told that there were a lot of gems in Valfreyja and Nidhoggur, so I came down here.";
-					mes "But here, the soil is very hard to dig into. Fortunately, my ^3131FFPickaxe^000000 never lets me down!";
+					mes "Dalam perjalananku, aku diberitahu bahwa ada banyak permata di Valfreyja dan Nidhoggur, jadi aku datang ke sini.";
+					mes "Tapi di sini, tanahnya sangat keras untuk digali. Untungnya, ^3131FFBelanku^000000 tidak pernah mengecewakanku!";
 					next;
 					select("Belang!");
 					mes "[Morestone]";
-					mes "Yes, my beloved pickaxe!";
-					mes "I always carry it with me, you know?";
+					mes "Ya, belang kesayanganku!";
+					mes "Aku selalu membawanya, kamu tahu?";
 					next;
 					mes "[Morestone]";
-					mes "We started working here together.";
-					mes "After a few days, we finally found something!";
+					mes "Kami mulai bekerja di sini bersama.";
+					mes "Setelah beberapa hari, akhirnya kami menemukan sesuatu!";
 					next;
 					select("Sesuatu yang aneh??");
 					mes "[Morestone]";
-					mes "No, but it was worth quite a lot.";
-					mes "But we did not have much time to celebrate. Suddenly, a monster appeared that stole my pickaxe.";
-					mes "His name was^3131FFKublin^000000!";
+					mes "Tidak, tapi nilainya cukup besar.";
+					mes "Tapi kami tidak punya banyak waktu untuk merayakan. Tiba-tiba, seekor monster muncul dan mencuri belangku.";
+					mes "Namanya ^3131FFKublin^000000!";
 					next;
 					mes "[Morestone]";
-					mes "He stole my Pickaxe!";
-					mes "I can't live without it...";
+					mes "Dia mencuri Belangku!";
+					mes "Aku tidak bisa hidup tanpanya...";
 					next;
 					if (countitem(6010) > 0) {
 						mes "[" + strcharinfo(0) + "]";
 						mes "Apakah ini belang yang kamu cari?";
 						next;
 						mes "[Morestone]";
-						mes "You found my Pickaxe?";
-						mes "Show me, please!";
+						mes "Kamu menemukan Belangku?";
+						mes "Tunjukkan padaku!";
 						next;
 						mes "[Morestone]";
-						mes "Oh, my! You've returned it to me!";
-						mes "My precious pickaxe, I thought I lost you forever.";
+						mes "Ya ampun! Kamu mengembalikannya padaku!";
+						mes "Belangku yang berharga, aku pikir aku kehilanganmu selamanya.";
 						next;
 						mes "[Morestone]";
-						mes "You are great! What guild are you from?";
-						mes "Could it be Gravity or Mercury?";
+						mes "Kamu hebat! Dari guild mana kamu?";
+						mes "Apakah itu Gravity atau Mercury?";
 						next;
 						mes "[" + strcharinfo(0) + "]";
 						mes "Aku adalah anggota dari ^3131FF"+.@chk_yourgdname$+"^.";
@@ -259,20 +259,20 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 						mes "Oh... Guild itu akan mendapat penghormatan terbesarku.";
 						next;
 						mes "[Morestone]";
-						mes "Oh! My friend, I am very grateful for your help.";
-						mes "As a reward, I will tell you about a mysterious area I have discovered recently.";
+						mes "Oh! Temanku, aku sangat berterima kasih atas bantuanmu.";
+						mes "Sebagai hadiah, aku akan memberitahumu tentang area misterius yang baru saja aku temukan.";
 						next;
 						select("Area misterius?");
 						mes "[Morestone]";
-						mes "That's right. I found it when I was digging around here.";
-						mes "It looks like it was made for some special purpose, but since there are no gems around there, I have no interest in it.";
+						mes "Benar sekali. Aku menemukannya saat menggali di sekitar sini.";
+						mes "Sepertinya dibuat untuk tujuan khusus, tapi karena tidak ada permata di sana, aku tidak tertarik.";
 						next;
 						mes "[Morestone]";
 						mes "Daripada pergi sendirian, kurasa akan lebih menyenangkan pergi bersama teman-temanmu...";
 						next;
 						mes "[Morestone]";
-						mes "If you want, I can take ^3131FFyou and your guild members^000000 to explore that area.";
-						mes "Do you want to go there now?";
+						mes "Jika kamu mau, aku bisa mengajak ^3131FFkamu dan anggota guild-mu^000000 untuk menjelajahi area itu.";
+						mes "Apakah kamu ingin pergi sekarang?";
 						next;
 						switch(select("Tunggu! Aku belum siap.:Ayo pergi!")) {
 						case 1:
@@ -283,9 +283,9 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 							close;
 						case 2:
 							mes "[Morestone]";
-							mes "Alright! Let's go.";
-							mes "If your friends visit me again later, I will guide them to that area again.";
-							mes "Don't forget, dwarves are grateful beings! Hahaha!";
+							mes "Baiklah! Ayo pergi.";
+							mes "Jika teman-temanmu mengunjungiku lagi nanti, aku akan mengantar mereka ke area itu lagi.";
+							mes "Jangan lupa, kurcaci adalah makhluk yang penuh rasa syukur! Hahaha!";
 							delitem 6010,1; //Pickaxe
 							set $@gdeventv_a1,1;
 							set $@gdevents_a$,.@chk_yourgdname$;
@@ -299,8 +299,8 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 						set $@gdeventv_a1,0;
 						set $@gdevents_a$,"";
 						mes "[Morestone]";
-						mes "I will tell you how to find him.";
-						mes "Kublin wears a ridiculous golden hat, It should be easy to recognise him by that.";
+						mes "Aku akan memberitahumu cara menemukannya.";
+						mes "Kublin memakai topi emas yang konyol. Seharusnya mudah mengenalinya dari itu.";
 						close;
 					}
 				case 2:
@@ -331,7 +331,7 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 				mes "Oh, kamu anggotanya.";
 				mes "Apakah kamu ingin pergi ke area misterius itu?";
 				next;
-				switch(select("Let's go.:No, thanks.")) {
+				switch(select("Ayo pergi.:Tidak, terima kasih.")) {
 				case 1:
 					mes "[Morestone]";
 					mes "Aku harap kamu menikmatinya, temanku.";
@@ -349,8 +349,8 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 				set $@gdeventv_a1,1;
 				set $@gdevents_a$,.@chk_yourgdname$;
 				mes "[Dwarf]";
-				mes "Help me!";
-				mes "Please, help me!";
+				mes "Tolong aku!";
+				mes "Kumohon, tolong aku!";
 				next;
 				switch(select("Apa yang terjadi?:Tidak jadi.")) {
 				case 1:
@@ -358,43 +358,43 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 					mes "Aku Morestone dan aku mengumpulkan permata langka.";
 					next;
 					mes "[Morestone]";
-					mes "In my travels, I was told that there were a lot of gems in Valfreyja and Nidhoggur, so I came down here.";
-					mes "But here, the soil is very hard to dig into. Fortunately, my ^3131FFPickaxe^000000 never lets me down!";
+					mes "Dalam perjalananku, aku diberitahu bahwa ada banyak permata di Valfreyja dan Nidhoggur, jadi aku datang ke sini.";
+					mes "Tapi di sini, tanahnya sangat keras untuk digali. Untungnya, ^3131FFBelanku^000000 tidak pernah mengecewakanku!";
 					next;
 					select("Belang!");
 					mes "[Morestone]";
-					mes "Yes, my beloved pickaxe!";
-					mes "I always carry it with me, you know?";
+					mes "Ya, belang kesayanganku!";
+					mes "Aku selalu membawanya, kamu tahu?";
 					next;
 					mes "[Morestone]";
-					mes "We started working here together.";
-					mes "After a few days, we finally found something!";
+					mes "Kami mulai bekerja di sini bersama.";
+					mes "Setelah beberapa hari, akhirnya kami menemukan sesuatu!";
 					next;
 					select("Sesuatu yang aneh??");
 					mes "[Morestone]";
-					mes "No, but it was worth quite a lot.";
-					mes "But we did not have much time to celebrate. Suddenly, a monster appeared that stole my pickaxe.";
-					mes "His name was^3131FFKublin^000000!";
+					mes "Tidak, tapi nilainya cukup besar.";
+					mes "Tapi kami tidak punya banyak waktu untuk merayakan. Tiba-tiba, seekor monster muncul dan mencuri belangku.";
+					mes "Namanya ^3131FFKublin^000000!";
 					next;
 					mes "[Morestone]";
-					mes "He stole my Pickaxe!";
-					mes "I can't live without it...";
+					mes "Dia mencuri Belangku!";
+					mes "Aku tidak bisa hidup tanpanya...";
 					next;
 					if (countitem(6010) > 0) {
 						mes "[" + strcharinfo(0) + "]";
 						mes "Apakah ini belang yang kamu cari?";
 						next;
 						mes "[Morestone]";
-						mes "You found my Pickaxe?";
-						mes "Show me, please!";
+						mes "Kamu menemukan Belangku?";
+						mes "Tunjukkan padaku!";
 						next;
 						mes "[Morestone]";
-						mes "Oh, my! You've returned it to me!";
-						mes "My precious pickaxe, I thought I lost you forever.";
+						mes "Ya ampun! Kamu mengembalikannya padaku!";
+						mes "Belangku yang berharga, aku pikir aku kehilanganmu selamanya.";
 						next;
 						mes "[Morestone]";
-						mes "You are great! What guild are you from?";
-						mes "Could it be Gravity or Mercury?";
+						mes "Kamu hebat! Dari guild mana kamu?";
+						mes "Apakah itu Gravity atau Mercury?";
 						next;
 						mes "[" + strcharinfo(0) + "]";
 						mes "Aku adalah anggota dari ^3131FF"+.@chk_yourgdname$+"^.";
@@ -403,20 +403,20 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 						mes "Oh... Guild itu akan mendapat penghormatan terbesarku.";
 						next;
 						mes "[Morestone]";
-						mes "Oh! My friend, I am very grateful for your help.";
-						mes "As a reward, I will tell you about a mysterious area I have discovered recently.";
+						mes "Oh! Temanku, aku sangat berterima kasih atas bantuanmu.";
+						mes "Sebagai hadiah, aku akan memberitahumu tentang area misterius yang baru saja aku temukan.";
 						next;
 						select("Area misterius?");
 						mes "[Morestone]";
-						mes "That's right. I found it when I was digging around here.";
-						mes "It looks like it was made for some special purpose, but since there are no gems around there, I have no interest in it.";
+						mes "Benar sekali. Aku menemukannya saat menggali di sekitar sini.";
+						mes "Sepertinya dibuat untuk tujuan khusus, tapi karena tidak ada permata di sana, aku tidak tertarik.";
 						next;
 						mes "[Morestone]";
 						mes "Daripada pergi sendirian, kurasa akan lebih menyenangkan pergi bersama teman-temanmu...";
 						next;
 						mes "[Morestone]";
-						mes "If you want, I can take ^3131FFyou and your guild members^000000 to explore that area.";
-						mes "Do you want to go there now?";
+						mes "Jika kamu mau, aku bisa mengajak ^3131FFkamu dan anggota guild-mu^000000 untuk menjelajahi area itu.";
+						mes "Apakah kamu ingin pergi sekarang?";
 						next;
 						switch(select("Tunggu! Aku belum siap.:Ayo pergi!")) {
 						case 1:
@@ -427,9 +427,9 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 							close;
 						case 2:
 							mes "[Morestone]";
-							mes "Alright! Let's go.";
-							mes "If your friends visit me again later, I will guide them to that area again.";
-							mes "Don't forget, dwarves are grateful beings! Hahaha!";
+							mes "Baiklah! Ayo pergi.";
+							mes "Jika teman-temanmu mengunjungiku lagi nanti, aku akan mengantar mereka ke area itu lagi.";
+							mes "Jangan lupa, kurcaci adalah makhluk yang penuh rasa syukur! Hahaha!";
 							delitem 6010,1; //Pickaxe
 							set $@gdeventv_a1,1;
 							set $@gdevents_a$,.@chk_yourgdname$;
@@ -443,8 +443,8 @@ arug_dun01,199,195,5	script	Dwarf#aru_gd	826,{
 						set $@gdeventv_a1,0;
 						set $@gdevents_a$,"";
 						mes "[Morestone]";
-						mes "I will tell you how to find him.";
-						mes "Kublin wears a ridiculous golden hat, It should be easy to recognise him by that.";
+						mes "Aku akan memberitahumu cara menemukannya.";
+						mes "Kublin memakai topi emas yang konyol. Seharusnya mudah mengenalinya dari itu.";
 						close;
 					}
 				case 2:
@@ -1521,7 +1521,7 @@ arug_dun01,5,5,1	script	Event controller#aru_gd	81,{
 	} else {
 		mes "How can I help you?";
 		next;
-		switch(select("Reset.:No, thanks.")) {
+		switch(select("Reset.:Tidak, terima kasih.")) {
 		case 1:
 			mes "Completed.";
 			donpcevent "Monster Controler1#aru::OnControler1#aru_gd";

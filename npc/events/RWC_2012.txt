@@ -16,37 +16,37 @@
 prontera,147,61,3	script	Driller#pron	87,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You're carrying too many items in your inventory. Visit Kafra storage and try again.";
+		mes "Kamu membawa terlalu banyak item di inventaris. Kunjungi penyimpanan Kafra dan coba lagi.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "You cannot proceed because you're overweight.";
+		mes "Kamu tidak bisa melanjutkan karena kelebihan berat.";
 		close;
 	}
 	set .@part, EQI_ACC_L;
 	if (!getequipisequiped(.@part)) {
 		mes "[Driller]";
-		mes "My job is to drill a card slot into RWC Memorial accessories.";
+		mes "Tugasku adalah melubangi slot kartu pada aksesoris RWC Memorial.";
 		next;
 		mes "[Driller]";
-		mes "I'm sorry but you don't have any item equipped on your right accessory position.";
+		mes "Maaf, kamu tidak mempunyai item yang dipakai di posisi aksesoris kanan.";
 		close;
 	}
 	mes "[Driller]";
-	mes "My job is to drill a card slot into RWC Memorial accessories. Moreover, I only treat ^ff0000pure items^000000, or those which have not been enchanted.";
+	mes "Tugasku adalah melubangi slot kartu pada aksesoris RWC Memorial. Moreover, I only treat ^ff0000pure items^000000, or those which have not been enchanted.";
 	next;
 	set .@equip_id, getequipid(.@part);
 	if (.@equip_id != 2966 && .@equip_id != 2968) {
 		mes "[Driller]";
-		mes "However, I can see that the accessory you are wearing on the right side cannot be treated. Please equip a RWC Memorial accessory.";
+		mes "Namun, aku bisa melihat bahwa aksesoris yang kamu pakai di sisi kanan tidak bisa ditangani. Silakan pasang aksesoris RWC Memorial.";
 		close;
 	}
 	mes "[Driller]";
-	mes "You should also know that making a card slot it extremely dangerous. ^ff0000Chances to succeed are about 50%.^000000 Do you wish to proceed?";
+	mes "Kamu juga harus tahu bahwa membuat slot kartu itu sangat berbahaya. ^ff0000Peluang berhasil sekitar 50%.^000000 Apakah kamu ingin melanjutkan?";
 	next;
-	if(select("Cancel:Let's go!") == 1) {
+	if(select("Batal:Ayo!") == 1) {
 		mes "[Driller]";
-		mes "See ya then.";
+		mes "Sampai jumpa kalau begitu.";
 		close;
 	}
 	if (.@equip_id == 2966) {
@@ -59,12 +59,12 @@ prontera,147,61,3	script	Driller#pron	87,{
 		set .@str$,"pendant";
 	} else {
 		mes "[Driller]";
-		mes "I can't identify the accessory item you're wearing on your right hand. I can't work on it.";
+		mes "Aku tidak bisa mengidentifikasi item aksesoris yang kamu pakai di tangan kanan. Aku tidak bisa mengerjakannya.";
 		close;
 	}
 	if (getequipcardid(.@part,3) > 0) {
 		mes "[Driller]";
-		mes "This item has already been enchanted. I can't work on this as it is against the rules.";
+		mes "Item ini sudah di-enchant. Aku tidak bisa mengerjakan ini karena melanggar aturan.";
 		close;
 	}
 
@@ -77,12 +77,12 @@ prontera,147,61,3	script	Driller#pron	87,{
 		getitem .@slotted,1;
 		specialeffect2 EF_REPAIRWEAPON;
 		mes "[Driller]";
-		mes "Yay! Success! Your "+.@name$+" now has a card slot. Check it out!";
+		mes "Hore! Berhasil! "+.@name$+" sekarang punya slot kartu. Coba lihat!";
 		close;
 	} else {
 		specialeffect2 EF_LORD;
 		mes "[Driller]";
-		mes "Awww... Damn weak "+.@str$+"... It broke during the procedure. I'm sorry.";
+		mes "Aduh... Lemah sekali "+.@str$+"... Pecah selama prosedur. Aku minta maaf.";
 		close;
 	}
 }
@@ -90,32 +90,32 @@ prontera,147,61,3	script	Driller#pron	87,{
 prontera,147,59,3	script	Goldberg#pron	878,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You are carrying too many items. Come back after you have organized your inventory.";
+		mes "Kamu membawa terlalu banyak item. Kembali setelah kamu merapikan inventarismu.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "You cannot proceed because you're overweight.";
+		mes "Kamu tidak bisa melanjutkan karena kelebihan berat.";
 		close;
 	}
 	mes "[Goldberg]";
-	mes "Hello! I am in charge of enchanting RWC Memorial accessories with some mystic powers.";
+	mes "Halo! Aku bertugas meng-enchant aksesoris RWC Memorial dengan kekuatan mistis.";
 	next;
 	set .@part, EQI_ACC_L;
 	if (!getequipisequiped(.@part)) {
 		mes "[Goldberg]";
-		mes "I'm sorry but you don't have any item equipped on your right accessory position.";
+		mes "Maaf, kamu tidak mempunyai item yang dipakai di posisi aksesoris kanan.";
 		close;
 	}
 	set .@equip_id, getequipid(.@part);
 	if (.@equip_id < 2966 || .@equip_id > 2969) {
 		mes "[Goldberg]";
-		mes "However, I can see that the accessory you are wearing is not something I can work on. Please equip a RWC Memorial accessory.";
+		mes "Namun, aku bisa melihat bahwa aksesoris yang kamu pakai bukan sesuatu yang bisa aku kerjakan. Silakan pasang aksesoris RWC Memorial.";
 		close;
 	}
-	set .@select, select("Sorry, not interested.:Please, empower my accessory.:Remove the Enchant.")-1;
+	set .@select, select("Maaf, tidak tertarik.:Tolong, perkuat aksesoriku.:Hapus Enchant.")-1;
 	if (.@select == 0) {
 		mes "[Goldberg]";
-		mes "Alright, then, see you next time...";
+		mes "Baiklah, sampai jumpa lain waktu...";
 		close;
 	}
 	setarray .@equip_card[0], getequipcardid(.@part,0),getequipcardid(.@part,1),getequipcardid(.@part,2),getequipcardid(.@part,3);
@@ -135,8 +135,8 @@ prontera,147,59,3	script	Goldberg#pron	878,{
 			break;
 		default:
 			mes "[Goldberg]";
-			mes "I'm sorry, but I cannot work on the accessory you are currently wearing.";
-			mes "If you have equipped your RWC Memorial accessory on the left side, try to swap it to the right side.";
+			mes "Maaf, tapi aku tidak bisa mengerjakan aksesoris yang sedang kamu pakai.";
+			mes "Jika kamu memasang aksesoris RWC Memorial di sisi kiri, coba pindahkan ke sisi kanan.";
 			close;
 		}
 		for(set .@i,3; .@i>=0; set .@i,.@i-1) {
@@ -149,51 +149,51 @@ prontera,147,59,3	script	Goldberg#pron	878,{
 		switch(.@op_type) {
 		case 4:
 			mes "[Goldberg]";
-			mes "Which enchantment would you like to infuse?";
+			mes "Enchantment mana yang ingin kamu infus?";
 			next;
 			setarray .@enchant_select[0],1,2,3,4;
-			set .@i, select("Cancel:Fighting Spirit:ATK (%):Max HP:HP")-2;
+			set .@i, select("Batal:Fighting Spirit:ATK (%):Max HP:HP")-2;
 			break;
 		case 3:
 			setarray .@enchant_select[0],5,6,7;
-			set .@i, select("Cancel:Spell:MATK (%):SP")-2;
+			set .@i, select("Batal:Spell:MATK (%):SP")-2;
 			break;
 		case 2:
 			mes "[Goldberg]";
-			mes "^ff0000Be careful! There is about a 25% chance that the enchantment will fail. If this happens, the item will be destroyed.^000000 Which enchantment would you like to infuse?";
+			mes "^ff0000Be careful! There is about a 25% chance that the enchantment will fail. If this happens, the item will be destroyed.^000000 Enchantment mana yang ingin kamu infus?";
 			next;
 			setarray .@enchant_select[0],8,9,10,11,12,13,14;
-			set .@i, select("Cancel:STR:AGI:VIT:INT:DEX:LUK:SP")-2;
+			set .@i, select("Batal:STR:AGI:VIT:INT:DEX:LUK:SP")-2;
 			break;
 		case 1:
 			mes "[Goldberg]";
-			mes "^ff0000There is about a 25% chance that the enchantment will fail. If this happens, the item will be destroyed.^000000 Which enchantment would you like to infuse?";
+			mes "^ff0000There is about a 25% chance that the enchantment will fail. If this happens, the item will be destroyed.^000000 Enchantment mana yang ingin kamu infus?";
 			next;
 			setarray .@enchant_select[0],8,9,10,11,12,13,15,16;
-			set .@i, select("Cancel:STR:AGI:VIT:INT:DEX:LUK:MHP:HP")-2;
+			set .@i, select("Batal:STR:AGI:VIT:INT:DEX:LUK:MHP:HP")-2;
 			break;
 		case 0:
 			mes "[Goldberg]";
-			mes "Your accessory has received so many enchantments that I can hardly work on it anymore.";
+			mes "Aksesorismu sudah menerima terlalu banyak enchantment sehingga aku hampir tidak bisa mengerjakannya lagi.";
 			close;
 		}
 		if (.@i == -1) {
 			mes "[Goldberg]";
-			mes "Alright, then, see you next time.";
+			mes "Baiklah, sampai jumpa lain waktu.";
 			close;
 		}
 		mes "[Goldberg]";
-		mes "The power of the enchantment will be randomly chosen. ^ff0000Once infused, the enchantment cannot be removed.^000000 Shall we continue?";
+		mes "Kekuatan enchantment akan dipilih secara acak. ^ff0000Setelah diinfus, enchantment tidak bisa dihapus.^000000 Apakah kita lanjutkan?";
 		next;
-		if(select("No, please stop.:Yes, please proceed.") == 1) {
+		if(select("Tidak, tolong berhenti.:Ya, silakan lanjutkan.") == 1) {
 			mes "[Goldberg]";
-			mes "Alright, then, see you next time...";
+			mes "Baiklah, sampai jumpa lain waktu...";
 			close;
 		}
 		set .@enchant_type, .@enchant_select[.@i];
 		if (!getequipisequiped(.@part)) {
 			mes "[Goldberg]";
-			mes "Do not take off your equipment while I'm working, okay?";
+			mes "Jangan lepas perlengkapanmu saat aku sedang bekerja, oke?";
 			close;
 		}
 		switch(.@enchant_type) {
@@ -247,7 +247,7 @@ prontera,147,59,3	script	Goldberg#pron	878,{
 			break;
 		default:
 			mes "[Goldberg]";
-			mes "We have got a problem, let me check it up.";
+			mes "Ada masalah, biarkan aku memeriksanya.";
 			close;
 		}
 
@@ -282,18 +282,18 @@ prontera,147,59,3	script	Goldberg#pron	878,{
 		delequip .@part;
 		if (.@enchant == 9) {
 			mes "[Goldberg]";
-			mes "Oh gosh!";
- 			mes "The item was not strong enough to bear the enchantment and thus got destroyed. I am sorry.";
+			mes "Ya ampun!";
+ 			mes "Item tidak cukup kuat untuk menahan enchantment dan akhirnya hancur. Maafkan aku.";
 			specialeffect2 EF_LORD;
 			close;
 		}
 		if (.@enchant == 0) { // Should never happen.
 			mes "[Goldberg]";
-			mes "Oh... It looks like there was an instability of some sort between all the powers infused. This caused all the enchantments to vanish. It is a shame, but please try again!";
+			mes "Oh... Sepertinya ada ketidakstabilan antara semua kekuatan yang diinfus. Ini menyebabkan semua enchantment menghilang. Sayang sekali, tapi silakan coba lagi!";
 		} else {
 			mes "[Goldberg]";
-			mes "Great!";
-			mes "The enchantment is a success! It will be applied in socket No.^990000"+(.@slot+1)+"^000000.";
+			mes "Bagus!";
+			mes "Enchantment berhasil! Akan diterapkan di socket No.^990000"+(.@slot+1)+"^000000.";
 			specialeffect2 EF_REPAIRWEAPON;
 		}
 
@@ -303,26 +303,26 @@ prontera,147,59,3	script	Goldberg#pron	878,{
 		close;
 	} else if (.@select == 2) {
 		mes "[Goldberg]";
-		mes "I will just initialize the enchant option without doing anything to the slotted card. You wanna continue?";
+		mes "Aku akan menginisialisasi opsi enchant tanpa melakukan apapun pada kartu yang terpasang. Mau lanjut?";
 		next;
-		if(select("I will stop.:Yep, sure, go on.") == 1) {
+		if(select("Aku berhenti.:Ya, tentu, lanjutkan.") == 1) {
 			mes "[Goldberg]";
-			mes "Come back if you change your mind.";
+			mes "Kembali jika kamu berubah pikiran.";
 			close;
 		}
 		if (countitem(6665) == 0) {
 			mes "[Goldberg]";
-			mes "I'm sorry. But you don't have the RWC Initialization coupon. Can you check your inventory?";
+			mes "Maaf. Tapi kamu tidak punya kupon Inisialisasi RWC. Bisa cek inventarismu?";
 			close;
 		}
 		if (getiteminfo(.@equip_card[3], ITEMINFO_SUBTYPE) != CARD_ENCHANT) {
 			mes "[Goldberg]";
-			mes "Hm... this equipment is clean. I cannot initialize it if there's nothing! Check it again.";
+			mes "Hm... perlengkapan ini bersih. Aku tidak bisa menginisialisasi jika tidak ada apa-apa! Cek lagi.";
 			close;
 		}
 		specialeffect2 EF_REPAIRWEAPON;
 		mes "[Goldberg]";
-		mes "The enchant option in your item will be initialized.";
+		mes "Opsi enchant pada itemmu akan diinisialisasi.";
 		delitem 6665,1; //RWC_Inicializer
 		delequip .@part;
 	
