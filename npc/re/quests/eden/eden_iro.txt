@@ -21,7 +21,7 @@
 //============================================================
 moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 	mes "[Aperture]";
-	mes "Hello there, adventurer.";
+	mes "Hola, aventurero.";
 	mes "I've been studying magic from all over Midgard to upgrade what I believe to be one of the greatest skills available to the acolyte class.";
 	next;
 
@@ -38,14 +38,14 @@ moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 	mes "One day I will level up my skills to warp to wherever I please~";
 	next;
 	mes "[Aperture]";
-	mes "I am willing to warp you to the many locations that I have memorized for a small fee.";
-	mes "Would you like to use this service?";
+	mes "Estoy dispuesto a teletransportarte a las muchas ubicaciones que he memorizado por una pequena tarifa.";
+	mes "Te gustaria usar este servicio?";
 	next;
 	switch(select("Yes:No")) {
 	case 1:
 		mes "[Aperture]";
-		mes "Where would you like to go to?";
-		mes "I wish you goodluck on your journey.";
+		mes "A donde te gustaria ir?";
+		mes "Te deseo buena suerte en tu viaje.";
 		next;
 
 		setarray .@towns$[0], "Prontera", "Izlude", "Geffen", "Payon", "Morocc", "Alberta", "Al De Baran", "Comodo", "Umbala", "Juno", "Einbroch", "Lighthalzen", "Hugel", "Rachel";
@@ -57,7 +57,7 @@ moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 		set .@i, select(.@menu$+"Cancel")-1;
 		if (.@i == .@size) {
 			mes "[Aperture]";
-			mes "Come back when you need a warp.";
+			mes "Regresa cuando necesites un teletransporte.";
 			close;
 		}
 		if (Zeny < .@cost[.@i]) {
@@ -92,7 +92,7 @@ moc_para01,14,32,5	script	Aperture#acolytewarp	90,{
 		close;
 	case 2:
 		mes "[Aperture]";
-		mes "Come back when you need a warp.";
+		mes "Regresa cuando necesites un teletransporte.";
 		close;
 	}
 }
@@ -282,7 +282,7 @@ moc_para01,166,51,3	script	Phelix#edco	85,{
 	}
 	if (checkweight(515,.@amount) == 0) {
 		mes "[Phelix]";
-		mes "You are overweight.";
+		mes "Estas sobrecargado.";
 		close;
 	}
 	mes "[Phelix]";
@@ -371,7 +371,7 @@ moc_para01,163,51,7	script	Izaac#edco	86,{
 		}
 		if (checkweight(501,.@amount) == 0) { //custom check
 			mes "[Izaac]";
-			mes "You are overweight.";
+			mes "Estas sobrecargado.";
 			close;
 		}
 		delitem .@item,.@trade_amount;
@@ -408,7 +408,7 @@ moc_para01,50,39,4	script	Eve Natalia	882,{
 	mes "[Eve Natalia]";
 	mes "So do you have any of the gears I'm looking for to get some random Safe to 7 Certificates?";
 	next;
-	switch(select("What gear?:Yes I am!:Never mind.")) {
+	switch(select("Que equipo?:Yes I am!:Never mind.")) {
 	case 1:
 		mes "[Eve Natalia]";
 		mes "Nidhoggur's Shadow Garb 4 Random Safe to 7 Certificates";

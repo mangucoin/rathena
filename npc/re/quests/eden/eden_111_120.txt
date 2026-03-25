@@ -19,7 +19,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 	mes "[Mingmin]";
 	if (!callfunc("F_HasEdenGroupMark")) {
 		cutin "min02",0;
-		mes "A stranger. This place is supposed to be for Eden Group Members only.";
+		mes "Un extrano. Este lugar se supone que es solo para miembros del Grupo Eden.";
 		mes "I'm in need base level ^FF0000111 - 120^000000 adventurers to help my research.";
 	}
 	else if (para_110lv01 == 0) {
@@ -308,45 +308,45 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 				}
 				else if (para_110lv01 > 4) {
 					cutin "min01",0;
-					mes "We need some more information on the following monsters. Choose.";
+					mes "Necesitamos mas informacion sobre los siguientes monstruos. Elige.";
 					next;
-					switch( select( "Glastheim related requests", "Thanatos tower related requests", "Ash Vacuum related requests", "Mingmin's personal request" ) ) {
+					switch( select( "Solicitudes relacionadas a Glastheim", "Solicitudes relacionadas a la Torre Thanatos", "Solicitudes relacionadas al Ash Vacuum", "Mingmin's personal request" ) ) {
 						mes "[Mingmin]";
 					case 1:
-						mes "I heard something is going on in Glastheim. Monsters are afoot.";
+						mes "Escuche que algo esta pasando en Glastheim. Los monstruos estan al acecho.";
 						next;
-						switch( select( "Raydric Research", "Khalitzberg Research", "Wanderer Research" ) ) {
+						switch( select( "Investigacion de Raydric", "Investigacion de Khalitzberg", "Investigacion de Wanderer" ) ) {
 							mes "[Mingmin]";
 						case 1:
 							if (checkquest(13068,PLAYTIME) == 0)
 								mes "Raydric's research is going well. It is better off having more samples to research.!";
 							else if (checkquest(13067,HUNTING) == 1) {
-								cutin "·¹ÀÌµå¸¯Ä«µå",3;  //daydric_card
+								cutin "ï¿½ï¿½ï¿½Ìµå¸¯Ä«ï¿½ï¿½",3;  //daydric_card
 								mes "You can find Raydric in the west entrance or on the 2nd floor of Glastheim.";
 								next;
 								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Raydric^000000's.";
+								mes "Necesito informacion y documentos sin importar lo que pase. Come back to me after dealing with ^FF000030 Raydric^000000's.";
 								next;
 								cutin "min01",0;
 								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record for the research!";
+								mes "La experiencia que aprendas peleando con monstruos sera un buen registro para la investigacion!";
 							}
 							else if (checkquest(13067,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How do you feel dealing with tough monsters? Good documents and good experience to you as well.";
+								mes "Como te sientes enfrentando monstruos fuertes? Buenos documentos y buena experiencia para ti tambien.";
 								callsub S_Quest,13067,13068,700000,200000;
 							}
 							else {
-								cutin "·¹ÀÌµå¸¯Ä«µå",3;  //daydric_card
+								cutin "ï¿½ï¿½ï¿½Ìµå¸¯Ä«ï¿½ï¿½",3;  //daydric_card
 								mes "Something is happening in Glastheim. And that clue is in Raydrics that is information I have.";
 								next;
 								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Raydric^000000's.";
+								mes "Necesito informacion y documentos sin importar lo que pase. Come back to me after dealing with ^FF000030 Raydric^000000's.";
 								next;
 								cutin "min01",0;
 								if (select( "Take the request.", "Quit" ) == 1) {
 									mes "[Mingmin]";
-									mes "Please come back to me after dealing with the monsters. I need all your stories for documentation.";
+									mes "Por favor regresa despues de enfrentar a los monstruos. Necesito todas tus historias para documentacion.";
 									callsub S_Quest,13068,13067;
 								}
 							}
@@ -355,32 +355,32 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13070,PLAYTIME) == 0)
 								mes "Khalitzburg's research is going well. It is better off having more samples to research!";
 							else if (checkquest(13069,HUNTING) == 1) {
-								cutin "½ºÄÌ³ªÀÌÆ®Ä«µå",3;  //skullknight_card
+								cutin "ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½Æ®Ä«ï¿½ï¿½",3;  //skullknight_card
 								mes "Khalitzburg will be found in west entrance of Glastheim.";
 								next;
 								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Khalitzburg's^000000";
+								mes "Necesito informacion y documentos sin importar lo que pase. Come back to me after dealing with ^FF000030 Khalitzburg's^000000";
 								next;
 								cutin "min01",0;
 								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record for the research!";
+								mes "La experiencia que aprendas peleando con monstruos sera un buen registro para la investigacion!";
 							}
 							else if (checkquest(13069,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How do you feel of dealing with tough monsters? Good documents and good experience to you as well.";
+								mes "Como te sientes enfrentando monstruos fuertes? Buenos documentos y buena experiencia para ti tambien.";
 								callsub S_Quest,13069,13070,700000,200000;
 							}
 							else {
-								cutin "½ºÄÌ³ªÀÌÆ®Ä«µå",3;  //skullknight_card
+								cutin "ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½Æ®Ä«ï¿½ï¿½",3;  //skullknight_card
 								mes "Maybe Khalitzburg is linked to what is happening in glastheim so lets research it.";
 								next;
 								mes "[Mingmin]";
-								mes "I need information and document no matter what happens. Come back to me after dealing with ^FF000030 Khalitzburg's^000000";
+								mes "Necesito informacion y documentos sin importar lo que pase. Come back to me after dealing with ^FF000030 Khalitzburg's^000000";
 								next;
 								cutin "min01",0;
 								if (select( "Take the request.", "Quit" ) == 1) {
 									mes "[Mingmin]";
-									mes "Please tell me the story after dealing with them one by one. They will be important documents...";
+									mes "Por favor cuentame la historia despues de enfrentarlos uno por uno. Seran documentos importantes...";
 									callsub S_Quest,13070,13069;
 								}
 							}
@@ -389,23 +389,23 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13072,PLAYTIME) == 0)
 								mes "Wanderer's research is going well. It is better off having more samples to research!";
 							else if (checkquest(13071,HUNTING) == 1) {
-								cutin "¹èÈ¸ÇÏ´ÂÀÚÄ«µå",3;  //wander_man_card
+								cutin "ï¿½ï¿½È¸ï¿½Ï´ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //wander_man_card
 								mes "Wanderer will be found if you enter from the north entrance and go to big entrance in the middle of the road in Glastheim.";
 								next;
 								mes "[Mingmin]";
-								mes "I need information and documents no matter what happens. How about dealing with ^FF000030 Wanderers^000000.";
+								mes "Necesito informacion y documentos sin importar lo que pase. How about dealing with ^FF000030 Wanderers^000000.";
 								next;
 								cutin "min01",0;
 								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record for the research!";
+								mes "La experiencia que aprendas peleando con monstruos sera un buen registro para la investigacion!";
 							}
 							else if (checkquest(13071,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "How do you feel of dealing with tough monsters? Good documents and good experience to you as well.";
+								mes "Como te sientes enfrentando monstruos fuertes? Buenos documentos y buena experiencia para ti tambien.";
 								callsub S_Quest,13071,13072,700000,200000;
 							}
 							else {
-								cutin "¹èÈ¸ÇÏ´ÂÀÚÄ«µå",3;  //wander_man_card
+								cutin "ï¿½ï¿½È¸ï¿½Ï´ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //wander_man_card
 								mes "Wanderer is the representative of Glastheim. It is dangerous but cool!";
 								next;
 								mes "[Mingmin]";
@@ -414,7 +414,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								cutin "min01",0;
 								if (select( "Take the request.", "Quit" ) == 1) {
 									mes "[Mingmin]";
-									mes "Please tell me the story after dealing with them one by one. They will be important documents...";
+									mes "Por favor cuentame la historia despues de enfrentarlos uno por uno. Seran documentos importantes...";
 									emotion ET_BEST;
 									callsub S_Quest,13072,13071;
 								}
@@ -422,15 +422,15 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 						}
 						break;
 					case 2:
-						mes "We need to research monsters in Thanatos tower.";
+						mes "Necesitamos investigar monstruos en la Torre Thanatos.";
 						next;
-						switch( select( "Ancient Mimic research", "Deathword research", "Owl Baron research", "Bloody Page research" ) ) {
+						switch( select( "Investigacion de Ancient Mimic", "Investigacion de Deathword", "Investigacion de Owl Baron", "Investigacion de Bloody Page" ) ) {
 							mes "[Mingmin]";
 						case 1:
 							if (checkquest(13074,PLAYTIME) == 0)
 								mes "Ancient mimic research is going well. It is better off having more samples for the research!";
 							else if (checkquest(13073,HUNTING) == 1) {
-								cutin "¿¡ÀÎ¼ÇÆ®¹Ì¹Í",3;  //ancient_mimic_card
+								cutin "ï¿½ï¿½ï¿½Î¼ï¿½Æ®ï¿½Ì¹ï¿½",3;  //ancient_mimic_card
 								mes "It is not far if you move from Juno or Hugel to Thanatos or Abyss lake.";
 								next;
 								mes "[Mingmin]";
@@ -438,15 +438,15 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								next;
 								cutin "min01",0;
 								mes "[Mingmin]";
-								mes "The experience you learn by fighting with monsters will be a good record to research!";
+								mes "La experiencia que aprendas peleando con monstruos sera un buen registro para la investigacion!";
 							}
 							else if (checkquest(13073,HUNTING) == 2) {
 								cutin "min02",0;
-								mes "You did good work today!";
+								mes "Hiciste un buen trabajo hoy!";
 								callsub S_Quest,13073,13074,700000,300000;
 							}
 							else {
-								cutin "¿¡ÀÎ¼ÇÆ®¹Ì¹Í",3;  //ancient_mimic_card
+								cutin "ï¿½ï¿½ï¿½Î¼ï¿½Æ®ï¿½Ì¹ï¿½",3;  //ancient_mimic_card
 								mes "You will see them often at thanatos tower or abyss lake. They are not generous with their drops but that is not important to finishing this request.";
 								next;
 								mes "[Mingmin]";
@@ -471,7 +471,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								mes "I want to research this so take this request please!";
 								next;
 								mes "[Mingmin]";
-								mes "I will give you a reward...";
+								mes "Te dare una recompensa...";
 							}
 							else if (checkquest(13075,HUNTING) == 2) {
 								cutin "min03",0;
@@ -496,23 +496,23 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13078,PLAYTIME) == 0)
 								mes "Owl Baron's research is going well. It is better off having more samples for the research!";
 							else if (checkquest(13077,HUNTING) == 1) {
-								cutin "¾Æ¿ï¹Ù·ÐÄ«µå",3;  //owl_baron_card
+								cutin "ï¿½Æ¿ï¿½Ù·ï¿½Ä«ï¿½ï¿½",3;  //owl_baron_card
 								mes "You can meet it if you climb the tower according to the rumors. For me, well I've never been up there.";
 								next;
 								mes "[Mingmin]";
 								mes "The guy with blue hat went to the top but I didn't bother to follow.";
 								next;
 								mes "[Mingmin]";
-								mes "Anyways, There will be enough reward for sure.";
+								mes "Anyways, Habra suficiente recompensa, seguro.";
 								cutin "min01",0;
 							}
 							else if (checkquest(13077,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Safely back!? Eden Group will be happy.";
+								mes "Regresaste a salvo!? El Grupo Eden estara contento.";
 								callsub S_Quest,13077,13078,700000,300000;
 							}
 							else {
-								cutin "¾Æ¿ï¹Ù·ÐÄ«µå",3;  //owl_baron_card
+								cutin "ï¿½Æ¿ï¿½Ù·ï¿½Ä«ï¿½ï¿½",3;  //owl_baron_card
 								mes "Personally I have no interest in this monster but it was requested from the Eden Group.";
 								next;
 								mes "[Mingmin]";
@@ -539,19 +539,19 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 									callsub S_Quest,13079,13080,700000,300000;
 								}
 								else {
-									cutin "µ¥½º¿öµå",3;  //deathword_card
+									cutin "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",3;  //deathword_card
 									mes "3rd floor of thanatos has Deathword monsers that drop these bloody pages.";
 									next;
 									mes "[Mingmin]";
 									mes "I think if thou shalt collect 20 of these it should be enough for my research. It's barbaric, but it is a job!";
 									next;
 									mes "[Mingmin]";
-									mes "There will be enough reward for sure.";
+									mes "Habra suficiente recompensa, seguro.";
 									cutin "min01",0;
 								}
 							}
 							else {
-								cutin "µ¥½º¿öµå",3;  //deathword_card
+								cutin "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",3;  //deathword_card
 								mes "The fact that I decided to travel to Thanatos has the reason. Haha, I heard that I can get Bloody Pages from Deathword monsters.";
 								next;
 								mes "[Mingmin]";
@@ -570,28 +570,28 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 						}
 						break;
 					case 3:
-						mes "The research for Ash Vacuum is just beginning. So there are still many thing to study!";
+						mes "La investigacion del Ash Vacuum apenas comienza. Asi que aun hay muchas cosas que estudiar!";
 						next;
-						switch( select( "Dark Pinguicula research", "Nepenthes research", "Naga research", "Centipede Larva research", "Cornus research", "We know the magic power of the horn we saw that day." ) ) {
+						switch( select( "Investigacion de Dark Pinguicula", "Investigacion de Nepenthes", "Investigacion de Naga", "Investigacion de Centipede Larva", "Investigacion de Cornus", "We know the magic power of the horn we saw that day." ) ) {
 							mes "[Mingmin]";
 						case 1:
 							if (checkquest(13082,PLAYTIME) == 0)
 								mes "Pinguicula dark's research is ongoing. Please come back to me next time.!";
 							else if (checkquest(13081,HUNTING) == 1) {
-								cutin "ÇÉ±ÍÅ§¶ó´ÙÅ©Ä«µå",3;  //pinguicula_dark_card
+								cutin "ï¿½É±ï¿½Å§ï¿½ï¿½ï¿½Å©Ä«ï¿½ï¿½",3;  //pinguicula_dark_card
 								mes "I think this research is easy. They are not too dangerous from the initial reports I've received.";
 								next;
 								mes "[Mingmin]";
-								mes "It is north west from the Allied Forces Camp. It is not that far so hurry up.";
+								mes "It is north west from the Allied Forces Camp. No esta tan lejos asi que apurate.";
 								cutin "min01",0;
 							}
 							else if (checkquest(13081,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Good job! keep helping my research. I still have so much to do.";
+								mes "Buen trabajo! Sigue ayudando con mi investigacion. Aun tengo mucho que hacer.";
 								callsub S_Quest,13081,13082,700000,180000;
 							}
 							else {
-								cutin "ÇÉ±ÍÅ§¶ó´ÙÅ©Ä«µå",3;  //pinguicula_dark_card
+								cutin "ï¿½É±ï¿½Å§ï¿½ï¿½ï¿½Å©Ä«ï¿½ï¿½",3;  //pinguicula_dark_card
 								mes "It is the monster living northwest of the Allied Forces Camp. I am not interested in going myself but the request was already paid for and I may as well research them.";
 								next;
 								mes "[Mingmin]";
@@ -600,7 +600,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								cutin "min01",0;
 								if (select( "Take the request.", "Quit" ) == 1) {
 									mes "[Mingmin]";
-									mes "Be careful and safe.";
+									mes "Ten cuidado y cuidate.";
 									callsub S_Quest,13082,13081;
 								}
 							}
@@ -609,20 +609,20 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13084,PLAYTIME) == 0)
 								mes "Nepenthes's research is still ongoing. Please come back to me next time!";
 							else if (checkquest(13083,HUNTING) == 1) {
-								cutin "³×Ææµ¥½ºÄ«µå",3;  //nepenthes_card
+								cutin "ï¿½ï¿½ï¿½æµ¥ï¿½ï¿½Ä«ï¿½ï¿½",3;  //nepenthes_card
 								mes "It could be a simple request or tough request. Try to find friends if you are in trouble. That is adventure too!";
 								next;
 								mes "[Mingmin]";
-								mes "It is east of the Allied Forces Camp. It is not that far so hurry up.";
+								mes "It is east of the Allied Forces Camp. No esta tan lejos asi que apurate.";
 								cutin "min01",0;
 							}
 							else if (checkquest(13083,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Good job! Keep assisting with my research. I still have so much to do.";
+								mes "Good job! Sigue ayudando con mi investigacion. Aun tengo mucho que hacer.";
 								callsub S_Quest,13083,13084,700000,180000;
 							}
 							else {
-								cutin "³×Ææµ¥½ºÄ«µå",3;  //nepenthes_card
+								cutin "ï¿½ï¿½ï¿½æµ¥ï¿½ï¿½Ä«ï¿½ï¿½",3;  //nepenthes_card
 								mes "Do you know the monster name as mandragora? There is similar monster to the east of the expedition station. I am sure it will be related for researching monsters.";
 								next;
 								mes "[Mingmin]";
@@ -640,7 +640,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13086,PLAYTIME) == 0)
 								mes "Naga's research is still ongoing. Please come back to me next time.";
 							else if (checkquest(13085,HUNTING) == 1) {
-								cutin "³ª°¡Ä«µå",3;  //naga_card
+								cutin "ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //naga_card
 								mes "You take care of those addicted to magic powers, I have no interest.";
 								next;
 								mes "[Mingmin]";
@@ -649,11 +649,11 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							}
 							else if (checkquest(13085,HUNTING) == 2) {
 								cutin "min03",0;
-								mes "Good. Keep helping my research. I have too many to check out.";
+								mes "Good. Sigue ayudando con mi investigacion. Tengo demasiados que revisar.";
 								callsub S_Quest,13085,13086,700000,180000;
 							}
 							else {
-								cutin "³ª°¡Ä«µå",3;  //naga_card
+								cutin "ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //naga_card
 								mes "Please take care of 30 ^FF0000Naga^000000 monsters northwest of the expedition station.";
 								next;
 								mes "[Mingmin]";
@@ -671,7 +671,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13088,PLAYTIME) == 0)
 								mes "I'm still researching the Centipede Larva. Please come and help me next time.";
 							else if (checkquest(13087,HUNTING) == 1) {
-								cutin "¼¾Æ¼Æäµ¥À¯ÃæÄ«µå",3;  //centipede_larva_card
+								cutin "ï¿½ï¿½Æ¼ï¿½äµ¥ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //centipede_larva_card
 								mes "Oh... No Lets take a deep breath. For me, I want to exterminate more than 20 for research.";
 								next;
 								emotion ET_CRY;
@@ -686,7 +686,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								callsub S_Quest,13087,13088,700000,180000;
 							}
 							else {
-								cutin "¼¾Æ¼Æäµ¥À¯ÃæÄ«µå",3;  //centipede_larva_card
+								cutin "ï¿½ï¿½Æ¼ï¿½äµ¥ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //centipede_larva_card
 								mes "Yuck! It is very disgusting. Look at me. It is so creepy I wanted to survey it because I was interested in Nepenthes. But I hate bugs with lots of legs...";
 								next;
 								mes "[Mingmin]";
@@ -704,7 +704,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13090,PLAYTIME) == 0)
 								mes "Cornus's research is still ongoing. Please research for other adventurers.";
 							else if (checkquest(13089,HUNTING) == 1) {
-								cutin "ÄÚ¸£´©½ºÄ«µå",3;  //cornus_card
+								cutin "ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //cornus_card
 								mes "I need to research those flying horse creatures so please help me out.";
 								next;
 								mes "[Mingmin]";
@@ -717,7 +717,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								callsub S_Quest,13089,13090,700000,180000;
 							}
 							else {
-								cutin "ÄÚ¸£´©½ºÄ«µå",3;  //cornus_card
+								cutin "ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //cornus_card
 								mes "I found the monster that satisfies my research needs and helps adventurers to gain experience from the Eden Group. It is not weak or fierce monster either.";
 								next;
 								mes "[Mingmin]";
@@ -743,7 +743,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 									callsub S_Quest,13091,13092,700000,180000;
 								}
 								else {
-									cutin "ÄÚ¸£´©½ºÄ«µå",3;  //cornus_card
+									cutin "ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //cornus_card
 									mes "I am still researching but I hope to extract magic power from magical touched things.";
 									next;
 									mes "[Mingmin]";
@@ -752,7 +752,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								}
 							}
 							else {
-								cutin "ÄÚ¸£´©½ºÄ«µå",3;  //cornus_card
+								cutin "ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //cornus_card
 								mes "This is why I accepted the request for this from Eden Group. Find 20 ^FF0000Mystic Horn^000000 from the Cornus monsters.";
 								next;
 								mes "[Mingmin]";
@@ -768,15 +768,15 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 						}
 						break;
 					case 4:
-						mes "This request is for my personal research. I research for Eden Group and they support me to hire people assisting my research.";
+						mes "Esta solicitud es para mi investigacion personal. Investigo para el Grupo Eden y ellos me apoyan para contratar personas que asistan mi investigacion.";
 						next;
-						switch( select( "Ancient Mummy research", "Geffenia survey", "Juperos survey", "Fragment and Rusty Screw collecting." ) ) {
+						switch( select( "Investigacion de Ancient Mummy", "Estudio de Geffenia", "Estudio de Juperos", "Recoleccion de Fragment y Rusty Screw." ) ) {
 							mes "[Mingmin]";
 						case 1:
 							if (checkquest(13094,PLAYTIME) == 0)
 								mes "Ancient Mummy's research is still ongoing.";
 							else if (checkquest(13093,HUNTING) == 1) {
-								cutin "¿¡ÀÎ¼ÇÆ®¹ÌÀÌ¶óÄ«µå",3;  //ancient_mummy_card
+								cutin "ï¿½ï¿½ï¿½Î¼ï¿½Æ®ï¿½ï¿½ï¿½Ì¶ï¿½Ä«ï¿½ï¿½",3;  //ancient_mummy_card
 								mes "If I finish researching, the first thing I'm going to do is eat a 10 year aged strawberry pudding...";
 								next;
 								mes "[Mingmin]";
@@ -789,7 +789,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								callsub S_Quest,13093,13094,700000,200000;
 							}
 							else {
-								cutin "¿¡ÀÎ¼ÇÆ®¹ÌÀÌ¶óÄ«µå",3;  //ancient_mummy_card
+								cutin "ï¿½ï¿½ï¿½Î¼ï¿½Æ®ï¿½ï¿½ï¿½Ì¶ï¿½Ä«ï¿½ï¿½",3;  //ancient_mummy_card
 								mes "Things are supposed to go bad. Most of them but people want to keep and preserve food for a long time. ";
 								next;
 								mes "[Mingmin]";
@@ -810,7 +810,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13096,PLAYTIME) == 0)
 								mes "Geffenia's research has just started. It is beginning so go slowly. Lets research.";
 							else if (checkquest(13095,HUNTING) == 1) {
-								cutin "¼­Å¥¹ö½ºÄ«µå",3;  //succubus_card
+								cutin "ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //succubus_card
 								mes "I do not expect a lot because it is very dangerous and not easy to access.";
 								next;
 								mes "[Mingmin]";
@@ -823,7 +823,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								callsub S_Quest,13095,13096,700000,200000;
 							}
 							else {
-								cutin "ÀÎÅ¥¹ö½ºÄ«µå",3;  //incubus_card
+								cutin "ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½",3;  //incubus_card
 								mes "This is pre-survey for precious research because Geffenia is easy to access.";
 								next;
 								mes "[Mingmin]";
@@ -841,7 +841,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 							if (checkquest(13098,PLAYTIME) == 0)
 								mes "They all look the same for me.	I should research harder.";
 							else if (checkquest(13097,HUNTING) == 1) {
-								cutin "º£³ªÅõ",3;  //venatu_card
+								cutin "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",3;  //venatu_card
 								mes "There is one more reason why many adventurers are sent to Juperos and that is my real request.";
 								next;
 								mes "[Mingmin]";
@@ -855,7 +855,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								callsub S_Quest,13097,13098,700000,300000;
 							}
 							else {
-								cutin "º£³ªÅõ",3;  //venatu_card
+								cutin "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",3;  //venatu_card
 								mes "The remains of ancient, Juperos is mysterious. There are lots of ^FF0000secrets^000000. But this is yet again a simple monster research survey.";
 								next;
 								mes "[Mingmin]";
@@ -885,7 +885,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 									callsub S_Quest,13099,13100,700000,200000;
 								}
 								else {
-									cutin "º£³ªÅõ",3;  //venatu_card
+									cutin "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",3;  //venatu_card
 									mes "You can find ^FF0000Fragment and Rusty Screw^000000 in juperos everywhere. Most of the monsters have it.";
 									next;
 									mes "[Mingmin]";
@@ -894,7 +894,7 @@ moc_para01,17,95,5	script	Mingmin#1	4_F_GENETIC,{
 								}
 							}
 							else {
-								cutin "º£³ªÅõ",3;  //venatu_card
+								cutin "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",3;  //venatu_card
 								mes "Juperos is intense and mysterious. When he showed up, It seems like it is not Midgard.";
 								next;
 								mes "[Mingmin]";
