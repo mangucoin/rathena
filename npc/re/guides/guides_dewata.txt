@@ -1,63 +1,63 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Dewata Guide
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Muad_Dib
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Guide for the city of Dewata.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version. [Lemongrass]
 //= 1.1 Navigation system update. [Euphy]
-//============================================================ 
+//============================================================
 
 dewata,202,106,4	script	Dewata Guide#dewata01	4_M_DEWWOMAN,{
 	mes "[Dewata Guide]";
-	mes "Welcome to ^8B4513Dewata Island^000000,";
-	mes "a place with dazzling waves and charming views it's a great place to relax.";
-	mes "If you have any questions, please ask me.";
+	mes "Bienvenido a la ^8B4513Isla Dewata^000000,";
+	mes "un lugar con olas deslumbrantes y vistas encantadoras, es un gran lugar para relajarse.";
+	mes "Si tienes alguna pregunta, por favor consultame.";
 	next;
 	mes "[Dewata Guide]";
-	mes "Where can I guide you?";
+	mes "A donde puedo guiarte?";
 	F_Navi("[Dewata Guide]");
 	while (1) {
 		next;
-		switch(select("[ Kafra Employee ]:[ Weapon Dealer ]:[ Armor Dealer ]:[ Tool Dealer ]:[ Restauranteur ]:[ Krakatau Gatekeeper ]:[ Alberta Sailor ]:Remove marks from Mini-Map:Cancel")) {
+		switch(select("[ Empleada Kafra ]:[ Vendedor de Armas ]:[ Vendedor de Armaduras ]:[ Vendedor de Herramientas ]:[ Restaurante ]:[ Guardian de Krakatau ]:[ Marinero de Alberta ]:Quitar Marcas del Mini-Mapa:Cancelar")) {
 		case 1:
-			callsub L_Mark, "^0000FFKafra Employee^000000";
+			callsub L_Mark, "^0000FFEmpleada Kafra^000000";
 			viewpoint 1,202,184,0,0x000FFF;
 			break;
 		case 2:
-			callsub L_Mark, F_Navi("Weapon Dealer","dewata,218,164","^008080");
+			callsub L_Mark, F_Navi("Vendedor de Armas","dewata,218,164","^008080");
 			viewpoint 1,218,163,1,0x008080;
 			break;
 		case 3:
-			callsub L_Mark, F_Navi("Armor Dealer","dewata,158,182","^008080");
+			callsub L_Mark, F_Navi("Vendedor de Armaduras","dewata,158,182","^008080");
 			viewpoint 1,158,182,2,0x008080;
 			break;
 		case 4:
-			callsub L_Mark, F_Navi("Tool Dealer","dewata,182,164","^FF1493");
+			callsub L_Mark, F_Navi("Vendedor de Herramientas","dewata,182,164","^FF1493");
 			viewpoint 1,182,164,3,0xFF1493;
 			break;
 		case 5:
-			callsub L_Mark, F_Navi("Restauranteur","dewata,146,109","^FF1493");
+			callsub L_Mark, F_Navi("Restaurante","dewata,146,109","^FF1493");
 			viewpoint 1,146,109,4,0xFF1493;
 			break;
 		case 6:
-			callsub L_Mark, F_Navi("Krakau Gatekeeper","dewata,235,56","^8A2BE2");
+			callsub L_Mark, F_Navi("Guardian de Krakau","dewata,235,56","^8A2BE2");
 			viewpoint 1,235,56,5,0x8A2BE2;
 			break;
 		case 7:
-			callsub L_Mark, F_Navi("Alberta Sailor","dewata,229,49","^00BFFF");
+			callsub L_Mark, F_Navi("Marinero de Alberta","dewata,229,49","^00BFFF");
 			viewpoint 1,229,49,6,0x00BFFF;
 			break;
 		case 8:
 			mes "[Dewata Guide]";
-			mes "I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "Quitare todas las marcas de tu mini-mapa.";
+			mes "Hay algo mas en lo que pueda ayudarte?";
 			viewpoint 2,202,184,0,0xFFFFFF;
 			viewpoint 2,218,163,1,0xFFFFFF;
 			viewpoint 2,158,182,2,0xFFFFFF;
@@ -68,17 +68,17 @@ dewata,202,106,4	script	Dewata Guide#dewata01	4_M_DEWWOMAN,{
 			break;
 		case 9:
 			mes "[Dewata Guide]";
-			mes "Enjoy your trip!!";
+			mes "Disfruta tu viaje!!";
 			close;
 		}
 	}
 
 L_Mark:
 	mes "[Dewata Guide]";
-	mes "The "+getarg(0)+" is";
-	mes "marked on your mini-map.";
-	mes "Check your mini-map.";
-	mes "Is there anything else I can do for you?";
+	mes "La ubicacion de "+getarg(0)+" esta";
+	mes "marcada en tu mini-mapa.";
+	mes "Revisa tu mini-mapa.";
+	mes "Hay algo mas en lo que pueda ayudarte?";
 	return;
 }
 dewata,197,184,4	duplicate(Dewata Guide#dewata01)	Dewata Guide#dewata02	535

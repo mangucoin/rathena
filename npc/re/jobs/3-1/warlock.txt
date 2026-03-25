@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Warlock Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Muad_Dib, Gepard & L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.5
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Job change Quest from Wizard / High Wizard -> Warlock.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version. [Masao]
 //= 1.1 Fixed some conversion mistakes, replaced numbers with
 //=     constants, added item names in comments.
@@ -26,7 +26,7 @@
 -	script	#distorted_space_	-1,{
 OnTouch_:
 	if (job_wl > 1) {
-		mes " - There is a strange distortion here - ";
+		mes " - Hay una distorsion extraña aqui - ";
 		if (strnpcinfo(0) == "#distorted_space_1" && (Class == Job_Warlock || Class == Job_Warlock_T || Class == Job_Baby_Warlock)) {
 			close2;
 			if (countitem(6153) > 0)
@@ -34,36 +34,36 @@ OnTouch_:
 			end;
 		}
 		next;
-		switch(select("Extend your hand.:Ignore it.")) {
+		switch(select("Extender la mano.:Ignorarlo.")) {
 		case 1:
-			mes " - I extend my arm as a fierce sound resonates in my ear and a cool wave surrounds me - ";
+			mes " - Extiendo mi brazo mientras un sonido feroz resuena en mi oido y una ola fria me rodea - ";
 			close2;
 			warp "spl_in02",79,102;
 			end;
 		case 2:
-			mes " - You ignore the distortion. - ";
+			mes " - Ignoras la distorsion. - ";
 			close;
 		}
 	}
 	if (BaseLevel > 94 && (strnpcinfo(0) == "#distorted_space_2" || BaseJob == Job_Wizard)) {
-		mes " - There is a strange distortion here - ";
+		mes " - Hay una distorsion extraña aqui - ";
 		next;
-		switch(select("Search the area.:Ignore it.")) {
+		switch(select("Buscar en el area.:Ignorarlo.")) {
 		case 1:
-			mes " - There appears to be nothing here. But I can definitely feel something around here... - ";
+			mes " - Parece no haber nada aqui. Pero definitivamente puedo sentir algo por aqui... - ";
 			next;
-			switch(select("Extend arm.:Leave it alone.")) {
+			switch(select("Extender el brazo.:Dejarlo en paz.")) {
 			case 1:
-				mes " - I extend my arm as a fierce sound resonates in my ear and a cool wave surrounds me - ";
+				mes " - Extiendo mi brazo mientras un sonido feroz resuena en mi oido y una ola fria me rodea - ";
 				close2;
 				warp "spl_in02",79,102;
 				end;
 			case 2:
-				mes " - You decide to leave it alone. - ";
+				mes " - Decides dejarlo en paz. - ";
 				close;
 			}
 		case 2:
-			mes " - You ignore it. - ";
+			mes " - Lo ignoras. - ";
 			close;
 		}
 	}
@@ -75,93 +75,93 @@ splendide,141,284,0	duplicate(#distorted_space_)	#distorted_space_2	139,1,1
 
 function	script	F_Warlock	{
 	mes "[Assistant]";
-	mes "Huh!!! Human!?!";
-	mes "How did you enter here?";
-	mes "This is only connected with a special gate!";
+	mes "¡¡¡Huh!!! ¿¡Humano!?";
+	mes "¿Como entraste aqui?";
+	mes "¡Esto solo esta conectado con un portal especial!";
 	next;
 	mes "[Assistant]";
-	mes "I don't know how...";
-	mes "But we should leave before my master spots you...!";
+	mes "No se como...";
+	mes "¡Pero deberiamos irnos antes de que mi maestro te vea...!";
 	next;
 	mes "[???]";
-	mes "What's that noise out there?";
-	mes "I warned them to be quiet while I'm meditating.";
+	mes "¿Que es ese ruido alla afuera?";
+	mes "Les adverti que estuvieran callados mientras medito.";
 	next;
 	mes "[Assistant]";
-	mes "Huh!?!";
-	mes "Master...";
-	mes "It's nothing...";
+	mes "¿¡Huh!?";
+	mes "Maestro...";
+	mes "No es nada...";
 	next;
 	mes "[Master]";
-	mes "Oh~ there's a human being in front of me.";
+	mes "Oh~ hay un ser humano frente a mi.";
 	next;
 	mes "[Assistant]";
-	mes "Oh this thing?";
-	mes "I was just leading it out.";
+	mes "¿Oh, esto?";
+	mes "Solo lo estaba sacando.";
 	next;
 	mes "[Master]";
-	mes "Yoop!!!";
+	mes "¡¡¡Yoop!!!";
 	next;
 	mes "[Yoop]";
-	mes "Yeap...!!";
+	mes "¡¡Yeap...!!";
 	next;
 	mes "[Master]";
-	mes "There's the warp portal beyond you... Is it an illusion?";
+	mes "Hay un portal de teletransportacion detras de ti... ¿Es una ilusion?";
 	next;
 	mes "[Yoop]";
-	mes "Sorry!!!";
-	mes "It's my mistake...";
+	mes "¡¡¡Lo siento!!!";
+	mes "Fue mi error...";
 	next;
 	mes "[Master]";
-	mes "Fool...";
-	mes "I'll deal with you after you send the human away.";
+	mes "Tonto...";
+	mes "Me encargare de ti despues de que saques al humano.";
 	next;
 	mes "[Master]";
 	mes "MushSartas Ir Cyamar";
 	mes "UdenLo";
 	if (BaseJob == Job_Wizard) {
 		next;
-		mes " - The fairy with the green hair chants a spell. - ";
-		mes " - I feel like something special surrounds me. - ";
+		mes " - El hada de cabello verde recita un hechizo. - ";
+		mes " - Siento que algo especial me rodea. - ";
 		specialeffect2 EF_DISPELL;
 		next;
 		mes "[Master]";
-		mes "Oh, that's interesting.";
-		mes "How dare you resist me human?";
+		mes "Oh, eso es interesante.";
+		mes "¿Como te atreves a resistirte, humano?";
 		next;
 		if (BaseLevel > 98 && JobLevel > 49) {
-			select("I'm not sure. Who are you?");
+			select("No estoy seguro. ¿Quien eres?");
 			mes "[Master]";
-			mes "I am the leader of the ^000077Warlock^000000s.";
+			mes "Soy el lider de los ^000077Warlock^000000s.";
 			mes "'^000077Sila Egnoloria^000000'";
-			mes "If you are a Wizard, it would be good of you to memorize my name.";
+			mes "Si eres un Wizard, seria bueno que memorices mi nombre.";
 			next;
-			select("What is a ^000077Warlock^000000?");
+			select("¿Que es un ^000077Warlock^000000?");
 			mes "[Master Egnoloria]";
-			mes "Oh...are you interested?";
-			next;
-			mes "[Master Egnoloria]";
-			mes "A ^000077Warlock^000000 is someone who uses the magic of the giants of Jotunheim.";
-			mes "It can't be defined in any other words.";
+			mes "Oh... ¿te interesa?";
 			next;
 			mes "[Master Egnoloria]";
-			mes "Only the strong magic can explain it.";
-			next;
-			select("Could I become Warlock?");
-			mes "[Master Egnoloria]";
-			mes "You?";
-			mes "You want to become a Warlock?";
-			mes "Hahaha";
+			mes "Un ^000077Warlock^000000 es alguien que usa la magia de los gigantes de Jotunheim.";
+			mes "No se puede definir con otras palabras.";
 			next;
 			mes "[Master Egnoloria]";
-			mes "You're so interesting.";
-			mes "It would be difficult for a human to become a Warlock.";
-			mes "The strong power would gnaw at your weak body.";
+			mes "Solo la magia poderosa puede explicarlo.";
+			next;
+			select("¿Podria convertirme en Warlock?");
+			mes "[Master Egnoloria]";
+			mes "¿Tu?";
+			mes "¿Quieres convertirte en Warlock?";
+			mes "Jajaja";
 			next;
 			mes "[Master Egnoloria]";
-			mes "If you dare to face death, you can try to become one.";
+			mes "Eres muy interesante.";
+			mes "Seria dificil para un humano convertirse en Warlock.";
+			mes "El poder tan fuerte destrozaria tu debil cuerpo.";
 			next;
-			switch(select("What do I need to do?:Cancel.")) {
+			mes "[Master Egnoloria]";
+			mes "Si te atreves a enfrentar la muerte, puedes intentar convertirte en uno.";
+			next;
+			switch(select("¿Que necesito hacer?:Cancelar.")) {
 			case 1:
 				if (VIP_SCRIPT) {
 					callfunc "VIP_Third_Class";
@@ -170,34 +170,34 @@ function	script	F_Warlock	{
 					next;
 				}
 				mes "[Master Egnoloria]";
-				mes "Are you serious?";
-				mes "You hunger for power don't you human.";
+				mes "¿Hablas en serio?";
+				mes "Tienes hambre de poder, ¿verdad humano?";
 				next;
 				mes "[Master Egnoloria]";
-				mes "The strong desire to be more powerful makes your soul more beautiful.";
+				mes "El fuerte deseo de ser mas poderoso hace tu alma mas hermosa.";
 				next;
 				mes "[Master Egnoloria]";
-				mes "But, I need to check that you're qualified.";
+				mes "Pero, necesito verificar que estes calificado.";
 				next;
 				mes "[Master Egnoloria]";
-				mes "Yoop!";
+				mes "¡Yoop!";
 				next;
 				mes "[Yoop]";
-				mes "Yeap!!";
+				mes "¡¡Yeap!!";
 				next;
 				mes "[Master Egnoloria]";
-				mes "Give this to the human.";
+				mes "Dale esto al humano.";
 				next;
 				mes "[Master Egnoloria]";
-				mes "Talk to the guy with the weird hair.";
-				mes "He'll let you know what you should do.";
+				mes "Habla con el tipo del peinado raro.";
+				mes "El te dira lo que debes hacer.";
 				set job_wl,2;
 				setquest 11106;
 				close;
 			case 2:
 				mes "[Master Egnoloria]";
-				mes "Good.";
-				mes "You are a human being so that's for you.";
+				mes "Bien.";
+				mes "Eres un ser humano, asi que eso es lo tuyo.";
 				set job_wl,1;
 				close2;
 				warp "splendide",200,100;
@@ -205,7 +205,7 @@ function	script	F_Warlock	{
 			}
 		}
 		mes "[Master]";
-		mes "You're still quite far too low of a level to even consider this.";
+		mes "Aun tienes un nivel demasiado bajo para siquiera considerar esto.";
 	}
 	close2;
 	warp "splendide",200,100;
@@ -218,59 +218,59 @@ spl_in02,77,107,5	script	Assistant#Warlock1	446,{
 		end;
 	} else if (job_wl == 1) {
 		mes "[Yoop]";
-		mes "You're... we've met before.";
-		mes "Can you imagine how severely I was scolded by my master?!";
-		mes "If you have any business with me, just go away!";
+		mes "Tu... ya nos conocimos antes.";
+		mes "¿¡Puedes imaginar lo severamente que me regaño mi maestro!?";
+		mes "¡Si tienes algun asunto conmigo, solo vete!";
 		next;
-		switch(select("Leave.:Stay.")) {
+		switch(select("Irse.:Quedarse.")) {
 		case 1:
 			mes "[Yoop]";
-			mes "Leave me alone...!";
+			mes "¡Dejame en paz...!";
 			close2;
 			warp "splendide",200,100;
 			end;
 		case 2:
 			mes "[Yoop]";
-			mes "What?!";
-			mes "Just do whatever you want...";
-			mes "My master will deal with you then.";
+			mes "¿¡Que!?";
+			mes "Haz lo que quieras...";
+			mes "Mi maestro se encargara de ti entonces.";
 			close;
 		}
 	} else if (job_wl == 2 || job_wl == 3) {
 		mes "[Yoop]";
 		if (job_wl == 2) {
-			mes "Dear, master! My pony-tail is funny looking?!";
-			mes "Oh, but I spent a lot time on it!";
+			mes "¡Querido maestro! ¿¡Mi cola de caballo se ve graciosa!?";
+			mes "¡Oh, pero le dedique mucho tiempo!";
 			next;
 			mes "[Master Egnoloria]";
-			mes "It's noisy.";
-			mes "I need to meditate";
-			mes "so do as I said.";
+			mes "Que ruidoso.";
+			mes "Necesito meditar";
+			mes "asi que haz lo que te dije.";
 			next;
 			mes "[Yoop]";
 			mes "Huh..";
-			mes "Oh, yeah!";
+			mes "¡Oh, si!";
 			next;
 			mes "[Yoop]";
-			mes "Hey, human!";
-			mes "Would you like to";
-			mes "become a Warlock?";
+			mes "¡Oye, humano!";
+			mes "¿Te gustaria";
+			mes "convertirte en Warlock?";
 			next;
 		}
 		if (SkillPoint != 0) {
-			mes "First, use all of your remaining job skill points before continuing.";
+			mes "Primero, usa todos tus puntos de habilidad restantes antes de continuar.";
 			set job_wl,3;
 			close;
 		}
-		mes "This is the Master's";
-		mes "decision so let me know.";
+		mes "Esta es la decision";
+		mes "del Maestro, asi que dime.";
 		next;
 		mes "[Yoop]";
-		mes "We need to test if your body can withstand being a Warlock.";
-		mes "So you need to gather materials to prove yourself.";
+		mes "Necesitamos probar si tu cuerpo puede soportar ser un Warlock.";
+		mes "Asi que necesitas reunir materiales para probarlo.";
 		next;
 		mes "[Yoop]";
-		mes "Please gather ^000077Glittering Crystal^000000s and ^000077Giant Bradium Fragment^000000s.";
+		mes "Por favor reune ^000077Cristales Brillantes^000000 y ^000077Fragmentos de Gran Bradium^000000.";
 		next;
 		callsub L_Quest,1;
 		close;
@@ -279,39 +279,39 @@ spl_in02,77,107,5	script	Assistant#Warlock1	446,{
 			callsub L_Quest,0;
 		else {
 			mes "[Yoop]";
-			mes "I can't conduct the task here. I need to go to my lab.";
-			mes "My lab is located on the north western part of Splendide.";
+			mes "No puedo hacer la tarea aqui. Necesito ir a mi laboratorio.";
+			mes "Mi laboratorio esta ubicado en la parte noroeste de Splendide.";
 		}
 		close;
 	} else if (job_wl == 5) {
 		mes "[Yoop]";
-		mes "This stone is well made.";
-		mes "Please go to my Master.";
+		mes "Esta piedra esta bien hecha.";
+		mes "Por favor ve con mi Maestro.";
 		close;
 	} else {
 		mes "[Yoop]";
-		mes "A Magic Chamber is created from magic materials.";
+		mes "Una Camara Magica se crea con materiales magicos.";
 		next;
 		mes "[Yoop]";
-		mes "This combined stone is formed differently according to the raw materials and the way of treating it.";
+		mes "Esta piedra combinada se forma de manera diferente segun los materiales y la forma de tratarlos.";
 		next;
 		mes "[Yoop]";
-		mes "But most of stones are quite similar!";
-		mes "We can't differentiate them easily.";
+		mes "¡Pero la mayoria de las piedras son bastante similares!";
+		mes "No podemos diferenciarlas facilmente.";
 		next;
 		mes "[Yoop]";
-		mes "Even I don't know how it all works.";
+		mes "Ni yo se como funciona todo.";
 		close;
 	}
 
 L_Quest:
 	mes "[Yoop]";
-	mes "You must be wearing these Magical Stone Rings to get these items while hunting.";
-	mes "You need to hunt Naga and Bradium Golems while wearing these rings.";
+	mes "Debes usar estos Anillos de Piedra Magica para obtener estos objetos mientras cazas.";
+	mes "Necesitas cazar Nagas y Golems de Bradium mientras usas estos anillos.";
 	next;
 	if (getarg(0)) {
 		mes "[Yoop]";
-		mes "Show us how strong you are. And don't forget to wear this.";
+		mes "Muestranos lo fuerte que eres. Y no olvides ponerte esto.";
 		set job_wl,4;
 		getitem 2796,1; //Magical_Stone
 		getitem 2797,1; //Magical_Stone_
@@ -319,65 +319,65 @@ L_Quest:
 		next;
 	}
 	mes "[Yoop]";
-	mes "Bring these stones with you or else you won't be able to return!";
-	mes "Be careful!";
+	mes "¡Lleva estas piedras contigo o no podras regresar!";
+	mes "¡Ten cuidado!";
 	next;
 	mes "[Yoop]";
-	mes "The person next to my Master will let you out if you talk to him.";
+	mes "La persona al lado de mi Maestro te dejara salir si hablas con el.";
 	next;
 	mes "[Yoop]";
-	mes "My lab is located on the north western part of Splendide. Bring these to me when you've gathered them.";
+	mes "Mi laboratorio esta ubicado en la parte noroeste de Splendide. Traeme estas cuando las hayas reunido.";
 	return;
 }
 
 spl_in02,60,231,5	script	Yoop#Warlock	446,{
 	mes "[Yoop]";
 	if (job_wl < 4) {
-		mes "Who are you?";
-		mes "Get out of here!";
+		mes "¿Quien eres?";
+		mes "¡Sal de aqui!";
 		close;
 	} else if (job_wl == 4) {
-		mes "You're back?";
+		mes "¿Volviste?";
 		next;
-		switch(select("I brought the materials.:I've lost the Magical Stones.:Nothing.")) {
+		switch(select("Traje los materiales.:Perdi las Piedras Magicas.:Nada.")) {
 		case 1:
 			mes "[Yoop]";
 			if (countitem(6152) == 0 || countitem(6151) == 0) {
 				mes "......";
-				mes "......Where?";
-				mes "Don't bother me!";
+				mes "......¿Donde?";
+				mes "¡No me molestes!";
 				next;
 				mes "[Yoop]";
-				mes "We need to test if your body can withstand being a Warlock.";
-				mes "So you need to gather materials to prove yourself.";
+				mes "Necesitamos probar si tu cuerpo puede soportar ser un Warlock.";
+				mes "Asi que necesitas reunir materiales para probarlo.";
 				next;
 				mes "[Yoop]";
-				mes "Please gather ^000077Glittering Crystal^000000s and ^000077Giant Bradium Fragment^000000s.";
+				mes "Por favor reune ^000077Cristales Brillantes^000000 y ^000077Fragmentos de Gran Bradium^000000.";
 				next;
 				mes "[Yoop]";
-				mes "You must be wearing these Magical Stone Rings to get these items while hunting.";
-				mes "You need to hunt Naga and Bradium Golems while wearing these rings.";
+				mes "Debes usar estos Anillos de Piedra Magica para obtener estos objetos mientras cazas.";
+				mes "Necesitas cazar Nagas y Golems de Bradium mientras usas estos anillos.";
 				next;
 				mes "[Yoop]";
-				mes "Bring these stones with you or else you won't be able to return!";
-				mes "Be careful!";
+				mes "¡Lleva estas piedras contigo o no podras regresar!";
+				mes "¡Ten cuidado!";
 				close;
 			} else if (countitem(6152) && countitem(6151)) {
 				if (isequipped(2796) || isequipped(2797)) {
-					mes "Bring me back the magical stones.";
+					mes "Traeme las piedras magicas de vuelta.";
 					close;
 				}
 				if (countitem(2796) == 0 || countitem(2797) == 0) {
-					mes "It seems that you don't have it?";
-					mes "You lost it?";
+					mes "Parece que no las tienes.";
+					mes "¿Las perdiste?";
 					next;
 					mes "[Yoop]";
-					mes "Please find that stone and come back to me.";
+					mes "Por favor busca esa piedra y vuelve conmigo.";
 					close;
 				}
-				mes "Alright! All the materials are ready!";
-				mes "While I am concentrating on working on this stone. Can you go back to my master?";
-				mes "I will follow up once it's done.";
+				mes "¡Muy bien! ¡Todos los materiales estan listos!";
+				mes "Mientras me concentro en trabajar en esta piedra, ¿puedes ir con mi maestro?";
+				mes "Te avisare cuando este listo.";
 				delitem 2796,countitem(2796); //Magical_Stone
 				delitem 2797,countitem(2797); //Magical_Stone_
 				delitem 6152,countitem(6152); //Glittering_Crystal
@@ -388,26 +388,26 @@ spl_in02,60,231,5	script	Yoop#Warlock	446,{
 			}
 		case 2:
 			mes "[Yoop]";
-			mes "What?!";
-			mes "I asked you to double check it and make sure you wore it!";
+			mes "¿¡Que!?";
+			mes "¡Te pedi que verificaras y te aseguraras de usarlas!";
 			next;
 			mes "[Yoop]";
-			mes "Please check whether you misplaced it or if you already have it equipped.";
+			mes "Por favor revisa si las guardaste en otro lado o si ya las tienes equipadas.";
 			next;
-			switch(select("I found it.:Nah.")) {
+			switch(select("Las encontre.:No.")) {
 			case 1:
 				mes "[Yoop]";
-				mes "Don't tease me!";
-				mes "It's not hard to tell if you have it or not!";
+				mes "¡No me molestes!";
+				mes "¡No es dificil saber si las tienes o no!";
 				close;
 			case 2:
 				if ((isequipped(2796) == 0 && countitem(2796) == 0) || (isequipped(2797) == 0 && countitem(2797) == 0)) {
 					if (countitem(732) > 0) {
-						switch(select("Give 3 carat diamond.:Just quit it.")) {
+						switch(select("Dar un diamante de 3 quilates.:Dejarlo asi.")) {
 						case 1:
 							mes "[Yoop]";
-							mes "I will overlook your fault.";
-							mes "Please be careful with it.";
+							mes "Pasare por alto tu error.";
+							mes "Por favor ten mas cuidado.";
 							delitem 732,1; //Crystal_Jewel__
 							if (isequipped(2796) == 0 && countitem(2796) == 0)
 								getitem 2796,1; //Magical_Stone
@@ -416,45 +416,45 @@ spl_in02,60,231,5	script	Yoop#Warlock	446,{
 							close;
 						case 2:
 							mes "[Yoop]";
-							mes "Just show me your good faith!";
+							mes "¡Solo muestrame tu buena fe!";
 							close;
 						}
 					}
 					mes "[Yoop]";
-					mes "How can you can say that?";
-					mes "^000077Just apologize^000000!";
-					mes "I guess I could give you more stones if you give me say a 3 carat diamond...";
+					mes "¿Como puedes decir eso?";
+					mes "¡^000077Solo disculpate^000000!";
+					mes "Supongo que podria darte mas piedras si me das, digamos, un diamante de 3 quilates...";
 					close;
 				}
 				mes "[Yoop]";
 				if (isequipped(2796) || isequipped(2797)) {
-					mes "Please check your equipment window...";
-					mes "You sure you don't have it?";
+					mes "Por favor revisa tu ventana de equipo...";
+					mes "¿Seguro que no las tienes?";
 					close;
 				}
-				mes "Then what's that you are holding now...?";
+				mes "Entonces, ¿que es eso que tienes ahi...?";
 				close;
 			}
 		case 3:
 			mes "[Yoop]";
-			mes "What...?";
-			mes "Don't bother me, I am quite busy.";
+			mes "¿Que...?";
+			mes "No me molestes, estoy bastante ocupado.";
 			close;
 		}
 	} else {
-		mes "I am focusing on meditating.";
-		mes "So I can create magic.";
+		mes "Me estoy concentrando en meditar.";
+		mes "Para poder crear magia.";
 		next;
 		mes "[Yoop]";
-		mes "And... you seem to have more talent on this than regular mages.";
-		mes "Maybe if I become an alchemist, I might be better than I am now don't you think?";
+		mes "Y... pareces tener mas talento en esto que los magos comunes.";
+		mes "¿Quizas si me convierto en alquimista, podria ser mejor de lo que soy ahora, no crees?";
 		next;
 		mes "[Yoop]";
-		mes "I'm studying to better myself.";
+		mes "Estoy estudiando para mejorar.";
 		next;
 		mes "[Yoop]";
-		mes "If am inside of 'the room of time and magic', I will catch up with your power!";
-		mes "Hahahaha...";
+		mes "¡Si estoy dentro de 'la sala del tiempo y la magia', alcanzare tu poder!";
+		mes "Jajajaja...";
 		close;
 	}
 }
@@ -465,29 +465,29 @@ spl_in02,84,103,3	script	Assistant#Warlock2	439,{
 		end;
 	} else if (job_wl == 1) {
 		mes "[Assistant]";
-		mes "Human! What do you want?";
+		mes "¡Humano! ¿Que quieres?";
 		close;
 	} else if (job_wl < 6) {
 		mes "[Assistant]";
-		mes "It's not me you are looking for currently.";
+		mes "No es a mi a quien buscas en este momento.";
 		close;
 	} else if (job_wl == 6) {
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 3500) {
-			mes "You're carring out too many items.";
-			mes "You'd better minimize your weight.";
+			mes "Estas cargando demasiados objetos.";
+			mes "Seria mejor que reduzcas tu peso.";
 			close;
 		}
 		mes "[Yoop]";
-		mes "The test isn't that hard.";
-		mes "We can create the magic stone in the magic room.";
+		mes "La prueba no es tan dificil.";
+		mes "Podemos crear la piedra magica en la sala magica.";
 		next;
 		mes "[Yoop]";
-		mes "Be careful of the monsters in the test room.";
-		mes "These are rainbow Rubies sealed with a Warlock's magic.";
-		mes "Use these during the test.";
+		mes "Ten cuidado con los monstruos en la sala de prueba.";
+		mes "Estos son Rubies Arcoiris sellados con la magia de un Warlock.";
+		mes "Usa estos durante la prueba.";
 		next;
 		mes "[Yoop]";
-		mes "I will guide you into the magic room.";
+		mes "Te guiare a la sala magica.";
 		set job_wl,7;
 		changequest 11109,11110;
 		getitem 12384,5; //Rainbow_Ruby_Water
@@ -499,13 +499,13 @@ spl_in02,84,103,3	script	Assistant#Warlock2	439,{
 		end;
 	} else if (job_wl == 7) {
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 3500) {
-			mes "You're carring out too many items.";
-			mes "You'd better minimize your weight.";
+			mes "Estas cargando demasiados objetos.";
+			mes "Seria mejor que reduzcas tu peso.";
 			close;
 		}
 		mes "[Yoop]";
-		mes "Would you like to try it again?";
-		mes "Let me give you more rubies.";
+		mes "¿Te gustaria intentarlo de nuevo?";
+		mes "Dejame darte mas rubies.";
 		next;
 		if (countitem(12384)) delitem 12384,countitem(12384); //Rainbow_Ruby_Water
 		if (countitem(12386)) delitem 12386,countitem(12386); //Rainbow_Ruby_Wind
@@ -520,32 +520,32 @@ spl_in02,84,103,3	script	Assistant#Warlock2	439,{
 		end;
 	} else if (job_wl == 8) {
 		mes "[Yoop]";
-		mes "You have successfully crystallized the Hollow Stone.";
-		mes "I'm sorry that I've doubted you.";
+		mes "Has cristalizado exitosamente la Piedra Hueca.";
+		mes "Lamento haber dudado de ti.";
 		if (countitem(12384)) delitem 12384,countitem(12384); //Rainbow_Ruby_Water
 		if (countitem(12386)) delitem 12386,countitem(12386); //Rainbow_Ruby_Wind
 		if (countitem(12387)) delitem 12387,countitem(12387); //Rainbow_Ruby_Earth
 		if (countitem(12385)) delitem 12385,countitem(12385); //Rainbow_Ruby_Fire
 		next;
 		mes "[Yoop]";
-		mes "All of the tests are done. Now talk to Master Engoloria.";
-		mes "I'm so happy that you have succeeded.";
+		mes "Todas las pruebas han terminado. Ahora habla con el Maestro Egnoloria.";
+		mes "Estoy muy feliz de que lo hayas logrado.";
 		set job_wl,9;
 		changequest 11111,11112;
 		close;
 	} else if (job_wl == 9) {
 		mes "[Yoop]";
-		mes "All of the tests are done. Now talk to Master Engoloria.";
-		mes "I'm so happy that you have succeeded.";
+		mes "Todas las pruebas han terminado. Ahora habla con el Maestro Egnoloria.";
+		mes "Estoy muy feliz de que lo hayas logrado.";
 		close;
 	} else {
 		mes "[Yoop]";
-		mes "I can feel that you have strong magic.";
-		mes "I envy you.";
+		mes "Puedo sentir que tienes una magia poderosa.";
+		mes "Te envidio.";
 		next;
 		mes "[Yoop]";
-		mes "It deserves something special.";
-		mes "Don't abuse it.";
+		mes "Merece algo especial.";
+		mes "No abuses de ella.";
 		close;
 	}
 }
@@ -558,15 +558,15 @@ spl_in02,78,110,5	script	Assistant#Warlock3	437,{
 	mes "[Assistant]";
 	mes "......";
 	switch(job_wl) {
-		case 1: mes "If you don't have anything to say to me, would you just leave?"; break;
-		case 2: mes "I don't have a pony-tail..."; break;
-		default: mes "Please be quiet while my master is meditating."; break;
+		case 1: mes "Si no tienes nada que decirme, ¿podrias simplemente irte?"; break;
+		case 2: mes "No tengo cola de caballo..."; break;
+		default: mes "Por favor guarda silencio mientras mi maestro medita."; break;
 	}
 	next;
-	switch(select("Leave:Stay")) {
+	switch(select("Irse:Quedarse")) {
 	case 1:
 		mes "[Assistant]";
-		mes "Then be careful.";
+		mes "Entonces ten cuidado.";
 		close2;
 		warp "splendide",200,100;
 		end;
@@ -583,9 +583,9 @@ spl_in02,80,108,5	script	Guild Master#Warlock	465,{
 		end;
 	} else if (job_wl == 1) {
 		mes "[Master Egnoloria]";
-		mes "Do you have something to ask me?";
+		mes "¿Tienes algo que preguntarme?";
 		next;
-		switch(select("How can I be a Warlock?:Cancel.")) {
+		switch(select("¿Como puedo ser un Warlock?:Cancelar.")) {
 		case 1:
 			if (VIP_SCRIPT) {
 				callfunc "VIP_Third_Class";
@@ -594,71 +594,71 @@ spl_in02,80,108,5	script	Guild Master#Warlock	465,{
 				next;
 			}
 			mes "[Master Egnoloria]";
-			mes "Are you serious?";
-			mes "You hunger for power don't you human.";
+			mes "¿Hablas en serio?";
+			mes "Tienes hambre de poder, ¿verdad humano?";
 			next;
 			mes "[Master Egnoloria]";
-			mes "The strong desire to be more powerful makes your soul more beautiful.";
+			mes "El fuerte deseo de ser mas poderoso hace tu alma mas hermosa.";
 			next;
 			mes "[Master Egnoloria]";
-			mes "But, I need to check that you're qualified.";
+			mes "Pero, necesito verificar que estes calificado.";
 			next;
 			mes "[Master Egnoloria]";
-			mes "Yoop!";
+			mes "¡Yoop!";
 			next;
 			mes "[Yoop]";
-			mes "Yeap!!";
+			mes "¡¡Yeap!!";
 			next;
 			mes "[Master Egnoloria]";
-			mes "Give this to the human.";
+			mes "Dale esto al humano.";
 			next;
 			mes "[Master Egnoloria]";
-			mes "Talk to the guy with the weird hair.";
-			mes "He'll let you know what you should do.";
+			mes "Habla con el tipo del peinado raro.";
+			mes "El te dira lo que debes hacer.";
 			set job_wl,2;
 			setquest 11106;
 			close;
 		case 2:
 			mes "[Master Egnoloria]";
-			mes "Good.";
-			mes "You are a human being so that's for you.";
+			mes "Bien.";
+			mes "Eres un ser humano, asi que eso es lo tuyo.";
 			close2;
 			warp "splendide",200,100;
 			end;
 		}
 	} else if (job_wl == 2) {
 		mes "[Master Egnoloria]";
-		mes "I'm meditating, I said talk to Yoop ok.";
-		mes "Yoop has a funny pony-tail.";
-		mes "And don't disturb me.";
+		mes "Estoy meditando, te dije que hablaras con Yoop.";
+		mes "Yoop tiene una cola de caballo graciosa.";
+		mes "Y no me molestes.";
 		close;
 	} else if (job_wl == 3 || job_wl == 4) {
 		mes "[Master Egnoloria]";
 		mes "......";
 		next;
 		mes "[Assistant]";
-		mes "Master is meditating.";
-		mes "Be quiet.";
+		mes "El Maestro esta meditando.";
+		mes "Guarda silencio.";
 		close;
 	} else if (job_wl == 5) {
 		mes "[Master Egnoloria]";
-		mes "I've heard from Yoop that a very useful stone can be created.";
+		mes "Escuche de Yoop que se puede crear una piedra muy util.";
 		next;
 		mes "[Master Egnoloria]";
-		mes "It can be used to make magical jewelry that can cast powerful magic.";
+		mes "Se puede usar para hacer joyeria magica que puede lanzar magia poderosa.";
 		next;
 		mes "[Master Egnoloria]";
 		mes "Yoop.";
 		next;
 		mes "[Yoop]";
-		mes "Yeap, Master!";
+		mes "¡Si, Maestro!";
 		next;
 		mes "[Master Egnoloria]";
-		mes "Please take him to the magical room.";
+		mes "Por favor llevalo a la sala magica.";
 		next;
 		mes "[Yoop]";
-		mes "Yup, Master.";
-		mes "Please follow me.";
+		mes "Si, Maestro.";
+		mes "Por favor sigueme.";
 		emotion ET_AHA, getnpcid(0, "Assistant#Warlock2");
 		set job_wl,6;
 		changequest 11108,11109;
@@ -668,44 +668,44 @@ spl_in02,80,108,5	script	Guild Master#Warlock	465,{
 		mes "......";
 		next;
 		mes "[Yoop]";
-		mes "My master is meditating now, please follow me.";
+		mes "Mi maestro esta meditando ahora, por favor sigueme.";
 		close;
 	} else if (job_wl == 9) {
 		if (BaseLevel < 99 || BaseJob != Job_Wizard) {
 			mes "[Master Egnoloria]";
 			mes "Hm...?";
-			mes "How did you come this far...";
+			mes "¿Como llegaste hasta aqui...?";
 			close;
 		}
 		if (checkweight(1201,1) == 0 || MaxWeight - Weight < 3500) {
-			mes "You've got too many items.";
-			mes "Please come back after reducing the number of items you have.";
+			mes "Tienes demasiados objetos.";
+			mes "Por favor regresa despues de reducir la cantidad de objetos que tienes.";
 			close;
 		}
 		mes "[Master Egnoloria]";
 		if (SkillPoint != 0) {
-			mes "Unless you like your current job, you should use all your skill points.";
+			mes "A menos que te guste tu trabajo actual, deberias usar todos tus puntos de habilidad.";
 			close;
 		}
 		if (ismounting()) {
-			mes "You are on a riding pet,";
-			mes "so you cannot change your job.";
-			mes "Please unequip your riding pet and try again!";
+			mes "Estas montado en una mascota,";
+			mes "asi que no puedes cambiar de trabajo.";
+			mes "¡Por favor desequipa tu montura e intentalo de nuevo!";
 			close;
 		}
-		mes "Beautiful light...";
-		mes "Don't make me disappointed at you...";
+		mes "Hermosa luz...";
+		mes "No me decepciones...";
 		next;
 		mes "[Master Egnoloria]";
-		mes "You have become a member of the Warlocks.";
-		mes "Be proud.";
+		mes "Te has convertido en miembro de los Warlocks.";
+		mes "Sientete orgulloso.";
 		next;
 		if (SkillPoint != 0) {
-			mes "^0000ffYou still have left the skill points, Please use all the skill points and try to start again!^000000";
+			mes "^0000ffAun te quedan puntos de habilidad, ¡Por favor usa todos los puntos de habilidad e intenta comenzar de nuevo!^000000";
 			close;
 		}
 		mes "[Master Egnoloria]";
-		mes "This crystallized magical stone will keep you safe.";
+		mes "Esta piedra magica cristalizada te mantendra a salvo.";
 		if (Class == Job_High_Wizard) {
 			if (JobLevel > 69) set job_wl,13;
 			else if (JobLevel > 59) set job_wl,12;
@@ -719,38 +719,38 @@ spl_in02,80,108,5	script	Guild Master#Warlock	465,{
 		close;
 	} else if (job_wl > 9) {
 		mes "[Master Egnoloria]";
-		mes "How are you adjusting to the power of a Warlocks?";
-		mes "If you get careless, you will be overthrown by your own power.";
+		mes "¿Como te estas adaptando al poder de los Warlocks?";
+		mes "Si te descuidas, seras derribado por tu propio poder.";
 		close;
 	}
 }
 
 job3_war01,22,22,7	script	Yoop#WRR	439,{
 	mes "[Yoop]";
-	mes "If you ask Ebein to be sent to the magical room, he would send you there.";
-	mes "Wait in the queue to enter the Chamber of Magic.";
+	mes "Si le pides a Ebein que te envie a la sala magica, el te enviara ahi.";
+	mes "Espera en la fila para entrar a la Camara de Magia.";
 	close;
 }
 
 job3_war01,29,25,0	script	Ebein#WRR	437,{
 	mes "[Ebein]";
-	mes "Would you like to take a test?";
-	mes "If you stand by in the waiting room, you'll be able to go into the Chamber of Magic.";
+	mes "¿Te gustaria tomar la prueba?";
+	mes "Si esperas en la sala de espera, podras entrar a la Camara de Magia.";
 	next;
 	mes "[Ebein]";
-	mes "If there're others inside the room, you just need to wait for a while.";
+	mes "Si hay otros dentro de la sala, solo necesitas esperar un momento.";
 	next;
-	switch(select("Go to the waiting room.:Go outside.")) {
+	switch(select("Ir a la sala de espera.:Salir afuera.")) {
 	case 1:
 		mes "[Ebein]";
-		mes "Then please enter the room yourself.";
-		mes "Make sure you have enough potions to survive the test as the monsters are very powerful in the Chamber.";
+		mes "Entonces por favor entra tu mismo a la sala.";
+		mes "Asegurate de tener suficientes pociones para sobrevivir la prueba ya que los monstruos son muy poderosos en la Camara.";
 		close;
 	case 2:
 		mes "[Ebein]";
 		mes "......";
-		mes "Then I will send you outside.";
-		mes "Bye...";
+		mes "Entonces te enviare afuera.";
+		mes "Adios...";
 		close2;
 		warp "spl_in02",79,102;
 		end;
@@ -824,44 +824,44 @@ OnDisable:
 OnMyMobDead:
 	if (mobcount("job3_war02",strnpcinfo(0)+"::OnMyMobDead") < 1) {
 		stopnpctimer;
-		mapannounce "job3_war02","The Monster Invasion has been stopped.",bc_map;
+		mapannounce "job3_war02","La invasion de monstruos ha sido detenida.",bc_map;
 		set .@str$, "The chamber of magic#"+((strnpcinfo(0) == "The chamber of magic#2")?"3":"4");
 		donpcevent .@str$+"::OnEnable";
 	}
 	end;
 OnTimer3000:
 	if (strnpcinfo(0) != "The chamber of magic#2") end;
-	mapannounce "job3_war02","A Magical Power fragment has been created in the Magic Chamber Room.",bc_map;
+	mapannounce "job3_war02","Se ha creado un fragmento de Poder Magico en la Sala de la Camara Magica.",bc_map;
 	end;
 OnTimer4000:
-	mapannounce "job3_war02","Defend this room from monsters for 5 minutes.",bc_map;
+	mapannounce "job3_war02","Defiende esta sala de monstruos durante 5 minutos.",bc_map;
 	end;
 OnTimer5000:
-	mapannounce "job3_war02","Destroy all the monsters, and the Chamber will stabilize.",bc_map;
+	mapannounce "job3_war02","Destruye todos los monstruos y la Camara se estabilizara.",bc_map;
 	end;
 OnTimer63000:
-	mapannounce "job3_war02","There's 4 min left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Quedan 4 min para estabilizar la camara...",bc_map;
 	end;
 OnTimer123000:
-	mapannounce "job3_war02","There's 3 min left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Quedan 3 min para estabilizar la camara...",bc_map;
 	end;
 OnTimer183000:
-	mapannounce "job3_war02","There's 2 min left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Quedan 2 min para estabilizar la camara...",bc_map;
 	end;
 OnTimer243000:
-	mapannounce "job3_war02","There's 1 min left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Queda 1 min para estabilizar la camara...",bc_map;
 	end;
 OnTimer273000:
-	mapannounce "job3_war02","There's 30 seconds left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Quedan 30 segundos para estabilizar la camara...",bc_map;
 	end;
 OnTimer283000:
-	mapannounce "job3_war02","There's 20 seconds left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Quedan 20 segundos para estabilizar la camara...",bc_map;
 	end;
 OnTimer293000:
-	mapannounce "job3_war02","There's 10 seconds left to stabilize the chamber...",bc_map;
+	mapannounce "job3_war02","Quedan 10 segundos para estabilizar la camara...",bc_map;
 	end;
 OnTimer303000:
-	mapannounce "job3_war02","The magic stabilization has failed.",bc_map;
+	mapannounce "job3_war02","La estabilizacion magica ha fallado.",bc_map;
 	donpcevent "The chamber of magic#2::OnReset";
 	donpcevent "The chamber of magic#3::OnReset";
 	donpcevent "The chamber of magic#4::OnReset";
@@ -903,31 +903,31 @@ OnDisable:
 	end;
 OnMyMobDead:
 	if (mobcount("job3_war02","The chamber of magic#4::OnMyMobDead") < 1) {
-		mapannounce "job3_war02","Once it's stabilized, the fragments are toward the center.",bc_map;
+		mapannounce "job3_war02","Una vez estabilizado, los fragmentos se dirigen al centro.",bc_map;
 		stopnpctimer;
 		donpcevent "Hollow Stone#Warlock::OnEnable";
 	}
 	end;
 OnTimer4000:
-	mapannounce "job3_war02","Defend this room from monsters for 1 min.",bc_map;
+	mapannounce "job3_war02","Defiende esta sala de monstruos durante 1 min.",bc_map;
 	end;
 OnTimer5000:
-	mapannounce "job3_war02","Destroy all the monsters, and the Chamber will stabilize.",bc_map;
+	mapannounce "job3_war02","Destruye todos los monstruos y la Camara se estabilizara.",bc_map;
 	end;
 OnTimer33000:
-	mapannounce "job3_war02","There's 30 seconds left to stabilize the chamber....",bc_map;
+	mapannounce "job3_war02","Quedan 30 segundos para estabilizar la camara....",bc_map;
 	end;
 OnTimer43000:
-	mapannounce "job3_war02","There's 20 seconds left to stabilize the chamber....",bc_map;
+	mapannounce "job3_war02","Quedan 20 segundos para estabilizar la camara....",bc_map;
 	end;
 OnTimer53000:
-	mapannounce "job3_war02","There's 10 seconds left to stabilize the chamber....",bc_map;
+	mapannounce "job3_war02","Quedan 10 segundos para estabilizar la camara....",bc_map;
 	end;
 OnTimer58000:
-	mapannounce "job3_war02","There's 5 seconds left to stabilize the chamber....",bc_map;
+	mapannounce "job3_war02","Quedan 5 segundos para estabilizar la camara....",bc_map;
 	end;
 OnTimer63000:
-	mapannounce "job3_war02","The magic stabilization has failed. The fragment has lost its power.",bc_map;
+	mapannounce "job3_war02","La estabilizacion magica ha fallado. El fragmento ha perdido su poder.",bc_map;
 	donpcevent "The chamber of magic#2::OnReset";
 	donpcevent "The chamber of magic#3::OnReset";
 	donpcevent "The chamber of magic#4::OnReset";
@@ -967,7 +967,7 @@ OnDisable:
 	end;
 OnMyMobDead:
 	if (mobcount("job3_war02","Hollow Stone#Warlock::OnMyMobDead") < 1) {
-		mapannounce "job3_war02","The Hollow Stone is crystallized with enough magic power.",bc_map;
+		mapannounce "job3_war02","La Piedra Hueca se ha cristalizado con suficiente poder magico.",bc_map;
 		set job_wl,8;
 		changequest 11110,11111;
 		donpcevent "Hollow Stone#Warlock::OnReset";
@@ -978,40 +978,40 @@ OnMyMobDead:
 	}
 	end;
 OnTimer1000:
-	mapannounce "job3_war02","The Hollow Stone needs to be crystallized with magic.",bc_map;
+	mapannounce "job3_war02","La Piedra Hueca necesita ser cristalizada con magia.",bc_map;
 	end;
 OnTimer2000:
-	mapannounce "job3_war02","The Hollow Stone will absorb any magic thrown at it.",bc_map;
+	mapannounce "job3_war02","La Piedra Hueca absorbera cualquier magia que le lancen.",bc_map;
 	end;
 OnTimer3000:
-	mapannounce "job3_war02","You have 10 minutes to crystallize the Hollow Stone with your magic.",bc_map;
+	mapannounce "job3_war02","Tienes 10 minutos para cristalizar la Piedra Hueca con tu magia.",bc_map;
 	end;
 OnTimer303000:
-	mapannounce "job3_war02","There's 5 min left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 5 min para cristalizar la piedra....",bc_map;
 	end;
 OnTimer363000:
-	mapannounce "job3_war02","There's 4 min left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 4 min para cristalizar la piedra....",bc_map;
 	end;
 OnTimer423000:
-	mapannounce "job3_war02","There's 3 min left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 3 min para cristalizar la piedra....",bc_map;
 	end;
 OnTimer483000:
-	mapannounce "job3_war02","There's 2 min left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 2 min para cristalizar la piedra....",bc_map;
 	end;
 OnTimer543000:
-	mapannounce "job3_war02","There's 1 min left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Queda 1 min para cristalizar la piedra....",bc_map;
 	end;
 OnTimer573000:
-	mapannounce "job3_war02","There's 30 seconds left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 30 segundos para cristalizar la piedra....",bc_map;
 	end;
 OnTimer583000:
-	mapannounce "job3_war02","There's 20 seconds left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 20 segundos para cristalizar la piedra....",bc_map;
 	end;
 OnTimer593000:
-	mapannounce "job3_war02","There's 10 seconds left to crystallize the stone....",bc_map;
+	mapannounce "job3_war02","Quedan 10 segundos para cristalizar la piedra....",bc_map;
 	end;
 OnTimer603000:
-	mapannounce "job3_war02","The Hollow Stone Crystalization has failed.",bc_map;
+	mapannounce "job3_war02","La cristalizacion de la Piedra Hueca ha fallado.",bc_map;
 	donpcevent "Hollow Stone#Warlock::OnReset";
 	end;
 OnTimer605000:
@@ -1035,10 +1035,10 @@ OnDisable:
 	disablenpc "Ebein#E1";
 	end;
 OnTimer2000:
-	mapannounce "job3_war01","Congratulations! You've succeeded in creating a magic crystal.",bc_map;
+	mapannounce "job3_war01","¡Felicidades! Has logrado crear un cristal magico.",bc_map;
 	end;
 OnTimer3000:
-	mapannounce "job3_war01","The Magic Chamber is starting to fill with magic power.",bc_map;
+	mapannounce "job3_war01","La Camara Magica esta empezando a llenarse de poder magico.",bc_map;
 	end;
 OnTimer6000:
 	donpcevent "Ebein#E1::OnDisable";
@@ -1058,10 +1058,10 @@ OnDisable:
 	disablenpc "Ebein#E2";
 	end;
 OnTimer3000:
-	mapannounce "job3_war02","Congratulations! You've succeeded in creating a magic crystal.",bc_map;
+	mapannounce "job3_war02","¡Felicidades! Has logrado crear un cristal magico.",bc_map;
 	end;
 OnTimer5000:
-	mapannounce "job3_war02","The Magic Chamber is starting to fill with magic power.",bc_map;
+	mapannounce "job3_war02","La Camara Magica esta empezando a llenarse de poder magico.",bc_map;
 	mapwarp "job3_war02","spl_in02",79,102;
 	end;
 OnTimer6000:
@@ -1072,21 +1072,21 @@ OnTimer6000:
 
 job3_war01,1,2,0	script	Button Girl#wl	66,{
 	callfunc "F_GM_NPC";
-	switch(select("Open Arena:Close Arena:Open the Chamber of Magic:Close the Chamber of Magic:Hollow Stone On:Hollow Stone Off:Cancel")) {
+	switch(select("Abrir Arena:Cerrar Arena:Abrir la Camara de Magia:Cerrar la Camara de Magia:Piedra Hueca Activada:Piedra Hueca Desactivada:Cancelar")) {
 	case 1:
-		mes "Opening the Arena.";
+		mes "Abriendo la Arena.";
 		donpcevent "The chamber of magic#1::OnEnable";
 		close;
 	case 2:
-		mes "Closing the Arena.";
+		mes "Cerrando la Arena.";
 		donpcevent "The chamber of magic#1::OnDisable";
 		close;
 	case 3:
-		mes "Opening the Chamber of Magic.";
+		mes "Abriendo la Camara de Magia.";
 		donpcevent "The chamber of magic#2::OnEnable";
 		close;
 	case 4:
-		mes "Closing the Chamber of Magic.";
+		mes "Cerrando la Camara de Magia.";
 		donpcevent "The chamber of magic#2::OnReset";
 		donpcevent "The chamber of magic#2::OnDisable";
 		donpcevent "The chamber of magic#3::OnReset";
@@ -1095,11 +1095,11 @@ job3_war01,1,2,0	script	Button Girl#wl	66,{
 		donpcevent "The chamber of magic#4::OnDisable";
 		close;
 	case 5:
-		mes "Enabing Hollow Stone.";
+		mes "Activando Piedra Hueca.";
 		donpcevent "Hollow Stone#Warlock::OnEnable";
 		close;
 	case 6:
-		mes "Disabling Hollow Stone.";
+		mes "Desactivando Piedra Hueca.";
 		donpcevent "Hollow Stone#Warlock::OnReset";
 		donpcevent "Hollow Stone#Warlock::OnDisable";
 		close;

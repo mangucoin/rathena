@@ -9,76 +9,76 @@
 //============================================================
 
 function	script	F_AvenBoard	{
-	.@mo_board = select( "Look up monsters by floor",
-					"Monster Information Retrieval System",
-					( countitem(909) == 30000 ? "Request" : "" ),
-					"Cancel" );
+	.@mo_board = select( "Buscar monstruos por piso",
+					"Sistema de Busqueda de Informacion de Monstruos",
+					( countitem(909) == 30000 ? "Solicitar" : "" ),
+					"Cancelar" );
 	if (.@mo_board == 1)
 		return 1;
 	else if (.@mo_board == 2) {
 		while(1) {
-			mes "[Monster Information Retrieval System]";
-			mes "This is Monster Information Retrieval System. Information of the monsters that appear in this dungeon can be searched. Enter Monster Name, including spaces, when searching.";
+			mes "[Sistema de Busqueda de Informacion de Monstruos]";
+			mes "Este es el Sistema de Busqueda de Informacion de Monstruos. Se puede buscar informacion de los monstruos que aparecen en esta mazmorra. Ingresa el Nombre del Monstruo, incluyendo espacios, al buscar.";
 			next;
 			input .@inputstr$;
-			setarray .@element$[0],"Neutral","Water","Earth","Fire","Wind","Poison","Holy","Shadow","Ghost","Undead";
-			setarray .@size$[0],"Medium","Small","Big";
-			setarray .@race$[0],"Formless","Undead","Animal","Plant","Insect","Fish","Demon","Demihuman","Angel","Dragon";
+			setarray .@element$[0],"Neutral","Agua","Tierra","Fuego","Viento","Veneno","Sagrado","Sombra","Fantasma","No-Muerto";
+			setarray .@size$[0],"Mediano","Pequeno","Grande";
+			setarray .@race$[0],"Amorfo","No-Muerto","Animal","Planta","Insecto","Pez","Demonio","Semihumano","Angel","Dragon";
 			.@size = getargcount();
 			.@i = 0;
 			while( .@i < .@size && getarg(.@i+1,"") != .@inputstr$ ) .@i += 3;
-			mes "[Monster Information Retrieval System]";
-			mes "Now searching";
+			mes "[Sistema de Busqueda de Informacion de Monstruos]";
+			mes "Buscando";
 			next;
-			mes "[Monster Information Retrieval System]";
-			mes "Search has been completed.";
-			mes "Now showing the search results.";
+			mes "[Sistema de Busqueda de Informacion de Monstruos]";
+			mes "La busqueda se ha completado.";
+			mes "Mostrando los resultados de la busqueda.";
 			next;
-			mes "[Monster Information Retrieval System]";
+			mes "[Sistema de Busqueda de Informacion de Monstruos]";
 			if (.@i >= .@size) {
-				mes "There is no information available for that monster.";
-				mes "Please check your monster name.";
+				mes "No hay informacion disponible para ese monstruo.";
+				mes "Por favor verifica el nombre del monstruo.";
 			}
 			else {
 				.@mob_id = getarg(.@i);
-				mes "- Name : "+ getarg(.@i+1);
-				mes "- Element : "+ .@element$[ getmonsterinfo(.@mob_id,MOB_ELEMENT) ];
-				mes "- Size : "+ .@size$[ getmonsterinfo(.@mob_id,MOB_SIZE) ];
-				mes "- Race : "+ .@race$[ getmonsterinfo(.@mob_id,MOB_RACE) ];
+				mes "- Nombre : "+ getarg(.@i+1);
+				mes "- Elemento : "+ .@element$[ getmonsterinfo(.@mob_id,MOB_ELEMENT) ];
+				mes "- Tamano : "+ .@size$[ getmonsterinfo(.@mob_id,MOB_SIZE) ];
+				mes "- Raza : "+ .@race$[ getmonsterinfo(.@mob_id,MOB_RACE) ];
 				mes "--------------------------------^FD8D02";
 				mes getarg(.@i+2);
 			}
 			next;
-			mes "[Monster Information Retrieval System]";
-			mes "Would you like to search for other monster information?";
+			mes "[Sistema de Busqueda de Informacion de Monstruos]";
+			mes "Te gustaria buscar informacion de otro monstruo?";
 			next;
-			if (select( "Search","Cancel" ) == 1)
+			if (select( "Search","Cancelar" ) == 1)
 				continue;
-			mes "[Monster Information Retrieval System]";
-			mes "Monster search system will now shut down.";
+			mes "[Sistema de Busqueda de Informacion de Monstruos]";
+			mes "El sistema de busqueda de monstruos se apagara ahora.";
 			next;
 			return 2;
 		}
 	}
 	else if (.@mo_board == 3) {
-		mes "Requested information will appear - There's no problem if it appears";
+		mes "La informacion solicitada aparecera - No hay problema si aparece";
 		next;
 		return 3;
 	}
 	else if (.@mo_board == 4)
 		close;
 	else {
-		mes "Operation Error.";
+		mes "Error de Operacion.";
 		close;
 	}
 }
 
 function	script	F_InfoBoard	{
 	next;
-	mes "[Adventurer Group]";
-	mes "For more Information on the monsters";
-	mes "Monster Information Retrieval System";
-	mes "Must be used.";
+	mes "[Grupo de Aventureros]";
+	mes "Para mas informacion sobre los monstruos";
+	mes "Sistema de Busqueda de Informacion de Monstruos";
+	mes "de Informacion de Monstruos.";
 	next;
 	return;
 }
@@ -86,8 +86,8 @@ function	script	F_InfoBoard	{
 cmd_fild08,326,357,0	script	Signpost#Ant Hell 1	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Ant Hell]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1005,"Familiar","Familiar is a aggressive bat creature that can cause problems for the unaware adventurer.",
@@ -101,10 +101,10 @@ cmd_fild08,326,357,0	script	Signpost#Ant Hell 1	2_BULLETIN_BOARD,{
 			1147,"Maya","Found in the second level of Ant Hell dungeon, this MVP is a more powerful version of Maya Purple." );
 		if (.@mo_board == 1) {
 			mes "[Ant Hell]";
-			mes "Ant Hell dungeon is infested with gigantic insects, when one is attacked others may join the fight.";
+			mes "La mazmorra Ant Hell esta infestada de insectos gigantes, cuando uno es atacado los demas pueden unirse a la pelea.";
 			next;
 			while(1) {
-				switch( select( "Ant Hell B1","Ant Hell B2","Cancel" ) ) {
+				switch( select( "Ant Hell B1","Ant Hell B2","Cancelar" ) ) {
 				case 1:
 					mes "[Ant Hell B1]";
 					mes "------------ Monster ------------";
@@ -147,8 +147,8 @@ cmd_fild08,341,84,0	duplicate(Signpost#Ant Hell 1)	Signposts#Ant Hell2	2_BULLETI
 gef_tower,55,142,0	script	Signposts#Geffen Dungeon	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Geffen Dungeon]";
-		mes "Caution! Geffen Dungeon consists of 3 levels that are too dangerous for new adventurers. Please provide information tips to the adventurer group to revise the information.";
-		mes "Recommended for players around level 60~70.";
+		mes "Precaucion! La Mazmorra de Geffen consiste en 3 niveles que son demasiado peligrosos para nuevos aventureros. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "Recomendado para jugadores alrededor del nivel 60~70.";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1077,"Poison Spore","An aggressive mushroom creature, it is recommended to carry green herbs to counteract it's toxic special attack.",
@@ -167,10 +167,10 @@ gef_tower,55,142,0	script	Signposts#Geffen Dungeon	2_BULLETIN_BOARD,{
 			1389,"Dracula","These MVP vampires do not sparkle.^000000" );
 		if (.@mo_board == 1) {
 			mes "[Geffen Dungeon]";
-			mes "Which part of the dungeon would you like to read about?";
+			mes "Sobre que parte de la mazmorra te gustaria leer?";
 			next;
 			while(1) {
-				switch( select( "Geffen Dungeon B1","Geffen Dungeon B2","Geffen Dungeon B3","Cancel" ) ) {
+				switch( select( "Geffen Dungeon B1","Geffen Dungeon B2","Geffen Dungeon B3","Cancelar" ) ) {
 				case 1:
 					mes "[Geffen Dungeon B1]";
 					mes "------------ Monster ------------";
@@ -218,8 +218,8 @@ gef_tower,55,142,0	script	Signposts#Geffen Dungeon	2_BULLETIN_BOARD,{
 glast_01,372,298,0	script	Signposts#Glastheim	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Glastheim]";
-		mes "Glast Heim is an enormous dungeon with countless levels. Recommended for adventurers levels 70~130.";
-		mes "-- Adventurer Group --";
+		mes "Glast Heim es una mazmorra enorme con innumerables niveles. Recomendada para aventureros de nivel 70~130.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1036,"Ghoul","Corpse that is revived by Unholy Necromancer's curse. It ambushes nearby living creatures and devours their corpses to satiate its hunger, but because it's a reanimated corpse, it is unable to feel satisfied.^000000",
@@ -265,10 +265,10 @@ glast_01,372,298,0	script	Signposts#Glastheim	2_BULLETIN_BOARD,{
 			1272,"Dark Lord","Powerful Demon King. It is unable to utilize its full power, but it's still powerful enough to destroy normal adventurers with a motion of its hand." );
 		if (.@mo_board == 1) {
 			mes "[Glastheim]";
-			mes "The dungeons consist of several underground levels connected by ancient tunnels. Be prepared for attacks from Undead or demonic monsters within.";
+			mes "Las mazmorras consisten en varios niveles subterraneos conectados por tuneles antiguos. Preparate para ataques de monstruos No-Muertos o demoniacos en su interior.";
 			next;
 			while(1) {
-				switch( select( "Cancel","Glastheim Indoor","Glastheim Level B1","Glastheim Level B2","Glastheim Chivalry B1","Glastheim Chivalry B2","Glastheim St. Abbey","Glastheim Churchyard","Glastheim Cave B1","Glastheim Cave B2","Glast Heim Underprison B1","Glast Heim Underprison B2","Glastheim Culvert B1","Glastheim Culvert B2","Glastheim Culvert B3","Glastheim Culvert B4","Glastheim Staircase" ) ) {
+				switch( select( "Cancelar","Glastheim Indoor","Glastheim Level B1","Glastheim Level B2","Glastheim Chivalry B1","Glastheim Chivalry B2","Glastheim St. Abbey","Glastheim Churchyard","Glastheim Cave B1","Glastheim Cave B2","Glast Heim Underprison B1","Glast Heim Underprison B2","Glastheim Culvert B1","Glastheim Culvert B2","Glastheim Culvert B3","Glastheim Culvert B4","Glastheim Staircase" ) ) {
 				case 2:
 					mes "[Glastheim Indoor]";
 					mes "------------ Monster ------------";
@@ -488,8 +488,8 @@ glast_01,372,298,0	script	Signposts#Glastheim	2_BULLETIN_BOARD,{
 yuno_fild03,37,143,0	script	Signposts#Nogg Road	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Magma Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1381,"Grizzly","Bear that inhabits magma flowing regions. Its furs appear as if it's on fire. It will be popular amongst the fur lovers.",
@@ -504,10 +504,10 @@ yuno_fild03,37,143,0	script	Signposts#Nogg Road	2_BULLETIN_BOARD,{
 			1379,"Nightmare Terror","Its name follows its literal meaning. It feeds on other creatures' terror and becomes stronger." );
 		if (.@mo_board == 1) {
 			mes "[Magma Dungeon]";
-			mes "Nogg road is a B2 dungeon that houses fierce monsters. Inexperienced adventurer should not enter this place. Furthermore roads within the dungeon are very narrow, so be careful to not cause inconvenience to other players.";
+			mes "Nogg Road es una mazmorra B2 que alberga monstruos feroces. Aventureros sin experiencia no deberian entrar aqui. Ademas, los caminos dentro de la mazmorra son muy estrechos, asi que ten cuidado de no causar inconvenientes a otros jugadores.";
 			next;
 			while(1) {
-				switch( select( "Magma Dungeon B1","Magma Dungeon B2","Cancel" ) ) {
+				switch( select( "Magma Dungeon B1","Magma Dungeon B2","Cancelar" ) ) {
 				case 1:
 					mes "[Magma Dungeon B1]";
 					mes "------------ Monster ------------";
@@ -543,8 +543,8 @@ yuno_fild03,37,143,0	script	Signposts#Nogg Road	2_BULLETIN_BOARD,{
 mjolnir_02,76,362,0	script	Signposts#Mjolnir Dead	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Mjolnir Dead Pit]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1175,"Tarou","Rodent that inhabits dark places. It possesses white and plushy furs.",
@@ -557,10 +557,10 @@ mjolnir_02,76,362,0	script	Signposts#Mjolnir Dead	2_BULLETIN_BOARD,{
 			1209,"Cramp","Rodent found living deep within the dungeon. Its appearance is similar to Tarou, however it is much more vicious and its teeth poisonous." );
 		if (.@mo_board == 1) {
 			mes "[Mjolnir Dead Pit]";
-			mes "Mjolnir Dead Pit is a dungeon comprised of B3 levels. This place is designed for beginner to intermediate adventurers. Adventurers may want to visit this dungeon to obtain Various ores can be found in this dungeon.";
+			mes "Mjolnir Dead Pit es una mazmorra compuesta de 3 niveles. Este lugar esta disenado para aventureros principiantes a intermedios. Los aventureros pueden querer visitar esta mazmorra para obtener varios minerales que se encuentran aqui.";
 			next;
 			while(1) {
-				switch( select( "Mjolnir Dead Pit B1","Mjolnir Dead Pit B2","Mjolnir Dead Pit B3","Cancel" ) ) {
+				switch( select( "Mjolnir Dead Pit B1","Mjolnir Dead Pit B2","Mjolnir Dead Pit B3","Cancelar" ) ) {
 				case 1:
 					mes "[Mjolnir Dead Pit B1]";
 					mes "------------ Monster ------------";
@@ -605,8 +605,8 @@ mjolnir_02,76,362,0	script	Signposts#Mjolnir Dead	2_BULLETIN_BOARD,{
 prt_fild01,139,369,0	script	Signposts#Prontera_Laby	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Forest of Labyrinth]";
-		mes "A twisty, turny maze with varying levels of monsters within.";
-		mes "-- Adventurer Group --";
+		mes "Un laberinto retorcido y sinuoso con diferentes niveles de monstruos en su interior.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1002,"Poring","Jelly creature that can be found in just about anywhere. This monster is very passive and weak, perfect for beginners. It has a tendency to eat any items that come across.",
@@ -649,10 +649,10 @@ prt_fild01,139,369,0	script	Signposts#Prontera_Laby	2_BULLETIN_BOARD,{
 			1039,"Baphomet","Demon living deep within the forest. It considers humans as insignificant. It uses a scythe as a weapon, which is sharp enough to cut numerous trees in one blow. It has yet to use its scythe to repel intruders." );
 		if (.@mo_board == 1) {
 			mes "[Forest of Labyrinth]";
-			mes "Forest of Labyrinth is comprised of B3 floors, where various monsters reside in 1, 2, B3. Be well prepared before venturing to this dungeon.";
+			mes "El Bosque del Laberinto esta compuesto de 3 pisos, donde varios monstruos residen en B1, B2 y B3. Preparate bien antes de aventurarte en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Forest of Labyrinth B1","Forest of Labyrinth B2","Forest of Labyrinth B3","Cancel" ) ) {
+				switch( select( "Forest of Labyrinth B1","Forest of Labyrinth B2","Forest of Labyrinth B3","Cancelar" ) ) {
 				case 1:
 					mes "[Forest of Labyrinth B1]";
 					mes "------------ Monster ------------";
@@ -727,8 +727,8 @@ prt_fild01,139,369,0	script	Signposts#Prontera_Laby	2_BULLETIN_BOARD,{
 mjolnir_12,40,18,0	script	Signposts#Alde_Laby	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Forest of Labyrinth]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1002,"Poring","Jelly creature that can be found in just about anywhere. This monster is very passive and weak, perfect for beginners. It has a tendency to eat any items that come across.",
@@ -771,10 +771,10 @@ mjolnir_12,40,18,0	script	Signposts#Alde_Laby	2_BULLETIN_BOARD,{
 			1039,"Baphomet","Demon living deep within the forest. It considers humans as insignificant. It uses scythe as a weapon, which is sharp enough to cut numerous trees in one blow. It has yet to use its scythe to repel intruders." );
 		if (.@mo_board == 1) {
 			mes "[Forest of Labyrinth]";
-			mes "Forest of Labyrinth is comprised of B3 floors, where various monsters reside in 1, 2, B3. Be well prepared before venturing to this dungeon.";
+			mes "El Bosque del Laberinto esta compuesto de 3 pisos, donde varios monstruos residen en B1, B2 y B3. Preparate bien antes de aventurarte en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Forest of Labyrinth B1","Forest of Labyrinth B2","Forest of Labyrinth B3","Cancel" ) ) {
+				switch( select( "Forest of Labyrinth B1","Forest of Labyrinth B2","Forest of Labyrinth B3","Cancelar" ) ) {
 				case 1:
 					mes "[Forest of Labyrinth B1]";
 					mes "------------ Monster ------------";
@@ -849,8 +849,8 @@ mjolnir_12,40,18,0	script	Signposts#Alde_Laby	2_BULLETIN_BOARD,{
 moc_fild19,107,101,0	script	Signposts#Sphinx	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Sphinx]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1111,"Drainliar","Colonial bat that inhabits dark caves. It uses its big, sharp teeth to attack nearby creatures and sucks in blood. It's bigger than a Familiar.^000000",
@@ -866,10 +866,10 @@ moc_fild19,107,101,0	script	Signposts#Sphinx	2_BULLETIN_BOARD,{
 			1157,"Pharaoh","King of the Pyramid. As a king of ancient kingdom, its body now lies within royal coffin." );
 		if (.@mo_board == 1) {
 			mes "[Sphinx]";
-			mes "Sphinx is comprised of 5 underground floors. This dungeon's difficulty is appropriate for intermediate to expert adventurers. All monsters in this dungeon are aggressive, so adventurers are advised to have a method to escape in emergencies.";
+			mes "La Esfinge esta compuesta de 5 pisos subterraneos. La dificultad de esta mazmorra es apropiada para aventureros intermedios a expertos. Todos los monstruos en esta mazmorra son agresivos, asi que se aconseja a los aventureros tener un metodo de escape para emergencias.";
 			next;
 			while(1) {
-				switch( select( "Sphinx B1","Sphinx B2","Sphinx B3","Sphinx B4","Sphinx B5","Cancel" ) ) {
+				switch( select( "Sphinx B1","Sphinx B2","Sphinx B3","Sphinx B4","Sphinx B5","Cancelar" ) ) {
 				case 1:
 					mes "[Sphinx B1]";
 					mes "------------ Monster ------------";
@@ -934,8 +934,8 @@ moc_fild19,107,101,0	script	Signposts#Sphinx	2_BULLETIN_BOARD,{
 aldebaran,136,133,0	script	Signposts#Clock Tower	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Clock Tower Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1195,"Rideword","Magic Tome brought to life with demon's powers. It does not possess emotions or a mind of its own, programmed to rely on its instincts to attack living creatures.",
@@ -958,10 +958,10 @@ aldebaran,136,133,0	script	Signposts#Clock Tower	2_BULLETIN_BOARD,{
 			1131,"Joker","Creature created from countless experiments by demons. It's main priority is to repel invaders." );
 		if (.@mo_board == 1) {
 			mes "[Clock Tower Dungeon]";
-			mes "Clock Tower Dungeon is comprised of B4 ground floors and B4 underground floors. Warp points inside the dungeon are complex, sending adventurers to random locations. Exercise caution to not get lost inside the dungeon.";
+			mes "La Mazmorra de la Torre del Reloj esta compuesta de 4 pisos superiores y 4 pisos subterraneos. Los puntos de teletransporte dentro de la mazmorra son complejos, enviando aventureros a ubicaciones aleatorias. Ten precaucion para no perderte dentro de la mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Ground Floor B1","Ground Floor B2","Ground Floor B3","Ground Floor B4","Underground Floor B1","Underground Floor B2","Underground Floor B3","Underground Floor B4","Cancel" ) ) {
+				switch( select( "Ground Floor B1","Ground Floor B2","Ground Floor B3","Ground Floor B4","Underground Floor B1","Underground Floor B2","Underground Floor B3","Underground Floor B4","Cancelar" ) ) {
 				case 1:
 					mes "[Clock Tower Dungeon Ground Floor B1]";
 					mes "------------ Monster ------------";
@@ -1058,8 +1058,8 @@ aldebaran,136,133,0	script	Signposts#Clock Tower	2_BULLETIN_BOARD,{
 gef_fild10,69,340,0	script	Signposts#Orc Dungeon	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Orc Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1005,"Familiar","Colonial bat that inhabits dark caves. Its small fangs are sharp enough to suck blood from nearby creatures.",
@@ -1071,10 +1071,10 @@ gef_fild10,69,340,0	script	Signposts#Orc Dungeon	2_BULLETIN_BOARD,{
 			1189,"Orc Archer","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Orc Dungeon]";
-			mes "Orc Dungeon is comprised of 2 floors. Monsters that appear in this dungeon are not strong individually, but adventurers may be overwhelmed by the number. Holy element weapons will make adventurer's life easier in this dungeon. You can also utilize Priest skill, Aspersio.";
+			mes "La Mazmorra Orc esta compuesta de 2 pisos. Los monstruos que aparecen en esta mazmorra no son fuertes individualmente, pero los aventureros pueden verse abrumados por la cantidad. Las armas de elemento Sagrado facilitaran la vida del aventurero en esta mazmorra. Tambien puedes utilizar la habilidad de Sacerdote, Aspersio.";
 			next;
 			while(1) {
-				switch( select( "Orc Dungeon B1","Orc Dungeon B2","Cancel" ) ) {
+				switch( select( "Orc Dungeon B1","Orc Dungeon B2","Cancelar" ) ) {
 				case 1:
 					mes "[Orc Dungeon B1]";
 					mes "------------ Monster ------------";
@@ -1109,8 +1109,8 @@ gef_fild10,69,340,0	script	Signposts#Orc Dungeon	2_BULLETIN_BOARD,{
 jupe_cave,35,57,0	script	Signposts#Juperos Ruins	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Juperos Ruins]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1677,"Venatu (Green)","Automatic walking machine guards created by ancient machinery civilization. It uses 2 vulcan cannons in its arms to attack.",
@@ -1126,10 +1126,10 @@ jupe_cave,35,57,0	script	Signposts#Juperos Ruins	2_BULLETIN_BOARD,{
 			1685,"Vesper","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Juperos Ruins]";
-			mes "Juperos Ruins is comprised to 2 floors that can be accessed normally, and 1 center floor that can only be accessed by completing specific challenges.";
+			mes "Las Ruinas de Juperos estan compuestas de 2 pisos a los que se puede acceder normalmente, y 1 piso central al que solo se puede acceder completando desafios especificos.";
 			next;
 			while(1) {
-				switch( select( "Juperos Ruins B1","Juperos Ruins B2","Juperos Ruins Center","Cancel" ) ) {
+				switch( select( "Juperos Ruins B1","Juperos Ruins B2","Juperos Ruins Center","Cancelar" ) ) {
 				case 1:
 					mes "[Juperos Ruins B1]";
 					mes "------------ Monster ------------";
@@ -1181,8 +1181,8 @@ jupe_cave,35,57,0	script	Signposts#Juperos Ruins	2_BULLETIN_BOARD,{
 izlu2dun,111,87,0	script	Signposts#Izlude	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Izlude Undersea Tunnel]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1068,"Hydra","Anemone monster. Despite the appearance, it is rooted deep within the area, and uses the rooted tentacles to attack nearby creatures.",
@@ -1207,10 +1207,10 @@ izlu2dun,111,87,0	script	Signposts#Izlude	2_BULLETIN_BOARD,{
 			2202,"Kraken","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Izlude Undersea Tunnel]";
-			mes "Byalan Island's Undersea Tunnel is comprised of 6 floors. This dungeon is appropriate for beginners to expert adventurers. Most monsters in this dungeon are water element, therefore having wind element weapons will prove to be helpful.";
+			mes "El Tunel Submarino de la Isla Byalan esta compuesto de 6 pisos. Esta mazmorra es apropiada para aventureros principiantes a expertos. La mayoria de los monstruos en esta mazmorra son de elemento Agua, por lo que tener armas de elemento Viento sera de gran ayuda.";
 			next;
 			while(1) {
-				switch( select( "Izlude Undersea Tunnel B1","Izlude Undersea Tunnel B2","Izlude Undersea Tunnel B3","Izlude Undersea Tunnel B4","Izlude Undersea Tunnel B5","Izlude Undersea Tunnel B6","Cancel" ) ) {
+				switch( select( "Izlude Undersea Tunnel B1","Izlude Undersea Tunnel B2","Izlude Undersea Tunnel B3","Izlude Undersea Tunnel B4","Izlude Undersea Tunnel B5","Izlude Undersea Tunnel B6","Cancelar" ) ) {
 				case 1:
 					mes "[Izlude Undersea Tunnel B1]";
 					mes "------------ Monster ------------";
@@ -1293,8 +1293,8 @@ izlu2dun,111,87,0	script	Signposts#Izlude	2_BULLETIN_BOARD,{
 xmas,147,311,0	script	Signposts#Toy Factory	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Toy Factory]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1002,"Poring","Jelly creature that can be found just about anywhere. This monster is very passive and weak, perfect for beginners. It has a tendency to eat any items that come across.",
@@ -1311,10 +1311,10 @@ xmas,147,311,0	script	Signposts#Toy Factory	2_BULLETIN_BOARD,{
 			1251,"Stormy Knight","Boss monster from the legendary story that's passed down the generations in Lutie. It's known to appear with blizzard and destroy everything on sight." );
 		if (.@mo_board == 1) {
 			mes "[Toy Factory]";
-			mes "Toy Factory is comprised of 2 floors. Strong monsters sometimes appear within the dungeon. This dungeon is appropriate for leisure adventure experience, however some caution should be exercised.";
+			mes "La Fabrica de Juguetes esta compuesta de 2 pisos. Monstruos fuertes aparecen ocasionalmente dentro de la mazmorra. Esta mazmorra es apropiada para una experiencia de aventura relajada, sin embargo se debe tener algo de precaucion.";
 			next;
 			while(1) {
-				switch( select( "Toy Factory B1","Toy Factory B2","Cancel" ) ) {
+				switch( select( "Toy Factory B1","Toy Factory B2","Cancelar" ) ) {
 				case 1:
 					mes "[Toy Factory B1]";
 					mes "------------ Monster ------------";
@@ -1355,8 +1355,8 @@ xmas,147,311,0	script	Signposts#Toy Factory	2_BULLETIN_BOARD,{
 alb2trea,75,101,0	script	Signposts#Sunken Ship	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Sunken Ship]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1068,"Hydra","Anemone monster. Despite the appearance, it is rooted deep within the area, and uses the rooted tentacles to attack nearby creatures.",
@@ -1371,10 +1371,10 @@ alb2trea,75,101,0	script	Signposts#Sunken Ship	2_BULLETIN_BOARD,{
 			1112,"Drake","Attempted to find phantom treasures but ended up dying in the process, Pirate King. Due to its strong regret, the pirates were cursed to walk the world of the living as an Undead. It protects its treasures from adventurers." );
 		if (.@mo_board == 1) {
 			mes "[Sunken Ship]";
-			mes "Sunken Ship is not completely submerged in water, allowing access to a total of 2 floors. Despite the size of the map, many monsters appear in this dungeon. Exercise caution inside the dungeon.";
+			mes "El Barco Hundido no esta completamente sumergido en agua, permitiendo acceso a un total de 2 pisos. A pesar del tamano del mapa, muchos monstruos aparecen en esta mazmorra. Ten precaucion dentro de la mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Sunken Ship B1","Sunken Ship B2","Cancel" ) ) {
+				switch( select( "Sunken Ship B1","Sunken Ship B2","Cancelar" ) ) {
 				case 1:
 					mes "[Sunken Ship B1]";
 					mes "------------ Monster ------------";
@@ -1413,8 +1413,8 @@ alb2trea,75,101,0	script	Signposts#Sunken Ship	2_BULLETIN_BOARD,{
 comodo,327,177,0	script	Signposts#Comodo East	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Comodo East Cave, Mao]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1068,"Hydra","Anemone monster. Despite the appearance, it is rooted deep within the area, and uses the rooted tentacles to attack nearby creatures.",
@@ -1423,7 +1423,7 @@ comodo,327,177,0	script	Signposts#Comodo East	2_BULLETIN_BOARD,{
 			1255,"Nereid","Worm monster that lives inside the cave. Its eye sight is horrible, relying solely on sense of smell to detect nearby prey." );		
 		if (.@mo_board == 1) {
 			mes "[Comodo East Cave, Mao]";
-			mes "East Cave, Mao is a tunnel that leads to Papuchicha Forest. This place is popular for highly sought after cards, Thara Frog and Hydra. Visit this place if you are in dire need of zeny.";
+			mes "La Cueva Este, Mao es un tunel que lleva al Bosque Papuchicha. Este lugar es popular por las cartas muy buscadas, Thara Frog y Hydra. Visita este lugar si necesitas zeny urgentemente.";
 			next;
 			mes "[Comodo East Cave, Mao]";
 			mes "------------ Monster ------------";
@@ -1442,8 +1442,8 @@ comodo,327,177,0	script	Signposts#Comodo East	2_BULLETIN_BOARD,{
 comodo,31,217,0	script	Signposts#Comodo West	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Comodo West Cave, Karu]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1264,"Merman","Ambitious Merman monster with ambition to rule over surface world. It's usually seen deep under the ocean or caves in beach areas.",
@@ -1453,7 +1453,7 @@ comodo,31,217,0	script	Signposts#Comodo West	2_BULLETIN_BOARD,{
 			1583,"Tao Gunka","MVP monster with large, round face and crude expression. Most adventurers run away from this monster in fear. Despite its appearance, it's fairly strong." );
 		if (.@mo_board == 1) {
 			mes "[Comodo West Cave, Karu]";
-			mes "This dungeon introduces Medusa monster that will surely cause you to turn to stone if you look at it in the eyes. There are no other exits in this cave.";
+			mes "Esta mazmorra presenta al monstruo Medusa que seguramente te convertira en piedra si la miras a los ojos. No hay otras salidas en esta cueva.";
 			next;
 			mes "[Comodo West Cave, Karu]";
 			mes "------------ Monster ------------";
@@ -1472,8 +1472,8 @@ comodo,31,217,0	script	Signposts#Comodo West	2_BULLETIN_BOARD,{
 comodo,178,354,0	script	Signposts#Comodo North	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Comodo North Cave, Ruande]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1068,"Hydra","Anemone monster. Despite the appearance, it is rooted deep within the area, and uses the rooted tentacles to attack nearby creatures.",
@@ -1483,7 +1483,7 @@ comodo,178,354,0	script	Signposts#Comodo North	2_BULLETIN_BOARD,{
 			1255,"Nereid","Worm monster that lives inside the cave. Its eye sight is horrible, relying solely on sense of smell to detect nearby prey." );
 		if (.@mo_board == 1) {
 			mes "[Comodo North Cave, Ruande]";
-			mes "Adventurers can reach Umbala by going through Ruande cave. Stalactic Golem monster can only be seen in this cave.";
+			mes "Los aventureros pueden llegar a Umbala pasando por la cueva Ruande. El monstruo Stalactic Golem solo se puede ver en esta cueva.";
 			next;
 			mes "[Comodo North Cave, Ruande]";
 			mes "------------ Monster ------------";
@@ -1503,8 +1503,8 @@ comodo,178,354,0	script	Signposts#Comodo North	2_BULLETIN_BOARD,{
 pay_arche,39,134,0	script	Signposts#Payon Cave	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Payon Cave]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1015,"Zombie","Dead soul trapped by unholy necromancer in a rotting corpse, cursed to live without being able to feel pain. Its impurity is capable of inflicting poison.",
@@ -1531,10 +1531,10 @@ pay_arche,39,134,0	script	Signposts#Payon Cave	2_BULLETIN_BOARD,{
 			1150,"Moonlight Flower","Medium rank Demon, queen of foxes. Underestimating its cute appearance will result in death." );		
 		if (.@mo_board == 1) {
 			mes "[Payon Cave]";
-			mes "Payon Cave is comprised of 5 floors. Most monsters are Undead or Demon. Holy property weapons will prove to be useful in this dungeon.";
+			mes "La Cueva de Payon esta compuesta de 5 pisos. La mayoria de los monstruos son No-Muertos o Demonios. Las armas de propiedad Sagrada seran utiles en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Payon Cave B1","Payon Cave B2","Payon Cave B3","Payon Cave B4","Payon Cave B5","Cancel" ) ) {
+				switch( select( "Payon Cave B1","Payon Cave B2","Payon Cave B3","Payon Cave B4","Payon Cave B5","Cancelar" ) ) {
 				case 1:
 					mes "[Payon Cave B1]";
 					mes "------------ Monster ------------";
@@ -1608,8 +1608,8 @@ pay_arche,39,134,0	script	Signposts#Payon Cave	2_BULLETIN_BOARD,{
 moc_ruins,61,164,0	script	Signposts#Pyramid	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Pyramid]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1005,"Familiar","Colonial bat that inhabits dark caves. Its small fangs are sharp enough to suck blood from nearby creatures.",
@@ -1629,10 +1629,10 @@ moc_ruins,61,164,0	script	Signposts#Pyramid	2_BULLETIN_BOARD,{
 			1511,"Amon Ra","MVP monster that attacks while seated in the chair. This MVP feels like it could be another king of the pyramid. What's happening behind its chair?" );
 		if (.@mo_board == 1) {
 			mes "[Pyramid]";
-			mes "Pyramid is comprised of B4 ground floors and B3 underground floors. This dungeon is appropriate for beginner to expert adventurers. Thief Guild is located in underground B1 floor.";
+			mes "La Piramide esta compuesta de 4 pisos superiores y 3 pisos subterraneos. Esta mazmorra es apropiada para aventureros principiantes a expertos. El Gremio de Ladrones se encuentra en el piso subterraneo B1.";
 			next;
 			while(1) {
-				switch( select( "Pyramid Ground Floor B1","Pyramid Ground Floor B2","Pyramid Ground Floor B3","Pyramid Ground Floor B4","Pyramid Underground Floor B2","Pyramid Underground Floor B3","Cancel" ) ) {
+				switch( select( "Pyramid Ground Floor B1","Pyramid Ground Floor B2","Pyramid Ground Floor B3","Pyramid Ground Floor B4","Pyramid Underground Floor B2","Pyramid Underground Floor B3","Cancelar" ) ) {
 				case 1:
 					mes "[Pyramid Ground Floor B1]";
 					mes "------------ Monster ------------";
@@ -1710,8 +1710,8 @@ moc_ruins,61,164,0	script	Signposts#Pyramid	2_BULLETIN_BOARD,{
 hu_fild05,188,210,0	script	Signpost#Abyss Lake	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Abyss Lake Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1191,"Mimic","Adventurer's tips are needed.",
@@ -1728,10 +1728,10 @@ hu_fild05,188,210,0	script	Signpost#Abyss Lake	2_BULLETIN_BOARD,{
 			1719,"Detardeurus","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Abyss Lake Dungeon]";
-			mes "Abyss Lake Dungeon is comprised of B3 floors, and monsters in this dungeon are mostly Dragon race. Prepare yourself before venturing into this dungeon.";
+			mes "La Mazmorra del Lago del Abismo esta compuesta de 3 pisos, y los monstruos en esta mazmorra son mayormente de raza Dragon. Preparate antes de aventurarte en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Abyss Lake Dungeon B1","Abyss Lake Dungeon B2","Abyss Lake Dungeon B3","Cancel" ) ) {
+				switch( select( "Abyss Lake Dungeon B1","Abyss Lake Dungeon B2","Abyss Lake Dungeon B3","Cancelar" ) ) {
 				case 1:
 					mes "[Abyss Lake Dungeon B1]";
 					mes "------------ Monster ------------";
@@ -1786,8 +1786,8 @@ hu_fild05,188,210,0	script	Signpost#Abyss Lake	2_BULLETIN_BOARD,{
 einbech,142,250,0	script	Signpost#Einbech Dungeon	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Einbech Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1619,"Porcellio","Tiny larva monster. Despite its size, it's surprisingly strong.",
@@ -1802,10 +1802,10 @@ einbech,142,250,0	script	Signpost#Einbech Dungeon	2_BULLETIN_BOARD,{
 			1623,"RSX-0806","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Einbech Dungeon]";
-			mes "Einbech Dungeon is comprised of 2 floors, and most of the monsters that appear in this dungeon are Formless. Prepare before venturing into this dungeon.";
+			mes "La Mazmorra de Einbech esta compuesta de 2 pisos, y la mayoria de los monstruos que aparecen en esta mazmorra son Amorfos. Preparate antes de aventurarte en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Einbech Dungeon 1f","Einbech Dungeon 2f","Cancel" ) ) {
+				switch( select( "Einbech Dungeon 1f","Einbech Dungeon 2f","Cancelar" ) ) {
 				case 1:
 					mes "[Einbech Dungeon 1f]";
 					mes "------------ Monster ------------";
@@ -1840,8 +1840,8 @@ einbech,142,250,0	script	Signpost#Einbech Dungeon	2_BULLETIN_BOARD,{
 ra_fild01,228,330,0	script	Signpost#Ice Cave	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Ice Cave]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1782,"Roween","Adventurer's tips are needed.",
@@ -1854,10 +1854,10 @@ ra_fild01,228,330,0	script	Signpost#Ice Cave	2_BULLETIN_BOARD,{
 			1779,"Ktullanux","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Ice Cave]";
-			mes "Ice Cave is comprised of B3 floors, and most monsters within the dungeon are Water element. Prepare before venturing into this dungeon.";
+			mes "La Cueva de Hielo esta compuesta de 3 pisos, y la mayoria de los monstruos dentro de la mazmorra son de elemento Agua. Preparate antes de aventurarte en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Ice Cave B1","Ice Cave B2","Ice Cave B3","Cancel" ) ) {
+				switch( select( "Ice Cave B1","Ice Cave B2","Ice Cave B3","Cancelar" ) ) {
 				case 1:
 					mes "[Ice Cave B1]";
 					mes "------------ Monster ------------";
@@ -1901,8 +1901,8 @@ ra_fild01,228,330,0	script	Signpost#Ice Cave	2_BULLETIN_BOARD,{
 ve_fild03,172,239,0	script	Signpost#Thor Volcano	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Thor Volcano Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1072,"Kaho","Demon covered in flames. Its attacks are flashy, but it's actually a low ranking demon with fairly weak attack.",
@@ -1917,10 +1917,10 @@ ve_fild03,172,239,0	script	Signpost#Thor Volcano	2_BULLETIN_BOARD,{
 			1832,"Ifrit","Adventurer's tips are needed." );
 		if (.@mo_board == 1) {
 			mes "[Thor Volcano Dungeon]";
-			mes "Thor Volcano Dungeon is comprised of B3 floors, and the monsters that appear in this dungeon are mostly Fire element. Prepare before venturing into this dungeon.";
+			mes "La Mazmorra del Volcan Thor esta compuesta de 3 pisos, y los monstruos que aparecen en esta mazmorra son mayormente de elemento Fuego. Preparate antes de aventurarte en esta mazmorra.";
 			next;
 			while(1) {
-				switch( select( "Thor Volcano Dungeon B1","Thor Volcano Dungeon B2","Thor Volcano Dungeon B3","Cancel" ) ) {
+				switch( select( "Thor Volcano Dungeon B1","Thor Volcano Dungeon B2","Thor Volcano Dungeon B3","Cancelar" ) ) {
 				case 1:
 					mes "[Thor Volcano Dungeon B1]";
 					mes "------------ Monster ------------";
@@ -1970,8 +1970,8 @@ ve_fild03,172,239,0	script	Signpost#Thor Volcano	2_BULLETIN_BOARD,{
 odin_tem01,111,141,0	script	Signpost#Odin Temple	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Odin Temple]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1692,"Breeze","Adventurer's tips are needed.",
@@ -1991,7 +1991,7 @@ odin_tem01,111,141,0	script	Signpost#Odin Temple	2_BULLETIN_BOARD,{
 			mes "Odin Temple is comprised of 3 areas , and most monsters that appear here have fast movement speed. Be prepared to get ambushed by multiple monsters.";
 			next;
 			while(1) {
-				switch( select( "Odin Temple West","Odin Temple South","Odin Temple North","Cancel" ) ) {
+				switch( select( "Odin Temple West","Odin Temple South","Odin Temple North","Cancelar" ) ) {
 				case 1:
 					mes "[Odin Temple West]";
 					mes "------------ Monster ------------";
@@ -2042,8 +2042,8 @@ odin_tem01,111,141,0	script	Signpost#Odin Temple	2_BULLETIN_BOARD,{
 malangdo,77,238,0	script	Signpost#Starlight Reef	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Starlight Reef]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1073,"Crab","Crustaceans monster that can be seen commonly around beach. It's not strong, but its hardened shell may prove to be difficult to cut through.",
@@ -2057,7 +2057,7 @@ malangdo,77,238,0	script	Signpost#Starlight Reef	2_BULLETIN_BOARD,{
 			mes "Starlight Reef introduces rather weak monsters. Be careful around Red Eruma monsters as it will assist other monsters in its vicinity. Prepare before venturing into this dungeon.";
 			next;
 			while(1) {
-				if (select( "Starlight Reef","Cancel" ) == 2)
+				if (select( "Starlight Reef","Cancelar" ) == 2)
 					break;
 				mes "[Starlight Reef]";
 				mes "------------ Monster ------------";
@@ -2081,8 +2081,8 @@ malangdo,77,238,0	script	Signpost#Starlight Reef	2_BULLETIN_BOARD,{
 gefenia01,61,173,0	script	Signpost#Geffenia1	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Geffenia]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1204,"Ogretooth","Adventurer's tips are needed.",
@@ -2100,7 +2100,7 @@ gefenia01,61,173,0	script	Signpost#Geffenia1	2_BULLETIN_BOARD,{
 			mes "Ancient Elf's lost city, Geffenia is comprised of 4 sections. Most monsters that appear in this dungeon are strong, so be prepared before you venture into this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Geffenia Section 1","Geffenia Section 2","Geffenia Section 3","Geffenia Section 4","Cancel" ) ) {
+				switch( select( "Geffenia Section 1","Geffenia Section 2","Geffenia Section 3","Geffenia Section 4","Cancelar" ) ) {
 				case 1:
 					mes "[Geffenia Section 1]";
 					mes "------------ Monster ------------";
@@ -2180,8 +2180,8 @@ gefenia04,130,95,0	duplicate(Signpost#Geffenia1)	Signpost#Geffenia4	2_BULLETIN_B
 nameless_n,259,213,0	script	Signpost#Nameless Island	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Nameless Island St. Abbey]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1036,"Ghoul","Corpse that is revived by Unholy Necromancer's curse. It ambushes nearby living creatures and devours their corpses to satiate its hunger, but because it's a reanimated corpse, it is unable to feel satisfied.^000000",
@@ -2198,7 +2198,7 @@ nameless_n,259,213,0	script	Signpost#Nameless Island	2_BULLETIN_BOARD,{
 			mes "Nameless Island St. Abbey is comprised of 3 floors, and most monsters that appear in this dungeon are Undead or demon. Prepare before venturing into this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Nameless Island St. Abbey 1F","Nameless Island St. Abbey 2F","Nameless Island St. Abbey 3F","Cancel" ) ) {
+				switch( select( "Nameless Island St. Abbey 1F","Nameless Island St. Abbey 2F","Nameless Island St. Abbey 3F","Cancelar" ) ) {
 				case 1:
 					mes "[Nameless Island St. Abbey 1F]";
 					mes "------------ Monster ------------";
@@ -2244,8 +2244,8 @@ nameless_n,259,213,0	script	Signpost#Nameless Island	2_BULLETIN_BOARD,{
 lhz_cube,234,97,0	script	Signpost#Somatology	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Somatology Laboratory]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1613,"Metaling","At first glance, it seems like a normal poring monster, but it's actually made of machinery parts.",
@@ -2276,7 +2276,7 @@ lhz_cube,234,97,0	script	Signpost#Somatology	2_BULLETIN_BOARD,{
 			mes "Somatology Laboratory is comprised of 3 floors, and monsters that appear are mostly Demi-human. These monsters are very powerful so be sure to explore with another adventurer.";
 			next;
 			while(1) {
-				switch( select( "Somatology Laboratory 1F","Somatology Laboratory 2F","Somatology Laboratory 3F","Cancel" ) ) {
+				switch( select( "Somatology Laboratory 1F","Somatology Laboratory 2F","Somatology Laboratory 3F","Cancelar" ) ) {
 				case 1:
 					mes "[Somatology Laboratory 1F]";
 					mes "------------ Monster ------------";
@@ -2340,7 +2340,7 @@ ra_temin,31,316,0	script	Signpost#Holy Ground	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Holy Ground]";
 		mes "Only those that have requested permission from High Priest Zhed may enter this dungeon. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1632,"Gremlin","Adventurer's tips are needed.",
@@ -2357,7 +2357,7 @@ ra_temin,31,316,0	script	Signpost#Holy Ground	2_BULLETIN_BOARD,{
 			mes "Holy Ground is comprised of 5 floors, and monsters that appear in this dungeon use magic skills. Prepare before venturing into this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Holy Ground 1F","Holy Ground 2F","Holy Ground 3F","Holy Ground 4F","Holy Ground 5F","Cancel" ) ) {
+				switch( select( "Holy Ground 1F","Holy Ground 2F","Holy Ground 3F","Holy Ground 4F","Holy Ground 5F","Cancelar" ) ) {
 				case 1:
 					mes "[Holy Ground 1F]";
 					mes "------------ Monster ------------";
@@ -2432,8 +2432,8 @@ yuno_fild08,82,178,2	script	Signpost#Robot Factory	4_BULLETIN_BOARD2,{
 	}
 	while(1) {
 		mes "[Robot Factory]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1275,"Alice","Automatic doll tasked with various chores in the castle. Its main priority is to clean the vicinity, however it will attack intruders with a steel broom stick.",
@@ -2448,7 +2448,7 @@ yuno_fild08,82,178,2	script	Signpost#Robot Factory	4_BULLETIN_BOARD2,{
 			mes "Robot Factory is comprised of 2 floors, and monsters that appear here are mostly formless. Constant monster self destructs to repel any invaders, so be cautious.";
 			next;
 			while(1) {
-				switch( select( "Robot Factory 1F","Robot Factory 2F","Cancel" ) ) {
+				switch( select( "Robot Factory 1F","Robot Factory 2F","Cancelar" ) ) {
 				case 1:
 					mes "[Robot Factory 1F]";
 					mes "------------ Monster ------------";
@@ -2501,7 +2501,7 @@ tha_t01,142,78,0	script	Guide#Thanatos1	CLEAR_NPC,{
 	while(1) {
 		mes "[Thanatos Tower Guide]";
 		mes "You have signed the contract with '^0000FFRenkenber^000000', the following information are now available. To revise the information, contact Adventurer Group or '^0000FFRenkenber^000000'with information tip.";
-		mes "-- Adventurer Group --";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1191,"Mimic","Adventurer's tips are needed.",
@@ -2531,7 +2531,7 @@ tha_t01,142,78,0	script	Guide#Thanatos1	CLEAR_NPC,{
 			mes "Please choose an appropriate floor for monster information.";
 			next;
 			while(1) {
-				switch( select( "Cancel","Thanatos Tower 1F","Thanatos Tower 2F","Thanatos Tower 3F","Thanatos Tower 4F","Thanatos Tower 5F","Thanatos Tower 6F","Thanatos Tower 7F","Thanatos Tower 8F","Thanatos Tower 9F","Thanatos Tower 10F","Thanatos Tower 11F","Thanatos Tower 12F","Thanatos Tower Top Floor" ) ) {
+				switch( select( "Cancelar","Thanatos Tower 1F","Thanatos Tower 2F","Thanatos Tower 3F","Thanatos Tower 4F","Thanatos Tower 5F","Thanatos Tower 6F","Thanatos Tower 7F","Thanatos Tower 8F","Thanatos Tower 9F","Thanatos Tower 10F","Thanatos Tower 11F","Thanatos Tower 12F","Thanatos Tower Top Floor" ) ) {
 				case 2:
 					mes "[Thanatos Tower 1F]";
 					mes "------------ Monster ------------";
@@ -2711,7 +2711,7 @@ prt_fild05,278,220,0	script	Signpost#Culvert	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Prontera Culvert]";
 		mes "Prontera Culvert can only be accessed by adventurers who have the permission from Rune-Midgarts Kingdom.";
-		mes "-- Adventurer Group --";
+		mes "-- Grupo de Aventureros --";
 		next;
 		if ((MISC_QUEST & 8) == 0) {
 			mes "[Prontera Culvert]";
@@ -2748,7 +2748,7 @@ prt_fild05,278,220,0	script	Signpost#Culvert	2_BULLETIN_BOARD,{
 			mes "Prontera Culvert is comprised of B4 floors. This dungeon is appropriate for beginner adventurers and most monsters that appear here will assist others monsters with the same name.";
 			next;
 			while(1) {
-				switch( select( "Prontera Culvert 1F","Prontera Culvert 2F","Prontera Culvert 3F","Prontera Culvert 4F","Cancel" ) ) {
+				switch( select( "Prontera Culvert 1F","Prontera Culvert 2F","Prontera Culvert 3F","Prontera Culvert 4F","Cancelar" ) ) {
 				case 1:
 					mes "[Prontera Culvert 1F]";
 					mes "------------ Monster ------------";
@@ -2810,8 +2810,8 @@ prt_fild05,278,220,0	script	Signpost#Culvert	2_BULLETIN_BOARD,{
 tur_dun01,158,241,0	script	Signpost#Turtle Island	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Turtle Island]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1256,"Pest","Monster with an unknown origin. It attacks by spinning its sharp eyelids.",
@@ -2826,7 +2826,7 @@ tur_dun01,158,241,0	script	Signpost#Turtle Island	2_BULLETIN_BOARD,{
 			mes "Turtle Island is comprised of 3 floors, and the monsters that appear here are mostly brute. Prepare before venturing into this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Turtle Island","Turtles Village","Turtle Palace","Cancel" ) ) {
+				switch( select( "Turtle Island","Turtles Village","Turtle Palace","Cancelar" ) ) {
 				case 1:
 					mes "[Turtle Island]";
 					mes "------------ Monster ------------";
@@ -2871,8 +2871,8 @@ tur_dun01,158,241,0	script	Signpost#Turtle Island	2_BULLETIN_BOARD,{
 ama_dun01,233,14,0	script	Signpost#Amatsu Dungeon	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Amatsu Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1191,"Mimic","Adventurer's tips are needed.",
@@ -2889,7 +2889,7 @@ ama_dun01,233,14,0	script	Signpost#Amatsu Dungeon	2_BULLETIN_BOARD,{
 			mes "Amatsu Dungeon is comprised of 3 floors. This dungeon's maze is very complex and fly wings cannot be used. Prepare before venturing into this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Amatsu Dungeon - Tatami Maze","Amatsu Dungeon - Battle Field in the Underground Forest","Amatsu Dungeon - Amatsu Underground Shrine","Cancel" ) ) {
+				switch( select( "Amatsu Dungeon - Tatami Maze","Amatsu Dungeon - Battle Field in the Underground Forest","Amatsu Dungeon - Amatsu Underground Shrine","Cancelar" ) ) {
 				case 1:
 					mes "[Amatsu Dungeon - Tatami Maze]";
 					mes "------------ Monster ------------";
@@ -2935,8 +2935,8 @@ ama_dun01,233,14,0	script	Signpost#Amatsu Dungeon	2_BULLETIN_BOARD,{
 gonryun,155,198,0	script	Signpost#Kunlun Dungeon	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Kunlun Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1415,"Baby Leopard","Cute little baby leopard, but it's vicious.",
@@ -2952,7 +2952,7 @@ gonryun,155,198,0	script	Signpost#Kunlun Dungeon	2_BULLETIN_BOARD,{
 			mes "Kunlun Dungeon is comprised of 3 floors. Royal Jelly and Dead Branch items can be obtained from monsters in this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Kunlun Dungeon - Shrine of Kunlun Queen","Kunlun Dungeon - Hermit's Checkers","Kunlun Dungeon - Arcadia","Cancel" ) ) {
+				switch( select( "Kunlun Dungeon - Shrine of Kunlun Queen","Kunlun Dungeon - Hermit's Checkers","Kunlun Dungeon - Arcadia","Cancelar" ) ) {
 				case 1:
 					mes "[Kunlun Dungeon - Shrine of Kunlun Queen]";
 					mes "------------ Monster ------------";
@@ -2993,8 +2993,8 @@ gonryun,155,198,0	script	Signpost#Kunlun Dungeon	2_BULLETIN_BOARD,{
 louyang,37,276,0	script	Signpost#Luoyang Dungeon	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Luoyang Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1191,"Mimic","Adventurer's tips are needed.",
@@ -3015,7 +3015,7 @@ louyang,37,276,0	script	Signpost#Luoyang Dungeon	2_BULLETIN_BOARD,{
 			mes "Luoyang Dungeon is comprised of 3 floors and the monsters that appear here tend to overpower adventurers in mass numbers. Prepare before venturing into this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Luoyang Dungeon - Suei Long Gon","Luoyang Dungeon - The Royal Tomb","Luoyang Dungeon - Inside the Royal Tomb","Cancel" ) ) {
+				switch( select( "Luoyang Dungeon - Suei Long Gon","Luoyang Dungeon - The Royal Tomb","Luoyang Dungeon - Inside the Royal Tomb","Cancelar" ) ) {
 				case 1:
 					mes "[Luoyang Dungeon - Suei Long Gon]";
 					mes "------------ Monster ------------";
@@ -3060,8 +3060,8 @@ louyang,37,276,0	script	Signpost#Luoyang Dungeon	2_BULLETIN_BOARD,{
 ayo_fild02,279,147,0	script	Signpost#Ayothaya	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Ayothaya Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1179,"Whisper","Ghost monster that appears to be covered in a bed cover. Normal weapons are ineffective against its spiritual body.^000000",
@@ -3075,7 +3075,7 @@ ayo_fild02,279,147,0	script	Signpost#Ayothaya	2_BULLETIN_BOARD,{
 			mes "Ayothaya Dungeon is comprised of 2 floors. Monsters in this dungeon can be found hiding in the labyrinth.";
 			next;
 			while(1) {
-				switch( select( "Ayothaya Dungeon - Ancient Shrine Maze","Ayothaya Dungeon - Inside Ancient Shrine","Cancel" ) ) {
+				switch( select( "Ayothaya Dungeon - Ancient Shrine Maze","Ayothaya Dungeon - Inside Ancient Shrine","Cancelar" ) ) {
 				case 1:
 					mes "[Ayothaya Dungeon - Ancient Shrine Maze]";
 					mes "------------ Monster ------------";
@@ -3107,8 +3107,8 @@ ayo_fild02,279,147,0	script	Signpost#Ayothaya	2_BULLETIN_BOARD,{
 mosk_fild02,187,251,0	script	Signpost#Moscovia	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Moscovia Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1031,"PoPoring","Elder sibling of Poring found in swamp areas. Its body is comprised of poisonous substance and it's sturdier than a Poring.",
@@ -3124,7 +3124,7 @@ mosk_fild02,187,251,0	script	Signpost#Moscovia	2_BULLETIN_BOARD,{
 			mes "Moscovia Dungeon is comprised of 3 areas, introducing passive and aggressive monsters in each areas. Prepare before venturing into this area.";
 			next;
 			while(1) {
-				switch( select( "Moscovia Dungeon - Forest","Moscovia Dungeon - Deep within the Forest","Moscovia Dungeon - Extremely Deep within the forest","Cancel" ) ) {
+				switch( select( "Moscovia Dungeon - Forest","Moscovia Dungeon - Deep within the Forest","Moscovia Dungeon - Extremely Deep within the forest","Cancelar" ) ) {
 				case 1:
 					mes "[Moscovia Dungeon - Forest]";
 					mes "------------ Monster ------------";
@@ -3166,8 +3166,8 @@ mosk_fild02,187,251,0	script	Signpost#Moscovia	2_BULLETIN_BOARD,{
 bra_dun01,208,109,0	script	Signpost#Brasilis	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Brasilis Dungeon]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1068,"Hydra","Anemone monster. Despite the appearance, it is rooted deep within the area, and uses the rooted tentacles to attack nearby creatures.",
@@ -3181,7 +3181,7 @@ bra_dun01,208,109,0	script	Signpost#Brasilis	2_BULLETIN_BOARD,{
 			mes "Brasilis Dungeon is comprised of 2 floors, and the monsters that appear in this dungeon are mostly water element. Wind element weapon will prove to be exceptional useful in this dungeon.";
 			next;
 			while(1) {
-				switch( select( "Brasilis Dungeon Entrance","Brasilis Dungeon Interior","Cancel" ) ) {
+				switch( select( "Brasilis Dungeon Entrance","Brasilis Dungeon Interior","Cancelar" ) ) {
 				case 1:
 					mes "[Brasilis Dungeon Entrance]";
 					mes "------------ Monster ------------";
@@ -3216,8 +3216,8 @@ bra_dun01,208,109,0	script	Signpost#Brasilis	2_BULLETIN_BOARD,{
 dew_dun01,294,158,0	script	Signpost#Dewata_Krakatau	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Krakatau Volcano]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1305,"Ancient Worm","Ancient worm monster that can only be found in ancient ruins. It rapidly spins its body to attack.",
@@ -3237,10 +3237,10 @@ dew_dun01,294,158,0	script	Signpost#Dewata_Krakatau	2_BULLETIN_BOARD,{
 			next;
 			mes "<Scary MVP Leak lives in Krakatau Volcano.. What's so scary about it though? - It's more cute than scary(?) Explorer Grape>";
 			next;
-			mes "[Adventurer Group]";
-			mes "For more Information on the monsters";
-			mes "Monster Information Retrieval System";
-			mes "Must be used.";
+			mes "[Grupo de Aventureros]";
+			mes "Para mas informacion sobre los monstruos";
+			mes "Sistema de Busqueda de Informacion de Monstruos";
+			mes "de Informacion de Monstruos.";
 			next;
 		}
 	}
@@ -3249,8 +3249,8 @@ dew_dun01,294,158,0	script	Signpost#Dewata_Krakatau	2_BULLETIN_BOARD,{
 dew_fild01,51,61,0	script	Signpost#Dewata_Istana	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Istana Cave]";
-		mes "In order for Adventurers to travel all over the world for a relaxing adventure, Information gathered from various adventurers are made public. Please provide information tips to the adventurer group to revise the information.";
-		mes "-- Adventurer Group --";
+		mes "Para que los Aventureros puedan viajar por todo el mundo en una aventura relajada, la informacion recopilada de varios aventureros se hace publica. Por favor proporciona consejos de informacion al grupo de aventureros para revisar la informacion.";
+		mes "-- Grupo de Aventureros --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			1301,"Am Mut","Monster from Payon Legend. It looks like a small kid, however it is known to harrass passing by adventurers.",
@@ -3271,10 +3271,10 @@ dew_fild01,51,61,0	script	Signpost#Dewata_Istana	2_BULLETIN_BOARD,{
 			next;
 			mes "Dewata's Jaty tribe holds their trial of strength here. - Brave Explorer Grape>";
 			next;
-			mes "[Adventurer Group]";
-			mes "For more Information on the monsters";
-			mes "Monster Information Retrieval System";
-			mes "Must be used.";
+			mes "[Grupo de Aventureros]";
+			mes "Para mas informacion sobre los monstruos";
+			mes "Sistema de Busqueda de Informacion de Monstruos";
+			mes "de Informacion de Monstruos.";
 			next;
 		}
 	}
@@ -3285,8 +3285,8 @@ dew_fild01,51,61,0	script	Signpost#Dewata_Istana	2_BULLETIN_BOARD,{
 dic_dun01,30,208,0	script	Signpost#Kamidal	2_BULLETIN_BOARD,{
 	while(1) {
 		mes "[Kamidal Tunnel]";
-		mes "Adventurers who travel all over the world, combining the information gathered from the public.";
-		mes "-- Adventurer Tip --";
+		mes "Aventureros que viajan por todo el mundo, combinando la informacion recopilada del publico.";
+		mes "-- Consejo de Aventurero --";
 		next;
 		.@mo_board = callfunc( "F_AvenBoard",
 			2088,"Uni-horn Scaraba Egg","Adventurer's tip is required.",
@@ -3303,7 +3303,7 @@ dic_dun01,30,208,0	script	Signpost#Kamidal	2_BULLETIN_BOARD,{
 			mes "This tunnel consists of two floors, and most monsters that appear here are insect-type.";
 			next;
 			while(1) {
-				switch( select( "Kamidal Tunnel","Scaraba Hall","Cancel" ) ) {
+				switch( select( "Kamidal Tunnel","Scaraba Hall","Cancelar" ) ) {
 				case 1:
 					mes "[Kamidal Tunnel]";
 					mes "------------ Monster ------------";

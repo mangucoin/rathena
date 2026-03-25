@@ -19,111 +19,111 @@
 
 payon,162,176,4	script	Halloween Magician#iRO08	704,{
 	if (Hallow08 < 1) {
-		mes "[Halloween Magician]";
+		mes "[Mago de Halloween]";
 		mes "Kkkkkkkkk!";
-		mes "I have a special event this Halloween that tests your luck and agility.";
-		mes "Are you interested?";
+		mes "Tengo un evento especial de Halloween que pone a prueba tu suerte y agilidad.";
+		mes "¿Te interesa?";
 		next;
-		mes "[Halloween Magician]";
-		mes "Come on! Don't be a wuss!";
-		mes "If you collect enough tickets you can get good prizes!";
-		mes "So what do you say?";
+		mes "[Mago de Halloween]";
+		mes "¡Vamos! ¡No seas cobarde!";
+		mes "¡Si juntas suficientes tickets puedes obtener buenos premios!";
+		mes "¿Entonces qué dices?";
 		next;
 		goto MainMenu;
 	}
 	if (Hallow08Kill == 1) {
-		mes "[Halloween Magician]";
-		mes "You a 'fraidy cat or something?!";
-		mes "You know you want to try again...";
-		mes "Do you know the rules?";
+		mes "[Mago de Halloween]";
+		mes "¿Eres un miedoso o qué?!";
+		mes "Sabes que quieres intentarlo de nuevo...";
+		mes "¿Conoces las reglas?";
 		next;
 		set Hallow08Kill,0;
-		if(select("Yes, I know.:No, I don't know.") == 2) {
+		if(select("Si, las conozco.:No, no las conozco.") == 2) {
 			goto Rules;
 		}
 		goto Participate;
 	}
 	if (Hallow08Kill == 2) {
-		mes "[Halloween Magician]";
-		mes "Oh, well done! You are alright!";
-		mes "Isn't it fun with zombies??";
-		mes "You know, zombies were people too!";
-		mes "Ha!";
+		mes "[Mago de Halloween]";
+		mes "Oh, ¡bien hecho! ¡Eres bueno!";
+		mes "¿No es divertido con zombies??";
+		mes "¡Sabes, los zombies también fueron personas!";
+		mes "¡Ja!";
 		mes "Kkkkkkk.";
 		next;
 		getitem 7941,1;
 		set Hallow08Kill,0;
-		mes "[Halloween Magician]";
-		mes "As I promised";
-		mes "You can get Halloween tickets for cool items.";
+		mes "[Mago de Halloween]";
+		mes "Como te prometí";
+		mes "Puedes cambiar los tickets de Halloween por objetos geniales.";
 		close;
 	}
 	if (Hallow08 > 0) {
-		mes "[Halloween Magician]";
-		mes "Well, do you want to hear the rules again or, just get back to it...";
+		mes "[Mago de Halloween]";
+		mes "Bueno, ¿quieres escuchar las reglas de nuevo o simplemente volver a la acción...";
 		next;
 		goto MainMenu2;
 	}
 
 		Rules:
-			mes "[Halloween Magician]";
-			mes "This village is like a virtual Payon.";
-			mes "There are zombies and ghouls roaming around and three southern exits, but only one works.";
-			mes "That's up to you to find out.";
+			mes "[Mago de Halloween]";
+			mes "Esta aldea es como un Payon virtual.";
+			mes "Hay zombies y ghouls merodeando y tres salidas al sur, pero solo una funciona.";
+			mes "Eso te toca descubrirlo a ti.";
 			next;
-			mes "[Halloween Magician]";
-			mes "You can't use any skills to kill the ghouls or zombies.";
-			mes "And one more thing...";
-			mes "you shouldn't forget...";
+			mes "[Mago de Halloween]";
+			mes "No puedes usar ninguna habilidad para matar a los ghouls o zombies.";
+			mes "Y una cosa más...";
+			mes "no deberías olvidar...";
 			next;
-			mes "[Halloween Magician]";
-			mes "All participants should be wearing nothing.";
-			mes "Put all belongings in your storage and come back here when your weight is '0'.";
+			mes "[Mago de Halloween]";
+			mes "Todos los participantes deben ir sin nada puesto.";
+			mes "Pon todas tus pertenencias en tu almacén y vuelve aquí cuando tu peso sea '0'.";
 			next;
-			mes "[Halloween Magician]";
-			mes "Oh and one more thing!";
-			mes "You can't be riding a PecoPeco or have a Cart.";
-			mes "If you are, then I will remove them before you enter.";
-			mes "Got it?";
+			mes "[Mago de Halloween]";
+			mes "¡Ah, y una cosa más!";
+			mes "No puedes estar montado en un PecoPeco ni tener un Carrito.";
+			mes "Si los tienes, los removeré antes de que entres.";
+			mes "¿Entendido?";
 			next;
-			mes "[Halloween Magician]";
-			mes "Remember, there are three exits but only one works randomly, the zombies and ghouls roaming around there can't be killed and you can't be wearing anything.";
+			mes "[Mago de Halloween]";
+			mes "Recuerda, hay tres salidas pero solo una funciona al azar, los zombies y ghouls que merodean no pueden ser matados y no puedes llevar nada puesto.";
 			next;
 			if (Hallow08 > 0) {
-				mes "[Halloween Magician]";
-				mes "Hey...";
-				mes "Come back once you're ready.";
+				mes "[Mago de Halloween]";
+				mes "Oye...";
+				mes "Vuelve cuando estés listo.";
 				close;
 			} else {
 				goto MainMenu;
 			}
 
 		Participate:
-			mes "[Halloween Magician]";
-			mes "Ok, you are ready.";
-			mes "Let me check your weight.";
+			mes "[Mago de Halloween]";
+			mes "Ok, estás listo.";
+			mes "Déjame revisar tu peso.";
 			next;
 			if (Weight > 0) {
-				mes "[Halloween Magician]";
-				mes "Gosh!";
-				mes "There's always a black sheep anywhere.";
+				mes "[Mago de Halloween]";
+				mes "¡Cielos!";
+				mes "Siempre hay una oveja negra en todas partes.";
 				next;
-				mes "[Halloween Magician]";
-				mes "You think I wouldn't notice that your weight is above '0'?";
-				mes "You're overweight...";
+				mes "[Mago de Halloween]";
+				mes "¿Crees que no me daría cuenta de que tu peso está por encima de '0'?";
+				mes "Estás pasado de peso...";
 				close;
 			} else {
-				mes "[Halloween Magician]";
-				mes "You seem good to go, and your weight is just right.";
+				mes "[Mago de Halloween]";
+				mes "Pareces listo para ir, y tu peso está perfecto.";
 				next;
-				mes "[Halloween Magician]";
-				mes "I was quite swamped with my work, so I'm exhausted.";
+				mes "[Mago de Halloween]";
+				mes "He estado bastante ocupado con mi trabajo, así que estoy agotado.";
 				next;
-				mes "[Halloween Magician]";
-				mes "I sometimes forget to send you there...";
+				mes "[Mago de Halloween]";
+				mes "A veces se me olvida enviarte allá...";
 				next;
-				mes "[Halloween Magician]";
-				mes "I hope you come back well.";
+				mes "[Mago de Halloween]";
+				mes "Espero que regreses bien.";
 				close2;
 				if (Hallow08 < 1) {
 					set Hallow08,1;
@@ -138,22 +138,22 @@ payon,162,176,4	script	Halloween Magician#iRO08	704,{
 			}
 
 		TicketExchange:
-			mes "[Halloween Magician]";
-			mes "You want to exchange tickets for prizes?";
-			mes "Good job! Kkkkkk!";
+			mes "[Mago de Halloween]";
+			mes "¿Quieres cambiar tickets por premios?";
+			mes "¡Buen trabajo! ¡Kkkkkk!";
 			next;
-			mes "[Halloween Magician]";
-			mes "Lemme tell you what items you can exchange for.";
+			mes "[Mago de Halloween]";
+			mes "Déjame decirte qué objetos puedes intercambiar.";
 			next;
-			mes "[Halloween Magician]";
-			mes "5 tickets for Pumpkin Pie.";
-			mes "20 tickets for Pumpkin-Head.";
-			mes "50 tickets for Old Blue Box.";
-			mes "70 tickets for Old Purple Box.";
-			mes "200 tickets for Old Card Album.";
+			mes "[Mago de Halloween]";
+			mes "5 tickets por Pumpkin Pie.";
+			mes "20 tickets por Pumpkin-Head.";
+			mes "50 tickets por Old Blue Box.";
+			mes "70 tickets por Old Purple Box.";
+			mes "200 tickets por Old Card Album.";
 			next;
-			mes "[Halloween Magician]";
-			mes "What would you like to exchange for?";
+			mes "[Mago de Halloween]";
+			mes "¿Qué te gustaría intercambiar?";
 			next;
 			switch(select("Pumpkin Pie:Pumpkin-Head:Old Blue Box:Old Purple Box:Old Card Album")) {
 			case 1:
@@ -203,29 +203,29 @@ payon,162,176,4	script	Halloween Magician#iRO08	704,{
 			}
 
 		NextTime:
-			mes "[Halloween Magician]";
-			mes "Ok, see you then.";
+			mes "[Mago de Halloween]";
+			mes "Ok, nos vemos entonces.";
 			mes "Kkkkkkkk.";
 			close;
 
 	MainMenu:
-		menu "Explain it to me.",Rules,"I want to participate.",Participate,"I want to exchange tickets for prizes.",TicketExchange,"I'll come back next time.",NextTime;
+		menu "Explícamelo.",Rules,"Quiero participar.",Participate,"Quiero cambiar tickets por premios.",TicketExchange,"Volveré la próxima vez.",NextTime;
 
 	MainMenu2:
-		menu "Get me back there now!",Participate,"Please, tell me the rules",Rules,"I want to exchange tickets for prizes.",TicketExchange,"I'll come back next time.",NextTime;
+		menu "¡Llévame de vuelta ahora!",Participate,"Por favor, dime las reglas",Rules,"Quiero cambiar tickets por premios.",TicketExchange,"Volveré la próxima vez.",NextTime;
 
 	NotEnough:
-		mes "[Halloween Magician]";
-		mes "You don't have enough tickets!";
-		mes "Can't you even count?";
-		mes "Please come here with the right number of tickets.";
+		mes "[Mago de Halloween]";
+		mes "¡No tienes suficientes tickets!";
+		mes "¿Ni siquiera sabes contar?";
+		mes "Por favor ven aquí con la cantidad correcta de tickets.";
 		close;
 
 	Enough:
-		mes "[Halloween Magician]";
-		mes "Here it is.";
-		mes "Do you need...";
-		mes "anything else?";
+		mes "[Mago de Halloween]";
+		mes "Aquí tienes.";
+		mes "¿Necesitas...";
+		mes "algo más?";
 		next;
 		if (Hallow08 == 1) {
 			goto MainMenu2;
