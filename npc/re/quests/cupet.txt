@@ -16,9 +16,9 @@
 
 // 1st NPC
 -	script	CPM1	-1,{
-	
+
 	set .@npc$, "[Cute Pet Manager]";
-	
+
 	setarray .@tame_id[0],619,620,622,623,624,627,628,629,630;
 	setarray .@tame_amount[0],3,3,3,3,3,3,3,3,3;
 	setarray .@hunt_id[0],909,909,705,916,935,919,919,940,921;
@@ -28,28 +28,28 @@
 
 	if (cpm_one == .@tame_gets) {
 		mes "[Cute Pet Manager]";
-		mes "You have already exchanged";
-		mes .@tame_amount + " times for a taming item.";
-		mes "You can't exchange anymore.";
+		mes "Ya has intercambiado";
+		mes .@tame_amount + " veces por un objeto de domesticacion.";
+		mes "No puedes intercambiar mas.";
 		next;
-		
+
 		mes "[Cute Pet Manager]";
-		mes "Besides me, there are other";
-		mes "Cute Pet Managers. If you want";
-		mes "to tame other pets, I suggest";
-		mes "you go and see them.";
+		mes "Ademas de mi, hay otros";
+		mes "Administradores de Mascotas. Si quieres";
+		mes "domesticar otras mascotas, te sugiero";
+		mes "que vayas a verlos.";
 		close;
 	}
-	
+
 	callfunc "cute_pet_manager",.@tame_id,.@tame_amount,.@hunt_id,.@hunt_amount,.@mob_id,cpm_one,.@tame_gets,.@hunt_id2,.@hunt_amount2;
 
 }
 
 // 2nd NPC
 -	script	CPM2	-1,{
-	
+
 	set .@npc$, "[Cute Pet Manager]";
-	
+
 	setarray .@tame_id[0],621,625,632,631,633,634,635,636,659,637,639,640;
 	setarray .@tame_amount[0],2,2,2,2,2,2,2,2,2,2,2,2;
 	setarray .@hunt_id[0],938,935,925,7033,945,942,931,901,1094,1021,936,1035;
@@ -59,28 +59,28 @@
 
 	if (cpm_two == .@tame_gets) {
 		mes "[Cute Pet Manager]";
-		mes "You have already exchanged";
-		mes .@tame_amount + " times for a taming item.";
-		mes "You can't exchange anymore.";
+		mes "Ya has intercambiado";
+		mes .@tame_amount + " veces por un objeto de domesticacion.";
+		mes "No puedes intercambiar mas.";
 		next;
-		
+
 		mes "[Cute Pet Manager]";
-		mes "Besides me, there are other";
-		mes "Cute Pet Managers. If you want";
-		mes "to tame other pets, I suggest";
-		mes "you go and see them.";
+		mes "Ademas de mi, hay otros";
+		mes "Administradores de Mascotas. Si quieres";
+		mes "domesticar otras mascotas, te sugiero";
+		mes "que vayas a verlos.";
 		close;
 	}
-	
+
 	callfunc "cute_pet_manager",.@tame_id,.@tame_amount,.@hunt_id,.@hunt_amount,.@mob_id,cpm_two,.@tame_gets,.@hunt_id2,.@hunt_amount2;
 
 }
 
 // 3rd NPC
 -	script	CPM3	-1,{
-	
+
 	set .@npc$, "[Cute Pet Manager]";
-	
+
 	setarray .@tame_id[0],638,626,641,661,660,642;
 	setarray .@tame_amount[0],1,1,1,1,1,1;
 	setarray .@hunt_id[0],1020,943,1038,7047,1970,923;
@@ -92,19 +92,19 @@
 
 	if (cpm_three == .@tame_gets) {
 		mes "[Cute Pet Manager]";
-		mes "You have already exchanged";
-		mes .@tame_amount + " times for a taming item.";
-		mes "You can't exchange anymore.";
+		mes "Ya has intercambiado";
+		mes .@tame_amount + " veces por un objeto de domesticacion.";
+		mes "No puedes intercambiar mas.";
 		next;
-		
+
 		mes "[Cute Pet Manager]";
-		mes "Besides me, there are other";
-		mes "Cute Pet Managers. If you want";
-		mes "to tame other pets, I suggest";
-		mes "you go and see them.";
+		mes "Ademas de mi, hay otros";
+		mes "Administradores de Mascotas. Si quieres";
+		mes "domesticar otras mascotas, te sugiero";
+		mes "que vayas a verlos.";
 		close;
 	}
-	
+
 	callfunc "cute_pet_manager",.@tame_id,.@tame_amount,.@hunt_id,.@hunt_amount,.@mob_id,cpm_three,.@tame_gets,.@hunt_id2,.@hunt_amount2;
 
 }
@@ -121,50 +121,50 @@ function	script	cute_pet_manager	{
 	// getarg(8) -> .@hunt_amount2 Array
 
 	mes "[Cute Pet Manager]";
-	mes "Hello~! I am a Cute Pet Manager";
-	mes "who is in charge of public relations";
-	mes "for the New Upgraded Cute Pet system.";
+	mes "Hola~! Soy un Administrador de Mascotas";
+	mes "que esta a cargo de las relaciones publicas";
+	mes "del Nuevo Sistema Mejorado de Mascotas.";
 	next;
-	
+
 	mes "[Cute Pet Manager]";
-	mes "If you have any concerns regarding";
-	mes "the Cute Pet system I am here to guide you.";
-	mes "Let me know which taming";
-	mes "item you want,";
-	mes "then I will tell you the monster";
-	mes "that you can tame with the item.";
+	mes "Si tienes alguna duda sobre";
+	mes "el sistema de Mascotas estoy aqui para guiarte.";
+	mes "Dime que objeto de domesticacion";
+	mes "quieres,";
+	mes "y te dire el monstruo";
+	mes "que puedes domesticar con el objeto.";
 	next;
-	
+
 	mes "[Cute Pet Manager]";
-	mes "Also I will explain what materials";
-	mes "you need to bring in order to";
-	mes "get the taming item.";
+	mes "Tambien te explicare que materiales";
+	mes "necesitas traer para poder";
+	mes "obtener el objeto de domesticacion.";
 	next;
-	
+
 	mes "[Cute Pet Manager]";
-	mes "If you already brought materials";
-	mes "to exchange for the taming item,";
-	mes "I can exchange it for taming items immediately.";
+	mes "Si ya trajiste los materiales";
+	mes "para intercambiar por el objeto de domesticacion,";
+	mes "puedo intercambiarlos por objetos de domesticacion de inmediato.";
 	next;
-	
+
 	mes "[Cute Pet Manager]";
-	mes "However, there is a limit";
-	mes "for exchanging taming items.";
-	mes "You can only get taming items";
-	mes getarg(6) + " times. So please make sure";
-	mes "how many times you have exchanged.";
+	mes "Sin embargo, hay un limite";
+	mes "para intercambiar objetos de domesticacion.";
+	mes "Solo puedes obtener objetos de domesticacion";
+	mes getarg(6) + " veces. Asi que asegurate";
+	mes "de cuantas veces has intercambiado.";
 	next;
-	
+
 	mes "[Cute Pet Manager]";
-	mes "So, which taming item do you want?";
-	mes "Please choose one from the list.";
+	mes "Entonces, que objeto de domesticacion quieres?";
+	mes "Por favor elige uno de la lista.";
 	next;
-	
+
 	// Create Menu System
 	set .@size, getarraysize(getarg(0));
 	for (set .@a, 0; .@a < .@size; set .@a, .@a + 1)
 		set .@menu$, .@menu$ + (.@menu$ == "" ? "" : ":") + getitemname(getelementofarray(getarg(0), .@a));
-	
+
 	// Query Player Choice
 	set .@choice, select(.@menu$) - 1;
 
@@ -183,21 +183,21 @@ function	script	cute_pet_manager	{
 	// dispbottom "Hunt Name: " + getitemname(.@hunt_id);
 	// dispbottom "Hunt Amount: " + .@hunt_amount;
 	// dispbottom "Mob ID: " + .@mob_id;
-	if (.@hunt_id2) { 
+	if (.@hunt_id2) {
 		// dispbottom "Hunt ID2: " + .@hunt_id2;
 		// dispbottom "Hunt Amount2: " + .@hunt_amount2;
 		set .@hunt2_count, countitem(.@hunt_id2);
 	}
 	if (countitem(.@hunt_id) >= .@hunt_amount && countitem(6083) > 0 && .@hunt2_count >= .@hunt_amount2) {
 		mes "[Cute Pet Manager]";
-		mes "Ah, you have gathered all items";
-		mes "with your friends. You can now";
-		mes "exchange for an " + getitemname(.@tame_id) + ".";
-		mes "Do you want to exchange with me?";
+		mes "Ah, has reunido todos los objetos";
+		mes "con tus amigos. Ahora puedes";
+		mes "intercambiar por un " + getitemname(.@tame_id) + ".";
+		mes "Quieres intercambiar conmigo?";
 		next;
-		if  (select("Exchange:Don't Exchange") == 2) { 
+		if  (select("Intercambiar:No intercambiar") == 2) {
 			mes "[Cute Pet Manager]";
-			mes "You don't? You will come back again.";
+			mes "No quieres? Volveras de nuevo.";
 			close;
 		}
 		delitem .@hunt_id, .@hunt_amount;
@@ -206,21 +206,21 @@ function	script	cute_pet_manager	{
 			delitem .@hunt_id2, .@hunt_amount2;
 		set getarg(5), getarg(5) + 1;
 		getitem .@tame_id, .@tame_amount;
-		
+
 		mes "[Cute Pet Manager]";
-		mes "Wise choice.";
-		mes "I hope you and your pet get along.";
+		mes "Sabia eleccion.";
+		mes "Espero que tu y tu mascota se lleven bien.";
 		close;
 	} else {
 		mes "[Cute Pet Manager]";
-		mes "You have chosen " + getitemname(.@tame_id) + ".";
-		mes "You can use it for taming";
-		mes "^FF0000" + getmonsterinfo(.@mob_id, MOB_NAME) + "^000000 monsters.";
+		mes "Has elegido " + getitemname(.@tame_id) + ".";
+		mes "Puedes usarlo para domesticar";
+		mes "monstruos ^FF0000" + getmonsterinfo(.@mob_id, MOB_NAME) + "^000000.";
 		next;
 		mes "[Cute Pet Manager]";
-		mes "Bring ^FF0000" + .@hunt_amount + " " + getitemname(.@hunt_id) + "^000000" + (.@hunt_id2 ? ", ^FF0000" + .@hunt_amount2 + " " + getitemname(.@hunt_id2) : "") + " ^000000 and ^FF00001 Dolly Capsule^000000";
-		mes "then you can exchange them";
-		mes "for an " + getitemname(.@tame_id) + ".";
+		mes "Trae ^FF0000" + .@hunt_amount + " " + getitemname(.@hunt_id) + "^000000" + (.@hunt_id2 ? ", ^FF0000" + .@hunt_amount2 + " " + getitemname(.@hunt_id2) : "") + " ^000000 y ^FF00001 Dolly Capsule^000000";
+		mes "y podras intercambiarlos";
+		mes "por un " + getitemname(.@tame_id) + ".";
 		close;
 	}
 }

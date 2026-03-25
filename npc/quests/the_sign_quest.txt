@@ -76,22 +76,22 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 	cutin "mets_alpha",2;
 	mes "[Metz]";
 	if (sign_q < 1) {
-		mes "Although you need everlasting patience in an archaeological excavation, the feeling you get when you find something makes";
-		mes "all those long hours of study and research worth it.";
+		mes "Aunque necesitas paciencia eterna en una excavacion arqueologica, la sensacion que tienes cuando encuentras algo hace que";
+		mes "todas esas largas horas de estudio e investigacion valgan la pena.";
 	}
 	else if (sign_q < 4) {
 		switch(sign_q) {
 		case 1:
 			mes "Hm...?";
-			mes "Can I help you?";
+			mes "Puedo ayudarte?";
 			next;
-			switch(select("I've been following these signs and...:I was just passing by...")) {
+			switch(select("He estado siguiendo estos carteles y...:Solo estaba de paso...")) {
 			case 1:
 				mes "[Metz]";
 				mes "Great...!";
-				mes "Welcome to my";
-				mes "humble lodgings.";
-				mes "Hmm, let me see...";
+				mes "Bienvenido a mi";
+				mes "humilde morada.";
+				mes "Hmm, dejame ver...";
 				next;
 				if (BaseLevel < 50) {
 					mes "[Metz]";
@@ -100,15 +100,15 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 				}
 				else {
 					mes "[Metz]";
-					mes "Hey, I think you might";
-					mes "be well suited for the job!";
-					mes "But do you think you could come back later? I've got my hands full with some other business.";
+					mes "Oye, creo que podrias";
+					mes "ser ideal para el trabajo!";
+					mes "Pero crees que podrias regresar mas tarde? Estoy ocupado con otros asuntos.";
 					next;
 					mes "[Metz]";
-					mes "Oh right, would you tell";
+					mes "Ah cierto, me dirias";
 					mes "me your name? "+ strcharinfo(0) +"?";
-					mes "Okay then, I'll remember that.";
-					mes "Talk to you later, alright?";
+					mes "De acuerdo, lo recordare.";
+					mes "Hablamos despues, si?";
 					set sign_q,2;
 					break;
 				}
@@ -123,7 +123,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 			}
 			break;
 		case 2:
-			mes "I'm sorry I made you wait,";
+			mes "Lo siento I made you wait,";
 			mes "but I had some research to finish and it took longer than I expected. Now, before I tell you more about the job, I want to test your competency.";
 			next;
 			mes "[Metz]";
@@ -225,7 +225,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 		mes "businessmen are, I suppose.";
 	}
 	else if (sign_q == 53) {
-		mes "Congratulations~";
+		mes "Felicidades~";
 		mes "You managed to pass";
 		mes "all of the tests! You seem";
 		mes "to be the perfect person";
@@ -328,7 +328,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 	}
 	else if (sign_q < 71) {
 		mes "Keep up the good work.";
-		mes "I'm sorry that I don't have";
+		mes "Lo siento that I don't have";
 		mes "have much information for";
 		mes "you to follow, but someone";
 		mes "with your abilities should";
@@ -415,7 +415,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 		mes "understand what it says...";
 		next;
 		while(1) {
-			switch(select("Who is Frank?:Where is he?:I see.")) {
+			switch(select("Quien es Frank?:Donde esta?:Ya veo.")) {
 			case 1:
 				mes "[Metz]";
 				mes "Frank Franklin has lived";
@@ -447,7 +447,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 				break;
 			case 3:
 				mes "[Metz]";
-				mes "Good luck, then.";
+				mes "Buena suerte, then.";
 				mes "I hope that you can";
 				mes "find a way to get Frank";
 				mes "Franklin to help us...";
@@ -663,7 +663,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 			getitem 7314,1; //The_Sign
 		}
 		else {
-			mes "I'm sorry, but I'm";
+			mes "Lo siento, but I'm";
 			mes "still examining the";
 			mes "artifact you've lent to";
 			mes "me. Would you please";
@@ -686,7 +686,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 			mes "for all of your help.";
 			next;
 			mes "[Metz]";
-			mes "Thanks to you, my wish";
+			mes "Gracias to you, my wish";
 			mes "of proving the existence";
 			mes "of the Sign has finally been";
 			mes "fulfilled. Its power is now";
@@ -694,7 +694,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 			next;
 			mes "[Metz]";
 			mes "You may have had your doubts,";
-			mes "but I'm happy enough to confirm that the Sign really exists. Thanks again, and I hope you stop by and chat from time to time.";
+			mes "but I'm happy enough to confirm that the Sign really exists. Gracias again, and I hope you stop by and chat from time to time.";
 			set sign_q,142;
 			getexp (checkre(3))?200000:2000000,0;
 		}
@@ -719,12 +719,12 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 		mes "take back the Sobbing";
 		mes "Starlight, I hope you";
 		mes "accept this as a token";
-		mes "of my gratitude. Good luck";
+		mes "of my gratitude. Buena suerte";
 		mes "on your travels, adventurer.";
 		if (checkweight(7178,1) == 0) {
 				next;
-				mes "^3355FFWait a second! Right now,";
-				mes "you have too many items in your inventory. Please come back after you've freed up more inventory space.^000000";
+				mes "^3355FFEspera un momento! Ahora mismo,";
+				mes "tienes demasiados objetos en tu inventario. Por favor regresa despues de liberar espacio en tu inventario.^000000";
 				close;
 		}
 		delitem 7178,1; //Star's_Sob
@@ -734,7 +734,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 	}
 	else if (sign_q > 201) {
 		if (countitem(7178) == 1) {
-			mes "I'm sorry...";
+			mes "Lo siento...";
 			mes "But I'm taking";
 			mes "back the Sobbing";
 			mes "Starlight from you.";
@@ -743,7 +743,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 			next;
 			mes "[Metz]";
 			mes "......";
-			mes "Farewell.";
+			mes "Hasta pronto.";
 			delitem 7178,1; //Star's_Sob
 		}
 		else {
@@ -754,7 +754,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 		}
 	}
 	else {
-		mes "Thank you so much";
+		mes "Muchas gracias";
 		mes "for helping me make";
 		mes "my dream come true.";
 		mes "can work on another";
@@ -762,7 +762,7 @@ prt_in,227,45,0	script	Archeologist#sign	804,{
 		next;
 		mes "[Metz]";
 		mes "Well then...";
-		mes "Good luck on";
+		mes "Buena suerte on";
 		mes "your journeys,";
 		mes "brave "+ strcharinfo(0) +".";
 	}
@@ -775,11 +775,11 @@ prt_in,228,26,5	script	Steward#sign	55,{
 	callfunc "F_UpdateSignVars";
 	mes "[Vandez]";
 	if (sign_q < 3) {
-		mes "Welcome to the";
+		mes "Bienvenido al";
 		mes "Brayde Estate. How";
-		mes "may I be of service?";
+		mes "may I be servirte?";
 		next;
-		switch(select("Nothing.:I'm here to see Metz.:Gimmie your cash!")) {
+		switch(select("Nada.:Vengo a ver a Metz.:Dame tu dinero!")) {
 		case 1:
 			mes "[Vandez]";
 			mes "If you do not have";
@@ -790,13 +790,13 @@ prt_in,228,26,5	script	Steward#sign	55,{
 		case 2:
 			mes "[Vandez]";
 			mes "Very good, "+((Sex == SEX_MALE)?"sir.":"madam.");
-			mes "Please wait a moment";
+			mes "Por favor espera un momento";
 			mes "while I consult with";
 			mes "the master in his study.";
 			close;
 		case 3:
 			mes "[Vandez]";
-			mes "My apologies,";
+			mes "Mis disculpas,";
 			mes "but I insist that";
 			mes "you leave the premises";
 			mes "^FF0000immediately^000000.";
@@ -808,10 +808,10 @@ prt_in,228,26,5	script	Steward#sign	55,{
 	}
 	else if (sign_q < 14) {
 		mes "Ah, Master "+ strcharinfo(0) +".";
-		mes "Welcome. How may I be";
-		mes "of service today?";
+		mes "Bienvenido. En que puedo";
+		mes "servirte hoy?";
 		next;
-		switch(select("Who is Arian?:What is Metz doing?:How is Elle?")) {
+		switch(select("Quien es Arian?:Que esta haciendo Metz?:Como esta Elle?")) {
 		case 1:
 			mes "[Vandez]";
 			mes "Ah yes, Arian.";
@@ -826,7 +826,7 @@ prt_in,228,26,5	script	Steward#sign	55,{
 			mes "Although I've served";
 			mes "the Brayde family for years,";
 			mes "I'm unfamiliar with Master";
-			mes "Metz's work. My apologies, but";
+			mes "Metz's work. Mis disculpas, but";
 			mes "I simply cannot even begin to fathom his research...";
 			close;
 		case 3:
@@ -983,7 +983,7 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 		mes "I can help you with?";
 		next;
 		if (Sex == SEX_MALE) {
-			switch(select("You wanna have coffee sometime?:Tell me about Metz.")) {
+			switch(select("Quieres tomar un cafe algun dia?:Cuentame sobre Metz.")) {
 			case 1:
 				mes "[Elle]";
 				mes "...?";
@@ -1012,12 +1012,12 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 				mes "but if I told you, it might";
 				mes "look unprofessional. But";
 				mes "if you have time later, I just";
-				mes "might tell you. Ho ho~";
+				mes "might tell you. Jo jo~";
 				close;
 			}
 		}
 		else {
-			switch(select("You have nice skin, Miss Elle.:Tell me about Metz.")) {
+			switch(select("Tienes bonita piel, Senorita Elle.:Cuentame sobre Metz.")) {
 			case 1:
 				mes "[Elle]";
 				mes "Eh...?";
@@ -1050,7 +1050,7 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 		mes "working hard for a while";
 		mes "so my body aches. Oh, what";
 		mes "am I saying? Please ignore";
-		mes "that--! Ho ho ho~";
+		mes "that--! Jo jo jo~";
 		emotion ET_PROFUSELY_SWEAT;
 		close;
 	}
@@ -1086,7 +1086,7 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 		mes "would be perfect...";
 		close2;
 		if (countitem(504) > 0) {
-			select("Why don't you take this?");
+			select("Por que no tomas esto?");
 			mes "[Elle]";
 			mes "Oh, you didn't";
 			mes "need to do this,";
@@ -1153,7 +1153,7 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 		mes "Long time no see.";
 		mes "La la la~~";
 		next;
-		switch(select("What's up?:What happened?")) {
+		switch(select("Que pasa?:Que paso?")) {
 		case 1:
 			mes "[Elle]";
 			mes "Oh...?";
@@ -1190,7 +1190,7 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 		mes "you again~";
 		next;
 		mes "[Elle]";
-		mes "Er, I'm sorry, but I heard that something bad happened to you. But don't worry, maybe you'll have better luck next time~";
+		mes "Er, Lo siento, but I heard that something bad happened to you. But don't worry, maybe you'll have better luck next time~";
 		close;
 	}
 	else {
@@ -1208,8 +1208,8 @@ prt_in,248,23,0	script	Maid#sign2	111,{
 morocc_in,115,154,5	script	Rogue#sign	810,{
 	callfunc "F_UpdateSignVars";
 	if (checkweight(1201,1) == 0) {
-		mes "^3355FFWait a second! Right now,";
-		mes "you have too many items in your inventory. Please come back after you've freed up more inventory space.^000000";
+		mes "^3355FFEspera un momento! Ahora mismo,";
+		mes "tienes demasiados objetos en tu inventario. Por favor regresa despues de liberar espacio en tu inventario.^000000";
 		close;
 	}
 	if (sign_q < 3) {
@@ -1551,7 +1551,7 @@ morocc_in,114,162,4	script	Young Man#sign	118,{
 	}
 	else if (sign_q == 11) {
 		mes "Oh, Arian sent you to me,";
-		mes "right? I'm sorry, but he takes";
+		mes "right? Lo siento, but he takes";
 		mes "a little getting used to. Even";
 		mes "though I still have to get used";
 		mes "to his... mannerisms.";
@@ -1570,7 +1570,7 @@ morocc_in,114,162,4	script	Young Man#sign	118,{
 		mes "island. What is the very first";
 		mes "thing that you should do?";
 		next;
-		switch(select("Look for fresh water.:Just wait for rescue.:Forage for food.:Explore the island.")) {
+		switch(select("Buscar agua fresca.:Solo esperar al rescate.:Buscar comida.:Explorar la isla.")) {
 		case 1:
 			set .@point_s,.@point_s+7;
 			break;
@@ -1591,7 +1591,7 @@ morocc_in,114,162,4	script	Young Man#sign	118,{
 		mes "collapsed building. What";
 		mes "do you plan to do first?";
 		next;
-		switch(select("Scream for help.:Stay quiet.:Wait for death to come.:Find a way out.")) {
+		switch(select("Gritar pidiendo ayuda.:Quedarse callado.:Esperar que llegue la muerte.:Encontrar una salida.")) {
 		case 1:
 			set .@point_s,.@point_s+3;
 			break;
@@ -1612,7 +1612,7 @@ morocc_in,114,162,4	script	Young Man#sign	118,{
 		mes "but you got lost somehow.";
 		mes "How do you handle it?";
 		next;
-		switch(select("Try to find my friends.:Find a way out.:Stay put.:Continue exploring the dungeon.")) {
+		switch(select("Intentar encontrar a mis amigos.:Encontrar una salida.:Quedarme donde estoy.:Seguir explorando la mazmorra.")) {
 		case 1:
 			break;
 		case 2:
@@ -1631,7 +1631,7 @@ morocc_in,114,162,4	script	Young Man#sign	118,{
 		mes "a mansion with no exit. What do";
 		mes "you do first when a murder happens inside the mansion?";
 		next;
-		switch(select("Wait for the case to get solved.:Try to find my friends first.:Find a way out.:Solve the murder case on my own.:Kill the others before they kill me.")) {
+		switch(select("Esperar a que resuelvan el caso.:Intentar encontrar a mis amigos primero.:Encontrar una salida.:Resolver el caso de asesinato solo.:Matar a los demas antes de que me maten.")) {
 		case 1:
 			set .@point_s,.@point_s+5;
 			break;
@@ -1655,7 +1655,7 @@ morocc_in,114,162,4	script	Young Man#sign	118,{
 		mes "So what do you do during";
 		mes "this final week?";
 		next;
-		switch(select("Wait to see the end.:Plant an apple tree.:Look to move to a different world.:What else? Save the world.:What else? Go on a crime spree.")) {
+		switch(select("Esperar a ver el final.:Plantar un manzano.:Buscar mudarme a otro mundo.:Que mas? Salvar el mundo.:Que mas? Ir a cometer crimenes.")) {
 		case 1:
 			set .@point_s,.@point_s+5;
 			break;
@@ -1717,12 +1717,12 @@ payon,154,170,3	script	Hagin#sign	78,{
 	mes "just can't resist him!";
 	next;
 	mes "[Hagin]";
-	mes "Heh heh...";
+	mes "Je je...";
 	mes "With this beautiful";
 	mes "face and charming figure...";
 	mes "I'm gonna seduce him.";
 	next;
-	switch(select("Who are you talking about?:You're freaking me out!")) {
+	switch(select("De quien hablas?:Me estas asustando!")) {
 	case 1:
 		mes "[Hagin]";
 		mes "You don't know";
@@ -1733,10 +1733,10 @@ payon,154,170,3	script	Hagin#sign	78,{
 		next;
 		mes "[Hagin]";
 		mes "He left home to become stronger";
-		mes "when he was just a boy. I had no idea he would come back as such ";
+		mes "when he was just a boy. I had no idea he would come back as such";
 		mes "a fine specimen of a man...";
 		next;
-		select("I'd like to meet this Daewoon.");
+		select("Me gustaria conocer a este Daewoon.");
 		mes "[Hagin]";
 		mes "Oh, I see~";
 		if (Sex == SEX_MALE) {
@@ -1780,7 +1780,7 @@ payon_in03,81,22,4	script	Maid#a1	1170,{
 
 payon_in03,81,22,4	script	Maid#a2	111,{
 	mes "[Maid]";
-	mes "Welcome to the";
+	mes "Bienvenido al";
 	mes "Payon Castle annex";
 	mes "where Master Daewoon";
 	mes "is staying.";
@@ -1793,7 +1793,7 @@ payon_in03,79,22,4	script	Maid#b1	1404,{
 
 payon_in03,79,22,4	script	Maid#b2	111,{
 	mes "[Maid]";
-	mes "Welcome.";
+	mes "Bienvenido.";
 	mes "Are you another";
 	mes "visitor for Master";
 	mes "Daewoon?";
@@ -1806,8 +1806,8 @@ payon_in03,81,15,1	script	Maid#c1	1170,{
 
 payon_in03,81,15,1	script	Maid#c2	111,{
 	mes "[Maid]";
-	mes "Greetings.";
-	mes "Welcome to the";
+	mes "Saludos.";
+	mes "Bienvenido al";
 	mes "Annex to Payon Castle.";
 	mes "Have you come here to";
 	mes "see Master Daewoon?";
@@ -1820,7 +1820,7 @@ payon_in03,79,15,1	script	Maid#d1	1404,{
 
 payon_in03,79,15,1	script	Maid#d2	111,{
 	mes "[Maid]";
-	mes "Welcome to the";
+	mes "Bienvenido al";
 	mes "Payon Castle Annex.";
 	mes "Master Daewoon is";
 	mes "currently lodging here.";
@@ -1870,7 +1870,7 @@ payon_in03,13,31,4	script	Maid#f2	111,{
 payon_in03,11,31,4	script	Daewoon#sign	808,{
 	callfunc "F_UpdateSignVars";
 	mes "[Daewoon]";
-	mes "Mwah ah hah!";
+	mes "Muajaja!";
 	mes "Feasting and merriment,";
 	mes "wine, women and song!";
 	mes "I could ask for nothing more!";
@@ -1878,13 +1878,13 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 	mes "[Daewoon]";
 	mes "The most scrumptious";
 	mes "delicacies are all mine to";
-	mes "taste! And I'm not just talking about the food. Mwah ah hah!";
+	mes "taste! And I'm not just talking about the food. Muajaja!";
 	mes "I'm the king of the world!";
 	next;
 	if (sign_q == 14) {
 		mes "[Daewoon]";
 		mes "Oh, a visitor?";
-		mes "I'm sorry, but I believe";
+		mes "Lo siento, but I believe";
 		mes "you're an uninvited guest~";
 		if (Sex == SEX_MALE) {
 			mes "You'll have to forgive me";
@@ -1927,7 +1927,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "idea what that jewel";
 			mes "you're holding actually is?";
 			next;
-			switch(select("Kind of?:How the hell would I know?:No, but would you tell me?")) {
+			switch(select("Algo asi?:Como demonios voy a saber?:No, pero me dirias?")) {
 			case 1:
 				mes "[Daewoon]";
 				mes "Oh...!";
@@ -1936,7 +1936,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				mes "So tell me, what do you";
 				mes "understand about this jewel?";
 				next;
-				switch(select("It's handy.:I actually don't know...")) {
+				switch(select("Es util.:En realidad no se...")) {
 				case 1:
 					set .@pay_point,.@pay_point+2;
 					mes "[Daewoon]";
@@ -2001,7 +2001,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "qualified for this task. Now,";
 			mes "are you ready for my test?";
 			next;
-			switch(select("I'M READY! YEEAH!:I'll do my best!:To hell with this!:Fine. Let's get it over with.")) {
+			switch(select("ESTOY LISTO! SIII!:Dare lo mejor de mi!:Al diablo con esto!:Bien. Acabemos con esto.")) {
 			case 1:
 				set .@pay_point,.@pay_point+5;
 				mes "[Daewoon]";
@@ -2015,7 +2015,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				set .@pay_point,.@pay_point+7;
 				emotion ET_OK;
 				mes "[Daewoon]";
-				mes "Mwah ah hah!";
+				mes "Muajaja!";
 				mes "That's exactly what";
 				mes "I wanted to hear! That";
 				mes "kind of quiet and careful";
@@ -2028,7 +2028,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				set .@pay_point,.@pay_point+2;
 				mes "[Daewoon]";
 				mes "E...";
-				mes "Excuse me?";
+				mes "Disculpa?";
 				next;
 				emotion ET_ANGER;
 				mes "[Daewoon]";
@@ -2064,7 +2064,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "of friends that you can";
 			mes "constantly party with?";
 			next;
-			switch(select("Yes, I do.:I prefer soloing.:I am lonely.")) {
+			switch(select("Si, tengo.:Prefiero ir solo.:Estoy solo.")) {
 			case 1:
 				set .@pay_point,.@pay_point+5;
 				emotion ET_HUK;
@@ -2120,7 +2120,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "around. I believe this is";
 			mes "called ''Mob Training...''";
 			next;
-			switch(select("Awesome~!:I hate people who do that.:I do it sometimes...")) {
+			switch(select("Genial~!:Odio a la gente que hace eso.:A veces lo hago...")) {
 			case 1:
 				emotion ET_FRET;
 				mes "[Daewoon]";
@@ -2149,7 +2149,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				mes "[Daewoon]";
 				mes "Just the other day, I've";
 				mes "heard some ruffians boasting";
-				mes "of their mob training activities. But personally, I feel they were compensating for their own shortcomings. ";
+				mes "of their mob training activities. But personally, I feel they were compensating for their own shortcomings.";
 				next;
 				emotion ET_FRET;
 				mes "[Daewoon]";
@@ -2215,7 +2215,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "Answer me, adventurer!";
 			mes "Would you still destroy it?!";
 			next;
-			switch(select("Destroy it!:I can't destroy such beauty...:I'd close my eyes, then destroy it.")) {
+			switch(select("Destruirlo!:No puedo destruir tanta belleza...:Cerraria los ojos y lo destruiria.")) {
 			case 1:
 				set .@pay_point,.@pay_point+3;
 				mes "[Daewoon]";
@@ -2256,7 +2256,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "me, I would protect that";
 			mes "Priestess shaped Emperium";
 			mes "until the end of the guild war.";
-			mes "Mwah ah hah~!";
+			mes "Muajaja~!";
 			next;
 			mes "[Daewoon]";
 			mes "While we're on the topic";
@@ -2275,7 +2275,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "would you give your enemy";
 			mes "the help that he needs?";
 			next;
-			switch(select("Yes, of course!:I'd pretend not to hear anything.:I'd make fun of him, then run off.")) {
+			switch(select("Si, por supuesto!:Fingiria no escuchar nada.:Me burlaria de el y huiria.")) {
 			case 1:
 				set .@pay_point,.@pay_point+6;
 				mes "[Daewoon]";
@@ -2315,7 +2315,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "[Daewoon]";
 			mes "...";
 			mes "......";
-			mes "Do you enjoy life?";
+			mes "Disfrutas la vida?";
 			next;
 			switch(select("Yes:No")) {
 			case 1:
@@ -2333,7 +2333,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				mes "life as much as you can.";
 				mes "As for me, I'm always happy";
 				mes "with my wine, women and song~";
-				mes "Mwah ah hah~!";
+				mes "Muajaja~!";
 				next;
 				break;
 			case 2:
@@ -2360,7 +2360,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				mes "Wine. Women. And song!";
 				mes "Though, if I had to rank them,";
 				mes "women would top that list.";
-				mes "Mwah ah hah~!";
+				mes "Muajaja~!";
 				next;
 				break;
 			}
@@ -2384,7 +2384,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				mes "[Daewoon]";
 				mes "Well, I must say that I've";
 				mes "grown quite fond of you. Of";
-				mes "course, it helps that we have so much in common. Mwah ah hah~!";
+				mes "course, it helps that we have so much in common. Muajaja~!";
 				mes "It was an honor to meet you~";
 				next;
 				mes "[Daewoon]";
@@ -2394,7 +2394,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				next;
 				mes "[Daewoon]";
 				mes "Alright, then.";
-				mes "Good luck in";
+				mes "Buena suerte in";
 				mes "Al de Baran~!";
 				close;
 			}
@@ -2439,7 +2439,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 				next;
 				mes "[Daewoon]";
 				mes "Alright, then.";
-				mes "Good luck in";
+				mes "Buena suerte in";
 				mes "Al de Baran~!";
 				close;
 			}
@@ -2467,7 +2467,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 	}
 	else if (sign_q < 14) {
 		mes "[Daewoon]";
-		mes "Mwah ah hah~!";
+		mes "Muajaja~!";
 		mes "I couldn't be happier!";
 		mes "What more do I need?";
 		mes "Gourmet food, fine wine,";
@@ -2476,11 +2476,11 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 	}
 	else if (sign_q == 98) {
 		mes "[Daewoon]";
-		mes "I'm sorry, but ";
+		mes "Lo siento, but";
 		mes "no price can make";
 		mes "me change my mind.";
 		mes "You... You've failed.";
-		mes "I'm sorry, friend.";
+		mes "Lo siento, friend.";
 		close;
 	}
 	else if (sign_q == 99) {
@@ -2509,7 +2509,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "I am counting on you to be";
 			mes "responsbile and to never lose";
 			mes "that smile on your face, okay?";
-			mes "Mwah ah hah~!";
+			mes "Muajaja~!";
 			close;
 		case 2:
 			emotion ET_SCRATCH;
@@ -2523,7 +2523,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 			mes "[Daewoon]";
 			mes "But in the end, keep in mind";
 			mes "that you must have learned some great lesson from this experience. Anyway, please do your best to use the power responsibly, okay?";
-			mes "Mwah ah hah~!";
+			mes "Muajaja~!";
 			close;
 		}
 	}
@@ -2545,7 +2545,7 @@ payon_in03,11,31,4	script	Daewoon#sign	808,{
 	else {
 		mes "[Daewoon]";
 		mes "Ah, I feel so...";
-		mes "Satiated. The food was ";
+		mes "Satiated. The food was";
 		mes "stupendous and the women";
 		mes "have been even more so.";
 		mes "Servants! Fan me please~";
@@ -2572,7 +2572,7 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 	if ((gettime(DT_HOUR) > 16) && (gettime(DT_HOUR) < 22)) {
 		if (sign_q == 15) {
 			mes "["+ strcharinfo(0) +"]";
-			mes "Excuse me...";
+			mes "Disculpa...";
 			next;
 			emotion ET_HUK;
 			mes "^313FFF*Clink*^000000";
@@ -2605,7 +2605,7 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 			mes "any interruptions. So";
 			mes "why are you here?";
 			next;
-			switch(select("Daewoon sent me.:Oops, sorry. Later~")) {
+			switch(select("Daewoon me envio.:Ups, lo siento. Despues~")) {
 			case 1:
 				emotion ET_SWEAT;
 				mes "[Sir Jore]";
@@ -2669,7 +2669,7 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 				next;
 				mes "[Sir Jore]";
 				mes "You see, l-lately I've";
-				mes "been studying Biology. ";
+				mes "been studying Biology.";
 				mes "I think the secret to life";
 				mes "can be found in the Leaf of";
 				mes "Yggdrasil. They can be used";
@@ -2813,7 +2813,7 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 				set sign_q,20;
 				getitem 7177,1; //Part_Of_Star's_Sob
 				mes "[Sir Jore]";
-				mes "Thank you very much";
+				mes "Muchas gracias";
 				mes "for helping me. Now I can";
 				mes "go back to my studies and";
 				mes "hope that nobody bothers me.";
@@ -2827,10 +2827,10 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 				next;
 				mes "[Sir Jore]";
 				mes "O-o-okay then.";
-				mes "Good luck getting";
-				mes "all the pieces of ";
+				mes "Buena suerte getting";
+				mes "all the pieces of";
 				mes "Sobbing Starlight,";
-				mes ""+ strcharinfo(0) +". Farewell~";
+				mes ""+ strcharinfo(0) +". Hasta pronto~";
 				close;
 			}
 			else {
@@ -2846,7 +2846,7 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 			mes "[Sir Jore]";
 			mes "Now you must visit";
 			mes "^0063FFLady Jesqurienne^000000 in";
-			mes "Geffen. Good luck";
+			mes "Geffen. Buena suerte";
 			mes "passing her test.";
 			close;
 		}
@@ -2867,10 +2867,10 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 		mes "of books. He seems to be in";
 		mes "agony for some reason.";
 		next;
-		switch(select("Speak to him.:Ignore him.")) {
+		switch(select("Hablarle.:Ignorarlo.")) {
 		case 1:
 			mes "["+ strcharinfo(0) +"]";
-			mes "Excuse me...";
+			mes "Disculpa...";
 			next;
 			mes "[Sir Jore]";
 			mes "...";
@@ -2880,10 +2880,10 @@ aldeba_in,155,101,3	script	Sir Jore#sign	805,7,7,{
 			mes "his thoughts, this strange";
 			mes "man is unable to hear you.^000000";
 			next;
-			switch(select("Try again.:Ignore him.")) {
+			switch(select("Intentar de nuevo.:Ignorarlo.")) {
 			case 1:
 				mes "["+ strcharinfo(0) +"]";
-				mes "EXCUSE ME!";
+				mes "DISCULPA!";
 				next;
 				mes "[Sir Jore]";
 				mes "...!";
@@ -2948,7 +2948,7 @@ aldeba_in,156,118,4	script	Piru Piru#sign	102,{
 			mes "*Sob* Master, can't we";
 			mes "just call it a day already?";
 			next;
-			switch(select("What do you do in here?:About vanished Alchemists:What is the Stone of Sage?")) {
+			switch(select("Que hacen aqui?:Sobre los Alquimistas desaparecidos:Que es la Stone of Sage?")) {
 			case 1:
 				mes "[Piru Piru]";
 				mes "My master, Sir Jore,";
@@ -3002,7 +3002,7 @@ aldeba_in,156,118,4	script	Piru Piru#sign	102,{
 			mes "*Sob* Master, can't we";
 			mes "just call it a day already?";
 			next;
-			select("What do you do in here?");
+			select("Que hacen aqui?");
 			mes "[Piru Piru]";
 			mes "My master, Sir Jore,";
 			mes "is researching a way to";
@@ -3042,7 +3042,7 @@ aldeba_in,156,118,4	script	Piru Piru#sign	102,{
 		mes "....Zzz...Zzz...";
 		mes "Zzz....Zzz......";
 		next;
-		switch(select("Wake her up:Leave her sleep")) {
+		switch(select("Despertarla:Dejarla dormir")) {
 		case 1:
 			mes "[Piru Piru]";
 			mes "Wh-wha...?";
@@ -3095,7 +3095,7 @@ OnTouch_:
 
 prt_maze02,25,161,0	script	#music	-1,7,7,{
 OnTouch_:
-	soundeffect "effect\\¼®¾çÀÇ ¾î½Ø½Å.wav",1;
+	soundeffect "effect\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ø½ï¿½.wav",1;
 	end;
 }
 
@@ -3167,11 +3167,11 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 		next;
 		donpcevent "Pleur#sign::OnKis2";
 		mes "[Pleur]";
-		mes "Don't worry father, I understand. For now, this is the only place where we can relax and live inpeace. I think we deserve to rest after accomplishing our goals...";
+		mes "No te preocupes father, I understand. For now, this is the only place where we can relax and live inpeace. I think we deserve to rest after accomplishing our goals...";
 		next;
 		emotion ET_CRY;
 		mes "[Gordon]";
-		mes "Thank you, Pluer.";
+		mes "Gracias, Pluer.";
 		mes "I have no regrets about";
 		mes "our work, but sometimes";
 		mes "I do wish for a more";
@@ -3179,7 +3179,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 		if (sign_q < 17) close;
 		else if (sign_q == 17) {
 			next;
-			switch(select("Roar~!:Excuse me.")) {
+			switch(select("Roar~!:Disculpa.")) {
 			case 1:
 				set sign_q,18;
 				donpcevent "#skill::OnEnable";
@@ -3217,7 +3217,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 				mes "do no harm if you had";
 				mes "something to ask us...";
 				next;
-				switch(select("Ask about Stone of Sage:Ask about Alchemy:Quit")) {
+				switch(select("Preguntar sobre la Stone of Sage:Preguntar sobre Alquimia:Salir")) {
 				case 1:
 					set sign_q,19;
 					mes "[Gordon]";
@@ -3251,7 +3251,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 					mes "If they succeed, it'll have a huge effect on the entire world!";
 					next;
 					mes "[Gordon]";
-					mes "I'm sorry that you've gone";
+					mes "Lo siento that you've gone";
 					mes "through the trouble of finding";
 					mes "us for this kind of information. We're retired after all, so we";
 					mes "may be out of the loop.";
@@ -3269,7 +3269,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 					mes "of this maze. I've lived here";
 					mes "quite a while, so I can find";
 					mes "the exit with my eyes closed.";
-					mes "Farewell, adventurer~";
+					mes "Hasta pronto, adventurer~";
 					close2;
 					warp "mjolnir_12",44,23;
 					end;
@@ -3286,13 +3286,13 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 					mes "than we could handle...";
 					next;
 					mes "[Gordon]";
-					mes "I'm sorry, but if you have any";
+					mes "Lo siento, but if you have any";
 					mes "questions about Alchemy, there";
 					mes "are many qualified researchers and practitioners out there. We came to this forest to find peace...";
 					close;
 				case 3:
 					mes "[Gordon]";
-					mes "Hah hah hah~";
+					mes "Ja ja ja~";
 					mes "Did you forget";
 					mes "what you were";
 					mes "going to ask me?";
@@ -3323,7 +3323,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 		mes "do no harm if you had";
 		mes "something to ask us...";
 		next;
-		switch(select("Ask about Stone of Sage:Ask about Alchemy:Quit")) {
+		switch(select("Preguntar sobre la Stone of Sage:Preguntar sobre Alquimia:Salir")) {
 		case 1:
 			set sign_q,19;
 			mes "[Gordon]";
@@ -3357,7 +3357,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 			mes "If they succeed, it'll have a huge effect on the entire world!";
 			next;
 			mes "[Gordon]";
-			mes "I'm sorry that you've gone";
+			mes "Lo siento that you've gone";
 			mes "through the trouble of finding";
 			mes "us for this kind of information. We're retired after all, so we";
 			mes "may be out of the loop.";
@@ -3375,7 +3375,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 			mes "of this maze. I've lived here";
 			mes "quite a while, so I can find";
 			mes "the exit with my eyes closed.";
-			mes "Farewell, adventurer~";
+			mes "Hasta pronto, adventurer~";
 			close2;
 			warp "mjolnir_12",44,23;
 			end;
@@ -3392,13 +3392,13 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 			mes "than we could handle...";
 			next;
 			mes "[Gordon]";
-			mes "I'm sorry, but if you have any";
+			mes "Lo siento, but if you have any";
 			mes "questions about Alchemy, there";
 			mes "are many qualified researchers and practitioners out there. We came to this forest to find peace...";
 			close;
 		case 3:
 			mes "[Gordon]";
-			mes "Hah hah hah~";
+			mes "Ja ja ja~";
 			mes "Did you forget";
 			mes "what you were";
 			mes "going to ask me?";
@@ -3420,7 +3420,7 @@ prt_maze02,14,183,4	script	Gordon#sign	51,{
 		next;
 		emotion ET_SMILE;
 		mes "[Gordon]";
-		mes "Heh heh~";
+		mes "Je je~";
 		mes "Am I being";
 		mes "too arrogant?";
 		close;
@@ -3444,19 +3444,19 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 			mes "I'm Jesqurienne. You've heard";
 			mes "of me, haven't you? Aren't you surprised to see me?";
 			next;
-			switch(select("I've never heard of you.:Oh gosh, it's Jesqurienne!")) {
+			switch(select("Nunca he escuchado de ti.:Oh cielos, es Jesqurienne!")) {
 			case 1:
 				mes "[Jesqurienne]";
 				emotion ET_SWEAT;
-				mes "Ho ho ho~!";
+				mes "Jo jo jo~!";
 				mes "Surely you";
 				mes "must be joking~";
 				next;
-				switch(select("You got me, you got me.:Nope. Doesn't ring a bell.")) {
+				switch(select("Me atrapaste, me atrapaste.:No. No me suena.")) {
 				case 1:
 					emotion ET_HNG;
 					mes "[Jesqurienne]";
-					mes "Ohohohohoho~!";
+					mes "Ojojojojo~!";
 					mes "I knew it! I knew it!";
 					mes "Then again, there's little";
 					mes "that a famous genius like";
@@ -3492,7 +3492,7 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 				break;
 			case 2:
 				mes "[Jesqurienne]";
-				mes "Ohohohohoho~!";
+				mes "Ojojojojo~!";
 				mes "I knew it! I knew it!";
 				mes "Then again, there's little";
 				mes "that a famous genius like";
@@ -3521,7 +3521,7 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 			mes "I haven't met anyone";
 			mes "smarter than me~";
 			next;
-			switch(select("^333333Stuck-up chick.^000000:Take it easy on the drinks...")) {
+			switch(select("^333333Chica presumida.^000000:Calmate con las bebidas...")) {
 			case 1:
 				emotion ET_FRET;
 				mes "[Jesqurienne]";
@@ -3560,14 +3560,14 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 				emotion ET_KIK;
 				mes "[Jesqurienne]";
 				mes "Professor Aaron?";
-				mes "Ho ho~ If he's asking";
+				mes "Jo jo~ If he's asking";
 				mes "the questions, it looks";
 				mes "like your chances of";
 				mes "beating me are zero!";
 				close;
 			case 2:
 				mes "[Jesqurienne]";
-				mes "Ho ho ho~";
+				mes "Jo jo jo~";
 				mes "Plenty of people have";
 				mes "told me not to drink so";
 				mes "much. But once I start";
@@ -3601,7 +3601,7 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 		close;
 	}
 	else if (sign_q == 23) {
-		mes "Bwahahahaha!";
+		mes "Buajajajaja!";
 		mes "You should have known";
 		mes "from the beginning that you";
 		mes "never had a chance! Of course,";
@@ -3619,14 +3619,14 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 		mes "Bwahaha! I can't believe how";
 		mes "simple minded you are...!";
 		next;
-		switch(select("I can't let you win!:Darn it...")) {
+		switch(select("No puedo dejarte ganar!:Rayos...")) {
 		case 1:
 			set sign_q,22;
 			mes "[Jesqurienne]";
 			mes "You're a slow learner,";
 			mes "aren't you? Well, I welcome";
 			mes "your ''challenge'' anytime!";
-			mes "Bwah hah hah hah hah~!";
+			mes "Buajajajaja~!";
 			close;
 		case 2:
 			mes "[Jesqurienne]";
@@ -3665,7 +3665,7 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 		mes "[Jesqurienne]";
 		set sign_q,25;
 		getitem 7177,1; //Part_Of_Star's_Sob
-		mes "Here...";
+		mes "Aqui...";
 		mes "My old friend, Metz, told";
 		mes "me to give this to someone";
 		mes "who is worthy. I was going";
@@ -3676,12 +3676,12 @@ geffen_in,59,74,4	script	Jesqurienne#sign	803,{
 		mes "If you want to know more about the Sobbing Starlight, find a man named ^3131CEDearles^000000. It may be hard to find him since he wanders from place to place, but it might help to know that he loves gambling...";
 		next;
 		mes "[Jesqurienne]";
-		mes "Good luck finding";
+		mes "Buena suerte finding";
 		mes "Dearles. I'm taking";
 		mes "this loss pretty badly,";
 		mes "so I think I'll stay here";
 		mes "and have another drink.";
-		mes "Farewell, "+.@input$+".";
+		mes "Hasta pronto, "+.@input$+".";
 		close;
 	}
 	else if (sign_q == 25) {
@@ -3769,7 +3769,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		if (rand(1,10) < 9 ) {
 			donpcevent "Jesqurienne#sign::OnHo";
 			mes "[Jesqurienne]";
-			mes "Heh heh...";
+			mes "Je je...";
 			mes "The first question";
 			mes "is always too easy!";
 			set .@npc_p,.@npc_p+1;
@@ -3812,7 +3812,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		if (rand(1,10) < 8 ) {
 			donpcevent "Jesqurienne#sign::OnHo";
 			mes "[Jesqurienne]";
-			mes "Ho ho ho ho~!";
+			mes "Jo jo jo jo~!";
 			mes "I know the answer.";
 			mes "Any fool should know";
 			mes "this. But do you?";
@@ -3879,7 +3879,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		next;
 		if (.@npc_p > .@user_p) {
 			mes "[Jesqurienne]";
-			mes "Heh heh...";
+			mes "Je je...";
 			mes "It looks like";
 			mes "I'm beating you!";
 			mes "But you shouldn't";
@@ -3942,7 +3942,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		next;
 		if (.@npc_p > .@user_p) {
 			mes "[Jesqurienne]";
-			mes "Heh heh~ It looks";
+			mes "Je je~ It looks";
 			mes "like I have the lead.";
 			mes "But that's only natural for";
 			mes "someone as brilliant as me~";
@@ -3957,7 +3957,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		}
 		else {
 			mes "[Jesqurienne]";
-			mes "Heh heh~ It looks";
+			mes "Je je~ It looks";
 			mes "like I have the lead.";
 			mes "But that's only natural for";
 			mes "someone as brilliant a--";
@@ -4132,7 +4132,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 			mes "My mind is";
 			mes "a veritable";
 			mes "calculator!";
-			mes "Ho ho ho~!";
+			mes "Jo jo jo~!";
 			set .@npc_p,.@npc_p+1;
 		}
 		else {
@@ -4152,7 +4152,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 			mes "I was in the lead";
 			mes "right now? Well, let";
 			mes "me remind you, in case";
-			mes "I forget. Ho ho ho ho~!";
+			mes "I forget. Jo jo jo jo~!";
 		}
 		else if (.@npc_p == .@user_p) {
 			mes "[Jesqurienne]";
@@ -4270,7 +4270,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		next;
 		if (.@npc_p > .@user_p) {
 			mes "[Jesqurienne]";
-			mes "Bwahahaha!";
+			mes "Buajajaja!";
 			mes "Only one question";
 			mes "left! You have to get";
 			mes "this one right or I'll";
@@ -4345,14 +4345,14 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 			set sign_q,23;
 			emotion ET_KIK;
 			mes "[Jesqurienne]";
-			mes "Bwahahaha!";
+			mes "Buajajaja!";
 			mes "I win! I knew it!";
 			mes "Ho ho ho ho ho ho~";
 		}
 		else if (.@npc_p == .@user_p) {
 			set sign_q,24;
 			mes "[Jesqurienne]";
-			mes "Tied?! ";
+			mes "Tied?!";
 			mes "Alright, I'm impressed.";
 			mes "I'll admit, you're much";
 			mes "smarter than I thought...";
@@ -4366,7 +4366,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		}
 		next;
 		mes "[Aaron]";
-		mes "Thank you";
+		mes "Gracias";
 		mes "for playing!";
 		mes ".......................";
 		mes "...........................";
@@ -4382,7 +4382,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 		mes "woman I've seen in my life!";
 		next;
 		if (Sex == SEX_MALE) {
-			select("Um, I'm a dude...");
+			select("Eh, soy hombre...");
 			emotion ET_CRY;
 			mes "[Aaron]";
 			mes "N-no...!";
@@ -4392,7 +4392,7 @@ geffen_in,61,72,7	script	Aaron#sign	754,{
 			mes "to teach tomorrow anyway...";
 		}
 		else {
-			select("Why, thank you~");
+			select("Ay, gracias~");
 			emotion ET_BEST;
 			mes "[Aaron]";
 			mes "Ah, yes. Your";
@@ -4450,7 +4450,7 @@ cmd_in02,88,51,4	script	Strange Guy#sign	806,{
 		mes "my lucky streak";
 		mes "gonna start?";
 		next;
-		switch(select("Excuse me...:Just pass by.")) {
+		switch(select("Disculpa...:Just pass by.")) {
 		case 1:
 			mes "[Dearles]";
 			mes "What is it?!";
@@ -4459,7 +4459,7 @@ cmd_in02,88,51,4	script	Strange Guy#sign	806,{
 			mes "and total strangers, so";
 			mes "get to the point~!";
 			next;
-			switch(select("Oh, nothing.:I'm here for Metz...?")) {
+			switch(select("Ah, nada.:Estoy aqui por Metz...?")) {
 			case 1:
 				mes "[Dearles]";
 				mes "Wha...? You bother";
@@ -4504,7 +4504,7 @@ cmd_in02,88,51,4	script	Strange Guy#sign	806,{
 		mes "Soooooo, did you";
 		mes "bring the money?";
 		next;
-		switch(select("Here you are...:Not yet...")) {
+		switch(select("Aqui tienes...:Aun no...")) {
 		case 1:
 			mes "[Dearles]";
 			mes "Ummm.......";
@@ -4515,7 +4515,7 @@ cmd_in02,88,51,4	script	Strange Guy#sign	806,{
 				mes "on me again and I'll...!";
 			}
 			else {
-				mes "Heh heh~";
+				mes "Je je~";
 				mes "That's thirty grand,";
 				mes "alright! Okay, come back";
 				mes "to me tomorrow night and";
@@ -4698,12 +4698,12 @@ cmd_in02,88,51,4	script	Strange Guy#sign	806,{
 			mes "wanna try again, you're";
 			mes "welcome to another chance...";
 			next;
-			switch(select("Yes.:Maybe later.")) {
+			switch(select("Si.:Quizas despues.")) {
 			case 1:
 				mes "[Dearles]";
-				mes "Okay...";
+				mes "De acuerdo...";
 				mes "Just keep in mind";
-				mes "that Part Two was ";
+				mes "that Part Two was";
 				mes "supposed to be";
 				mes "the easy part...";
 				close2;
@@ -4846,7 +4846,7 @@ cmd_in02,88,51,4	script	Strange Guy#sign	806,{
 		mes "more of your cash!";
 		emotion ET_KIK;
 		next;
-		switch(select("Okay.:I want to take Part Two again.")) {
+		switch(select("De acuerdo.:Quiero hacer la Parte Dos otra vez.")) {
 		case 1:
 			mes "[Dearles]";
 			mes "Fine, fine.";
@@ -4873,7 +4873,7 @@ cmd_in01,33,25,5	script	Examiner#sign	724,{
 	callfunc "F_UpdateSignVars";
 	mes "[Lamadin]";
 	if (sign_q == 30) {
-		mes "Welcome to";
+		mes "Bienvenido a";
 		mes "Part Two of Dearles'";
 		mes "exam where your sense";
 		mes "of rhythm will be tested~";
@@ -4901,9 +4901,9 @@ cmd_in01,33,25,5	script	Examiner#sign	724,{
 		next;
 		mes "[Lamadin]";
 		mes "I'm in charge of grading";
-		mes "your performance and determining your qualification. Please do your best and come back to me when";
-		mes "you finish the test. Good luck~";
-		mes "Please do your best.";
+		mes "your performance and determining your qualification. Por favor da lo mejor de ti and come back to me when";
+		mes "you finish the test. Buena suerte~";
+		mes "Por favor da lo mejor de ti.";
 		close;
 	}
 	else if (sign_q == 31) {
@@ -4930,9 +4930,9 @@ cmd_in01,33,25,5	script	Examiner#sign	724,{
 		next;
 		mes "[Lamadin]";
 		mes "I'm in charge of grading";
-		mes "your performance and determining your qualification. Please do your best and come back to me when";
-		mes "you finish the test. Good luck~";
-		mes "Please do your best.";
+		mes "your performance and determining your qualification. Por favor da lo mejor de ti and come back to me when";
+		mes "you finish the test. Buena suerte~";
+		mes "Por favor da lo mejor de ti.";
 		close;
 	}
 	else if (sign_q == 32) {
@@ -4946,27 +4946,27 @@ cmd_in01,33,25,5	script	Examiner#sign	724,{
 		mes "You're welcome to";
 		mes "try again whenever";
 		mes "you want, alright?";
-		mes "Thank you~";
+		mes "Gracias~";
 		set sign_q,30;
 		close;
 	}
 	else if (sign_q == 33) {
 		mes "Let's see...";
 		mes "You're "+ strcharinfo(0) +"?";
-		mes "Congratulations!";
+		mes "Felicidades!";
 		mes "You passed the test!";
 		next;
 		mes "[Lamadin]";
 		mes "I'll send a message to";
 		mes "Mister Dearles right away,";
 		mes "so please go speak to him";
-		mes "again. Once again, great job~ ";
+		mes "again. Once again, great job~";
 		close;
 	}
 	else if (sign_q == 34) {
 		mes "Let's see...";
 		mes "You're "+ strcharinfo(0) +"?";
-		mes "Congratulations!";
+		mes "Felicidades!";
 		mes "You got a perfect";
 		mes "score on this test!";
 		next;
@@ -4993,12 +4993,12 @@ cmd_in01,33,25,5	script	Examiner#sign	724,{
 
 cmd_in01,16,24,0	script	Emergency Exit	111,{
 	mes "[Exit]";
-	mes "Would you like to go out?";
+	mes "Te gustaria salir?";
 	next;
-	switch(select("Yes.:No.")) {
+	switch(select("Si.:No.")) {
 	case 1:
 		mes "[Exit]";
-		mes "Farewell.";
+		mes "Hasta pronto.";
 		next;
 		warp "comodo",187,163;
 		end;
@@ -5052,81 +5052,81 @@ OnDisableAll:
 	return;
 
 OnTimer2000:
-	mapannounce "cmd_in01","The test will be begin shortly. Please do your best~",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","La prueba comenzara en breve. Da lo mejor de ti~",bc_map,"0xFFFF00";
 	end;
 
 OnTimer4000:
-	mapannounce "cmd_in01"," UP LEFT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","UP LEFT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#up::OnUp";
 	donpcevent "s_dance#up::OnEnable";
 	end;
 
 OnTimer6000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#down::OnUp";
 	donpcevent "s_dance#down::OnEnable";
 	end;
 
 OnTimer8000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN LEFT & UP RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN LEFT & UP RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#left::OnUp";
 	donpcevent "s_dance#left::OnEnable";
 	end;
 
 OnTimer11000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#down::OnUp";
 	donpcevent "s_dance#down::OnEnable";
 	end;
 
 OnTimer13000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN LEFT & UP RIGHT & UP LEFT & STAY CENTER",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN LEFT & UP RIGHT & UP LEFT & STAY CENTER",bc_map,"0xFFFF00";
 	donpcevent "s_dance#left::OnUp";
 	donpcevent "s_dance#left::OnEnable";
 	end;
 
 OnTimer18000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN LEFT & DOWN RIGHT & DOWN LEFT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN LEFT & DOWN RIGHT & DOWN LEFT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#left::OnUp";
 	donpcevent "s_dance#left::OnEnable";
 	end;
 
 OnTimer21000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN RIGHT & CENTER & DOWN RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN RIGHT & CENTER & DOWN RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#down::OnUp";
 	donpcevent "s_dance#down::OnEnable";
 	end;
 
 OnTimer24000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN LEFT & UP LEFT & UP RIGHT & DOWN RIGHT & CENTER",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN LEFT & UP LEFT & UP RIGHT & DOWN RIGHT & CENTER",bc_map,"0xFFFF00";
 	donpcevent "s_dance#left::OnUp";
 	donpcevent "s_dance#left::OnEnable";
 	end;
 
 OnTimer30000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," DOWN LEFT & UP RIGHT & UP LEFT & DOWN RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","DOWN LEFT & UP RIGHT & UP LEFT & DOWN RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#left::OnUp";
 	donpcevent "s_dance#left::OnEnable";
 	end;
 
 OnTimer34000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," UP RIGHT & DOWN RIGHT & UP RIGHT & DOWN RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","UP RIGHT & DOWN RIGHT & UP RIGHT & DOWN RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#right::OnUp";
 	donpcevent "s_dance#right::OnEnable";
 	end;
 
 OnTimer38000:
 	callsub OnDisableAll;
-	mapannounce "cmd_in01"," UP LEFT & UP RIGHT & CENTER & UP RIGHT & DOWN LEFT & DOWN RIGHT",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","UP LEFT & UP RIGHT & CENTER & UP RIGHT & DOWN LEFT & DOWN RIGHT",bc_map,"0xFFFF00";
 	donpcevent "s_dance#up::OnUp";
 	donpcevent "s_dance#up::OnEnable";
 	end;
@@ -5138,7 +5138,7 @@ OnTimer44000:
 	donpcevent "s_dance#left::OnReset";
 	donpcevent "s_dance#right::OnReset";
 	donpcevent "s_dance#cen::OnReset";
-	mapannounce "cmd_in01","Well done.",bc_map,"0xFFFF00";
+	mapannounce "cmd_in01","Bien hecho.",bc_map,"0xFFFF00";
 	enablenpc "Examiner#sd";
 	donpcevent "Standby Room#sign::OnReset";
 	end;
@@ -5520,7 +5520,7 @@ alberta_in,125,101,5	script	Wealthy-looking Merchant	807,{
 		mes "?";
 		mes "Who are you?";
 		next;
-		switch(select("Nothing.:Mr. Metz sent me.")) {
+		switch(select("Nada.:El Sr. Metz me envio.")) {
 		case 1:
 			mes "[Bakerlan]";
 			mes "Hmm...";
@@ -5534,7 +5534,7 @@ alberta_in,125,101,5	script	Wealthy-looking Merchant	807,{
 			mes "He did?....Hmmm..";
 			mes "Unfortunately I am kind of busy...";
 			mes "will you please come back later?";
-			mes "Thank you.";
+			mes "Gracias.";
 			set sign_q,36;
 			close;
 		}
@@ -5547,7 +5547,7 @@ alberta_in,125,101,5	script	Wealthy-looking Merchant	807,{
 		mes "with your pieces of the";
 		mes "Sobbing Starlight...";
 		next;
-		switch(select("Give me a minute...:Here...")) {
+		switch(select("Dame un minuto...:Aqui...")) {
 		case 1:
 			mes "[Bakerlan]";
 			mes "Well, you better";
@@ -5686,7 +5686,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 	callfunc "F_UpdateSignVars";
 	mes "[Seylin]";
 	if (sign_q < 38) {
-		mes "I'm sorry, but I'm";
+		mes "Lo siento, but I'm";
 		mes "busy cleaning the manor";
 		mes "right now so I don't have";
 		mes "time to talk. Oh, and would";
@@ -5718,7 +5718,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 		mes "startled me!";
 		next;
 		mes "[Seylin]";
-		mes "I'm sorry, but";
+		mes "Lo siento, but";
 		mes "I was just thinking";
 		mes "about something. I hope";
 		mes "I didn't bother you. ^333333*Sigh*^000000";
@@ -5731,7 +5731,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 		mes "startled me!";
 		next;
 		mes "[Seylin]";
-		mes "I'm sorry, but";
+		mes "Lo siento, but";
 		mes "I was just thinking";
 		mes "about something. I hope";
 		mes "I didn't bother you. ^333333*Sigh*^000000";
@@ -5746,7 +5746,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "What can I do";
 			mes "about this...?";
 			next;
-			switch(select("Ignore her.:Excuse me, but Mahatra sent me...")) {
+			switch(select("Ignorarla.:Disculpa, but Mahatra sent me...")) {
 			case 1:
 				mes "[Seylin]";
 				mes "Oh, it's no use";
@@ -5762,7 +5762,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 				mes "Hm? Does he need";
 				mes "me for anything?";
 				next;
-				switch(select("Actually, he wants me to help you.")) {
+				switch(select("En realidad, quiere que te ayude.")) {
 				case 1:
 					mes "[Seylin]";
 					mes "Oh, how very kind!";
@@ -5788,7 +5788,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 					mes "I don't know if the master";
 					mes "would approve of this...";
 					next;
-					switch(select("I can't do it.:Let me think about it.:Sure, why not?")) {
+					switch(select("No puedo hacerlo.:Dejame pensarlo.:Claro, por que no?")) {
 					case 1:
 						mes "[Seylin]";
 						mes "Oh, really?";
@@ -5817,12 +5817,12 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 						mes "Guild makes it, I think.";
 						next;
 						mes "[Seylin]";
-						mes "I'm sorry, but I don't";
+						mes "Lo siento, but I don't";
 						mes "know much about the medicine.";
 						mes "Well, aside from the fact that";
 						mes "it makes men feel young again.";
 						mes "So that must be good, right?";
-						mes "Thanks again for your help~";
+						mes "Gracias again for your help~";
 						set sign_q,46;
 						close;
 					}
@@ -5836,11 +5836,11 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "I'll repay you,";
 			mes "of course.";
 			next;
-			switch(select("No.:Yes.")) {
+			switch(select("No.:Si.")) {
 			case 1:
 				mes "[Seylin]";
 				mes "Oh really?";
-				mes "I'm sorry, I...";
+				mes "Lo siento, I...";
 				mes "I just thought";
 				mes "that maybe...";
 				close2;
@@ -5856,12 +5856,12 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 				mes "Guild makes it, I think.";
 				next;
 				mes "[Seylin]";
-				mes "I'm sorry, but I don't";
+				mes "Lo siento, but I don't";
 				mes "know much about the medicine.";
 				mes "Well, aside from the fact that";
 				mes "it makes men feel young again.";
 				mes "So that must be good, right?";
-				mes "Thanks again for your help~";
+				mes "Gracias again for your help~";
 				set sign_q,46;
 				close;
 			}
@@ -5872,7 +5872,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "I'll be sure to pay";
 			mes "you back somehow.";
 			next;
-			switch(select("Um, I'm still thinking.:Yes.")) {
+			switch(select("Mm, aun estoy pensando.:Si.")) {
 			case 1:
 				mes "[Seylin]";
 				mes "Oh okay.";
@@ -5890,12 +5890,12 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 				mes "Guild makes it, I think.";
 				next;
 				mes "[Seylin]";
-				mes "I'm sorry, but I don't";
+				mes "Lo siento, but I don't";
 				mes "know much about the medicine.";
 				mes "Well, aside from the fact that";
 				mes "it makes men feel young again.";
 				mes "So that must be good, right?";
-				mes "Thanks again for your help~";
+				mes "Gracias again for your help~";
 				set sign_q,46;
 				close;
 			}
@@ -5940,7 +5940,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 				mes "I just finished writing";
 				mes "him this letter, so would";
 				mes "you also make sure he gets";
-				mes "this? Thank you so much!";
+				mes "this? Muchas gracias!";
 				set sign_q,49;
 				getitem 7183,1; //Sister_Letter
 				close;
@@ -5953,7 +5953,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "And wish him 'Happy Birthday~'";
 			close;
 		case 50:
-			mes "Thanks so much";
+			mes "Gracias so much";
 			mes "for your help again!";
 			mes "I want you to have this";
 			mes "as a token of my gratitude.";
@@ -5974,7 +5974,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 		close;
 	}
 	else if (sign_q == 98) {
-		mes "I'm sorry, but I'm";
+		mes "Lo siento, but I'm";
 		mes "busy cleaning the manor";
 		mes "right now so I don't have";
 		mes "time to talk. Oh, and would";
@@ -5987,7 +5987,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 		mes "a messy person, he's pretty";
 		mes "unorganized. I wish he'd make";
 		mes "it easier for me to tell which";
-		mes "papers are documents and ";
+		mes "papers are documents and";
 		mes "which ones are trash...";
 		next;
 		mes "[Seylin]";
@@ -6003,7 +6003,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 	callfunc "F_UpdateSignVars";
 	mes "[Maruin]";
 	if (sign_q < 49) {
-		mes "Welcome to";
+		mes "Bienvenido a";
 		mes "Prontera Castle.";
 		mes "Please be careful";
 		mes "and avoid getting lost.";
@@ -6018,7 +6018,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 	}
 	else if (sign_q == 49) {
 		if ((countitem(7044) < 1) && (countitem(7183) < 1)) {
-			mes "Welcome to";
+			mes "Bienvenido a";
 			mes "Prontera Castle.";
 			mes "Please be careful";
 			mes "and avoid getting lost.";
@@ -6032,7 +6032,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			close;
 		}
 		else {
-			mes "Welcome to";
+			mes "Bienvenido a";
 			mes "Prontera Castle.";
 			mes "Please be careful";
 			mes "and avoid getting los--";
@@ -6043,7 +6043,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "my sister? Um, did";
 			mes "something happen...?";
 			next;
-			select("Oh no, she sent you a birthday gift.");
+			select("No, ella te envio un regalo de cumpleanos.");
 			mes "[Maruin]";
 			mes "Birthday...?";
 			mes "What are you sm--";
@@ -6051,7 +6051,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "Ha! I completely forgot!";
 			next;
 			mes "[Maruin]";
-			mes "Thanks for coming";
+			mes "Gracias for coming";
 			mes "all the way out here";
 			mes "to deliver my present!";
 			mes "Wow, I wonder what she";
@@ -6091,13 +6091,13 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 			mes "the letter and the";
 			mes "male supplement, I guess.";
 			mes "I'll send a message to my";
-			mes "sister. Good luck on your";
+			mes "sister. Buena suerte on your";
 			mes "travels, alright?";
 			close;
 		}
 	}
 	else if (sign_q == 97 || sign_q == 98) {
-		mes "Welcome to";
+		mes "Bienvenido a";
 		mes "Prontera Castle.";
 		mes "Please be careful";
 		mes "and avoid getting lost.";
@@ -6112,7 +6112,7 @@ alberta_in,154,171,5	script	Maid#s10	758,{
 	}
 	else {
 		mes "Oh hey, how's";
-		mes "it going? Thanks";
+		mes "it going? Gracias";
 		mes "again for helping";
 		mes "out my sister, we";
 		mes "really appreciate it.";
@@ -6142,7 +6142,7 @@ alde_alche,169,162,7	script	Alchemist#sign	749,{
 		switch(select("...:So what are you studying?")) {
 		case 1:
 			mes "[Melkaba]";
-			mes "In the end, the ";
+			mes "In the end, the";
 			mes "Stone of Sage may";
 			mes "just be a simple rumor.";
 			mes "After all, thousands of";
@@ -6167,7 +6167,7 @@ alde_alche,169,162,7	script	Alchemist#sign	749,{
 		mes "please leave my";
 		mes "laboratory!";
 		next;
-		switch(select("Vigorgra?:Oh, I'm sorry.")) {
+		switch(select("Vigorgra?:Oh, Lo siento.")) {
 		case 1:
 			mes "[Melkaba]";
 			mes "What?! Who told you";
@@ -6177,7 +6177,7 @@ alde_alche,169,162,7	script	Alchemist#sign	749,{
 			mes "ready for you. Now tell me...";
 			mes "Why do you want it?";
 			next;
-			switch(select("No, I don't want it!:I need Vigorgra for... a friend.")) {
+			switch(select("No, no lo quiero!:Necesito Vigorgra para... un amigo.")) {
 			case 1:
 				mes "[Melkaba]";
 				mes "You immature--!";
@@ -6241,7 +6241,7 @@ alde_alche,169,162,7	script	Alchemist#sign	749,{
 		mes "you need for the";
 		mes "Vigorgra...?";
 		next;
-		switch(select("Not yet...:Yes.")) {
+		switch(select("Aun no...:Si.")) {
 		case 1:
 			mes "[Melkaba]";
 			mes "Well, let me";
@@ -6368,7 +6368,7 @@ alde_alche,169,162,7	script	Alchemist#sign	749,{
 						mes "It failed?!";
 						mes "Of course, the mixture";
 						mes "was too vigorous, even";
-						mes "for the machinery! I'm sorry,";
+						mes "for the machinery! Lo siento,";
 						mes "but would you bring the things";
 						mes "we need to make Vigorgra again?";
 						close;
@@ -6444,7 +6444,7 @@ alberta_in,114,178,5	script	Refined Steward	109,{
 	callfunc "F_UpdateSignVars";
 	mes "[Mahatra]";
 	if (sign_q < 37) {
-		mes "Welcome to the";
+		mes "Bienvenido al";
 		mes "Alchesh Estate.";
 		mes "The Alcheshs are the";
 		mes "most esteemed family";
@@ -6507,14 +6507,14 @@ alberta_in,114,178,5	script	Refined Steward	109,{
 		close;
 	}
 	else if (sign_q == 40) {
-		mes "Thank you very";
+		mes "Gracias very";
 		mes "much for the trouble";
 		mes "you've gone through";
 		mes "on our behalf.";
 		close;
 	}
 	else if (sign_q == 41) {
-		mes "Greetings. Hm?";
+		mes "Saludos. Hm?";
 		mes "Did the master ask";
 		mes "you to perform another";
 		mes "task for him already?";
@@ -6547,16 +6547,16 @@ alberta_in,114,178,5	script	Refined Steward	109,{
 		close;
 	}
 	else if (sign_q == 51) {
-		mes "Yes.";
+		mes "Si.";
 		mes "I heard from Seylin.";
 		mes "I did not know she was worried about her brother.";
 		mes "Ahem ahem...";
-		mes "Thank you for helping her.";
+		mes "Gracias for helping her.";
 		mes "I will send a message to my master.";
 		next;
 		mes "Mahatra]";
 		mes "If there is anything else, he will let you pass the test.";
-		mes "Good luck.";
+		mes "Buena suerte.";
 		set sign_q,52;
 		close;
 	}
@@ -6588,7 +6588,7 @@ alberta_in,114,178,5	script	Refined Steward	109,{
 
 alberta,98,202,5	script	Guard#s10	105,{
 	mes "[Hurubu]";
-	mes "Welcome to the";
+	mes "Bienvenido al";
 	mes "Alchesh Estate.";
 	if (sign_q < 35) {
 		mes "If you have any business";
@@ -6601,7 +6601,7 @@ alberta,98,202,5	script	Guard#s10	105,{
 		mes "with the master, please";
 		mes "let me know.";
 		next;
-		switch(select("I'd like to see Mr. Bakerlan.:Have a nice day.")) {
+		switch(select("Me gustaria ver al Sr. Bakerlan.:Que tengas buen dia.")) {
 		case 1:
 			mes "[Hurubu]";
 			mes "Ah, you've";
@@ -6657,7 +6657,7 @@ alberta,43,49,5	script	Poor-looking Merchant	89,{
 		mes "How did the Alcheshs";
 		mes "become so rich so quickly?";
 		next;
-		switch(select("Alchesh family?:Do you know where Mr. Bakerlan is?")) {
+		switch(select("La familia Alchesh?:Sabes donde esta el Sr. Bakerlan?")) {
 		case 1:
 			mes "[Machen]";
 			mes "My family, the Tudas,";
@@ -6752,15 +6752,15 @@ yuno,330,100,4	script	Knight#ss	734,{
 	}
 	else if (sign_q == 38) {
 		if (countitem(7049) < 1) {
-			mes "Excuse me...";
+			mes "Disculpa...";
 			mes "Are you from the Alchesh";
 			mes "Trading Company? I've been";
 			mes "waiting for my order and they";
 			next;
-			switch(select("No, I'm not.:They must be busy.:Yes, I have your order.")) {
+			switch(select("No, I'm not.:Deben estar ocupados.:Si, tengo tu pedido.")) {
 			case 1:
 				mes "[Leibech]";
-				mes "Oh, I'm sorry.";
+				mes "Oh, Lo siento.";
 				mes "My mistake. Well";
 				mes "then, be safe in";
 				mes "your travels.";
@@ -6782,10 +6782,10 @@ yuno,330,100,4	script	Knight#ss	734,{
 				mes "item I ordered?";
 				mes "Where is it?";
 				next;
-				switch(select("I put it somewhere.:Sorry, I lost it.")) {
+				switch(select("Lo puse en algun lugar.:Lo siento, lo perdi.")) {
 				case 1:
 					mes "[Leibech]";
-					mes "Oh, alright. ";
+					mes "Oh, alright.";
 					mes "So long as you didn't";
 					mes "lose it, that's fine. I'll wait";
 					mes "here, so would you bring it";
@@ -6798,14 +6798,14 @@ yuno,330,100,4	script	Knight#ss	734,{
 					mes "That's not funny!";
 					mes "You're joking, right?";
 					next;
-					switch(select("No. I'm not joking.:Okay, you got me~")) {
+					switch(select("No. No estoy bromeando.:Ok, me atrapaste~")) {
 					case 1:
 						mes "[Leibech]";
 						mes "I don't believe it!";
 						mes "I think I'm going to";
 						mes "write a letter to your";
 						mes "boss, Mister Bakerlan.";
-						mes "What do you think ";
+						mes "What do you think";
 						mes "about that?";
 						close;
 					case 2:
@@ -6830,20 +6830,20 @@ yuno,330,100,4	script	Knight#ss	734,{
 				mes "Hm...?";
 				mes "There must be some";
 				mes "mistake. This isn't what";
-				mes "I ordered. Well, I can wait... ";
+				mes "I ordered. Well, I can wait...";
 				next;
 				mes "[Leibech]";
 				mes "Just come back and";
 				mes "bring me what I actually";
 				mes "ordered, alright? And this";
 				mes "time, don't make any mistakes.";
-				mes "Thanks, I appreciate it~";
+				mes "Gracias, I appreciate it~";
 				close;
 			}
 			else {
 				mes "Finally, it's here!";
 				mes "Yes, this is what I ordered.";
-				mes "Thanks for the delivery!";
+				mes "Gracias for the delivery!";
 				next;
 				mes "[Leibech]";
 				mes "Well, here's your";
@@ -6851,7 +6851,7 @@ yuno,330,100,4	script	Knight#ss	734,{
 				mes "this to Mister Bakerlan";
 				mes "so he knows you did";
 				mes "a good job for me.";
-				mes "Thanks again!";
+				mes "Gracias again!";
 				delitem2 7049,1,1,0,0,.@sign1,.@sign2,.@sign3,.@sign4;
 				set sign_q,39;
 				getitem 7181,1; //Receipt_01
@@ -6951,7 +6951,7 @@ geffen_in,159,48,5	script	Lonely-looking Woman	711,{
 		}
 		else {
 			mes "[Brenda Howard]";
-			mes "Ah... I see.";
+			mes "Ah... Ya veo.";
 			mes "You're looking for my husband.";
 			mes "My husband, my daughter and";
 			mes "I just moved to Geffen from";
@@ -6982,7 +6982,7 @@ geffen_in,159,48,5	script	Lonely-looking Woman	711,{
 		next;
 		mes "[Brenda Howard]";
 		mes "Oh, I can't help but worry!";
-		mes "Thank you for letting me know";
+		mes "Gracias for letting me know";
 		mes "how he's doing. Still, he should";
 		mes "be doing a better job of keeping";
 		mes "in touch with us. ^333333*Sigh*^000000";
@@ -6991,7 +6991,7 @@ geffen_in,159,48,5	script	Lonely-looking Woman	711,{
 	}
 	else if (sign_q < 62) {
 		if (countitem(7278) > 0) {
-			mes "Thank you so much for bringing";
+			mes "Muchas gracias for bringing";
 			mes "this to me. I'm so happy to hear that he's fine and doing well.";
 			mes "Although he's not here often enough, it's good to know";
 			mes "that he loves his job.";
@@ -7020,7 +7020,7 @@ geffen_in,159,48,5	script	Lonely-looking Woman	711,{
 		next;
 		mes "I may be no expert, but I'm";
 		mes "certain that my husband is";
-		mes "the best blacksmith in the world! Did you know Hollgrehenn and Aragham used to be his apprentices? Ho ho ho~";
+		mes "the best blacksmith in the world! Did you know Hollgrehenn and Aragham used to be his apprentices? Jo jo jo~";
 		close;
 	}
 	else {
@@ -7034,8 +7034,8 @@ geffen_in,159,48,5	script	Lonely-looking Woman	711,{
 geffen_in,171,42,3	script	Cute Girl	703,{
 	callfunc "F_UpdateSignVars";
 	if (checkweight(908,200) == 0) {
-		mes "^3355FFWait a second! Right now,";
-		mes "you have too many items in your inventory. Please come back after you've made more available inventory space.^000000";
+		mes "^3355FFEspera un momento! Ahora mismo,";
+		mes "tienes demasiados objetos en tu inventario. Por favor regresa despues de liberar espacio en tu inventario.^000000";
 		close;
 	}
 	mes "[Liana]";
@@ -7059,7 +7059,7 @@ geffen_in,171,42,3	script	Cute Girl	703,{
 		mes "Everyone says that daddy is the best blacksmith in the whole world! But now he lets his apprentices do";
 		mes "the work so he can go around the world to find a rare ore~ Isn't that amazing?";
 		next;
-		switch(select("What are you drawing by the way?:Apprentices?")) {
+		switch(select("Que estas dibujando por cierto?:Aprendices?")) {
 		case 1:
 			mes "[Liana]";
 			mes "Oh, this?";
@@ -7070,7 +7070,7 @@ geffen_in,171,42,3	script	Cute Girl	703,{
 			mes "[Liana]";
 			mes "Yeah, Uncle Hollegrehenn and Aragham come to visit sometimes and we all play. But, it's more fun to see my dad, even though he's not back yet. ^333333*Pout*^000000";
 			next;
-			switch(select("Don't you miss your dad?:He also misses you a lot.")) {
+			switch(select("No extranas a tu papa?:El tambien te extrana mucho.")) {
 			case 1:
 				mes "[Liana]";
 				mes "I miss him sooo much!";
@@ -7088,7 +7088,7 @@ geffen_in,171,42,3	script	Cute Girl	703,{
 				mes "I wrote this letter!";
 				emotion ET_THINK;
 				next;
-				switch(select("....:I'll bring this to him.")) {
+				switch(select("....:Se lo llevare.")) {
 				case 1:
 					mes "[Brenda Howard]";
 					mes "Liana~";
@@ -7133,7 +7133,7 @@ geffen_in,171,42,3	script	Cute Girl	703,{
 	}
 	else if (sign_q < 66) {
 		mes "Yay~!";
-		mes "Thank you for bringing my letter to my dad. Here, here!";
+		mes "Gracias for bringing my letter to my dad. Here, here!";
 		mes "You have to share my treasure with me, 'kay?";
 		set sign_q,sign_q+4;
 		getitem 529,10; //Candy
@@ -7148,8 +7148,8 @@ geffen_in,171,42,3	script	Cute Girl	703,{
 mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 	callfunc "F_UpdateSignVars";
 	if (checkweight(908,200) == 0) {
-		mes "^3355FFWait a second! Right now,";
-		mes "you have too many items in your inventory. Please come back after you've freed up more inventory space.^000000";
+		mes "^3355FFEspera un momento! Ahora mismo,";
+		mes "tienes demasiados objetos en tu inventario. Por favor regresa despues de liberar espacio en tu inventario.^000000";
 		close;
 	}
 	mes "[Engel]";
@@ -7164,10 +7164,10 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 			mes "Oh great! I see that you're";
 			mes "carrying some Iron Ores with you. Would you be so kind as to lend me 1 Iron Ore? Please, I beg of you...";
 			next;
-			switch(select("Sure, why not?:Sorry, I can't.")) {
+			switch(select("Claro, por que no?:Sorry, I can't.")) {
 			case 1:
 				mes "[Engel]";
-				mes "Thank you so much!";
+				mes "Muchas gracias!";
 				mes "If it weren't for your help,";
 				mes "I'd be in big trouble. I really appreciate you stepping in and volunteering your materials like this.";
 				delitem 1002,1; //Iron_Ore
@@ -7208,14 +7208,14 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 			mes "[Engel]";
 			mes "...?";
 			mes "Were you looking for me?";
-			mes "I'm sorry, but I'm busy at the moment. Please don't disturb me while I try to get my work done.";
+			mes "Lo siento, but I'm busy at the moment. Please don't disturb me while I try to get my work done.";
 			next;
-			switch(select("I need your help.:Here is a letter for you.:I am leaving, leaving.")) {
+			switch(select("Necesito tu ayuda.:Aqui hay una carta para ti.:Me voy, me voy.")) {
 			case 1:
 				mes "[Engel]";
 				mes "Well, I'd like to help you,";
 				mes "but now isn't a good for me.";
-				mes "plenty of other good smiths out there who can help you with the work that you want done. Farewell.";
+				mes "plenty of other good smiths out there who can help you with the work that you want done. Hasta pronto.";
 				close;
 			case 2:
 				mes "[Engel]";
@@ -7229,9 +7229,9 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 				mes "my darling daughter.";
 				next;
 				mes "[Engel]";
-				mes "Thanks, I really appreciate that you've delivered this letter for me. Now, is there anything you'd like to ask of me? If it's not a big favor, I can probably help you.";
+				mes "Gracias, I really appreciate that you've delivered this letter for me. Now, is there anything you'd like to ask of me? If it's not a big favor, I can probably help you.";
 				next;
-				switch(select("Please look at this.")) {
+				switch(select("Por favor mira esto.")) {
 				case 1:
 					mes "[Engel]";
 					mes "Oh?";
@@ -7263,7 +7263,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 					mes "Now, an Emperium Anvil would be ideal for this job. I used to have one, but a while back I ended up giving it to someone. Anyway, I'll wait here for you while you gather everything you need.";
 					next;
 					mes "[Engel]";
-					mes "Right. Let me guide you to a shortcut to the exit of these mines, just in case you don't know your way out of here. Good luck~";
+					mes "Right. Let me guide you to a shortcut to the exit of these mines, just in case you don't know your way out of here. Buena suerte~";
 					delitem 7276,1; //Picture_Letter
 					delitem 7177,7; //Part_Of_Star's_Sob
 					set sign_q,57;
@@ -7287,7 +7287,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 			mes "[Engel]";
 			mes "...?";
 			mes "Do you have any business";
-			mes "me? I'm sorry, but right";
+			mes "me? Lo siento, but right";
 			mes "now I'm very busy. Please leave";
 			mes "me alone to my research.";
 			close;
@@ -7326,7 +7326,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 			}
 			next;
 			mes "[Engel]";
-			mes "While I'm working on this, would you deliver a letter to my family for me? I'm sorry, but please consider that I'm waiving the fee for restoring this Sobbing Starlight.";
+			mes "While I'm working on this, would you deliver a letter to my family for me? Lo siento, but please consider that I'm waiving the fee for restoring this Sobbing Starlight.";
 			next;
 			mes "[Engel]";
 			mes "Well then...";
@@ -7391,7 +7391,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 				next;
 				mes "[Engel]";
 				mes "^333333*Ahem*^000000";
-				mes "Just as I've warned you, this attempt to restore the Sobbling Starlight failed because the anvil you gave me wasn't up to the job. I'm sorry about that.";
+				mes "Just as I've warned you, this attempt to restore the Sobbling Starlight failed because the anvil you gave me wasn't up to the job. Lo siento about that.";
 				next;
 				mes "[Engel]";
 				mes "However, I only";
@@ -7420,8 +7420,8 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 				emotion ET_PROFUSELY_SWEAT;
 				next;
 				mes "[Engel]";
-				mes "While I was trying to restore the ";
-				mes "Sobbling Starlight, I was attacked ";
+				mes "While I was trying to restore the";
+				mes "Sobbling Starlight, I was attacked";
 				mes "by monsters all of a sudden. If only";
 				mes "I paid more attention to my";
 				mes "surroundings...";
@@ -7452,7 +7452,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 				mes "I see that you've brought a Golden Anvil. Now I can get started right away! Still, I'm a little about those monsters showing up again, so would you keep a lookout?";
 			}
 			else if (countitem(989) > 0) {
-				mes "Excellent! You've brought an Emperium Anvil! Now, keep a lookout for monsters while I repair these ore fragments. We can't have those beasts ruin my work again, right? Thank you.";
+				mes "Excellent! You've brought an Emperium Anvil! Now, keep a lookout for monsters while I repair these ore fragments. We can't have those beasts ruin my work again, right? Gracias.";
 			}
 			next;
 			mes "^3355FF*Clink*";
@@ -7488,7 +7488,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 			mes "^333333*Phew!*^000000 That was one of the toughest jobs I've ever done, but this was well worth all of our efforts. Just look at the dazzling beauty of this Sobbing Starlight!";
 			next;
 			mes "[Engel]";
-			mes "We've both gone through a lot of trouble to make this, so I hope you treasure your Sobbing Starlight. Good luck on your adventures...";
+			mes "We've both gone through a lot of trouble to make this, so I hope you treasure your Sobbing Starlight. Buena suerte on your adventures...";
 			if (countitem(988) > 0) delitem 988,1; //Golden_Anvil
 			else if (countitem(989) > 0) delitem 989,1; //Emperium_Anvil
 			set sign_q,71;
@@ -7526,14 +7526,14 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 		mes "quite well. So is there anything";
 		mes "I can help you with today?";
 		next;
-		select("I need your help again.");
+		select("Necesito tu ayuda de nuevo.");
 		mes "[Engel]";
 		mes "Haha, so what have";
 		mes "you brought me this time?";
 		mes "It must be fairly important if you've brought it all the way";
 		mes "down here.";
 		next;
-		select("Please look at this.");
+		select("Por favor mira esto.");
 		mes "[Engel]";
 		mes "Isn't this...?!";
 		mes "Amazing, just by looking at it,";
@@ -7641,7 +7641,7 @@ mjo_dun02,88,295,4	script	Flaming Spirit Man	85,{
 			next;
 			mes "[Engel]";
 			mes "This is now yours to keep.";
-			mes "Thank you for giving me the";
+			mes "Gracias for giving me the";
 			mes "honor of working on a worthy";
 			mes "smithing challenge.";
 			set sign_q,141;
@@ -7772,11 +7772,11 @@ umbala,163,256,3	script	Native#_s	781,{
 				mes "Would you give that to me?";
 				mes "Pretty please...?";
 				next;
-				switch(select("Sure~:^FF0000No.^000000")) {
+				switch(select("Claro~:^FF0000No.^000000")) {
 				case 1:
 					mes "[Laotan]";
 					mes "Hooooray!";
-					mes "Thank you thank you";
+					mes "Gracias thank you";
 					mes "thank you thank you";
 					mes "soooooooooo much!";
 					next;
@@ -7806,7 +7806,7 @@ umbala,163,256,3	script	Native#_s	781,{
 		else {
 			mes "I love my Mr. Smile mask";
 			mes "soooo much! I'm gonna show";
-			mes "it to all my friends! Thank you";
+			mes "it to all my friends! Gracias";
 			mes "so much again! You're really";
 			mes "really nice, you know that?";
 			close;
@@ -7817,7 +7817,7 @@ umbala,163,256,3	script	Native#_s	781,{
 		mes "Chuuuba?";
 		mes "Chu-chu-chu-chu-chaba?";
 		mes "Oom oom oom daba. Blip blip?";
-		mes "Sabaloo koombah Solo. Ho ho~";
+		mes "Sabaloo koombah Solo. Jo jo~";
 		close;
 	}
 }
@@ -7825,8 +7825,8 @@ umbala,163,256,3	script	Native#_s	781,{
 um_in,27,23,3	script	Fastidious-Looking Guy	121,{
 	callfunc "F_UpdateSignVars";
 	if (checkweight(908,200) == 0) {
-		mes "^3355FFWait a second! Right now,";
-		mes "you have too many items in your inventory. Please come back after you've freed up more inventory space.^000000";
+		mes "^3355FFEspera un momento! Ahora mismo,";
+		mes "tienes demasiados objetos en tu inventario. Por favor regresa despues de liberar espacio en tu inventario.^000000";
 		close;
 	}
 	if (sign_q < 74) {
@@ -7865,7 +7865,7 @@ um_in,27,23,3	script	Fastidious-Looking Guy	121,{
 		mes "that you leave, right now!";
 		emotion ET_FRET;
 		next;
-		switch(select("I'm here for Metz Brayde.:My apologies.:Would you look at this?:...")) {
+		switch(select("Vengo por Metz Brayde.:Mis disculpas.:Podrias mirar esto?:...")) {
 		case 1:
 			mes "[Cyon]";
 			mes "Huh? Brayde?";
@@ -7944,7 +7944,7 @@ um_in,27,23,3	script	Fastidious-Looking Guy	121,{
 			mes "will respond to these!";
 			next;
 			mes "[Cyon]";
-			mes "Yes. Yes...";
+			mes "Si. Si...";
 			mes "This should be enough.";
 			mes "Now give them to me";
 			mes "and wait here while";
@@ -8015,8 +8015,8 @@ um_in,27,23,3	script	Fastidious-Looking Guy	121,{
 alberta,165,83,4	script	Fastidious Old Man	755,{
 	callfunc "F_UpdateSignVars";
 	if (checkweight(908,200) == 0) {
-		mes "^3355FFWait a second! Right now,";
-		mes "you have too many items in your inventory. Please come back after you've freed up more inventory space.^000000";
+		mes "^3355FFEspera un momento! Ahora mismo,";
+		mes "tienes demasiados objetos en tu inventario. Por favor regresa despues de liberar espacio en tu inventario.^000000";
 		close;
 	}
 	mes "[Frank]";
@@ -8049,7 +8049,7 @@ alberta,165,83,4	script	Fastidious Old Man	755,{
 			case 1:
 				mes "[Frank]";
 				mes "Oh, you've brought me";
-				mes "these Glasses? Thanks";
+				mes "these Glasses? Gracias";
 				mes "so much, youngster. Now that";
 				mes "I can see better, what can";
 				mes "I do for you in return?";
@@ -8081,7 +8081,7 @@ alberta,165,83,4	script	Fastidious Old Man	755,{
 					case 3:
 						mes "[Frank]";
 						mes "I don't believe it!";
-						mes "This is... I see. You want me to translate this ancient language. Ah, you're rather fortunate. I'm probably the only person in the world who can translate this.";
+						mes "This is... Ya veo. You want me to translate this ancient language. Ah, you're rather fortunate. I'm probably the only person in the world who can translate this.";
 						next;
 						mes "[Frank]";
 						mes "Hmm, as far as I can tell, this is a sophisticated language spoken by the ancient gods. It's complex and confusing, but I'll do my best for you. Come back to me later, and I'll what I've learned.";
@@ -8116,14 +8116,14 @@ alberta,165,83,4	script	Fastidious Old Man	755,{
 			mes "of these words. Even translated in our own language, this contents of this text are fairly ambiguous.";
 			next;
 			mes "[Frank]";
-			mes "Well, I've written down the best translation that I could for you. It's been a long time since I've had this kind of challenge. Thanks, youngster.";
+			mes "Well, I've written down the best translation that I could for you. It's been a long time since I've had this kind of challenge. Gracias, youngster.";
 			mes "Ha ha ha~";
 			set sign_q,80;
 			getitem 7274,1; //Ancient_Translator
 			close;
 		}
 		else {
-			mes "I'm sorry, but I haven't finished translating this text. It's taking quite a long time since I don't have any reference material for this particular language. Why";
+			mes "Lo siento, but I haven't finished translating this text. It's taking quite a long time since I don't have any reference material for this particular language. Why";
 			mes "don't you come back later?";
 			close;
 		}
@@ -8203,7 +8203,7 @@ himinn,48,86,5	script	Valkyrie#sign	811,{
 		end;
 	}
 	else if (sign_q == 81) {
-		mes "Welcome, "+strcharinfo(0)+",";
+		mes "Bienvenido, "+strcharinfo(0)+",";
 		mes "to this realm of holiness.";
 		mes "You have endured great difficulty and tested your courage to obtain the Sobbing Starlight, which will be the certificate for your test.";
 		next;
@@ -8300,7 +8300,7 @@ himinn,48,86,5	script	Valkyrie#sign	811,{
 		close;
 	}
 	else if ((sign_q == 129) || (sign_q == 130)) {
-		mes "Welcome back.";
+		mes "Bienvenido back.";
 		mes "Not only have you passed the trials that the gods have set for you, you have tested your courage in the realm of the dead and protected Midgard from attack.";
 		next;
 		mes "[Valkyrie Sandra]";
@@ -8310,7 +8310,7 @@ himinn,48,86,5	script	Valkyrie#sign	811,{
 		mes "As a symbol of this promise to invite you to Valhalla, you shall be rewarded with 'The Sign' which will show all others that you are a great warrior whose courage was tested by the gods themselves.";
 		next;
 		mes "[Valkyrie Sandra]";
-		mes "Congratulations,";
+		mes "Felicidades,";
 		mes ""+ strcharinfo(0) +". Verily,";
 		mes "you are an honorable";
 		mes "hero worthy of praise!";
@@ -8458,7 +8458,7 @@ que_sign01,196,39,4	script	Serin#serin	90,{
 	}
 	else if (sign_q == 133) {
 		mes "[Serin]";
-		mes "I'm sorry.";
+		mes "Lo siento.";
 		mes "But I have to do this";
 		mes "to summon Dark Lord.";
 		next;
@@ -8534,7 +8534,7 @@ que_sign01,196,39,4	script	Serin#serin	90,{
 				mes "do is send you back";
 				mes "to Midgard and";
 				mes "ask the Dark Lord to spare";
-				mes "you. Thank you so much...";
+				mes "you. Muchas gracias...";
 				set sign_q,200;
 				getexp (checkre(3))?20000:200000,0;
 				set $@sign_w2,0;
@@ -8601,7 +8601,7 @@ que_sign01,196,39,4	script	Serin#serin	90,{
 		mes "me than life itself.";
 		next;
 		mes "[Serin]";
-		mes "Farewell, now.";
+		mes "Hasta pronto, now.";
 		mes "And good luck on";
 		mes "your travels, my friend...";
 		set sign_q,135;
@@ -8637,12 +8637,12 @@ que_sign01,196,39,4	script	Serin#serin	90,{
 				mes "However...";
 				mes "I do not think you";
 				mes "have the courage to";
-				mes "overcome the ordeals ";
+				mes "overcome the ordeals";
 				mes "of the gods. Please don't";
 				mes "come here anymore...";
 				next;
 				mes "[Serin]";
-				mes "Farewell...";
+				mes "Hasta pronto...";
 				close2;
 				set $@sign_w2,0;
 				warp "niflheim",30,156;
@@ -8676,12 +8676,12 @@ que_sign01,196,39,4	script	Serin#serin	90,{
 				mes "However...";
 				mes "I do not think you";
 				mes "have the courage to";
-				mes "overcome the ordeals ";
+				mes "overcome the ordeals";
 				mes "of the gods. Please don't";
 				mes "come here anymore...";
 				next;
 				mes "[Serin]";
-				mes "Farewell...";
+				mes "Hasta pronto...";
 				close2;
 				set $@sign_w2,0;
 				warp "niflheim",30,156;
@@ -8805,7 +8805,7 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 				mes "do is send you back";
 				mes "to Midgard and";
 				mes "ask the Dark Lord to spare";
-				mes "you. Thank you so much...";
+				mes "you. Muchas gracias...";
 				set sign_q,200;
 				getexp (checkre(3))?20000:200000,0;
 				set $@sign_w1,0;
@@ -8842,7 +8842,7 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 			mes "must be so crushing...";
 			next;
 			mes "[Serin]";
-			mes "Yes...";
+			mes "Si...";
 			mes "By trying to help,";
 			mes "you gave them nothing";
 			mes "but pain, just as I planned.";
@@ -8941,7 +8941,7 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 		mes "me than life itself.";
 		next;
 		mes "[Serin]";
-		mes "Farewell, now.";
+		mes "Hasta pronto, now.";
 		mes "And good luck on";
 		mes "your travels, my friend...";
 		delitem 7308,1; //Witch's_Potion
@@ -8979,7 +8979,7 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 				mes "However...";
 				mes "I do not think you";
 				mes "have the courage to";
-				mes "overcome the ordeals ";
+				mes "overcome the ordeals";
 				mes "of the gods. Please don't";
 				mes "come here anymore...";
 				next;
@@ -8988,11 +8988,11 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 				mes "from you.^000000";
 				next;
 				mes "[Serin]";
-				mes "I'm sorry...";
+				mes "Lo siento...";
 				mes "But I'm taking";
 				mes "your Witch's Tonic";
 				mes "to help me summon";
-				mes "Dark Lord. Farewell...";
+				mes "Dark Lord. Hasta pronto...";
 				close2;
 				set $@sign_w1,0;
 				warp "niflheim",30,156;
@@ -9026,7 +9026,7 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 				mes "However...";
 				mes "I do not think you";
 				mes "have the courage to";
-				mes "overcome the ordeals ";
+				mes "overcome the ordeals";
 				mes "of the gods. Please don't";
 				mes "come here anymore...";
 				next;
@@ -9035,11 +9035,11 @@ que_sign01,197,195,4	script	Serin#witch	90,{
 				mes "from you.^000000";
 				next;
 				mes "[Serin]";
-				mes "I'm sorry...";
+				mes "Lo siento...";
 				mes "But I'm taking";
 				mes "your Witch's Tonic";
 				mes "to help me summon";
-				mes "Dark Lord. Farewell...";
+				mes "Dark Lord. Hasta pronto...";
 				close2;
 				set $@sign_w1,0;
 				warp "niflheim",30,156;
@@ -9090,7 +9090,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 	callfunc "F_UpdateSignVars";
 	if (sign_q < 82) {
 		mes "[Serin]";
-		mes "I'm sorry,";
+		mes "Lo siento,";
 		mes "but you're not";
 		mes "the person I'm";
 		mes "looking for. No...";
@@ -9126,7 +9126,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 			close;
 		case 2:
 			mes "[Serin]";
-			mes "Thank you...";
+			mes "Gracias...";
 			mes "Now, if you've heard";
 			mes "from the others and as";
 			mes "you can tell by my appearance,";
@@ -9154,7 +9154,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 				mes "the other unfortunate souls in";
 				mes "this place, I'd be truly grateful. Somehow, I think solving their problems will help me get back.";
 				next;
-				switch(select("Sure, why not?:Why should I help them?")) {
+				switch(select("Claro, por que no?:Why should I help them?")) {
 				case 1:
 					mes "[Serin]";
 					mes "I knew you'd understand!";
@@ -9202,7 +9202,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 		}
 		else if (sign_sq == 8) {
 			mes "[Serin]";
-			mes "Thank you so much for";
+			mes "Muchas gracias for";
 			mes "your help. This is all I have,";
 			mes "and it means a lot to me, but";
 			mes "I want you to have this ring. It's the only way I can properly express my gratitude for your aid so far.";
@@ -9289,7 +9289,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 			mes "you want to ask me?";
 			next;
 		}
-		switch(select("Nothing.:About the Queen of the Dead...")) {
+		switch(select("Nada.:About the Queen of the Dead...")) {
 		case 1:
 			mes "[Serin]";
 			mes "Well, if you ever";
@@ -9357,7 +9357,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 	}
 	else if (sign_q == 93) {
 		mes "[Serin]";
-		mes "I'm sorry that I sort of";
+		mes "Lo siento that I sort of";
 		mes "rambled on and on that last";
 		mes "time we spoke. Now that I think";
 		mes "about it, I didn't really give you any information that might have been very useful to you.";
@@ -9396,7 +9396,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 		mes "the Symbol of the Nine Realms?";
 		mes "It's a very dangerous object that could cause a lot of trouble if it fell into the wrong hands...";
 		next;
-		switch(select("What do you mean??:Don't worry, it won't.")) {
+		switch(select("What do you mean??:No te preocupes, it won't.")) {
 		case 1:
 			mes "[Serin]";
 			mes "There are plenty of dead";
@@ -9404,7 +9404,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 			mes "driven by regret and despair.";
 			mes "The rage of being dead may result in some of them performing horrific deeds if they had the symbol.";
 			next;
-			switch(select("Then what should I do?:Thanks for the concern, but I'm not worried.")) {
+			switch(select("Then what should I do?:Gracias for the concern, but I'm not worried.")) {
 			case 1:
 				mes "[Serin]";
 				mes "I really think that you";
@@ -9454,7 +9454,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 	}
 	else if (sign_q == 118) {
 		mes "[Serin]";
-		mes "Yes...";
+		mes "Si...";
 		mes "This is the Symbol of the";
 		mes "Nine Realms. It only has enough";
 		mes "power for one use, but it's still not easy to get this. Now, what were you planning to use this for?";
@@ -9498,7 +9498,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 			close;
 		case 2:
 			mes "[Serin]";
-			mes "I'm sorry if you were offended.";
+			mes "Lo siento if you were offended.";
 			mes "I know I can't really convince you to believe anything, but please understand that I just don't want anyone to take advantage of you. Forgive my rudeness.";
 			close;
 		}
@@ -9540,7 +9540,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 				mes "so very kind to me. Thank";
 				mes "you for giving back my ring,";
 				mes "my most precious possession.";
-				mes "Thank you, thank you...";
+				mes "Gracias, thank you...";
 				emotion ET_CRY;
 				next;
 				mes "^3355FFThe sound of Serin's voice";
@@ -9732,7 +9732,7 @@ niflheim,313,70,4	script	Pleasant-Featured Lady#s	90,{
 	else {
 		if (countitem(2642) > 0) {
 			mes "[Serin]";
-			mes "Thank you...";
+			mes "Gracias...";
 			emotion ET_CRY;
 			delitem 2642,1; //Serin's_Gold_Ring
 			next;
@@ -9766,12 +9766,12 @@ que_sign01,122,141,4	script	Witch#s	792,{
 		mes "care of Serin. Are you";
 		mes "ready to go, "+strcharinfo(0)+"?";
 		next;
-		switch(select("Yes.:Not yet...")) {
+		switch(select("Si.:Aun no...")) {
 		case 1:
 			switch(select("Go directly to Serin:Path Towards Serin")) {
 			case 1:
 				mes "[Kirkena]";
-				mes "Thank you";
+				mes "Gracias";
 				mes "for your help.";
 				mes "Serin's threat may";
 				mes "be too much for just";
@@ -9781,7 +9781,7 @@ que_sign01,122,141,4	script	Witch#s	792,{
 				end;
 			case 2:
 				mes "[Kirkena]";
-				mes "Thank you";
+				mes "Gracias";
 				mes "for your help.";
 				mes "Serin's threat may";
 				mes "be too much for just";
@@ -10070,7 +10070,7 @@ que_sign01,122,141,4	script	Witch#s	792,{
 				mes "[Kirkena]";
 				mes "Make no mistake:";
 				mes "Serin wants the Symbol";
-				mes "of the Nine Realms. ";
+				mes "of the Nine Realms.";
 				next;
 				mes "[Kirkena]";
 				mes "Now, if she could use it";
@@ -10221,7 +10221,7 @@ que_sign01,122,141,4	script	Witch#s	792,{
 			mes "the secret passge through";
 			mes "the right side of the portrait";
 			mes "on the castle's second floor.";
-			mes "Then, I can send them to Serin. ";
+			mes "Then, I can send them to Serin.";
 			next;
 			mes "[Kirkena]";
 			mes "When you're finished";
@@ -10275,7 +10275,7 @@ que_sign01,122,141,4	script	Witch#s	792,{
 			case 1:
 				mes "[Kirkena]";
 				mes "Okay then.";
-				mes "Good luck,";
+				mes "Buena suerte,";
 				mes ""+strcharinfo(0)+"...";
 				close2;
 				warp "que_sign02",35,313;
@@ -10850,7 +10850,7 @@ que_sign01,45,227,4	script	Queen of the Dead	856,{
 			switch(select("Please take it...:N-no! Don't take it!")) {
 			case 1:
 				mes "[Lady Hell]";
-				mes "^8C1717Thank you mortal.";
+				mes "^8C1717Gracias mortal.";
 				mes "Now, I shall show";
 				mes "you something truly";
 				mes "interesting...^000000";
@@ -11174,10 +11174,10 @@ niflheim,146,241,0	script	Depressing Man	735,{
 		mes "mansion once again.";
 		mes "Are you ready to go?";
 		next;
-		switch(select("No, thanks.:Yes.")) {
+		switch(select("No, thanks.:Si.")) {
 		case 1:
 			mes "[Gen]";
-			mes "I see.";
+			mes "Ya veo.";
 			mes "Well then, come";
 			mes "back to me when you";
 			mes "feel fully prepared.";
@@ -11455,7 +11455,7 @@ niflheim,102,54,4	script	Mad Man#s	739,{
 		mes "last time? They work, but";
 		mes "you gotta know what I mean";
 		mes "by 'big' or 'small' whatever";
-		mes "o' clock means. That's right... ";
+		mes "o' clock means. That's right...";
 		next;
 		mes "[Laichin]";
 		mes "Matter of fact, I'll";
@@ -11494,7 +11494,7 @@ niflheim,102,54,4	script	Mad Man#s	739,{
 				else if (sign_q == 100) set sign_q,104;
 				else {
 					mes "[Laichin]";
-					mes "Bwahahaha!";
+					mes "Buajajaja!";
 					close;
 				}
 				close;
@@ -11532,11 +11532,11 @@ niflheim,102,54,4	script	Mad Man#s	739,{
 		mes "inventory and that they're";
 		mes "not equipped, alright?";
 		next;
-		switch(select("Thanks~!:Where am I supposed to go again?")) {
+		switch(select("Gracias~!:Where am I supposed to go again?")) {
 		case 1:
 			mes "[Laichin]";
 			mes "Oh no...";
-			mes "Thank you for all";
+			mes "Gracias for all";
 			mes "of this zeny! Money";
 			mes "might not be able to";
 			mes "buy happiness, but it";
@@ -11610,7 +11610,7 @@ niflheim,102,54,4	script	Mad Man#s	739,{
 		mes "find all of Angrboda's soul";
 		mes "pieces, but if you do, don't";
 		mes "go bringin' close to me. If the";
-		mes "gods find out you have 'em... ";
+		mes "gods find out you have 'em...";
 		next;
 		mes "[Laichin]";
 		mes "But for the sake of";
@@ -11772,7 +11772,7 @@ OnTouch_:
 	else if (sign_q < 82) {
 		mes "[Crayu]";
 		mes "Mountain sunset to the west";
-		mes "Where the purple dusk falls ";
+		mes "Where the purple dusk falls";
 		mes "Surrounded by beautiful melody";
 		mes "^You become the key that ignores its master";
 		close;
@@ -11780,7 +11780,7 @@ OnTouch_:
 	else if (sign_q == 86) {
 		mes "[Crayu]";
 		mes "Mountain sunset to the west";
-		mes "Where the purple dusk falls ";
+		mes "Where the purple dusk falls";
 		mes "Surrounded by beautiful melody";
 		mes "You become the key that ignores its master";
 		next;
@@ -11880,7 +11880,7 @@ OnTouch_:
 			switch(select("What can I do?:You can't go back...")) {
 			case 1:
 				mes "[Alakina Ann]";
-				mes "I dunno. I-I think a ";
+				mes "I dunno. I-I think a";
 				mes "singing man told me to";
 				mes "go meet a witch, but it's";
 				mes "too scary to go outside...";
@@ -11909,7 +11909,7 @@ OnTouch_:
 				mes "[Alakina Ann]";
 				mes "I... I can use";
 				mes "this to go back home?";
-				mes "Thank you! Thank you so much!";
+				mes "Gracias! Muchas gracias!";
 				delitem 7309,countitem(7309); //Wing_Of_Crow
 				set sign_sq,5;
 				close;

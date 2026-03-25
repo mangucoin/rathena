@@ -1,40 +1,40 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Find the Mushroom
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Mysterious
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 3.6a
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Find the Mushroom - random amount of Mushrooms spawns in random maps.
 //= Players need to find these mushrooms and kill them to gain prizes!
 //===== Additional Comments: =================================
 //= 3.0 Fully Functional with Rewritten script. [Mysterious]
 //= 3.6a Slightly edited. [Euphy]
-//============================================================ 
+//============================================================
 
 prontera,142,228,6	script	Find the Mushroom	1084,{
 	mes "[ Find The Mushroom ]";
 	if (.status == 1) {
 		.@count = mobcount( .event_map$, strnpcinfo(0) + "::OnMobKilled" );
 		if (.@count > 0) {
-			mes "There are " + .@count + " Mushrooms left in " + .event_map$ + "!";
-			mes "Find and kill the mushrooms to gain " + getitemname(.prize) + "!";
+			mes "Quedan " + .@count + " Hongos en " + .event_map$ + "!";
+			mes "~Encuentra y mata los hongos para ganar " + getitemname(.prize) + "!";
 			close;
 		}
 		.event_map$ = "";
 		.status = 0;
-		mes "All the mushrooms are killed?";
+		mes "~Todos los hongos fueron eliminados?";
 	}
-	mes "There is no event at the moment!";
+	mes "~No hay ningun evento en este momento!";
 	if (.status || getgmlevel() < .GM) close;
-	mes "Start the event?";
+	mes "~Iniciar el evento?";
 	next;
-	if (select("- No:- Yes") == 1) close;
+	if (select("- No:- Si") == 1) close;
 	donpcevent strnpcinfo(0) + "::OnMinute10";
 	mes "[ Find The Mushroom ]";
-	mes "Event started!";
+	mes "~Evento iniciado!";
 	close;
 
 OnInit:
@@ -51,10 +51,10 @@ OnMinute10:	// Start time (every hour)
 	.event_map$ = .maps_list$[ rand(getarraysize(.maps_list$)) ];
 	.@label$ = strnpcinfo(0) + "::OnMobKilled";
 	killmonster .event_map$, .@label$;
-	monster .event_map$,0,0,"Please don't kill me!",1084,.@spawn, .@label$;
-	announce "Find the Mushroom : Total of " + .@spawn + " Mushrooms have been spawned in " + .event_map$ + "!",0;
+	monster .event_map$,0,0,"~Por favor no me mates!",1084,.@spawn, .@label$;
+	announce "Encuentra el Hongo: Un total de " + .@spawn + " Hongos han aparecido en " + .event_map$ + "!",0;
 	sleep 2500;
-	announce "Find the Mushroom : Every Mushroom you kill will give you " + getitemname(.prize) + "!",0;
+	announce "Encuentra el Hongo: ~Cada Hongo que mates te dara " + getitemname(.prize) + "!",0;
 	end;
 
 OnMobKilled:
@@ -63,9 +63,9 @@ OnMobKilled:
 	getitem .prize, .amount;
 	.@spawn = mobcount( .event_map$, strnpcinfo(0) + "::OnMobKilled" );
 	if (.@spawn > 0)
-		announce "[ " + strcharinfo(0) + " ] has killed a Mushroom. There are now " + .@spawn + " Mushroom(s) left.",bc_map;
+		announce "[ " + strcharinfo(0) + " ] ha matado un Hongo. Ahora quedan " + .@spawn + " Hongo(s).",bc_map;
 	else {
-		announce "The Find the Mushroom Event has ended. All the Mushrooms have been killed.",0;
+		announce "El Evento Encuentra el Hongo ha terminado. Todos los Hongos han sido eliminados.",0;
 		.status = 0;
 		.event_map$ = "";
 	}

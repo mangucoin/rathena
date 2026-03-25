@@ -11,72 +11,72 @@ alberta,47,37,5	script	Cart Remodel Expert	4_M_REPAIR,{
 	.@max_skill_lvl = 1;
 	if (cart_remodel == 0) {
 		mes "[Jason]";
-		mes "The original pushcart is beautiful!";
+		mes "El carrito original es hermoso!";
 		next;
 		mes "[Jason]";
-		mes "The solid grey color pushcart.";
+		mes "El carrito de color gris solido.";
 		next;
 		mes "[Jason]";
-		mes "I can remodel it into new cute designs.";
+		mes "Puedo remodelarlo en nuevos disenos lindos.";
 		next;
-		switch( select( "What is Pushcart Decoration?", "Learn Pushcart Decoration", "End Dialog" ) ) {
+		switch( select( "Que es Decoracion de Carrito?", "Aprender Decoracion de Carrito", "Terminar Dialogo" ) ) {
 		case 1:
 			mes "[Jason]";
-			mes "I would like to completely remodel the poor pushcart.";
+			mes "Me gustaria remodelar completamente el pobre carrito.";
 			next;
 			mes "[Jason]";
-			mes "A little remodel isn't enough, don't you agree?";
+			mes "Una pequena remodelacion no es suficiente, no crees?";
 			next;
 			mes "[Jason]";
-			mes "Therefore I have invented some new designs.";
+			mes "Por eso he inventado algunos disenos nuevos.";
 			next;
 			mes "[Jason]";
-			mes "It is cute and refreshing!";
+			mes "Es lindo y refrescante!";
 			close;
 		case 2:
 			if (BaseClass != Job_Merchant) {
 				mes "[Jason]";
-				mes "Why do you want learn Pushcart Decoration? Don't disturb me!";
+				mes "Por que quieres aprender Decoracion de Carrito? No me molestes!";
 				close;
 			}
 			if (countitem(6606) == 0) {
 				mes "[Jason]";
-				mes "It is difficult to learn the Pushcart Decoration.";
+				mes "Es dificil aprender la Decoracion de Carrito.";
 				next;
 				mes "[Jason]";
-				mes "I will teach you if you bring the ^3131FFCute Cart Remodel Coupon^000000 to me.";
+				mes "Te ensenare si me traes el ^3131FFCupon de Remodelacion de Carrito Lindo^000000.";
 				close;
 			}
 			mes "[Jason]";
-			mes "You have brought the Cute Cart Remodel Coupon. Are you sure you want to learn Pushcart Decoration?";
+			mes "Has traido el Cupon de Remodelacion de Carrito Lindo. Estas seguro de que quieres aprender Decoracion de Carrito?";
 			next;
-			if (select("YES", "NO") == 2) {
+			if (select("SI", "NO") == 2) {
 				mes "[Jason]";
-				mes "Come again after you have changed your mind!";
+				mes "Vuelve despues de que hayas cambiado de opinion!";
 				close;
 			}
 			mes "[Jason]";
-			mes "Alright! Follow me.";
+			mes "De acuerdo! Sigueme.";
 			next;
 			mes "[Jason]";
-			mes "This design";
-			mes "needs to catch the pushcart...";
+			mes "Este diseno";
+			mes "necesita agarrar el carrito...";
 			next;
 			mes "[Jason]";
-			mes "This design";
-			mes "needs to catch the pushcart.";
-			mes "Then add this....";
+			mes "Este diseno";
+			mes "necesita agarrar el carrito.";
+			mes "Luego agregar esto....";
 			mes "...";
 			next;
 			mes "[Jason]";
-			mes "You are a genius! You have learned it!";
+			mes "Eres un genio! Lo has aprendido!";
 			next;
 			mes "[Jason]";
-			mes "Now is your turn to do it.";
-			mes "Press Alt+S to change your pushcart!";
+			mes "Ahora es tu turno de hacerlo.";
+			mes "Presiona Alt+S para cambiar tu carrito!";
 			next;
 			mes "[Jason]";
-			mes "This is the new cute design pushcart. You are one of our family now...!";
+			mes "Este es el nuevo diseno lindo del carrito. Ahora eres parte de nuestra familia...!";
 			delitem 6606,1;	// P_Cart_C
 			cart_remodel = 1;
 			skill "MC_CARTDECORATE",1,SKILL_PERM;
@@ -86,67 +86,67 @@ alberta,47,37,5	script	Cart Remodel Expert	4_M_REPAIR,{
 		}
 	}
 	mes "[Jason]";
-	mes "Have you decorated the pushcart?";
+	mes "Has decorado el carrito?";
 	next;
-	switch( select( "Is there more to learn?", "I forgot how to decorate my pushcart" ) ) {
+	switch( select( "Hay mas que aprender?", "Olvide como decorar mi carrito" ) ) {
 	case 1:
 		if (cart_remodel == .@max_skill_lvl) {
 			mes "[Jason]";
-			mes "No. I am still exploring new designs. I will teach you once I have learned it.";
+			mes "No. Aun estoy explorando nuevos disenos. Te ensenare cuando lo haya aprendido.";
 			close;
 		}
 		mes "[Jason]";
-		mes "I have something to teach, do you want to learn?";
+		mes "Tengo algo que ensenar, quieres aprender?";
 		next;
 		mes "[Jason]";
-		mes "I need a ^3131FFCute Cart Remodel Coupon^000000.";
+		mes "Necesito un ^3131FFCupon de Remodelacion de Carrito Lindo^000000.";
 		next;
-		if (select("I want to learn", "No") == 2) {
+		if (select("Quiero aprender", "No") == 2) {
 			mes "[Jason]";
-			mes "You can come back anytime.";
+			mes "Puedes volver cuando quieras.";
 			close;
 		}
 		if (countitem(6606) < 0) {
 			mes "[Jason]";
-			mes "You don't have any Cute Cart Remodel Coupon?";
+			mes "No tienes ningun Cupon de Remodelacion de Carrito Lindo?";
 			close;
 		}
 		mes "[Jason]";
-		mes "Ok, let's begin!";
+		mes "Ok, comencemos!";
 		next;
 		mes "[Jason]";
-		mes "Doing it like this is better.";
-		mes "Do that like this as well...";
+		mes "Hacerlo asi es mejor.";
+		mes "Haz eso asi tambien...";
 		next;
 		mes "[Jason]";
 		mes "....";
-		mes "Let's do it!";
+		mes "Hagamoslo!";
 		next;
 		mes "[Jason]";
-		mes "I have taught you the skill, you can try it now.";
+		mes "Te he ensenado la habilidad, puedes probarla ahora.";
 		delitem 6606,1;	// P_Cart_C
 		cart_remodel++;
 		skill "MC_CARTDECORATE", cart_remodel ,SKILL_PERM;
 		close;
 	case 2:
 		mes "[Jason]";
-		mes "Oh? Let me see.";
+		mes "Oh? Dejame ver.";
 		next;
 		if (BaseClass != Job_Merchant) {
 			mes "[Jason]";
-			mes "Please come again after you can use the pushcart!";
+			mes "Por favor vuelve cuando puedas usar el carrito!";
 			close;
 		}
 		mes "[Jason]";
-		mes "Do you not remember what I have taught you?";
-		mes "I have taught you this method.";
+		mes "No recuerdas lo que te ensene?";
+		mes "Te ensene este metodo.";
 		next;
 		mes "[Jason]";
-		mes "You have forgotten?";
-		mes "Let's recall now!";
+		mes "Lo has olvidado?";
+		mes "Recordemos ahora!";
 		next;
 		mes "[Jason]";
-		mes "Think carefully, you will remember it again.";
+		mes "Piensa con cuidado, lo recordaras de nuevo.";
 		skill "MC_CARTDECORATE",1,SKILL_PERM;
 		close;
 	}

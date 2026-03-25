@@ -27,21 +27,21 @@ morocc,169,168,4	duplicate(Alchemist)	Alchemist#moc	64
 // ============================================================
 -	script	Continental Guard#man	-1,{
 	mes "[Continental Guard]";
-	mes "We've received orders from Headquarters to block access to this area since an unusual space-time phenomenon has been detected.";
+	mes "Hemos recibido ordenes del Cuartel General de bloquear el acceso a esta area ya que se ha detectado un fenomeno espacio-temporal inusual.";
 	next;
 	mes "[Continental Guard]";
-	mes "If you really want to go to the next area, you'll be responsible for your own safety.";
+	mes "Si realmente quieres ir a la siguiente area, seras responsable de tu propia seguridad.";
 	next;
-	switch(select("Nevermind.:Enter the Field.")) {
+	switch(select("No importa.:Entrar al Campo.")) {
 	case 1:
 		mes "[Continental Guard]";
-		mes "Wise choice.";
-		mes "Have a safe journey.";
+		mes "Sabia eleccion.";
+		mes "Ten un viaje seguro.";
 		close;
 	case 2:
 		mes "[Continental Guard]";
-		mes "I see.";
-		mes "I'll send you to the field shortly.";
+		mes "Ya veo.";
+		mes "Te enviare al campo en un momento.";
 		close2;
 		warp "moc_fild20",208,207;
 		end;
@@ -63,70 +63,70 @@ morocc,176,101,3	duplicate(Continental Official)	Continental Official#mor	754
 //============================================================
 moc_prydb1,103,54,3	script	Suspicious Cat#night	547,{
 	mes "[Suspicious Cat]";
-	mes "I can't believe a mummy could do this to me. Oh man, it hurts. Nobody should find out about this....";
+	mes "No puedo creer que una momia pudiera hacerme esto. Ay, duele. Nadie deberia enterarse de esto....";
 	next;
-	if(select("Mummy? What happened?:Pretend not to know anything.") == 2)
+	if(select("Momia? Que paso?:Fingir no saber nada.") == 2)
 		close;
 	mes "[Suspicious Cat]";
-	mes "You caught me! Darn it...I didn't expect my reputation as a tomb raider would get damaged like this...";
+	mes "Me atrapaste! Maldicion...No esperaba que mi reputacion como saqueador de tumbas fuera danada asi...";
 	next;
 	mes "[Suspicious Cat]";
-	mes "But come on, they're so strange! They're mummies! Just mummies, you know? They shouldn't be that strong!";
+	mes "Pero vamos, son tan extranos! Son momias! Solo momias, sabes? No deberian ser tan fuertes!";
 	next;
-	if(select("Strong mummies? Where are they?:End the conversation.") == 2) {
+	if(select("Momias fuertes? Donde estan?:Terminar la conversacion.") == 2) {
 		mes "[Suspicious Cat]";
-		mes "Whaaat~ you don't want to hear my story? Fine! You'd better not mention my name anywhere else!";
+		mes "Quee~ no quieres escuchar mi historia? Bien! Mas te vale no mencionar mi nombre en otro lugar!";
 		close;
 	}
 	mes "[Suspicious Cat]";
-	mes "Haha, it's a secret.";
-	mes "I found out while I was stealing... No, I mean, just walking through the pyramid.";
+	mes "Jaja, es un secreto.";
+	mes "Lo descubri mientras estaba robando... No, quiero decir, solo caminando por la piramide.";
 	next;
 	mes "[Suspicious Cat]";
-	mes "When I saw a mummy coming toward me, I was like 'whatever' and didn't care. But then he knocked me down with a slap in the face! How could he do that to a cute cat like me! You bandaged freak... you just wait and see!";
+	mes "Cuando vi una momia venir hacia mi, pense 'da igual' y no me importo. Pero entonces me derribo con una bofetada en la cara! Como pudo hacerle eso a un lindo gato como yo! Tu monstruo vendado... ya veras!";
 	next;
-	if(select("I would like to go, too.:End the conversation.") == 2)
+	if(select("Yo tambien quiero ir.:Terminar la conversacion.") == 2)
 		close;
 	mes "[Suspicious Cat]";
-	mes "No way! I spent so much time finding that path!!";
+	mes "De ninguna manera! Pase tanto tiempo encontrando ese camino!!";
 	next;
 	mes "[Suspicious Cat]";
-	mes "Hmm... but if you insist, just give me 5000 Zeny. I'll lead you.";
-	mes "What~? Don't give me that look! Do you have any idea how hard it is for a cat to survive in Midgard!";
+	mes "Hmm... pero si insistes, solo dame 5000 Zeny. Te guiare.";
+	mes "Que~? No me mires asi! Tienes idea de lo dificil que es para un gato sobrevivir en Midgard!";
 	next;
 	mes "[Suspicious Cat]";
-	mes "^FF0000But come to think of it, a weakling like you won't survive there. Maybe for a second if you're lucky?^000000";
-	mes "Well, it's none of my business. But I warned you anyway!";
+	mes "^FF0000Pero pensandolo bien, un debilucho como tu no sobrevivira ahi. Quizas un segundo si tienes suerte?^000000";
+	mes "Bueno, no es mi problema. Pero te lo adverti!";
 	next;
-	switch(select("Pay 5,000 zeny and set out.:Forget it.")) {
+	switch(select("Pagar 5,000 zeny y partir.:Olvidalo.")) {
 	case 1:
 		if (Zeny < 5000) {
 			mes "[Suspicious Cat]";
-			mes "Where do you think you're going! You're so broke!";
+			mes "A donde crees que vas! Estas en la ruina!";
 			close;
 		}
 		set Zeny, Zeny-5000;
 		mes "[Suspicious Cat]";
-		mes "Bah, what's up with this old money... you don't have anything sparkly or shiny?!";
-		mes "Ahh, just follow me!";
+		mes "Bah, que pasa con este dinero viejo... no tienes nada brillante o reluciente?!";
+		mes "Ahh, solo sigueme!";
 		close2;
 		warp "moc_prydn1",93,96;
 		end;
 	case 2:
 		mes "[Suspicious Cat]";
-		mes "Gosh, you don't even have 5000 Zeny, do you?";
+		mes "Cielos, ni siquiera tienes 5000 Zeny, verdad?";
 		close;
 	}
 }
 
 moc_prydn1,94,98,3	script	Suspicious Cat#night2	547,{
 	mes "[Suspicious Cat]";
-	mes "That stupid mummy slapped me again while you were looking away! Sniff sniff... Let's go back, meow!";
+	mes "Esa momia estupida me abofeteo de nuevo mientras no mirabas! Snif snif... Volvamos, miau!";
 	next;
-	switch(select("Go back to Thief Guild:Eliminate Verit:Eliminate Ancient Mummy:It's nothing")) {
+	switch(select("Volver al Gremio de Ladrones:Eliminar Verit:Eliminar Momia Antigua:No es nada")) {
 	case 1:
 		mes "[Suspicious Cat]";
-		mes "Right right... let's go back.";
+		mes "Si si... volvamos.";
 		close2;
 		warp "moc_prydb1",100,57;
 		end;
@@ -134,60 +134,60 @@ moc_prydn1,94,98,3	script	Suspicious Cat#night2	547,{
 		set .@playtime, checkquest(2290,PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
 			mes "[Suspicious Cat]";
-			mes "Look at that Verit, he's afraid of us! Kyaahaha! We're safe, at least for a while!";
+			mes "Mira a ese Verit, nos tiene miedo! Kyaajaja! Estamos a salvo, al menos por un rato!";
 			close;
 		} else if (.@playtime == 2)
 			erasequest 2290;
 		set .@hunting, checkquest(2289,HUNTING);
 		if (.@hunting == -1) {
 			mes "[Suspicious Cat]";
-			mes "Did you know that cats and dogs don't get along?";
+			mes "Sabias que los gatos y los perros no se llevan bien?";
 			next;
 			mes "[Suspicious Cat]";
-			mes "Look at that ugly and hideous Verit. He's scowling, wagging his tail and trying to come closer.";
-			mes "Oh, you don't have a tail, right? He thinks I'm a thorn in his side, and he's trying to start a fight now!";
+			mes "Mira a ese horrible y espantoso Verit. Esta frunciendo el ceno, moviendo la cola e intentando acercarse.";
+			mes "Oh, tu no tienes cola, verdad? El cree que soy una molestia, y esta tratando de iniciar una pelea!";
 			next;
 			mes "[Suspicious Cat]";
-			mes "Look at him, so greedy and drooly... I don't like the way he breathes, either. I can't stand how he's making those gobbling sounds...";
-			mes "It's so obvious that he's waiting to attack me from behind.";
+			mes "Miralo, tan codicioso y babeando... no me gusta como respira, tampoco. No soporto esos sonidos de masticacion que hace...";
+			mes "Es tan obvio que esta esperando para atacarme por detras.";
 			next;
 			mes "[Suspicious Cat]";
-			mes "Gosh, I could have scratched his face so hard if it wasn't for my stomachache!";
-			mes "Hey, it's not because I'm afraid of Majoruros!";
+			mes "Cielos, podria haberle aranado la cara tan fuerte si no fuera por mi dolor de estomago!";
+			mes "Oye, no es porque le tenga miedo a Majoruros!";
 			next;
 			mes "[Suspicious Cat]";
-			mes "If you want to go home, you'd better beat up that ugly doggie! Otherwise, he'll bite you!";
+			mes "Si quieres ir a casa, mejor golpea a ese perro feo! De lo contrario, te mordera!";
 			next;
-			switch(select("Help him:Stay away")) {
+			switch(select("Ayudarlo:Mantenerse alejado")) {
 			case 1:
 				mes "[Suspicious Cat]";
-				mes "Good, the target number is 20! Good luck!";
+				mes "Bien, el objetivo son 20! Buena suerte!";
 				setquest 2289;
 				close;
 			case 2:
 				mes "[Suspicious Cat]";
-				mes "Pah! You don't care about me? Fine, you traitor!";
+				mes "Pah! No te importo? Bien, traidor!";
 				close;
 			}
 		} else if (.@hunting == 0 || .@hunting == 1) {
 			mes "[Suspicious Cat]";
-			mes "Is Verit's training going well?";
+			mes "Va bien el entrenamiento de Verit?";
 			next;
-			switch(select("Sure.:I want to stop.")) {
+			switch(select("Claro.:Quiero parar.")) {
 			case 1:
 				mes "[Suspicious Cat]";
-				mes "Good. Keep up the good work!";
+				mes "Bien. Sigue asi!";
 				close;
 			case 2:
 				mes "[Suspicious Cat]";
-				mes "What? You're so irresponsible!";
+				mes "Que? Eres tan irresponsable!";
 				erasequest 2289;
 				close;
 			}
 		} else if (.@hunting == 2) {
 			mes "[Suspicious Cat]";
-			mes "Hey, you're actually useful! Good job!";
-			mes "That Verit wouldn't dare come around here for a while, right? Muhahah!";
+			mes "Oye, de verdad eres util! Buen trabajo!";
+			mes "Ese Verit no se atrevera a venir por aqui en un buen rato, verdad? Mujajaja!";
 			changequest 2289,2290;
 			getexp 300000,100000;
 			close;
@@ -196,58 +196,58 @@ moc_prydn1,94,98,3	script	Suspicious Cat#night2	547,{
 		set .@playtime, checkquest(2291,PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
 			mes "[Suspicious Cat]";
-			mes "Good, I'll make a good use of the time you gained! But I gotta do something about this stomachache first.....";
+			mes "Bien, hare buen uso del tiempo que ganaste! Pero primero tengo que hacer algo con este dolor de estomago.....";
 			close;
 		} else if (.@playtime == 2)
 			erasequest 2291;
 		set .@hunting, checkquest(2292,HUNTING);
 		if (.@hunting == -1) {
 			mes "[Suspicious Cat]";
-			mes "Precious treasures are supposed to be hidden in the deep secret places here!";
-			mes "I'm sure the mummy's precious treasures are hidden in the second basement level.";
+			mes "Se supone que hay tesoros preciosos escondidos en los lugares secretos mas profundos de aqui!";
+			mes "Estoy seguro de que los tesoros preciosos de la momia estan escondidos en el segundo nivel del sotano.";
 			next;
 			mes "[Suspicious Cat]";
-			mes "But Ancient Mummies caught me off guard and hit my head before I knew it!";
+			mes "Pero las Momias Antiguas me emboscaron y golpearon mi cabeza antes de que me diera cuenta!";
 			next;
 			mes "[Suspicious Cat]";
-			mes "I'm sure they're trying to stop me from finding the treasures by decreasing my superior brain cells!!";
+			mes "Estoy seguro de que estan tratando de evitar que encuentre los tesoros destruyendo mis superiores celulas cerebrales!!";
 			next;
 			mes "[Suspicious Cat]";
-			mes "They can't stop me! Let's go get rid of Ancient Mummies!!";
+			mes "No pueden detenerme! Vamos a deshacernos de las Momias Antiguas!!";
 			next;
 			mes "[Suspicious Cat]";
-			mes "Don't ask why! I'm sure you wouldn't want those beautiful treasures to be hidden in the dark either!";
+			mes "No preguntes por que! Estoy seguro de que tu tampoco querrias que esos hermosos tesoros esten escondidos en la oscuridad!";
 			next;
-			switch(select("Help him:Stay away")) {
+			switch(select("Ayudarlo:Mantenerse alejado")) {
 			case 1:
 				mes "[Suspicious Cat]";
-				mes "Alright, the target number is 20! Good luck!";
+				mes "De acuerdo, el objetivo son 20! Buena suerte!";
 				setquest 2292;
 				close;
 			case 2:
 				mes "[Suspicious Cat]";
-				mes "Bah, you're so cold-hearted.";
+				mes "Bah, eres tan insensible.";
 				close;
 			}
 		} else if (.@hunting == 0 || .@hunting == 1) {
 			mes "[Suspicious Cat]";
-			mes "Is fighting Ancient Mummies going well?";
+			mes "Va bien la lucha contra las Momias Antiguas?";
 			next;
-			switch(select("Sure.:I want to stop.")) {
+			switch(select("Claro.:Quiero parar.")) {
 			case 1:
 				mes "[Suspicious Cat]";
-				mes "Good. Keep up the good work!";
+				mes "Bien. Sigue asi!";
 				close;
 			case 2:
 				mes "[Suspicious Cat]";
-				mes "What? You're so irresponsible!";
+				mes "Que? Eres tan irresponsable!";
 				erasequest 2292;
 				close;
 			}
 		} else if (.@hunting == 2) {
 			mes "[Suspicious Cat]";
-			mes "Hey, you're actually useful! Good job!";
-			mes "That Ancient Mummy wouldn't dare come around here for a while, right? Muhahah!";
+			mes "Oye, de verdad eres util! Buen trabajo!";
+			mes "Esa Momia Antigua no se atrevera a venir por aqui en un buen rato, verdad? Mujajaja!";
 			changequest 2292,2291;
 			getexp 600000,200000;
 			close;

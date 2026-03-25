@@ -23,11 +23,11 @@
 //Warps you into race way
 morocc,166,105,6	script	Race Girl#01	116,{
 	mes "[Race Girl]";
-	mes "Would you like to visit ^0000FFMorocc Raceway^000000?";
+	mes "~Te gustaria visitar la ^0000FFPista de Carreras de Morocc^000000?";
 	next;
-	menu "Yes",L_Warp,"No",-;
+	menu "Si",L_Warp,"No",-;
 	mes "[Race Girl]";
-	mes "Alright, talk to me again when you want to go.";
+	mes "Esta bien, hablame de nuevo cuando quieras ir.";
 	close;
 L_Warp:
 	warp "pvp_y_1-5",165,256;
@@ -37,23 +37,23 @@ L_Warp:
 //Warps you out of raceway
 pvp_y_1-5,169,265,5	script	Race Girl#02	116,{
 	mes "[Race Girl]";
-	mes "Welcome to Morocc Raceway!";
+	mes "~Bienvenido a la Pista de Carreras de Morocc!";
 	next;
-	menu "Information",-,"Leave",L_Warp,"Cancel",L_Cancel;
+	menu "Informacion",-,"Salir",L_Warp,"Cancelar",L_Cancel;
 	mes "[Race Girl]";
-	mes "Someone must click on the Starter NPC to start the race.";
-	next;
-	mes "[Race Girl]";
-	mes "Once the race is started, run around Morocc anti-clockwise.";
+	mes "Alguien debe hacer clic en el NPC de Inicio para comenzar la carrera.";
 	next;
 	mes "[Race Girl]";
-	mes "You must reach all the checkpoints - No cheating!";
+	mes "Una vez que la carrera comience, corre alrededor de Morocc en sentido contrario a las agujas del reloj.";
+	next;
+	mes "[Race Girl]";
+	mes "Debes alcanzar todos los puntos de control - ~No hagas trampa!";
 	close;
 L_Warp:
 	warp "morocc",165,101;
 L_Cancel:
 	mes "[Race Girl]";
-	mes "Come again soon!";
+	mes "~Vuelve pronto!";
 	close;
 }
 
@@ -64,18 +64,18 @@ pvp_y_1-5,145,269,5	script	Starter	733,{
 	if ($@racecount == 1) goto L_Started;
 L_Menu:
 	mes "[Race Starter]";
-	mes "Please stay on the Eastern side of me.";
-	menu "Start Race",L_Count,"Cancel",-;
+	mes "Por favor quedate en el lado Este de mi.";
+	menu "Iniciar Carrera",L_Count,"Cancelar",-;
 	close;
 L_Count:
 	set $@counting,1;
-	mes "Counting down...";
+	mes "Cuenta regresiva...";
 	addtimer 1000, "Starter::OnCount1000";
 	addtimer 2000, "Starter::OnCount2000";
 	addtimer 3000, "Starter::OnCount3000";
 	addtimer 4000, "Starter::OnCount4000";
-	announce strcharinfo(0) + "Started a countdown",1;
-	announce "Get ready to race!",1;
+	announce strcharinfo(0) + " inicio una cuenta regresiva",1;
+	announce "~Preparense para la carrera!",1;
 	close;
 
 OnCount1000:
@@ -90,7 +90,7 @@ OnCount3000:
 OnCount4000:
 	emotion ET_GO;
 	specialeffect EF_CHIMTO;
-	announce "[GO!]",1;
+	announce "[~YA!]",1;
 	set $@race,1;
 	set $@position,0;
 	set $@counting,0;
@@ -101,7 +101,7 @@ L_Started:
 	if ((getmapusers("pvp_y_1-5") < 3) && ($@position > 0)) goto L_Menu;
 	if ($@position > 2) goto L_Menu;
 	mes "[Starter]";
-	mes "Race in progress";
+	mes "Carrera en progreso";
 	close;
 
 OnInit:
@@ -118,14 +118,14 @@ OnTouch:
 	if (@raceid != $@raceid) goto L_Started;
 	if (@race == 6) goto L_Finished;
 	if ($@race == 1) goto L_Started;
-	mes "The race has not started, please move back.";
+	mes "La carrera no ha comenzado, por favor regresa.";
 	close;
 L_Started:
 	set @race,1;
 	set @raceid,$@raceid;
 	end;
 L_Finished:
-	mes "You have already completed the race.";
+	mes "Ya completaste la carrera.";
 	close;
 }
 
@@ -135,10 +135,10 @@ pvp_y_1-5,73,247,5	script	Check Point 2	111,6,6,{
 OnTouch:
 	if (@race != 1) goto L_Miss;
 	set @race,2;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [1]",1;
+	announce "[" + strcharinfo(0) +"] ha llegado al Punto de Control [1]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "Te saltaste un Punto de Control. Por favor regresa.";
 	close;
 }
 
@@ -148,10 +148,10 @@ pvp_y_1-5,77,44,5	script	Check Point 3	111,6,6,{
 OnTouch:
 	if (@race != 2) goto L_Miss;
 	set @race,3;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [2]",1;
+	announce "[" + strcharinfo(0) +"] ha llegado al Punto de Control [2]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "Te saltaste un Punto de Control. Por favor regresa.";
 	close;
 }
 
@@ -161,10 +161,10 @@ pvp_y_1-5,249,60,5	script	Check Point 4	111,6,6,{
 OnTouch:
 	if (@race != 3) goto L_Miss;
 	set @race,4;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [3]",1;
+	announce "[" + strcharinfo(0) +"] ha llegado al Punto de Control [3]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "Te saltaste un Punto de Control. Por favor regresa.";
 	close;
 }
 
@@ -174,10 +174,10 @@ pvp_y_1-5,255,256,5	script	Check Point 5	111,6,6,{
 OnTouch:
 	if (@race != 4) goto L_Miss;
 	set @race,5;
-	announce "[" + strcharinfo(0) +"] has reached Checkpoint [4]",1;
+	announce "[" + strcharinfo(0) +"] ha llegado al Punto de Control [4]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "Te saltaste un Punto de Control. Por favor regresa.";
 	close;
 }
 
@@ -189,13 +189,13 @@ OnTouch:
 	if (@race != 5) goto L_Miss;
 	set @race,6;
 	set $@position,$@position+1;
-	announce "[" + strcharinfo(0) +"] has reached The Finish line! [Position: " + $@position + "]",1;
+	announce "[" + strcharinfo(0) +"] ha llegado a la Meta! [Posicion: " + $@position + "]",1;
 	end;
 L_Miss:
-	mes "You have missed a Checkpoint. Please go back.";
+	mes "Te saltaste un Punto de Control. Por favor regresa.";
 	close;
 L_WrongRace:
-	mes "You are not in this race.";
+	mes "No estas en esta carrera.";
 	close;
 }
 

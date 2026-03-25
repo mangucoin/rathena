@@ -17,30 +17,30 @@
 // Main NPC :: stonechange
 //============================================================
 geffen_in,99,174,5	script	Ore Tester#sorty	8_F_GIRL,{
-	mes "[Ore Tester Sorty]";
-	mes "Do you have ^3131FFany same type of ores in your inventories^000000 which take many spaces?";
-	mes "I can distinguish your ores and organize them right away~!";
+	mes "[Examinadora de Minerales Sorty]";
+	mes "Tienes ^3131FFminerales del mismo tipo en tu inventario^000000 que ocupan muchos espacios?";
+	mes "Puedo distinguir tus minerales y organizarlos de inmediato~!";
 	next;
-	switch(select("Refine my Ore.:Cancel.")) {
+	switch(select("Refinar mi Mineral.:Cancelar.")) {
 	case 1:
-		mes "[Ore Tester Sorty]";
-		mes "At the moment I can only distinguish ^FF0000Steel^000000, ^FF0000Iron^000000, ^FF0000Iron Ore^000000, and ^FF0000Rough Oridecon^000000 and organize them.";
-		mes "Please note that ^3131FFother items are unable^000000!";
+		mes "[Examinadora de Minerales Sorty]";
+		mes "Por el momento solo puedo distinguir ^FF0000Acero^000000, ^FF0000Hierro^000000, ^FF0000Mineral de Hierro^000000, y ^FF0000Oridecon en Bruto^000000 y organizarlos.";
+		mes "Ten en cuenta que ^3131FFotros objetos no son posibles^000000!";
 		next;
-		mes "[Ore Tester Sorty]";
-		mes "So, would you like me to organize your ores?";
+		mes "[Examinadora de Minerales Sorty]";
+		mes "Entonces, quieres que organice tus minerales?";
 		next;
-		.@i = select("Steel, please.:Iron, please.:Iron Ore, please.:Rough Oridecon, please.:No, thanks.");
+		.@i = select("Acero, por favor.:Hierro, por favor.:Mineral de Hierro, por favor.:Oridecon en Bruto, por favor.:No, gracias.");
 		if (.@i == 5) {
-			mes "[Ore Tester Sorty]";
-			mes "Huh, I really hate messy people!";
+			mes "[Examinadora de Minerales Sorty]";
+			mes "Ugh, realmente odio a la gente desordenada!";
 			close;
 		}
 		setarray .@ores[0],999,998,1002,756;
 		.@item = .@ores[.@i-1];
 		if (countitem(.@item) == 0) {
-			mes "[Ore Tester Sorty]";
-			mes "You don't have any "+getitemname(.@item)+"...";
+			mes "[Examinadora de Minerales Sorty]";
+			mes "No tienes ningun "+getitemname(.@item)+"...";
 			close;
 		}
 		// while(1) {
@@ -56,12 +56,12 @@ geffen_in,99,174,5	script	Ore Tester#sorty	8_F_GIRL,{
 		.@count = countitem(.@item);
 		delitem .@item, .@count;
 		getitem .@item, .@count;
-		mes "[Ore Tester Sorty]";
-		mes "It's done. Looks great! Don't you think so?";
+		mes "[Examinadora de Minerales Sorty]";
+		mes "Esta hecho. Se ve genial! No lo crees?";
 		close;
 	case 2:
-		mes "[Ore Tester Sorty]";
-		mes "It seems that your bag is clean? Huhu! You might be the master of cleaning!";
+		mes "[Examinadora de Minerales Sorty]";
+		mes "Parece que tu bolsa esta limpia? Juhu! Podrias ser el maestro de la limpieza!";
 		close;
 	}
 }
