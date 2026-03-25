@@ -1,31 +1,31 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Mage Solutions
-//===== By: ================================================== 
+//===== By: ==================================================
 //= kobra_k88; L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.0
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Traders for Morocc Solution and Payon Solution, used in
 //= the Sage skill quests and the Pre-Renewal Mage job quest.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 Split from Pre-Renewal Mage job quest. [Zopokx]
-//============================================================ 
+//============================================================
 
 pay_arche,122,100,0	script	Dollshoi	88,{
 	mes "[Mage Guildsman]";
-	mes "You want a Solution? Hmm, give me 50 Zeny and at least 1 Empty Test Tube.";
+	mes "~Quieres una Solucion? Hmm, dame 50 Zeny y al menos 1 Tubo de Ensayo Vacio.";
 	next;
-	if (select("Alright, Deal.:Nah, forget it.") == 1) {
+	if (select("De acuerdo, trato hecho.:No, olvidalo.") == 1) {
 		mes "[Mage Guildsman]";
 		if (Zeny < 50) {
-			mes "Hey! You don't have enough money to cover my 50 Zeny charge.";
+			mes "~Oye! No tienes suficiente dinero para cubrir mi cargo de 50 Zeny.";
 			close;
 		}
 		if (countitem(1092) == 0) {
-			mes "You can't carry solutions without a bottle! Bring me an Empty Test Tube.";
+			mes "~No puedes llevar soluciones sin una botella! Traeme un Tubo de Ensayo Vacio.";
 			close;
 		}
 		delitem 1092,1; //Empty_Cylinder
@@ -37,16 +37,16 @@ pay_arche,122,100,0	script	Dollshoi	88,{
 
 moc_ruins,91,150,0	script	Ponka-Hontas	93,{
 	mes "[Mage Guildsman]";
-	mes "Would you like a Solution? Then please give me 50 Zeny and at least 1 Empty Test Tube.";
+	mes "~Te gustaria una Solucion? Entonces por favor dame 50 Zeny y al menos 1 Tubo de Ensayo Vacio.";
 	next;
-	if (select("Alright, Deal.:Nah, forget it.") == 1) {
+	if (select("De acuerdo, trato hecho.:No, olvidalo.") == 1) {
 		mes "[Mage Guildsman]";
 		if (Zeny < 50) {
-			mes "I'm sorry, but you don't have enough money to cover the 50 Zeny fee.";
+			mes "Lo siento, pero no tienes suficiente dinero para cubrir la tarifa de 50 Zeny.";
 			close;
 		}
 		if (countitem(1092) == 0) {
-			mes "You can't carry liquids without using a bottle. Bring an Empty Test Tube the next time you see me.";
+			mes "No puedes llevar liquidos sin usar una botella. Trae un Tubo de Ensayo Vacio la proxima vez que me veas.";
 			close;
 		}
 		delitem 1092,1; //Empty_Cylinder
