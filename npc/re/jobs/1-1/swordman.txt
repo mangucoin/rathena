@@ -1,38 +1,38 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Renewal Swordman Job Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Kisuka
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= Job Change to Swordman Class
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Kisuka]
 //= 1.1 Added support for Baby classes. [Euphy]
-//============================================================ 
+//============================================================
 izlude_in,74,172,4	script	Swordman#swd	119,{
 	if (Upper == 1) {
 		if (Class == Job_Novice_High && (ADVJOB == Job_Lord_Knight || ADVJOB == Job_Paladin)) {
 			mes "[Swordman]";
-			mes "It...";
-			mes "Can't be...";
-			mes "You've been reborn, haven't you?";
+			mes "No...";
+			mes "Puede ser...";
+			mes "Has renacido, verdad?";
 			next;
 			mes "[Swordman]";
-			mes "I see you're retreading the path of the Swordman! Once you've gotten used to brandishing a sword, you can never go back!!";
+			mes "Veo que estas recorriendo el camino del Swordman de nuevo! Una vez que te acostumbras a blandir una espada, no hay vuelta atras!!";
 			next;
 			if (!callfunc("F_CanChangeJob")) {
 				mes "[Swordman]";
-				mes "Hmm? Ah, you must first master the Basic Skills before you are ready to become a Swordman.";
+				mes "Hmm? Ah, primero debes dominar las Basic Skills antes de estar listo para convertirte en Swordman.";
 				next;
 				mes "[Swordman]";
-				mes "Come back to me when you have finished learning the Basic Novice Skills.";
+				mes "Vuelve a verme cuando hayas terminado de aprender las Basic Novice Skills.";
 				close;
 			}
 			mes "[Swordman]";
-			mes "Excellent! Let me promote you to a Swordman right away!";
+			mes "Excelente! Dejame promoverte a Swordman de inmediato!";
 			next;
 			skill "NV_TRICKDEAD",0,SKILL_PERM;
 			jobchange Job_Swordman_High;
@@ -40,82 +40,82 @@ izlude_in,74,172,4	script	Swordman#swd	119,{
 			skill "SM_FATALBLOW",1,SKILL_PERM;
 			skill "SM_AUTOBERSERK",1,SKILL_PERM;
 			mes "[Swordman]";
-			mes "Hmm... You look like a well-experienced Swordman. Still, I'm sure that you must train to improve your skills and gain strength!";
+			mes "Hmm... Pareces un Swordman con mucha experiencia. Aun asi, estoy seguro de que debes entrenar para mejorar tus habilidades y ganar fuerza!";
 			close;
 		}else{
 			mes "[Swordman]";
 			mes "Hm...?";
-			mes "You're a reborn";
-			mes "warrior, aren't you?";
+			mes "Eres un guerrero";
+			mes "renacido, verdad?";
 			next;
 			mes "[Swordman]";
 			mes "Hmmm...";
-			mes "It seems that being";
-			mes "a Swordman is not part";
-			mes "of your destiny. I'm sorry,";
-			mes "but it seems there is nothing";
-			mes "I can do for you.";
+			mes "Parece que ser";
+			mes "un Swordman no es parte";
+			mes "de tu destino. Lo siento,";
+			mes "pero parece que no hay nada";
+			mes "que pueda hacer por ti.";
 			close;
 		}
 	}
 	mes "[Swordman Guildsman]";
-	mes "This is the Swordman Guild.";
-	mes "Why are you here?";
+	mes "Este es el Swordman Guild.";
+	mes "Por que estas aqui?";
 	next;
-	switch(select("Tell me about being a Swordman.:I want to be a Swordman.:Nothing.")) {
+	switch(select("Cuentame sobre ser un Swordman.:Quiero ser un Swordman.:Nada.")) {
 	case 1:
 		mes "[Swordman Guildsman]";
-		mes "So you wish to know more about the mighty Swordman? Okay!";
+		mes "Asi que deseas saber mas sobre el poderoso Swordman? De acuerdo!";
 		next;
 		mes "[Swordman Guildsman]";
-		mes "The most distinctive feature of the Swordman is that the Swordman can show us his/her real abilities in close combat.";
-		mes "There are three reasons!";
+		mes "La caracteristica mas distintiva del Swordman es que puede mostrar sus verdaderas habilidades en combate cuerpo a cuerpo.";
+		mes "Hay tres razones!";
 		next;
 		mes "[Swordman Guildsman]";
-		mes "First, Swordman has higher HP than other jobs.";
-		mes "Second, except for Bows and Rods, Swordman can use all other weapons so they can fight at their optimal ability.";
-		mes "And third, most of the skills of the Swordman give powerful physical attacks.";
+		mes "Primero, el Swordman tiene HP mas alto que otros trabajos.";
+		mes "Segundo, excepto Arcos y Varas, el Swordman puede usar todas las demas armas para poder pelear a su capacidad optima.";
+		mes "Y tercero, la mayoria de las habilidades del Swordman dan poderosos ataques fisicos.";
 		next;
 		mes "[Swordman Guildsman]";
-		mes "Though I gave you a simple explanation, I believe you understand the core meaning of what it is to be a Swordman.";
-		mes "In my opinion, Swordman is the best job ever!";
+		mes "Aunque te di una explicacion simple, creo que entiendes el significado central de lo que es ser un Swordman.";
+		mes "En mi opinion, Swordman es el mejor trabajo de todos!";
 		close;
 	case 2:
 		mes "[Swordman Guildsman]";
 		if(BaseJob != Job_Novice) {
 			if(BaseJob == Job_Swordman) {
-				mes "You are already an excellent Swordman, aren't you?";
-				mes "Just devote yourself to be a great Swordman.";
+				mes "Ya eres un excelente Swordman, no es asi?";
+				mes "Solo dedicadte a ser un gran Swordman.";
 			}else{
-				mes "You already have one of the other jobs, don't you?";
-				mes "You've gone too far with that joke.";
+				mes "Ya tienes uno de los otros trabajos, no?";
+				mes "Te has pasado con esa broma.";
 			}
 			close;
 		}else{
 			if (!callfunc("F_CanChangeJob")) {
-				mes "I'm sorry to tell you this but to be a Swordman, you must reach at least ^4A4AFFJob Level 10^000000.";
-				mes "and ^4A4AFFBasic Skill Level 9^000000.";
+				mes "Lamento decirte esto pero para ser un Swordman, debes alcanzar al menos ^4A4AFFJob Level 10^000000.";
+				mes "y ^4A4AFFBasic Skill Level 9^000000.";
 				next;
 				mes "[Swordman Guildsman]";
-				mes "Want to be a Swordman without having the minimum requirement?";
-				mes "Do you think being a Swordman is that easy?";
+				mes "Quieres ser un Swordman sin tener el requisito minimo?";
+				mes "Crees que ser un Swordman es tan facil?";
 				close;
 			}
-			mes "Hmm, both your Job Level and Basic Skill Level check out.";
-			mes "Good. Do you want to be a Swordman right away?";
+			mes "Hmm, tanto tu Job Level como tu Basic Skill Level estan en orden.";
+			mes "Bien. Quieres ser un Swordman ahora mismo?";
 			next;
-			if(select("Yes, I do.:I'll consider it again.") == 2) {
+			if(select("Si, quiero.:Lo pensare de nuevo.") == 2) {
 				mes "[Swordman Guildsman]";
-				mes "Yeah. Prudent decision is needed for choosing a job.";
-				mes "But I feel sorry... that you consider it again after overcoming all the hardships....";
+				mes "Si. Se necesita una decision prudente para elegir un trabajo.";
+				mes "Pero me da pena... que lo reconsideres despues de superar todas las dificultades....";
 				close;
 			}
 			mes "[Swordman Guildsman]";
-			mes "Congratulations! From now on, you are going to live a Swordman's life!";
-			mes "Let's do it right now!";
+			mes "Felicidades! De ahora en adelante, vas a vivir la vida de un Swordman!";
+			mes "Hagamoslo ahora mismo!";
 			next;
 			mes "[Swordman Guildsman]";
-			mes "Congratulations again for being a Swordman and I hope that you participate in many activities for the revival of our guild.";
+			mes "Felicidades de nuevo por ser un Swordman y espero que participes en muchas actividades para el resurgimiento de nuestro gremio.";
 			callfunc "Job_Change",Job_Swordman;
 			getitem 13415,1; // N_Falchion
 			close;

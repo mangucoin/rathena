@@ -1,21 +1,21 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Zonda Teleportation Services
 //===== Changelogs: ==========================================
 //= 1.0 First Version. [JohnnyPlayy]
-//===== Description: ========================================= 
+//===== Description: =========================================
 // Texts from this script were translated according to KRO
 //============================================================
 
 -	script	ZondaTeleportationServices	HIDDEN_NPC,{
 	cutin "zonda_do01", 2;
 	mes "[Zonda Employee]";
-	mes "Welcome.";
-	mes "Our team is always working to exceed your expectations regarding quality of service.";
-	mes "Please choose your destination.";
+	mes "Bienvenido.";
+	mes "Nuestro equipo siempre trabaja para superar tus expectativas en cuanto a calidad de servicio.";
+	mes "Por favor elige tu destino.";
 	next;
-	switch( select( "North Bifrost", "Eclage", "Splendide", "Midgard Expedition Camp", "Manuk", "Outskirts of Kamidal Mountain", "Cancel.") ) {
+	switch( select( "Norte de Bifrost", "Eclage", "Splendide", "Campamento de la Expedicion de Midgard", "Manuk", "Alrededores de la Montana Kamidal", "Cancelar.") ) {
 	case 1:
-		callsub( S_Zone, "North Bifrost", 17000,850, 7213 ); // Teleport value not confirmed
+		callsub( S_Zone, "Norte de Bifrost", 17000,850, 7213 ); // Teleport value not confirmed
 		warp "bif_fild02",160,230; // Unverified Coordinates
 		end;
 	case 2:
@@ -27,7 +27,7 @@
 		warp "splendide",171,115;
 		end;
 	case 4:
-		callsub( S_Zone, "Midgard Expedition Camp", 19000,950, 10078 );
+		callsub( S_Zone, "Campamento de la Expedicion de Midgard", 19000,950, 10078 );
 		warp "mid_camp",210,288;
 		end;
 	case 5:
@@ -35,13 +35,13 @@
 		warp "manuk",263,177;
 		end;
 	case 6:
-		callsub( S_Zone, "Outskirts of Kamidal Mountain", 24000,1200, 7184 );
+		callsub( S_Zone, "Alrededores de la Montana Kamidal", 24000,1200, 7184 );
 		warp "dic_fild01",188,187;
 		end;
 	case 7:
 		mes "[Zonda Employee]";
-		mes "We are always striving to ensure the best services for our customers.";
-		mes "Thank you for using our services.";
+		mes "Siempre nos esforzamos por garantizar los mejores servicios para nuestros clientes.";
+		mes "Gracias por usar nuestros servicios.";
 		close3;
 	}
 
@@ -49,17 +49,17 @@ S_Zone:
 	.@zeny_req = getarg(1);
 	.@item_req = getarg(2);
 	.@quest_req = getarg(3);
-	
+
 	if (isbegin_quest(.@quest_req) == 0) {
 		mes "[Zonda Employee]";
 		//mes getarg(0);
-		mes "You must complete the access mission to teleport to " + getarg(0) + " before using our Teleportation services.";
+		mes "Debes completar la mision de acceso para teletransportarte a " + getarg(0) + " antes de usar nuestros servicios de Teletransporte.";
 		close3;
 	}
 	mes "[Zonda Employee]";
-	mes getarg(0) + " is available for ^ff0000" + .@zeny_req + " Zenys^000000 or ^ff0000" + .@item_req + " Malang Sp Can^000000.";
+	mes getarg(0) + " esta disponible por ^ff0000" + .@zeny_req + " Zenys^000000 o ^ff0000" + .@item_req + " Malang Sp Can^000000.";
 	next;
-	switch( select( .@zeny_req + " Zeny", .@item_req + " Malang Sp Can", "Cancel" ) ) {
+	switch( select( .@zeny_req + " Zeny", .@item_req + " Malang Sp Can", "Cancelar" ) ) {
 	case 1:
 		if (Zeny < .@zeny_req)
 			break;
@@ -72,12 +72,12 @@ S_Zone:
 		return;
 	case 3:
 		mes "[Zonda Employee]";
-		mes "Can you tell me about other areas of service?";
+		mes "Puedo informarte sobre otras areas de servicio?";
 		close3;
 	}
 	mes "[Zonda Employee]";
-	mes "Sir! You do not have enough value that we are asking for.";
-	mes "Please check back again.";
+	mes "Senor! No tienes suficiente para lo que estamos pidiendo.";
+	mes "Por favor revisa e intenta de nuevo.";
 	close3;
 }
 

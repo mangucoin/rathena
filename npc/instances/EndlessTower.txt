@@ -91,69 +91,69 @@ alberta,214,77,6	script	Captain Janssen	709,{
 		mes "^0000ffPodias imaginar la desgarradora escena de la flota moribunda en su ultimo viaje, incluso si no lo explicara mas. Una mirada de sombrio arrepentimiento cruzo su rostro mientras permanecia en silencio un momento, y luego dijo:^000000";
 		next;
 		mes "[Captain Janssen]";
-		mes "I have something I must do before I die. I must retrieve the remains of my crew that died in the tower, and give them a proper burial.";
+		mes "Tengo algo que debo hacer antes de morir. Debo recuperar los restos de mi tripulacion que murio en la torre, y darles un entierro digno.";
 		next;
 		mes "[Captain Janssen]";
-		mes "I feel so lucky to meet a warm-hearted adventurer like you. With the money you've given me, I can finally go sailing to the tower again.";
+		mes "Me siento muy afortunado de conocer a un aventurero de buen corazon como tu. Con el dinero que me diste, finalmente puedo navegar hacia la torre de nuevo.";
 		next;
 		mes "["+.@name$+"]";
-		mes "How about hiring me as your first mate?";
+		mes "Que tal si me contratas como tu primer oficial?";
 		next;
 		mes "[Captain Janssen]";
-		mes "Thank you, but it is an extremely dangerous place. I have my duty to fulfill, but you don't have any obligation to me or them. I don't wish to sacrifice someone as young as you to such a dangerous place.";
+		mes "Gracias, pero es un lugar extremadamente peligroso. Tengo mi deber que cumplir, pero tu no tienes ninguna obligacion conmigo ni con ellos. No deseo sacrificar a alguien tan joven como tu en un lugar tan peligroso.";
 		next;
 		mes "["+.@name$+"]";
 		mes "No...";
 		mes ".";
 		mes ".";
-		mes "As an adventurer, there's my obligation to those in need. I'm also very curious about that place...";
+		mes "Como aventurero, tengo mi obligacion con quienes lo necesitan. Ademas tengo mucha curiosidad por ese lugar...";
 		next;
 		mes "[Captain Janssen]";
-		mes "I was going to leave right away, but since you've joined me, I should give you time to prepare. I'll be waiting here until you're ready to go.";
+		mes "Iba a partir de inmediato, pero ya que te uniste a mi, deberia darte tiempo para prepararte. Estare esperando aqui hasta que estes listo para partir.";
 		next;
 		mes "[Captain Janssen]";
-		mes "...Okay then...";
-		mes "Welcome aboard, first mate.";
+		mes "...Esta bien entonces...";
+		mes "Bienvenido a bordo, primer oficial.";
 		set in_102tower,3;
 		close;
 	} else if (in_102tower == 3) {
 		mes "[Captain Janssen]";
-		mes "Shall we leave now?";
+		mes "Partimos ahora?";
 		next;
-		switch(select("Yes, let's go!:No, I'm not quite ready...")) {
+		switch(select("Si, vamos!:No, aun no estoy listo...")) {
 		case 1:
 			mes "[Captain Janssen]";
-			mes "Then pull up the anchor, first mate!";
+			mes "Entonces levanta el ancla, primer oficial!";
 			close2;
 			set in_102tower,4;
 			warp "e_tower",70,114;
 			end;
 		case 2:
 			mes "[Captain Janssen]";
-			mes "Sure, no problem. Come back when you're ready.";
+			mes "Claro, no hay problema. Vuelve cuando estes listo.";
 			close;
 		}
 	} else if (in_102tower > 3) {
 		mes "[Captain Janssen]";
-		mes "Well, to travel the ocean again, we need to restock on goods. If you give me 10,000 Zeny, I'll take care of the rest.";
+		mes "Bueno, para viajar por el oceano otra vez, necesitamos reabastecer suministros. Si me das 10,000 Zeny, yo me encargo del resto.";
 		next;
-		switch(select("I'll come back later.:Let's go, now!")) {
+		switch(select("Volvere despues.:Vamos, ahora!")) {
 		case 1:
 			mes "["+.@name$+"]";
-			mes "I'm sorry, but I don't have that much money. I'll come back when I save enough.";
+			mes "Lo siento, pero no tengo tanto dinero. Volvere cuando ahorre suficiente.";
 			next;
 			mes "[Captain Janssen]";
-			mes "Sure, no problem. I'll be waiting for your return.";
+			mes "Claro, no hay problema. Estare esperando tu regreso.";
 			close;
 		case 2:
 			if (Zeny < 10000) {
 				mes "[Captain Janssen]";
-				mes "I'm sorry, but you don't have enough money. I need at least 10,000 Zeny to restock our supplies...";
+				mes "Lo siento, pero no tienes suficiente dinero. Necesito al menos 10,000 Zeny para reabastecer nuestros suministros...";
 				close;
 			}
 			else {
 				mes "[Captain Janssen]";
-				mes "Excellent! Now we're good to go. Let's pull up the anchor again!";
+				mes "Excelente! Ahora estamos listos. Levantemos el ancla de nuevo!";
 				set Zeny, Zeny-10000;
 				close2;
 				warp "e_tower",70,114;
@@ -162,25 +162,25 @@ alberta,214,77,6	script	Captain Janssen	709,{
 		}
 	} else {
 		mes "[Captain Janssen]";
-		mes "Excuse me, are you an adventurer?";
+		mes "Disculpa, eres un aventurero?";
 		next;
 		mes "[Captain Janssen]";
-		mes "I'm sorry to ask you this, especially when this is the first time we've ever met, but can you do me a favor? I'll make it short.";
+		mes "Lamento pedirte esto, especialmente cuando es la primera vez que nos vemos, pero me puedes hacer un favor? Sere breve.";
 		next;
 		mes "[Captain Janssen]";
-		mes "Can you donate ^0000ff10,000 Zeny^000000 to me? It's for a cause that's important to me...";
+		mes "Puedes donarme ^0000ff10,000 Zeny^000000? Es para una causa que es importante para mi...";
 		next;
-		switch(select("No!:Sure thing.")) {
+		switch(select("No!:Claro que si.")) {
 		case 1:
 			mes "["+.@name$+"]";
-			mes "I'm sorry, but you've got the wrong person to ask that.";
+			mes "Lo siento, pero le preguntas a la persona equivocada.";
 			next;
 			mes "[Captain Janssen]";
-			mes "I see... Sorry to bother you. I understand it was too rude to ask something like that to begin with.";
+			mes "Ya veo... Perdon por molestarte. Entiendo que fue muy grosero pedir algo asi para empezar.";
 			close;
 		case 2:
 			mes "[Captain Janssen]";
-			mes "Huh? Are you sure that you don't mind giving me that much money? Wow, thank you so much!";
+			mes "Eh? Estas seguro de que no te importa darme tanto dinero? Vaya, muchas gracias!";
 			next;
 			if (Zeny < 10000) {
 				mes "[Captain Janssen]";

@@ -733,44 +733,44 @@ OnRecvCastle:
 		mes "Originalmente puedes invertir solo una vez pero si pagas mas dinero, podras invertir dos veces.";
 		if (.@Defence >= 100) {
 			mes " ";
-			mes "^ff0000But the Castle Defense level of our Castle is at it's highest, 100%. No more investments are needed. Just as I have expected from a great strategist like you, Master.^000000";
+			mes "^ff0000Pero el nivel de Defensa de nuestro Castillo esta en su maximo, 100%. No se necesitan mas inversiones. Justo como esperaba de un gran estratega como tu, Maestro.^000000";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE) >= 2) {
 			mes " ";
-			mes "^ff0000You have already invested twice today. You cannot invest any more.^000000 I expect the Defenses of the guild to grow at a high rate.";
+			mes "^ff0000Ya invertiste dos veces hoy. No puedes invertir mas.^000000 Espero que las Defensas del guild crezcan a un ritmo alto.";
 			close;
 		}
 		if (GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE) == 0) {
 			mes " ";
-			mes "The current investment amount required is ^ff0000"+.@def_invest+"^000000 zeny. Will you invest?";
+			mes "La cantidad de inversion requerida actualmente es ^ff0000"+.@def_invest+"^000000 zeny. Quieres invertir?";
 		}
 		else {
 			mes " ";
-			mes "You've invested once today... if you wish to invest once more, ^ff0000"+.@def_invest+"^000000 more zeny will be needed.";
+			mes "Ya invertiste una vez hoy... si deseas invertir una vez mas, se necesitaran ^ff0000"+.@def_invest+"^000000 zeny mas.";
 		}
 		next;
-		switch (select("Invest in Castle Defenses.:Cancel")) {
+		switch (select("Invertir en Defensas del Castillo.:Cancelar")) {
 		case 1:
 			if (Zeny < .@def_invest) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "I'm sorry but there is not enough zeny to invest. You will have to try again when you have the funds, Master.";
+				mes "Lo siento pero no hay suficiente zeny para invertir. Tendras que intentar de nuevo cuando tengas los fondos, Maestro.";
 				close;
 			}
 			set Zeny, Zeny - .@def_invest;
 			SetCastleData strnpcinfo(2),CD_INVESTED_DEFENSE,GetCastleData(strnpcinfo(2),CD_INVESTED_DEFENSE)+1;
 			mes "[ "+strnpcinfo(1)+"]";
-			mes "We finished the investment safely. I expect that our Castle Defense level will be increased by tomorrow.";
+			mes "Terminamos la inversion exitosamente. Espero que nuestro nivel de Defensa del Castillo aumente para manana.";
 			close;
 		case 2:
 			mes "["+strnpcinfo(1)+"]";
-			mes "I'll do as you bid, my master... There is no hurry. We will do our best.";
+			mes "Hare lo que ordenes, mi amo... No hay prisa. Haremos nuestro mejor esfuerzo.";
 			close;
 		}
 	case 4:
 		mes "["+strnpcinfo(1)+"]";
-		mes "Will you summon a Guardian? It'll be a protector to defend us loyally.";
-		mes "Please select a guardian to defend us.";
+		mes "Quieres invocar un Guardian? Sera un protector que nos defendera con lealtad.";
+		mes "Por favor selecciona un guardian para defendernos.";
 		next;
 		for( set .@i, 0; .@i <= 7 ; set .@i, .@i+1 ) {
 			if (.@guardiantype[.@i] == 1) { set .@type$,"Guardian Soldier"; }
@@ -786,13 +786,13 @@ OnRecvCastle:
 		set .@menu$,.@gname$[0]+":"+.@gname$[1]+":"+.@gname$[2]+":"+.@gname$[3]+":"+.@gname$[4]+":"+.@gname$[5]+":"+.@gname$[6]+":"+.@gname$[7];
 		set .@GDnum,select(.@menu$)+9;
 		mes "["+strnpcinfo(1)+"]";
-		mes "Will you summon the chosen guardian? 10,000 zeny are required to summon a Guardian.";
+		mes "Quieres invocar al guardian elegido? Se requieren 10,000 zeny para invocar un Guardian.";
 		next;
-		switch (select("Summon:Cancel")) {
+		switch (select("Invocar:Cancelar")) {
 		case 1:
 			if (getgdskilllv(.@GID,10002) == 0) {
 				mes "["+strnpcinfo(1)+"]";
-				mes "Master, we have not the resources to Summon the Guardian. If you want to accumulate them, you have to learn the Guild skill. We failed to summon the Guardian.";
+				mes "Maestro, no tenemos los recursos para Invocar al Guardian. Si quieres acumularlos, tienes que aprender la habilidad de Guild. No pudimos invocar al Guardian.";
 				close;
 			}
 			if (GetCastleData(strnpcinfo(2),.@GDnum) == 1) {
