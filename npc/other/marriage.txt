@@ -34,9 +34,9 @@ prt_church,97,100,4	script	Wedding Staff#w	71,{
 		// - VIP players may either pay the Zeny fee or use a Marriage Covenant.
 		if (VIP_SCRIPT && !vip_status(VIP_STATUS_ACTIVE)) {
 			mes "[Marry Happy]";
-			mes "Paumanhin ngunit hindi ka maaaring magpakasal ngayon.";
-			mes "Ang kasal ay para lamang sa mga naka-subscribe na manlalaro.";
-			mes "Pero kung mayroon kang ^FF0000Marriage Covenant^000000, maaari ka nang magpakasal!";
+			mes "Lo siento, pero no puedes casarte en este momento.";
+			mes "El matrimonio es solo para jugadores con suscripcion.";
+			mes "Pero si tienes un ^FF0000Marriage Covenant^000000, puedes casarte!";
 			goto L_End;
 		}
 
@@ -44,351 +44,351 @@ prt_church,97,100,4	script	Wedding Staff#w	71,{
 		set .@covenant,1;
 	if (Upper == 2) {
 		mes "[Marry Happy]";
-		mes "Kumusta~";
-		mes "Ang pangalan ko ay Marry Happy";
-		mes "at nandito ako upang bigyan ka";
-		mes "ng impormasyon tungkol sa";
-		mes "kasal. Mayroon ka bang";
-		mes "mga katanungan?";
+		mes "Hola~";
+		mes "Mi nombre es Marry Happy";
+		mes "y estoy aqui para darte";
+		mes "informacion sobre el";
+		mes "matrimonio. Tienes";
+		mes "alguna pregunta?";
 		next;
-		if (select("Gusto kong magpakasal.:Hindi ko kailangan ang tulong mo!") == 1) {
+		if (select("Quiero casarme.:No necesito tu ayuda!") == 1) {
 			mes "[Marry Happy]";
-			mes "Oh, paumanhin, ngunit";
-			mes "ang mga adopted na karakter";
-			mes "ay hindi pinapayagang";
-			mes "magpakasal. Sa ngayon, bakit";
-			mes "hindi mo muna i-enjoy ang";
-			mes "simpleng kasiyahan ng pagiging bata?";
+			mes "Oh, lo siento, pero";
+			mes "los personajes adoptados";
+			mes "no tienen permitido";
+			mes "casarse. Por ahora, por que";
+			mes "no disfrutas de los placeres";
+			mes "simples de ser joven?";
 			goto L_End;
 		}
 		mes "[Marry Happy]";
-		mes "Oh, siyempre hindi!";
-		mes "Ang mga maliliit na bata";
-		mes "ay hindi maaaring magpakasal--";
-		mes "napakaraming batas laban";
-		mes "doon~ Hindi ka ba ang pinaka";
-		mes "kaibig-ibig na maliit na bagay?";
+		mes "Oh, claro que no!";
+		mes "Los ninos pequenos";
+		mes "no pueden casarse--";
+		mes "hay muchas leyes en contra";
+		mes "de eso~ No eres la cosita";
+		mes "mas adorable?";
 		goto L_End;
 	}
 	mes "[Marry Happy]";
-	mes "Ang kasal ay ang magandang";
-	mes "pagsasama ng dalawang kaluluwa";
-	mes "na piniling magkasama magpakailanman,";
-	mes "upang ibahagi ang kanilang kasiyahan at buhay.";
-	mes "Mayroon ka bang espesyal na tao";
-	mes "na ganoon sa buhay mo?";
+	mes "El matrimonio es la hermosa";
+	mes "union de dos almas que eligen";
+	mes "estar juntas para siempre,";
+	mes "para compartir su felicidad y vida.";
+	mes "Tienes a alguien especial";
+	mes "asi en tu vida?";
 	next;
-	switch(select("Magtanong tungkol sa Seremonya ng Kasal:Magtanong tungkol sa Proseso:Mag-apply para sa Kasal:Kami ang Invincible Single Army!")) {
+	switch(select("Preguntar sobre la Ceremonia de Boda:Preguntar sobre el Proceso:Solicitar la Boda:Somos el Invencible Ejercito Soltero!")) {
 	case 1:
 		mes "[Marry Happy]";
-		mes "Ang matalino at mabait na";
-		mes "Haring Tristram III ang dating";
-		mes "nagsasagawa ng mga seremonya ng kasal,";
-		mes "ngunit hindi na niya magawa";
-		mes "dahil sa kanyang mga tungkuling";
-		mes "maharlikain at abalang iskedyul.";
+		mes "El sabio y amable";
+		mes "Rey Tristram III solia";
+		mes "realizar las ceremonias de boda,";
+		mes "pero ya no puede hacerlo";
+		mes "debido a sus deberes reales";
+		mes "y su apretada agenda.";
 		next;
 		mes "[Marry Happy]";
-		mes "Si Bishop Vomars, ang obispo";
-		mes "ng pag-ibig, ang kasalukuyang";
-		mes "namamahala ng seremonya ng kasal.";
-		mes "Tunay siyang isang kayamanan ng";
-		mes "Kaharian ng Rune-Midgarts.";
+		mes "El Obispo Vomars, el obispo";
+		mes "del amor, es quien actualmente";
+		mes "dirige la ceremonia de boda.";
+		mes "Verdaderamente es un tesoro del";
+		mes "Reino de Rune-Midgarts.";
 		next;
 		mes "[Marry Happy]";
-		mes "Kapag nagpakasal ka,";
-		mes "habang-buhay na iyon, kaya mag-isip";
-		mes "nang mabuti bago gumawa o";
-		mes "tumanggap ng alok na kasal.";
-		mes "Tandaan na ang lalaki lamang ang maaaring";
-		mes "magpakasal sa babae at vice versa.";
+		mes "Cuando te cases,";
+		mes "sera para toda la vida, asi que";
+		mes "piensalo bien antes de hacer o";
+		mes "aceptar una propuesta de";
+		mes "matrimonio. Recuerda que solo un";
+		mes "hombre puede casarse con una mujer y viceversa.";
 		next;
 		mes "[Marry Happy]";
-		mes "Kung swerte ka at makahanap";
-		mes "ng isang taong gusto mo talagang";
-		mes "makasama habang-buhay, baka gusto";
-		mes "mong mag-alok. Sana mahanap ng";
-		mes "lahat ang kanilang perpektong kapareha~";
+		mes "Si tienes suerte y encuentras";
+		mes "a alguien con quien realmente";
+		mes "quieras pasar toda la vida,";
+		mes "quizas quieras proponerle.";
+		mes "Ojala todos encuentren";
+		mes "a su pareja perfecta~";
 		break;
 	case 2:
 		mes "[Marry Happy]";
-		mes "Ang unang bahagi ng";
-		mes "proseso ng kasal ay ang";
-		mes "pagkumpleto ng aplikasyon.";
-		mes "Kapag natapos na ang nobya at nobyo";
-		mes "sa pag-apply, kailangan nilang";
-		mes "bumuo ng party na dalawa.";
+		mes "La primera parte del";
+		mes "proceso de boda es completar";
+		mes "la solicitud. Cuando la novia";
+		mes "y el novio hayan terminado de";
+		mes "solicitar, necesitan formar";
+		mes "un party de dos.";
 		next;
 		mes "[Marry Happy]";
-		mes "Pagkatapos bumuo ng party na dalawa,";
-		mes "kailangan nilang kausapin si";
-		mes "Bishop Vomars. Ang nobyo ang unang";
-		mes "magsasalita at kailangang sabihin";
-		mes "ang eksaktong pangalan ng nobya sa Bishop. Kung hindi, titigil ang seremonya.";
+		mes "Despues de formar un party de";
+		mes "dos, necesitan hablar con el";
+		mes "Obispo Vomars. El novio hablara";
+		mes "primero y debera decir el nombre";
+		mes "exacto de la novia al Obispo. Si no, la ceremonia se detendra.";
 		next;
 		mes "[Marry Happy]";
-		mes "Pagkatapos, ang nobya ang";
-		mes "kakausap sa Bishop at sasabihin";
-		mes "ang pangalan ng kanyang nobyo.";
-		mes "Kung tama ang mga pangalang ito";
-		mes "na sinabi sa Bishop, maaari na";
-		mes "nilang ipagpalit ang mga singsing.";
+		mes "Despues, la novia hablara";
+		mes "con el Obispo y dira el";
+		mes "nombre de su novio. Si los";
+		mes "nombres dichos al Obispo son";
+		mes "correctos, podran intercambiar";
+		mes "los anillos.";
 		next;
 		mes "[Marry Happy]";
-		mes "Kapag naipagpalit na ang mga";
-		mes "wedding ring, ang mag-asawa ay magkakasama";
-		mes "na magpakailanman. Siyempre,";
-		mes "bago dumating sa puntong ito, maraming";
-		mes "pagkakataon na magbago ng isip, kaya...";
+		mes "Una vez intercambiados los";
+		mes "anillos de boda, la pareja estara";
+		mes "junta para siempre. Por supuesto,";
+		mes "antes de llegar a ese punto, hay";
+		mes "muchas oportunidades para cambiar";
+		mes "de opinion, asi que...";
 		next;
 		mes "[Marry Happy]";
-		mes "Kung masyadong maraming";
-		mes "mag-asawa ang gustong magpakasal";
-		mes "nang sabay-sabay, mangyaring";
-		mes "pumila at kausapin si Bishop";
-		mes "Vomars nang maayos dahil isang mag-asawa lang ang maaaring ikasal sa isang pagkakataon.";
+		mes "Si demasiadas parejas quieren";
+		mes "casarse al mismo tiempo, por";
+		mes "favor hagan fila y hablen con";
+		mes "el Obispo Vomars ordenadamente";
+		mes "ya que solo una pareja puede casarse a la vez.";
 		next;
 		mes "[Marry Happy]";
-		mes "Panghuli, siguraduhing sabihin";
-		mes "kay Bishop Vomars ang eksaktong";
-		mes "pangalan ng iyong kapareha nang hindi nagsasayang ng oras. Kung mag-aaksaya ka ng oras,";
-		mes "awtomatikong titigil ang seremonya at kailangan mong subukan muli.";
+		mes "Por ultimo, asegurate de decirle";
+		mes "al Obispo Vomars el nombre exacto";
+		mes "de tu pareja sin perder tiempo. Si pierdes tiempo,";
+		mes "la ceremonia se cancelara automaticamente y tendras que intentar de nuevo.";
 		next;
 		mes "[Marry Happy]";
-		mes "Kailangang tandaan ng mga nobya";
-		mes "na mayroon lamang silang 3 minuto";
-		mes "upang matapos ang pakikipag-usap kay";
-		mes "Bishop Vomars matapos ang nobyo";
-		mes "ay nakipag-usap sa kanya.";
+		mes "Las novias deben recordar";
+		mes "que solo tienen 3 minutos";
+		mes "para terminar la conversacion";
+		mes "con el Obispo Vomars despues de";
+		mes "que el novio haya hablado";
+		mes "con el.";
 		next;
-		if (select("Salamat, nakatulong iyon nang malaki!:Pinakamadaling paraan para sabihin ang pangalan ng kapareha ko?") == 1) {
+		if (select("Gracias, eso fue de mucha ayuda!:La forma mas facil de decir el nombre de mi pareja?") == 1) {
 			mes "[Marry Happy]";
-			mes "Nandito ako upang tulungang";
-			mes "dumaan ang mga kasal nang";
-			mes "maayos hangga't maaari.";
-			mes "Kung may hindi ka naintindihan,";
-			mes "huwag mag-atubiling";
-			mes "tanungin ako muli.";
+			mes "Estoy aqui para ayudar a que";
+			mes "las bodas salgan lo mejor";
+			mes "posible. Si hay algo que";
+			mes "no entendiste, no dudes en";
+			mes "preguntarme de nuevo.";
 			goto L_End;
 		}
 		mes "[Marry Happy]";
-		mes "Ang pinakamadaling paraan upang isulat";
-		mes "ang pangalan ng iyong kapareha para sa";
-		mes "bishop ay magpadala ng private";
-		mes "message sa iyong kapareha, at";
-		mes "pagkatapos ay i-left-click ang pangalan na nasa kaliwa ng chat prompt.";
+		mes "La forma mas facil de escribir";
+		mes "el nombre de tu pareja para el";
+		mes "obispo es enviar un mensaje";
+		mes "privado a tu pareja, y luego";
+		mes "hacer clic izquierdo en el nombre que aparece a la izquierda del chat.";
 		next;
 		mes "[Marry Happy]";
-		mes "Pindutin ang ''Ctrl'' at ''C''";
-		mes "upang kopyahin ang pangalan. Pagkatapos,";
-		mes "maaari mong i-paste ang pangalan sa";
-		mes "input prompt sa pamamagitan ng pagpindot";
-		mes "ng ''Insert'' at ''Shift''. Madali lang, di ba?";
+		mes "Presiona ''Ctrl'' y ''C''";
+		mes "para copiar el nombre. Luego";
+		mes "puedes pegar el nombre en el";
+		mes "campo de entrada presionando";
+		mes "''Insert'' y ''Shift''. Facil, no?";
 		next;
 		mes "[Marry Happy]";
-		mes "Sige, subukan natin.";
-		mes "Subukan mong ibigay sa akin";
-		mes "ang pangalan ng iyong kapareha";
-		mes "gamit ang paraan na inilarawan ko.";
+		mes "Bien, intentemoslo.";
+		mes "Intenta darme el nombre";
+		mes "de tu pareja usando el";
+		mes "metodo que te describi.";
 		next;
 		input .@partner$;
 		mes "[Marry Happy]";
-		mes "Sige, pagkatapos mong";
-		mes "magdesisyon na magpakasal,";
-		mes "bumalik ka sa akin at";
-		mes "isumite ang iyong aplikasyon.";
-		mes "Kita-kita nalang, adventurer~";
+		mes "Bien, cuando hayas decidido";
+		mes "casarte, regresa conmigo y";
+		mes "envia tu solicitud.";
+		mes "Nos vemos, aventurero~";
 		break;
 	case 3:
 		cutin "wedding_marry02",2;
 		if (VIP_SCRIPT) {
 			mes "[Marry Happy]";
-			mes "^FF0000Sandali!^000000";
-			mes "^FF0000Kung ang iyong account ay hindi premium, kailangan mong magkaroon ng Marriage Covenant upang magpakasal.^000000";
-			mes "^FF0000Mangyaring suriin ang kasalukuyang estado ng iyong account, at ng iyong mahal, bago mag-register para sa kasal.^000000";
+			mes "^FF0000Espera!^000000";
+			mes "^FF0000Si tu cuenta no es premium, necesitas tener un Marriage Covenant para casarte.^000000";
+			mes "^FF0000Por favor verifica el estado actual de tu cuenta, y la de tu pareja, antes de registrarte para la boda.^000000";
 			next;
 		}
 		if (Sex == SEX_MALE) {
 			mes "[Marry Happy]";
-			mes "Gusto mo bang magpakasal?";
-			mes "Bilang nobyo, kailangan mong maghanda ng";
+			mes "Quieres casarte?";
+			mes "Como novio, necesitas preparar";
 			if (.@covenant) {
-				mes "^3377FF1 Tuxedo^000000 at ibigay sa akin ang iyong ^3377FF1 Marriage Covenant^000000.";
-				mes "Ang mga nobya ay kailangang magdala ng sariling Wedding Dress at magbayad ng";
-				mes "1,200,000 zeny o magdala rin ng Marriage Covenant.";
+				mes "^3377FF1 Tuxedo^000000 y entregarme tu ^3377FF1 Marriage Covenant^000000.";
+				mes "Las novias deben traer su propio Wedding Dress y pagar";
+				mes "1,200,000 zeny o traer un Marriage Covenant tambien.";
 			} else {
-				mes "^3377FF1 Tuxedo^000000 at magbayad ng ^3377FF1,300,000 zeny^000000.";
-				mes "Ang mga nobya ay kailangang magdala ng sariling Wedding Dress at magbayad ng";
+				mes "^3377FF1 Tuxedo^000000 y pagar ^3377FF1,300,000 zeny^000000.";
+				mes "Las novias deben traer su propio Wedding Dress y pagar";
 				mes "1,200,000 zeny.";
 			}
 		} else {
 			mes "[Marry Happy]";
-			mes "Gusto mo bang magpakasal?";
-			mes "Bilang nobya, kailangan mong maghanda ng";
+			mes "Quieres casarte?";
+			mes "Como novia, necesitas preparar";
 			if (.@covenant) {
-				mes "^3377FF1 Wedding Dress^000000 at ibigay sa akin ang iyong ^3377FFMarriage Covenant^000000.";
-				mes "Ang mga nobyo ay kailangang magdala ng Tuxedo at magbayad ng";
-				mes "1,300,000 zeny o magdala rin ng Marriage Covenant.";
+				mes "^3377FF1 Wedding Dress^000000 y entregarme tu ^3377FFMarriage Covenant^000000.";
+				mes "Los novios deben traer un Tuxedo y pagar";
+				mes "1,300,000 zeny o traer un Marriage Covenant tambien.";
 			} else {
-				mes "^3377FF1 Wedding Dress^000000 at magbayad ng 1,200,000 zeny. Ang mga nobyo ay kailangang";
-				mes "magdala ng Tuxedo at magbayad ng 1,300,000 zeny upang magpakasal.";
+				mes "^3377FF1 Wedding Dress^000000 y pagar 1,200,000 zeny. Los novios deben";
+				mes "traer un Tuxedo y pagar 1,300,000 zeny para casarse.";
 			}
 		}
 		next;
 		mes "[Marry Happy]";
-		mes "Ang mga nobya at nobyo ay kailangan ding";
-		mes "magkaroon ng ^3377FF1 Diamond Ring^000000 na";
-		mes "ipagpapalit sa kanilang kapareha.";
-		mes "Kailangan mong ihanda ang lahat ng ito";
-		mes "bago mo isumite ang iyong";
-		mes "aplikasyon para sa seremonya ng kasal.";
+		mes "Tanto las novias como los novios";
+		mes "tambien deben tener ^3377FF1 Diamond Ring^000000";
+		mes "que intercambiaran con su pareja.";
+		mes "Necesitas preparar todo esto";
+		mes "antes de enviar tu solicitud";
+		mes "para la ceremonia de boda.";
 		next;
 		mes "[Marry Happy]";
-		mes "Ang magiging nobya at";
-		mes "nobyo ay kailangang pareho";
-		mes "kumpletuhin ang proseso ng";
-		mes "aplikasyon bago maganap ang kasal.";
-		mes "Ngayon, gusto mo bang";
-		mes "mag-apply para sa kasal?";
+		mes "Tanto la futura novia como";
+		mes "el novio deben completar";
+		mes "el proceso de solicitud antes";
+		mes "de que la boda pueda llevarse";
+		mes "a cabo. Ahora, quieres";
+		mes "solicitar la boda?";
 		next;
-		if (select("Oo:Hindi") == 1) {
+		if (select("Si:No") == 1) {
 			if (getpartnerid()) {
 				cutin "wedding_marry02",2;
 				mes "[Marry Happy]";
-				mes "Paumanhin, ngunit hindi ka";
-				mes "maaaring mag-apply para sa";
-				mes "isa pang kasal! Hindi ko";
-				mes "maaaring payagan kang talikuran";
-				mes "ang iyong asawa, at bukod pa,";
-				mes "ang polygamy ay ilegal dito sa Rune-Midgarts.";
+				mes "Lo siento, pero no puedes";
+				mes "solicitar otra boda! No puedo";
+				mes "permitir que abandones a tu";
+				mes "pareja, y ademas, la poligamia";
+				mes "es ilegal aqui en";
+				mes "Rune-Midgarts.";
 				break;
 			}
 			else if (wedding_sign == 1) {
 				mes "[Marry Happy]";
-				mes "Hindi ba natapos mo na";
-				mes "ang aplikasyon?";
-				mes "Hmm, siguraduhing ang";
-				mes "iyong kapareha ay natapos na rin";
-				mes "sa proseso ng aplikasyon, at";
-				mes "pagkatapos ay kausapin si Bishop Vomars.";
+				mes "No completaste ya";
+				mes "la solicitud?";
+				mes "Hmm, asegurate de que";
+				mes "tu pareja tambien haya";
+				mes "terminado el proceso de";
+				mes "solicitud, y luego hablen con el Obispo Vomars.";
 				break;
 			}
 			else if (BaseLevel < 45) {
 				mes "[Marry Happy]";
-				mes "Hmm, kailangan mong maging";
-				mes "sapat na malakas upang protektahan";
-				mes "ang iyong minamahal bago";
-				mes "ka mag-isip ng kasal.";
-				mes "Pagkatapos mong lumakas pa,";
-				mes "bumalik ka at kausapin mo ako muli.";
+				mes "Hmm, necesitas ser";
+				mes "lo suficientemente fuerte";
+				mes "para proteger a tu ser";
+				mes "querido antes de pensar en";
+				mes "casarte. Cuando te hagas";
+				mes "mas fuerte, regresa y hablame.";
 				goto L_End;
 			}
 			else if (countitem(2613) < 1) {
 				mes "[Marry Happy]";
-				mes "Mm? Nakalimutan mo bang";
-				mes "dalhin ang Diamond Ring";
-				mes "na ipagpapalit sa iyong kapareha";
-				mes "sa seremonya ng kasal?";
-				mes "Hanapin mong mabuti at bumalik";
-				mes "kapag nahanap mo na, sige?";
+				mes "Mm? Olvidaste traer";
+				mes "el Diamond Ring que";
+				mes "intercambiaras con tu pareja";
+				mes "en la ceremonia de boda?";
+				mes "Buscalo bien y regresa";
+				mes "cuando lo encuentres, si?";
 				goto L_End;
 			}
 			else if (Sex == SEX_FEMALE) {
 				if (countitem(6026) == 0 && Zeny < 1200000) {
 					mes "[Marry Happy]";
-					mes "Paumanhin, ngunit lahat ng nobya";
-					mes "ay kailangang magbayad ng 1,200,000";
-					mes "zeny o magdala ng Marriage";
-					mes "Covenant upang magpatuloy sa";
-					mes "seremonya ng kasal. Baka";
-					mes "maaari mong hilingin sa iyong kapareha";
-					mes "na tulungan ka sa pondo?";
+					mes "Lo siento, pero todas las";
+					mes "novias deben pagar 1,200,000";
+					mes "zeny o traer un Marriage";
+					mes "Covenant para continuar con";
+					mes "la ceremonia de boda. Quizas";
+					mes "puedas pedirle a tu pareja";
+					mes "que te ayude con los fondos?";
 					goto L_End;
 				}
 				else if (countitem(2338) < 1) {
 					mes "[Marry Happy]";
-					mes "Hay naku, nakalimutan mo ba";
-					mes "ang iyong Wedding Dress?";
-					mes "Magmadali at hanapin ito, at";
-					mes "dalhin sa akin-- talagang";
-					mes "kailangan mo ito";
-					mes "para sa kasal!";
+					mes "Ay, olvidaste tu";
+					mes "Wedding Dress? Date prisa";
+					mes "y buscalo, y traemeloco--";
+					mes "realmente lo necesitas";
+					mes "para la boda!";
 					goto L_End;
 				}
 			}
 			else if (Sex == SEX_MALE) {
 				if (countitem(6026) == 0 && Zeny < 1300000) {
 					mes "[Marry Happy]";
-					mes "Paumanhin, ngunit wala ka ng";
-					mes "1,300,000 zeny";
-					mes "o ng Marriage Covenant";
-					mes "na kailangan ng lahat ng nobyo";
-					mes "para sa seremonya ng kasal.";
-					mes "Nailagay mo ba sa maling lugar ang pera mo?";
+					mes "Lo siento, pero no tienes";
+					mes "los 1,300,000 zeny ni el";
+					mes "Marriage Covenant que todos";
+					mes "los novios necesitan para";
+					mes "la ceremonia de boda.";
+					mes "Extraviaste tu dinero?";
 					goto L_End;
 				}
 				else if (countitem(7170) < 1) {
 					mes "[Marry Happy]";
-					mes "Nasaan ang iyong Tuxedo?";
-					mes "Kailangan mo talagang";
-					mes "isuot ito sa seremonya ng kasal!";
-					mes "Hanapin ito, dalhin sa akin,";
-					mes "at pagkatapos ay maaari na nating";
-					mes "simulan ang kasal, sige?";
+					mes "Donde esta tu Tuxedo?";
+					mes "Realmente necesitas";
+					mes "usarlo en la ceremonia";
+					mes "de boda! Buscalo, traemeloco,";
+					mes "y luego podemos comenzar la";
+					mes "boda, si?";
 					goto L_End;
 				}
 			}
 			mes "[Marry Happy]";
-			mes "Mukhang handa ka na";
-			mes "sa lahat ng bagay.";
-			mes "Bagama't hindi ko alam kung";
-			mes "sino ang kapareha mo, hayaan";
-			mes "akong maging una sa pagbati sa iyo";
-			mes "sa iyong paparating na kasal~";
+			mes "Parece que tienes";
+			mes "todo listo.";
+			mes "Aunque no se quien es";
+			mes "tu pareja, dejame ser";
+			mes "la primera en felicitarte";
+			mes "por tu proxima boda~";
 			next;
 			mes "[Marry Happy]";
-			mes "Ngayon, simulan na natin";
-			mes "ang aplikasyon. Mangyaring isulat";
-			mes "ang iyong eksaktong pangalan dito.";
+			mes "Ahora, comencemos con";
+			mes "la solicitud. Por favor";
+			mes "escribe tu nombre exacto aqui.";
 			next;
 			while(1) {
 				input .@name$;
 				if (.@name$ != strcharinfo(0)) {
 					mes "[Marry Happy]";
-					mes "Hmmm, kailangan mong isulat";
-					mes "ang iyong pangalan nang eksakto";
-					mes "kung paano ito ipinapakita.";
-					mes "Baka kailangan mong i-copy";
-					mes "at i-paste ito? Sige, subukan natin muli.";
+					mes "Hmmm, necesitas escribir";
+					mes "tu nombre exactamente como";
+					mes "aparece. Quizas necesites";
+					mes "copiarlo y pegarlo?";
+					mes "Vamos, intentemoslo de nuevo.";
 					next;
 				}
 				else
 					break;
 			}
 			mes "[Marry Happy]";
-			mes "Magaling, mukhang natapos na";
-			mes "natin ang iyong aplikasyon.";
-			mes "Tandaan na kailangan mong";
-			mes "sabihin kay Bishop Vomars ang";
-			mes "eksaktong pangalan ng iyong";
-			mes "kapareha kapag nakausap mo siya mamaya, sige?";
+			mes "Excelente, parece que hemos";
+			mes "completado tu solicitud.";
+			mes "Recuerda que necesitas";
+			mes "decirle al Obispo Vomars el";
+			mes "nombre exacto de tu pareja";
+			mes "cuando hables con el despues, si?";
 			next;
 			mes "[Marry Happy]";
-			mes "Kapag natapos na ang iyong";
-			mes "kapareha sa proseso ng aplikasyon,";
-			mes "pareho kayong dapat makipag-usap";
-			mes "sa Bishop upang simulan";
-			mes "ang seremonya ng kasal.";
+			mes "Cuando tu pareja termine";
+			mes "con el proceso de solicitud,";
+			mes "ambos deben hablar con el";
+			mes "Obispo para comenzar la";
+			mes "ceremonia de boda.";
 			emotion ET_THROB;
 			next;
 			mes "[Marry Happy]";
 			if (Sex == SEX_FEMALE) {
-				mes "Dahil ikaw ang nobya,";
-				mes "kailangan mong hintayin na";
-				mes "ang nobyo ang unang makipag-usap";
-				mes "kay Bishop Vomars. Kapag tapos";
-				mes "na siya, ikaw naman ang";
-				mes "kakausap kay Bishop Vomars.";
+				mes "Como tu eres la novia,";
+				mes "necesitas esperar a que";
+				mes "el novio hable primero con";
+				mes "el Obispo Vomars. Cuando";
+				mes "termine, sera tu turno de";
+				mes "hablar con el Obispo Vomars.";
 				if (.@covenant)
 					delitem 6026,1; //Marriage_Covenant
 				else
@@ -396,12 +396,12 @@ prt_church,97,100,4	script	Wedding Staff#w	71,{
 				delitem 2338,1; //Wedding_Dress
 			}
 			else {
-				mes "Dahil ikaw ang nobyo,";
-				mes "kailangan mong unang makipag-usap";
-				mes "sa Bishop. Kapag tapos ka na,";
-				mes "ang nobya naman ang";
-				mes "kakausap kay";
-				mes "Bishop Vomars.";
+				mes "Como tu eres el novio,";
+				mes "necesitas hablar primero con";
+				mes "el Obispo. Cuando termines,";
+				mes "sera el turno de la novia";
+				mes "de hablar con el";
+				mes "Obispo Vomars.";
 				if (.@covenant)
 					delitem 6026,1; //Marriage_Covenant
 				else
@@ -413,12 +413,12 @@ prt_church,97,100,4	script	Wedding Staff#w	71,{
 			goto L_End;
 		}
 		mes "[Marry Happy]";
-		mes "Hindi...?";
-		mes "Sige, kapag handa ka na";
-		mes "para sa kasal,";
-		mes "huwag kang mag-atubiling bumalik";
-		mes "sa akin upang mag-apply,";
-		mes "sige? Magandang araw~";
+		mes "No...?";
+		mes "Bien, cuando estes listo";
+		mes "para la boda, no dudes";
+		mes "en regresar conmigo para";
+		mes "solicitar, si?";
+		mes "Buen dia~";
 		break;
 	case 4:
 		cutin "wedding_marry02",2;
@@ -430,42 +430,40 @@ prt_church,97,100,4	script	Wedding Staff#w	71,{
 		donpcevent "Single Army#Kunlun::OnEnable";
 		emotion ET_HUK;
 		mes "[Single Army]";
-		mes "^CC9933Kailangan mong mag-refine";
-		mes "ng mga item nang mag-isa upang";
-		mes "makagawa ng magagandang";
-		mes "kagamitan!^000000";
+		mes "^CC9933Necesitas refinar items";
+		mes "solo para hacer equipos";
+		mes "geniales!^000000";
 		emotion ET_ROCK, getnpcid(0, "Single Army#Prontera");
 		next;
 		mes "[Single Army]";
-		mes "^330099Sayang lang ang bumuo";
-		mes "ng party sa mga";
-		mes "dungeon! Kaya ko";
-		mes "naman mag-isa!^000000";
+		mes "^330099Es una perdida de tiempo";
+		mes "formar party en las";
+		mes "mazmorras! Puedo";
+		mes "hacerlo solo!^000000";
 		emotion ET_ROCK, getnpcid(0, "Single Army#Geffen");
 		next;
 		mes "[Single Army]";
-		mes "^666666Hoy, nag-ensayo";
-		mes "ako nang mag-isa simula";
-		mes "nung ipinanganak ako, hanggang";
-		mes "sa job change ko!^000000";
+		mes "^666666Oye, entrene solo desde";
+		mes "que naci, hasta mi cambio";
+		mes "de clase!^000000";
 		emotion ET_ROCK, getnpcid(0, "Single Army#Morocc");
 		next;
 		mes "[Single Army]";
-		mes "^666600PINIPILI kong mag-isa";
-		mes "sa Pasko...";
-		mes "naglalaro ng Solitaire at";
-		mes "sumasagot ng crossword puzzles!^000000";
+		mes "^666600ELIJO estar solo";
+		mes "en Navidad...";
+		mes "jugando Solitario y";
+		mes "resolviendo crucigramas!^000000";
 		emotion ET_ROCK, getnpcid(0, "Single Army#Payon");
 		next;
 		mes "[Single Army]";
-		mes "^CC9966Maaaring basagin ng mga babae";
-		mes "ang aking espiritu, pero hindi";
-		mes "nila kailanman kukunin... ang KALAYAAN ko!^000000";
+		mes "^CC9966Las mujeres podran romper";
+		mes "mi espiritu, pero nunca";
+		mes "me quitaran... mi LIBERTAD!^000000";
 		emotion ET_ROCK, getnpcid(0, "Single Army#Amatsu");
 		next;
 		mes "[Single Army]";
-		mes "^669900...Kami ang malaya! Kami";
-		mes "ang Invincible Single Army!^000000";
+		mes "^669900...Nosotros somos libres! Nosotros";
+		mes "somos el Invencible Ejercito Soltero!^000000";
 		emotion ET_ROCK, getnpcid(0, "Single Army#Kunlun");
 		close2;
 		cutin "wedding_marry01",255;
@@ -490,10 +488,9 @@ L_End:
 
 prt_church,97,102,0	script	Single Army#Prontera	105,{
 	mes "[Single Army]";
-	mes "^CC9933Kailangan mong mag-refine";
-	mes "ng mga item nang mag-isa upang";
-	mes "makagawa ng magagandang";
-	mes "kagamitan!^000000";
+	mes "^CC9933Necesitas refinar items";
+	mes "solo para hacer equipos";
+	mes "geniales!^000000";
 	close;
 
 OnInit:
@@ -508,10 +505,10 @@ OnEnable:
 
 prt_church,98,102,0	script	Single Army#Geffen	705,{
 	mes "[Single Army]";
-	mes "^330099Sayang lang ang bumuo";
-	mes "ng party sa mga";
-	mes "dungeon! Kaya ko";
-	mes "naman mag-isa!^000000";
+	mes "^330099Es una perdida de tiempo";
+	mes "formar party en las";
+	mes "mazmorras! Puedo";
+	mes "hacerlo solo!^000000";
 	close;
 
 OnInit:
@@ -526,10 +523,9 @@ OnEnable:
 
 prt_church,99,102,0	script	Single Army#Morocc	707,{
 	mes "[Single Army]";
-	mes "^666666Hoy, nag-ensayo";
-	mes "ako nang mag-isa simula";
-	mes "nung ipinanganak ako, hanggang";
-	mes "sa job change ko!^000000";
+	mes "^666666Oye, entrene solo desde";
+	mes "que naci, hasta mi cambio";
+	mes "de clase!^000000";
 	close;
 
 OnInit:
@@ -544,10 +540,10 @@ OnEnable:
 
 prt_church,100,102,0	script	Single Army#Payon	708,{
 	mes "[Single Army]";
-	mes "^666600PINIPILI kong mag-isa";
-	mes "sa Pasko...";
-	mes "naglalaro ng Solitaire at";
-	mes "sumasagot ng crossword puzzles!^000000";
+	mes "^666600ELIJO estar solo";
+	mes "en Navidad...";
+	mes "jugando Solitario y";
+	mes "resolviendo crucigramas!^000000";
 	close;
 
 OnInit:
@@ -562,9 +558,9 @@ OnEnable:
 
 prt_church,101,102,0	script	Single Army#Amatsu	767,{
 	mes "[Single Army]";
-	mes "^CC9966Maaaring basagin ng mga babae";
-	mes " ang aking espiritu, pero hindi";
-	mes "nila kailanman kukunin... ang KALAYAAN ko!^000000";
+	mes "^CC9966Las mujeres podran romper";
+	mes " mi espiritu, pero nunca";
+	mes "me quitaran... mi LIBERTAD!^000000";
 	close;
 
 OnInit:
@@ -579,8 +575,8 @@ OnEnable:
 
 prt_church,102,102,0	script	Single Army#Kunlun	780,{
 	mes "[Single Army]";
-	mes "^669900...Kami ang malaya! Kami";
-	mes "ang Invincible Single Army!^000000";
+	mes "^669900...Nosotros somos libres! Nosotros";
+	mes "somos el Invencible Ejercito Soltero!^000000";
 	close;
 
 OnInit:
@@ -597,10 +593,10 @@ prt_church,100,128,4	script	Bishop#w	60,{
 	cutin "wedding_bomars01",2;
 	if (Upper == 2) {
 		mes "[Vomars]";
-		mes "Magandang araw, anak.";
-		mes "Naliligaw ka ba? Hmmm.";
-		mes "Alam mo ba kung nasaan ang";
-		mes "iyong nanay at tatay?";
+		mes "Buenos dias, hijo.";
+		mes "Estas perdido? Hmmm.";
+		mes "Sabes donde estan";
+		mes "tu mama y tu papa?";
 		close2;
 		cutin "wedding_bomars01",255;
 		end;
@@ -616,66 +612,66 @@ prt_church,100,128,4	script	Bishop#w	60,{
 						set $@wedding,1;
 						initnpctimer;
 						mes "[Vomars]";
-						mes "Mga kabataang mag-iibigan,";
-						mes "mangyaring tandaan ang sandaling";
-						mes "ito habang-buhay. Nawa'y ang inyong kinabukasan ay pagpalain ng kapayapaan";
-						mes "at kagalakan. Nawa'y ang pag-ibig na inyong ibinahagi";
-						mes "ay lumago sa bawat araw na lilipas.";
+						mes "Jovenes enamorados,";
+						mes "por favor recuerden este";
+						mes "momento para siempre. Que su";
+						mes "futuro sea bendecido con paz";
+						mes "y alegria. Que el amor que";
+						mes "comparten crezca cada dia que pase.";
 						next;
-						mapannounce "prt_church","Ito ang pag-aalok ng kasal mula sa nobyo, G. " + strcharinfo(0) + "...",bc_map;
+						mapannounce "prt_church","Esta es la propuesta de boda del novio, Sr. " + strcharinfo(0) + "...",bc_map;
 						mes "[Vomars]";
-						mes "Hanggang sa katapusan ng";
-						mes "mundo, nawa'y tumayo ka";
-						mes "sa tabi ng taong";
-						mes "iyong minamahal, upang suportahan";
-						mes "siya at protektahan. Ngayon, maaari";
-						mes "ko bang malaman ang pangalan ng iyong nobya?";
+						mes "Hasta el fin del mundo,";
+						mes "que permanezcas al lado";
+						mes "de la persona que amas,";
+						mes "para apoyarla y protegerla.";
+						mes "Ahora, puedo saber el";
+						mes "nombre de tu novia?";
 						next;
 						input $@wed_bride$;
 						mes "[Vomars]";
-						mes "G. " + strcharinfo(0) + "...";
-						mes "Isinusumpa mo ba sa iyong buhay";
-						mes "na habang-buhay mong mamahalin";
-						mes "at aalagaan ang iyong nobya,";
-						mes "si Bb. " + $@wed_bride$ + "?";
+						mes "Sr. " + strcharinfo(0) + "...";
+						mes "Juras por tu vida";
+						mes "que amaras y cuidaras";
+						mes "a tu novia,";
+						mes "la Srta. " + $@wed_bride$ + "?";
 						next;
-						select("Oo, tinatanggap ko.");
+						select("Si, acepto.");
 						set $@wed_groom$,strcharinfo(0);
 						mes "[Vomars]";
-						mes "Ngayon, oras na para sa";
-						mes "iyong nobya na gawin";
-						mes "ang kanyang panata sa kasal.";
-						mes "Kung maaari siyang lumapit...";
+						mes "Ahora, es momento de que";
+						mes "tu novia haga su voto";
+						mes "de matrimonio. Si puede";
+						mes "acercarse...";
 						close2;
-						mapannounce "prt_church","Ang nobyo, G. " + strcharinfo(0) + ", ay gumawa ng kanyang panata kay Bb. " + $@wed_bride$ + "...",bc_map;
+						mapannounce "prt_church","El novio, Sr. " + strcharinfo(0) + ", ha hecho su voto a la Srta. " + $@wed_bride$ + "...",bc_map;
 						cutin "",255;
 						end;
 					}
 					mes "[Vomars]";
-					mes "Paumanhin, ngunit ang nobyo";
-					mes "ang kailangang unang makipag-usap";
-					mes "sa akin upang simulan ang kasal.";
-					mes "Ito ay lumang protokol,";
-					mes "ngunit aaminin ko na napapanatili";
-					mes "nitong maayos ang daloy ng mga bagay.";
+					mes "Lo siento, pero el novio";
+					mes "debe hablar primero conmigo";
+					mes "para iniciar la boda. Es un";
+					mes "protocolo antiguo, pero admito";
+					mes "que mantiene las cosas en";
+					mes "orden.";
 					goto L_End;
 				}
 				mes "[Vomars]";
-				mes "Bago ka maikasal,";
-				mes "kailangan mo munang";
-				mes "bumuo ng party na dalawa";
-				mes "kasama ang iyong kapareha.";
-				mes "Pagkatapos, maaari na nating";
-				mes "ipagpatuloy ang seremonya.";
+				mes "Antes de que puedas casarte,";
+				mes "primero necesitas formar un";
+				mes "party de dos con tu pareja.";
+				mes "Despues de eso, podemos";
+				mes "continuar con la ceremonia.";
 				goto L_End;
 			}
 			mes "[Vomars]";
-			mes "Kailangan mong mag-apply para";
-			mes "sa kasal kay Happy Marry";
-			mes "bago ka magpakasal.";
-			mes "Sasabihin sa iyo ni Happy Marry";
-			mes "kung ano pa ang kailangan mong gawin";
-			mes "upang maghanda para sa kasal.";
+			mes "Necesitas solicitar la boda";
+			mes "con Happy Marry antes de";
+			mes "poder casarte. Happy Marry";
+			mes "te dira que mas necesitas";
+			mes "hacer para prepararte";
+			mes "para la boda.";
 			goto L_End;
 		}
 		else if ($@wedding == 1) {
@@ -686,29 +682,30 @@ prt_church,100,128,4	script	Bishop#w	60,{
 					if (Sex == SEX_FEMALE) {
 						if (strcharinfo(0) == $@wed_bride$) {
 							mes "[Vomars]";
-							mes "Mga kabataang mag-iibigan,";
-							mes "mangyaring tandaan ang sandaling";
-							mes "ito habang-buhay. Nawa'y ang inyong kinabukasan ay pagpalain ng kapayapaan";
-							mes "at kagalakan. Nawa'y ang pag-ibig na inyong ibinahagi";
-							mes "ay lumago sa bawat araw na lilipas.";
+							mes "Jovenes enamorados,";
+							mes "por favor recuerden este";
+							mes "momento para siempre. Que su";
+							mes "futuro sea bendecido con paz";
+							mes "y alegria. Que el amor que";
+							mes "comparten crezca cada dia que pase.";
 							next;
-							mapannounce "prt_church","Pakinggan natin kung ano ang sasabihin ng nobya, Bb. "+$@wed_bride$+"...",bc_map;
+							mapannounce "prt_church","Escuchemos lo que la novia, Srta. "+$@wed_bride$+", tiene que decir...",bc_map;
 							mes "[Vomars]";
-							mes "Bb. "+$@wed_bride$+"...";
-							mes "Isinusumpa mo bang mananatiling";
-							mes "tapat kay "+$@wed_groom$+",";
-							mes "na nasa tabi niya, kahit ano";
-							mes "pa man ang mga panganib?";
+							mes "Srta. "+$@wed_bride$+"...";
+							mes "Juras permanecer fiel";
+							mes "a "+$@wed_groom$+",";
+							mes "estar a su lado, sin importar";
+							mes "los peligros que vengan?";
 							next;
-							if (select("^FF0000Hindi.^000000:Oo, tinatanggap ko.") == 1) {
+							if (select("^FF0000No.^000000:Si, acepto.") == 1) {
 								cutin "wedding_bomars03",2;
-								mapannounce "prt_church","Susunod na mag-asawa, mangyaring lumapit...",bc_map;
+								mapannounce "prt_church","La siguiente pareja, por favor acerquese...",bc_map;
 								mes "[Vomars]";
-								mes "Kaya si "+$@wed_groom$;
-								mes "ay hindi ang taong gusto";
-								mes "mong pakasalan? Hmm.";
-								mes "Labis akong humihingi ng paumanhin";
-								mes "sa hindi pagkakaintindihan na ito...";
+								mes "Asi que "+$@wed_groom$;
+								mes "no es la persona con";
+								mes "la que quieres casarte? Hmm.";
+								mes "Pido disculpas sinceramente";
+								mes "por este malentendido...";
 								set $@wedding,0;
 								close2;
 								stopnpctimer;
@@ -716,11 +713,11 @@ prt_church,100,128,4	script	Bishop#w	60,{
 								end;
 							}
 							mes "[Vomars]";
-							mes "Tunay mo bang isinusumpa";
-							mes "ang katapatan at pasensya?";
-							mes "Pakakasalan mo ba si "+$@wed_groom$+"?";
+							mes "Realmente juras";
+							mes "fidelidad y paciencia?";
+							mes "Te casaras con "+$@wed_groom$+"?";
 							next;
-							if (select("Oo, tinatanggap ko.:^FF0000Hindi.^000000") == 1) {
+							if (select("Si, acepto.:^FF0000No.^000000") == 1) {
 								if (isloggedin(getcharid(3,$@wed_groom$))) {
 									if (marriage($@wed_groom$)) {
 										//Call Wedding effect
@@ -736,19 +733,19 @@ prt_church,100,128,4	script	Bishop#w	60,{
 										//Switch Script progression back to Bride
 										attachrid(getcharid(3,$@wed_bride$));
 										cutin "wedding_bomars02",2;
-										mapannounce "prt_church","Ipinapahayag ko ngayon na kayo, "+$@wed_groom$+" at "+$@wed_bride$+", ay mag-asawa na.",bc_map;
+										mapannounce "prt_church","Ahora los declaro, "+$@wed_groom$+" y "+$@wed_bride$+", marido y mujer.",bc_map;
 										mes "[Vomars]";
-										mes "Sa pamamagitan ng kapangyarihang";
-										mes "ipinagkaloob sa akin bilang Royal Bishop ng";
-										mes "Kaharian ng Rune-Midgarts,";
-										mes "ipinapahayag ko kayong mag-asawa.";
-										mes "Nawa'y ang inyong kinabukasan ay";
-										mes "pagpalain ng maraming dakilang kagalakan.";
+										mes "Por el poder que me ha sido";
+										mes "otorgado como Obispo Real del";
+										mes "Reino de Rune-Midgarts,";
+										mes "los declaro marido y mujer.";
+										mes "Que su futuro sea bendecido";
+										mes "con muchas grandes alegrias.";
 										next;
 										mes "[Vomars]";
-										mes "At panghuli...";
-										mes "Laging maging masaya,";
-										mes "mahal na "+$@wed_bride$+"...";
+										mes "Y por ultimo...";
+										mes "Siempre se feliz,";
+										mes "querida "+$@wed_bride$+"...";
 										set $@wed_groom$,"";
 										set $@wed_bride$,"";
 										set $@wedding,0;
@@ -761,22 +758,22 @@ prt_church,100,128,4	script	Bishop#w	60,{
 								}
 								cutin "wedding_bomars03",2;
 								mes "[Vomars]";
-								mes "Hm. Mukhang umalis ang";
-								mes "iyong nobyo bago natapos";
-								mes "ang seremonya.";
-								mes "Subukan muli kapag";
-								mes "bumalik na siya.";
+								mes "Hm. Parece que tu novio";
+								mes "se fue antes de que";
+								mes "terminara la ceremonia.";
+								mes "Intenta de nuevo cuando";
+								mes "el regrese.";
 								goto L_End;
 							}
 							else {
 								cutin "wedding_bomars03",2;
-								mapannounce "prt_church","Sayang! Tinanggihan ni "+$@wed_bride$+" ang alok ng kasal ni "+$@wed_groom$+"!",bc_map;
+								mapannounce "prt_church","Lastima! "+$@wed_bride$+" rechazo la propuesta de matrimonio de "+$@wed_groom$+"!",bc_map;
 								mes "[Vomars]";
-								mes "Hm. Mukhang nagbago";
-								mes "ang isip mo. Bagama't naaawa";
-								mes "ako sa nobyo, kailangan";
-								mes "mong gawin kung ano ang sinasabi";
-								mes "ng iyong puso na tama. Ngayon, tumakbo ka na!";
+								mes "Hm. Parece que cambiaste";
+								mes "de opinion. Aunque siento";
+								mes "lastima por el novio,";
+								mes "debes hacer lo que tu";
+								mes "corazon te dice que es correcto. Ahora, corre!";
 							}
 							set $@wed_groom$,"";
 							set $@wed_bride$,"";
@@ -794,12 +791,12 @@ prt_church,100,128,4	script	Bishop#w	60,{
 			}
 			if (strcharinfo(0) == $@wed_bride$) {
 				mes "[Vomars]";
-				mes "Hm? Mukhang hindi pa";
-				mes "natanggap ni Happy Marry ang";
-				mes "iyong aplikasyon sa kasal.";
-				mes "Mangyaring kausapin siya upang";
-				mes "masimulan na natin ang";
-				mes "seremonya ng kasal.";
+				mes "Hm? Parece que Happy Marry";
+				mes "aun no ha recibido tu";
+				mes "solicitud de boda. Por favor";
+				mes "habla con ella para que";
+				mes "podamos comenzar la";
+				mes "ceremonia de boda.";
 				goto L_End;
 			}
 			callsub S_Busy;
@@ -807,12 +804,12 @@ prt_church,100,128,4	script	Bishop#w	60,{
 		callsub S_Busy;
 	}
 	mes "[Vomars]";
-	mes "Nawa'y pagpalain kayo ng";
-	mes "walang hanggang kaligayahan.";
-	mes "Kahit gaano kadilim ang";
-	mes "kasalukuyan, laging tumayo";
-	mes "sa tabi ng iyong minamahal at";
-	mes "tumingin sa kinabukasan nang may pag-asa.";
+	mes "Que sean bendecidos con";
+	mes "felicidad eterna. Sin importar";
+	mes "cuan oscuro sea el presente,";
+	mes "siempre permanece al lado de";
+	mes "tu ser querido y mira al";
+	mes "futuro con esperanza.";
 
 L_End:
 	close2;
@@ -822,18 +819,18 @@ L_End:
 S_Busy:
 	if ($@wed_groom$ != "" && $@wed_bride$ != "") {
 		mes "[Vomars]";
-		mes "Ang kasal nina";
-		mes "Bb. "+ $@wed_bride$ +" at";
-		mes "G. "+ $@wed_groom$;
-		mes "ay kasalukuyang isinasagawa.";
-		mes "Mangyaring huwag maingay.";
+		mes "La boda de la";
+		mes "Srta. "+ $@wed_bride$ +" y el";
+		mes "Sr. "+ $@wed_groom$;
+		mes "esta en progreso.";
+		mes "Por favor guarden silencio.";
 		goto L_End;
 	}
 	mes "[Vomars]";
-	mes "Nagsasagawa ako ng kasal";
-	mes "para sa ibang mag-asawa ngayon, kaya";
-	mes "mangyaring matiyagang maghintay para sa";
-	mes "iyong pagkakataon. Salamat sa pag-unawa...";
+	mes "Estoy realizando una boda";
+	mes "para otra pareja ahora, asi";
+	mes "que por favor esperen pacientemente";
+	mes "su turno. Gracias por su comprension...";
 	goto L_End;
 
 OnStop:
@@ -847,7 +844,7 @@ OnReset:
 	end;
 
 OnTimer180000:
-	mapannounce "prt_church","Masyadong matagal ang iyong tugon... Susunod na mag-asawa, mangyaring lumapit.",bc_map;
+	mapannounce "prt_church","Tu respuesta tardo demasiado... La siguiente pareja, por favor acerquese.",bc_map;
 	donpcevent "Bishop#w::OnReset";
 	stopnpctimer;
 	end;
@@ -856,44 +853,42 @@ OnTimer180000:
 prt_church,28,178,4	script	The King of Rune-Midgarts	108,{
 	callfunc "F_GM_NPC";
 	mes "[Vomars]";
-	mes "Si-sino ka?";
-	mes "Kailangan mong malaman ang";
-	mes "password upang magamit";
-	mes "ang aking kahanga-hangang kapangyarihan.";
+	mes "Qu-quien eres?";
+	mes "Necesitas saber la";
+	mes "contrasena para usar";
+	mes "mi increible poder.";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) < 1) {
 		mes "[Vomars]";
-		mes "Hindi ito";
-		mes "lugar para";
-		mes "sa kalokohan.";
+		mes "Este no es lugar";
+		mes "para bromas.";
 		close2;
 		warp "prt_church",101,102;
 		end;
 	}
 	mes "[Wedding Switch]";
-	mes "May problema ba sa";
-	mes "seremonya ng kasal?";
-	mes "Maaari kong i-reset ang Bishop";
-	mes "Vomars NPC kung gusto mo.";
+	mes "Hay algun problema con";
+	mes "la ceremonia de boda?";
+	mes "Puedo reiniciar al Obispo";
+	mes "Vomars NPC si quieres.";
 	next;
-	switch(select("Hindi, salamat:I-RESET")) {
+	switch(select("No, gracias:REINICIAR")) {
 	case 1:
 		mes "[Wedding Switch]";
-		mes "Sige. Gayunpaman,";
-		mes "kung ang Bishop Vomars";
-		mes "NPC ay naka-stuck, maaaring";
-		mes "mas mabuting";
-		mes "i-reset ito.";
+		mes "De acuerdo. Sin embargo,";
+		mes "si el Obispo Vomars NPC";
+		mes "esta trabado, seria mejor";
+		mes "reiniciarlo.";
 		close;
 	case 2:
 		donpcevent "Bishop#w::OnStop";
 		donpcevent "Bishop#w::OnReset";
-		mapannounce "prt_church","Masyadong matagal ang iyong tugon... Susunod na mag-asawa, mangyaring lumapit.",bc_map;
+		mapannounce "prt_church","Tu respuesta tardo demasiado... La siguiente pareja, por favor acerquese.",bc_map;
 		mes "[Wedding Switch]";
-		mes "Ang Bishop Vomars NPC";
-		mes "ay na-reactivate na.";
-		mes "Dapat ay maaari nang";
-		mes "magpatuloy ang mga kasal.";
+		mes "El Obispo Vomars NPC";
+		mes "ha sido reactivado.";
+		mes "Las bodas ya pueden";
+		mes "continuar.";
 		close;
 	}
 }
@@ -901,46 +896,45 @@ prt_church,28,178,4	script	The King of Rune-Midgarts	108,{
 prt_church,20,179,4	script	Divorce Staff	71,{
 	callfunc "F_GM_NPC";
 	mes "[Bad Ending]";
-	mes "Naku...";
-	mes "Alam mo namang wala";
-	mes "akong magagawa para sa iyo.";
+	mes "Ay...";
+	mes "Sabes que no puedo";
+	mes "hacer nada por ti.";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) < 1) {
 		mes "[Bad Ending]";
 		mes "Hmm...";
-		mes "Hindi ka talaga";
-		mes "dapat nandito";
-		mes "sa lugar na ito...";
+		mes "Realmente no deberias";
+		mes "estar en este";
+		mes "lugar...";
 		close;
 	}
 	mes "[Bad Ending]";
-	mes "Magaling, alam mo ang";
-	mes "password! Ngayon, gusto mo";
-	mes "bang alisin ko ang";
-	mes "Wedding Ring sa iyong";
-	mes "inventory?";
+	mes "Bien, sabes la";
+	mes "contrasena! Ahora, quieres";
+	mes "que remueva el Wedding Ring";
+	mes "de tu inventario?";
 	next;
-	switch(select("Alisin ang 1 Wedding Ring.:Itabi ko na lang.")) {
+	switch(select("Remover 1 Wedding Ring.:Mejor lo guardo.")) {
 	case 1:
 		set .@ring, (Sex == SEX_MALE)?2634:2635; //Bridegroom_Ring, Bride_Ring
 		if (countitem(.@ring)) {
 			delitem .@ring,1;
 			mes "[Bad Ending]";
-			mes "Tapos na!";
+			mes "Listo!";
 		} else {
 			mes "[Bad Ending]";
-			mes "Hindi ko mahanap";
-			mes "ang Wedding Ring...";
-			mes "Mangyaring siguraduhing";
-			mes "hindi ito naka-equip.";
+			mes "No puedo encontrar";
+			mes "el Wedding Ring...";
+			mes "Por favor asegurate de";
+			mes "que no este equipado.";
 		}
 		close;
 	case 2:
 		mes "[Bad Ending]";
-		mes "Sigurado ka bang gusto";
-		mes "mong itabi ang singsing na iyon?";
-		mes "Sige, pero kung magkaproblema,";
-		mes "pumunta ka sa akin.";
+		mes "Estas seguro de que quieres";
+		mes "guardar ese anillo?";
+		mes "Bueno, pero si hay";
+		mes "problemas, ven conmigo.";
 		close;
 	}
 }
@@ -949,56 +943,55 @@ prt_church,22,179,4	script	Remarry Staff	71,{
 	callfunc "F_GM_NPC";
 	mes "[Wedding Again]";
 	mes "Hmm...?";
-	mes "Ano ba ang ginagawa";
-	mes "mo rito?";
+	mes "Que haces aqui?";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) < 1) {
 		mes "[Wedding Again]";
 		mes "Ahk!";
-		mes "Ang isang adventurer";
-		mes "na tulad mo ay hindi";
-		mes "dapat nandito sa lugar na ito!";
+		mes "Un aventurero como tu";
+		mes "no deberia estar en";
+		mes "este lugar!";
 		close;
 	}
 	if (getpartnerid()) {
 		mes "[Wedding Again]";
 		mes "Hmm...";
-		mes "Maaari ko lamang gawin";
-		mes "ang Wedding Ring kung ang";
-		mes "karakter ay may asawa.";
+		mes "Solo puedo hacer";
+		mes "el Wedding Ring si el";
+		mes "personaje tiene pareja.";
 		close;
 	}
 	mes "[Wedding Again]";
-	mes "Ah, nakikita kong alam";
-	mes "mo ang password.";
-	mes "Sige, kung nawala mo";
-	mes "ang iyong Wedding Ring,";
-	mes "maaari akong gumawa ng bago.";
+	mes "Ah, veo que sabes";
+	mes "la contrasena.";
+	mes "Bien, si perdiste";
+	mes "tu Wedding Ring,";
+	mes "puedo hacer uno nuevo.";
 	next;
-	switch(select("Gumawa ng bagong Wedding Ring.:Kanselahin.")) {
+	switch(select("Hacer un nuevo Wedding Ring.:Cancelar.")) {
 	case 1:
 		set .@ring, (Sex == SEX_MALE)?2634:2635; //Bridegroom_Ring, Bride_Ring
 		if (countitem(.@ring) || isequipped(.@ring)) {
 			mes "[Wedding Again]";
-			mes "Teka, teka...";
-			mes "Nakasuot ka ng iyong";
-			mes "Wedding Ring. Mas mabuting";
-			mes "huwag na akong gumawa ng isa pa";
-			mes "dahil isa lang naman ang kailangan mo.";
+			mes "Espera, espera...";
+			mes "Tienes puesto tu";
+			mes "Wedding Ring. Mejor no";
+			mes "hago otro porque solo";
+			mes "necesitas uno.";
 		} else {
 			getitem .@ring,1;
 			mes "[Wedding Again]";
-			mes "Eto na~";
-			mes "Ang bago mong";
+			mes "Aqui tienes~";
+			mes "Tu nuevo";
 			mes "Wedding Ring!";
 		}
 		close;
 	case 2:
 		mes "[Wedding Again]";
-		mes "Sige. Kung sakaling";
-		mes "mawala ang iyong Wedding Ring,";
-		mes "pumunta ka sa akin kung";
-		mes "kailangan mo ng bago, sige?";
+		mes "De acuerdo. Si llegas a";
+		mes "perder tu Wedding Ring,";
+		mes "ven conmigo si necesitas";
+		mes "uno nuevo, si?";
 		close;
 	}
 }

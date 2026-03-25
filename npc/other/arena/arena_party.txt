@@ -45,25 +45,25 @@ prt_are_in,76,87,3	script	Helper#party	67,4,4,{
 		set $arn_partywait,1;
 		emotion ET_SURPRISE;
 		mes "[Helper Iriff]";
-		mes "Good day, challengers!";
-		mes "You are in the party arena waiting room.";
+		mes "Buen dia, retadores!";
+		mes "Estan en la sala de espera de la arena grupal.";
 		next;
 		mes "[Helper Iriff]";
-		mes "Only one person at a time is allowed to stay in this waiting room.";
-		mes "Would you like to start a battle now?";
+		mes "Solo una persona a la vez puede permanecer en esta sala de espera.";
+		mes "Te gustaria iniciar una batalla ahora?";
 		next;
-		switch( select( "No","Yes" ) ) {
+		switch( select( "No","Si" ) ) {
 		case 1:
 			set $arn_partywait,0;
 			mes "[Helper Iriff]";
-			mes "I see.";
-			mes "However, please remember you have only a limited amount of time.";
+			mes "Ya veo.";
+			mes "Sin embargo, recuerda que solo tienes una cantidad limitada de tiempo.";
 			close;
 		case 2:
 			mes "[Helper Iriff]";
-			mes "Thank you, let me start a battle.";
-			mes "A warp portal leading to the arena room will be open.";
-			mes "I hope you will survive until the end of the battle and engrave your name on the list of honor...";
+			mes "Gracias, dejame iniciar una batalla.";
+			mes "Se abrira un portal que lleva a la sala de arena.";
+			mes "Espero que sobrevivas hasta el final de la batalla y grabes tu nombre en la lista de honor...";
 			close2;
 			donpcevent "toarena#party::OnEnter";
 			donpcevent "Helper#party::OnStop";
@@ -154,79 +154,79 @@ OnStart:
 	end;
 
 OnTimer2000:
-	mapannounce "force_1-2","Good day, my name is Slipslowrun! I am here to assist you in the party arena battles!",bc_all;
+	mapannounce "force_1-2","Buen dia, mi nombre es Slipslowrun! Estoy aqui para asistirlos en las batallas de arena grupal!",bc_all;
 	//Official "arena_compass" script is extremely buggy, so we aren't using it.
 	//donpcevent "arena_compass::OnStart";
 	end;
 
 OnTimer3000:
-	mapannounce "force_1-2","The goal of the party arena is eliminating every monster in each room.",bc_all;
+	mapannounce "force_1-2","El objetivo de la arena grupal es eliminar a todos los monstruos en cada sala.",bc_all;
 	end;
 
 OnTimer4000:
-	mapannounce "force_1-2","There is no order to enter one among 3 rooms at 3 direction. But remember you will eliminate all monsters in a room in order to procceed to the next step.",bc_all;
+	mapannounce "force_1-2","No hay un orden para entrar a las 3 salas en 3 direcciones. Pero recuerden que deben eliminar a todos los monstruos en una sala para avanzar al siguiente paso.",bc_all;
 	end;
 
 OnTimer5000:
-	mapannounce "force_1-2","You have 10 minutes from now. I expect you will do your best! ",bc_all;
+	mapannounce "force_1-2","Tienen 10 minutos a partir de ahora. Espero que den lo mejor de si! ",bc_all;
 	end;
 
 OnTimer60000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 9 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 9 minutos",bc_all;
 	end;
 
 OnTimer120000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 8 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 8 minutos",bc_all;
 	end;
 
 OnTimer180000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 7 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 7 minutos",bc_all;
 	end;
 
 OnTimer240000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 6 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 6 minutos",bc_all;
 	end;
 
 OnTimer300000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 5 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 5 minutos",bc_all;
 	end;
 
 OnTimer360000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 4 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 4 minutos",bc_all;
 	end;
 
 OnTimer420000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 3 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 3 minutos",bc_all;
 	end;
 
 OnTimer480000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 2 minutes ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 2 minutos",bc_all;
 	end;
 
 OnTimer540000:
 	if (getmapusers("force_1-2") == 0)
 		donpcevent "Slipslowrun#party::OnFail";
-	mapannounce "force_1-2","Remaining Time : 1 minute ",bc_all;
+	mapannounce "force_1-2","Tiempo restante: 1 minuto",bc_all;
 	end;
 
 OnTimer600000:
-	mapannounce "force_1-2","Time is over! Please make sure you do not leave anything behind you before you leave .",bc_all;
+	mapannounce "force_1-2","Se acabo el tiempo! Por favor asegurense de no dejar nada atras antes de irse.",bc_all;
 	end;
 
 OnTimer605000:
@@ -263,55 +263,55 @@ OnTimerOff:
 	end;
 
 On01_End:
-	mapannounce "force_1-2","A door to the east room has opened!",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la sala este!",bc_all;
 	end;
 
 On02_End:
-	mapannounce "force_1-2","A door to the west room has opened!",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la sala oeste!",bc_all;
 	end;
 
 On03_End:
-	mapannounce "force_1-2","A door to the south room has opened!",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la sala sur!",bc_all;
 	end;
 
 On04_Start:
-	mapannounce "force_1-2","A door to the 4th room at the east has opened!",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la 4ta sala al este!",bc_all;
 	end;
 
 On04_End1:
-	mapannounce "force_1-2","A warp portal at the west has opened! Please clear the 5th room at the end of the west hall! ",bc_all;
+	mapannounce "force_1-2","Se ha abierto un portal al oeste! Por favor completen la 5ta sala al final del pasillo oeste! ",bc_all;
 	end;
 
 On04_End2:
-	mapannounce "force_1-2","A warp portal at the west north room has opened! ",bc_all;
+	mapannounce "force_1-2","Se ha abierto un portal en la sala noroeste! ",bc_all;
 	end;
 
 On05_End1:
-	mapannounce "force_1-2","A door to the east room has opened~",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la sala este~",bc_all;
 	end;
 
 On05_End2:
-	mapannounce "force_1-2","A door to the north room has opened~",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la sala norte~",bc_all;
 	end;
 
 On06_End:
-	mapannounce "force_1-2","A door to the east room has opened~",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta a la sala este~",bc_all;
 	end;
 
 On07_End:
-	mapannounce "force_1-2","A door at the north has opened~",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta al norte~",bc_all;
 	end;
 
 On08_End:
-	mapannounce "force_1-2","A door to the west hall has opened~",bc_all;
+	mapannounce "force_1-2","Se ha abierto una puerta al pasillo oeste~",bc_all;
 	end;
 
 On09_End:
-	mapannounce "force_1-2","A west exit has opened!",bc_all;
+	mapannounce "force_1-2","Se ha abierto una salida al oeste!",bc_all;
 	end;
 
 On10_End:
-	mapannounce "force_1-2","Boss stage cleared! An exit at the east has opened! Thank you.",bc_all;
+	mapannounce "force_1-2","Etapa del jefe superada! Se ha abierto una salida al este! Gracias.",bc_all;
 	end;
 }
 
@@ -953,19 +953,19 @@ OnMyMobDead:
 
 prt_are_in,181,135,3	script	Staff#party-1	67,{
 	mes "[Staff]";
-	mes "You did a good job.";
-	mes "Even if you have failed to clear a time attack battle, I will reward you with a small amount of arena points.";
+	mes "Buen trabajo.";
+	mes "Aunque no hayas logrado superar la batalla contrarreloj, te recompensare con una pequena cantidad de puntos de arena.";
 	next;
 	if (arena_point == 30000) {
 		mes "[Staff]";
-		mes "Uh huh!";
-		mes "You already have enough arena points.";
-		mes "Please spend some arena points later. When I see you next time, I will make sure to give you some reward.";
+		mes "Oh oh!";
+		mes "Ya tienes suficientes puntos de arena.";
+		mes "Por favor gasta algunos puntos de arena. Cuando nos volvamos a ver, me asegurare de darte alguna recompensa.";
 		next;
 	}
 	else set arena_point, arena_point + 1;
 	mes "[Staff]";
-	mes "Let me guide you outside. I hope you had a good time.";
+	mes "Dejame guiarte afuera. Espero que la hayas pasado bien.";
 	close2;
 	specialeffect2 EF_HIT5;
 	warp "arena_room",100,75;
@@ -992,45 +992,45 @@ prt_are_in,77,135,3	script	Staff#party-2	67,{
 	}
 	set @gappt,(60 * $top_ptmin + $top_ptsec) - (60 * @record_minpt + @record_secpt);
 	mes "[Staff]";
-	mes "Wow, you did a good job~ ";
-	mes "Your name is...^3131FF" + strcharinfo(0) +"^000000, isn't it?";
-	mes "^3131FF"+ strcharinfo(0) +"^000000, total time you spent to pass the battle..";
+	mes "Wow, buen trabajo~ ";
+	mes "Tu nombre es...^3131FF" + strcharinfo(0) +"^000000, verdad?";
+	mes "^3131FF"+ strcharinfo(0) +"^000000, el tiempo total que tardaste en superar la batalla..";
 	next;
 	mes "[Staff]";
-	mes "is "+@record_minpt+"minutes "+@record_secpt+"seconds.";
-	mes "Congratulations!";
+	mes "es "+@record_minpt+" minutos "+@record_secpt+" segundos.";
+	mes "Felicidades!";
 	next;
 	mes "[Staff]";
-	mes "The fastest party among people who cleared party arena time force battle is ^3131FF"+$arena_pttopn$+"^000000.";
+	mes "El grupo mas rapido entre quienes superaron la Batalla de Fuerza Temporal de arena grupal es ^3131FF"+$arena_pttopn$+"^000000.";
 	next;
 	mes "[Staff]";
-	mes "^3131FF"+$arena_pttopn$+"^000000's running time was ^3131FF"+$top_ptmin+"^000000minutes ^3131FF"+$top_ptsec+"^000000seconds.";
+	mes "^3131FF"+$arena_pttopn$+"^000000's su tiempo fue ^3131FF"+$top_ptmin+"^000000minutos ^3131FF"+$top_ptsec+"^000000segundos.";
 	next;
 	if (@gappt < 0) {
 		mes "[Staff]";
-		mes "Although you failed to make a new record, I hope you will succeed next time.";
+		mes "Aunque no lograste un nuevo record, espero que lo logres la proxima vez.";
 		next;
 		if (arena_point > 29980) {
 			mes "[Staff]";
-			mes "Then let me reward you with some arena points....eh?";
-			mes "Your arena points have exceeded the maximum amount. I cannot give you more points until you spend some points.";
+			mes "Dejame recompensarte con algunos puntos de arena....eh?";
+			mes "Tus puntos de arena han excedido la cantidad maxima. No puedo darte mas puntos hasta que gastes algunos.";
 			next;
 			mes "[Staff]";
-			mes "You can check the amount of arena points you have in the arena waiting room.";
+			mes "Puedes verificar la cantidad de puntos de arena que tienes en la sala de espera de la arena.";
 			next;
 			mes "[Staff]";
-			mes "I hope you had a good time and let me guide you to the entrance of arena.";
-			mes "Thank you.";
+			mes "Espero que la hayas pasado bien, dejame guiarte a la entrada de la arena.";
+			mes "Gracias.";
 			close2;
 		} else {
 			set arena_point, arena_point + 40;
 			mes "[Staff]";
-			mes "Let me reward you some arena points.";
-			mes "If you wish to check the amount of arena points you have, please go talk to ^3131FFVendigos^000000 at the arena entrance.";
+			mes "Dejame recompensarte con algunos puntos de arena.";
+			mes "Si deseas verificar la cantidad de puntos de arena que tienes, ve a hablar con ^3131FFVendigos^000000 en la entrada de la arena.";
 			next;
 			mes "[Staff]";
-			mes "Let me guide you to the entrance of arena.";
-			mes "See you later~";
+			mes "Dejame guiarte a la entrada de la arena.";
+			mes "Hasta luego~";
 			close2;
 		}
 		if (is_party_leader() == true) {
@@ -1045,70 +1045,70 @@ prt_are_in,77,135,3	script	Staff#party-2	67,{
 	} else {
 		emotion ET_HUK;
 		mes "[Staff]";
-		mes "Wow! You have renewed the record!";
-		mes "What a great job!";
+		mes "Wow! Has superado el record!";
+		mes "Que gran trabajo!";
 		next;
 		if (is_party_leader() == true) {
 			mes "[Staff]";
-			mes "You can record you and your party members on ^FF0000the hall of Arena Time Force Battle party ^000000.";
-			mes "When you enter a name, the name will be remained on the top unless someone make a new record.";
+			mes "Puedes registrar a ti y a los miembros de tu grupo en ^FF0000el salon de la Batalla de Fuerza Temporal de Arena grupal^000000.";
+			mes "Cuando ingreses un nombre, permanecera en la cima a menos que alguien establezca un nuevo record.";
 			next;
 			mes "[Staff]";
-			mes "Please enter a name within 10 letters which can represent you and your party members.";
+			mes "Por favor ingresa un nombre de hasta 10 letras que represente a ti y a los miembros de tu grupo.";
 			next;
-			switch( select( "Ok.","Let me think." ) )  {
+			switch( select( "Ok.","Dejame pensar." ) )  {
 			case 1:
 				input .@arnparty$;
 				mes "[Staff]";
-				mes "You have entered ^3131FF"+.@arnparty$+"^000000. Is it correct?";
+				mes "Has ingresado ^3131FF"+.@arnparty$+"^000000. Es correcto?";
 				next;
-				switch( select( "Yes","No" ) ) {
+				switch( select( "Si","No" ) ) {
 				case 1:
 					set $top_ptmin, @record_minpt;
 					set $top_ptsec, @record_secpt;
 					set $arena_pttopn$,.@arnparty$;
 					donpcevent "Vendigos::OnLineRec_pt";
 					mes "[Staff]";
-					mes "Your record has been entered.";
+					mes "Tu record ha sido registrado.";
 					next;
 					break;
 				case 2:
 					mes "[Staff]";
-					mes "Please take your time and think up a nice name.";
+					mes "Tomate tu tiempo y piensa en un buen nombre.";
 					close;
 				}
 				break;
 			case 2:
 				mes "[Staff]";
-				mes "Please take your time and think up a nice name.";
+				mes "Tomate tu tiempo y piensa en un buen nombre.";
 				close;
 			}
 		}
 		if (arena_point > 29900) {
 			mes "[Staff]";
-			mes "Then let me reward you with some arena points....eh?";
-			mes "Your arena points have exceeded the maximum amount. I cannot give you more points until you spend some points.";
+			mes "Dejame recompensarte con algunos puntos de arena....eh?";
+			mes "Tus puntos de arena han excedido la cantidad maxima. No puedo darte mas puntos hasta que gastes algunos.";
 			next;
 			mes "[Staff]";
-			mes "You can check the amount of arena points you have in the arena waiting room.";
+			mes "Puedes verificar la cantidad de puntos de arena que tienes en la sala de espera de la arena.";
 			next;
 			mes "[Staff]";
-			mes "I hope you had a good time and let me guide you to the entrance of arena.";
-			mes "Thank you.";
+			mes "Espero que la hayas pasado bien, dejame guiarte a la entrada de la arena.";
+			mes "Gracias.";
 			close2;
 		} else {
 			mes "[Staff]";
-			mes "Let me reward you with some arena points.";
-			mes "At the same time, since you have renewed the record you will receive an extra amount of the points this time.";
+			mes "Dejame recompensarte con algunos puntos de arena.";
+			mes "Al mismo tiempo, como has superado el record, recibiras una cantidad extra de puntos esta vez.";
 			next;
 			set arena_point, arena_point + 100;
 			mes "[Staff]";
-			mes "Let me reward you some arena points.";
-			mes "If you wish to check the amount of arena points you have, please go talk to ^3131FFVendigos^000000 at the arena entrance.";
+			mes "Dejame recompensarte con algunos puntos de arena.";
+			mes "Si deseas verificar la cantidad de puntos de arena que tienes, ve a hablar con ^3131FFVendigos^000000 en la entrada de la arena.";
 			next;
 			mes "[Staff]";
-			mes "Let me guide you to the entrance of arena.";
-			mes "See you later~";
+			mes "Dejame guiarte a la entrada de la arena.";
+			mes "Hasta luego~";
 			close2;
 		}
 		if (is_party_leader() == true) {
@@ -1128,15 +1128,15 @@ OnEnter:
 	end;
 
 OnTimer2000:
-	mapannounce "prt_are_in","This broadcast informs you about the restriction for party arena.",0,0xFFCE00;
+	mapannounce "prt_are_in","Este anuncio informa sobre las restricciones de la arena grupal.",0,0xFFCE00;
 	end;
 
 OnTimer3000:
-	mapannounce "prt_are_in","For a smooth game play, exit warp portal will be activated in 1 minute.",0,0xFFCE00;
+	mapannounce "prt_are_in","Para un juego fluido, el portal de salida se activara en 1 minuto.",0,0xFFCE00;
 	end;
 
 OnTimer4000:
-	mapannounce "prt_are_in","Please proceed your battle quickly as possible in order to avoid disadvantage. Thank you for your cooperation.",0,0xFFCE00;
+	mapannounce "prt_are_in","Por favor procedan con su batalla lo mas rapido posible para evitar desventajas. Gracias por su cooperacion.",0,0xFFCE00;
 	end;
 
 OnTimer60000:

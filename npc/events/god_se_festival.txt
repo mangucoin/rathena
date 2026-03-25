@@ -1,45 +1,45 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Valkyrie's Gift NPCs
-//===== By: ================================================== 
+//===== By: ==================================================
 //= L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.1
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
-//= Post-God Item SE Creation Summoning Event 
+//= Post-God Item SE Creation Summoning Event
 //= Second Sister is a custom translation.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version. [L0ne_W0lf]
 //= 1.1 Added GM management function. [Euphy]
-//============================================================ 
+//============================================================
 
 // Original name: "Festival Manager#god_se_fes00"
 yuno,1,1,0	script	Festival Manager#gq_fes0	891,{
 	callfunc "F_GM_NPC";
-	mes "[Festival Manager]";
-	mes "I am the festival NPC manager for the God SE quest.";
-	mes "Please enter your password.";
+	mes "[Administrador del Festival]";
+	mes "Soy el NPC administrador del festival para la mision God SE.";
+	mes "Por favor ingresa tu contrasena.";
 	next;
 	if (callfunc("F_GM_NPC","07godsefes",1) == 0) {
-		mes "[Festival Manager]";
-		mes "Password is incorrect.";
+		mes "[Administrador del Festival]";
+		mes "La contrasena es incorrecta.";
 		close;
 	}
-	mes "[Festival Manager]";
-	mes "What would you like to do?";
+	mes "[Administrador del Festival]";
+	mes "Que te gustaria hacer?";
 	next;
-	switch(select("Disable festival NPCs:Enable festival NPCs")) {
+	switch(select("Desactivar NPCs del festival:Activar NPCs del festival")) {
 	case 1:
-		mes "[Festival Manager]";
-		mes "Ending festivals and disabling NPCs.";
+		mes "[Administrador del Festival]";
+		mes "Finalizando festivales y desactivando NPCs.";
 		donpcevent "Rmimi Ravies#gq_fes01::Onover";
 		donpcevent "Rmimi Ravies#gq_fes01::Onover";
 		close;
 	case 2:
-		mes "[Festival Manager]";
-		mes "Resetting festivals and enabling NPCs.";
+		mes "[Administrador del Festival]";
+		mes "Reiniciando festivales y activando NPCs.";
 		donpcevent "Rmimi Ravies#gq_fes01::Onover";
 		donpcevent "Rmimi Ravies#gq_fes01::OnEnable";
 		close;
@@ -49,107 +49,107 @@ yuno,1,1,0	script	Festival Manager#gq_fes0	891,{
 yuno,118,192,5	script	Rmimi Ravies#gq_fes01	891,{
 	if (countitem(7840) > 0) {
 		mes "[Rmimi Ravies]";
-		mes "This is the flower.";
-		mes "This is just a formality, but let me check your qualifications.";
+		mes "Esta es la flor.";
+		mes "Esto es solo una formalidad, pero dejame verificar tus cualificaciones.";
 		next;
 		if (is_guild_leader() == true) {
 			mes "[Rmimi Ravies]";
-			mes "Your qualification is verified as a Guild master.";
+			mes "Tu cualificacion esta verificada como Maestro de Guild.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "I wonder if you know what this flower's use is... Let me explain it to you.";
+			mes "Me pregunto si sabes para que sirve esta flor... Dejame explicarte.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "This is the holy flower given by the Wish Maiden in Valkyrie, it can summon certain monsters by certain summoners.";
+			mes "Esta es la flor sagrada entregada por la Doncella de los Deseos de Valkyrie, puede invocar ciertos monstruos por ciertos invocadores.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "There are only two summoners in this world...";
-			mes "Me and my sister Rhehe...";
+			mes "Solo hay dos invocadores en este mundo...";
+			mes "Yo y mi hermana Rhehe...";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "We are totllly different, but we can...";
+			mes "Somos totalmente diferentes, pero podemos...";
 			next;
 			mes "[Rmimi Ravies]";
 			mes "...................................";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "Anyway,";
-			mes "Do you want to summon monsters?";
+			mes "En fin,";
+			mes "Quieres invocar monstruos?";
 			next;
-			switch(select("Do not summon:Summon, please")) {
+			switch(select("No invocar:Invocar, por favor")) {
 			case 1:
 				mes "[Rmimi Ravies]";
-				mes "I don't like to be interrupted by others..";
+				mes "No me gusta que me interrumpan los demas..";
 				next;
 				mes "[Rmimi Ravies]";
-				mes "But it's just business.";
+				mes "Pero es solo trabajo.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[Rmimi Ravies]";
-			mes "I will explain to you how to summon monsters.";
-			mes "This flower can summon the monsters 'Valkyrie's Blessing' and 'Valkyrie's Present' for one hour here in Juno.";
+			mes "Te explicare como invocar monstruos.";
+			mes "Esta flor puede invocar los monstruos 'Bendicion de Valkyrie' y 'Regalo de Valkyrie' durante una hora aqui en Juno.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "An announcement will be made stating which monster is summoned.";
-			mes "This festival is given by the Wish maiden for all adventurers to enjoy all over the world.";
+			mes "Se hara un anuncio indicando que monstruo fue invocado.";
+			mes "Este festival es un regalo de la Doncella de los Deseos para que todos los aventureros del mundo lo disfruten.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "Now, are you ready to summon monsters?";
+			mes "Ahora, estas listo para invocar monstruos?";
 			next;
-			switch(select("No, I'm not ready now.:Yes! I'm ready for that.")) {
+			switch(select("No, no estoy listo ahora.:Si! Estoy listo para eso.")) {
 			case 1:
 				mes "[Rmimi Ravies]";
-				mes "If you are not ready, why did you come to me?";
+				mes "Si no estas listo, para que viniste a mi?";
 				next;
 				mes "[Rmimi Ravies]";
-				mes "I'll be waiting until you are ready.";
-				mes "It is just business afterall.";
+				mes "Esperare hasta que estes listo.";
+				mes "Despues de todo, es solo trabajo.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[Rmimi Ravies]";
-			mes "Now we are ready.";
+			mes "Ahora estamos listos.";
 			next;
 			if ($@gqse_festival == 0) {
 				mes "[Rmimi Ravies]";
-				mes "Ok, we would ge started to summon monsters.";
+				mes "Bien, empecemos a invocar monstruos.";
 				delitem 7840,1; //Valkyrie's_Gift
 				next;
 				mes "[Rmimi Ravies]";
-				mes "Have a good time.";
+				mes "Que la pases bien.";
 				donpcevent "Rmimi Ravies#gq_fes01::OnStart";
-				
-				announce "["+ strcharinfo(0) +"] member of ["+ GetGuildName( getcharid(2) ) +"] is summoning a 'Valkyrie's Present' in 'Juno'.",bc_all,"0x70dbdb";
+
+				announce "["+ strcharinfo(0) +"] miembro de ["+ GetGuildName( getcharid(2) ) +"] esta invocando un 'Regalo de Valkyrie' en 'Juno'.",bc_all,"0x70dbdb";
 				close;
 			}
 			else {
 				mes "[Rmimi Ravies]";
-				mes "It seems that a Valkyrie's Blessing summoning ritual is already in progress elsewhere.";
+				mes "Parece que un ritual de invocacion de la Bendicion de Valkyrie ya esta en progreso en otro lugar.";
 				next;
 				mes "[Rmimi Ravies]";
-				mes "Please try again later.";
+				mes "Por favor intenta de nuevo mas tarde.";
 				close;
 			}
 		}
 		else {
 			mes "[Rmimi Ravies]";
-			mes "It seems you are not worthy.";
+			mes "Parece que no eres digno.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "I don't know how you obtained that flower, but if you're not capable of leading others.. then you cannot continue.";
+			mes "No se como obtuviste esa flor, pero si no eres capaz de liderar a otros.. entonces no puedes continuar.";
 			next;
 			mes "[Rmimi Ravies]";
-			mes "Too tough?";
-			mes "Well, what can you do, that's part of the job.";
+			mes "Muy dificil?";
+			mes "Bueno, que se le va a hacer, es parte del trabajo.";
 			close;
 		}
 	}
 	else {
 		mes "[Rmimi Ravies]";
-		mes "Don't you have any voucher?";
+		mes "No tienes ningun comprobante?";
 		close;
 	}
 
@@ -206,187 +206,187 @@ OnMyMobDead:
 	end;
 
 OnTimer10000:
-	announce "The summoning ceremony will start in 5 min in Juno.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion comenzara en 5 min en Juno.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer13000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer120000:
-	announce "The summoning ceremony will start in 3 min in Juno.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion comenzara en 3 min en Juno.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer123000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer240000:
-	announce "The summoning ceremony will start in 1 min in Juno.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion comenzara en 1 min en Juno.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer243000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer300000:
-	announce "The first 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El primer 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer303000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer308000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer600000:
-	announce "The second 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El segundo 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::oncall";
 	end;
 
 OnTimer603000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer608000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer900000:
-	announce "The third 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El tercer 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer903000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer908000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1200000:
-	announce "The fourth 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El cuarto 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer1203000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1208000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1500000:
-	announce "The fifth 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El quinto 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer1503000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1508000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1800000:
-	announce "The sixth 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El sexto 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer1803000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1808000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2100000:
-	announce "The seventh 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El septimo 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer2103000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2108000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2400000:
-	announce "The eighth 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El octavo 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer2403000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2408000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2700000:
-	announce "The ninth 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El noveno 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer2703000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2708000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3000000:
-	announce "The first0 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El decimo 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer3003000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3008000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3300000:
-	announce "The eleventh 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El undecimo 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer3303000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3308000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3600000:
-	announce "The twelfth 'Valkyrie's Present' has been summoned here in Juno by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El duodecimo 'Regalo de Valkyrie' ha sido invocado aqui en Juno por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Oncall";
 	end;
 
 OnTimer3603000:
-	announce "The final ceremony will be performed for 5 minutes.",bc_all,"0x70dbdb";
+	announce "La ceremonia final se realizara durante 5 minutos.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3608000:
-	announce "Please come to Juno to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Juno para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3900000:
-	announce "The entire ceremony is over now, I am sure all of you had fun.",bc_all,"0x70dbdb";
+	announce "Toda la ceremonia ha terminado, estoy seguro de que todos se divirtieron.",bc_all,"0x70dbdb";
 	donpcevent "Rmimi Ravies#gq_fes01::Onover";
 	end;
 }
@@ -395,28 +395,28 @@ OnTimer3900000:
 // Original name: "Festival Manager#god_se_fes02"
 rachel,1,1,0	script	Festival Manager#gq_fes2	891,{
 	callfunc "F_GM_NPC";
-	mes "[Festival Manager]";
-	mes "I am the festival NPC manager for the God SE quest.";
-	mes "Please enter your password.";
+	mes "[Administrador del Festival]";
+	mes "Soy el NPC administrador del festival para la mision God SE.";
+	mes "Por favor ingresa tu contrasena.";
 	next;
 	if (callfunc("F_GM_NPC","07godsefes",1) == 0) {
-		mes "[Festival Manager]";
-		mes "Password is incorrect.";
+		mes "[Administrador del Festival]";
+		mes "La contrasena es incorrecta.";
 		close;
 	}
-	mes "[Festival Manager]";
-	mes "What would you like to do?";
+	mes "[Administrador del Festival]";
+	mes "Que te gustaria hacer?";
 	next;
-	switch(select("Disable festival NPCs:Enable festival NPCs")) {
+	switch(select("Desactivar NPCs del festival:Activar NPCs del festival")) {
 	case 1:
-		mes "[Festival Manager]";
-		mes "Ending festivals and disabling NPCs.";
+		mes "[Administrador del Festival]";
+		mes "Finalizando festivales y desactivando NPCs.";
 		donpcevent "Rhehe Ravies#gq_fes03::Onover";
 		donpcevent "Rhehe Ravies#gq_fes03::Ondisable";
 		close;
 	case 2:
-		mes "[Festival Manager]";
-		mes "Resetting festivals and enabling NPCs.";
+		mes "[Administrador del Festival]";
+		mes "Reiniciando festivales y activando NPCs.";
 		donpcevent "Rhehe Ravies#gq_fes03::Onover";
 		donpcevent "Rhehe Ravies#gq_fes03::OnEnable";
 		close;
@@ -426,111 +426,111 @@ rachel,1,1,0	script	Festival Manager#gq_fes2	891,{
 rachel,132,117,3	script	Rhehe Ravies#gq_fes03	891,{
 	if (countitem(7840) > 0) {
 		mes "[Rhehe Ravies]";
-		mes "A flower!!";
-		mes "Shall we proceed?";
+		mes "Una flor!!";
+		mes "Procedemos?";
 		next;
 		if (is_guild_leader() == true) {
 			mes "[Rhehe Ravies]";
-			mes "Eeeeh, so young and yet you're a guild master? Your guildsmen must be jealous.";
+			mes "Eeeeh, tan joven y ya eres maestro de guild? Tus companeros deben estar celosos.";
 			next;
 			mes "[Reumimi Ravies]";
-			mes "I'm not sure if you understand the uses for that flower, so I'll briefly explain.";
+			mes "No estoy segura de si entiendes los usos de esa flor, asi que te lo explicare brevemente.";
 			next;
 			mes "[Reumimi Ravies]";
-			mes "That flower has been passed down as a gift from the Valkyrie Wish Maiden herself.";
-			mes "It may be used to summon special monsters through summoners in special areas.";
+			mes "Esa flor ha sido transmitida como un regalo de la misma Doncella de los Deseos de Valkyrie.";
+			mes "Puede usarse para invocar monstruos especiales a traves de invocadores en areas especiales.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "There are only two summoners in existence who are capable of using that flower.";
-			mes "One is me, and the other is my twin sister Reumimi.";
+			mes "Solo existen dos invocadores capaces de usar esa flor.";
+			mes "Una soy yo, y la otra es mi hermana gemela Reumimi.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "Twin sisters, but we do not have much alike, little fingers in front of you ...";
+			mes "Hermanas gemelas, pero no nos parecemos mucho, deditos meñiques frente a ti...";
 			next;
 			mes "[Rhehe Ravies]";
 			mes "..................................";
-			mes ".....Oops! I wasn't supposed to tell anyone...";
+			mes ".....Ups! Se suponia que no debia decirle a nadie...";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "... Hehehe, anyways let's move on.";
-			mes "So do you wish to summon or not!?";
+			mes "... Jejeje, en fin, sigamos.";
+			mes "Entonces, quieres invocar o no?!";
 			next;
-			switch(select("Do not summon:Summon")) {
+			switch(select("No invocar:Invocar")) {
 			case 1:
 				mes "[Rhehe Ravies]";
-				mes "...*Cries*.";
+				mes "...*Llora*.";
 				next;
 				mes "[Rhehe Ravies]";
-				mes "If you've got no business with me, please don't start a conversation.";
-				mes "If it were my sister, she would've humiliated you for it.";
+				mes "Si no tienes asuntos conmigo, por favor no inicies una conversacion.";
+				mes "Si fuera mi hermana, te habria humillado por eso.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[Rhehe Ravies]";
-			mes "Okay then, I'll explain a little about the summoning ritual.";
-			mes "Here in Juno, the summoning ritual through the use of that flower will summon Valkyrie's Blessing and Valkyrie's Gift.";
-			mes "The effects of the summoning ritual will last approximately one hour.";
+			mes "Muy bien, te explicare un poco sobre el ritual de invocacion.";
+			mes "Aqui en Juno, el ritual de invocacion mediante el uso de esa flor invocara la Bendicion de Valkyrie y el Regalo de Valkyrie.";
+			mes "Los efectos del ritual de invocacion duraran aproximadamente una hora.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "During the summoning ritual, continuous broadcasts will be made.";
-			mes "It is a courtesy of the Valkyrie Wish Maiden, in order to unite adventurers from all over to participate in the festival.";
+			mes "Durante el ritual de invocacion, se haran anuncios continuos.";
+			mes "Es una cortesia de la Doncella de los Deseos de Valkyrie, para unir a aventureros de todo el mundo a participar en el festival.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "Are you ready to begin the summoning ritual~?";
+			mes "Estas listo para comenzar el ritual de invocacion~?";
 			next;
-			switch(select("No, not yet.:Yes! I'm ready!")) {
+			switch(select("No, todavia no.:Si! Estoy listo!")) {
 			case 1:
 				mes "[Rhehe Ravies]";
-				mes "You're not even ready, why bother talking to me?";
+				mes "Ni siquiera estas listo, para que me hablas?";
 				next;
 				mes "[Rhehe Ravies]";
-				mes "Oh well, if you've got other things to do then I'll wait.";
-				mes "After all, that's also part of my job.";
+				mes "Bueno, si tienes otras cosas que hacer entonces esperare.";
+				mes "Despues de todo, eso tambien es parte de mi trabajo.";
 				close;
 			case 2:
 				break;
 			}
 			mes "[Rhehe Ravies]";
-			mes "Very well, then I will check for a reasonable time to begin the summoning ritual.";
+			mes "Muy bien, entonces verificare un buen momento para comenzar el ritual de invocacion.";
 			next;
 			if ($@gqse_festival == 0) {
 				mes "[Rhehe Ravies]";
-				mes "Good! Now seems like a good time, so let's begin!";
+				mes "Bien! Ahora parece un buen momento, asi que comencemos!";
 				delitem 7840,1; //Valkyrie_Gift
 				next;
 				mes "[Rhehe Ravies]";
-				mes "I hope you enjoy yourself!";
+				mes "Espero que te diviertas!";
 				donpcevent "Rhehe Ravies#gq_fes03::OnStart";
-				announce "["+ strcharinfo(0) +"] member of ["+ GetGuildName( getcharid(2) ) +"] is summoning a 'Valkyrie's Present' in 'Rachel'.",bc_all,"0x70dbdb";
+				announce "["+ strcharinfo(0) +"] miembro de ["+ GetGuildName( getcharid(2) ) +"] esta invocando un 'Regalo de Valkyrie' en 'Rachel'.",bc_all,"0x70dbdb";
 				close;
 			}
 			else {
 				mes "[Rhehe Ravies]";
-				mes "*Cries*";
-				mes "It doesn't seem like now is a good time.";
+				mes "*Llora*";
+				mes "No parece que ahora sea un buen momento.";
 				next;
 				mes "[Rhehe Ravies]";
-				mes "Please try again later.";
+				mes "Por favor intenta de nuevo mas tarde.";
 				close;
 			}
 		}
 		else {
 			mes "[Rhehe Ravies]";
-			mes "...Seems like you're not in a worthy position for me to talk to?";
+			mes "...Parece que no estas en una posicion digna para hablar conmigo?";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "I don't know how you obtained that flower, but if you're not capable of leading others.. then you cannot continue.";
+			mes "No se como obtuviste esa flor, pero si no eres capaz de liderar a otros.. entonces no puedes continuar.";
 			next;
 			mes "[Rhehe Ravies]";
-			mes "Too tough?";
-			mes "Well, what can you do, that's part of the job.";
+			mes "Muy dificil?";
+			mes "Bueno, que se le va a hacer, es parte del trabajo.";
 			close;
 		}
 	}
 	else {
 		mes "[Rhehe Ravies]";
-		mes "Don't you have anything to give me to prove yourself?";
+		mes "No tienes nada que darme para demostrar tu valor?";
 		close;
 	}
 
@@ -587,187 +587,187 @@ OnMyMobDead:
 	end;
 
 OnTimer10000:
-	announce "The summoning ceremony will start in 5 min in Rachel.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion comenzara en 5 min en Rachel.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer13000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer120000:
-	announce "The summoning of Valkyrie's Gift will begin in approximately 3 min in Rachel.",bc_all,"0x70dbdb";
+	announce "La invocacion del Regalo de Valkyrie comenzara en aproximadamente 3 min en Rachel.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer123000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer240000:
-	announce "The summoning ceremony will start in 1 min in Rachel.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion comenzara en 1 min en Rachel.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer243000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer300000:
-	announce "The first 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El primer 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer303000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer308000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer600000:
-	announce "The second 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El segundo 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer603000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer608000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer900000:
-	announce "The third 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El tercer 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer903000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer908000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1200000:
-	announce "The fourth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El cuarto 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer1203000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1208000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1500000:
-	announce "The fifth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El quinto 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer1503000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1508000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1800000:
-	announce "The sixth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El sexto 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer1803000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer1808000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2100000:
-	announce "The seventh 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El septimo 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer2103000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2108000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2400000:
-	announce "The eighth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El octavo 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer2403000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2408000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2700000:
-	announce "The ninth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El noveno 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer2703000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer2708000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3000000:
-	announce "The tenth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El decimo 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer3003000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3008000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3300000:
-	announce "The eleventh 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El undecimo 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer3303000:
-	announce "The summoning ceremony will be performed 12 times at five-minute intervals for about one hour.",bc_all,"0x70dbdb";
+	announce "La ceremonia de invocacion se realizara 12 veces en intervalos de cinco minutos durante aproximadamente una hora.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3308000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3600000:
-	announce "The twelfth 'Valkyrie's Present' has been summoned here in Rachel by the Wish maiden.",bc_all,"0x70dbdb";
+	announce "El duodecimo 'Regalo de Valkyrie' ha sido invocado aqui en Rachel por la Doncella de los Deseos.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Oncall";
 	end;
 
 OnTimer3603000:
-	announce "The final ceremony will be performed for 5 minutes.",bc_all,"0x70dbdb";
+	announce "La ceremonia final se realizara durante 5 minutos.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3608000:
-	announce "Please come to Rachel to encounter the summoning ceremony.",bc_all,"0x70dbdb";
+	announce "Por favor ven a Rachel para presenciar la ceremonia de invocacion.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer3900000:
-	announce "The entire ceremony is over now, I am sure all of you had fun.",bc_all,"0x70dbdb";
+	announce "Toda la ceremonia ha terminado, estoy seguro de que todos se divirtieron.",bc_all,"0x70dbdb";
 	donpcevent "Rhehe Ravies#gq_fes03::Onover";
 	end;
 }

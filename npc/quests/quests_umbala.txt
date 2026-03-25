@@ -1,12 +1,12 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Quest NPCs related to Umbala
-//===== By: ================================================== 
+//===== By: ==================================================
 //= sabernet09 & rAthena Team
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 2.2a
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project; 7.15 +
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Umbalian Language Quest, Umbala Skeletal Gate Quest,
 //= Umbala Event, Create Essence/Dismantle Stone
@@ -23,7 +23,7 @@
 //= Umbala Domestic Dispute?
 //= - This quest is only avaliable if you have not done language quest.
 //= - Variables in use: um_wind, MISC_QUEST (Bit 32768)
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= fixed by x[tsk], Lupus, PoW
 //= Quest completion is now registered
 //= 1.1 fixed Poporing Egg ID -> Poring Egg, fixed condition
@@ -37,212 +37,213 @@
 //= 2.1 Rescripted to Aegis 10.3 standards. Added strange quest. [L0ne_W0lf]
 //= 2.2 Readded the ability to dismantle multiple stones at once. [L0ne_W0lf]
 //= 2.2a Fixed weight check from previous update. [L0ne_w0lf]
-//============================================================ 
+//============================================================
 
 // Umbalian Language Quest :: um_trans
 //============================================================
 um_in,39,122,5	script	Utan Chief	784,{
 	if (event_umbala == 0) {
 		mes "[Karkatan]";
-		mes "Huh huh, a Rune-Midgartsian.";
-		mes "I guess this is your first";
-		mes "visit to my village, isn't it?";
+		mes "Juh juh, un Rune-Midgartsiano.";
+		mes "Supongo que esta es tu primera";
+		mes "visita a mi aldea, ¿no es asi?";
 		next;
 		mes "[Karkatan]";
-		mes "Everyone from Rune-Midgarts";
-		mes "that I've met had the same";
-		mes "same expression on their";
-		mes "face as you do right now";
-		mes "when they first came here.";
+		mes "Todos los de Rune-Midgarts";
+		mes "que he conocido tenian la misma";
+		mes "expresion en su rostro que";
+		mes "tu tienes ahora mismo";
+		mes "cuando llegaron aqui por primera vez.";
 		next;
 		mes "[Karkatan]";
-		mes "Maybe it's because they cannot";
-		mes "communicate with us due to";
-		mes "the language barrier, so";
-		mes "they have no idea what's going";
-		mes "on. Yeah, I understand...";
-		mes "Anyway, welcome to my village.";
+		mes "Quizas es porque no pueden";
+		mes "comunicarse con nosotros debido";
+		mes "a la barrera del idioma, asi que";
+		mes "no tienen idea de lo que esta";
+		mes "pasando. Si, lo entiendo...";
+		mes "De todas formas, bienvenido a mi aldea.";
 		next;
 		mes "[Karkatan]";
-		mes "My name is Karkatan, and I";
-		mes "am the chief of the Utan tribe.";
-		mes "You must be wondering how";
-		mes "I can speak your language.";
+		mes "Mi nombre es Karkatan, y soy";
+		mes "el jefe de la tribu Utan.";
+		mes "Debes estar preguntandote como";
+		mes "puedo hablar tu idioma.";
 		next;
 		mes "[Karkatan]";
-		mes "It was taught to me long ago";
-		mes "by an adventurer from your";
-		mes "land. It's been a long time,";
-		mes "and I do not know what has";
-		mes "become of him...";
+		mes "Me lo enseno hace mucho tiempo";
+		mes "un aventurero de tu tierra.";
+		mes "Ha pasado mucho tiempo,";
+		mes "y no se que ha sido";
+		mes "de el...";
 		next;
 		mes "[Karkatan]";
-		mes "Anyhow, I learned many things";
-		mes "about Rune-Midgartsian culture";
-		mes "and language.";
+		mes "En fin, aprendi muchas cosas";
+		mes "sobre la cultura y el idioma";
+		mes "de Rune-Midgarts.";
 		next;
 		mes "[Karkatan]";
-		mes "Sometimes, I teach the Utan";
-		mes "language, but I do not give";
-		mes "everyone that privilege.";
-		mes "If unscrupulous outsiders";
-		mes "learn the Utan language, they";
-		mes "may bring harm to my tribe.";
+		mes "A veces, enseno el idioma";
+		mes "Utan, pero no le doy";
+		mes "ese privilegio a todos.";
+		mes "Si forasteros sin escrupulos";
+		mes "aprenden el idioma Utan, podrian";
+		mes "traer dano a mi tribu.";
 		next;
 		mes "[Karkatan]";
-		mes "Before you can learn the Utan";
-		mes "language, first try to learn";
-		mes "Utan culture by exploring our";
-		mes "village.";
+		mes "Antes de que puedas aprender el";
+		mes "idioma Utan, primero intenta";
+		mes "conocer la cultura Utan explorando";
+		mes "nuestra aldea.";
 		next;
 		mes "[Karkatan]";
-		mes "Although you are not able to";
-		mes "communicate with my people";
-		mes "right now, try to understand";
-		mes "our way of life through your";
-		mes "observations.";
+		mes "Aunque no puedes comunicarte";
+		mes "con mi gente en este momento,";
+		mes "intenta entender nuestra forma";
+		mes "de vida a traves de tus";
+		mes "observaciones.";
 		next;
 		mes "[Karkatan]";
-		mes "Pay attention to the dress,";
-		mes "appearance and life style of the";
-		mes "local people. When you think";
-		mes "you understand enough about Utan";
-		mes "culture, come back to me and show me what you have learned.";
+		mes "Presta atencion a la vestimenta,";
+		mes "apariencia y estilo de vida de la";
+		mes "gente local. Cuando creas que";
+		mes "entiendes lo suficiente sobre la";
+		mes "cultura Utan, vuelve conmigo y muestrame lo que has aprendido.";
 		set event_umbala,1;
 		close;
 	}
 	else if (event_umbala == 1) {
 		mes "[Karkatan]";
-		mes "Oh, it's you again. So...";
-		mes "Have you learned about Utan";
-		mes "culture? I want to hear your";
-		mes "opinion, as well as your impression.";
+		mes "Oh, eres tu de nuevo. Entonces...";
+		mes "¿Has aprendido sobre la cultura";
+		mes "Utan? Quiero escuchar tu";
+		mes "opinion, asi como tu impresion.";
 		next;
 		mes "[Karkatan]";
-		mes "There are still some villagers";
-		mes "who are very naive about Rune-Midgartsians.";
-		mes "Usually, they fear encounters";
-		mes "with your people and will";
-		mes "hide themselves.";
+		mes "Todavia hay algunos aldeanos";
+		mes "que son muy ingenuos respecto a los Rune-Midgartsianos.";
+		mes "Usualmente, temen los encuentros";
+		mes "con tu gente y se";
+		mes "esconden.";
 		next;
 		mes "[Karkatan]";
-		mes "So...";
-		mes "May I help you with anything?";
-		mes "I assume you did not have much of";
-		mes "a problem looking around the";
-		mes "village, but it seems you have something to ask of me.";
+		mes "Entonces...";
+		mes "¿Puedo ayudarte en algo?";
+		mes "Supongo que no tuviste muchos";
+		mes "problemas mirando alrededor de la";
+		mes "aldea, pero parece que tienes algo que preguntarme.";
 		next;
-		switch(select("I want to learn Utan language.:Umbabah Umbabah?:Nothing.")) {
+		switch(select("Quiero aprender el idioma Utan.:Umbabah Umbabah?:Nada.")) {
 		case 1:
 			if (isequipped(2278) || isequipped(2297) || isequipped(2288) || isequipped(2292) || isequipped(5005) || isequipped(2281) || isequipped(5043)) {
 				mes "[Karkatan]";
-				mes "Hmmm...That's an awesome mask";
-				mes "you're wearing. We Utans like";
-				mes "wearing masks to keep from";
-				mes "showing our facial expressions.";
+				mes "Hmmm...Esa es una mascara";
+				mes "increible que llevas puesta.";
+				mes "A los Utan nos gusta usar";
+				mes "mascaras para no mostrar";
+				mes "nuestras expresiones faciales.";
 				next;
 				mes "[Karkatan]";
-				mes "That's why we wear masks all the";
-				mes "time. We believe that interaction";
-				mes "and treatment of other people";
-				mes "should not depend on how we look.";
+				mes "Por eso usamos mascaras todo el";
+				mes "tiempo. Creemos que la interaccion";
+				mes "y el trato con otras personas";
+				mes "no deberia depender de como nos vemos.";
 				next;
 				mes "[Karkatan]";
-				mes "Alright. I am sure you are";
-				mes "qualified to learn the Utan";
-				mes "language. I will teach you how";
-				mes "speak and to read in Utan from";
-				mes "now on.";
+				mes "De acuerdo. Estoy seguro de que";
+				mes "estas calificado para aprender el";
+				mes "idioma Utan. Te ensenare a";
+				mes "hablar y a leer en Utan de";
+				mes "ahora en adelante.";
 				next;
 				mes "[Karkatan]";
-				mes "However, I need you to get some";
-				mes "items ready so that we may proceed";
-				mes "with the lessons. First, we need";
-				mes "two different kinds of paper.";
-				mes "^3377FF10 Oil Paper^000000 and ";
+				mes "Sin embargo, necesito que consigas";
+				mes "algunos objetos para que podamos";
+				mes "proceder con las lecciones. Primero,";
+				mes "necesitamos dos tipos diferentes";
+				mes "de papel. ^3377FF10 Oil Paper^000000 y ";
 				mes "^3377FF5 Slick Paper^000000.";
 				next;
 				mes "[Karkatan]";
-				mes "We'll also need something to";
-				mes "write with. Let's use";
-				mes "^3377FF1 Squid Ink^000000 and";
+				mes "Tambien necesitaremos algo con";
+				mes "que escribir. Usemos";
+				mes "^3377FF1 Squid Ink^000000 y";
 				mes "^3377FF1 Feather of Birds^000000.";
-				mes "Please bring me those, and I will";
-				mes "teach you when you're ready.";
+				mes "Por favor traeme eso, y te";
+				mes "ensenare cuando estes listo.";
 				set event_umbala,2;
 				close;
 			}
 			else {
 				mes "[Karkatan]";
-				mes "You don't seem to understand";
-				mes "our culture yet. You cannot";
-				mes "learn another language if you";
-				mes "do not understand the culture.";
+				mes "No pareces entender nuestra";
+				mes "cultura todavia. No puedes";
+				mes "aprender otro idioma si no";
+				mes "entiendes la cultura.";
 				next;
 				mes "[Karkatan]";
-				mes "When you have that expression on";
-				mes "your face, Utans will be";
-				mes "intimidated... Since we do";
-				mes "not show our faces to others,";
-				mes "we are actually very";
-				mes "vulnerable to facial expression.";
+				mes "Cuando tienes esa expresion en";
+				mes "tu rostro, los Utan se";
+				mes "intimidan... Como no";
+				mes "mostramos nuestros rostros a otros,";
+				mes "somos en realidad muy";
+				mes "vulnerables a las expresiones faciales.";
 				next;
 				mes "[Karkatan]";
-				mes "Go explore the village a little";
-				mes "longer. You can come back";
-				mes "anytime when you think you're ready.";
+				mes "Ve a explorar la aldea un poco";
+				mes "mas. Puedes volver";
+				mes "cuando creas que estas listo.";
 				next;
 				mes "[Karkatan]";
-				mes "In any case, what do you think";
-				mes "about my mask? It's the current";
-				mes "trend among us Utans...don't you";
-				mes "think it's awesome?";
+				mes "De cualquier forma, ¿que piensas";
+				mes "de mi mascara? Es la tendencia";
+				mes "actual entre nosotros los Utan...";
+				mes "¿no crees que es increible?";
 				close;
 			}
 		case 2:
 			mes "[Karkatan]";
-			mes "Haha~ When you're just imitating";
-			mes "the sound, you won't make any";
-			mes "sense. Language is a mutual system";
-			mes "for the communication of thoughts and feelings.";
+			mes "Jaja~ Cuando solo imitas";
+			mes "el sonido, no tiene ningun";
+			mes "sentido. El idioma es un sistema";
+			mes "mutuo para la comunicacion de pensamientos y sentimientos.";
 			next;
 			mes "[Karkatan]";
-			mes "I regret to say that it seems that";
-			mes "nowadays, all peoples are no";
-			mes "longer sensitive to other cultures";
-			mes "in that respect.";
+			mes "Lamento decir que parece que";
+			mes "hoy en dia, todos los pueblos ya";
+			mes "no son sensibles a otras culturas";
+			mes "en ese aspecto.";
 			next;
 			mes "[Karkatan]";
-			mes "I see people that despise or";
-			mes "ridicule others that do not";
-			mes "understand them. It's really";
-			mes "sad that such bigotry still exists...";
+			mes "Veo personas que desprecian o";
+			mes "ridiculizan a otros que no";
+			mes "los entienden. Es realmente";
+			mes "triste que tal intolerancia aun exista...";
 			next;
 			mes "[Karkatan]";
-			mes "If you are interested in Utan";
-			mes "language, try to understand our";
-			mes "culture better and come back";
-			mes "when you're ready. I will";
-			mes "teach you the meanings of those sounds you are using.";
+			mes "Si te interesa el idioma Utan,";
+			mes "intenta entender mejor nuestra";
+			mes "cultura y vuelve cuando estes";
+			mes "listo. Te ensenare los";
+			mes "significados de esos sonidos que estas usando.";
 			close;
 		case 3:
 			mes "[Karkatan]";
-			mes "Sometimes it's good to wander";
-			mes "without purpose. But it's";
-			mes "better to set a goal for";
-			mes "a journey if you want to";
-			mes "learn something out of";
-			mes "the experience.";
+			mes "A veces es bueno deambular";
+			mes "sin proposito. Pero es";
+			mes "mejor fijarte una meta para";
+			mes "un viaje si quieres";
+			mes "aprender algo de";
+			mes "la experiencia.";
 			close;
 		}
 	}
 	else if (event_umbala == 2) {
 		if ((countitem(7151) > 9) && (countitem(7111) > 4) && (countitem(1024) > 0) && (countitem(916) > 0)) {
 			mes "[Karkatan]";
-			mes "Okay, I guess we're good to go.";
-			mes "Let's get the lesson started.";
-			mes "I hope you will communicate better";
-			mes "with Utans when we are done.";
+			mes "Bien, creo que estamos listos.";
+			mes "Empecemos la leccion.";
+			mes "Espero que te comuniques mejor";
+			mes "con los Utan cuando terminemos.";
 			next;
 			mes "[Karkatan]";
 			mes "..............";
@@ -257,11 +258,11 @@ um_in,39,122,5	script	Utan Chief	784,{
 			mes "............................";
 			next;
 			mes "[Karkatan]";
-			mes "Alright, that's all. Just forget";
-			mes "about how you've felt about Utans";
-			mes "before you learned the language.";
-			mes "Now go try to talk to Utans.";
-			mes "Conversation is a very important method in understanding others.";
+			mes "Muy bien, eso es todo. Simplemente";
+			mes "olvida lo que sentias sobre los";
+			mes "Utan antes de aprender el idioma.";
+			mes "Ahora ve e intenta hablar con los Utan.";
+			mes "La conversacion es un metodo muy importante para entender a otros.";
 			delitem 7151,10; //Oil_Paper
 			delitem 7111,5; //Smooth_Paper
 			delitem 1024,1; //Chinese_Ink
@@ -269,94 +270,94 @@ um_in,39,122,5	script	Utan Chief	784,{
 			set event_umbala,3;
 			next;
 			mes "[Karkatan]";
-			mes "Okay, if you have any business";
-			mes "in our village later, feel free";
-			mes "to talk to me. I will try to help";
-			mes "you as much as I can.";
+			mes "Bien, si tienes algun asunto";
+			mes "en nuestra aldea despues, no dudes";
+			mes "en hablar conmigo. Intentare";
+			mes "ayudarte lo mas que pueda.";
 			close;
 		}
 		else {
 			mes "[Karkatan]";
-			mes "I guess you are not ready yet...";
-			mes "Did you forget what items you";
-			mes "need? I will let you know";
-			mes "again, so please bring them";
-			mes "so that we can start the lesson.";
+			mes "Creo que aun no estas listo...";
+			mes "¿Olvidaste que objetos";
+			mes "necesitas? Te lo dire";
+			mes "de nuevo, asi que por favor traelos";
+			mes "para que podamos empezar la leccion.";
 			next;
 			mes "[Karkatan]";
 			mes "^3377FF10 Oil Paper^000000,";
 			mes "^3377FF5 Slick Paper^000000,";
 			mes "^3377FF1 Squid Ink^000000,";
 			mes "^3377FF1 Feather of Birds^000000.";
-			mes "When you bring all of these,";
-			mes "I will teach you our language.";
+			mes "Cuando traigas todo esto,";
+			mes "te ensenare nuestro idioma.";
 			close;
 		}
 	}
 	else if (event_umbala >= 3) {
 		if (event_umbala == 4) {
 			mes "[Karkatan]";
-			mes "Puchuchartan must have sent you to";
-			mes "me. I need to check whether or not";
-			mes "you are qualified to request";
-			mes "her help...We Utans do not want";
-			mes "to help evil people.";
+			mes "Puchuchartan debe haberte enviado";
+			mes "a mi. Necesito verificar si estas";
+			mes "calificado para solicitar";
+			mes "su ayuda...Los Utan no queremos";
+			mes "ayudar a personas malvadas.";
 			next;
 			mes "[Karkatan]";
 			mes "Hmmmm....";
-			mes "It would be good to have a mask";
-			mes "that was made in Rune-Midgarts...";
+			mes "Seria bueno tener una mascara";
+			mes "que haya sido hecha en Rune-Midgarts...";
 			next;
 			mes "[Karkatan]";
-			mes "I wish to have ^3377FF1 Mr. Smile^000000.";
-			mes "To Utans, receiving a mask as a";
-			mes "present is considered an";
-			mes "honor. Maybe Puchuchartan";
-			mes "wants you to show us your respect by doing so.";
+			mes "Deseo tener ^3377FF1 Mr. Smile^000000.";
+			mes "Para los Utan, recibir una mascara";
+			mes "como regalo se considera un";
+			mes "honor. Quizas Puchuchartan";
+			mes "quiere que nos muestres tu respeto haciendolo.";
 			set event_umbala,5;
 			close;
 		}
 		else if (event_umbala == 5) {
 			if (countitem(2278) > 0) {
 				mes "[Karkatan]";
-				mes "Oh, you brought it! Yes, I've";
-				mes "always wished that I could have";
-				mes "this mask! This is truly an";
-				mes "honor! Thank you, adventurer";
-				mes "from Rune-Midgarts.";
+				mes "Oh, ¡la trajiste! Si, siempre";
+				mes "habia deseado tener esta";
+				mes "mascara. ¡Esto es verdaderamente";
+				mes "un honor! Gracias, aventurero";
+				mes "de Rune-Midgarts.";
 				next;
 				mes "[Karkatan]";
-				mes "I will tell Puchuchartan that I";
-				mes "confirmed your qualification.";
-				mes "Go and speak to her. Though I";
-				mes "am not sure what help she can give";
-				mes "you, I hope we will be able to return this favor.";
+				mes "Le dire a Puchuchartan que";
+				mes "confirme tu calificacion.";
+				mes "Ve y habla con ella. Aunque";
+				mes "no estoy seguro de que ayuda pueda";
+				mes "darte, espero que podamos devolver este favor.";
 				delitem 2278,1; //Mr_Smile
 				set event_umbala,6;
 				close;
 			}
 			else {
 				mes "[Karkatan]";
-				mes "Did I tell you that you need";
+				mes "¿Te dije que necesitas";
 				mes "^3377FF1 Mr. Smile^000000?";
-				mes "Please bring that as proof";
-				mes "of your goodwill, as well";
-				mes "as your sense of honor.";
+				mes "Por favor trae eso como prueba";
+				mes "de tu buena voluntad, asi como";
+				mes "de tu sentido del honor.";
 				close;
 			}
 		}
 		else {
 			mes "[Karkatan]";
-			mes "How's it going?";
-			mes "I wish I could guide you around";
-			mes "the village, but I cannot neglect";
-			mes "my duty as tribal chief.";
+			mes "¿Como te va?";
+			mes "Me gustaria guiarte por la";
+			mes "aldea, pero no puedo descuidar";
+			mes "mi deber como jefe tribal.";
 			next;
 			mes "[Karkatan]";
-			mes "Leading a tribe is not as easy";
-			mes "as it looks. You would understand";
-			mes "if you were in the same position";
-			mes "as me. Anyway, I hope you will enjoy your time in our village.";
+			mes "Liderar una tribu no es tan facil";
+			mes "como parece. Lo entenderias";
+			mes "si estuvieras en la misma posicion";
+			mes "que yo. De todas formas, espero que disfrutes tu tiempo en nuestra aldea.";
 			close;
 		}
 	}
@@ -366,12 +367,12 @@ um_in,39,122,5	script	Utan Chief	784,{
 //============================================================
 um_in,44,71,2	script	Utan Shaman	782,{
 	if (checkweight(908,600) == 0) {
-		mes "^3355FFWait a second!";
-		mes "Right now, you're carrying";
-		mes "too many things with you.";
-		mes "Please come back after";
-		mes "using the Kafra Service";
-		mes "to store some of your items.^000000";
+		mes "^3355FF¡Espera un momento!";
+		mes "Ahora mismo estas cargando";
+		mes "demasiadas cosas contigo.";
+		mes "Por favor vuelve despues de";
+		mes "usar el Servicio Kafra";
+		mes "para guardar algunos de tus objetos.^000000";
 		close;
 	}
 	switch(event_umbala) {
@@ -387,174 +388,173 @@ um_in,44,71,2	script	Utan Shaman	782,{
 		end;
 	case 3:
 		mes "[Puchuchartan]";
-		mes "I did not expect that even";
-		mes "more of you Rune-Midgartsians";
-		mes "would find my village. I am";
-		mes "afraid that Mother Earth may";
-		mes "be caused suffering because";
-		mes "of this...";
+		mes "No esperaba que aun mas";
+		mes "de ustedes los Rune-Midgartsianos";
+		mes "encontraran mi aldea. Temo";
+		mes "que la Madre Tierra pueda";
+		mes "sufrir a causa";
+		mes "de esto...";
 		next;
 		mes "[Puchuchartan]";
-		mes "You Rune-Midgartsians are a very";
-		mes "evil tribe...always accomplishing";
-		mes "your goals whether the means are";
-		mes "foul or fair, never hesitating to";
-		mes "ruin the property of others to get";
-		mes "what you want.";
+		mes "Ustedes los Rune-Midgartsianos son";
+		mes "una tribu muy malvada...siempre";
+		mes "logrando sus objetivos sin importar";
+		mes "si los medios son justos o no,";
+		mes "sin dudar en arruinar la propiedad";
+		mes "de otros para obtener lo que quieren.";
 		next;
 		mes "[Puchuchartan]";
-		mes "I am worried how continuing";
-		mes "contact with the outside world";
-		mes "will affect our future...";
+		mes "Me preocupa como el contacto";
+		mes "continuo con el mundo exterior";
+		mes "afectara nuestro futuro...";
 		next;
 		mes "[Puchuchartan]";
-		mes "No one from Rune-Midgarts has ";
-		mes "visited me without some purpose";
-		mes "and I do not think that you";
-		mes "are an exception.";
+		mes "Nadie de Rune-Midgarts me ha";
+		mes "visitado sin algun proposito";
+		mes "y no creo que tu";
+		mes "seas una excepcion.";
 		next;
 		mes "[Puchuchartan]";
-		mes "I only use my power for the";
-		mes "service of my tribe, and do not";
-		mes "give my aid to strangers. If you";
-		mes "really need my help, go ask for";
-		mes "the chief's permission.";
+		mes "Solo uso mi poder para el";
+		mes "servicio de mi tribu, y no";
+		mes "doy mi ayuda a forasteros. Si";
+		mes "realmente necesitas mi ayuda, ve a";
+		mes "pedir el permiso del jefe.";
 		next;
 		mes "[Puchuchartan]";
-		mes "Also, I do not approve of";
-		mes "outsiders talking to the tribe";
-		mes "more than they have to...";
-		mes "We want to live a peaceful life, so do not disturb us.";
+		mes "Ademas, no apruebo que los";
+		mes "forasteros hablen con la tribu";
+		mes "mas de lo necesario...";
+		mes "Queremos vivir en paz, asi que no nos molestes.";
 		set event_umbala,4;
 		close;
 	case 4:
 	case 5:
 		mes "[Puchuchartan]";
-		mes "I already told you to get the";
-		mes "chief's approval. There is also";
-		mes "the matter of my own business to take care of.";
+		mes "Ya te dije que consiguieras la";
+		mes "aprobacion del jefe. Tambien";
+		mes "tengo mis propios asuntos que atender.";
 		next;
 		mes "[Puchuchartan]";
-		mes "I know that you have gone through";
-		mes "many difficulties to come here,";
-		mes "but you have to leave now.";
+		mes "Se que has pasado por muchas";
+		mes "dificultades para llegar aqui,";
+		mes "pero tienes que irte ahora.";
 		close;
 	case 6:
 		mes "[Puchuchartan]";
-		mes "I've heard from the chief that he";
-		mes "has given you his approval...";
-		mes "Although I do not like this, I";
-		mes "will keep my promise. But it's";
-		mes "your call if you really need my help or not.";
+		mes "Escuche del jefe que te ha";
+		mes "dado su aprobacion...";
+		mes "Aunque no me gusta esto,";
+		mes "cumplire mi promesa. Pero es";
+		mes "tu decision si realmente necesitas mi ayuda o no.";
 		next;
 		mes "[Puchuchartan]";
-		mes "My power allows me to create rough";
-		mes "enchanted stones and to divide a";
-		mes "pure enchanted stone into rough";
-		mes "ones. So I may be able to help";
-		mes "you in this way.";
+		mes "Mi poder me permite crear piedras";
+		mes "encantadas toscas y dividir una";
+		mes "piedra encantada pura en";
+		mes "toscas. Asi que podre ayudarte";
+		mes "de esta manera.";
 		next;
 		mes "[Puchuchartan]";
-		mes "So come and speak to me when";
-		mes "you think my power may be";
-		mes "of service to you.";
+		mes "Asi que ven y hablame cuando";
+		mes "creas que mi poder pueda";
+		mes "serte de utilidad.";
 		set event_umbala,7;
 		close;
 	case 7:
 		mes "[Putsuchiritan]";
-		mes "I don't know whether my talents";
-		mes "will be useful to you, but I'll";
-		mes "help you anyway.";
+		mes "No se si mis talentos";
+		mes "te seran utiles, pero te";
+		mes "ayudare de todas formas.";
 		next;
 		mes "[Putsuchiritan]";
-		mes "I can create elemental essence from natural objects,";
-		mes "or, dismantle elemental stones into their component essences.";
-		mes "Which would you like to do?";
+		mes "Puedo crear esencia elemental a partir de objetos naturales,";
+		mes "o desmantelar piedras elementales en sus esencias componentes.";
+		mes "¿Que te gustaria hacer?";
 	}
 	next;
 	mes "[Puchuchartan]";
-	mes "Rune-Midgartsian who has asked for";
-	mes "my help...Although I am not sure";
-	mes "if you really need my power, I";
-	mes "will try to provide my assistance.";
+	mes "Rune-Midgartsiano que ha pedido";
+	mes "mi ayuda...Aunque no estoy segura";
+	mes "de si realmente necesitas mi poder,";
+	mes "intentare brindarte mi asistencia.";
 	next;
 	if (checkweight(1101,10) == 0) {
 		mes "[Puchuchartan]";
-		mes "Wait--!";
-		mes "something in your possession";
-		mes "is disturbing my peace of";
-		mes "mind. This will not do...";
+		mes "¡Espera--!";
+		mes "Algo en tu posesion";
+		mes "esta perturbando mi paz";
+		mes "mental. Esto no funcionara...";
 		next;
 		mes "[Puchuchartan]";
-		mes "Go leave your belongings";
-		mes "elsewhere, and only bring the";
-		mes "items that you need right now.";
+		mes "Ve a dejar tus pertenencias";
+		mes "en otro lugar, y solo trae los";
+		mes "objetos que necesitas ahora mismo.";
 		next;
 		mes "[Puchuchartan]";
-		mes "If you refuse to do so,";
-		mes "I cannot do anything for you.";
-		mes "Get yourself ready and then";
-		mes "come back.";
+		mes "Si te niegas a hacerlo,";
+		mes "no puedo hacer nada por ti.";
+		mes "Preparate y luego";
+		mes "vuelve.";
 		close;
 	}
 	mes "[Puchuchartan]";
-	mes "Now, what do you wish to do?";
-	mes "My power allows me to create rough";
-	mes "enchanted stones and to divide a";
-	mes "pure enchanted stone into rough ones.";
+	mes "Ahora, ¿que deseas hacer?";
+	mes "Mi poder me permite crear piedras";
+	mes "encantadas toscas y dividir una";
+	mes "piedra encantada pura en toscas.";
 	next;
-	switch (select("Create rough enchanted stones:Divide a pure enchanted stone:Quit.")) {
+	switch (select("Crear piedras encantadas toscas:Dividir una piedra encantada pura:Salir.")) {
 	case 1:
 		mes "[Puchuchartan]";
-		mes "Do you wish to create rough";
-		mes "enchanted stones? Which";
-		mes "property do you wish to create?";
-		mes "Earth, Water, Fire, Wind...";
-		mes "...choose one.";
+		mes "¿Deseas crear piedras encantadas";
+		mes "toscas? ¿Que propiedad deseas";
+		mes "crear? Tierra, Agua, Fuego,";
+		mes "Viento... elige una.";
 		next;
-		switch (select("Earth:Water:Fire:Wind")) {
+		switch (select("Tierra:Agua:Fuego:Viento")) {
 		case 1:
 			set .@consume,947; //Horn
-			set .@amount,15; 
+			set .@amount,15;
 			set .@success,993; //Yellow_Live
 			break;
 		case 2:
 			set .@consume,946; //Snail's_Shell
-			set .@amount,20; 
+			set .@amount,20;
 			set .@success,991; //Crystal_Blue
 			break;
 		case 3:
 			set .@consume,904; //Scorpion's_Tail
-			set .@amount,20; 
+			set .@amount,20;
 			set .@success,990; //Boody_Red
 			break;
 		case 4:
 			set .@consume,1013; //Colorful_Shell
-			set .@amount,25; 
+			set .@amount,25;
 			set .@success,992; //Wind_Of_Verdure
 			break;
 		}
 		if (countitem(.@consume) >= .@amount) {
 			mes "[Puchuchartan]";
-			mes "I will try to amplify the hidden";
-			mes "power of natural objects in";
-			mes "order to create rough enchanted";
-			mes "stones. Choose one number from";
-			mes "'1' to '9.' If you wish to cancel";
-			mes "this request, enter '0.'";
+			mes "Intentare amplificar el poder";
+			mes "oculto de los objetos naturales";
+			mes "para crear piedras encantadas";
+			mes "toscas. Elige un numero del";
+			mes "'1' al '9.' Si deseas cancelar";
+			mes "esta solicitud, ingresa '0.'";
 			next;
 			while(1) {
 				input .@input,0,10;
 				if (.@input == 0) {
 					mes "[Puchuchartan]";
-					mes "I see. It's your call.";
-					mes "Come back when you need me.";
+					mes "Ya veo. Es tu decision.";
+					mes "Vuelve cuando me necesites.";
 					close;
 				}
 				else if (.@input > 9) {
 					mes "[Puchuchartan]";
-					mes "Remember to choose a number";
-					mes "from 1 to 9.";
+					mes "Recuerda elegir un numero";
+					mes "del 1 al 9.";
 					next;
 				}
 				else {
@@ -564,17 +564,17 @@ um_in,44,71,2	script	Utan Shaman	782,{
 			mes "[Puchuchartan]";
 			switch(.@success) {
 			case 990:
-				mes "I am putting these tails into a"; break;
+				mes "Estoy poniendo estas colas en una"; break;
 			case 991:
-				mes "I am putting these shells into a"; break;
+				mes "Estoy poniendo estas conchas en una"; break;
 			case 992:
-				mes "I am putting these shells into a"; break;
+				mes "Estoy poniendo estas conchas en una"; break;
 			case 993:
-				mes "I am putting these horns into a"; break;
+				mes "Estoy poniendo estos cuernos en una"; break;
 			}
-			mes "boiling pot, and casting a";
-			mes "sacred incantation. Remember";
-			mes "the number you entered.";
+			mes "olla hirviendo, y recitando un";
+			mes "encantamiento sagrado. Recuerda";
+			mes "el numero que ingresaste.";
 			next;
 			mes "[Puchuchartan]";
 			mes "Amba Omba Zatumba! Umba! Ti!";
@@ -585,26 +585,26 @@ um_in,44,71,2	script	Utan Shaman	782,{
 			next;
 			if (rand(1,10) == 1) {
 				mes "[Puchuchartan]";
-				mes "I guess my power was not enough.";
-				mes "The natural power I gathered with";
-				mes "my spell lost focus and was scattered...";
+				mes "Creo que mi poder no fue suficiente.";
+				mes "El poder natural que reuni con";
+				mes "mi hechizo perdio el enfoque y se disperso...";
 				delitem .@consume,.@amount;
 				getitem 910,1; //Garlet
 				next;
 				mes "[Puchuchartan]";
-				mes "It seems the spirits of nature";
-				mes "were not in harmony at the moment.";
-				mes "However, if you come back later,";
-				mes "I will try to help you. Of course,";
-				mes "there will still be the same possibility that I may fail.";
+				mes "Parece que los espiritus de la";
+				mes "naturaleza no estaban en armonia";
+				mes "en este momento. Sin embargo, si";
+				mes "vuelves mas tarde, intentare ayudarte.";
+				mes "Por supuesto, seguira existiendo la misma posibilidad de que falle.";
 				close;
 			}
 			else {
 				mes "[Puchuchartan]";
-				mes "Here's the enchanted stone you";
-				mes "wished to have. I created this";
-				mes "with a lot of effort, so make";
-				mes "good use of it.";
+				mes "Aqui esta la piedra encantada que";
+				mes "deseabas. La cree con mucho";
+				mes "esfuerzo, asi que dale";
+				mes "buen uso.";
 				delitem .@consume,.@amount;
 				getitem .@success,1;
 				close;
@@ -614,69 +614,69 @@ um_in,44,71,2	script	Utan Shaman	782,{
 			mes "[Puchuchartan]";
 			switch (.@success) {
 			case 990:
-				mes "Fire property...";
-				mes "I will need natural";
-				mes "objects that are filled with";
-				mes "the spirit of fire.";
+				mes "Propiedad de fuego...";
+				mes "Necesitare objetos naturales";
+				mes "que esten llenos del";
+				mes "espiritu del fuego.";
 				next;
 				mes "[Puchuchartan]";
-				mes "Scorpion which endures the";
-				mes "blazing heat of the desert";
-				mes "is brimming with fire energy.";
-				mes "I need ^3377FF20 Scorpion Tails^000000.";
+				mes "El escorpion que soporta el";
+				mes "calor abrasador del desierto";
+				mes "esta lleno de energia de fuego.";
+				mes "Necesito ^3377FF20 Scorpion Tails^000000.";
 				break;
 			case 991:
-				mes "Water property...";
-				mes "I will need natural";
-				mes "objects that are filled with";
-				mes "the spirit of water.";
+				mes "Propiedad de agua...";
+				mes "Necesitare objetos naturales";
+				mes "que esten llenos del";
+				mes "espiritu del agua.";
 				next;
 				mes "[Puchuchartan]";
-				mes "Ambernite...the spirit of";
-				mes "water is contained within its";
-				mes "protective shell...";
-				mes "I will need ^3377FF20 Snail's Shell.^000000";
+				mes "Ambernite...el espiritu del";
+				mes "agua esta contenido dentro de su";
+				mes "concha protectora...";
+				mes "Necesitare ^3377FF20 Snail's Shell.^000000";
 				break;
 			case 992:
-				mes "Wind property...";
-				mes "I will need natural";
-				mes "objects that are filled with";
-				mes "the spirit of wind.";
+				mes "Propiedad de viento...";
+				mes "Necesitare objetos naturales";
+				mes "que esten llenos del";
+				mes "espiritu del viento.";
 				next;
 				mes "[Puchuchartan]";
-				mes "Stainer...the beetle";
-				mes "that flies through the sky";
-				mes "has the wind's spirit.";
-				mes "I need ^3377FF25 Rainbow Shells^000000.";
+				mes "Stainer...el escarabajo";
+				mes "que vuela por el cielo";
+				mes "tiene el espiritu del viento.";
+				mes "Necesito ^3377FF25 Rainbow Shells^000000.";
 				break;
 			case 993:
-				mes "Earth property...I need natural";
-				mes "objects that are filled with";
-				mes "the spirit of the Earth.";
+				mes "Propiedad de tierra...Necesitare";
+				mes "objetos naturales que esten";
+				mes "llenos del espiritu de la Tierra.";
 				next;
 				mes "[Puchuchartan]";
-				mes "Horn...that dwells in the forest";
-				mes "is filled with the spirits of";
-				mes "earth and wood...Horn...";
-				mes "I need ^3377FF15 Horn^000000 from Horns.";
+				mes "Horn...que habita en el bosque";
+				mes "esta lleno de los espiritus de";
+				mes "la tierra y la madera...Horn...";
+				mes "Necesito ^3377FF15 Horn^000000 de Horns.";
 				break;
 			}
 			mes "[Puchuchartan]";
-			mes "That's all I need...";
-			mes "Come back when";
-			mes "you're ready.";
-			mes "I will be here.";
+			mes "Eso es todo lo que necesito...";
+			mes "Vuelve cuando";
+			mes "estes listo.";
+			mes "Estare aqui.";
 			close;
 		}
 	case 2:
 		mes "[Puchuchartan]";
-		mes "Do you wish to divide a pure";
-		mes "enchanted stone into rough ones?";
-		mes "Which property do you want to";
-		mes "divide? Earth, Water, Fire, Wind... ";
-		mes "Choose one.";
+		mes "¿Deseas dividir una piedra";
+		mes "encantada pura en toscas?";
+		mes "¿Que propiedad quieres";
+		mes "dividir? Tierra, Agua, Fuego, Viento... ";
+		mes "Elige una.";
 		next;
-		switch(select("Earth:Water:Fire:Wind")) {
+		switch(select("Tierra:Agua:Fuego:Viento")) {
 		case 1:
 			set .@divide,997; //Great_Nature
 			break;
@@ -691,45 +691,45 @@ um_in,44,71,2	script	Utan Shaman	782,{
 			break;
 		}
 		mes "[Puchuchartan]";
-		mes "Please enter the";
-		mes "number of enchanted";
-		mes "stones that you wish";
-		mes "to divide. I can only";
-		mes "divide up to 10 at a time.";
+		mes "Por favor ingresa la";
+		mes "cantidad de piedras";
+		mes "encantadas que deseas";
+		mes "dividir. Solo puedo";
+		mes "dividir hasta 10 a la vez.";
 		next;
 		input .@input,0,11;
 		if ((.@input > 0) && (.@input < 11)) {
 			if (countitem(.@divide) >= .@input) {
 				if (checkweight(908,(.@input * 30)) == 0) {
 					mes "[Puchuchartan]";
-					mes "You're carrying too";
-					mes "many items right now.";
-					mes "Put some of your stuff";
-					mes "in Kafra Storage, and then";
-					mes "come back to me, okay?";
+					mes "Estas cargando demasiados";
+					mes "objetos ahora mismo.";
+					mes "Guarda algunas de tus cosas";
+					mes "en el Almacen Kafra, y luego";
+					mes "vuelve conmigo, ¿si?";
 					close;
 				}
 				mes "[Puchuchartan]";
-				mes "I'll try to revert these";
-				mes "enchanted stones to their";
-				mes "rough forms. Enter a number";
-				mes "from 1 to 9, or enter 0 if";
-				mes "you decide to cancel.";
+				mes "Intentare revertir estas";
+				mes "piedras encantadas a sus";
+				mes "formas toscas. Ingresa un";
+				mes "numero del 1 al 9, o ingresa";
+				mes "0 si decides cancelar.";
 				next;
 				while(1) {
 					input .@input2,0,10;
 					if (.@input2 == 0) {
 						mes "[Puchuchartan]";
-						mes "You want to cancel?";
-						mes "Well, if you change your";
-						mes "mind, feel free to come";
-						mes "ask me to help at any time.";
+						mes "¿Quieres cancelar?";
+						mes "Bueno, si cambias de";
+						mes "opinion, no dudes en venir";
+						mes "a pedirme ayuda cuando quieras.";
 						close;
 					}
 					else if (.@input2 > 9) {
 						mes "[Puchuchartan]";
-						mes "Hm? You need to enter";
-						mes "a number from 1 to 9.";
+						mes "¿Hm? Necesitas ingresar";
+						mes "un numero del 1 al 9.";
 						next;
 					}
 					else {
@@ -737,9 +737,9 @@ um_in,44,71,2	script	Utan Shaman	782,{
 					}
 				}
 				mes "[Puchuchartan]";
-				mes "I will now chant the";
-				mes "sacred words. Remember";
-				mes "the number you entered!";
+				mes "Ahora cantare las";
+				mes "palabras sagradas. ¡Recuerda";
+				mes "el numero que ingresaste!";
 				next;
 				mes "[Puchuchartan]";
 				mes "Umba Umba Kalapum! Umba! Ta!";
@@ -749,10 +749,10 @@ um_in,44,71,2	script	Utan Shaman	782,{
 				mes "Kum Tum Lakulakun! Umba! Ha!";
 				next;
 				mes "[Puchuchartan]";
-				mes "Here's the rough enchanted stones";
-				mes "you wished to have. I created this";
-				mes "with a lot of effort, so make good";
-				mes "use of them.";
+				mes "Aqui estan las piedras encantadas";
+				mes "toscas que deseabas. Las cree con";
+				mes "mucho esfuerzo, asi que dales";
+				mes "buen uso.";
 				while(1) {
 					if (.@sha_man == .@input) {
 						break;
@@ -772,7 +772,7 @@ um_in,44,71,2	script	Utan Shaman	782,{
 				case 996:
 					getitem 992,.@shaman_max; //Wind_Of_Verdure
 					break;
-				case 997: 
+				case 997:
 					getitem 993,.@shaman_max; //Yellow_Live
 				}
 				delitem .@divide,.@input;
@@ -780,45 +780,45 @@ um_in,44,71,2	script	Utan Shaman	782,{
 			}
 			else {
 				mes "[Puchuchartan]";
-				mes "So, you wish to have rough";
+				mes "Entonces, deseas tener piedras";
 				switch(.@divide) {
 				case 994:
-					mes "fire stones? Then I will need";
-					mes "you to bring "+input_want+" pure fire stone.";
+					mes "de fuego toscas? Entonces necesitare";
+					mes "que traigas "+input_want+" piedra de fuego pura.";
 					break;
 				case 995:
-					mes "water stones? Then I'll need";
-					mes "you to bring "+input_want+" pure water stone.";
+					mes "de agua toscas? Entonces necesitare";
+					mes "que traigas "+input_want+" piedra de agua pura.";
 					break;
 				case 996:
-					mes "wind stones? Then I will need";
-					mes "you to bring "+input_want+" pure wind stone.";
+					mes "de viento toscas? Entonces necesitare";
+					mes "que traigas "+input_want+" piedra de viento pura.";
 					break;
-				case 997: 
-					mes "earth stones? Then I'll need";
-					mes "you to bring "+.@input+" pure earth stone.";
+				case 997:
+					mes "de tierra toscas? Entonces necesitare";
+					mes "que traigas "+.@input+" piedra de tierra pura.";
 					break;
 				}
 				mes "^3377FF"+.@input+" "+getitemname(.@divide)+"^000000.";
 				next;
 				mes "[Puchuchartan]";
-				mes "That's all I need...";
-				mes "Come back when";
-				mes "you're ready.";
-				mes "I will be here.";
+				mes "Eso es todo lo que necesito...";
+				mes "Vuelve cuando";
+				mes "estes listo.";
+				mes "Estare aqui.";
 				close;
 			}
 		}
 		else {
 			mes "[Puchuchartan]";
-			mes "Hm? You need to enter";
-			mes "a number from 1 to 10.";
+			mes "¿Hm? Necesitas ingresar";
+			mes "un numero del 1 al 10.";
 			close;
 		}
 	case 3:
 		mes "[Puchuchartan]";
-		mes "I see. It's your call.";
-		mes "Come back when you need me.";
+		mes "Ya veo. Es tu decision.";
+		mes "Vuelve cuando me necesites.";
 		close;
 	}
 }
@@ -829,26 +829,26 @@ umbala,221,193,1	script	#Skulldoor	111,{
 		end;
 	}
 	else {
-		mes "^3355FFA human skull disturbingly";
-		mes "hangs beside the door. The door is";
-		mes "locked tight, so you can't get in.";
-		mes "As you peer through the keyhole,";
-		mes "you can see somebody moving inside the room.^000000";
+		mes "^3355FFUn craneo humano cuelga de forma";
+		mes "perturbadora junto a la puerta. La";
+		mes "puerta esta bien cerrada, asi que no";
+		mes "puedes entrar. Al mirar por el ojo";
+		mes "de la cerradura, puedes ver a alguien moviéndose adentro.^000000";
 		next;
-		if (select("Examine the skull.:Quit.") == 1) {
-			mes "^3355FFYou see that the eye sockets";
-			mes "of the skull are empty.";
-			mes "How peculiar...";
-			mes "It seems that Gemstones";
-			mes "would fit perfectly inside of";
-			mes "them.^000000";
+		if (select("Examinar el craneo.:Salir.") == 1) {
+			mes "^3355FFVes que las cuencas de los ojos";
+			mes "del craneo estan vacias.";
+			mes "Que peculiar...";
+			mes "Parece que unas Gemas";
+			mes "cabrian perfectamente";
+			mes "dentro de ellas.^000000";
 			next;
-			mes "^3355FFYou see the left eye socket of the";
-			mes "skull. What do you want to do?^000000";
+			mes "^3355FFVes la cuenca del ojo izquierdo";
+			mes "del craneo. ¿Que quieres hacer?^000000";
 			next;
-			switch(select("Leave it as it is.:Insert a Blue Gemstone.:Insert a Yellow Gemstone.:Insert a Red Gemstone.")) {
+			switch(select("Dejarlo como esta.:Insertar una Blue Gemstone.:Insertar una Yellow Gemstone.:Insertar una Red Gemstone.")) {
 			case 1:
-				mes "^3355FFYou left the eye socket as it was.^000000";
+				mes "^3355FFDejaste la cuenca del ojo como estaba.^000000";
 				next;
 				break;
 			case 2:
@@ -863,11 +863,11 @@ umbala,221,193,1	script	#Skulldoor	111,{
 			}
 			if (.@insert) {
 				if (countitem(.@insert) > 0) {
-					mes "^3355FFYou inserted a "+getitemname(.@insert)+"";
-					mes "into the eye socket.^000000";
+					mes "^3355FFInsertaste una "+getitemname(.@insert)+"";
+					mes "en la cuenca del ojo.^000000";
 					next;
-					mes "^3355FFThe gemstone rolled back out of";
-					mes "the mouth of the skull.^000000";
+					mes "^3355FFLa gema rodo de vuelta por la";
+					mes "boca del craneo.^000000";
 					set .@skulldoor,.@skulldoor+1;
 					switch (.@insert) {
 					case 715: set .@skull,2; break;
@@ -879,18 +879,18 @@ umbala,221,193,1	script	#Skulldoor	111,{
 					next;
 				}
 				else {
-					mes "^3355FFYou forgot to carry "+getitemname(.@insert)+"";
-					mes "with you. So you couldn't do what you";
-					mes "had intended.^000000";
+					mes "^3355FFOlvidaste traer "+getitemname(.@insert)+"";
+					mes "contigo. Asi que no pudiste hacer lo que";
+					mes "tenias planeado.^000000";
 					next;
 				}
 			}
-			mes "^3355FFYou see the right eye socket of";
-			mes "the skull. What do you want to do?^000000";
+			mes "^3355FFVes la cuenca del ojo derecho";
+			mes "del craneo. ¿Que quieres hacer?^000000";
 			next;
-			switch(select("Leave it as it is.:Insert a Blue Gemstone.:Insert a Yellow Gemstone.:Insert a Red Gemstone.")) {
+			switch(select("Dejarlo como esta.:Insertar una Blue Gemstone.:Insertar una Yellow Gemstone.:Insertar una Red Gemstone.")) {
 			case 1:
-				mes "^3355FFYou left the eye socket as it was.^000000";
+				mes "^3355FFDejaste la cuenca del ojo como estaba.^000000";
 				next;
 				break;
 			case 2:
@@ -905,11 +905,11 @@ umbala,221,193,1	script	#Skulldoor	111,{
 			}
 			if (.@insert2) {
 				if (countitem(.@insert2) > 0) {
-					mes "^3355FFYou inserted a "+getitemname(.@insert2)+"";
-					mes "into the eye socket.^000000";
+					mes "^3355FFInsertaste una "+getitemname(.@insert2)+"";
+					mes "en la cuenca del ojo.^000000";
 					next;
-					mes "^3355FFThe gemstone rolled back out of";
-					mes "the mouth of the skull.^000000";
+					mes "^3355FFLa gema rodo de vuelta por la";
+					mes "boca del craneo.^000000";
 					if (.@insert2 == .@insert) {
 						set .@skulldoor,.@skulldoor+1;
 					}
@@ -921,9 +921,9 @@ umbala,221,193,1	script	#Skulldoor	111,{
 					next;
 				}
 				else {
-					mes "^3355FFYou forgot to carry "+getitemname(.@insert2)+"";
-					mes "with you. So you couldn't do what you";
-					mes "had intended.^000000";
+					mes "^3355FFOlvidaste traer "+getitemname(.@insert2)+"";
+					mes "contigo. Asi que no pudiste hacer lo que";
+					mes "tenias planeado.^000000";
 					next;
 				}
 			}
@@ -956,43 +956,43 @@ umbala,221,193,1	script	#Skulldoor	111,{
 				break;
 			}
 			if (.@skullopen == 0) {
-				mes "^3355FFNothing happened.";
-				mes "You have the feeling that the";
-				mes "skull is grinning at you. But...";
-				mes "It's probably just a trick of the light.^000000";
+				mes "^3355FFNo paso nada.";
+				mes "Tienes la sensacion de que el";
+				mes "craneo te esta sonriendo. Pero...";
+				mes "Probablemente es solo un truco de la luz.^000000";
 				close;
 			}
 			else {
-				mes "^3355FFSuddenly, a clicking sound comes";
-				mes "from the skull's eye sockets and";
-				mes "the door opens. Before you know";
-				mes "it, you walk inside as if guided";
-				mes "by an unseen force...^000000";
+				mes "^3355FFDe repente, un sonido de clic proviene";
+				mes "de las cuencas de los ojos del craneo y";
+				mes "la puerta se abre. Antes de que te des";
+				mes "cuenta, caminas adentro como guiado";
+				mes "por una fuerza invisible...^000000";
 				close2;
 				warp "um_in",32,71;
 				end;
 			}
 		}
-		mes "^3355FFYou decided to pass by the door.";
-		mes "It looks like it might be too hard to open.^000000";
+		mes "^3355FFDecidiste pasar de largo la puerta.";
+		mes "Parece que seria muy dificil abrirla.^000000";
 		close;
 	}
 }
 
 // Umbala Domestic Dispute Quest :: um_npc_ryu
-//============================================================ 
+//============================================================
 um_in,139,48,5	script	Phrenetan	783,{
 	if (event_umbala >= 3) {
 		mes "[Phrenetan]";
-		mes "I am so sick and tired of";
-		mes "my husband!! It's like he";
-		mes "flirts with every girl";
-		mes "in the village!";
+		mes "¡Estoy tan harta y cansada de";
+		mes "mi esposo! ¡Es como si";
+		mes "coqueteara con cada chica";
+		mes "de la aldea!";
 		next;
 		mes "[Phrenetan]";
-		mes "If I see him flirting with";
-		mes "women again...I swear...";
-		mes "I will show him hell!!";
+		mes "Si lo veo coqueteando con";
+		mes "mujeres de nuevo...lo juro...";
+		mes "¡¡Le mostrare el infierno!!";
 		close;
 	}
 	if (BaseJob == Job_Novice && Upper != 2) {
@@ -1036,64 +1036,64 @@ um_in,144,45,5	script	Umpokoriohtan	789,{
 	if (event_umbala >= 3) {
 		if(rand(1,3) == 2) {
 			mes "[Umpokoriohtan]";
-			mes "Hey there, cool cat.";
-			mes "Don't mind the wife...";
-			mes "Much as I love her,";
-			mes "I know my obligations, ya dig?";
+			mes "Oye, que onda, amigo.";
+			mes "No le hagas caso a la esposa...";
+			mes "Por mucho que la ame,";
+			mes "conozco mis obligaciones, ¿me entiendes?";
 			next;
 			mes "[Umpokoriohtan]";
-			mes "If a man's got plenty, he's";
-			mes "got to share it with those";
-			mes "that got nothing to give.";
+			mes "Si un hombre tiene mucho, tiene";
+			mes "que compartirlo con los que";
+			mes "no tienen nada que dar.";
 			next;
 			mes "[Umpokoriohtan]";
-			mes "If a man's hands are good";
-			mes "at healin', he's got to use";
-			mes "those hands to help folks live.";
+			mes "Si las manos de un hombre son";
+			mes "buenas para sanar, tiene que usar";
+			mes "esas manos para ayudar a la gente a vivir.";
 			next;
 			mes "[Umpokoriohtan]";
-			mes "If a man's lips be good at";
-			mes "singin', he's got to croon the";
-			mes "songs we like to hear so much.";
+			mes "Si los labios de un hombre son";
+			mes "buenos para cantar, tiene que";
+			mes "entonar las canciones que nos gusta escuchar.";
 			next;
 			mes "[Umpokoriohtan]";
-			mes "But if sweet lovin' is golden,";
-			mes "then baby...I got the Midas touch.";
+			mes "Pero si el dulce amor es oro,";
+			mes "entonces nena...tengo el toque de Midas.";
 			next;
 			mes "[Umpokoriohtan]";
 			mes "Ooh...!";
 			mes "...........";
-			mes "My back--!";
-			mes "Simmer down, baby, your turn is comin' in a minute~";
+			mes "¡Mi espalda--!";
+			mes "Calmate, nena, tu turno viene en un minuto~";
 			emotion ET_ROCK, getnpcid(0, "Phrenetan");
 			emotion ET_SWEAT;
 			close;
 		}
 		else {
 			mes "[Umpokoriohtan]";
-			mes "Man...sometimes my wife can";
-			mes "be a lil' too rough, maybe";
-			mes "even hurtful. But that's cool...";
-			mes "it just means she's got fire.";
+			mes "Hombre...a veces mi esposa puede";
+			mes "ser un poco ruda, tal vez";
+			mes "hasta hiriente. Pero esta bien...";
+			mes "solo significa que tiene fuego.";
 			next;
 			mes "[Umpokoriohtan]";
-			mes "But someday, she'll have to";
-			mes "learn that I gots to share";
-			mes "this heart of mine with the ladies";
-			mes "who really need a dose of vitamin";
-			mes "lovin', ya dig? It's my obligation.";
+			mes "Pero algun dia, tendra que";
+			mes "aprender que tengo que compartir";
+			mes "este corazon mio con las damas";
+			mes "que realmente necesitan una dosis";
+			mes "de vitamina amor, ¿me entiendes? Es mi obligacion.";
 			next;
 			mes "[Umpokoriohtan]";
 			mes "Wainatan, Bertztan, Chabimatan...";
-			mes "Those pretty girls been waitin'";
-			mes "toooooo long. Don't worry,";
-			mes "big daddy's comin' soon.";
+			mes "Esas lindas chicas han estado";
+			mes "esperando demaaaasiado. No se preocupen,";
+			mes "papi ya viene pronto.";
 			next;
 			mes "[Umpokoriohtan]";
-			mes "OOOH~! Phrenetan!";
-			mes "Baby, why you gotta be rough?";
-			mes "Hit me gently, ya dig??";
-			mes "I don't mean to hurt you~";
+			mes "¡¡AAAY~! ¡Phrenetan!";
+			mes "Nena, ¿por que tienes que ser tan ruda?";
+			mes "¡¡Pegame suavecito, ¿me entiendes??";
+			mes "No quiero lastimarte~";
 			emotion ET_HUK, getnpcid(0, "Phrenetan");
 			emotion ET_KEK;
 			close;
@@ -1116,15 +1116,15 @@ OnInit:
 um_in,101,73,3	script	Wainatan	783,{
 	if (event_umbala >= 3) {
 		mes "[Wainatan]";
-		mes "I am sick and tired of this guy";
-		mes "who always appears at night and bugs the hell out of me...";
+		mes "Estoy harta de este tipo";
+		mes "que siempre aparece de noche y me molesta sin parar...";
 		next;
 		mes "[Wainatan]";
-		mes "'Smooth operator that gets the";
-		mes "job done?' Oh my god...!";
-		mes "I hate him with a passion!";
-		mes "I wish Umpokoriohtan would";
-		mes "just drop dead.";
+		mes "¿'Operador suave que cumple la";
+		mes "mision?' ¡Dios mio...!";
+		mes "¡Lo odio con toda mi alma!";
+		mes "¡Ojala Umpokoriohtan";
+		mes "se muriera de una vez!";
 		close;
 	}
 	if (um_wind == 1) {
@@ -1163,12 +1163,12 @@ um_in,101,73,3	script	Wainatan	783,{
 um_in,94,123,5	script	Bertztan	783,{
 	if (event_umbala >= 3) {
 		mes "[Bertztan]";
-		mes "...*Sigh* That sicko";
-		mes "Umpo-whatever! I told him";
-		mes "I don't like him, but he";
-		mes "just doesn't listen!";
-		mes "I wish...I wish he would";
-		mes "just disappear!";
+		mes "...*Suspiro* ¡Ese enfermo de";
+		mes "Umpo-como se llame! Le dije que";
+		mes "no me gusta, ¡pero simplemente";
+		mes "no escucha!";
+		mes "Deseo...deseo que simplemente";
+		mes "desapareciera.";
 		close;
 	}
 	if (um_wind == 2) {
@@ -1207,20 +1207,20 @@ um_in,94,123,5	script	Bertztan	783,{
 umbala,145,217,3	script	Chabimatan	783,{
 	if (event_umbala >= 3) {
 		mes "[Chabimatan]";
-		mes "...*Sigh* Umpokoriohtan seems";
-		mes "to be married. I have no";
-		mes "idea why he still flirts";
-		mes "with other women. Maybe he's";
-		mes "not very mature, or he's";
-		mes "irresponsible...";
+		mes "...*Suspiro* Umpokoriohtan parece";
+		mes "estar casado. No tengo";
+		mes "idea de por que sigue coqueteando";
+		mes "con otras mujeres. Quizas no es";
+		mes "muy maduro, o es";
+		mes "irresponsable...";
 		next;
 		mes "[Chabimatan]";
-		mes "Well, whatever he is,";
-		mes "he's certainly not";
-		mes "romantic. Those pick-up";
-		mes "lines of his could";
-		mes "some work, maybe";
-		mes "even some clean up.";
+		mes "Bueno, sea lo que sea,";
+		mes "ciertamente no es";
+		mes "romantico. Esas frases";
+		mes "de conquista suyas";
+		mes "necesitan trabajo, quizas";
+		mes "hasta una limpieza completa.";
 		close;
 	}
 	if (um_wind == 3) {
@@ -1270,10 +1270,10 @@ OnInit:
 OnTouch_:
 	if (um_wind == 4) {
 		set um_wind,5;
-		mes "^3355FFAs you enter the house";
-		mes "you happen to witness";
-		mes "Phrenetan beating a guy";
-		mes "mercilessly.^000000";
+		mes "^3355FFAl entrar a la casa";
+		mes "presencias a";
+		mes "Phrenetan golpeando a un tipo";
+		mes "sin piedad.^000000";
 		next;
 		emotion ET_FRET;
 		mes "[Phrenetan]";
@@ -1281,8 +1281,8 @@ OnTouch_:
 		mes "Umbaumbahumbah!!";
 		mes "Umbaumbahumbah!!!!!!";
 		next;
-		mes "^3355FFYou were kicked out of the house";
-		mes "by Phrenetan.^000000";
+		mes "^3355FFFuiste echado de la casa";
+		mes "por Phrenetan.^000000";
 		next;
 		enablenpc "#unpc";
 		disablenpc "#!@#$%";
@@ -1298,12 +1298,12 @@ OnInit:
 
 OnTouch_:
 	if (um_wind == 5) {
-		mes "^3355FFAs you realized what happened";
-		mes "after being kicked out of the";
-		mes "house, you see a leaf on the";
-		mes "ground near where you're standing.^000000";
+		mes "^3355FFAl darte cuenta de lo que paso";
+		mes "despues de ser echado de la";
+		mes "casa, ves una hoja en el";
+		mes "suelo cerca de donde estas parado.^000000";
 		next;
-		if (select("Take it.:Leave it.") == 1) {
+		if (select("Tomarla.:Dejarla.") == 1) {
 			close2;
 			set um_wind,0;
 			set MISC_QUEST,MISC_QUEST | 32768;
@@ -1314,11 +1314,11 @@ OnTouch_:
 		set um_wind,0;
 		set MISC_QUEST,MISC_QUEST | 32768;
 		mes "[" + strcharinfo(0) + "]";
-		mes "I am not supposed to take";
-		mes "what may belong to other people.";
+		mes "No deberia tomar lo que";
+		mes "podria pertenecer a otras personas.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Yeah, I'm a such good person.";
+		mes "Si, soy una muy buena persona.";
 		close2;
 		disablenpc "#unpc";
 	}

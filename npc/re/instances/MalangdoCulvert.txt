@@ -23,24 +23,24 @@
 //============================================================
 mal_in01,172,28,2	script	Albo#mal	561,{
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Try to continue after reducing those objects.";
+		mes "Tienes demasiados tipos de objetos. Intenta continuar despues de reducir esos objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You have too many heavy objects. Try to continue after reducing your weight.";
+		mes "Tienes objetos demasiado pesados. Intenta continuar despues de reducir tu peso.";
 		close;
 	}
 	if (BaseLevel < 90) {
 		mes "[Albo]";
-		mes "Who are you?";
-		mes "We don't need a weaking!!";
+		mes "¿Quien eres?";
+		mes "¡¡No necesitamos a un debilucho!!";
 		close;
 	}
 	setarray .@quests[0],12271,12272,12273,12274;
 	setarray .@names$[0],
-		"General Culvert Daily Service","^990000Hard Culvert Daily Service^000000",
-		"General Culvert Weekly Service","^990000Hard Culvert Weekly Service^000000";
-	set .@menu$,"Why are doing this job?:";
+		"Servicio Diario de Alcantarillado General","^990000Servicio Diario de Alcantarillado Dificil^000000",
+		"Servicio Semanal de Alcantarillado General","^990000Servicio Semanal de Alcantarillado Dificil^000000";
+	set .@menu$,"¿Por que haces este trabajo?:";
 	for(set .@i,0; .@i<4; set .@i,.@i+1) {
 		if (checkquest(.@quests[.@i],PLAYTIME) > -1) {
 			set .@status[.@i],2;
@@ -54,33 +54,33 @@ mal_in01,172,28,2	script	Albo#mal	561,{
 		}
 	}
 	mes "[Albo]";
-	mes "We crossed the sea!";
-	mes "We are great heroes of Culvert! We do not forgive the seafood that aims at Culvert!";
+	mes "¡Cruzamos el mar!";
+	mes "¡Somos grandes heroes del Alcantarillado! ¡No perdonamos a los mariscos que amenazan el Alcantarillado!";
 	next;
 	set .@i, select(.@menu$)-1;
 	if (.@i == 0) {
 		mes "[Albo]";
-		mes "We used to be the henchmen of Mr. Missing! We almost became guards of such a historic site.";
+		mes "¡Soliamos ser los secuaces del Sr. Missing! Casi nos convertimos en guardias de un sitio tan historico.";
 		next;
 		mes "[Albo]";
-		mes "However, when sea water flooded all precious the resources, my dream... all my dreams melted away...";
+		mes "Sin embargo, cuando el agua de mar inundo todos los recursos preciosos, mi sueño... todos mis sueños se desvanecieron...";
 		next;
 		mes "[Albo]";
-		mes "We do not forgive the seafood that invaded our territory. I'll eat them with spicy paste!!!";
+		mes "No perdonamos a los mariscos que invadieron nuestro territorio. ¡¡¡Los comere con pasta picante!!!";
 		next;
-		mes "^0000ffAlbo's voice shakes with anger. He smacked his lips when he mentioned spicy paste.^000000";
+		mes "^0000ffLa voz de Albo tiembla de ira. Se relame los labios cuando menciono la pasta picante.^000000";
 		close;
 	}
 	switch(.@status[.@i-1]) {
 	case 0:
 		mes "[Albo]";
-		mes "That task is really hard for you, so I can't tell you about it. Why don't you find another one?";
+		mes "Esa tarea es realmente dificil para ti, asi que no puedo hablarte de ella. ¿Por que no buscas otra?";
 		close;
 	case 1:
 		break;
 	case 2:
 		mes "[Albo]";
-		mes "I'm sorry. There is no new task yet! If I find any work, I'll tell you so!";
+		mes "Lo siento. ¡Aun no hay nueva tarea! ¡Si encuentro algun trabajo, te avisare!";
 		close;
 	}
 	switch(.@i) {
@@ -124,20 +124,20 @@ L_GiveQuest:
 	setquest getarg(1);
 	setquest getarg(2);
 	mes "[Albo]";
-	mes "Today, the heroes of Culvert!";
+	mes "¡Hoy, los heroes del Alcantarillado!";
 	mes "We raise our voices and set a date for the extermination of ^0000ff"+getarg(3)+"^000000!";
 	next;
 	mes "[Albo]";
 	switch(getarg(0)) {
 	case 1:
 	case 2:
-		mes "Come on, heroes! Don't be afraid of them! Just go on, since it's a one-day mission!";
+		mes "¡Vamos, heroes! ¡No les tengan miedo! ¡Adelante, ya que es una mision de un dia!";
 		break;
 	case 3:
-		mes "I'll give you one week to finish this job! Terminate all of them in Culvert Dungeon, Normal Mode!";
+		mes "¡Te dare una semana para terminar este trabajo! ¡Eliminalos a todos en la Mazmorra del Alcantarillado, Modo Normal!";
 		break;
 	case 4:
-		mes "I'll give you one week to finish this job! Terminate all of them in Culvert Dungeon, Hard Mode!";
+		mes "¡Te dare una semana para terminar este trabajo! ¡Eliminalos a todos en la Mazmorra del Alcantarillado, Modo Dificil!";
 		break;
 	}
 	next;
@@ -147,11 +147,11 @@ L_GiveQuest:
 
 mal_in01,172,26,2	script	Madeca#mal	544,{
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Try to continue after reducing those objects.";
+		mes "Tienes demasiados tipos de objetos. Intenta continuar despues de reducir esos objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You have too many heavy objects. Try to continue after reducing your weight.";
+		mes "Tienes objetos demasiado pesados. Intenta continuar despues de reducir tu peso.";
 		close;
 	}
 	if (BaseLevel < 90) {

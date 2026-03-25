@@ -1,87 +1,87 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Geffen Guides
-//===== By: ================================================== 
+//===== By: ==================================================
 //= L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.2
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Guides for the city of Geffen.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version, Renewal guide.
 //= 1.1 Fixed and optimized. [Euphy]
 //= 1.2 Navigation system update. [Euphy]
-//============================================================ 
+//============================================================
 
 geffen,203,116,4	script	Guide#01geffen::GuideGeffen	705,{
 	cutin "gef_soldier",2;
 	mes "[Geffen Guide]";
-	mes "Welcome to ^8B4513Geffen^000000,";
-	mes "the City of Magic.";
-	mes "Do you need help navigating the city?";
+	mes "Bienvenido a ^8B4513Geffen^000000,";
+	mes "la Ciudad de la Magia.";
+	mes "Necesitas ayuda para navegar por la ciudad?";
 	F_Navi("[Geffen Guide]");
 	next;
 	while (1) {
-		switch(select("[ Main Facilities ]:[ Merchants & Helpers ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ Instalaciones Principales ]:[ Comerciantes y Ayudantes ]:Quitar Marcas del Mini-Mapa:Cancelar")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Magic Academy ]:[ Geffen Tower ]:[ Fountain ]:[ Tool Shop ]:[ Buy & Repair Equipment ]:[ Inn ]:[ Tavern ]:[ Christopher's Forge ]:Previous Menu")) {
+				switch(select("[ Academia de Magia ]:[ Torre de Geffen ]:[ Fuente ]:[ Tienda de Herramientas ]:[ Comprar y Reparar Equipo ]:[ Posada ]:[ Taberna ]:[ Forja de Christopher ]:Menu Anterior")) {
 				case 1:
 					mes "[Geffen Guide]";
-					mes "The "+F_Navi("Magic Academy","geffen,61,180","^B9062F");
-					mes "handles all magic-related affairs,";
-					mes "including job changes.";
-					mes "Let me mark its location";
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "La "+F_Navi("Academia de Magia","geffen,61,180","^B9062F");
+					mes "se encarga de todos los asuntos relacionados con la magia,";
+					mes "incluyendo cambios de trabajo.";
+					mes "Dejame marcar su ubicacion";
+					mes "en tu mini-mapa.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,61,180,0,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark, F_Navi("Geffen Tower","geffen,120,114","^0000FF");
+					callsub L_Mark, F_Navi("Torre de Geffen","geffen,120,114","^0000FF");
 					viewpoint 1,120,114,1,0x0000FF;
 					next;
 					break;
 				case 3:
-					callsub L_Mark, F_Navi("Fountain","geffen,126,48","^FF5400");
+					callsub L_Mark, F_Navi("Fuente","geffen,126,48","^FF5400");
 					viewpoint 1,126,48,2,0xFFB400;
 					next;
 					break;
 				case 4:
-					callsub L_Mark, F_Navi("Tool Shop","geffen,44,86","^006400");
+					callsub L_Mark, F_Navi("Tienda de Herramientas","geffen,44,86","^006400");
 					viewpoint 1,44,86,3,0xAAFF00;
 					next;
 					break;
 				case 5:
 					mes "[Geffen Guide]";
-					mes "If you'd like to ";
-					mes F_Navi("Buy or Repair Equipment","geffen,99,140","^7F3300");
-					mes "then this is the place you'll want to visit.";
-					mes "Let me mark its location";
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "Si quieres";
+					mes F_Navi("Comprar o Reparar Equipo","geffen,99,140","^7F3300");
+					mes "entonces este es el lugar que querras visitar.";
+					mes "Dejame marcar su ubicacion";
+					mes "en tu mini-mapa.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,99,140,4,0xD2691E;
 					next;
 					break;
 				case 6:
-					callsub L_Mark, F_Navi("Inn","geffen,172,174","^800080");
+					callsub L_Mark, F_Navi("Posada","geffen,172,174","^800080");
 					viewpoint 1,172,174,5,0xDA70D6;
 					next;
 					break;
 				case 7:
-					callsub L_Mark, F_Navi("Tavern","geffen,138,138","^B9062F");
+					callsub L_Mark, F_Navi("Taberna","geffen,138,138","^B9062F");
 					viewpoint 1,138,138,6,0xFF0000;
 					next;
 					break;
 				case 8:
 					mes "[Geffen Guide]";
-					mes F_Navi("Christopher's Forge","geffen,182,59","^0000FF")+" is";
-					mes "where you can purchase";
-					mes "Refining materials.";
-					mes "It used to be the old Blacksmith Guild.";
+					mes "La "+F_Navi("Forja de Christopher","geffen,182,59","^0000FF")+" es";
+					mes "donde puedes comprar";
+					mes "materiales de Refinamiento.";
+					mes "Solia ser el antiguo Gremio de Herreros.";
 					viewpoint 1,182,59,6,0x0000FF;
 					next;
 					break;
@@ -94,31 +94,31 @@ geffen,203,116,4	script	Guide#01geffen::GuideGeffen	705,{
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Eden Teleport Officer ]:[ Kafra Employee ]:[ Pet Groomer ]:[ Chef Assistant ]:[ Dimensional Arcanist Guide ]:Previous Menu")) {
+				switch(select("[ Oficial de Teletransporte Eden ]:[ Empleada Kafra ]:[ Cuidador de Mascotas ]:[ Asistente de Chef ]:[ Guia de Arcanista Dimensional ]:Menu Anterior")) {
 				case 1:
-					callsub L_Mark, F_Navi("Eden Teleport Officers","geffen,132,66","^B9062F");
+					callsub L_Mark, F_Navi("Oficiales de Teletransporte Eden","geffen,132,66","^B9062F");
 					viewpoint 1,61,180,7,0xFF0000;
 					viewpoint 1,132,66,8,0xFF0000;
 					next;
 					break;
 				case 2:
-					callsub L_Mark, "^FF5400Kafra Employees^000000";
+					callsub L_Mark, "^FF5400Empleadas Kafra^000000";
 					viewpoint 1,203,123,10,0xFFB400;
 					viewpoint 1,120,62,11,0xFFB400;
 					next;
 					break;
 				case 3:
-					callsub L_Mark, F_Navi("Pet Groomer","geffen,193,152","^006400");
+					callsub L_Mark, F_Navi("Cuidador de Mascotas","geffen,193,152","^006400");
 					viewpoint 1,193,152,12,0xAAFF00;
 					next;
 					break;
 				case 4:
-					callsub L_Mark, F_Navi("Chef Assistant","geffen,196,111","^7F3300");
+					callsub L_Mark, F_Navi("Asistente de Chef","geffen,196,111","^7F3300");
 					viewpoint 1,196,111,13,0xD2691E;
 					next;
 					break;
 				case 5:
-					callsub L_Mark, F_Navi("Dimensional Arcanist Guide","geffen,140,196","^800080");
+					callsub L_Mark, F_Navi("Guia de Arcanista Dimensional","geffen,140,196","^800080");
 					viewpoint 1,140,196,14,0xDA70D6;
 					next;
 					break;
@@ -130,8 +130,8 @@ geffen,203,116,4	script	Guide#01geffen::GuideGeffen	705,{
 			break;
 		case 3:
 			mes "[Geffen Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "Claro, quitare todas las marcas de tu mini-mapa.";
+			mes "Hay algo mas en lo que pueda ayudarte?";
 			viewpoint 2,1,1,0,0xFFFF00;
 			viewpoint 2,1,1,1,0x000000;
 			viewpoint 2,1,1,2,0xFF0000;
@@ -151,7 +151,7 @@ geffen,203,116,4	script	Guide#01geffen::GuideGeffen	705,{
 			break;
 		case 4:
 			mes "[Geffen Guide]";
-			mes "Enjoy your stay.";
+			mes "Disfruta tu estancia.";
 			close2;
 			cutin "gef_soldier",255;
 			end;
@@ -160,10 +160,10 @@ geffen,203,116,4	script	Guide#01geffen::GuideGeffen	705,{
 	end;
 L_Mark:
 	mes "[Geffen Guide]";
-	mes "Let me mark the location of the";
+	mes "Dejame marcar la ubicacion de";
 	mes getarg(0)+"^000000";
-	mes "on your mini-map.";
-	mes "Would you like to check any other locations?";
+	mes "en tu mini-mapa.";
+	mes "Te gustaria revisar alguna otra ubicacion?";
 	return;
 }
 

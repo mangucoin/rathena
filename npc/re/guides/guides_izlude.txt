@@ -1,98 +1,98 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Izlude Guides
-//===== By: ================================================== 
+//===== By: ==================================================
 //= L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.4
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Guides for the city of Izlude.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First version, Renewal guide.
 //= 1.1 Updated to match the new Izlude Map. [Masao]
 //= 1.2 Added Renewal Izlude viewpoint coordinates.
 //= 1.3 Navigation system update. [Euphy]
 //=     Optimized.
 //= 1.4 Added Izlude duplicates. [Euphy]
-//============================================================ 
+//============================================================
 
 -	script	::GuideIzlude	-1,{
 	cutin "prt_soldier",2;
 	mes "[Izlude Guide]";
-	mes "Welcome to ^8B4513Izlude^000000,";
-	mes "Prontera's satellite town.";
-	mes "Do you need help navigating the town?";
+	mes "Bienvenido a ^8B4513Izlude^000000,";
+	mes "el pueblo satelite de Prontera.";
+	mes "Necesitas ayuda para navegar por el pueblo?";
 	F_Navi("[Izlude Guide]");
 	next;
 	set .@map$, strnpcinfo(4);
 	while (1) {
-		switch(select("[ Main Facilities ]:[ Merchants & Helpers ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ Instalaciones Principales ]:[ Comerciantes y Ayudantes ]:Quitar Marcas del Mini-Mapa:Cancelar")) {
 		case 1:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Cryptura Academy ]:[ Marina ]:[ International Airship ]:[ Arena ]:[ Kit Shop ]:[ Swordsman Guild ]:[ Enchant Association ]:[ Forge ]:Previous Menu")) {
+				switch(select("[ Academia Cryptura ]:[ Marina ]:[ Dirigible Internacional ]:[ Arena ]:[ Tienda de Kits ]:[ Gremio de Espadachines ]:[ Asociacion de Encantamientos ]:[ Forja ]:Menu Anterior")) {
 				case 1:
 					mes "[Izlude Guide]";
-					mes "Novice adventurers should go to "+F_Navi("Cryptura Academy","iz_ac01,100,39")+" to receive more information and training!";
-					mes "Would you like to check any other locations?";
+					mes "Los aventureros novatos deberian ir a la "+F_Navi("Academia Cryptura","iz_ac01,100,39")+" para recibir mas informacion y entrenamiento!";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,128,260,0,0xD2691E;
 					next;
 					break;
 				case 2:
 					mes "[Izlude Guide]";
-					mes "You can use the "+F_Navi("Marina",.@map$+",197,205","^B9062F");
-					mes "to go to ^8B4513Alberta^000000 or ^8B4513Byalan Island^000000.";
-					mes "Beware of ^8B4513Izlude Dungeon^000000";
-					mes "on Byalan Island since it is";
-					mes "filled with dreadful monsters.";
-					mes "Would you like to check any other locations?";
+					mes "Puedes usar la "+F_Navi("Marina",.@map$+",197,205","^B9062F");
+					mes "para ir a ^8B4513Alberta^000000 o la ^8B4513Isla Byalan^000000.";
+					mes "Ten cuidado con la ^8B4513Mazmorra de Izlude^000000";
+					mes "en la Isla Byalan ya que esta";
+					mes "llena de monstruos terribles.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,197,205,1,0xFF0000;
 					next;
 					break;
 				case 3:
 					mes "[Izlude Guide]";
-					mes "The "+F_Navi("International Airship",.@map$+",202,75","^0000FF");
-					mes "goes to ^8B4513Juno^000000 and ^8B4513Rachel^000000.";
-					mes "Let me mark its location";
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "El "+F_Navi("Dirigible Internacional",.@map$+",202,75","^0000FF");
+					mes "va a ^8B4513Juno^000000 y ^8B4513Rachel^000000.";
+					mes "Dejame marcar su ubicacion";
+					mes "en tu mini-mapa.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,210,73,2,0x0A82FF;
 					next;
 					break;
 				case 4:
 					mes "[Izlude Guide]";
-					mes "The "+F_Navi("Arena",.@map$+",213,161","^FF5400");
-					mes "is a perfect place to";
-					mes "test your combat capabilities.";
-					mes "Let me mark its location";
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "La "+F_Navi("Arena",.@map$+",213,161","^FF5400");
+					mes "es un lugar perfecto para";
+					mes "poner a prueba tus capacidades de combate.";
+					mes "Dejame marcar su ubicacion";
+					mes "en tu mini-mapa.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,213,161,3,0xFF5400;
 					next;
 					break;
 				case 5:
-					callsub L_Mark, F_Navi("Kit Shop",.@map$+",110,182","^006400");
+					callsub L_Mark, F_Navi("Tienda de Kits",.@map$+",110,182","^006400");
 					viewpoint 1,108,179,4,0xAAFF00;
 					next;
 					break;
 				case 6:
 					mes "[Izlude Guide]";
-					mes "The "+F_Navi("Swordsman Guild",.@map$+",51,172")+" is where you can ^800080change your job to Swordsman.^000000";
-					mes "Let me mark its location";
-					mes "on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "El "+F_Navi("Gremio de Espadachines",.@map$+",51,172")+" es donde puedes ^800080cambiar tu trabajo a Espadachin.^000000";
+					mes "Dejame marcar su ubicacion";
+					mes "en tu mini-mapa.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,52,172,5,0xDA70D6;
 					next;
 					break;
 				case 7:
-					callsub L_Mark, F_Navi("Enchant Association",.@map$+",97,125","^B9062F");
+					callsub L_Mark, F_Navi("Asociacion de Encantamientos",.@map$+",97,125","^B9062F");
 					viewpoint 1,97,125,6,0xDA70D6;
 					next;
 					break;
 				case 8:
-					callsub L_Mark, F_Navi("Forge",.@map$+",153,126");
+					callsub L_Mark, F_Navi("Forja",.@map$+",153,126");
 					viewpoint 1,153,126,7,0xAAFF00;
 					next;
 					break;
@@ -105,44 +105,44 @@
 		case 2:
 			set .@loop,1;
 			while (.@loop) {
-				switch(select("[ Eden Teleport Officer ]:[ Kafra Employee ]:[ Hypnotist ]:[ Newlywed Helper ]:[ Mercenary Guildsman ]:[ Pet Groomer ]:Previous Menu")) {
+				switch(select("[ Oficial de Teletransporte Eden ]:[ Empleada Kafra ]:[ Hipnotista ]:[ Ayudante de Recien Casados ]:[ Miembro del Gremio de Mercenarios ]:[ Cuidador de Mascotas ]:Menu Anterior")) {
 				case 1:
 					mes "[Izlude Guide]";
-					mes "The "+F_Navi("Eden Teleport Officer",.@map$+",131,148","^0000FF");
-					mes "is currently staying inside";
-					mes "the Swordsman Guild building.";
-					mes "Let me mark his location on your mini-map.";
-					mes "Would you like to check any other locations?";
+					mes "El "+F_Navi("Oficial de Teletransporte Eden",.@map$+",131,148","^0000FF");
+					mes "actualmente se encuentra dentro";
+					mes "del edificio del Gremio de Espadachines.";
+					mes "Dejame marcar su ubicacion en tu mini-mapa.";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,131,148,8,0x0A82FF;
 					next;
 					break;
 				case 2:
-					callsub L_Mark, F_Navi("Kafra Employee",.@map$+",128,148","^FF5400"),1;
+					callsub L_Mark, F_Navi("Empleada Kafra",.@map$+",128,148","^FF5400"),1;
 					viewpoint 1,128,148,9,0xFF5400;
 					next;
 					break;
 				case 3:
-					callsub L_Mark, F_Navi("Hypnotist",.@map$+",127,175"),1;
+					callsub L_Mark, F_Navi("Hipnotista",.@map$+",127,175"),1;
 					viewpoint 1,127,175,10,0x006400;
 					next;
 					break;
 				case 4:
 					mes "[Izlude Guide]";
-					mes "If you'd like to go on a honeymoon to";
-					mes "^8B4513Jawaii^000000, the paradise of newlyweds,";
-					mes "please speak to the ";
-					mes F_Navi("Newlywed Helper",.@map$+",180,224","^B9062F")+".";
-					mes "Would you like to check any other locations?";
+					mes "Si te gustaria ir de luna de miel a";
+					mes "^8B4513Jawaii^000000, el paraiso de los recien casados,";
+					mes "por favor habla con el ";
+					mes F_Navi("Ayudante de Recien Casados",.@map$+",180,224","^B9062F")+".";
+					mes "Te gustaria revisar alguna otra ubicacion?";
 					viewpoint 1,180,224,11,0xFF0000;
 					next;
 					break;
 				case 5:
-					callsub L_Mark, F_Navi("Mercenary Guildsman",.@map$+",47,170","^0000FF");
+					callsub L_Mark, F_Navi("Miembro del Gremio de Mercenarios",.@map$+",47,170","^0000FF");
 					viewpoint 1,47,170,12,0xDA70D6;
 					next;
 					break;
 				case 6:
-					callsub L_Mark, F_Navi("Pet Groomer","izlude_in,72,98"),1;
+					callsub L_Mark, F_Navi("Cuidador de Mascotas","izlude_in,72,98"),1;
 					viewpoint 1,108,179,13,0x006400;
 					next;
 					break;
@@ -154,8 +154,8 @@
 			break;
 		case 3:
 			mes "[Izlude Guide]";
-			mes "Sure, I'll remove all marks from your mini-map.";
-			mes "Is there anything else I can do for you?";
+			mes "Claro, quitare todas las marcas de tu mini-mapa.";
+			mes "Hay algo mas en lo que pueda ayudarte?";
 			viewpoint 2,1,1,0,0xFFFF00;
 			viewpoint 2,1,1,1,0x000000;
 			viewpoint 2,1,1,2,0xFF0000;
@@ -174,8 +174,8 @@
 			break;
 		case 4:
 			mes "[Izlude Guide]";
-			mes "Enjoy your stay.";
-			mes "Bye~!";
+			mes "Disfruta tu estancia.";
+			mes "Adios~!";
 			close2;
 			cutin "prt_soldier",255;
 			end;
@@ -185,12 +185,12 @@
 L_Mark:
 	mes "[Izlude Guide]";
 	if (getarg(1,0)) {
-		mes "Let me mark the location of the";
+		mes "Dejame marcar la ubicacion de";
 		mes getarg(0);
 	} else
-		mes "Let me mark the location of the "+getarg(0);
-	mes "on your mini-map.";
-	mes "Would you like to check any other locations?";
+		mes "Dejame marcar la ubicacion de "+getarg(0);
+	mes "en tu mini-mapa.";
+	mes "Te gustaria revisar alguna otra ubicacion?";
 	return;
 }
 

@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Magic Book Seller
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Masao, Muad_Dib (translation)
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.4
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= An NPC which sells you different kinds of Magic Books.
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 First Version. [Masao]
 //= 1.1 Optimized. [Euphy]
 //= 1.1a Updated NPC name to "Master Velofos". [Euphy]
@@ -17,526 +17,526 @@
 //=	 Aegis & fixed a bracket issue. [Capuche]
 //= 1.2 Updates Magic Books gained from Lea. [Aleos]
 //= 1.3 Fixes checkquest calls. [Everade]
-//= 1.4 Added EAJ_WARLOCK so that jobs after Warlock such as 
+//= 1.4 Added EAJ_WARLOCK so that jobs after Warlock such as
 //      Arch Mage can enter. [Mazvi]
-//============================================================ 
+//============================================================
 
 // Main Quest :: war_book
 //============================================================
 geffen_in,176,105,4	script	Master Velofos	1_M_WIZARD,{
 	if (checkweight(1201,1) == 0) {
-		mes "You're carrying too many items. Please make some room in your bag first.";
+		mes "Llevas demasiados objetos. Por favor haz espacio en tu bolsa primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "You're overweight with items. Please lose some item weight first.";
+		mes "Estas sobrecargado de objetos. Por favor reduce algo de peso primero.";
 		close;
 	}
 	if ((Upper == 2) && (Class != Job_Baby_Warlock)) {
 		mes "[Master Velofos]";
-		mes "What are you, a baby?";
-		mes "I'm not here to babysit. Get lost!";
+		mes "Que eres, un bebe?";
+		mes "No estoy aqui para cuidar bebes. Largate!";
 		close;
 	}
 	if ((eaclass()&EAJ_THIRDMASK)!=EAJ_WARLOCK) {
 		mes "[Master Velofos]";
-		mes "Ha ha, are you also seeking new knowledge?";
+		mes "Ja ja, tu tambien buscas nuevo conocimiento?";
 		next;
 		mes "[Master Velofos]";
-		mes "I'm sorry, but my knowledge doesn't concern you.";
+		mes "Lo siento, pero mi conocimiento no te concierne.";
 		close;
 	}
 	if (getskilllv(2230) < 1) {
 		mes "[Master Velofos]";
-		mes "Well, you've met all the qualifications except one: you need the Release spell.";
+		mes "Bueno, cumples con todas las cualificaciones excepto una: necesitas el hechizo Release.";
 		next;
 		mes "[Master Velofos]";
-		mes "Learn the spell first. I've got so many things to tell you.";
+		mes "Aprende el hechizo primero. Tengo muchas cosas que contarte.";
 		close;
 	}
 	mes "[Master Velofos]";
-	mes "Welcome, my friend.";
-	mes "Congratulations on entering a brand new world of magic.";
+	mes "Bienvenido, amigo mio.";
+	mes "Felicidades por entrar a un nuevo mundo de magia.";
 	next;
 	mes "[Master Velofos]";
-	mes "We magic practitioners are always thirsty for new knowledge and power.";
+	mes "Los practicantes de magia siempre estamos sedientos de nuevo conocimiento y poder.";
 	next;
 	mes "[Master Velofos]";
-	mes "We endure great hardship and pain to achieve what we want. When we finally do, the sense of accomplishment defies description. That's why both you and I have chosen the way of magic.";
+	mes "Soportamos grandes dificultades y dolor para lograr lo que queremos. Cuando finalmente lo logramos, la sensacion de logro es indescriptible. Por eso tanto tu como yo hemos elegido el camino de la magia.";
 	next;
 	mes "[Master Velofos]";
-	mes "By the way, what brings you to me today?";
+	mes "Por cierto, que te trae hacia mi hoy?";
 	next;
-	switch (select("Nothing.:Do you know the Reading Spell Book?:What's the Freezing Spell?:Can I have a Magic Book?:Can I use the Reading Spell Book without the Freezing Spell?:About the Ultimate Magic Book")) {
+	switch (select("Nada.:Conoces el Hechizo de Lectura de Libros?:Que es el Hechizo de Congelacion?:Puedo tener un Libro Magico?:Puedo usar el Hechizo de Lectura sin el Hechizo de Congelacion?:Sobre el Libro Magico Definitivo")) {
 	case 1:
 		mes "[Master Velofos]";
-		mes "Hah! You're silly.";
+		mes "Ja! Eres gracioso.";
 		close;
 	case 2:
 		mes "[Master Velofos]";
-		mes "Reading Spell Book literally means 'read a spell book.' Do you know how to use Magic Books?";
+		mes "El Hechizo de Lectura de Libros literalmente significa 'leer un libro de hechizos.' Sabes como usar los Libros Magicos?";
 		next;
-		switch (select("Yes, I do.:No, I don't.")) {
+		switch (select("Si, lo se.:No, no lo se.")) {
 		case 1:
 			mes "[Master Velofos]";
-			mes "Well then, you don't need an additional lecture.";
+			mes "Bueno entonces, no necesitas una leccion adicional.";
 			close;
 		case 2:
 			mes "[Master Velofos]";
-			mes "Magic Books are an advanced type of magic scroll. While spells on scrolls disappear after one use, the ones in Magic Books can be cast multiple times.";
+			mes "Los Libros Magicos son un tipo avanzado de pergamino magico. Mientras que los hechizos en los pergaminos desaparecen despues de un uso, los de los Libros Magicos pueden ser lanzados multiples veces.";
 			next;
 			mes "[Master Velofos]";
-			mes "Let's compare a spell on a scroll to a wire. When the wire is used to open a door or do something else, it's bent and crushed, losing its original shape. A spell from a Magic Book is more like a shape memory alloy.";
+			mes "Comparemos un hechizo en un pergamino con un alambre. Cuando el alambre se usa para abrir una puerta o hacer algo mas, se dobla y aplasta, perdiendo su forma original. Un hechizo de un Libro Magico es mas como una aleacion con memoria de forma.";
 			next;
 			mes "[Master Velofos]";
-			mes "Huh, don't you now what shape memory alloy is? Eh, just remember this: a wire made from shape memory alloy restores its shape over time.";
+			mes "Eh, no sabes que es una aleacion con memoria de forma? Bueno, solo recuerda esto: un alambre hecho de aleacion con memoria de forma recupera su forma con el tiempo.";
 			next;
 			mes "[Master Velofos]";
-			mes "Like the alloy, a spell on a Magic Book remains after a use, although reusing the spell has a downtime for its restoration.";
+			mes "Como la aleacion, un hechizo en un Libro Magico permanece despues de un uso, aunque reusar el hechizo tiene un tiempo de espera para su restauracion.";
 			next;
 			mes "[Master Velofos]";
-			mes "...Oh, I didn't mean to talk for too long. Anyways, you can use Magic Books to cast spells that you've learned. Its concept is different from normal spells.";
+			mes "...Oh, no era mi intencion hablar tanto. En fin, puedes usar Libros Magicos para lanzar hechizos que hayas aprendido. Su concepto es diferente de los hechizos normales.";
 			next;
-			select("What's the difference?");
+			select("Cual es la diferencia?");
 			mes "[Master Velofos]";
-			mes "Why do you have to write your existing spells in Magic Books, you asked?";
-			next;
-			mes "[Master Velofos]";
-			mes "That's a good question. It's related to Magic Binding.";
+			mes "Por que necesitas escribir tus hechizos existentes en Libros Magicos, preguntas?";
 			next;
 			mes "[Master Velofos]";
-			mes "You already learned Release, which allows you to hold the energy of the four different elements before the actual casting. Magic Binding is similar to Release.";
+			mes "Esa es una buena pregunta. Esta relacionado con la Vinculacion Magica.";
 			next;
 			mes "[Master Velofos]";
-			mes "Since you've learned Release, you're capable of using Magic Binding as well. Well, let's talk about that later.";
+			mes "Ya aprendiste Release, que te permite mantener la energia de los cuatro elementos diferentes antes del lanzamiento real. La Vinculacion Magica es similar a Release.";
 			next;
 			mes "[Master Velofos]";
-			mes "You know how to hold an existing spell, and then cast it at a desired timing via Release.";
+			mes "Como ya aprendiste Release, eres capaz de usar la Vinculacion Magica tambien. Bueno, hablemos de eso despues.";
 			next;
 			mes "[Master Velofos]";
-			mes "Carrying the globes of the four elements is also related to Magic Binding.";
+			mes "Sabes como mantener un hechizo existente, y luego lanzarlo en el momento deseado via Release.";
 			next;
 			mes "[Master Velofos]";
-			mes "As you know, the four elements are Fire, Water, Wind, and Earth. Being able to employ them freely is the essential principle of magic.";
+			mes "Cargar los globos de los cuatro elementos tambien esta relacionado con la Vinculacion Magica.";
 			next;
 			mes "[Master Velofos]";
-			mes "We Humans use torches to keep fire, fans to blow wind, and bowls to hold water. We also use clay to make earthenware.";
+			mes "Como sabes, los cuatro elementos son Fuego, Agua, Viento y Tierra. Poder emplearlos libremente es el principio esencial de la magia.";
 			next;
 			mes "[Master Velofos]";
-			mes "Those activities may differ from magic, but both are the same in the sense of employing the four elements.";
+			mes "Los Humanos usamos antorchas para mantener el fuego, abanicos para soplar el viento, y recipientes para contener el agua. Tambien usamos arcilla para hacer ceramica.";
 			next;
 			mes "[Master Velofos]";
-			mes "When you use complex magic spells to summon a storm, drop lightning, or burn an area, that consumes a lot of your energy, both physically and mentally.";
+			mes "Esas actividades pueden diferir de la magia, pero ambas son iguales en el sentido de emplear los cuatro elementos.";
 			next;
 			mes "[Master Velofos]";
-			mes "When you fail to bind such powerful magic spells or fail to control them, you can receive irreparable damage to your mind and body.";
+			mes "Cuando usas hechizos magicos complejos para invocar una tormenta, hacer caer rayos, o quemar un area, eso consume mucha de tu energia, tanto fisica como mentalmente.";
 			next;
 			mes "[Master Velofos]";
-			mes "That's why we use Magic Books to reduce that burden. It helps summon pre-cast spells while you're focusing on binding their magic power.";
+			mes "Cuando fallas en vincular hechizos magicos tan poderosos o fallas en controlarlos, puedes recibir dano irreparable a tu mente y cuerpo.";
 			next;
 			mes "[Master Velofos]";
-			mes "There's one downside though: Magic Books cannot be used for spells that you haven't learned.";
+			mes "Por eso usamos Libros Magicos para reducir esa carga. Ayuda a invocar hechizos pre-lanzados mientras te concentras en vincular su poder magico.";
 			next;
 			mes "[Master Velofos]";
-			mes "As I said earlier, spells in Magic Books tend to go back to what they are.";
+			mes "Hay una desventaja sin embargo: los Libros Magicos no se pueden usar para hechizos que no hayas aprendido.";
 			next;
 			mes "[Master Velofos]";
-			mes "That said, as a Circler, you cannot change or create spells in Magic Books.";
+			mes "Como dije antes, los hechizos en los Libros Magicos tienden a volver a lo que son.";
 			next;
 			mes "[Master Velofos]";
-			mes "Even if you create one, its power will be beyond your capacity.";
+			mes "Dicho esto, como Circulador, no puedes cambiar ni crear hechizos en los Libros Magicos.";
 			next;
 			mes "[Master Velofos]";
-			mes "In order to use the Reading Spell Book, you must learn the Freezing Spell to bind magic.";
+			mes "Incluso si creas uno, su poder estara mas alla de tu capacidad.";
+			next;
+			mes "[Master Velofos]";
+			mes "Para usar el Hechizo de Lectura de Libros, debes aprender el Hechizo de Congelacion para vincular magia.";
 			close;
 		}
 	case 3:
 		mes "[Master Velofos]";
-		mes "The Freezing Spell is used for Magic Binding. It helps you to insert a magic spell to a circle.";
+		mes "El Hechizo de Congelacion se usa para la Vinculacion Magica. Te ayuda a insertar un hechizo magico en un circulo.";
 		next;
 		mes "[Master Velofos]";
-		mes "Circles of magic work organically with each other. When you use the Freezing Spell to bind a spell, the spell won't activate until you cast the release spell.";
+		mes "Los circulos de magia funcionan organicamente entre si. Cuando usas el Hechizo de Congelacion para vincular un hechizo, el hechizo no se activara hasta que lances el hechizo de liberacion.";
 		next;
 		mes "[Master Velofos]";
-		mes "Of course, binding a spell continuously consumes your mana, but it consumes less mana than conventional magic spells.";
+		mes "Por supuesto, vincular un hechizo continuamente consume tu mana, pero consume menos mana que los hechizos magicos convencionales.";
 		next;
 		mes "[Master Velofos]";
-		mes "Magic Binding becomes more difficult when you use more powerful magic spells.";
+		mes "La Vinculacion Magica se vuelve mas dificil cuando usas hechizos magicos mas poderosos.";
 		next;
 		mes "[Master Velofos]";
-		mes "For weak spells, you can bind two to three of them with your circle. For more powerful spells, maybe one or two is possible.";
+		mes "Para hechizos debiles, puedes vincular dos o tres de ellos con tu circulo. Para hechizos mas poderosos, tal vez uno o dos sea posible.";
 		next;
 		mes "[Master Velofos]";
-		mes "That all depends on your ability to control your spells. You'll have to try and experience Magic Binding after you first learn it to really understand.";
+		mes "Todo eso depende de tu habilidad para controlar tus hechizos. Tendras que intentar y experimentar la Vinculacion Magica despues de aprenderla para realmente entender.";
 		close;
 	case 4:
 		mes "[Master Velofos]";
-		mes "I'm sorry, but I only have Magic Books for beginners, but they're obviously not suitable for you. Do you still want one?";
+		mes "Lo siento, pero solo tengo Libros Magicos para principiantes, pero obviamente no son adecuados para ti. Aun asi quieres uno?";
 		next;
-		switch (select("Sure thing.:Where can I find advanced books?")) {
+		switch (select("Claro que si.:Donde puedo encontrar libros avanzados?")) {
 		case 1:
 			mes "[Master Velofos]";
-			mes "Please go talk to [Lea] in the Archive. Tell her that you need one of the Magic Books that I've stored in there.";
+			mes "Por favor ve a hablar con [Lea] en el Archivo. Dile que necesitas uno de los Libros Magicos que he guardado ahi.";
 			next;
 			mes "[Master Velofos]";
-			mes "For your information, she won't give it to you without anything in return. Expect her to ask you for something!";
+			mes "Para tu informacion, ella no te lo dara sin nada a cambio. Espera que te pida algo!";
 			if (wm_book < 1) set wm_book, 1;
 			close;
 		case 2:
 			mes "[Master Velofos]";
-			mes "I'm sorry, but our management has recently decided to limit the availability of Magic Books for Multi Circlers. It's because their numbers are increasing more quickly than we expected.";
+			mes "Lo siento, pero nuestra administracion ha decidido recientemente limitar la disponibilidad de Libros Magicos para Multi Circuladores. Es porque sus numeros estan aumentando mas rapido de lo que esperabamos.";
 			next;
 			mes "[Master Velofos]";
-			mes "You could find one if you try hard, but I don't have any with me.";
+			mes "Podrias encontrar uno si te esfuerzas, pero no tengo ninguno conmigo.";
 			next;
 			mes "[Master Velofos]";
-			mes "If our management releases the restriction, you'll be the first one to know. Don't worry.";
+			mes "Si nuestra administracion levanta la restriccion, seras el primero en saberlo. No te preocupes.";
 			close;
 		}
 	case 5:
 		mes "[Master Velofos]";
-		mes "Nothing will happen when you try to bind magic without using Magic Binding because you have nothing to hold magic.";
+		mes "No pasara nada cuando intentes vincular magia sin usar la Vinculacion Magica porque no tienes nada para mantener la magia.";
 		next;
 		mes "[Master Velofos]";
-		mes "It's like water that needs a bowl to stay in place.";
+		mes "Es como el agua que necesita un recipiente para mantenerse en su lugar.";
 		next;
 		mes "[Master Velofos]";
-		mes "The problem is when you try to forcefully cast a spell that you haven't learned. It'll definately backfire on you.";
+		mes "El problema es cuando intentas lanzar a la fuerza un hechizo que no has aprendido. Definitivamente se te revertira.";
 		next;
 		mes "[Master Velofos]";
-		mes "Of course, the damage won't be severe: you'll fall asleep or be thrown into confusion. This is all because there's a conflict between your Magic Book and the force of Magic Binding when you're trying to summon and hold a unlearned spell.";
+		mes "Por supuesto, el dano no sera severo: te quedaras dormido o caeras en confusion. Todo esto es porque hay un conflicto entre tu Libro Magico y la fuerza de la Vinculacion Magica cuando intentas invocar y mantener un hechizo no aprendido.";
 		next;
 		mes "[Master Velofos]";
-		mes "Don't try it out just to see what happens for yourself! Falling asleep while casting a spell? There's nothing more humiliating than that to magic practitioners like us.";
+		mes "No lo intentes solo para ver que pasa! Quedarte dormido mientras lanzas un hechizo? No hay nada mas humillante que eso para practicantes de magia como nosotros.";
 		close;
 	case 6:
 		if ((BaseLevel > 139) && (getskilllv(2217) > 0 || getskilllv(2213) > 0)) {
 			if (mac_book < 1) {
 				mes "[Master Velofos]";
-				mes "I'm sorry, but could you ask someone else? I'm kind of busy right now.";
+				mes "Lo siento, pero podrias preguntarle a alguien mas? Estoy algo ocupado ahora mismo.";
 				close;
 			}
 			if (mac_book == 1) {
 				mes "[Master Velofos]";
-				mes "Huh, are you looking for the Ultimate Magic Book? Who sent you?";
+				mes "Eh, estas buscando el Libro Magico Definitivo? Quien te envio?";
 				next;
-				select("Ms. Lea.");
+				select("La Srita. Lea.");
 				mes "[Master Velofos]";
-				mes "I'm sorry, but there's not much information left about the Ultimate Magic Book.";
-				next;
-				mes "[Master Velofos]";
-				mes "A few scholars in the Midgard Continent once tried to collect ancient Magic Books and reproduce that book, but...";
-				next;
-				select("But what?");
-				mes "[Master Velofos]";
-				mes "Oh yes, perhaps he might know something.";
-				next;
-				select("Yes, I knew this was coming!");
-				mes "[Master Velofos]";
-				mes "My brother is just like you. He's very interested in recreating the Ultimate Magic Book.";
+				mes "Lo siento, pero no queda mucha informacion sobre el Libro Magico Definitivo.";
 				next;
 				mes "[Master Velofos]";
-				mes "His name is Galfos.";
-				mes "He's been taking a great interest in the ancient Magic Books.";
+				mes "Algunos eruditos en el Continente de Midgard una vez intentaron recolectar Libros Magicos antiguos y reproducir ese libro, pero...";
+				next;
+				select("Pero que?");
+				mes "[Master Velofos]";
+				mes "Oh si, tal vez el sepa algo.";
+				next;
+				select("Si, sabia que esto iba a pasar!");
+				mes "[Master Velofos]";
+				mes "Mi hermano es igual que tu. Esta muy interesado en recrear el Libro Magico Definitivo.";
 				next;
 				mes "[Master Velofos]";
-				mes "I didn't support him or give him any advice for his research since I thought he'd give on it pretty quickly, but...";
+				mes "Su nombre es Galfos.";
+				mes "Ha estado muy interesado en los Libros Magicos antiguos.";
 				next;
 				mes "[Master Velofos]";
-				mes "If he's discovered anything useful, maybe it can helpful to you.";
-				next;
-				select("Where's Galfos now?");
-				mes "[Master Velofos]";
-				mes "I've heard that he's near the Expedition Camp beyond the Dimensional Rift to seek information about the ancient Magic Books.";
+				mes "No lo apoyaba ni le daba consejos para su investigacion ya que pensaba que lo dejaria bastante rapido, pero...";
 				next;
 				mes "[Master Velofos]";
-				mes "If you want to see him, you should prepare for a long journey.";
+				mes "Si ha descubierto algo util, tal vez te pueda servir.";
+				next;
+				select("Donde esta Galfos ahora?");
+				mes "[Master Velofos]";
+				mes "He escuchado que esta cerca del Campamento de Expedicion mas alla de la Grieta Dimensional buscando informacion sobre los Libros Magicos antiguos.";
+				next;
+				mes "[Master Velofos]";
+				mes "Si quieres verlo, deberias prepararte para un largo viaje.";
 				set mac_book,2;
 				close;
 			}
 			if (mac_book > 1) {
 				mes "[Master Velofos]";
-				mes "Galfos is near the Expedition Camp beyond the Dimensional Rift.";
+				mes "Galfos esta cerca del Campamento de Expedicion mas alla de la Grieta Dimensional.";
 				next;
 				mes "[Master Velofos]";
-				mes "If you want to see him, you should prepare for a long journey.";
+				mes "Si quieres verlo, deberias prepararte para un largo viaje.";
 				close;
 			}
 		}
 		mes "[Master Velofos]";
-		mes "Ha ha, I'm sorry, but you should focus on strengthening your body rather than creating Magic Books.";
+		mes "Ja ja, lo siento, pero deberias enfocarte en fortalecer tu cuerpo en lugar de crear Libros Magicos.";
 		close;
 	}
 }
 
 geffen_in,175,112,4	script	Lea	2_F_MAGICMASTER,{
 	if (checkweight(1201,1) == 0) {
-		mes "You're carrying too many items. Please make some room in your bag first.";
+		mes "Llevas demasiados objetos. Por favor haz espacio en tu bolsa primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "You're overweight with items. Please lose some item weight first.";
+		mes "Estas sobrecargado de objetos. Por favor reduce algo de peso primero.";
 		close;
 	}
 	if (wm_book > 0 && ((eaclass()&EAJ_THIRDMASK)==EAJ_WARLOCK)) {
 		mes "[Lea]";
-		mes "How may I help you?";
+		mes "En que puedo ayudarte?";
 		next;
-		select("Master Velofos asked me to bring his Magic Book.");
+		select("El Master Velofos me pidio que trajera su Libro Magico.");
 		mes "[Lea]";
-		mes "Are you borrowing a book?";
+		mes "Estas tomando prestado un libro?";
 		next;
-		switch (select("Let me think.:I want the Intermediate Magic Books.:I want the Superior Magic Books.:I want the Ultimate Magic Books.")) {
+		switch (select("Dejame pensar.:Quiero los Libros Magicos Intermedios.:Quiero los Libros Magicos Superiores.:Quiero los Libros Magicos Definitivos.")) {
 		case 1:
 			mes "[Lea]";
-			mes "No problem.";
+			mes "No hay problema.";
 			close;
 		case 2:
 			mes "[Lea]";
-			mes "Ah, so you want the Intermediate Magic Books. If you pay a ^4d4dffloan deposit of 100,000z^000000, we will lend you an Intermediate Magic Books.";
+			mes "Ah, asi que quieres los Libros Magicos Intermedios. Si pagas un ^4d4dffdeposito de prestamo de 100,000z^000000, te prestaremos un Libro Magico Intermedio.";
 			next;
 			mes "[Lea]";
-			mes "What kind of Magic Book do you want?";
+			mes "Que tipo de Libro Magico quieres?";
 			next;
-			set .@i, select("Let me think.:Magic Book (Storm Gust):Magic Book (Lord of Vermillion):Magic Book (Meteor Storm)")-1;
+			set .@i, select("Dejame pensar.:Libro Magico (Storm Gust):Libro Magico (Lord of Vermillion):Libro Magico (Meteor Storm)")-1;
 			mes "[Lea]";
 			if (!.@i) {
-				mes "No problem.";
+				mes "No hay problema.";
 				close;
 			}
 			setarray .@Books[0],100065,100066,100067;
 			if (countitem(.@Books[.@i-1])) {
-				mes "You already have that Magic Book. You can't borrow a new book until you return the current one.";
+				mes "Ya tienes ese Libro Magico. No puedes tomar prestado uno nuevo hasta que devuelvas el actual.";
 				next;
 				mes "[Lea]";
-				mes "Don't you know how many others would want the book you already have? It's a bit selfish to want more than one, you know.";
+				mes "No sabes cuantos otros querrian el libro que ya tienes? Es un poco egoista querer mas de uno, sabes.";
 				close;
 			}
 			if (Zeny > 99999) {
-				mes "Thank you for your deposit. The book's return date is written on the lending card on the back cover of the book. Please try not to lose or damage the book and avoid paying compensation.";
+				mes "Gracias por tu deposito. La fecha de devolucion del libro esta escrita en la tarjeta de prestamo en la contraportada del libro. Por favor intenta no perder ni danar el libro y evita pagar compensacion.";
 				next;
 				mes "[Lea]";
-				mes "The Intermediate and Superior Magic Books must be returned upon borrowing the Ultimate Magic Book. Remember that you're just borrowing them, so make sure you take good care of those books.";
+				mes "Los Libros Magicos Intermedios y Superiores deben ser devueltos al tomar prestado el Libro Magico Definitivo. Recuerda que solo los estas tomando prestados, asi que asegurate de cuidar bien esos libros.";
 				Zeny -= 100000;
 				getitem .@Books[.@i-1],1; //WL_MB_SG, WL_MB_LOV, WL_MB_MS
 				close;
 			}
-			mes "The ^4d4dffloan deposit is 100,000z^000000. The deposit has adjusted as the Magic Book has changed.";
+			mes "El ^4d4dffdeposito de prestamo es de 100,000z^000000. El deposito se ha ajustado ya que el Libro Magico ha cambiado.";
 			close;
 		case 3:
 			mes "[Lea]";
-			mes "Oh, do you want the Superior Magic Books? The policy has been changed to accept loan deposits unconditionally, instead of the existing demanding loan conditions.";
-			mes "The Superior Magic Book ^4d4dffloan deposit is 500,000z^000000.";
+			mes "Oh, quieres los Libros Magicos Superiores? La politica ha sido cambiada para aceptar depositos de prestamo incondicionalmente, en lugar de las exigentes condiciones de prestamo existentes.";
+			mes "El ^4d4dffdeposito de prestamo del Libro Magico Superior es de 500,000z^000000.";
 			next;
 			mes "[Lea]";
-			mes "What kind of Magic Book do you want?";
+			mes "Que tipo de Libro Magico quieres?";
 			next;
-			set .@i, select("Let me think.:Magic Book (Drain Life):Magic Book (Jack Frost):Magic Book (Earth Strain):Magic Book (Crimson Rock):Magic Book (Chain Lightning)")-1;
+			set .@i, select("Dejame pensar.:Libro Magico (Drain Life):Libro Magico (Jack Frost):Libro Magico (Earth Strain):Libro Magico (Crimson Rock):Libro Magico (Chain Lightning)")-1;
 			mes "[Lea]";
 			if (!.@i) {
-				mes "No problem.";
+				mes "No hay problema.";
 				close;
 			}
 			setarray .@Books[0],100068,100069,100070,100071,100072;
 			if (countitem(.@Books[.@i-1])) {
-				mes "You already have that Magic Book. You can't borrow a new book until you return the current one.";
+				mes "Ya tienes ese Libro Magico. No puedes tomar prestado uno nuevo hasta que devuelvas el actual.";
 				next;
 				mes "[Lea]";
-				mes "Don't you know how many others would want the book you already have? It's a bit selfish to want more than one, you know.";
+				mes "No sabes cuantos otros querrian el libro que ya tienes? Es un poco egoista querer mas de uno, sabes.";
 				close;
 			}
 			if (Zeny > 499999) {
-				mes "Thank you for your deposit. The book's return date is written on the lending card on the back cover of the book. Please try not to lose or damage the book and avoid paying compensation.";
+				mes "Gracias por tu deposito. La fecha de devolucion del libro esta escrita en la tarjeta de prestamo en la contraportada del libro. Por favor intenta no perder ni danar el libro y evita pagar compensacion.";
 				next;
 				mes "[Lea]";
-				mes "The Intermediate and Superior Magic Books must be returned upon borrowing the Ultimate Magic Book. Remember that you're just borrowing them, so make sure you take good care of those books.";
+				mes "Los Libros Magicos Intermedios y Superiores deben ser devueltos al tomar prestado el Libro Magico Definitivo. Recuerda que solo los estas tomando prestados, asi que asegurate de cuidar bien esos libros.";
 				Zeny -= 500000;
 				getitem .@Books[.@i-1],1; //WL_MB_DL, WL_MB_JF, WL_MB_ES, WL_MB_CR, WL_MB_CL
 				close;
 			}
-			mes "The ^4d4dffloan deposit is 500,000z^000000. The deposit has adjusted as the Magic Book has changed.";
+			mes "El ^4d4dffdeposito de prestamo es de 500,000z^000000. El deposito se ha ajustado ya que el Libro Magico ha cambiado.";
 			close;
 		case 4:
 			if ((BaseLevel > 139) && (mac_book < 1) && ((getskilllv(2217) > 0) || (getskilllv(2213) > 0))) {
 				mes "[Lea]";
-				mes "Did... Did you just say the Ultimate Magic Book?";
+				mes "A... Acabas de decir el Libro Magico Definitivo?";
 				next;
 				mes "[Lea]";
-				mes "Oh, my....";
-				mes "I can't believe someone actually wants that book.";
+				mes "Oh, cielos....";
+				mes "No puedo creer que alguien realmente quiera ese libro.";
 				next;
-				select("Please don't say that you don't have it.");
+				select("Por favor no digas que no lo tienes.");
 				mes "[Lea]";
-				mes "Frankly, I've never even seen the Ultimate Magic Book.";
-				next;
-				mes "[Lea]";
-				mes "You should ask Master Velofos if you want to know more about that book.";
+				mes "Francamente, nunca he visto el Libro Magico Definitivo.";
 				next;
 				mes "[Lea]";
-				mes "I'm sorry that I can't help you more than that.";
+				mes "Deberias preguntarle al Master Velofos si quieres saber mas sobre ese libro.";
+				next;
+				mes "[Lea]";
+				mes "Lamento no poder ayudarte mas que eso.";
 				set mac_book,1;
 				close;
 			}
 			if ((BaseLevel > 139) && (mac_book > 0) && ((getskilllv(2217) > 0) || (getskilllv(2213) > 0))) {
 				mes "[Lea]";
-				mes "You should ask Master Velofos for some information about that book.";
+				mes "Deberias preguntarle al Master Velofos por informacion sobre ese libro.";
 				close;
 			}
 			mes "[Lea]";
-			mes "Well... why don't you practice a little longer before that?";
+			mes "Bueno... por que no practicas un poco mas antes de eso?";
 			next;
 			mes "[Lea]";
-			mes "In order to obtain the Ultimate Magic Book, you must reach Level 140 and learn Tetera Bolt and Comet.";
+			mes "Para obtener el Libro Magico Definitivo, debes alcanzar el Nivel 140 y aprender Tetra Bolt y Comet.";
 			next;
 			mes "[Lea]";
-			mes "That book can't be used by just anyone, you know?";
+			mes "Ese libro no puede ser usado por cualquiera, sabes?";
 			close;
 		}
 	}
 	mes "[Lea]";
-	mes "Welcome to the Magic Archive. You can read and borrow books from here under certain conditions.";
+	mes "Bienvenido al Archivo Magico. Puedes leer y tomar prestados libros de aqui bajo ciertas condiciones.";
 	close;
 }
 
 mid_camp,255,244,4	script	Galfos	4_M_JOB_WIZARD,{
 	if (checkweight(1201,1) == 0) {
-		mes "You're carrying too many items. Please make some room in your bag first.";
+		mes "Llevas demasiados objetos. Por favor haz espacio en tu bolsa primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "You're overweight with items. Please lose some item weight first.";
+		mes "Estas sobrecargado de objetos. Por favor reduce algo de peso primero.";
 		close;
 	}
 	if ((Upper == 2) && (Class != Job_Baby_Warlock)) {
 		mes "[Galfos]";
-		mes "What are you, a baby?";
-		mes "I'm not here to babysit. Get lost!";
+		mes "Que eres, un bebe?";
+		mes "No estoy aqui para cuidar bebes. Largate!";
 		close;
 	}
 	if ((eaclass()&EAJ_THIRDMASK)!=EAJ_WARLOCK) {
 		mes "[Galfos]";
-		mes "My right arm feels hot while my left arm feels cold. I can never get used to this weird weather!";
+		mes "Mi brazo derecho se siente caliente mientras mi brazo izquierdo se siente frio. Nunca me acostumbrare a este clima tan raro!";
 		close;
 	}
 	if (getskilllv(2230) < 1) {
 		mes "[Galfos]";
-		mes "Ah, I'll get myself in trouble if I stay here any longer. Maybe I'm already in...";
+		mes "Ah, me metere en problemas si me quedo aqui mas tiempo. Tal vez ya estoy en problemas...";
 		close;
 	}
 	if (BaseLevel < 140 || (getskilllv(2217) < 1 && getskilllv(2213) < 1)) {
 		mes "[Galfos]";
-		mes "I'm sorry, but I don't talk to people that aren't even ready for this.";
+		mes "Lo siento, pero no hablo con personas que ni siquiera estan listas para esto.";
 		close;
 	}
 	if (mac_book < 2) {
 		mes "[Galfos]";
-		mes "You look strong, but you don't seem to have any business with me.";
+		mes "Te ves fuerte, pero no parece que tengas asuntos conmigo.";
 		close;
 	}
 	if (mac_book == 2) {
 		mes "[Galfos]";
-		mes "What brings you to me?";
+		mes "Que te trae hacia mi?";
 		next;
-		select("I heard that you've studied the Ultimate Magic Book.");
+		select("Escuche que has estudiado el Libro Magico Definitivo.");
 		mes "[Galfos]";
-		mes "Why, are you interested too?";
-		mes "I didn't know someone would actually take an interest in that book. Yes, I'm studying that magic book. How did you find that out?";
+		mes "Por que, a ti tambien te interesa?";
+		mes "No sabia que alguien realmente se interesaria en ese libro. Si, estoy estudiando ese libro magico. Como te enteraste?";
 		next;
-		select("You're Velof's brother, right?");
+		select("Eres el hermano de Velofos, verdad?");
 		mes "[Galfos]";
-		mes "Yes, I'm Galfos, and Velofos is my brother.";
+		mes "Si, soy Galfos, y Velofos es mi hermano.";
 		next;
 		mes "[Galfos]";
-		mes "Wait a minute,";
-		mes "did the old man recommend me to you?";
+		mes "Espera un momento,";
+		mes "el viejo me recomendo contigo?";
 		next;
-		select("That's right.");
+		select("Asi es.");
 		mes "[Galfos]";
 		mes "Wow!";
-		mes "This is surprising. He never took my research very seriously. I'm glad that he finally changed his mind.";
+		mes "Esto es sorprendente. El nunca tomo mi investigacion muy en serio. Me alegra que finalmente haya cambiado de opinion.";
 		next;
 		mes "[Galfos]";
-		mes "Heh! Your timing couldn't be better: I was looking for a test object.";
+		mes "Je! Tu momento no podria ser mejor: estaba buscando un sujeto de prueba.";
 		next;
-		select("A test object?");
+		select("Un sujeto de prueba?");
 		mes "[Galfos]";
-		mes "Frankly, I'm only interested in creating the Ultimate Magic Book.";
-		next;
-		mes "[Galfos]";
-		mes "I'm not good at using magic, not to mention that I prefer fists in fighting. Nevertheless, I find Magic Books to be incredibly intriguing.";
+		mes "Francamente, solo me interesa crear el Libro Magico Definitivo.";
 		next;
 		mes "[Galfos]";
-		mes "The problem is that I can't use the Ultimate Magic Book, even if I made one. That's why I can't really test it on my own.";
+		mes "No soy bueno usando magia, sin mencionar que prefiero los punos al pelear. Sin embargo, encuentro los Libros Magicos increiblemente intrigantes.";
 		next;
 		mes "[Galfos]";
-		mes "That's why I've been waiting for a true magic practitioner like you that can help me test my Ultimate Magic Book.";
-		next;
-		select("(What is he talking about?)");
-		mes "[Galfos]";
-		mes "My research is almost done,";
-		mes "and I need to solve one last problem to create the Magic Book.";
+		mes "El problema es que no puedo usar el Libro Magico Definitivo, incluso si hiciera uno. Por eso no puedo probarlo por mi cuenta.";
 		next;
 		mes "[Galfos]";
-		mes "To make the ancient Ultimate Magic Book, I need an artifact and some spells to fuse into it.";
+		mes "Por eso he estado esperando a un verdadero practicante de magia como tu que pueda ayudarme a probar mi Libro Magico Definitivo.";
+		next;
+		select("(De que esta hablando?)");
+		mes "[Galfos]";
+		mes "Mi investigacion esta casi terminada,";
+		mes "y necesito resolver un ultimo problema para crear el Libro Magico.";
 		next;
 		mes "[Galfos]";
-		mes "I've perfectly restored the spells based on the ancient documents, but I still have no information about the necessary artifact.";
+		mes "Para hacer el antiguo Libro Magico Definitivo, necesito un artefacto y algunos hechizos para fusionar en el.";
 		next;
 		mes "[Galfos]";
-		mes "Ah, but there's a silver lining!";
-		next;
-		select("(Now we're getting somewhere!)");
-		mes "[Galfos]";
-		mes "Ha ha...";
-		mes "There's a great archive in El Dicastes, the Capital City of the Evil Giants, where all knowledge in this world is stored.";
+		mes "He restaurado perfectamente los hechizos basandome en los documentos antiguos, pero aun no tengo informacion sobre el artefacto necesario.";
 		next;
 		mes "[Galfos]";
-		mes "Maybe that's the place to find some information about the artifact for this Ultimate Magic Book.";
+		mes "Ah, pero hay un lado positivo!";
+		next;
+		select("(Ahora si estamos llegando a algo!)");
+		mes "[Galfos]";
+		mes "Ja ja...";
+		mes "Hay un gran archivo en El Dicastes, la Capital de los Gigantes Malvados, donde todo el conocimiento de este mundo esta almacenado.";
 		next;
 		mes "[Galfos]";
-		mes "You know what to do, don't you? Find information about the artifact in the El Dicastes archive, using everything in your power.";
+		mes "Tal vez ese sea el lugar para encontrar informacion sobre el artefacto para este Libro Magico Definitivo.";
 		next;
 		mes "[Galfos]";
-		mes "Afterwards, create and bring me the artifact. We'll talk about creating the Magic Book afterwards.";
+		mes "Sabes lo que tienes que hacer, verdad? Encuentra informacion sobre el artefacto en el archivo de El Dicastes, usando todo lo que este en tu poder.";
+		next;
+		mes "[Galfos]";
+		mes "Despues, crea y traeme el artefacto. Hablaremos sobre crear el Libro Magico despues.";
 		set mac_book,3;
 		close;
 	}
 	if (mac_book == 3) {
 		mes "[Galfos]";
-		mes "You know what to do, don't you? Find information about the artifact in the El Dicastes archive, using everything in your power.";
+		mes "Sabes lo que tienes que hacer, verdad? Encuentra informacion sobre el artefacto en el archivo de El Dicastes, usando todo lo que este en tu poder.";
 		next;
 		mes "[Galfos]";
-		mes "Afterwards, create and bring me the artifact. We'll talk about creating the Magic Book afterwards.";
+		mes "Despues, crea y traeme el artefacto. Hablaremos sobre crear el Libro Magico despues.";
 		close;
 	}
 	if (mac_book == 4) {
 		mes "[Galfos]";
-		mes "Oh, did you find";
-		mes "anything useful?";
+		mes "Oh, encontraste";
+		mes "algo util?";
 		next;
-		set .@i, select("I've discovered everything about Comet.:I've mastered the zenith of Tetra Vortex.");
+		set .@i, select("He descubierto todo sobre Comet.:He dominado el punto maximo de Tetra Vortex.");
 		mes "[Galfos]";
 		if ((.@i == 1 && countitem(100073)) || (.@i == 2 && countitem(100074))) {
-			mes "Are you kidding me? You already have the book!";
+			mes "Estas bromeando? Ya tienes el libro!";
 			close;
 		}
 		if ((.@i == 1 && checkquest(12218) == 2) || (.@i == 2 && checkquest(12219) == 2 && checkquest(12220) == 2 && checkquest(12221) == 2 && checkquest(12222) == 2)) {
-			mes "Oh my, I sense incredible energy coming from you. This is great! Now we're ready to make the Ultimate Magic Book.";
+			mes "Cielos, siento una energia increible viniendo de ti. Esto es genial! Ahora estamos listos para hacer el Libro Magico Definitivo.";
 			next;
 			mes "[Galfos]";
-			mes "There's one problem, though: I'm so broke that I don't even have enough money to buy the tools to make the book.";
+			mes "Hay un problema sin embargo: estoy tan quebrado que ni siquiera tengo suficiente dinero para comprar las herramientas para hacer el libro.";
 			next;
 			mes "[Galfos]";
-			mes "I need at least ^0000aa500,000 zeny^000000 to buy all the necessary tools. Do you have the money?";
+			mes "Necesito al menos ^0000aa500,000 zeny^000000 para comprar todas las herramientas necesarias. Tienes el dinero?";
 			next;
-			if(select("Wh-what? No!:Sure.") == 1) {
+			if(select("Q-que? No!:Claro.") == 1) {
 				mes "[Galfos]";
-				mes "Aw, you don't? It's disappointing, but there's nothing I can do. Come back when you have enough money, okay?";
+				mes "Ay, no tienes? Es decepcionante, pero no hay nada que pueda hacer. Regresa cuando tengas suficiente dinero, si?";
 				close;
 			}
 			mes "[Galfos]";
 			if (Zeny >= 500000) {
-				mes "Alright then, let's get started!";
+				mes "Muy bien entonces, comencemos!";
 				next;
 				specialeffect2 EF_DISPELL;
 				progressbar "ffff00",4;
@@ -544,53 +544,53 @@ mid_camp,255,244,4	script	Galfos	4_M_JOB_WIZARD,{
 				set Zeny, Zeny - 500000;
 				getitem 100072+.@i,1; //WL_MB_CM, WL_MB_TV
 				mes "[Galfos]";
-				mes "Man, I almost lost my control to the incredible magic energy! Here's your Magic Book.";
+				mes "Hombre, casi pierdo el control por la increible energia magica! Aqui esta tu Libro Magico.";
 				next;
 				mes "[Galfos]";
-				mes "Thank you for making my dream come true. Feel free to come back if you need another one of these books.";
+				mes "Gracias por hacer mi sueno realidad. Sientete libre de regresar si necesitas otro de estos libros.";
 				close;
 			}
-			mes "Hey, what did I tell you? I can't buy the tools to make the book without money!";
+			mes "Oye, que te dije? No puedo comprar las herramientas para hacer el libro sin dinero!";
 			close;
 		}
-		mes "Are you sure that you've found something? It doesn't seem like you've learned what we need...";
+		mes "Estas seguro de que encontraste algo? No parece que hayas aprendido lo que necesitamos...";
 		close;
 	}
 	mes "[Galfos]";
-	mes "Is there anything else you need?";
+	mes "Hay algo mas que necesites?";
 	close;
 }
 
 dic_in01,25,190,0	script	Mysterious Documents	CLEAR_NPC,{
 	if (isequipped(2782) < 1) {
-		mes "I better not forget to equip my ring.";
+		mes "Mejor no olvido equipar mi anillo.";
 		close;
 	}
 	if (ep13_3_invite < 5) {
-		mes "When you approach the documents, an Evil Giant that looks like the archive manager tries to call Guard Galton. You should get out of here quickly.";
+		mes "Cuando te acercas a los documentos, un Gigante Malvado que parece ser el administrador del archivo intenta llamar al Guardia Galton. Deberias salir de aqui rapido.";
 		close;
 	}
 	if (checkquest(12165,PLAYTIME) == 1) {
-		mes "The documents are making you feel nauseous. You should come back later after your stomach settles.";
+		mes "Los documentos te estan causando nauseas. Deberias regresar despues de que tu estomago se asiente.";
 		close;
 	}
 	if (checkquest(12165,PLAYTIME) == 2) {
-		mes "You don't feel as nauseous anymore. It should be safe to proceed now.";
+		mes "Ya no te sientes tan nauseabundo. Deberia ser seguro continuar ahora.";
 		erasequest 12165;
 		close;
 	}
 	if ((BaseLevel < 140) || (getskilllv(2217) < 1) && (getskilllv(2213) < 1)) {
-		mes "The documents in this container aren't legible. It's no use trying to read them.";
+		mes "Los documentos en este contenedor no son legibles. No tiene sentido intentar leerlos.";
 		close;
 	}
 	specialeffect2 EF_DISPELL;
 	progressbar "ffff00",4;
 	if (mac_book < 3) {
-		mes "You have discovered records about magic, acceleration, and particle waves.";
+		mes "Has descubierto registros sobre magia, aceleracion y ondas de particulas.";
 		close;
 	}
 	if (mac_book == 3) {
-		mes "You have discovered records about magic, acceleration, and particle waves. These documents must be the ones that Galfos is looking for.";
+		mes "Has descubierto registros sobre magia, aceleracion y ondas de particulas. Estos documentos deben ser los que Galfos esta buscando.";
 		set mac_book, 4;
 		close;
 	}
@@ -599,107 +599,107 @@ dic_in01,25,190,0	script	Mysterious Documents	CLEAR_NPC,{
 		if (.@r == 1) {
 			if (getskilllv(2213) > 0) {
 				if (checkquest(12218) == 1) {
-					mes "You already own this document.";
+					mes "Ya posees este documento.";
 					close;
 				}
-				mes "^660066In order to create the essence of lava, you must refine 40 Burning Hearts at the hottest place on the 2nd floor of the Thor's Volcano Dungeon.^000000";
-				mes "^660066You must do this by using the greatest power in that place. The Humans have used this method to study the acceleration of magic particles since ancient times.^000000";
+				mes "^660066Para crear la esencia de lava, debes refinar 40 Corazones Ardientes en el lugar mas caliente del 2do piso de la Mazmorra del Volcan de Thor.^000000";
+				mes "^660066Debes hacer esto usando el mayor poder de ese lugar. Los Humanos han usado este metodo para estudiar la aceleracion de particulas magicas desde la antiguedad.^000000";
 				next;
-				mes "You have discovered the ^990099Lava Essence Creation Method^000000. Please check your Quest window for more details.";
+				mes "Has descubierto el ^990099Metodo de Creacion de Esencia de Lava^000000. Por favor revisa tu ventana de Misiones para mas detalles.";
 				specialeffect2 EF_STEAL;
 				close2;
 				setquest 12218;
 				end;
 			}
-			mes "Nothing in this document looks useful.";
+			mes "Nada en este documento parece util.";
 			close;
 		}
 		if (.@r == 2) {
 			if (getskilllv(2217) > 0) {
 				if (checkquest(12219) == 1) {
-					mes "You already own this document.";
+					mes "Ya posees este documento.";
 					close;
 				}
-				mes "^660066The essence of flame can be refined on stable ground on the 1st floor of the Thor's Volcano Dungeon. 10 Love Coals are necessary to refine the essence.^000000";
-				mes "^660066According to Humans' information, this essence constitutes one of the four natural elements.^000000";
+				mes "^660066La esencia de llama puede ser refinada en terreno estable en el 1er piso de la Mazmorra del Volcan de Thor. Se necesitan 10 Love Coals para refinar la esencia.^000000";
+				mes "^660066Segun la informacion de los Humanos, esta esencia constituye uno de los cuatro elementos naturales.^000000";
 				next;
-				mes "You have discovered the ^990099Flame Essence Creation Method^000000. Please check your Quest window for more details.";
+				mes "Has descubierto el ^990099Metodo de Creacion de Esencia de Llama^000000. Por favor revisa tu ventana de Misiones para mas detalles.";
 				specialeffect2 EF_STEAL;
 				close2;
 				setquest 12219;
 				end;
 			}
-			mes "Nothing in this document looks useful.";
+			mes "Nada en este documento parece util.";
 			close;
 		}
 		if (.@r == 3) {
 			if (getskilllv(2217) > 0) {
 				if (checkquest(12220) == 1) {
-					mes "You already own this document.";
+					mes "Ya posees este documento.";
 					close;
 				}
-				mes "^660066I succeeded in refining the essence of glacier deep inside the 3rd floor of the Ice Cave. If you'd like to try, prepare 10 Ice Hearts and go to the following location.^000000";
+				mes "^660066Logre refinar la esencia de glaciar en lo profundo del 3er piso de la Cueva de Hielo. Si quieres intentarlo, prepara 10 Ice Hearts y ve a la siguiente ubicacion.^000000";
 				next;
-				mes "You have discovered the ^990099Glacier Essence Creation Method^000000. Please check your Quest window for more details.";
+				mes "Has descubierto el ^990099Metodo de Creacion de Esencia de Glaciar^000000. Por favor revisa tu ventana de Misiones para mas detalles.";
 				specialeffect2 EF_STEAL;
 				close2;
 				setquest 12220;
 				end;
 			}
-			mes "Nothing in this document looks useful.";
+			mes "Nada en este documento parece util.";
 			close;
 		}
 		if (.@r == 4) {
 			if (getskilllv(2217) > 0) {
 				if (checkquest(12221) == 1) {
-					mes "You already own this document.";
+					mes "Ya posees este documento.";
 					close;
 				}
-				mes "^660066I was able to refine the essence of fossil from old rocks on the 2nd floor of the Mine Dungeon. So far, that place is the most stable among all the testing grounds.";
-				mes "If you'd like to try, prepare 10 Jubilees and go to the dungeon. Good luck.^000000";
+				mes "^660066Pude refinar la esencia de fosil de rocas viejas en el 2do piso de la Mazmorra de la Mina. Hasta ahora, ese lugar es el mas estable entre todos los terrenos de prueba.";
+				mes "Si quieres intentarlo, prepara 10 Jubilees y ve a la mazmorra. Buena suerte.^000000";
 				next;
-				mes "You have discovered the ^990099Fossil Essence Creation Method^000000. Please check your Quest window for more details.";
+				mes "Has descubierto el ^990099Metodo de Creacion de Esencia de Fosil^000000. Por favor revisa tu ventana de Misiones para mas detalles.";
 				specialeffect2 EF_STEAL;
 				close2;
 				setquest 12221;
 				end;
 			}
-			mes "Nothing in this document looks useful.";
+			mes "Nada en este documento parece util.";
 			close;
 		}
 		if (.@r == 5) {
 			if (getskilllv(2217) > 0) {
 				if (checkquest(12222) == 1) {
-					mes "You already own this document.";
+					mes "Ya posees este documento.";
 					close;
 				}
-				mes "^660066In order to refine the essence of storm, I visited the Hermit's Checkerboard in Kunlun where the spirit of the wind resides.";
-				mes "The refining process was easy, but I had a hard time finding the catalyst, Dragon Teeth.^000000";
+				mes "^660066Para refinar la esencia de tormenta, visite el Tablero del Ermitano en Kunlun donde reside el espiritu del viento.";
+				mes "El proceso de refinacion fue facil, pero me costo mucho encontrar el catalizador, los Dientes de Dragon.^000000";
 				next;
-				mes "You have discovered the ^990099Storm Essence Creation Method^000000. Please check your Quest window for more details.";
+				mes "Has descubierto el ^990099Metodo de Creacion de Esencia de Tormenta^000000. Por favor revisa tu ventana de Misiones para mas detalles.";
 				specialeffect2 EF_STEAL;
 				close2;
 				setquest 12222;
 				end;
 			}
-			mes "Nothing in this document looks useful.";
+			mes "Nada en este documento parece util.";
 			close;
 		}
 		if (.@r == 10) {
-			mes "You suddenly feel sick, and this nausea won't go away easily. You should try finding the documents you need later.";
+			mes "De repente te sientes mal, y estas nauseas no se iran facilmente. Deberias intentar buscar los documentos que necesitas despues.";
 			setquest 12165;
 			close;
 		}
-		mes "Nothing here looks special.";
+		mes "Nada aqui parece especial.";
 		close;
 	}
-	mes "You no longer need to search this place.";
+	mes "Ya no necesitas buscar en este lugar.";
 	close;
 }
 
 function	script	Magic_Book_Essence	{
 	if (MaxWeight - Weight < 1000) {
-		mes "Please lighten your bag.";
+		mes "Por favor aligera tu bolsa.";
 		close;
 	}
 	.@item_req = getarg(1);
@@ -710,21 +710,21 @@ function	script	Magic_Book_Essence	{
 		progressbar "ffff00",4;
 		delitem .@item_req,.@req_amount;
 		if (rand(2)) {
-			mes "You have used "+ callfunc("F_InsertPlural",.@req_amount,getitemname(.@item_req)) +" to create ^999900"+ getarg(3) +" Essence^000000.";
+			mes "Has usado "+ callfunc("F_InsertPlural",.@req_amount,getitemname(.@item_req)) +" para crear ^999900Esencia de "+ getarg(3) +"^000000.";
 			next;
-			mes "^008800The "+getarg(3)+" Essence will last permanently, unless there's a problem.^000000";
+			mes "^008800La Esencia de "+getarg(3)+" durara permanentemente, a menos que haya un problema.^000000";
 			completequest getarg(0);
 			specialeffect2 EF_LORD;
 			close;
 		}
-		mes "^008888You have failed to refine the essence using "+ callfunc("F_InsertPlural",.@req_amount,getitemname(.@item_req)) +".^000000";
+		mes "^008888Has fallado al refinar la esencia usando "+ callfunc("F_InsertPlural",.@req_amount,getitemname(.@item_req)) +".^000000";
 		close;
 	}
 	if (checkquest(getarg(0)) == 2) {
-		mes "You've already created "+getarg(3)+" Essence in this area.";
+		mes "Ya has creado la Esencia de "+getarg(3)+" en esta area.";
 		close;
 	}
-	mes "Someone already used this area.";
+	mes "Alguien ya uso esta area.";
 	close;
 }
 thor_v02,163,104,0	script	Powerful Lava Energy#33	CLEAR_NPC,{ callfunc "Magic_Book_Essence",12218,7097,40,"Lava"; end; }
