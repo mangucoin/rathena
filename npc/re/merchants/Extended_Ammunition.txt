@@ -1,6 +1,6 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Extension of Ammunition Sales
-//===== Description: ========================================= 
+//===== Description: =========================================
 // The information in this script was taken from kro
 //===== Changelogs: ==========================================
 //= 1.0 First Version. [JohnnyPlayy]
@@ -10,10 +10,10 @@
 //============================================================
 -	script	#over_arrow	HIDDEN_NPC,{
 	mes "[Arrow Merchant]";
-	mes "Hi!";
-	mes "Do you want to buy arrows or exchange the quiver?";
+	mes "¡Hola!";
+	mes "¿Quieres comprar flechas o intercambiar el carcaj?";
 	next;
-	switch ( select( "Buy Arrows", "Quiver Exchange", "Sell Items", "Cancel" )) {
+	switch ( select( "Comprar Flechas", "Intercambio de Carcaj", "Vender Objetos", "Cancelar" )) {
 	case 1:
 		close2;	// !Fix me: official server uses "callshop" then "close"
 		callshop "Arrow_Archer", 1;
@@ -28,11 +28,11 @@
 		break;
 	case 4:
 		mes "[Arrow Merchant]";
-		mes "You can take a look at other things more calmly.";
+		mes "Puedes echar un vistazo a otras cosas con mas calma.";
 		close;
 	}
 	end;
-	
+
 OnInit:
 	setunitdata getnpcid(0),UNPC_GROUP_ID,7;
 	end;
@@ -42,41 +42,41 @@ OnInit:
 //============================================================
 -	script	#over_bullet	HIDDEN_NPC,{
 	mes "[Ammunition Merchant]";
-	mes "Hi!";
-	mes "What did you come to see?";
+	mes "¡Hola!";
+	mes "¿Que viniste a ver?";
 	next;
-	switch ( select( "Buy Weapons", "Buy Ammunition", "Cartridge Exchange", "Sell Items", "Cancel" )) {
+	switch ( select( "Comprar Armas", "Comprar Municion", "Intercambio de Cartuchos", "Vender Objetos", "Cancelar" )) {
 	case 1:
 		mes "[Ammunition Merchant]";
-		mes "I will prepare the weapon.";
+		mes "Preparare el arma.";
 		close2;
 		callshop "Weapons_Gunslinger", 1;
 		break;
 	case 2:
 		mes "[Ammunition Merchant]";
-		mes "I will start preparing the ammunition.";
+		mes "Empezare a preparar la municion.";
 		close2;
 		callshop "Ammunition_Gunslinger", 1;
 		break;
 	case 3:
 		mes "[Ammunition Merchant]";
-		mes "I will start preparing ammunition cartridges!";
+		mes "¡Empezare a preparar los cartuchos de municion!";
 		close2;
 		callshop "Box_Exchange_Gunslinger", 1;
 		break;
 	case 4:
 		mes "[Ammunition Merchant]";
-		mes "What would you like to sell?";
+		mes "¿Que te gustaria vender?";
 		close2;
 		callshop "Selling_Items", 2;
 		break;
 	case 5:
 		mes "[Ammunition Merchant]";
-		mes "You can take a look at other things more calmly.";
+		mes "Puedes echar un vistazo a otras cosas con mas calma.";
 		close;
 	}
 	end;
-	
+
 OnInit:
 	setunitdata getnpcid(0),UNPC_GROUP_ID,13;
 	end;
@@ -86,9 +86,9 @@ OnInit:
 //============================================================
 -	script	#over_kunai	HIDDEN_NPC,{
 	mes "[Ninja Tool Merchant]";
-	mes "Hi, what can I do to help you?";
+	mes "Hola, ¿en que puedo ayudarte?";
 	next;
-	switch ( select( "Buy Ninjutsu Tool", "Parchment Exchange", "Sell Items", "Cancel" )) {
+	switch ( select( "Comprar Herramienta Ninjutsu", "Intercambio de Pergaminos", "Vender Objetos", "Cancelar" )) {
 	case 1:
 		close2;	// !Fix me: official server uses "callshop" then "close"
 		callshop "Weapons_Ninja", 1;
@@ -105,7 +105,7 @@ OnInit:
 		break;
 	}
 	end;
-	
+
 OnInit:
 	setunitdata getnpcid(0),UNPC_GROUP_ID,14;
 	end;
@@ -115,42 +115,42 @@ OnInit:
 //============================================================
 -	script	#over_madogear	HIDDEN_NPC,{
 	mes "[Mado Gear Merchant]";
-	mes "Hi!";
-	mes "Here you will find equipment for Madogear, except those that cannot be sold!";
-	mes "How can I help you?";
+	mes "¡Hola!";
+	mes "¡Aqui encontraras equipo para Madogear, excepto los que no se pueden vender!";
+	mes "¿En que puedo ayudarte?";
 	next;
-	switch ( select( "Buy Component", "Consumables and Cooling Device", "Box Exchange", "Sell Items", "Cancel" )) {
+	switch ( select( "Comprar Componente", "Consumibles y Dispositivo de Enfriamiento", "Intercambio de Cajas", "Vender Objetos", "Cancelar" )) {
 	case 1:
 		mes "[Mado Gear Merchant]";
-		mes "I will start preparing the Madogear pieces.";
+		mes "Empezare a preparar las piezas de Madogear.";
 		close2;
 		callshop "Weapons_Mechanic", 1;
 		break;
 	case 2:
 		mes "[Mado Gear Merchant]";
-		mes "I will start preparing the consumables used by Madogear.";
+		mes "Empezare a preparar los consumibles usados por Madogear.";
 		close2;
 		callshop "Ammunition_Mechanic", 1;
 		break;
 	case 3:
 		mes "[Mado Gear Merchant]";
-		mes "I will arrange for the consumable packs used by MadoGear to be boxed!";
+		mes "¡Preparare los paquetes de consumibles usados por MadoGear para ser empacados!";
 		close2;
 		callshop "Box_Exchange_Mechanic", 1;
 		break;
 	case 4:
 		mes "[Mado Gear Merchant]";
-		mes "Do you have something to sell?";
+		mes "¿Tienes algo para vender?";
 		close2;
 		callshop "Selling_Items", 2;
 		break;
 	case 5:
 		mes "[Mado Gear Merchant]";
-		mes "You can take a look at other things more calmly.";
+		mes "Puedes echar un vistazo a otras cosas con mas calma.";
 		close;
 	}
 	end;
-	
+
 OnInit:
 	setunitdata getnpcid(0),UNPC_GROUP_ID,11;
 	end;
@@ -160,28 +160,28 @@ OnInit:
 //============================================================
 -	script	#over_talisman	HIDDEN_NPC,{
 	mes "[Talisman Merchant]";
-	mes "Hello. Did you come to see the spirits?";
+	mes "Hola. ¿Viniste a ver los espiritus?";
 	next;
-	switch ( select( "Buy Talisman", "Talisman Bundle Exchange", "Cancel" )) {
+	switch ( select( "Comprar Talisman", "Intercambio de Paquete de Talismanes", "Cancelar" )) {
 	case 1:
 		mes "[Talisman Merchant]";
-		mes "You'll like it.";
+		mes "Te gustara.";
 		close2;
 		callshop "Talisman_Merchant", 1;
 		break;
 	case 2:
 		mes "[Talisman Merchant]";
-		mes "We also exchange for bundles.";
+		mes "Tambien intercambiamos por paquetes.";
 		close2;
 		callshop "Talisman_Bundle", 1;
 		break;
 	case 3:
 		mes "[Talisman Merchant]";
-		mes "Thank you. Come again.";
+		mes "Gracias. Vuelve pronto.";
 		close;
 	}
 	end;
-	
+
 OnInit:
 	setunitdata getnpcid(0),UNPC_GROUP_ID,12;
 	end;
