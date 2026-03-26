@@ -142,14 +142,14 @@ xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 	case 3:
 		mes "[Vagrant Cain]";
 		if (getequipid(EQI_HAND_R) != 1540)// Grand_Cross_
-			mes "The thing on your right hand is not Grand Cross (slot). Bring me the right thing I told you, kuku.";
+			mes "Lo que tienes en tu mano derecha no es Grand Cross (slot). Traeme lo correcto que te dije, kuku.";
 		else if (countitem(7642) < 2000)
-			mes "Well, you are short of Bloody Coins. You need to gather exactly 2000 of them. Less than that.. It can't be helped.";
+			mes "Bueno, no tienes suficientes Bloody Coins. Necesitas reunir exactamente 2000. Menos que eso.. no se puede hacer nada.";
 		else {
 			delitem 7642,2000;// Bloody_Coin
 			delequip EQI_HAND_R;
 			getitem 16029,1;// Noble_Cross
-			mes "The deal has completed. Take a look at it.";// custom
+			mes "El trato se ha completado. Echale un vistazo.";// custom
 		}
 		close;
 	case 4:
@@ -160,13 +160,13 @@ xmas,240,297,3	script	Vagrant Cain#1	4_M_06,{
 			delitem 2978,1;// KindHeart
 			delitem 2976,1;// Red_Lantern
 			getitem 2980,1;// Evilspirit_Gloves
-			mes "The deal has completed. Take a look at it.";// custom
+			mes "El trato se ha completado. Echale un vistazo.";// custom
 		}
 		else {
-			mes "You don't have enough materials.";
+			mes "No tienes suficientes materiales.";
 			next;
 			mes "[Vagrant Cain]";
-			mes "You should prepare ^0000ff1000 ^000000Bloody Coins, one ^0000ffHurt Mind, Kind Heart, and Red Lantern ^000000each for ^0000ffEvilspirit Gloves^000000.";
+			mes "Debes preparar ^0000ff1000 ^000000Bloody Coins, un ^0000ffHurt Mind, Kind Heart, y Red Lantern ^000000de cada uno para ^0000ffEvilspirit Gloves^000000.";
 		}
 		close;
 	}
@@ -183,18 +183,18 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		close;
 	}
 	mes "[Black Beard Joe]";
-	mes "Huhu, humanbeing's greed is naturally wantless. What do you want me to do?";
+	mes "Juju, la codicia del ser humano es naturalmente insaciable. ¿Que quieres que haga?";
 	next;
-	switch( select( "What can you do for me?", "Enchant accessory of Toy Factory", "Enchant weapon of Toy Factory", "Enchant headgear of Toy Factory", "Enchant footwear of Toy Factory" ) ) {
+	switch( select( "¿Que puedes hacer por mi?", "Encantar accesorio de Toy Factory", "Encantar arma de Toy Factory", "Encantar casco de Toy Factory", "Encantar calzado de Toy Factory" ) ) {
 	case 1:
 		mes "[Black Beard Joe]";
-		mes "What do I do? That's really simple. You just bring me Bloody Coins and I will get them and enchant your accessory.";
+		mes "¿Que hago? Es muy simple. Solo traeme Bloody Coins y los tomare para encantar tu accesorio.";
 		next;
 		mes "[Black Beard Joe]";
-		mes "I will take 15 Bloody Coins for each try. I will enchant one slot amount for every 15 Coins. Of course, 3 is the maximum.";
+		mes "Tomare 15 Bloody Coins por cada intento. Encantare un slot por cada 15 Monedas. Por supuesto, 3 es el maximo.";
 		next;
 		mes "[Black Beard Joe]";
-		mes "Well, it is so natural that the destruction rate will get higher as the upgrade level increases. I would recommend you to stop first or second try, tee-hee.";
+		mes "Bueno, es natural que la tasa de destruccion sea mayor a medida que el nivel de mejora aumenta. Te recomendaria parar en el primer o segundo intento, je je.";
 		close;
 	case 2:
 		.@eq_num = EQI_ACC_R;
@@ -234,13 +234,13 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		break;
 	case 16029:	// Noble_Cross
 		mes "[Black Beard Joe]";// custom
-		mes "Oh, you are equipped with ^0000ffNoble Cross^000000! This thing need to find someone else to enchant it.";
+		mes "Oh, ¡estas equipado con ^0000ffNoble Cross^000000! Esta cosa necesita encontrar a alguien mas para encantarla.";
 		next;
 		mes "[Black Beard Joe]";
-		mes "I've tried several times, but have no luck.";
+		mes "Lo he intentado varias veces, pero no he tenido suerte.";
 		next;
 		mes "[Black Beard Joe]";
-		mes "If you want to enchant this weapon, find ^0000ffMayomayo^000000 in Malangdo island! He should be able to do it.";
+		mes "Si quieres encantar esta arma, ¡busca a ^0000ffMayomayo^000000 en la isla Malangdo! El deberia poder hacerlo.";
 		close;
 	default:
 		break;
@@ -248,79 +248,79 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	switch(.@eq_num) {
 	case EQI_ACC_R:
 		mes "[Black Beard Joe]";
-		mes "You can choose one of 2 types and the fee for each try is 15 Bloody Coins.. I will get them right before enchanting it.";
+		mes "Puedes elegir uno de 2 tipos y la tarifa por cada intento es 15 Bloody Coins.. Los tomare justo antes de encantarlo.";
 		next;
-		.@enchant_type = select( "Quit", "A random stat one among STR/AGI/DEX", "A random stat among INT/VIT/DEX" ) - 1;// enchant_type [1-2]
+		.@enchant_type = select( "Salir", "Un stat aleatorio entre STR/AGI/DEX", "Un stat aleatorio entre INT/VIT/DEX" ) - 1;// enchant_type [1-2]
 		mes "[Black Beard Joe]";
 		if (.@enchant_type == 0) {
-			mes "Okay, come again when you are willing to, kuku.";
+			mes "Bueno, vuelve cuando estes dispuesto, kuku.";
 			close;
 		}
 		if (.@sc_type < 1) {
-			mes "This equipment is not from Toy Factory. I can handle the items from Toy Factory only.";
+			mes "Este equipo no es de Toy Factory. Solo puedo manejar articulos de Toy Factory.";
 			close;
 		}
 		if (.@card[3] == 0) {
 			.@slot_num = 3;
-			mes "Okay, let's try the first enchantment. Usually, they are not broken. About 95% success rate?";
-			.@string$ = "You blow hot and cold, this fickle friend.!";
+			mes "Bien, intentemos el primer encantamiento. Usualmente, no se rompen. ¿Alrededor de 95% de tasa de exito?";
+			.@string$ = "Cambias de opinion como el viento, amigo indeciso.!";
 		}
 		else if (.@card[2] == 0) {
 			.@slot_num = 2;
-			mes "Ho~ Second enchantment. Now it became dangerous. The success rate is about 70%. Do you want continue? The whole accessory will be blown if fail.";// custom
-			.@string$ = "You blow hot and cold, this fickle friend.!";
+			mes "Jo~ Segundo encantamiento. Ahora se puso peligroso. La tasa de exito es alrededor del 70%. ¿Quieres continuar? Todo el accesorio se destruira si falla.";// custom
+			.@string$ = "Cambias de opinion como el viento, amigo indeciso.!";
 		}
 		else if (.@card[1] == 0) {
 			.@slot_num = 1;
-			mes "This is the last enchantment. Will you keep going? At this time, ^ff0000the success rate is below 50%^000000. Of course, it would be great if it is successfull... Hmm, I will follow your descision, but keep that in mind.";// custom
-			.@string$ = "Wise! The third enchantment is too greedy.";// custom translation
+			mes "Este es el ultimo encantamiento. ¿Seguiras adelante? En este punto, ^ff0000la tasa de exito es menor al 50%^000000. Por supuesto, seria genial si tiene exito... Hmm, seguire tu decision, pero tenlo en cuenta.";// custom
+			.@string$ = "¡Sabio! El tercer encantamiento es demasiada codicia.";// custom translation
 		}
 		else {
-			mes "Ho~ This has already reached the peak. It is impossible to higher enchant, so be content and use it well.";// custom
+			mes "Jo~ Esto ya alcanzo el pico. Es imposible encantar mas alto, asi que conformate y usalo bien.";// custom
 			close;
 		}
 		break;
 	case EQI_HAND_R:
 		mes "[Black Beard Joe]";
 		if (.@sc_type < 1) {
-			mes "This equipment is not from Toy Factory. I can handle the items from Toy Factory only.";
+			mes "Este equipo no es de Toy Factory. Solo puedo manejar articulos de Toy Factory.";
 			close;
 		}
 		.@enchant_type = 3;
 		.@slot_num = 3;
-		mes "I enchant weapons only once. There's no failure, so you can just think of it as the bonus effect, tee-hee.";
-		.@string$ = "You blow hot and cold, this fickle friend.!";
+		mes "Encanto armas solo una vez. No hay fallo, asi que piensalo como el efecto de bonificacion, je je.";
+		.@string$ = "Cambias de opinion como el viento, amigo indeciso.!";
 		break;
 	case EQI_HEAD_TOP:
 	case EQI_SHOES:
 		mes "[Black Beard Joe]";
 		if (.@sc_type < 1) {
-			mes "This equipment is not from Toy Factory. I can handle the items from Toy Factory only.";
+			mes "Este equipo no es de Toy Factory. Solo puedo manejar articulos de Toy Factory.";
 			close;
 		}
 		if (.@card[3] == 0) {
 			.@slot_num = 3;
 			.@enchant_type = 4;
-			mes "Good. Let's start the first enchantment. I will add one of the special battle effects. Of course, you don't have to be afraid because there's no failure, kuku.";
+			mes "Bien. Comencemos el primer encantamiento. Agregare uno de los efectos especiales de batalla. Por supuesto, no tienes que tener miedo porque no hay fallo, kuku.";
 		}
 		else if (.@card[2] == 0) {
 			.@slot_num = 2;
 			.@enchant_type = 5;
-			mes "The second enchantment. I will buff one of the previous states. There also is no failure, so don't worry, kukuku";// custom
+			mes "El segundo encantamiento. Mejorare uno de los estados anteriores. Tampoco hay fallo, asi que no te preocupes, kukuku";// custom
 		}
 		else {
-			mes "Ho~ This has already reached the peak. It is impossible to higher enchant, so be content and use it well.";// custom
+			mes "Jo~ Esto ya alcanzo el pico. Es imposible encantar mas alto, asi que conformate y usalo bien.";// custom
 			close;
 		}
-		.@string$ = "You blow hot and cold, this fickle friend.!";
+		.@string$ = "Cambias de opinion como el viento, amigo indeciso.!";
 		break;
 	default:
 		mes "[Black Beard Joe]";
-		mes "I don't enchant this!";// custom
+		mes "¡Yo no encanto esto!";// custom
 		close;
 	}
 	next;
-	if (select( "I will com back later", "Please do it" ) == 1) {
+	if (select( "Volvere despues", "Por favor hazlo" ) == 1) {
 		mes "[Black Beard Joe]";
 		mes .@string$;
 		close;
@@ -333,7 +333,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	else if (.@slot_num == 1)
 		setarray .@range[0],1,1161;
 	else {
-		mes "There is a problem, please come back again!";// custom
+		mes "Hay un problema, ¡por favor vuelve de nuevo!";// custom
 		close;
 	}
 	.@enchant = 9;
@@ -443,7 +443,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 		break;
 	}
 	if (.@enchant == 9) {
-		mes "There is a problem, please come back again!";// custom
+		mes "Hay un problema, ¡por favor vuelve de nuevo!";// custom
 		close;
 	}
 	if (.@card[3] == 0 && .@sc_type < 4)
@@ -453,7 +453,7 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 	else if (.@card[1] == 0 && .@sc_type < 2)
 		.@index_slot = 1;
 	else {
-		mes "I don't know what this is, but I think this isn't thing I could handle.";// custom
+		mes "No se que es esto, pero creo que no es algo que pueda manejar.";// custom
 		close;
 	}
 	if (countitem(7642) > 14) {// Bloody_Coin
@@ -465,17 +465,17 @@ xmas,240,294,3	script	Black Beard Joe#pa0829	4_M_05,{
 
 		delequip .@eq_num;
 		if (.@enchant == 0) {
-			mes "Ouch! Poor you, the enchantment has failed and your gear is broken, Geez!";
+			mes "¡Ouch! Pobre de ti, el encantamiento ha fallado y tu equipo se rompio, ¡cielos!";
 			close2;
 			specialeffect2 EF_LORD;
 			end;
 		}
 		.@card[ .@index_slot ] = .@enchant;
 		getitem2 .@item_id,1,1,.@refine,0,.@card[0],.@card[1],.@card[2],.@card[3];
-		mes "Hmm.. It was successful. Take a look at it.";
+		mes "Hmm.. Fue exitoso. Echale un vistazo.";
 		specialeffect2 EF_REPAIRWEAPON;
 		close;
 	}
-	mes "Hmm.. By the way, you need to fill up Bloody Coins. You cannot even pay for the fee.";
+	mes "Hmm.. Por cierto, necesitas juntar Bloody Coins. Ni siquiera puedes pagar la tarifa.";
 	close;
 }
