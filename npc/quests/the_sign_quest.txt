@@ -10559,10 +10559,10 @@ OnTouch_:
 		}
 		else {
 			mes "[Kirkena]";
-			mes "When people don't fully";
-			mes "know the situation that";
-			mes "they're in, they become more";
-			mes "willing to take their chances.";
+			mes "Cuando la gente no conoce";
+			mes "completamente la situacion en";
+			mes "la que se encuentra, se vuelven mas";
+			mes "dispuestos a arriesgarse.";
 			close;
 		}
 	}
@@ -11312,11 +11312,11 @@ niflheim,102,54,4	script	Mad Man#s	739,{
 				set .@select_s,rand(1,5);
 				if (.@select_s == 1) {
 					mes "[Laichin]";
-					mes "Check out the";
-					mes "big 1 o' clock,";
-					mes "big 5 o' clock,";
-					mes "big 7 o' clock and";
-					mes "the small 6 o' clock.";
+					mes "Revisa las";
+					mes "1 en punto grande,";
+					mes "5 en punto grande,";
+					mes "7 en punto grande y";
+					mes "las 6 en punto pequena.";
 					next;
 				}
 				else if (.@select_s == 2) {
@@ -11412,19 +11412,19 @@ niflheim,102,54,4	script	Mad Man#s	739,{
 						}
 						else {
 							mes "[Laichin]";
-							mes "De acuerdo, listen up.";
-							mes "Big, small and very small";
-							mes "mean the distances from the";
-							mes "center of the map. So for big,";
-							mes "I mean look near the border of";
-							mes "the map. Easy, huh?";
+							mes "De acuerdo, escucha bien.";
+							mes "Grande, pequena y muy pequena";
+							mes "significan las distancias desde el";
+							mes "centro del mapa. Asi que para grande,";
+							mes "quiero decir busca cerca del borde del";
+							mes "mapa. Facil, no?";
 							next;
 							mes "[Laichin]";
-							mes "When I say small, you";
-							mes "gotta look in areas closer";
-							mes "than the borders of the map.";
-							mes "For very small, you gotta";
-							mes "look near the center. Got it?";
+							mes "Cuando digo pequena, tienes";
+							mes "que buscar en areas mas cerca";
+							mes "que los bordes del mapa.";
+							mes "Para muy pequena, tienes que";
+							mes "buscar cerca del centro. Entendido?";
 							set Zeny, Zeny-60000;
 							if (.@select_s == 1) set sign_q,101;
 							else if (.@select_s == 2) set sign_q,102;
@@ -12218,10 +12218,10 @@ que_sign01,46,56,0	script	Fountain#sign	111,{
 					close;
 				}
 				else {
-					mes "^3355FFDesafortunadamente, it";
-					mes "looks like you don't";
-					mes "have any Empty Bottles";
-					mes "to carry any of this water... ^000000";
+					mes "^3355FFDesafortunadamente,";
+					mes "parece que no tienes";
+					mes "ninguna Botella Vacia";
+					mes "para llevar algo de esta agua... ^000000";
 					close;
 				}
 			}
@@ -12266,7 +12266,7 @@ OnTimer40000:
 
 OnTimer45000:
 	donpcevent "Geffenia Warp::OnDisable";
-	mapannounce "geffen","The portal to Geffenia is now closed.",bc_map,"0x9CFF00";
+	mapannounce "geffen","El portal a Geffenia se ha cerrado.",bc_map,"0x9CFF00";
 	stopnpctimer;
 	end;
 }
@@ -12274,19 +12274,19 @@ OnTimer45000:
 geffen,119,48,0	script	Fountain#s	111,{
 	callfunc "F_UpdateSignVars";
 	if (countitem(7025) > 0) {
-		mes "^3355FFAs you approach the fountain,";
-		mes "a strange light begins to emit from the Lucifer's Lament in your pocket and from something deep within";
-		mes "the fountain's water.^000000";
+		mes "^3355FFAl acercarte a la fuente,";
+		mes "una luz extrana comienza a emitir desde el Lucifer's Lament en tu bolsillo y desde algo profundo dentro";
+		mes "del agua de la fuente.^000000";
 		specialeffect EF_LEVEL99;
 		specialeffect2 EF_LEVEL99;
 		next;
-		switch(select("Throw Lucifer's Lament into the fountain.:Ignore the light.")) {
+		switch(select("Lanzar Lucifer's Lament a la fuente.:Ignorar la luz.")) {
 		case 1:
-			mapannounce "geffen","With a flash of light from Geffen Fountain, the door to Geffenia has opened.",bc_map,"0x9CFF00";
-			mes "^3355FFOnce the Lucifer's Lament";
-			mes "splashes into the water, the";
-			mes "light reveals a peculiar warp";
-			mes "in front of the fountain...^000000";
+			mapannounce "geffen","Con un destello de luz de la Fuente de Geffen, la puerta a Geffenia se ha abierto.",bc_map,"0x9CFF00";
+			mes "^3355FFUna vez que el Lucifer's Lament";
+			mes "salpica en el agua, la";
+			mes "luz revela un portal peculiar";
+			mes "frente a la fuente...^000000";
 			specialeffect EF_MAPPILLAR2;
 			donpcevent "Geffenia Warp::OnEnable";
 			close;
@@ -12296,8 +12296,8 @@ geffen,119,48,0	script	Fountain#s	111,{
 		}
 	}
 	else {
-		mes "^3355FFThis is the";
-		mes "Geffen Fountain.^000000";
+		mes "^3355FFEsta es la";
+		mes "Fuente de Geffen.^000000";
 		close;
 	}
 }
@@ -12451,10 +12451,10 @@ OnTouch_:
 		end;
 	}
 	if ($@sign_w1 == 1) {
-		mes "^3355FFSome sort of";
-		mes "strange force";
-		mes "is blocking you";
-		mes "from entering.^000000";
+		mes "^3355FFAlguna clase de";
+		mes "fuerza extrana";
+		mes "te esta bloqueando";
+		mes "la entrada.^000000";
 		close;
 	}
 	else {
@@ -12558,17 +12558,17 @@ function	script	F_UpdateSignVars	{
 		// With the new script, So I am resetting the quest to the start
 		// of this step.
 		if (signlaichin >= 1) { 
-			mes "^FF0000You stumble and drop the your^000000";
+			mes "^FF0000Tropiezas y se te caen tus^000000";
 			if (countitem(7306)) {
 				mes "^FF0000"+getitemname(7306)+"^000000";
 			}
 			if (countitem(7306) && countitem(7307)) {
-				mes "^FF0000and^000000";
+				mes "^FF0000y^000000";
 			}
 			if (countitem(7307)) {
 				mes "^FF0000"+getitemname(7307)+"^000000";
 			}
-			mes "^FF0000pieces on the ground and they vanish! Quizas deberias talk to Lachin.^000000";
+			mes "^FF0000pedazos al suelo y desaparecen! Quizas deberias hablar con Lachin.^000000";
 			delitem 7306,countitem(7306); //Fragment_Of_Soul
 			delitem 7307,countitem(7307); //Whisper_Of_Soul
 			set sign_q,rand(97,100); 
@@ -12576,7 +12576,7 @@ function	script	F_UpdateSignVars	{
 
 		// Same BS as above, unable to save pickup time for 'The Sign' from Engel.
 		if (signengelhour) { 
-			mes "^FF0000Veras that Engel has forgotten to look at 'The Sign', how you got it back is a mystery too you, but deberias remind Engel that he needs to look at it.^000000";
+			mes "^FF0000Veras que Engel se olvido de mirar 'The Sign', como lo recuperaste es un misterio para ti, pero deberias recordarle a Engel que necesita mirarlo.^000000";
 			getitem 7314,1; //The_Sign
 			set sign_q,139;
 		}
@@ -12590,7 +12590,7 @@ function	script	F_UpdateSignVars	{
 
 		// Incompatable with the new version.
 		if (Sign_Branch8B > 0) {
-			mes "^FF0000Something is wrong, quizas deberias go talk to Serin again.^000000";
+			mes "^FF0000Algo esta mal, quizas deberias ir a hablar con Serin de nuevo.^000000";
 			set sign_q,132;
 		}
 
@@ -12601,7 +12601,7 @@ function	script	F_UpdateSignVars	{
 
 		// Unable to save when the Sign should be picked up from Metz
 		if (signmetzhour) { 
-			mes "^FF0000Veras that Metz has forgotten to look at 'The Sign', how you got it back is a mystery too you, but deberias remind Metz that he needs to look at it.^000000";
+			mes "^FF0000Veras que Metz se olvido de mirar 'The Sign', como lo recuperaste es un misterio para ti, pero deberias recordarle a Metz que necesita mirarlo.^000000";
 			getitem 7314,1; //The_Sign
 			set sign_q,138;
 		}
