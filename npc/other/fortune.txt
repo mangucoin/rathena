@@ -1971,47 +1971,47 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 
 payon_in03,75,129,5	script	Poring Fortune Teller	4_M_BIBI,{
 	mes "[Chocarle]";
-	mes " Maligayang pagdating, maligayang pagdating~!! " +strcharinfo(0)+ "~!";
-	mes " Anong dinadala ka rito ngayon!? ";
+	mes " Bienvenido, bienvenido~!! " +strcharinfo(0)+ "~!";
+	mes " Que te trae por aqui hoy!? ";
 	next;
-	if (select(" Gusto ko ng Poring card reading. : Ano ang Poring card reading? ") == 2) {
+	if (select(" Quiero una lectura de cartas Poring. : Que es la lectura de cartas Poring? ") == 2) {
 		mes "[Chocarle]";
-		mes " Ang Poring card reading ay gumagamit ng mga card na may mga cute na Poring..! ";
-		mes " Poke~poke~ sinasabi nila ang iyong kapalaran! Hindi ito tradisyonal, ngunit ang sigla nito ang pinakamagaling! ";
+		mes " La lectura de cartas Poring usa cartas con lindos Poring..! ";
+		mes " Poke~poke~ te dicen tu destino! No es tradicional, pero su energia es la mejor! ";
 		next;
 		mes "[Chocarle]";
-		mes " Ang mga kapalaran ay simple at nakakapagsaya. Perpekto ito kapag gusto mong malaman ang iyong kapalaran nang magaan at hindi mabigat! ";
+		mes " Los destinos son simples y divertidos. Es perfecto cuando quieres saber tu destino de forma ligera y sin presion! ";
 		close;
 	}
 	mes "[Chocarle]";
-	mes " Ah~ ganoon ba! ";
-	mes " Pagsagot sa mga misteryo ng kinabukasan gamit ang mga cute at adorable na Poring card! ";
-	mes " 1000z ang bawat kapalaran! Magsimula na tayo? ";
+	mes " Ah~ asi que si! ";
+	mes " Respondiendo los misterios del futuro con las lindas y adorables cartas Poring! ";
+	mes " 1000z por cada lectura! Empezamos? ";
 	next;
-	if (select(" Oo. : Gusto ko munang pag-isipan. ") == 2) {
+	if (select(" Si. : Quiero pensarlo primero. ") == 2) {
 		mes "[Chocarle]";
-		mes " Sige! Bumalik ka next time! Gagalingan namin! Bye-bye~! ";
+		mes " Esta bien! Vuelve la proxima vez! Daremos lo mejor! Bye-bye~! ";
 		close;
 	}
 	if (Zeny < 1000) {
 		mes "[Chocarle]";
-		mes "Wala ka man lang 1000 zeny!";
-		mes "Ayaw, hindi kita mababasahan ng card!";
-		mes "Ayaw!";
+		mes "Ni siquiera tienes 1000 zeny!";
+		mes "No quiero, no puedo leerte las cartas!";
+		mes "No quiero!";
 		close;
 	}
 	Zeny = Zeny -1000;
 	mes "[Chocarle]";
-	mes " Salamat~! Tingnan na natin ang iyong kapalaran! ";
-	mes " Una, linisin ang iyong isipan! Tulad kapag naghuhugas ka ng pinggan! ";
+	mes " Gracias~! Veamos tu destino! ";
+	mes " Primero, limpia tu mente! Como cuando lavas los platos! ";
 	next;
 	mes "[Chocarle]";
-	mes " Pagkatapos~ dahan-dahang isipin ang iyong nais! ";
+	mes " Despues~ piensa lentamente en lo que deseas! ";
 	next;
-	switch(select(" (Curious ako sa pag-ibig!) : (Gusto kong galingan sa pag-aaral!) : (Magiging maayos ba ang aking pagkakaibigan?) : (Gusto kong malaman ang aking kinabukasan!) : (Kikita ba ako ng maraming pera?) ")) {
+	switch(select(" (Tengo curiosidad por el amor!) : (Quiero mejorar en los estudios!) : (Estara bien mi amistad?) : (Quiero saber mi futuro!) : (Ganare mucho dinero?) ")) {
 	case 1:
 		mes "[Chocarle]";
-		mes " Ohh! Cute na kapalaran ng pag-ibig! Heh! Tingnan natin ang mga card! ";
+		mes " Ohh! Lindo destino de amor! Jeh! Veamos las cartas! ";
 		next;
 		.@card_2_love = rand(1,33);
 		callsub L_displaycutin, .@card_2_love;
@@ -2650,3 +2650,4 @@ OnTouch_:
 	mes "Halikan mo ako~";
 	close;
 }
+                 
