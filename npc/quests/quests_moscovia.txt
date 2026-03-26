@@ -10485,10 +10485,10 @@ amatsu,233,234,3	script	Momotoro Publisher#rus42	4_F_JPN,{
 		mes "Alguien ordeno un libro pero no vino a recogerlo.";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "Ah, I.. a magic book...";
+		mes "Ah, yo.. un libro de magia...";
 		next;
 		mes "[Momotoro Publisher]";
-		mes "What? Ah, did you come here to pick up the book? Please, let me know your name?";
+		mes "Que? Ah, viniste a recoger el libro? Por favor, dime tu nombre?";
 		next;
 		input .@input$;
 		if (.@input$ == "Baba Yaga") {
@@ -10496,35 +10496,35 @@ amatsu,233,234,3	script	Momotoro Publisher#rus42	4_F_JPN,{
 			mes "I am "+ .@input$ +".";
 			next;
 			mes "[Momotoro Publisher]";
-			mes ""+ .@input$ +" ... Ah, here it is.";
+			mes ""+ .@input$ +" ... Ah, aqui esta.";
 			next;
 		} else {
 			mes "["+ strcharinfo(0) +"]";
 			mes "I am "+ .@input$ +" ";
 			next;
 			mes "[Momotoro Publisher]";
-			mes ""+ .@input$ +" ... Let's see...";
+			mes ""+ .@input$ +" ... Veamos...";
 			next;
 			mes "[Momotoro Publisher]";
-			mes "Hmm? I am sorry but there is no book reserved for "+ .@input$ +". Can you check again please?";
+			mes "Hmm? Lo siento pero no hay ningun libro reservado para "+ .@input$ +". Puedes verificar de nuevo por favor?";
 			close;
 		}
 		mes "[Momotoro Publisher]";
-		mes "Are these the right ones? 'Magic to destroy time', 'The story of the house ghost around the world', 'Strange and weird world of Herbs";
-		mes "Hmm, the price for all is 5,000 Zeny.";
+		mes "Son estos los correctos? 'Magia para destruir el tiempo', 'La historia del fantasma domestico alrededor del mundo', 'Extrano y raro mundo de las Hierbas";
+		mes "Hmm, el precio de todos es 5,000 Zeny.";
 		next;
 		if (Zeny > 4999) {
 			mes "[Momotoro Publisher]";
-			mes "Eh, yep this is 5,000 Zeny.";
+			mes "Eh, si esto son 5,000 Zeny.";
 			next;
 		} else {
 			mes "[Momotoro Publisher]";
-			mes "You don't have enough money?";
-			mes "Check it again and come to me, please";
+			mes "No tienes suficiente dinero?";
+			mes "Verificalo y vuelve por favor";
 			close;
 		}
 		mes "[Momotoro Publisher]";
-		mes "Gracias por buying our books. If you need more books, contact us please.";
+		mes "Gracias por comprar nuestros libros. Si necesitas mas libros, contactanos por favor.";
 		getitem 7881,1;
 		Zeny = Zeny -5000;
 		rhea_rus_main = 27;
@@ -10532,7 +10532,7 @@ amatsu,233,234,3	script	Momotoro Publisher#rus42	4_F_JPN,{
 		close;
 	} else if (rhea_rus_main > 26 && rhea_rus_main < 31) {
 		mes "[Momotoro Publisher]";
-		mes "Gracias por buying our books. If you need more books, contact us please.";
+		mes "Gracias por comprar nuestros libros. Si necesitas mas libros, contactanos por favor.";
 		close;
 	}
 	mes "[Momotoro Publisher]";
@@ -10546,23 +10546,23 @@ amatsu,233,234,3	script	Momotoro Publisher#rus42	4_F_JPN,{
 mosk_dun02,57,220,0	script	House Ghost Jar#rus43	HIDDEN_NPC,{
 	if (rhea_rus_main == 31) {
 		mes "["+ strcharinfo(0) +"]";
-		mes "... Is it in here..? Hey, hey...";
+		mes "... Esta aqui dentro..? Oye, oye...";
 		next;
-		mes "- You tap the jar -";
-		mes "- with your hand -";
+		mes "- Golpeas el frasco -";
+		mes "- con tu mano -";
 		specialeffect EF_SIGHTRASHER;
 		emotion ET_HUK, playerattached();
 		next;
-		mes "- A voice laughs in the jar as -";
-		mes "- it shakes from right to left -";
+		mes "- Una voz rie en el frasco mientras -";
+		mes "- se sacude de derecha a izquierda -";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "You! No more games! Come out of there!";
+		mes "Tu! No mas juegos! Sal de ahi!";
 		specialeffect EF_HIT2;
 		next;
-		mes "- You kick the jar -";
-		mes "- it rolls to the floor -";
-		mes "- as bugs come out!! -";
+		mes "- Pateas el frasco -";
+		mes "- rueda por el suelo -";
+		mes "- mientras salen bichos!! -";
 		rhea_rus_main = 32;
 		monster "mosk_dun02",58,220,"Thief Bug Male",1054,1,"House Ghost Jar#rus43::OnMyMobDead";
 		monster "mosk_dun02",59,220,"Ancient Worm",1305,1,"House Ghost Jar#rus43::OnMyMobDead";
@@ -10571,54 +10571,54 @@ mosk_dun02,57,220,0	script	House Ghost Jar#rus43	HIDDEN_NPC,{
 		close;
 	} else if (rhea_rus_main == 32) {
 		mes "["+ strcharinfo(0) +"]";
-		mes "Ehh.. you, what are you doing!!";
+		mes "Ehh.. tu, que estas haciendo!!";
 		next;
-		mes "- As you plan to kick the jar -";
-		mes "- again, something scared -";
-		mes "- utters in a shaky voice -";
+		mes "- Cuando planeas patear el frasco -";
+		mes "- de nuevo, algo asustado -";
+		mes "- habla con voz temblorosa -";
 		specialeffect EF_CURSEATTACK;
 		next;
 		mes "[House Ghost]";
-		mes "No! Please stop it! I was wrong!";
+		mes "No! Por favor para! Estuve mal!";
 		next;
 		mes "[House Ghost]";
-		mes "I have been bored. After dying, I've had nothing to do and no friends to play with..";
+		mes "He estado aburrido. Despues de morir, no he tenido nada que hacer ni amigos con quien jugar..";
 		next;
 		mes "[House Ghost]";
-		mes "When I was alive, I always stayed still, but now it's too boring...";
+		mes "Cuando estaba vivo, siempre me quedaba quieto, pero ahora es muy aburrido...";
 		next;
 		mes "[House Ghost]";
-		mes "I can't even drink my favorite milk... Being a ghost is too inconvenient.";
+		mes "Ni siquiera puedo tomar mi leche favorita... Ser un fantasma es muy inconveniente.";
 		next;
 		if(select("Puedo jugar contigo?:Entonces que puedo hacer por ti?") == 1) {
 			mes "[House Ghost]";
-			mes "Ehhh, are you sure?";
+			mes "Ehhh, de verdad?";
 		} else {
 			mes "[House Ghost]";
-			mes "Hmm, can you do something for me? It won't take much time.";
+			mes "Hmm, puedes hacer algo por mi? No tomara mucho tiempo.";
 		}
 		next;
 		mes "[House Ghost]";
-		mes "What about a card game? I was good at those games! Ah, where are my cards? Wait here! I'll find them!";
+		mes "Que tal un juego de cartas? Era bueno en esos juegos! Ah, donde estan mis cartas? Espera aqui! Las encontrare!";
 		rhea_rus_main = 33;
 		close;
 	} else if (rhea_rus_main == 33) {
 		.@player_name$ = strcharinfo(0);
 		mes "[House Ghost]";
-		mes "Jeje, what about a card game? I have an Angeling, Ghostring and a Poring Card.";
-		mes "All you have to do is just guess which card I pick up!";
+		mes "Jeje, que tal un juego de cartas? Tengo una carta de Angeling, Ghostring y Poring.";
+		mes "Todo lo que tienes que hacer es adivinar que carta levanto!";
 		next;
 		mes "[House Ghost]";
-		mes "Let's play best out of 5. So if you win 3 games, I promise to stay quiet!";
+		mes "Juguemos al mejor de 5. Si ganas 3 juegos, prometo quedarme callado!";
 		next;
 		mes "["+ .@player_name$ +"]";
-		mes "Ok! It will be fun. Let's do it.";
+		mes "Ok! Sera divertido. Hagamoslo.";
 		next;
 		setarray .@card$[0], "Poring","Angeling","Ghostring";
 		while(.@rugame_turn01 < 5 && .@ruuser_score01 < 3) {
 			mes "[House Ghost]";
-			mes "Ok, first let me shuffle these cards around.";
-			mes "Ready!";
+			mes "Ok, primero dejame barajar estas cartas.";
+			mes "Listo!";
 			emotion ET_BLABLA;
 			next;
 			mes "[House Ghost]";
@@ -10634,37 +10634,37 @@ mosk_dun02,57,220,0	script	House Ghost Jar#rus43	HIDDEN_NPC,{
 			specialeffect EF_HIT3;
 			next;
 			mes "[House Ghost]";
-			mes "Ok! I will pick one of them up!";
+			mes "Ok! Levantare una de ellas!";
 			specialeffect EF_STEAL;
 			next;
 			mes "[House Ghost]";
-			mes "Ok! I will pick one of them up!";
-			mes "What is this card?";
+			mes "Ok! Levantare una de ellas!";
+			mes "Que carta es esta?";
 			cutin "sorry.bmp",4;
 			next;
 			.@rucard_game01 = rand(1,3);
 			.@s = select("Poring:Angeling:Ghostring") -1;
 
 			mes "["+ .@player_name$ +"]";
-			mes "Hmmm, I think it is the "+ .@card$[.@s] +" Card!";
+			mes "Hmmm, creo que es la carta de "+ .@card$[.@s] +"!";
 			next;
 			mes "[House Ghost]";
-			mes "Ok, time to find out!";
-			mes "One! Two! Three!!";
+			mes "Ok, hora de descubrirlo!";
+			mes "Uno! Dos! Tres!!";
 			next;
 			cutin "",255;
 			switch( .@rucard_game01 ) {
 			case 1:
 				cutin "����ī��",4; // Poring Card
-				.@win_string$ = "You are good. Can you do it next time?";
+				.@win_string$ = "Eres bueno. Podras hacerlo la proxima vez?";
 				break;
 			case 2:
 				cutin "������ī��",4; // Angeling Card
-				.@win_string$ = "You are pretty good at this. Ok, but can you do it again?";
+				.@win_string$ = "Eres bastante bueno en esto. Ok, pero podras hacerlo de nuevo?";
 				break;
 			case 3:
 				cutin "����Ʈ��ī��",4; // Ghostring Card
-				.@win_string$ = "You are pretty good at this. Ok, but can you do it again?";
+				.@win_string$ = "Eres bastante bueno en esto. Ok, pero podras hacerlo de nuevo?";
 				break;
 			}
 			emotion ET_SURPRISE;
@@ -10672,7 +10672,7 @@ mosk_dun02,57,220,0	script	House Ghost Jar#rus43	HIDDEN_NPC,{
 				emotion ET_AHA, playerattached();
 				next;
 				mes "[House Ghost]";
-				mes "You got it right.";
+				mes "Acertaste.";
 				mes .@win_string$;
 				.@ruuser_score01++;
 			}
@@ -10681,7 +10681,7 @@ mosk_dun02,57,220,0	script	House Ghost Jar#rus43	HIDDEN_NPC,{
 				next;
 				mes "[House Ghost]";
 				mes "Huuu...";
-				mes "Better luck next time!";
+				mes "Mejor suerte la proxima vez!";
 			}
 			.@rugame_turn01++;
 			cutin "",255;
@@ -10689,58 +10689,58 @@ mosk_dun02,57,220,0	script	House Ghost Jar#rus43	HIDDEN_NPC,{
 		}
 		if (.@ruuser_score01 == 3) {
 			mes "[House Ghost]";
-			mes "You are better than I thought.";
+			mes "Eres mejor de lo que pense.";
 			rhea_rus_main = 34;
 			close;
 		}
 		mes "["+ .@player_name$ +"]";
-		mes "I was not thinking correctly! Let's do it again!";
+		mes "No estaba pensando bien! Hagamoslo de nuevo!";
 		next;
 		mes "[House Ghost]";
-		mes "Huhu, ok. Let's do it again?";
+		mes "Juuju, ok. Lo hacemos de nuevo?";
 		close;
 	} else if (rhea_rus_main == 34) {
 		.@player_name$ = strcharinfo(0);
 		mes "[House Ghost]";
-		mes "Ah, it was fun. It has been a long time since I've been able to play a game like that.";
+		mes "Ah, fue divertido. Ha pasado mucho tiempo desde que pude jugar un juego asi.";
 		next;
 		mes "[House Ghost]";
-		mes "As promised, I will be quiet now. Gracias por playing with me.";
+		mes "Como prometi, estare callado ahora. Gracias por jugar conmigo.";
 		next;
 		mes "["+ .@player_name$ +"]";
-		mes "Oh and by the way, I have a present for you!";
+		mes "Oh y por cierto, tengo un regalo para ti!";
 		next;
 		if (countitem(519)) {
 			mes "["+ .@player_name$ +"]";
-			mes "You said you like milk. Here, take this.";
+			mes "Dijiste que te gusta la leche. Toma, ten esto.";
 			next;
 		} else {
 			mes "["+ .@player_name$ +"]";
-			mes "You said you like milk. Here, take.. Eh?";
+			mes "Dijiste que te gusta la leche. Toma, ten.. Eh?";
 			next;
 			mes "["+ .@player_name$ +"]";
-			mes "W, where is this? Wait here. I will bring it soon!!";
+			mes "D, donde esta? Espera aqui. La traere pronto!!";
 			close;
 		}
 		mes "[House Ghost]";
-		mes "Ah, wow!! Can I have this?";
+		mes "Ah, wow!! Puedo tener esto?";
 		next;
 		mes "[House Ghost]";
 		mes "Muchas gracias!!";
-		mes "I promise I wil be quiet now. I will be the acting guardian for this house!";
+		mes "Prometo que estare callado ahora. Sere el guardian de esta casa!";
 		next;
 		mes "[House Ghost]";
-		mes "I will never forget your kindness of entertaining me.";
+		mes "Nunca olvidare tu amabilidad de entretenerme.";
 		rhea_rus_main = 45;
 		// changequest 8171,8172;
 		close;
 	} else if (rhea_rus_main == 45) {
 		mes "[House Ghost]";
 		mes "Muchas gracias!!";
-		mes "I promise I wil be quiet now. I will be the acting guardian for this house!";
+		mes "Prometo que estare callado ahora. Sere el guardian de esta casa!";
 		next;
 		mes "[House Ghost]";
-		mes "I will never forget your kindness of entertaining me.";
+		mes "Nunca olvidare tu amabilidad de entretenerme.";
 		close;
 	}
 	end;
@@ -10762,51 +10762,51 @@ OnMyMobDead:
 payon,65,119,0	script	Broom Grandma#rus44	1_F_ORIENT_04,{
 	if (rhea_rus_main < 36) {
 		mes "[Broom Grandma]";
-		mes "A broom from Payon is the best!";
+		mes "Una escoba de Payon es la mejor!";
 		next;
 		mes "[Broom Grandma]";
-		mes "It is so good that even ghosts want only a Payon broom.";
+		mes "Es tan buena que hasta los fantasmas solo quieren una escoba de Payon.";
 		close;
 	} else if (rhea_rus_main == 36) {
 		mes "[Broom Grandma]";
-		mes "A broom from Payon is best!";
+		mes "Una escoba de Payon es la mejor!";
 		next;
 		mes "[Broom Grandma]";
-		mes "It is so good that even ghosts want only a Payon broom.";
+		mes "Es tan buena que hasta los fantasmas solo quieren una escoba de Payon.";
 		next;
 		mes "["+ strcharinfo(0) +"]";
-		mes "I want to buy a broom.";
+		mes "Quiero comprar una escoba.";
 		next;
 		mes "[Broom Grandma]";
-		mes "Oh, you are a guest. Yes, you need a broom?";
+		mes "Oh, eres un cliente. Si, necesitas una escoba?";
 		next;
 		mes "[Broom Grandma]";
-		mes "But, I have no broom. Ghosts stole all my newly made brooms. I was pleased because they were nice even for ghosts. But...";
+		mes "Pero, no tengo escobas. Los fantasmas robaron todas mis escobas recien hechas. Estaba contenta porque eran bonitas incluso para fantasmas. Pero...";
 		next;
 		mes "[Broom Grandma]";
-		mes "My son went to their place to get back the brooms, but he failed since the ghosts tricked him.";
+		mes "Mi hijo fue a buscar las escobas, pero fallo porque los fantasmas lo enganaron.";
 		next;
 		mes "[Broom Grandma]";
-		mes "Ah.. What should I do...";
+		mes "Ah.. Que deberia hacer...";
 		rhea_rus_main = 37;
 		// changequest 8173,8174;
 		close;
 	} else if (rhea_rus_main > 36 && rhea_rus_main < 41) {
 		mes "[Broom Grandma]";
-		mes "There are ghosts inside the dungeon of Payon. There is a tree there where the ghosts is hiding.";
+		mes "Hay fantasmas dentro de la mazmorra de Payon. Hay un arbol ahi donde los fantasmas se esconden.";
 		next;
 		mes "[Broom Grandma]";
-		mes "My son went to their place to get back the brooms, but he failed since the ghosts tricked him.";
+		mes "Mi hijo fue a buscar las escobas, pero fallo porque los fantasmas lo enganaron.";
 		next;
 		mes "[Broom Grandma]";
-		mes "Ah.. What should I do...";
+		mes "Ah.. Que deberia hacer...";
 		close;
 	} else if (rhea_rus_main == 46) {
 		mes "[Broom Grandma]";
-		mes "Ah, you have taken them back. You are a great adventurer.";
+		mes "Ah, las recuperaste. Eres un gran aventurero.";
 		next;
 		mes "[Broom Grandma]";
-		mes "You can have that broom. I believe it is its destiny.";
+		mes "Puedes quedarte con esa escoba. Creo que es su destino.";
 		close;
 	}
 	mes "[Broom Grandma]";

@@ -39,28 +39,28 @@
 //============================================================
 manuk,321,182,5	script	Entrance Manager#ep133	450,{
 	if (!isequipped(2782)) {
-		mes "[Galten promedio]";
+		mes "[Average Galten]";
 		mes "�����? �� ����...";
 		mes "���� �� ?";
 		mes "���..?";
 		close;
 	}
 	if (ep13_3_invite >= 4) {
-		mes "[Administrador de entrada]";
+		mes "[Entrance Manager]";
 		mes "¿Estás de visita en la ciudad capital, El Dicastes?";
 		next;
 		if(select("Sí.:No.") == 2) {
-			mes "[Administrador de entrada]";
+			mes "[Entrance Manager]";
 			mes "Entonces usa el túnel la próxima vez.";
 			close; 
 		}
-		mes "[Administrador de entrada]";
+		mes "[Entrance Manager]";
 		mes "Ten cuidado.";
 		close2;
 		warp "dic_dun01",33,212; 
 		end; 
 	}
-	mes "[Administrador de entrada]";
+	mes "[Entrance Manager]";
 	mes "Lo siento.";
 	mes "No puedo dejarte pasar porque no eres un Sapha.";
 	close;
@@ -68,107 +68,107 @@ manuk,321,182,5	script	Entrance Manager#ep133	450,{
 
 dic_dun01,266,113,5	script	Curious Sapha#ep13_3_	449,{
 	if (!isequipped(2782)) {
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "����� �� ��?";
 		next;
 		mes "- No puedo entender una palabra. -";
 		close;
 	}
-	mes "[Sapha curiosa]";
+	mes "[Curious Sapha]";
 	mes "¿Hola?";
 	next;
 	switch(select("¿Qué estás haciendo aquí?:Compra artículos de investigación.:¡Hola!:Quiero ayudarte en tu investigación.")) {
 	case 1:
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "¿Ves a ese sucio vigilante de allí?";
 		next;
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "Fue atacado por Scarabas después de caer en Scaraba Hall.";
-		mes "Y él fue el único atacado incluso con otros a su alrededor.";
+		mes "Y él fue el único atacado incluso con otros a tu alrededor.";
 		next;
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "Creo que resbaló y cayó sobre alguna secreción de la reina Scaraba. Pensé que fue un accidente y lo estaba investigando.";
 		next;
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "Si los resultados de la investigación son correctos, los escarabajos son muy sensibles al olor.";
 		mes "O dicen que se vuelven locos por eso. Casi como si estuvieran perdiendo el control...";
 		next;
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "Vine a investigar la relación entre el componente de secreción de la Reina y los Scarabas.";
 		mes "Así que creé esto en un perfume para llevarlo fácilmente.";
 		next;
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "Quizás pueda aprovechar la reacción de este perfume a los Scarabas y avanzar en la investigación.";
 		close;
 	case 2:
 		if (checkweight(1201,1) == 0) {
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "Parece que no tienes suficiente espacio.";
 			close;
 		}
 		if (MaxWeight - Weight < 2000) {
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "Tus maletas ya parecen demasiado pesadas.";
 			close;
 		}
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "¿Quieres comprar el perfume Scaraba? ¿Un regalo para casa?";
 		mes "Pues se ha convertido en un perfume raro.";
 		next;
-		mes "[Sapha curiosa]";
-		mes "Te haré un trato y los venderé por 500 Zeny cada uno. Pero trate de no llevarlo consigo al Scaraba Hall.";
+		mes "[Curious Sapha]";
+		mes "Te haré un trato y los venderé por 500 Zeny cada uno. Pero trates de no llevarlo contigo al Scaraba Hall.";
 		mes "¿Cuantos quieres? Puedes comprar hasta 100.";
 		next;
 		input .@input;
 		set .@deal, 500 * .@input;
 		if (.@deal == 0) {
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "¿Cambiaste de opinión?";
 			close; 
 		}
 		if (Zeny < .@deal) {
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "No tienes suficiente dinero.";
 			close; 
 		}
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "¿Comprarás?"+.@input+"?";
 		next;
 		if(select("Sí:No") == 2) {
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "¿Cambiaste de opinión?";
 			close;
 		}
 		set Zeny, Zeny - .@deal;
 		getitem 6437,.@input; //Scaraba_Perfume
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "Aquí tienes. Scaraba podría rodearte, así que no lo uses cerca de Scaraba Hall.";
 		close;
 	case 3:
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "¿Hola? Debes ser un viajero. Este lugar es peligroso, así que encuentre la salida de este túnel.";
 		close;
 	case 4:
-		mes "[Sapha curiosa]";
-		mes "¿Tiene alguna información útil?";
+		mes "[Curious Sapha]";
+		mes "¿tienes alguna información útil?";
 		mes "¡Por favor hágamelo saber!";
 		input .@str$;
 		next;
-		mes "[Sapha curiosa]";
+		mes "[Curious Sapha]";
 		mes "dice^0000FF"+.@str$+"^000000.";
 		next;
 		switch(rand(1,3)) {
 		case 1:
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "¡Esa es una gran información!";
 			mes "Debo empezar con la investigación.";
 			close;
 		case 2:
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "Ya conozco esa información, pero te agradezco mucho que hayas venido hasta aquí para contármelo.";
 			close;
 		case 3:
-			mes "[Sapha curiosa]";
+			mes "[Curious Sapha]";
 			mes "Mmmm... ¿tú lo crees?";
 			mes "Tengo algunas dudas sobre tu información. Lo pensaré.";
 			close;
@@ -200,7 +200,7 @@ sec_in02,16,43,5	script	Scaraba Dungeon Entrance	449,{
 			mes "������ �� ������ �� �С���...";
 			next;
 			mes "El Vigilante dice algo y luego niega con la cabeza.";
-			mes "Parece una reacción negativa por la apariencia de su pose firme sosteniendo su escudo frente a él.";
+			mes "Parece una reacción negativa por la apariencia de tu pose firme sosteniendo tu escudo frente a él.";
 			close;
 		}
 		mes "[Vigilante]";
@@ -311,16 +311,16 @@ OnTouch_:
 	if (ep13_3_secret == 23) {
 		donpcevent "Suspicious Guy#ep133_::OnEnable";
 		cutin "ep13_loki01",2;
-		mes "[Voz baja]";
+		mes "[Low Voice]";
 		mes "Ey.";
 		mes "¿Eres el humano que conoció al recién nombrado ministro de Dicastes?";
-		mes "¿Qué aspecto tiene?";
+		mes "¿Qué aspecto tienes?";
 		next;
 		mes "Te sientes presionado por esto";
 		mes "chico sospechoso y comienza a hablar de Ahat voluntariamente.";
 		next;
 		cutin "ep13_loki02",2;
-		mes "[Chico vestido de negro]";
+		mes "[Black Clothed Guy]";
 		mes "...¿En realidad?";
 		mes "Por fin lo has encontrado.";
 		set ep13_3_secret, 24;
@@ -335,7 +335,7 @@ OnTouch_:
 }
 
 mid_camp,218,250,3	script	Suspicious Guy#ep133_	494,{
-	mes "[Chico sospechoso]";
+	mes "[Suspicious Guy]";
 	mes ".....";
 	hideonnpc strnpcinfo(0);
 	close;
@@ -349,7 +349,7 @@ OnEnable:
 
 -	script	Guard#ep133_11	492,{
 	if (!isequipped(2782)) {
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "����� �� ������?";
 		mes "����� �� ����� ��..!";
 		next;
@@ -357,32 +357,32 @@ OnEnable:
 		close;	
 	}
 	if (ep13_3_invite < 5) {
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "El acceso a la ciudad está restringido a otras carreras sin permisos.";
 		mes "Por favor regresa.";
 		close;
 	}
 	else if (ep13_3_invite == 5) {
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "El acceso a la ciudad está restringido a otras carreras sin permisos.";
 		mes "Por favor regresa.";
 		next;
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "¿Mmm? Eres humano.";
 		mes "Si pasaste por ese túnel, ¿estás aquí por invitación de Ravail?";
 		next;
 		select("Sí.");
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "No es de extrañar que Vyhannus te aprobara.";
 		mes "Comprendido.";
 		mes "Apruebo tu ingreso y te orientaré sobre lo que debes hacer primero en El Dicastes.";
 		next;
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "Primero entra a la fortaleza,";
 		mes "e inscríbete en Dicastes Diel ubicado en el punto más alto del norte.";
 		mes "Primero debes registrarte para poder moverte libremente.";
 		next;
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "Verás a Diel si sigues aquí hacia el norte.";
 		mes "No te perderás.";
 		mes "Debes encontrar la ventanilla de registro en el centro de atención al público de Diel.";
@@ -391,17 +391,17 @@ OnEnable:
 		end;
 	}
 	else if (ep13_3_invite > 5) {
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "¿Vuelves a El Dicastes?";
 		next;
 		set .@m, select("Sí. Yendo al castillo.:No.") - 1;
-		mes "[Guardia de la ciudad capital]";
+		mes "[Capital City Guard]";
 		mes "Buena suerte.";
 		close2;
 		if (!.@m) warp "dicastes01",199,41;
 		end;
 	}
-	mes "[Guardia de la ciudad capital]";
+	mes "[Capital City Guard]";
 	mes "Unknown situation occurred. Case " + strnpcinfo(2);
 	mes "Por favor consulte con un GM.";
 	close;
@@ -440,7 +440,7 @@ dic_in01,254,119,0	script	Item Storage#01	844,{
 
 sec_in02,10,42,1	script	13.3 Related Reset	449,{
 	callfunc "F_GM_NPC";
-	mes "[Reiniciar]";
+	mes "[Reset]";
 	mes "Restablece todas las ventanas de misiones, incluidas las misiones diarias y de mapas para 13.3.";
 	freeloop(1);
 	for(set .@i,12099; .@i<=12216; set .@i,.@i+1) {
@@ -489,7 +489,7 @@ dic_in01,48,263,5	script	Hunting Dept. 1 Manager	449,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -504,12 +504,12 @@ dic_in01,48,263,5	script	Hunting Dept. 1 Manager	449,{
 		close;
 	}
 	if (BaseLevel < 97) {
-		mes "[Gerente del Departamento de Caza 1]";
+		mes "[Hunting Dept. 1 Manager]";
 		mes "Umm... ¿Qué estás haciendo? ¿Algo que ver conmigo?";
 		close;
 	}
 	if (checkquest(12159,PLAYTIME) == -1) {
-		mes "[Gerente del Departamento de Caza 1]";
+		mes "[Hunting Dept. 1 Manager]";
 		mes "entonces no entendiste";
 		mes "cualquier solicitud todavía.";
 		mes "Laponte tendrá hemorroides";
@@ -518,28 +518,28 @@ dic_in01,48,263,5	script	Hunting Dept. 1 Manager	449,{
 		close;
 	}
 	else if (checkquest(12159,PLAYTIME) == 2) {
-		mes "[Gerente del Departamento de Caza 1]";
+		mes "[Hunting Dept. 1 Manager]";
 		mes "El límite de tiempo ha expirado para la solicitud existente.";
 		next;
-		mes "[Gerente del Departamento de Caza 1]";
+		mes "[Hunting Dept. 1 Manager]";
 		mes "Si se encuentra alguna solicitud incompleta, se considerará que falló y la solicitud será eliminada.";
 		next;
-		mes "[Gerente del Departamento de Caza 1]";
-		mes "Puede obtener una nueva solicitud después de que se elimine el registro de solicitud existente; vaya a ver a Laponte.";
+		mes "[Hunting Dept. 1 Manager]";
+		mes "puedes obtener una nueva solicitud después de que se elimine el registro de solicitud existente; vayas a ver a Laponte.";
 		que_dic(2,12099,12100,12101,12102,12103,12104,12105,12159);
 		close;
 	}
-	mes "[Gerente del Departamento de Caza 1]";
+	mes "[Hunting Dept. 1 Manager]";
 	mes "Bienvenido.";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	select("Completé la solicitud.");
-	mes "[Gerente del Departamento de Caza 1]";
+	mes "[Hunting Dept. 1 Manager]";
 	mes "Ah...";
 	mes "¿Terminaste con la solicitud?";
 	mes "Déjame comprobar tus registros primero.";
 	next;
-	mes "[Gerente del Departamento de Caza 1]";
+	mes "[Hunting Dept. 1 Manager]";
 	set .@s$, "Oh, you completed all your requests. Confirmation complete.";
 	que_dic(0,12099,4000,.@s$);
 	que_dic(0,12100,49000,.@s$);
@@ -559,7 +559,7 @@ dic_in01,51,266,6	script	Hunting Dept. 2 Manager	449,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -574,12 +574,12 @@ dic_in01,51,266,6	script	Hunting Dept. 2 Manager	449,{
 		close;
 	}
 	if (BaseLevel < 100) {
-		mes "[Gerente del Departamento de Caza 2]";
+		mes "[Hunting Dept. 2 Manager]";
 		mes "Ja, ja, necesitarás entrenar un poco más para trabajar conmigo.";
 		close;
 	}
 	if (checkquest(12160,PLAYTIME) == -1) {
-		mes "[Gerente del Departamento de Caza 2]";
+		mes "[Hunting Dept. 2 Manager]";
 		mes "entonces no entendiste";
 		mes "cualquier solicitud todavía.";
 		mes "Kalipo tendrá hemorroides";
@@ -588,28 +588,28 @@ dic_in01,51,266,6	script	Hunting Dept. 2 Manager	449,{
 		close;
 	}
 	else if (checkquest(12160,PLAYTIME) == 2) {
-		mes "[Gerente del Departamento de Caza 2]";
+		mes "[Hunting Dept. 2 Manager]";
 		mes "Kalipo parece tener otra petición para ti.";
 		next;
-		mes "[Gerente del Departamento de Caza 2]";
+		mes "[Hunting Dept. 2 Manager]";
 		mes "Borraré cualquier otro registro, incluidas las solicitudes anteriores de Kalipo que aún no hayas completado.";
 		next;
-		mes "[Gerente del Departamento de Caza 2]";
-		mes "Su historial de solicitudes se ha borrado ahora. Por favor visita Kalipo.";
+		mes "[Hunting Dept. 2 Manager]";
+		mes "tu historial de solicitudes se ha borrado ahora. Por favor visita Kalipo.";
 		que_dic(2,12106,12107,12108,12109,12110,12111,12160);
 		close;
 	}
-	mes "[Gerente del Departamento de Caza 2]";
+	mes "[Hunting Dept. 2 Manager]";
 	mes "Bienvenido.";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	select("Completé la solicitud.");
-	mes "[Gerente del Departamento de Caza 2]";
+	mes "[Hunting Dept. 2 Manager]";
 	mes "Ah...";
 	mes "¿Terminaste con la solicitud?";
 	mes "Déjame comprobar tus registros primero.";
 	next;
-	mes "[Gerente del Departamento de Caza 2]";
+	mes "[Hunting Dept. 2 Manager]";
 	set .@s$, "Oh, you completed all your requests. Confirmation complete.";
 	que_dic(0,12106,77000,.@s$);
 	que_dic(0,12107,47000,.@s$);
@@ -618,7 +618,7 @@ dic_in01,51,266,6	script	Hunting Dept. 2 Manager	449,{
 	que_dic(0,12110,30000,.@s$);
 	que_dic(0,12111,42000,.@s$);
 	mes "Mmmm.." + strcharinfo(0) + "";
-	mes "Por favor revise su historial de solicitudes nuevamente. Hay una discrepancia con nuestros documentos.";
+	mes "Por favor revise tu historial de solicitudes nuevamente. Hay una discrepancia con nuestros documentos.";
 	close;
 }
 
@@ -628,7 +628,7 @@ dic_in01,51,270,7	script	Supply Dept. 1 Manager	449,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -643,12 +643,12 @@ dic_in01,51,270,7	script	Supply Dept. 1 Manager	449,{
 		close;
 	}
 	if (BaseLevel < 80) {
-		mes "[Gerente del Departamento de Suministros 1]";
+		mes "[Supply Dept. 1 Manager]";
 		mes "Tienes que ser lo suficientemente fuerte para lidiar con el Departamento de Suministros 1.";
 		close;
 	}
 	if (checkquest(12161,PLAYTIME) == -1) {
-		mes "[Gerente del Departamento de Suministros 1]";
+		mes "[Supply Dept. 1 Manager]";
 		mes "entonces no entendiste";
 		mes "cualquier solicitud todavía.";
 		mes "Pura tendrá hemorroides";
@@ -657,26 +657,26 @@ dic_in01,51,270,7	script	Supply Dept. 1 Manager	449,{
 		close;
 	}
 	else if (checkquest(12161,PLAYTIME) == 2) {
-		mes "[Gerente del Departamento de Suministros 1]";
+		mes "[Supply Dept. 1 Manager]";
 		mes "Pura te está buscando.";
 		next;
-		mes "[Gerente del Departamento de Suministros 1]";
+		mes "[Supply Dept. 1 Manager]";
 		mes "Borré todos los registros relacionados con la solicitud anterior. Ve a encontrarte con Pura.";
 		next;
 		que_dic(2,12117,12118,12119,12120,12121,12122,12123,12124,12125,12126,12161);
 		close;
 	}
-	mes "[Gerente del Departamento de Suministros 1]";
+	mes "[Supply Dept. 1 Manager]";
 	mes "Bienvenido.";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	select("Completé la solicitud.");
-	mes "[Gerente del Departamento de Suministros 1]";
+	mes "[Supply Dept. 1 Manager]";
 	mes "Ah...";
 	mes "¿Terminaste con la solicitud?";
 	mes "Déjame comprobar tus registros primero.";
 	next;
-	mes "[Gerente del Departamento de Suministros 1]";
+	mes "[Supply Dept. 1 Manager]";
 	set .@s$, "It's done. You can't start any other request till tomorrow, why don't you go to the famous pub and rest?";
 	que_dic(1,12117,26300,6086,6,.@s$);
 	que_dic(1,12118,25600,6090,3,.@s$);
@@ -699,7 +699,7 @@ dic_in01,48,273,8	script	Supply Dept. 2 Manager	449,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -714,12 +714,12 @@ dic_in01,48,273,8	script	Supply Dept. 2 Manager	449,{
 		close;
 	}
 	if (BaseLevel < 80) {
-		mes "[Gerente del Departamento de Suministros 2]";
+		mes "[Supply Dept. 2 Manager]";
 		mes "De ninguna manera, no puedes soportar el trabajo del Departamento de Suministros 2 con ese cuerpo débil.";
 		close;
 	}
 	if (checkquest(12162,PLAYTIME) == -1) {
-		mes "[Gerente del Departamento de Suministros 2]";
+		mes "[Supply Dept. 2 Manager]";
 		mes "entonces no entendiste";
 		mes "cualquier solicitud todavía.";
 		mes "Tragis tendrá hemorroides";
@@ -728,23 +728,23 @@ dic_in01,48,273,8	script	Supply Dept. 2 Manager	449,{
 		close;
 	}
 	else if (checkquest(12162,PLAYTIME) == 2) {
-		mes "[Gerente del Departamento de Suministros 2]";
+		mes "[Supply Dept. 2 Manager]";
 		mes "Borré todos los registros relacionados con la solicitud anterior. Tragis te está buscando, así que date prisa para encontrarlo.";
 		next;
 		que_dic(2,12127,12128,12129,12130,12131,12132,12133,12134,12135,12136,12162);
 		close;
 	}
-	mes "[Gerente del Departamento de Suministros 2]";
+	mes "[Supply Dept. 2 Manager]";
 	mes "Bienvenido.";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	select("Completé la solicitud.");
-	mes "[Gerente del Departamento de Suministros 2]";
+	mes "[Supply Dept. 2 Manager]";
 	mes "Ah...";
 	mes "¿Terminaste con la solicitud?";
 	mes "Déjame comprobar tus registros primero.";
 	next;
-	mes "[Gerente del Departamento de Suministros 2]";
+	mes "[Supply Dept. 2 Manager]";
 	set .@s$, "" + strcharinfo(0) + ", you handle your requests quite well. You are not like the pub owner who just sends requests here every day.";
 	que_dic(1,12127,65300,6023,5,.@s$);
 	que_dic(1,12128,65300,6020,21,.@s$);
@@ -756,7 +756,7 @@ dic_in01,48,273,8	script	Supply Dept. 2 Manager	449,{
 	que_dic(1,12134,37500,7198,11,.@s$);
 	que_dic(1,12135,51100,7188,16,.@s$);
 	que_dic(1,12136,31000,518,2,.@s$);
-	mes "Me gustaría completar una solicitud para usted, pero no tiene ninguna en marcha ahora.";
+	mes "Me gustaría completar una solicitud para tu, pero no tienes ninguna en marcha ahora.";
 	close;
 }
 
@@ -766,7 +766,7 @@ dic_in01,43,273,1	script	Transport Dept. 1 Mgr	449,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -781,12 +781,12 @@ dic_in01,43,273,1	script	Transport Dept. 1 Mgr	449,{
 		close;
 	}
 	if (BaseLevel < 80) {
-		mes "[Gerente del Departamento de Transporte 1]";
+		mes "[Transport Dept. 1 Manager]";
 		mes "No estás calificado. No durarás ni un día con tus fuerzas trabajando aquí en el Departamento de Transporte 1.";
 		close;
 	}
 	if (checkquest(12163,PLAYTIME) == -1) {
-		mes "[Gerente del Departamento de Transporte 1]";
+		mes "[Transport Dept. 1 Manager]";
 		mes "entonces no entendiste";
 		mes "cualquier solicitud todavía.";
 		mes "Calyon tendrá hemorroides";
@@ -795,23 +795,23 @@ dic_in01,43,273,1	script	Transport Dept. 1 Mgr	449,{
 		close;
 	}
 	else if (checkquest(12163,PLAYTIME) == 2) {
-		mes "[Gerente del Departamento de Transporte 1]";
+		mes "[Transport Dept. 1 Manager]";
 		mes "Borré todos los registros relacionados con la solicitud anterior. Calyon te está buscando, así que date prisa para encontrarlo.";
 		next;
 		que_dic(2,12137,12138,12139,12140,12141,12142,12143,12144,12145,12146,12147,12163);
 		close;
 	}
-	mes "[Gerente del Departamento de Transporte 1]";
+	mes "[Transport Dept. 1 Manager]";
 	mes "Bienvenido.";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	select("Completé la solicitud.");
-	mes "[Gerente del Departamento de Transporte 1]";
+	mes "[Transport Dept. 1 Manager]";
 	mes "Ah...";
 	mes "¿Terminaste con la solicitud?";
 	mes "Déjame comprobar tus registros primero.";
 	next;
-	mes "[Gerente del Departamento de Transporte 1]";
+	mes "[Transport Dept. 1 Manager]";
 	set .@s$, "Quantity check finished. Ahhh, you going to rest? Then why don't you visit the famous pub of the Capital? They have no yummy food though....";
 	que_dic(1,12137,30000,7143,4,.@s$);
 	que_dic(1,12138,25000,744,5,.@s$);
@@ -824,12 +824,12 @@ dic_in01,43,273,1	script	Transport Dept. 1 Mgr	449,{
 	que_dic(1,12145,20900,964,20,.@s$);
 	que_dic(1,12146,22400,911,30,.@s$);
 	que_dic(1,12147,20800,910,40,.@s$);
-	mes "Um... ¿Qué quieres que haga?";
+	mes "Um... ¿Qué quieres que hagas?";
 	next;
-	mes "[Gerente del Departamento de Transporte 1]";
+	mes "[Transport Dept. 1 Manager]";
 	mes "....";
 	next;
-	mes "[Gerente del Departamento de Transporte 1]";
+	mes "[Transport Dept. 1 Manager]";
 	mes "No tienes nada que pueda manejar...";
 	close;
 }
@@ -840,7 +840,7 @@ dic_in01,40,270,2	script	Transport Dept. 2 Mgr	449,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -855,12 +855,12 @@ dic_in01,40,270,2	script	Transport Dept. 2 Mgr	449,{
 		close;
 	}
 	if (BaseLevel < 80) {
-		mes "[Gerente del Departamento de Transporte 2]";
+		mes "[Transport Dept. 2 Manager]";
 		mes "No estás calificado. No durarás ni un día con tus fuerzas trabajando aquí en el Departamento de Transporte 2.";
 		close;
 	}
 	if (checkquest(12164) == -1) {
-		mes "[Gerente del Departamento de Transporte 2]";
+		mes "[Transport Dept. 2 Manager]";
 		mes "entonces no entendiste";
 		mes "cualquier solicitud todavía.";
 		mes "Moltuka tendrá hemorroides";
@@ -869,18 +869,18 @@ dic_in01,40,270,2	script	Transport Dept. 2 Mgr	449,{
 		close;
 	}
 	else if (checkquest(12164,PLAYTIME) == 2) {
-		mes "[Gerente del Departamento de Transporte 2]";
+		mes "[Transport Dept. 2 Manager]";
 		mes "Borré todos los registros relacionados con la solicitud anterior. Moltuka te está buscando, así que date prisa para encontrarlo.";
 		next;
 		que_dic(2,12148,12149,12150,12151,12152,12153,12154,12155,12156,12157,12158,12164);
 		close;
 	}
-	mes "[Gerente del Departamento de Transporte 2]";
+	mes "[Transport Dept. 2 Manager]";
 	mes "Bienvenido.";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	select("Completé la solicitud.");
-	mes "[Gerente del Departamento de Transporte 2]";
+	mes "[Transport Dept. 2 Manager]";
 	mes "Ah...";
 	mes "¿Terminaste con la solicitud?";
 	mes "Déjame comprobar tus registros primero.";
@@ -928,83 +928,83 @@ dic_in01,40,193,1	script	Papyrus#0001	453,{
 		close;
 	}
 	set .@map_hi, rand(1,4);
-	mes "[Papiro]";
+	mes "[Papyrus]";
 	if (.@map_hi == 1) mes "Welcome, I am Papyrus, the manager of the Archive room here.";
 	else if (.@map_hi == 2) mes "The number of adventurers visiting the Archive room has increased";
 	else if (.@map_hi == 3) mes "This is the very place where Ancient Sapha forefathers created history";
 	else mes "The Archive room holds transcendent knowledge beyond that of Midgard and Asgard";
 	next;
 	if (countitem(6308) > 29) {
-		mes "[Papiro]";
+		mes "[Papyrus]";
 		mes "Oh... has traído muchas reliquias desconocidas.";
 		next;
-		mes "[Papiro]";
+		mes "[Papyrus]";
 		mes "Intercambiamos 11 Certificaciones Sapha por 30 Reliquias Desconocidas. ¿Quieres intercambiar?";
 		next;
 		if (select("La próxima vez:Intercambiar ahora") == 1) {
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Ok, hazlo a tu manera. Estoy aquí si cambias de opinión.";
 			close;
 		}
-		mes "[Papiro]";
+		mes "[Papyrus]";
 		mes "Ok, aquí tienes tus 11 certificaciones Sapha.";
 		delitem 6308,30; //Unidentified_Relic
 		getitem 6304,11; //Sapa_Feat_Cert
 		close;
 	}
 	if (countitem(6308) > 2) {
-		mes "[Papiro]";
-		mes "Vaya ~";
+		mes "[Papyrus]";
+		mes "vayas ~";
 		mes "Has encontrado una reliquia desconocida.";
 		mes "¿Quieres canjearlo por 1 Certificación Sapha?";
 		next;
 		if (select("La próxima vez:Intercambiar ahora") == 1) {
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Ok, hazlo a tu manera. Estoy aquí si cambias de opinión.";
 			close;
 		}
-		mes "[Papiro]";
+		mes "[Papyrus]";
 		mes "Ok, aquí tienes tus 1 Certificaciones Sapha.";
 		delitem 6308,3; //Unidentified_Relic
 		getitem 6304,1; //Sapa_Feat_Cert
 		close;
 	}
-	mes "[Papiro]";
+	mes "[Papyrus]";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	switch (select("¿Para qué es este lugar?:¿Cómo veo los documentos?:¿Qué es una reliquia desconocida?")) {
 		case 1:
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Este es un lugar importante donde se guardan los datos de diversas reliquias recopiladas desde nuestros antepasados.";
 			next;
-			mes "[Papiro]";
-			mes "Se puede decir que es algo parecido al museo del ser humano. Tómese su tiempo para revisar nuestros registros antiguos.";
+			mes "[Papyrus]";
+			mes "Se puedes decir que es algo parecido al museo del ser humano. Tómese tu tiempo para revisar nuestros registros antiguos.";
 			next;
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Nunca sabrás si encontrarás algo que llame tu atención aventurera.";
 			break;
 		case 2:
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Algunos documentos están escritos en el antiguo lenguaje Sapha, por lo que los humanos tienen problemas para verlos todos.";
 			next;
-			mes "[Papiro]";
-			mes "Puede encontrar documentos recientes a la izquierda donde estoy parado.";
-			mes "También puede tomar notas sobre documentos que le parezcan interesantes.";
+			mes "[Papyrus]";
+			mes "puedes encontrar documentos recientes a la izquierda donde estoy parado.";
+			mes "También puedes tomar notas sobre documentos que le parezcan interesantes.";
 			next;
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Te agradecería que me trajeras cualquier Reliquia Desconocida que encuentres mientras exploras usando tus notas desde aquí.";
 			break;
 		case 3:
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Las Reliquias Desconocidas son reliquias que aún no han sido verificadas y son material de investigación valioso para nosotros.";
 			next;
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Muchos de nosotros, los investigadores, estudiamos la vida y la muerte, el nacimiento y la extinción del universo a través de reliquias antiguas.";
 			next;
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "Si encuentras y me traes una reliquia desconocida, a cambio te daré^9900991 Certificación Sapha^000000s para cada^9900993 reliquia desconocida^000000que traes.";
 			next;
-			mes "[Papiro]";
+			mes "[Papyrus]";
 			mes "si traes^99009930 reliquias^000000, lo cambiaré por^99009911 Certificación Sapha^000000s.";
 			break;
 	}
@@ -1197,7 +1197,7 @@ cmd_fild08,324,163,0	script	Stone Hearts	844,{ unknown_d(12215,953); }
 
 dic_in01,138,225,3	script	Diel Guard#ep133_19	492,{
 	if (!isequipped(2782)) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "����� �� ������?";
 		mes "������ �� ������ �� �С���...";
 		mes "����� �� ����� ��..!";
@@ -1206,7 +1206,7 @@ dic_in01,138,225,3	script	Diel Guard#ep133_19	492,{
 		close;
 	}
 	if (ep13_3_secret < 13) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "No puedes ir más lejos.";
 		mes "Esta es la oficina del ministro más alto.";
 		mes "Sólo se permite la entrada a quienes tengan permiso.";
@@ -1214,12 +1214,12 @@ dic_in01,138,225,3	script	Diel Guard#ep133_19	492,{
 		close;
 	}
 	else if (ep13_3_secret == 13) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "Por favor, para.";
 		mes "Sólo se permite la entrada a quienes tengan permiso.";
 		next;
 		if (select("Tengo permiso.:Volver.") == 1) {
-			mes "[Guardia Diel]";
+			mes "[Diel Guard]";
 			mes "Esperar...";
 			mes strcharinfo(0) + "......ah... I see your name on the list.";
 			mes "Lo lamento.";
@@ -1228,7 +1228,7 @@ dic_in01,138,225,3	script	Diel Guard#ep133_19	492,{
 			warp "dic_in01",241,177;
 			end;
 		}
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "Suspiro...";
 		mes "Por favor comprenda.";
 		mes "Son muchos los que intentan reunirse con el ministro.";
@@ -1236,7 +1236,7 @@ dic_in01,138,225,3	script	Diel Guard#ep133_19	492,{
 		close;
 	}
 	else if (ep13_3_secret > 13) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "ah tu eres" + strcharinfo(0) + "..";
 		mes "Recibí una orden de Ahat para dejarte pasar en cualquier momento.";
 		mes "Por favor sube.";
@@ -1244,7 +1244,7 @@ dic_in01,138,225,3	script	Diel Guard#ep133_19	492,{
 		warp "dic_in01",241,177;
 		end;
 	}
-	mes "[Guardia Diel]";
+	mes "[Diel Guard]";
 	mes "No puedes ir más lejos.";
 	mes "Esta es la oficina del ministro más alto.";
 	mes "Sólo se permite la entrada a quienes tengan permiso.";
@@ -1260,7 +1260,7 @@ dic_in01,242,182,0	script	Elevator#5f_to_4f	844,{
 
 dic_in01,263,193,3	script	Diel Guard#ep133_20	450,{
 	if (!isequipped(2782)) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "����� �� ������?";
 		mes "������ �� ������ �� �С���...";
 		mes "����� �� ����� ��..!";
@@ -1269,13 +1269,13 @@ dic_in01,263,193,3	script	Diel Guard#ep133_20	450,{
 		close;
 	}
 	if (ep13_3_secret < 13) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "Por favor, para.";
 		mes "No puedes ir más lejos.";
 		close;
 	}
 	else if ((ep13_3_secret > 11) && (ep13_3_secret < 19)) {
-		mes "[Guardia Diel]";
+		mes "[Diel Guard]";
 		mes "¿Estás aquí para encontrarte con Ahat?";
 		mes "Estás en la lista.";
 		close2;
@@ -1284,21 +1284,21 @@ dic_in01,263,193,3	script	Diel Guard#ep133_20	450,{
 	}
 	else if (ep13_3_secret > 18) {
 		if (ep13_3_ahtdayq == 1) {
-			mes "[Guardia Diel]";
+			mes "[Diel Guard]";
 			mes "¿Acabas de regresar del recado de Ahat?";
 			mes "Él está esperando adentro.";
 			mes "Por favor entra.";
 		}
 		else if (countitem(6304) > 0) {
-			mes "[Guardia Diel]";
+			mes "[Diel Guard]";
 			mes "¿Estás aquí para encontrarte con Ahat?";
 			mes "Estás en la lista.";
 			mes "Por favor entra.";
 			delitem 6304,1; //Sapa_Feat_Cert
 		}
 		else {
-			mes "[Guardia Diel]";
-			mes "Necesita 1 certificación de exploit para cumplir con Ahat.";
+			mes "[Diel Guard]";
+			mes "necesitas 1 certificación de exploit para cumplir con Ahat.";
 			mes "Al menos este es un trato especial para ti.";
 			close;
 		}
@@ -1306,7 +1306,7 @@ dic_in01,263,193,3	script	Diel Guard#ep133_20	450,{
 		warp "dic_in01",299,251;
 		end;
 	}
-	mes "[Guardia Diel]";
+	mes "[Diel Guard]";
 	mes "Esta es un área restringida.";
 	mes "Necesitas permiso para ir más lejos.";
 	close;
@@ -1395,7 +1395,7 @@ dic_in01,294,276,5	script	Secret Adjutant#ep133_2	498,{
 		setquest 7199;
 		next;
 		mes "[Cheshire]";
-		mes "Nadie debe verte.";
+		mes "Nadie debes verte.";
 		mes "No debes decírselo a los Saphas.";
 		mes "¡Trabaja en absoluto secreto!";
 		close2;
@@ -1422,7 +1422,7 @@ dic_in01,294,276,5	script	Secret Adjutant#ep133_2	498,{
 			mes "Tu trabajo es recolectar y recuperar manchas de sangre coagulada, restos de hechizos mágicos y trozos de piel.";
 			next;
 			mes "[Cheshire]";
-			mes "Esto no se puede hacer en un día, así que traiga al menos 10 de cada uno.";
+			mes "Esto no se puedes hacer en un día, así que traiga al menos 10 de cada uno.";
 			mes "¿Entiendo?";
 			close2;
 		}
@@ -1491,13 +1491,13 @@ dic_in01,294,276,5	script	Secret Adjutant#ep133_2	498,{
 				close2;
 			}
 			else {
-				mes "Esto no debe suceder. Caso 4";
+				mes "Esto no debes suceder. Caso 4";
 				mes "Solicite ayuda a GM.";
 				close2;
 			}
 		}
 		else {
-			mes "Esto no debe suceder. Caso 5";
+			mes "Esto no debes suceder. Caso 5";
 			mes "Solicite ayuda a GM.";
 			close2;
 		}
@@ -1513,7 +1513,7 @@ dic_in01,300,280,5	script	Minister Ahat#ep133_21	493,{
 		close;
 	}
 	if (ep13_3_secret < 13) {
-		mes "[Ministro Ahat]";
+		mes "[Minister Ahat]";
 		mes "¿OMS?";
 		mes "No recuerdo haberte dado permiso para entrar.";
 		close2;
@@ -1570,15 +1570,15 @@ dic_in01,300,280,5	script	Minister Ahat#ep133_21	493,{
 		mes "Mira profundamente en tus profundidades.";
 		next;
 		mes "La voz de Ahat suena agradablemente en tus oídos.";
-		mes "Cada sílaba que dice tiene efecto en tu cuerpo.";
+		mes "Cada sílaba que dice tienes efecto en tu cuerpo.";
 		next;
 		mes "Ves a alguien sonriéndote pacíficamente desde lejos...";
 		next;
-		mes "[Voz suave]";
+		mes "[Soft Voice]";
 		mes "¿Quién es el maestro?";
 		next;
 		mes "- Ahat parece estar lanzando un poderoso hechizo.";
-		mes "Esta podría ser su verdadera habilidad. -";
+		mes "Esta podría ser tu verdadera habilidad. -";
 		next;
 		select("¡Detén eso!:¡Demonio, vete!");
 		mes "[Ahat]";
@@ -1593,7 +1593,7 @@ dic_in01,300,280,5	script	Minister Ahat#ep133_21	493,{
 		while (.@ahtlove < 4) {
 			set .@ahtlove, .@ahtlove + 1;
 			mes "- Ahat intenta hipnotizarte de nuevo.";
-			mes "Debe haberse borrado a sí mismo al hacer esto una y otra vez.-";
+			mes "debes haberse borrado a sí mismo al hacer esto una y otra vez.-";
 			next;
 			if (.@ahtlove == 1) {
 				select("Superar con fuerza de voluntad.");
@@ -1729,7 +1729,7 @@ dic_in01,300,280,5	script	Minister Ahat#ep133_21	493,{
 		mes "Ve ahora.";
 		next;
 		mes "- Ahat aún no sospecha nada.";
-		mes "Parece creer que su hechizo se completó. -";
+		mes "Parece creer que tu hechizo se completó. -";
 		set ep13_3_secret, 16;
 		close2;
 	}
@@ -1740,7 +1740,7 @@ dic_in01,300,280,5	script	Minister Ahat#ep133_21	493,{
 		mes "Ve ahora.";
 		next;
 		mes "- Ahat aún no sospecha nada.";
-		mes "Parece creer que su hechizo se completó. -";
+		mes "Parece creer que tu hechizo se completó. -";
 		close2;
 	}
 	else if (ep13_3_secret == 17) {
@@ -1785,7 +1785,7 @@ dic_in01,300,280,5	script	Minister Ahat#ep133_21	493,{
 		mes "[Ahat]";
 		mes "Sigue las órdenes de Cheshire por el momento y limpia el área cercana a la grieta.";
 		next;
-		mes "-Ahat todavía piensa que estás bajo su hechizo.";
+		mes "-Ahat todavía piensa que estás bajo tu hechizo.";
 		mes "Sigamos las órdenes de Cheshire y actuemos con normalidad. -";
 		close2;
 	}
@@ -1797,12 +1797,12 @@ dic_in01,138,188,0	script	#ep133_event02	139,4,4,{
 OnTouch_:
 	if (ep13_3_secret == 19) {
 		if (!isequipped(2782)) {
-			mes "[Voz tranquila]";
+			mes "[Quiet Voice]";
 			mes "������ ������....";
 			mes "����� ������ �� �С���...";
 		}
 		else {
-			mes "[Voz tranquila]";
+			mes "[Quiet Voice]";
 			mes "Lo siento.";
 			mes "Sólo un momento.";
 		}
@@ -1869,7 +1869,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 				mes "Lo siento.";
 				next;
 				mes "HesLanta está molesto con mi respuesta.";
-				mes "Su expresión es compleja y oscura.";
+				mes "tu expresión es compleja y oscura.";
 				set ep13_3_secret, 20;
 				close;
 			}
@@ -1908,7 +1908,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 		mes "[HesLanta]";
 		mes "Pruébalo si puedes.";
 		mes "Mi oficina es especial y no podrás salir de aquí.";
-		mes "Y nadie puede venir a ayudarte tampoco.";
+		mes "Y nadie puedes venir a ayudarte tampoco.";
 		next;
 		mes "[HesLanta]";
 		mes "Pero esta sala está abierta a cualquiera.";
@@ -1991,7 +1991,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 		next;
 		mes "[HesLanta]";
 		mes "Ahat subió la escalera hasta donde está ahora después de ganarse la confianza de Ravail.";
-		mes "Su capacidad de trabajo es asombrosa.";
+		mes "tu capacidad de trabajo es asombrosa.";
 		mes "Él es el Sapha perfecto.";
 		set ep13_3_secret, 21;
 		next;
@@ -2006,7 +2006,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 		next;
 		mes "[HesLanta]";
 		mes "No sé por qué crees que Ahat es humano pero";
-		mes "eso también puede ser parte de su hechizo.";
+		mes "eso también puedes ser parte de tu hechizo.";
 		next;
 		mes "[HesLanta]";
 		mes "La razón por la que lanzó un hechizo...";
@@ -2055,7 +2055,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 		next;
 		mes "[HesLanta]";
 		mes "¿Pero si el poder se concentra en un solo lugar y se utiliza incorrectamente?";
-		mes "Todos los aspectos administrativos se deciden sobre Ahat. Entonces, ¿qué puede hacer con sólo asentir o negar con la cabeza?";
+		mes "Todos los aspectos administrativos se deciden sobre Ahat. Entonces, ¿qué puedes hacer con sólo asentir o negar con la cabeza?";
 		next;
 		mes "[HesLanta]";
 		mes "Tengo miedo de eso.";
@@ -2078,12 +2078,12 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 		mes "Todos los que están cerca de Ahat conocen Cheshire.";
 		next;
 		mes "[HesLanta]";
-		mes "^4d4dffCheshire es un felino que Ahat trajo consigo^000000.";
+		mes "^4d4dffCheshire es un felino que Ahat trajo contigo^000000.";
 		mes "Ahat se hizo cargo del herido Cheshire y lo trajo con él.";
 		mes "Tenemos gatos cerca, así que no pensamos mucho en él.";
 		next;
 		mes "[HesLanta]";
-		mes "Porque esta tierra es su segunda patria.";
+		mes "Porque esta tierra es tu segunda patria.";
 		mes "Es posible que haya otros felinos viviendo en otros lugares.";
 		mes "Pero siempre se cubre la cara con un pañuelo porque se ve diferente a Saphas.";
 		next;
@@ -2135,7 +2135,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 						break;
 					case 2:
 						mes "[" + strcharinfo(0) + "]";
-						mes "¿Eh? No puede ser él.";
+						mes "¿Eh? No puedes ser él.";
 						mes "Eso no encaja con la información del testigo.";
 						mes "Repensemos esto.";
 						break;
@@ -2177,7 +2177,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 				}
 				else {
 					mes "[" + strcharinfo(0) + "]";
-					mes "Sí. Ahat debe haberle ordenado.";
+					mes "Sí. Ahat debes haberle ordenado.";
 					mes "¿Pero por qué Ahat haría eso?";
 					mes "¿Conflicto entre tres países? ¿O el contenido del informe?";
 					set .@yes, .@yes + 1;
@@ -2188,17 +2188,17 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 				mes "[" + strcharinfo(0) + "]";
 				mes "Pensemos en eso.";
 				mes "Ahat vino de la grieta.";
-				mes "y no tiene registros antes de eso.";
+				mes "y no tienes registros antes de eso.";
 				next;
 				mes "[" + strcharinfo(0) + "]";
 				mes "E intenta borrar todos los rastros encontrados cerca de la grieta.";
-				mes "Y Ahat quiere eliminar...";
+				mes "Y Ahat quieres eliminar...";
 				next;
 				if (select("Ahat mismo.:¿Marruecos por el crack?") == 1) {
 					mes "[" + strcharinfo(0) + "]";
 					mes "Sí, Ahat podría ser un rastro de sí mismo.";
-					mes "Saphas quiere ocultar algo por eso me contrataron";
-					mes "que no pertenece a ninguna influencia puede ser usado como títere para hacer el trabajo sucio.";
+					mes "Saphas quieres ocultar algo por eso me contrataron";
+					mes "que no pertenece a ninguna influencia puedes ser usado como títere para hacer el trabajo sucio.";
 				}
 				else {
 					mes "[" + strcharinfo(0) + "]";
@@ -2270,7 +2270,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 	if (.@yessay == 1) {
 		mes "[HesLanta]";
 		mes "Estoy muy cansada porque hoy tuve mucho trabajo.";
-		mes "Ravail sólo puede favorecer a Ahat porque lo hace todo él solo.";
+		mes "Ravail sólo puedes favorecer a Ahat porque lo hace todo él solo.";
 		next;
 		mes "[HesLanta]";
 		mes "Yo también debo hacer lo mejor que pueda.";
@@ -2285,7 +2285,7 @@ dic_in01,158,188,3	script	Jarute HesLanta#ep133_2	451,{
 		next;
 		mes "[HesLanta]";
 		mes "Podrás verlo caminando si tienes suerte.";
-		mes "Cheshire usa ropa cómoda al caminar, si eso satisface su curiosidad.";
+		mes "Cheshire usa ropa cómoda al caminar, si eso satisface tu curiosidad.";
 		close;
 	}
 	mes "[HesLanta]";
@@ -2321,7 +2321,7 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -2335,7 +2335,7 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		mes "Sapha se mantiene alejada de ti incluso cuando intentas hablar. Parece que llamó al guardia Galten. Es hora de irse.";
 		close;
 	}
-	mes "[Calyón]";
+	mes "[Calyon]";
 	if (BaseLevel < 80) {
 		mes "Ja, ja, vuelve después de que hayas entrenado más. No tengo ninguna petición que se ajuste a ti.";
 		close;
@@ -2351,35 +2351,35 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 	mes "¿Qué te trae por aquí?";
 	next;
 	if(select("Please explain the request to me.", "Please give me a request.") == 1) {
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "El Departamento de Transporte 1 y 2";
 		mes "trae artículos raros";
 		mes "que no estan disponibles";
 		mes "aquí.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Es uno de los";
 		mes "departamentos clave que";
 		mes "obtiene los ricos suministros";
 		mes "principalmente del continente Midgard.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Por favor visítame en cualquier momento";
 		mes "una vez que estés listo.";
 		close;
 	}
-	mes "[Calyón]";
+	mes "[Calyon]";
 	mes "Finalmente, tengo una petición para ti. Es importante, así que necesito que estés concentrado.";
 	next;
 	set .@calyonrequest,rand(1,11);
-	mes "[Calyón]";
+	mes "[Calyon]";
 	if (.@calyonrequest == 1) {
 		setquest 12139;
 		setquest 12163;
 		mes "El alto ministro está buscando estos días el producto Midgard, Witherless Roses.";
 		mes "No estoy seguro si es un buen regalo pero algunos lo han visto con él en la cabeza y presumiendo.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Entonces... sé que es difícil pedir esto, pero por favor tráeme 1 rosa marchita. Esto es sólo entre tú y yo.";
 		next;
 		mes "Has recibido una solicitud denominada^800080Respeto por el gusto^000000.";
@@ -2388,25 +2388,25 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		setquest 12163;
 		mes "El centro de investigación industrial investiga formas de refinar bradio de manera eficiente, pero siempre les faltan materiales de prueba.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Escuché que hay un comerciante en la ciudad de los aventureros que vende tubos de vidrio. Necesitaré 4 de ellos.";
 		next;
 		mes "Has recibido una solicitud denominada^800080Herramientas para experimentar^000000.";
 	} else if (.@calyonrequest == 3) {
 		setquest 12138;
 		setquest 12163;
-		mes "El dueño del pub dijo que quiere hacer un regalo a todos sus clientes habituales de Sapha.";
+		mes "El dueño del pub dijo que quieres hacer un regalo a todos sus clientes habituales de Sapha.";
 		next;
-		mes "[Calyón]";
-		mes "Pero no sabe qué regalar. Si ves algún regalo interesante en Midgard, ¿puedes traer 5 de ellos?";
+		mes "[Calyon]";
+		mes "Pero no sabes qué regalar. Si ves algún regalo interesante en Midgard, ¿puedes traer 5 de ellos?";
 		next;
 		mes "Has recibido una solicitud denominada^800080Muestras de regalos finos^000000.";
 	} else if (.@calyonrequest == 4) {
 		setquest 12140;
 		setquest 12163;
-		mes "Una petición del dueño del pub. Dice que no puede utilizar platos de hojas desechables para los clientes habituales.";
+		mes "Una petición del dueño del pub. Dice que no puedes utilizar platos de hojas desechables para los clientes habituales.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Pide 15 porcelanas blancas y macizas de Midgard.";
 		next;
 		mes "Has recibido una solicitud denominada^800080Cortesía para Regular^000000.";
@@ -2416,7 +2416,7 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		mes "Tengo una petición personal. Escuché que hay una artesanía redonda transparente en Midgard.";
 		mes "Creo que se llaman Glass Beads.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Tenemos artículos fabricados similares aquí, pero nada comparado con la elaborada esfera de allí.";
 		mes "Por favor consígueme 10 de ellos.";
 		next;
@@ -2425,9 +2425,9 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		setquest 12142;
 		setquest 12163;
 		mes "Mmm... no sé cómo empezar. El alto ministro solicita títeres de Midgard.";
-		mes "No sé qué es pero como el alto ministro lo pide, debe usarse para un propósito muy importante.";
+		mes "No sé qué es pero como el alto ministro lo pide, debes usarse para un propósito muy importante.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Por favor trae 15 de ellos.";
 		next;
 		mes "Has recibido una solicitud denominada^800080Solicitud peligrosa^000000.";
@@ -2436,7 +2436,7 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		setquest 12163;
 		mes "Escuché que hay una tendencia entre muchos de mis colegas aquí sobre un accesorio musical hecho con un Bill of Birds de Midgard.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Estoy pensando en distribuirlos dentro del edificio de Operaciones.";
 		mes "¿Puedes comprar y traer 50 de ellos?";
 		next;
@@ -2447,17 +2447,17 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		mes "El dueño del pub dijo que quería decorar el pub con algo llamado Clam Shells.";
 		mes "Por favor, trae unos 50 de ellos.";
 		next;
-		mes "[Calyón]";
-		mes "No tengo idea de cómo los usará, pero creo que tiene un gusto único después de haber conocido a muchos aventureros.";
+		mes "[Calyon]";
+		mes "No tengo idea de cómo los usará, pero creo que tienes un gusto único después de haber conocido a muchos aventureros.";
 		next;
 		mes "Has recibido una solicitud denominada^800080Uso desconocido^000000.";
 	} else if (.@calyonrequest == 9) {
 		setquest 12145;
 		setquest 12163;
 		mes "No tenemos cocina para nosotros, pero muchos aventureros parecen disfrutar del arte de comer.";
-		mes "Por eso el dueño del pub necesita un plato para su nueva cocina.";
+		mes "Por eso el dueño del pub necesitas un plato para tu nueva cocina.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Pidió 20 conchas de cangrejo.";
 		mes "No tengo idea de dónde puedes conseguirlos pero... buena suerte.";
 		next;
@@ -2467,7 +2467,7 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		setquest 12163;
 		mes "Creo que el elemento Midgard más útil son Scells.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Utilice Scells para rellenar cualquier grieta o agujero en un edificio y luego mezcle y enyese Garlet molido y el mantenimiento del edificio será rápido y sencillo.";
 		mes "¿Puedes traer de vuelta 30 de ellos?";
 		next;
@@ -2478,13 +2478,13 @@ dicastes01,223,190,1	script	Calyon#pa8029	453,{
 		mes "Los garlets son un elemento en el mantenimiento de edificios.";
 		mes "Es uno de los materiales más importantes en la edificación.";
 		next;
-		mes "[Calyón]";
+		mes "[Calyon]";
 		mes "Antes de que Garlets estuviera disponible, triturábamos y usábamos Zargons, pero se ha vuelto difícil conseguirlos.";
 		mes "Por favor trae 40 de ellos.";
 		next;
 		mes "Has recibido una solicitud denominada^800080Material adhesivo^000000.";
 	}
-	mes "Puede verificar los detalles de la solicitud y a quién informar abriendo el^800080Ventana de misión^000000.";
+	mes "puedes verificar los detalles de la solicitud y a quién informar abriendo el^800080Ventana de misión^000000.";
 	close;
 }
 
@@ -2494,7 +2494,7 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -2515,7 +2515,7 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 	}
 	if (checkquest(12164,PLAYTIME) == 2) {
 		mes "[Moltuka]";
-		mes "¿Has conocido al^990099Gerente Dpto. Transporte 2^000000en Operaciones? Le daré una nueva solicitud después de que borre su historial de solicitudes.";
+		mes "¿Has conocido al^990099Gerente Dpto. Transporte 2^000000en Operaciones? Le daré una nueva solicitud después de que borre tu historial de solicitudes.";
 		close;
 	}
 	else if (checkquest(12164,PLAYTIME) != -1) {
@@ -2554,7 +2554,7 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		mes "[Moltuka]";
 		mes "Entonces los galtens de aquí los atraen con Monster's Feed. Se dice que hay un experto que hace ese trabajo, por favor consigue el feed de 100 Monster.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Cebo para la Caza del Tatacho^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Cebo para la Caza del Tatacho^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12148;
 		setquest 12164;
@@ -2564,12 +2564,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12149;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "El dueño del pub quiere manzanas para aprender a cocinar bien.";
+		mes "El dueño del pub quieres manzanas para aprender a cocinar bien.";
 		next;
 		mes "[Moltuka]";
-		mes "Pero nunca oí hablar de ningún aventurero de Midgard al que le gustara su comida. De todos modos, dice que lo intentará, así que consíguele 100 manzanas.";
+		mes "Pero nunca oí hablar de ningún aventurero de Midgard al que le gustara tu comida. De todos modos, dice que lo intentará, así que consíguele 100 manzanas.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Práctica de manejo de la espada^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Práctica de manejo de la espada^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12149;
 		setquest 12164;
@@ -2579,12 +2579,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12150;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "Esta es una petición del dueño del pub. Quiere alguna verdura rojiza para tener un plato colorido.";
+		mes "Esta es una petición del dueño del pub. quieres alguna verdura rojiza para tener un plato colorido.";
 		next;
 		mes "[Moltuka]";
 		mes "Bueno... Zanahoria, ¿verdad? De todos modos en tu tierra lo llaman así... Realmente no tengo ninguna expectativa. Lo siento. Antes solo hablaba yo mismo. Por favor prepare 100 de ellos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Verdura bastante rojiza^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Verdura bastante rojiza^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12150;
 		setquest 12164;
@@ -2599,7 +2599,7 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		mes "[Moltuka]";
 		mes "Para este incidente, no quedó ninguna calabaza. Así que te agradeceremos que encuentres 100 calabazas.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Tenacidad del dueño del pub.^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Tenacidad del dueño del pub.^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12151;
 		setquest 12164;
@@ -2609,12 +2609,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12152;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "El dueño del pub ha pedido eso.... Extraña la batata que solía comer cuando era joven. Quiere 50 batatas.";
+		mes "El dueño del pub ha pedido eso.... Extraña la batata que solía comer cuando era joven. quieres 50 batatas.";
 		next;
 		mes "[Moltuka]";
 		mes "Puedo entenderlo ya que está fuera de casa por mucho tiempo. Si por casualidad visitas Midgard, intenta conseguirlos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Sabe a comida casera^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Sabe a comida casera^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12152;
 		setquest 12164;
@@ -2624,12 +2624,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12153;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "El dueño del pub quiere cocinar algo extraño. Dijo que será plátano asado, pero creo que ya ha cocinado algo similar antes...";
+		mes "El dueño del pub quieres cocinar algo extraño. Dijo que será plátano asado, pero creo que ya ha cocinado algo similar antes...";
 		next;
 		mes "[Moltuka]";
 		mes "Bueno, no puedo recordar mucho. De todos modos... Necesitas conseguir 100 plátanos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Planta peligrosa cuando se quema.^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Planta peligrosa cuando se quema.^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12153;
 		setquest 12164;
@@ -2639,12 +2639,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12154;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "Esta solicitud es del dueño del pub. Quiere un poco de carne.";
+		mes "Esta solicitud es del dueño del pub. quieres un poco de carne.";
 		next;
 		mes "[Moltuka]";
-		mes "Nada más en la dirección de su solicitud. Con 50 trozos bastará. Me pregunto si realmente está dirigiendo su negocio...";
+		mes "Nada más en la dirección de tu solicitud. Con 50 trozos bastará. Me pregunto si realmente está dirigiendo tu negocio...";
 		next;
-		mes "Te tengo una solicitud llamada^880088Inesperadamente normal^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Inesperadamente normal^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12154;
 		setquest 12164;
@@ -2654,12 +2654,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12155;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "Me gustaría hacerle un regalo al dueño del pub. Esta es una solicitud personal, por lo que no debe estresarse por esto. Hace unos días vi al dueño del pub frustrado por todos los cucharones rotos.";
+		mes "Me gustaría hacerle un regalo al dueño del pub. Esta es una solicitud personal, por lo que no debes estresarse por esto. Hace unos días vi al dueño del pub frustrado por todos los cucharones rotos.";
 		next;
 		mes "[Moltuka]";
 		mes "Parecía que lo hizo él mismo, pero sentí lástima por él, así que quiero que consigas 20 cucharones negros que se pueden comprar en Midgard.";
 		next;
-		mes "Te tengo una solicitud llamada^880088regalo con corazon^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088regalo con corazon^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12155;
 		setquest 12164;
@@ -2672,9 +2672,9 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		mes "El alto ministro quería espejos hechos de cristal Midgard. Hay muchos espejos de Manukan, pero parece preferir los de Midgard.";
 		next;
 		mes "[Moltuka]";
-		mes "En realidad estoy un poco preocupado, pero debe haber una razón para nuestro 'sabio' alto ministro.";
+		mes "En realidad estoy un poco preocupado, pero debes haber una razón para nuestro 'sabio' alto ministro.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Respeto por el gusto 2^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Respeto por el gusto 2^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12156;
 		setquest 12164;
@@ -2684,12 +2684,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12157;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "El dueño del pub pide algo esta vez. Él quiere 2 piñas y quiere que sepas que...";
+		mes "El dueño del pub pide algo esta vez. Él quieres 2 piñas y quieres que sepas que...";
 		next;
 		mes "[Moltuka]";
 		mes "Podría intentar hacer un cóctel especial. Estoy seguro de hacerlo ya que hice un buen veneno.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Resolución del dueño del pub^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Resolución del dueño del pub^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12157;
 		setquest 12164;
@@ -2699,12 +2699,12 @@ dicastes01,211,178,2	script	Moltuka#pa0829	453,{
 		setquest 12158;
 		setquest 12164;
 		mes "[Moltuka]";
-		mes "De nuevo... La petición del dueño del pub. Quiere 2 Melones y quiere que sepas que...";
+		mes "De nuevo... La petición del dueño del pub. quieres 2 Melones y quieres que sepas que...";
 		next;
 		mes "[Moltuka]";
 		mes "Podría intentar hacer un cóctel especial. Estoy seguro de hacerlo ya que hice un buen veneno.";
 		next;
-		mes "Te tengo una solicitud llamada^880088La ira del dueño del pub.^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088La ira del dueño del pub.^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close2;
 		setquest 12158;
 		setquest 12164;
@@ -2718,7 +2718,7 @@ dicastes01,175,217,5	script	Kalipo#pa0829	453,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -2733,34 +2733,34 @@ dicastes01,175,217,5	script	Kalipo#pa0829	453,{
 		close;
 	}
 	if (BaseLevel < 100) {
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Ja, ja, ja, muchos otros aventureros están echando una mano. Te veré la próxima vez.";
 		close;
 	}
 	if (checkquest(12160,PLAYTIME) == 2) {
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Por favor regresa después de verificar";
 		mes "solicitudes previas con el^990099Gerente Departamento 2 de Caza^000000.";
 		close;
 	}
 	else if (checkquest(12160,PLAYTIME) > -1) {
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "No tengo ninguna solicitud adicional. Por favor informe al^990099Gerente Departamento 2 de Caza^000000en Operaciones para informar la finalización de la solicitud.";
 		close;
 	}
-	mes "[Kalipó]";
+	mes "[Kalipo]";
 	mes "Bienvenido.";
 	mes "¿Estás aquí para una solicitud?";
 	next;
 	if (select("Por favor explícame la solicitud.:Por favor dame una solicitud.") == 1) {
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Como sabes mejor";
 		mes "y Laponte te explicó";
 		mes "ya";
 		mes "solo puedo ofrecerte";
 		mes "una sola petición al día.";
 		next;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Con seguridad";
 		mes "te volverás más interesante";
 		mes "solicitud, después";
@@ -2769,11 +2769,11 @@ dicastes01,175,217,5	script	Kalipo#pa0829	453,{
 		mes "la simple petición al principio";
 		close;
 	}
-	mes "[Kalipó]";
+	mes "[Kalipo]";
 	mes "Revisaré la lista de";
 	mes "solicitudes que llegaron hoy.";
 	next;
-	mes "[Kalipó]";
+	mes "[Kalipo]";
 	mes "Mmm..";
 	mes "en realidad tengo algo";
 	mes "justo para ti.";
@@ -2783,70 +2783,70 @@ dicastes01,175,217,5	script	Kalipo#pa0829	453,{
 	if (.@rand < 109) {
 		setquest 12106;
 		setquest 12160;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Nuestro explorador que fue a Rapine está siendo atacado por lindos monstruos que parecen niños.";
 		next;
-		mes "[Kalipó]";
-		mes "Así que inevitablemente tenemos que cazarlos, y tú eres quien debe cazarlos ya que no eres de Rapine.";
+		mes "[Kalipo]";
+		mes "Así que inevitablemente tenemos que cazarlos, y tú eres quien debes cazarlos ya que no eres de Rapine.";
 		next;
-		mes "Te tengo una solicitud llamada^990099Un niño en la flor.^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^990099Un niño en la flor.^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 112) {
 		setquest 12107;
 		setquest 12160;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "¿Eres consciente de la niña que parece flor, Pinguicula? La gente dice que ha habido un mutante de esa flor.";
 		next;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Son muy violentos y agresivos, por lo que han enviado tropas de Rapine para matarlos. Por favor acuda a revisarlo y tratarlo antes de que se extiendan por toda la zona.";
 		next;
-		mes "Te tengo una solicitud llamada^990099Amor retorcido^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^990099Amor retorcido^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 116) {
 		setquest 12108;
 		setquest 12160;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Faltan algunos recolectores de minerales, y parece que seguramente lo hicieron nepenthes.";
 		next;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Nepenthes es similar a Mandrágora. Tenemos que hacer algo para proteger a la gente de más daños.";
 		next;
-		mes "Te tengo una solicitud llamada^990099Eliminación de plantas peligrosas^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^990099Eliminación de plantas peligrosas^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 119) {
 		setquest 12109;
 		setquest 12160;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Han descubierto el hábitat de las larvas de ciempiés. Podemos eliminarlos ahora para que haya menos mamás ciempiés.";
 		next;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "¿Los encontrarías y los matarías? Tendrás que tener cuidado con las mamás ciempiés que los rodean.";
 		next;
-		mes "Te tengo una solicitud llamada^990099Exterminio de larvas^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^990099Exterminio de larvas^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 124) {
 		setquest 12110;
 		setquest 12160;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Mineros que se dirigían al nido de Nidhogg, se informó que los mineros fueron atacados por algo extraño.";
 		next;
-		mes "[Kalipó]";
-		mes "Se dice que era agua con apariencia humana, pero debe ser algo maligno que no es espíritu de agua. Quizás el Nidhogg Dungeon sea el origen, así que visítelo para comprobarlo.";
+		mes "[Kalipo]";
+		mes "Se dice que era agua con apariencia humana, pero debes ser algo maligno que no es espíritu de agua. Quizás el Nidhogg Dungeon sea el origen, así que visítelo para comprobarlo.";
 		next;
-		mes "Te tengo una solicitud llamada^990099demonio del agua^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^990099demonio del agua^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else {
 		setquest 12111;
 		setquest 12160;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Los tatachos eran originalmente pájaros hermosos y podían volar. Pero como se establecieron aquí donde no hay enemigos naturales, empezaron a ser gordos y holgazanes,";
 		next;
-		mes "[Kalipó]";
+		mes "[Kalipo]";
 		mes "Y finalmente se volvieron como ahora, pájaros tan feos. Serás un buen enemigo natural para ellos.";
 		next;
 		mes "Te tengo una solicitud llamada^990099Pájaro con cara fea^000000Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
@@ -2860,7 +2860,7 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -2936,7 +2936,7 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "[Laponte]";
 		mes "Eliminar al dragón bebé es importante, pero no debemos ignorar que eliminar la causa raíz evitará que esta solicitud vuelva a surgir en el futuro.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Eliminar la causa raíz^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Eliminar la causa raíz^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 109) {
@@ -2946,9 +2946,9 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "Recientemente recibí informes de avistamientos de un enorme insecto alado desconocido cerca del campamento de Rapine.";
 		next;
 		mes "[Laponte]";
-		mes "No sabemos hasta dónde puede extenderse la infestación de este insecto, así que extermina a todos los que detectes.";
+		mes "No sabemos hasta dónde puedes extenderse la infestación de este insecto, así que extermina a todos los que detectes.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Insecto alado violento^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Insecto alado violento^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 115) {
@@ -2963,7 +2963,7 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "[Laponte]";
 		mes "Por favor, elimina a los dragones bebés cerca de Yggdrasilberry.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Interferencia laboral^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Interferencia laboral^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 118) {
@@ -2976,9 +2976,9 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "El problema es que son intelectuales primitivos y violentos.";
 		next;
 		mes "[Laponte]";
-		mes "Tendremos muchos conflictos con ellos en el futuro si expanden su colonia. Por favor, elimina a los Nagas adultos.";
+		mes "Tendremos muchos conflictos con ellos en el futuro si expanden tu colonia. Por favor, elimina a los Nagas adultos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Serpientes inteligentes^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Serpientes inteligentes^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 121) {
@@ -2993,14 +2993,14 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "[Laponte]";
 		mes "Podría ser una alucinación, así que asegúrese de tocarlo con la mano desnuda para asegurarse de que sea un ser vivo.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Criatura legendaria^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Criatura legendaria^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@rand < 125) {
 		setquest 12104;
 		setquest 12159;
 		mes "[Laponte]";
-		mes "La reproducción de los ciempiés es otro problema, pero también su apetito amenaza su propia supervivencia.";
+		mes "La reproducción de los ciempiés es otro problema, pero también tu apetito amenaza tu propia supervivencia.";
 		next;
 		mes "[Laponte]";
 		mes "Absorben minerales de bradio y dañan nuestras zonas mineras.";
@@ -3008,7 +3008,7 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "[Laponte]";
 		mes "Muchos de nuestros colegas de Sapha han perdido la vida a manos de los ciempiés. Por favor exterminarlos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Insectos con apetito^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Insectos con apetito^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else {
@@ -3020,7 +3020,7 @@ dicastes01,187,230,5	script	Laponte#pa0829	453,{
 		mes "[Laponte]";
 		mes "Parece que los minerales en bruto de Bradium se convirtieron en Golems mediante un antiguo hechizo y ahora es posible que tengamos que cerrar nuestras minas debido a ellos. ¿Puedes ir y eliminarlos?";
 		next;
-		mes "Te tengo una solicitud llamada^880088Rocas en movimiento^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Rocas en movimiento^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 }
@@ -3031,7 +3031,7 @@ dicastes01,208,230,3	script	Pura#pa0829	453,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -3046,48 +3046,48 @@ dicastes01,208,230,3	script	Pura#pa0829	453,{
 		close;
 	}
 	if (BaseLevel < 80) {
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Está bien.";
-		mes "No somos tan desafortunados de recibir su ayuda.";
+		mes "No somos tan desafortunados de recibir tu ayuda.";
 		close;
 	}
 	if (checkquest(12161,PLAYTIME) == 2) {
-		mes "[pura]";
-		mes "¿Ya conociste al^990099Gerente Departamento de Suministros 1^000000en Operaciones? Le daré una nueva solicitud después de que borre su historial de solicitudes.";
+		mes "[Pura]";
+		mes "¿Ya conociste al^990099Gerente Departamento de Suministros 1^000000en Operaciones? Le daré una nueva solicitud después de que borre tu historial de solicitudes.";
 		close;
 	}
 	else if (checkquest(12161,PLAYTIME) > -1) {
-		mes "[pura]";
+		mes "[Pura]";
 		mes "No tengo ninguna petición para ti ahora. Informe de nuevo a la^990099Gerente Departamento de Suministros 1^000000en Operaciones después de completar todas las solicitudes.";
 		close;
 	}
-	mes "[pura]";
+	mes "[Pura]";
 	mes "Bienvenido.";
 	mes "¿Qué te trae por aquí?";
 	next;
 	if (select("Por favor explícame la solicitud.:Por favor dame una solicitud.") == 1) {
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Los aventureros me ayudan";
 		mes "entregar varios artículos";
 		mes "producido aquí para";
 		mes "otras partes del";
 		mes "área.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "No hay restricciones";
 		mes "al trabajo pero";
 		mes "Algunos trabajos son difíciles que otros.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Por favor visítame en cualquier momento";
 		mes "una vez que estés listo.";
 		close;
 	}
-	mes "[pura]";
+	mes "[Pura]";
 	mes "Revisaré la lista de";
 	mes "solicitudes que llegaron hoy.";
 	next;
-	mes "[pura]";
+	mes "[Pura]";
 	mes "Mmm..";
 	mes "en realidad tengo algo";
 	mes "justo para ti.";
@@ -3096,121 +3096,121 @@ dicastes01,208,230,3	script	Pura#pa0829	453,{
 	if (.@tut_13 == 1) {
 		setquest 12117;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Dicen que esta zona fue un humedal hace mucho tiempo. Pero por alguna razón el entorno ha ido cambiando gradualmente a lo largo de los años.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Hay un terreno cerca del campamento de Rapine que aún se conserva. ¿Puedes traerme una muestra de flor marchita? Será una buena muestra para investigar sobre los cambios ambientales.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Flor marchita^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Flor marchita^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 2) {
 		setquest 12118;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "La maquinaria de refinación de Bradium está averiada y ahora nos falta suministro de Bradium refinado a nuestros colegas que trabajan en la mina.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Por eso estamos utilizando a todos nuestros aventureros para ayudar a recolectar Bradium refinado. Por favor trae 3 Bradiums refinados del Bradium Golem.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Mineral bienvenido^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Mineral bienvenido^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 3) {
 		setquest 12119;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Tengo una solicitud para traer 16 Dragon's Manes.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Los Dracos solo arrojan Dragon's Mane en pequeños volúmenes y es muy valioso. Se utiliza en nuestros diseños indígenas en nuestras banderas, ropa y equipo de campo.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Textil valioso^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Textil valioso^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 4) {
 		setquest 12120;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Esta es una petición del pub de comida de personas de otros mundos. Quieren que Dragon Tails se utilice como ingrediente de cocina para alimentos de campo que puedan almacenarse ampliamente.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Entonces a los humanos les gusta esto. Por favor trae 6 de ellos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Carne Curiosa^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Carne Curiosa^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 5) {
 		setquest 12121;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "El camino que sale de la ciudad es ahora un camino peligroso y helado debido a la nieve que hemos estado acumulando.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Untar trozos de cáscaras de huevo ayudará y necesitamos muchos. Alrededor de 26 aproximadamente serán suficientes.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Materiales para quitar la nieve^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Materiales para quitar la nieve^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 6) {
 		setquest 12122;
 		setquest 12161;
-		mes "[pura]";
-		mes "La maquinaria de procesamiento de bradio emite un calor tremendo cuando se usa y no se puede estabilizar con ningún tipo de agua.";
+		mes "[Pura]";
+		mes "La maquinaria de procesamiento de bradio emite un calor tremendo cuando se usa y no se puedes estabilizar con ningún tipo de agua.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Entonces mezclamos Lágrimas cristalizadas obtenidas de Aqua Elementals a partir de nieve derretida. Este es un material que necesitamos a diario, así que traiga 6 de ellos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088El mejor material más fresco^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088El mejor material más fresco^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 7) {
 		setquest 12123;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "El Gerente de Suministros ha solicitado urgentemente pintura para utilizarla en el mantenimiento de edificios en toda la ciudad.";
 		next;
-		mes "[pura]";
-		mes "Puede hacer suficiente pintura usando el líquido fluorescente obtenido de Aqua Elementals. Por favor, trae 26 contenedores.";
+		mes "[Pura]";
+		mes "puedes hacer suficiente pintura usando el líquido fluorescente obtenido de Aqua Elementals. Por favor, trae 26 contenedores.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Mejor pintura^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Mejor pintura^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 8) {
 		setquest 12124;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "La valiosa botella de agua interior de la habitación del ministro está rota. No podrán encontrar quién lo hizo porque hay muchos visitantes todos los días.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "¿Puedes traerme este valioso artículo de Aqua Elemental? solo necesito 1.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Raro Valioso^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Raro Valioso^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 9) {
 		setquest 12125;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Se acabaron los suministros de revestimiento para las armaduras de los Guardias.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Las carcasas de escamas de Naga son un material de revestimiento perfecto. Por favor, trae de vuelta 18 de ellos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Material de armería^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Material de armería^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else {
 		setquest 12126;
 		setquest 12161;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Te recibí una solicitud llamada material de revestimiento para armaduras suministrada a los comandantes de la guardia. Se diferencian del revestimiento normal.";
 		next;
-		mes "[pura]";
+		mes "[Pura]";
 		mes "Por favor tráeme 11 escamas brillantes de Naga. No creo que sea mucho problema para ti.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Material de armería avanzado^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Material de armería avanzado^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	close;
@@ -3222,7 +3222,7 @@ dicastes01,225,211,3	script	Tragis#pa0829	453,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (!isequipped(2782)) {
@@ -3237,151 +3237,151 @@ dicastes01,225,211,3	script	Tragis#pa0829	453,{
 		close;
 	}
 	if (BaseLevel < 80) {
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Es bastante vergonzoso que estés buscando una solicitud de tu nivel, ¿lo sabías?";
 		close;
 	}
 	if (checkquest(12162,PLAYTIME) == 2) {
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Calcule sus actividades de solicitud con el^990099Gerente Departamento de Suministros 2^000000en Operaciones y luego regresar.";
 		close;
 	}
 	else if (checkquest(12162,PLAYTIME) > -1) {
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "No tengo ninguna petición para ti ahora. Informe de nuevo a la^990099Gerente Departamento de Suministros 2^000000en Operaciones después de completar todas las solicitudes.";
 		close;
 	}
-	mes "[Trágico]";
+	mes "[Tragis]";
 	mes "Bienvenido.";
 	mes "¿Qué te trae por aquí?";
 	next;
 	if (select("Por favor explícame la solicitud.:Por favor dame una solicitud.") == 1) {
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Pura explicará los detalles sobre el trabajo de suministro. Estoy muy ocupado como puedes ver.";
 		close;
 	}
-	mes "[Trágico]";
+	mes "[Tragis]";
 	mes "Acabo de recibir una solicitud. Es bueno que ninguno de nosotros haya perdido el tiempo.";
 	next;
 	set .@tut_13, rand(1,10);
 	if (.@tut_13 == 1) {
 		setquest 12127;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Es hora de reparar las trompetas de los supervisores de Mina.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Porque esas trompetas son necesarias para controlar a los mineros. El cuerno místico de Cornus es el material perfecto para trompeta, consigue 5 piezas de ellos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Herramienta del supervisor^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Herramienta del supervisor^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 2) {
 		setquest 12128;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Parece que no hay suficiente cantidad de piel para los aventureros.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Será necesario conseguirle algo de piel a Tatacho. 21 grumos serán suficientes.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Preparación para calentar^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Preparación para calentar^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 3) {
 		setquest 12129;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Hubo una solicitud del pub para recolectar 27 patas de insecto.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "No quieren revelar la razón por la que los necesitan. De todos modos, gracias.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Comida sospechosa^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Comida sospechosa^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 4) {
 		setquest 12130;
 		setquest 12162;
-		mes "[Trágico]";
-		mes "Zargon es muy popular entre los residentes aquí. Es una hermosa bola de forma redonda y puede usarse como adhesivo cuando su polvo se mezcla con agua.";
+		mes "[Tragis]";
+		mes "Zargon es muy popular entre los residentes aquí. Es una hermosa bola de forma redonda y puedes usarse como adhesivo cuando tu polvo se mezcla con agua.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Escuché que es material muy común en la tierra de los aventureros. ¿Conseguirías algunos? Con 26 Zargons bastará.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Material útil^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Material útil^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 5) {
 		setquest 12131;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Existe una solicitud que es encontrar un material para utilizar en los trabajos de reparación del edificio de cada trimestre.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Obtenga 13 caparazones sólidos que se pueden obtener de Centipede y Centipede Larva. Será muy útil para los trabajos de reparación.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Material esencial para la construcción^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Material esencial para la construcción^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 6) {
 		setquest 12132;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Existe una solicitud que es encontrar un material para utilizar en los trabajos de reparación del edificio de cada trimestre.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Necesitas conseguir 16 enredaderas fuertes que se pueden obtener de los nepenthes. Es un material vital para los trabajos de reparación de edificios.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Material esencial para la construcción 2^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Material esencial para la construcción 2^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 7) {
 		setquest 12133;
 		setquest 12162;
-		mes "[Trágico]";
-		mes "La guarda necesita muchas hojas afiladas por motivos decorativos. Algunos otros aventureros comenzaron a buscarlos.";
+		mes "[Tragis]";
+		mes "La guarda necesitas muchas hojas afiladas por motivos decorativos. Algunos otros aventureros comenzaron a buscarlos.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Necesitan una gran cantidad de hojas, por lo que quieren 26 hojas afiladas de ti. Sé que es difícil. ¡Te deseo buena suerte!";
 		next;
-		mes "Te tengo una solicitud llamada^880088Arreglo de decoración^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Arreglo de decoración^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 8) {
 		setquest 12134;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "El dueño del pub está en problemas debido a muchos aventureros del exterior.";
 		next;
-		mes "[Trágico]";
-		mes "Quiere tener un utensilio que pueda usarse de forma sencilla e instantánea, algo así como una hoja ancha.";
+		mes "[Tragis]";
+		mes "quieres tener un utensilio que pueda usarse de forma sencilla e instantánea, algo así como una hoja ancha.";
 		next;
-		mes "Te tengo una solicitud llamada^880088Receptáculo instantáneo^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088Receptáculo instantáneo^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else if (.@tut_13 == 9) {
 		setquest 12135;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Ha habido un par de ataques en el mío. Deben ser esos Nepenthes los que intentaban atacar a los mineros.";
 		next;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "Para hacer el medicamento necesitamos 16 raíces marrones. Encuéntralos y tráelos.";
 		next;
-		mes "Te tengo una solicitud llamada^880088No hay suficiente medicina^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088No hay suficiente medicina^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 	else {
 		setquest 12136;
 		setquest 12162;
-		mes "[Trágico]";
+		mes "[Tragis]";
 		mes "El dueño del pub vino y los culpó y culpó por el gran apetito de ustedes.";
 		next;
-		mes "[Trágico]";
-		mes "Dijo que ya no tiene existencias de miel y frutas. 2 tarros de miel serán suficientes para calmarlo.";
+		mes "[Tragis]";
+		mes "Dijo que ya no tienes existencias de miel y frutas. 2 tarros de miel serán suficientes para calmarlo.";
 		next;
-		mes "Te tengo una solicitud llamada^880088ladrón de miel^000000. Puede verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
+		mes "Te tengo una solicitud llamada^880088ladrón de miel^000000. puedes verificar los detalles de la solicitud y a quién informar abriendo el^990099Ventana de misión^000000.";
 		close;
 	}
 }
@@ -3408,7 +3408,7 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 		if (select("Vino a encontrarse con el inspector.:Lo siento.") == 1) {
 			mes "[Doha]";
 			mes "¿A mí?";
-			mes "¿Es usted la persona de la que hablaba el capitán?";
+			mes "¿Es tu la persona de la que hablaba el capitán?";
 			mes "¿Cómo se llamaba...?";
 			mes strcharinfo(0) + "?";
 			next;
@@ -3433,7 +3433,7 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 			mes "[Doha]";
 			mes "Cuando la expedición fue enviada antes";
 			mes "Hubo un informe general sobre los resultados de nuestra investigación en varias categorías.";
-			mes "y el mensajero que llevaba este informe a su país de origen fue atacado.";
+			mes "y el mensajero que llevaba este informe a tu país de origen fue atacado.";
 			next;
 			mes "[Doha]";
 			mes "Por suerte, el informe no fue robado por completo.";
@@ -3498,13 +3498,13 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 	}
 	else if (ep13_3_secret == 2) {
 		mes "[Doha]";
-		mes "Vaya... dicen que esto es el agua derretida de la nieve de los campos nevados.";
+		mes "vayas... dicen que esto es el agua derretida de la nieve de los campos nevados.";
 		mes "Muy refrescante, ¿no estás de acuerdo?";
 		mes "....";
 		next;
 		mes "[Doha]";
 		mes "Luego volvamos a la historia.";
-		mes "Entonces le pregunté por qué el gato pensaba que era de su propia especie.";
+		mes "Entonces le pregunté por qué el gato pensaba que era de tu propia especie.";
 		next;
 		mes "[Doha]";
 		mes "Dijo que el atacante tenía una cola maravillosa y orejas atractivas.";
@@ -3551,7 +3551,7 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 		mes "[Doha]";
 		mes "Entonces lo que tenemos que hacer ahora es";
 		mes "Encontrar un chico con orejas de gato.";
-		mes "Pero no estoy tan seguro de que los tenga consigo ahora.";
+		mes "Pero no estoy tan seguro de que los tengas contigo ahora.";
 		next;
 		mes "[Doha]";
 		mes "Pero como mencionó Cat Merchant, no debemos descartar la posibilidad de que sea de un tercero.";
@@ -3572,7 +3572,7 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 		mes "[Doha]";
 		mes "Esta es una misión muy importante.";
 		mes "Hay un delicado conflicto entre los tres países.";
-		mes "y podría existir la posibilidad de que se trate de un tercero desconocido.";
+		mes "y podría existir la posibilidad de que se trates de un tercero desconocido.";
 		next;
 		mes "[Doha]";
 		mes "¿Y por qué el atacante sólo interfirió en lugar de robar el informe completo?";
@@ -3606,7 +3606,7 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 		if (countitem(6306) && countitem(6305) && countitem(6307)) {
 			mes "[Doha]";
 			mes "¿Cómo va la investigación?";
-			mes "¿Tiene algún estatus significativo?";
+			mes "¿tienes algún estatus significativo?";
 			next;
 			mes "Compartes los detalles sobre Diel, Cheshire, Ahat y la grieta de la dimensión.";
 			mes "Le das un coágulo de sangre, conchas y una piedra mágica como prueba.";
@@ -3653,7 +3653,7 @@ mid_campin,168,170,3	script	Inspector Doha#ep133	59,{
 			mes "¿Te irás ahora? Porque tengo que organizar un informe.";
 			close;
 		}
-		mes "Le faltan pruebas para presentar con su informe:";
+		mes "Le faltan pruebas para presentar con tu informe:";
 		mes "Mancha de sangre coagulada, trozo de piel congelada, extraña piedra mágica.";
 		mes "Tendrás que recolectar los artículos nuevamente.";
 		close;
@@ -3780,7 +3780,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 						mes "No recuerdo cuál era mi trabajo original.";
 						mes "Un poco oxidado en el Katar, supongo...";
 						next;
-						mes "Shay de repente tiene una expresión solitaria y suspira profundamente por su situación.";
+						mes "Shay de repente tienes una expresión solitaria y suspira profundamente por tu situación.";
 						mes "Parece muy cansado.";
 						break;
 					case 2:
@@ -3807,7 +3807,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 							next;
 							mes "[Shay]";
 							mes "Incluso minaban y pescaban cerca del campamento de expedición.";
-							mes "Actualmente están intentando expandir su negocio.";
+							mes "Actualmente están intentando expandir tu negocio.";
 							next;
 							mes "[Shay]";
 							mes "Bueno... ¿más grandes que ellos?";
@@ -3914,7 +3914,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				next;
 				mes "[Shay]";
 				mes "Ja... hay un gato llamado BK entre los comerciantes de gatos.";
-				mes "Quizás tenga la información que desea.";
+				mes "Quizás tengas la información que desea.";
 				mes "... Ve... conoce a BK.";
 				next;
 				mes "[Shay]";
@@ -3930,7 +3930,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				mes "[Shay]";
 				mes "Puedes encontrar a los comerciantes de gatos fuera de la puerta.";
 				mes "Parecen un pequeño grupo de vagabundos.";
-				mes "Verás su tienda al sureste de la puerta.";
+				mes "Verás tu tienda al sureste de la puerta.";
 				next;
 				mes "[Shay]";
 				mes "BK es el que guarda la información por ahí.";
@@ -3949,7 +3949,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				next;
 				mes "[Shay]";
 				mes "¿Pero BK dijo que Ahat no es un Sapha?";
-				mes "Eso sólo significa que no es la apariencia lo que es diferente sino que puede ser una raza completamente diferente.";
+				mes "Eso sólo significa que no es la apariencia lo que es diferente sino que puedes ser una raza completamente diferente.";
 				next;
 				mes "[Shay]";
 				mes "Sólo podemos investigar.";
@@ -3969,7 +3969,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				mes "Porque es difícil reunirse con el ministro.";
 				next;
 				mes "[Shay]";
-				mes "La grieta aquí debe haber sido creada cuando apareció la grieta en Marruecos.";
+				mes "La grieta aquí debes haber sido creada cuando apareció la grieta en Marruecos.";
 				mes "Si lo hizo.";
 				next;
 				mes "[Shay]";
@@ -4028,7 +4028,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				mes "Los Cat Merchants también reciben certificaciones de exploits. Quieren reunirse con el ministro en persona para poder negociar negocios.";
 				next;
 				mes "[Shay]";
-				mes "Puede recibir certificaciones de explotación al manejar solicitudes en toda la ciudad.";
+				mes "puedes recibir certificaciones de explotación al manejar solicitudes en toda la ciudad.";
 				mes "Si quieres conocer al ministro Ahat...";
 				next;
 				mes "[Shay]";
@@ -4037,7 +4037,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				next;
 				mes "[Shay]";
 				mes "Sapha que registra aventureros en Diel.";
-				mes "era su nombre^4d4dffrhawyne^000000. Pregúntale.";
+				mes "era tu nombre^4d4dffrhawyne^000000. Pregúntale.";
 				next;
 				select("¿No tienes ninguna certificación de exploit de Sapha?");
 				mes "[Shay]";
@@ -4062,7 +4062,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				mes "Necesitará al menos 3 certificaciones para reunirse con el ministro.";
 				next;
 				mes "[Shay]";
-				mes "Una vez que tenga sus certificaciones, solicite reunirse con el ministro en la recepción del Aventurero en Diel.";
+				mes "Una vez que tengas sus certificaciones, solicite reunirse con el ministro en la recepción del Aventurero en Diel.";
 				mes "Rhawyne te ayudará.";
 				break;
 			}
@@ -4101,7 +4101,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				mes "[Shay]";
 				mes "¿Eh? ¿En realidad?";
 				mes "Puedes notar la belleza incluso si la raza es diferente.";
-				mes "¿Trabajas en lugar de soñar con su apariencia?";
+				mes "¿Trabajas en lugar de soñar con tu apariencia?";
 				break;
 			}
 			else if ((ep13_3_secret > 16) && (ep13_3_secret < 19)) {
@@ -4130,7 +4130,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				next;
 				mes "[Shay]";
 				mes "A veces regresa y comparte sus historias.";
-				mes "Pero creo que él también tiene una historia que contar.";
+				mes "Pero creo que él también tienes una historia que contar.";
 				next;
 				mes "[Shay]";
 				mes "Es sólo un pensamiento pero";
@@ -4149,7 +4149,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				if (select("¡Misión completada!:Vine a agradecerte.") == 1) {
 					mes "[Shay]";
 					mes "¿En realidad?";
-					mes "Bien por usted.";
+					mes "Bien por tu.";
 					mes ".....";
 					mes "Misión. Hacía años que no escuchaba esa palabra.";
 					next;
@@ -4218,7 +4218,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 						mes "No recuerdo cuál era mi trabajo original.";
 						mes "Un poco oxidado en el Katar, supongo...";
 						next;
-						mes "Shay de repente tiene una expresión solitaria y suspira profundamente por su situación.";
+						mes "Shay de repente tienes una expresión solitaria y suspira profundamente por tu situación.";
 						mes "Parece muy cansado.";
 						break;
 					case 2:
@@ -4258,7 +4258,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 				mes "[Shay]";
 				mes "También esta tarta de chocolate.";
 				mes "¿Cómo puedo hornearlo con el color dorado adecuado?";
-				mes "¿Por qué no puede ser blanco o negro?";
+				mes "¿Por qué no puedes ser blanco o negro?";
 				mes "No es el pastel lo que importa. Es el chocolate lo que es.";
 				next;
 				mes "[Shay]";
@@ -4293,7 +4293,7 @@ dic_in01,245,119,4	script	Shay#ep133_13	884,{
 
 dicastes01,207,210,5	script	Walking Knit#ep133_15	449,{
 	if (!isequipped(2782)) {
-		mes "[Tejer]";
+		mes "[Knit]";
 		mes "������";
 		mes "������ �� ����� �� �𢲢�";
 		next;
@@ -4301,56 +4301,56 @@ dicastes01,207,210,5	script	Walking Knit#ep133_15	449,{
 		close;
 	}
 	if (ep13_3_secret == 4) {
-		mes "[Tejer]";
+		mes "[Knit]";
 		mes "Bienvenido, humano.";
 		mes "Finalmente me acostumbré a conocer otras razas como tú.";
 		next;
 		if (select("¿Existen otras razas además de los humanos?:¿Qué estás haciendo?") == 1) {
-			mes "[Tejer]";
+			mes "[Knit]";
 			mes "Ya existían Rapine antes de que tú llegaras.";
 			mes "Y por supuesto que todavía los hay.";
 			mes "Pero están sobre las montañas Kamidal.";
 			next;
-			mes "[Tejer]";
+			mes "[Knit]";
 			mes "Y luego los gatos..";
 			mes "Ah, ¿viste el grupo de gatos frente al castillo?";
 			mes "Son realmente suaves y tiernos a diferencia de nosotros.";
 			next;
 			if (checkquest(7188) >= -1) {
-				mes "[Tejer]";
-				mes "¡¡Y sobre todo su oreja y su cola!!";
+				mes "[Knit]";
+				mes "¡¡Y sobre todo tu oreja y tu cola!!";
 				next;
 				select("¿Has visto a este hombre?");
-				mes "[Tejer]";
+				mes "[Knit]";
 				mes "¿Eh? ¿Eh?";
 				mes "¿Hombre? ¿Hombre humano?";
 				mes "¿Un macho humano con orejas de gato?";
 				mes "Nunca escuché tal cosa..";
 				next;
-				mes "[Tejer]";
+				mes "[Knit]";
 				mes "¡Los humanos son increíbles!";
 				mes "¡Ni siquiera pensé en eso...!";
 				mes ".....";
 				next;
-				mes "[Tejer]";
+				mes "[Knit]";
 				mes "Pero son realmente encantadores.";
 				mes "Esos lindos gatos..";
 				next;
-				mes "[Tejer]";
+				mes "[Knit]";
 				mes "Pero Ahat también es adorable incluso para un Sapha.";
 				mes "....si mi cabello es como un árbol seco de invierno..";
 				mes "El cabello de Ahat es como nuevos brotes a principios de primavera.....";
 				next;
-				mes "[Tejer]";
-				mes "No puedo creer como hace su trabajo para Dicastes.";
+				mes "[Knit]";
+				mes "No puedo creer como hace tu trabajo para Dicastes.";
 				mes "y aún mantener un cabello tan genial.";
 				mes "Casi puedo ver un brillo.";
 				next;
-				mes "[Tejer]";
-				mes "Ah... su piel es divina.";
-				mes "Pero nunca sale de su despacho en lo alto del Dicastes Diel.";
+				mes "[Knit]";
+				mes "Ah... tu piel es divina.";
+				mes "Pero nunca sale de tu despacho en lo alto del Dicastes Diel.";
 				next;
-				mes "[Tejer]";
+				mes "[Knit]";
 				mes "Pero supongo que sería mejor para el cutis de Ahat...";
 				mes "¡Para mantenerse abrigado y seguro como un pájaro de cristal en Diel en lugar de estar afuera en el clima invernal!";
 				next;
@@ -4359,30 +4359,30 @@ dicastes01,207,210,5	script	Walking Knit#ep133_15	449,{
 				setquest 7188;
 				close;
 			}
-			mes "[Tejer]";
+			mes "[Knit]";
 			mes "Son realmente encantadores.";
 			mes "Esos lindos gatos..";
 			next;
-			mes "[Tejer]";
+			mes "[Knit]";
 			mes "Pero Ahat también es adorable incluso para un Sapha.";
 			mes "....si mi cabello es como un árbol seco de invierno..";
 			mes "El cabello de Ahat es como nuevos brotes a principios de primavera.....";
 			next;
-			mes "[Tejer]";
+			mes "[Knit]";
 			mes "Ah... estoy tan celosa, envidiosa...";
 			close;
 		}
-		mes "[Tejer]";
+		mes "[Knit]";
 		mes "Como puedes ver, estoy dando un paseo.";
 		mes "Debo caminar de vez en cuando para evitar ponerme rígido.";
 		mes "Realmente no me gusta ponerme rígido.";
 		close;
 	}
-	mes "[Tejer]";
+	mes "[Knit]";
 	mes "¿No crees que los gatos son increíbles?";
 	mes "Escuché de donde vienes, tienes mascotas..";
 	next;
-	mes "[Tejer]";
+	mes "[Knit]";
 	mes "¿Está bien criar otras criaturas?";
 	mes "¿Quieren eso?";
 	mes "Es un tema dificil..";
@@ -4452,7 +4452,7 @@ dicastes01,112,248,5	script	Resting Piom#ep133_16	491,{
 	mes "[Piom]";
 	mes "No puedo pensar con claridad.";
 	mes "No me gustaba trabajar con los documentos que hacen los Knits.";
-	mes "Pero entonces Galtens tiene que llevar armas pesadas.";
+	mes "Pero entonces Galtens tienes que llevar armas pesadas.";
 	next;
 	mes "[Piom]";
 	mes "Lo último que hice fue minar y refinar Bradium.";
@@ -4495,8 +4495,8 @@ dicastes01,249,140,3	script	Training Galten#ep133_17	450,{
 			mes "Es un Sapha muy fuerte.";
 			next;
 			mes "[Galten]";
-			mes "Puede que sea un Jarute trabajando entre montones de documentos.";
-			mes "¡Pero debe estar ocultando su poder!";
+			mes "puedes que sea un Jarute trabajando entre montones de documentos.";
+			mes "¡Pero debes estar ocultando tu poder!";
 			next;
 			mes "[Galten]";
 			mes "Todo el mundo dice que Ahat es como un delicado brote primaveral.";
@@ -4512,8 +4512,8 @@ dicastes01,249,140,3	script	Training Galten#ep133_17	450,{
 		mes "[Galten]";
 		mes "Ajá...";
 		mes "Es un Sapha fuerte.";
-		mes "Puede ser un ministro trabajando entre montones de documentos.";
-		mes "¡Pero debe estar ocultando su poder!";
+		mes "puedes ser un ministro trabajando entre montones de documentos.";
+		mes "¡Pero debes estar ocultando tu poder!";
 		next;
 		mes "[Galten]";
 		mes "Todo el mundo dice que Ahat es como un delicado brote primaveral.";
@@ -4522,8 +4522,8 @@ dicastes01,249,140,3	script	Training Galten#ep133_17	450,{
 		mes "Pero no entiendo muy bien por qué no se convirtió en Galten...";
 		next;
 		mes "[Galten]";
-		mes "Tal vez sea físicamente fuerte pero tenga un corazón cálido.";
-		mes "pero nunca se sabe...";
+		mes "Tal vez sea físicamente fuerte pero tengas un corazón cálido.";
+		mes "pero nunca se sabes...";
 		close;
 	}
 	mes "[Galten]";
@@ -4708,7 +4708,7 @@ dic_fild01,231,174,5	script	BK#ep133_18	496,{
 			next;
 			mes "[BK]";
 			mes "El nuevo ministro fue recogido^4d4dffcerca de la grieta^000000.";
-			mes "¡Debe ser un extraterrestre!";
+			mes "¡debes ser un extraterrestre!";
 			delitem 6304,1; //Sapa_Feat_Cert
 			set ep13_3_secret, 8;
 			next;
@@ -4825,18 +4825,18 @@ dic_fild01,231,174,5	script	BK#ep133_18	496,{
 		if (.@npc$[.@type] == "Rock Pile") {
 			mes "Sientes una energía maligna proveniente de los pequeños fragmentos de piedra.";
 			mes "No parece natural, sino más bien restos de un poderoso hechizo mágico cercano.";
-			mes "Sientes energía maligna. ¿Tiene esto algo que ver con Ahat?";
+			mes "Sientes energía maligna. ¿tienes esto algo que ver con Ahat?";
 			mes "Recogiste una piedra que emite una energía extraña.";
 		}
 		else if (.@npc$[.@type] == "Dirt Pile") {
 			mes "Hurgas en la pila de tierra y encuentras sangre coagulada en la tierra.";
-			mes "Sientes energía maligna. ¿Tiene esto algo que ver con Ahat?";
+			mes "Sientes energía maligna. ¿tienes esto algo que ver con Ahat?";
 			mes "Recoges las manchas de sangre coagulada.";
 		}
 		else if (.@npc$[.@type] == "Split Earth") {
 			mes "Hay algo pegado por la escarcha en la superficie afilada de la grieta.";
 			mes "Si miras más de cerca, verás que parece la piel de una criatura que se arrastra por el suelo.";
-			mes "Sientes energía maligna. ¿Tiene esto algo que ver con Ahat?";
+			mes "Sientes energía maligna. ¿tienes esto algo que ver con Ahat?";
 			mes "Recoges las manchas de sangre coagulada.";
 		}
 		set ep13_3_secret, 11;
@@ -4846,7 +4846,7 @@ dic_fild01,231,174,5	script	BK#ep133_18	496,{
 		donpcevent strnpcinfo(0)+"::OnDisable";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Hmm... Puede que necesite hablar de esto con Shay.";
+		mes "Hmm... puedes que necesite hablar de esto con Shay.";
 		close;
 	}
 	else if (ep13_3_secret == 11) {
@@ -5089,7 +5089,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 		}
 		else if (ep13_3_bra == 2) {
 			mes "[" + strcharinfo(0) + "]";
-			mes "Pero la lesión en su pierna no parece nueva. ¿Por qué saliste con una pierna herida?";
+			mes "Pero la lesión en tu pierna no parece nueva. ¿Por qué saliste con una pierna herida?";
 			next;
 			mes "[Frede]";
 			mes "Todavía puedo moverme con esta pierna y quería ayudar al pueblo.";
@@ -5155,7 +5155,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 			mes "No he visto a mis amigos con los que trabajé en la cueva.";
 			next;
 			mes "[Frede]";
-			mes "Tienen que regresar al pueblo una vez cada pocos días para reponer su Bradium.";
+			mes "Tienen que regresar al pueblo una vez cada pocos días para reponer tu Bradium.";
 			mes "Tal vez... ¿se olvidaron?";
 			next;
 			mes "[Frede]";
@@ -5237,7 +5237,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 				mes "Lamento preguntarte de nuevo, pero ¿puedes llevarles Bradium a mis amigos?";
 				next;
 				mes "[Frede]";
-				mes "Puede que ahora estén a salvo, pero es posible que lo olviden y enfermen repentinamente.";
+				mes "puedes que ahora estén a salvo, pero es posible que lo olviden y enfermen repentinamente.";
 				next;
 				mes "[Frede]";
 				mes "Preguntar^f57d7dBouy en el edificio situado al noroeste del pueblo.^000000y él te dará un poco de Bradium refinado.";
@@ -5259,7 +5259,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 			mes "Vi a amigos salir del pueblo después de regresar por más Bradium hace unos días.";
 			next;
 			mes "[Frede]";
-			mes "Espero que a todos les vaya bien.";
+			mes "Espero que a todos les vayas bien.";
 			mes "Por favor, vuelve a contactarme una vez que conozcas a mis amigos.";
 			close;
 		}
@@ -5275,7 +5275,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 			mes "Lamento preguntarte de nuevo, pero ¿puedes llevarles Bradium a mis amigos?";
 			next;
 			mes "[Frede]";
-			mes "Puede que ahora estén a salvo, pero es posible que lo olviden y enfermen repentinamente.";
+			mes "puedes que ahora estén a salvo, pero es posible que lo olviden y enfermen repentinamente.";
 			next;
 			mes "[Frede]";
 			mes "Pregúntale al^f57d7dBouy en el edificio situado al noroeste del pueblo.^000000y él te dará un poco de Bradium refinado.";
@@ -5317,7 +5317,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 				mes "[Frede]";
 				mes "" + strcharinfo(0) + "¡Estaré siempre en deuda contigo!";
 				mes "¡Acabo de regresar después de conocer a mis amigos!";
-				mes "Tyler necesita tratamiento médico, pero todos los demás están a salvo.";
+				mes "Tyler necesitas tratamiento médico, pero todos los demás están a salvo.";
 				next;
 				mes "[Frede]";
 				mes "No quiero ni imaginar lo que podría haber pasado si tú," + strcharinfo(0) + ", no estábamos aquí para ayudar.";
@@ -5326,7 +5326,7 @@ dic_in01,165,104,0	script	Frede#13_3_in	454,{
 				mes "[Frede]";
 				mes "Por favor, tomen esto como una muestra de mi gratitud y amistad.";
 				mes "No es mucho, pero quiero que lo tengas.";
-				mes "Puede que seamos de diferentes razas pero podemos ser grandes amigos.";
+				mes "puedes que seamos de diferentes razas pero podemos ser grandes amigos.";
 				completequest 11176;
 				set ep13_3_bra, 9;
 				getitem 2788,1; //Bradium_Earing
@@ -5354,7 +5354,7 @@ dic_dun01,205,43,5	script	Brian#ep13_3_	490,{
 	if (isequipped(2782)) {
 		if (ep13_3_bra < 4) {
 			mes "[Brian]";
-			mes "Nunca se sabe qué tipo de accidente podría ocurrir si no hacemos un trabajo minucioso.";
+			mes "Nunca se sabes qué tipo de accidente podría ocurrir si no hacemos un trabajo minucioso.";
 			next;
 			mes "[Brian]";
 			mes "No sólo es importante crear cosas, sino que también lo es el mantenimiento regular.";
@@ -5368,7 +5368,7 @@ dic_dun01,205,43,5	script	Brian#ep13_3_	490,{
 				close;
 			}
 			mes "[Brian]";
-			mes "Nunca se sabe qué tipo de accidente podría ocurrir si no hacemos un trabajo minucioso.";
+			mes "Nunca se sabes qué tipo de accidente podría ocurrir si no hacemos un trabajo minucioso.";
 			next;
 			mes "[Brian]";
 			mes "No sólo es importante crear cosas, sino que también lo es el mantenimiento regular.";
@@ -5384,14 +5384,14 @@ dic_dun01,205,43,5	script	Brian#ep13_3_	490,{
 			mes "Lo vi hace unos días pero siempre estoy preocupada por mi viejo amigo.";
 			next;
 			mes "[Brian]";
-			mes "Espero que se esté acostumbrando a su nuevo trabajo.";
+			mes "Espero que se esté acostumbrando a tu nuevo trabajo.";
 			mes "No debería preocuparme porque es muy trabajador pero...";
 			next;
 			mes "[Brian]";
 			mes "Ya se enfermó por trabajar demasiado. Pero no tienes que decirle que dije esto.";
 			next;
 			mes "[Brian]";
-			mes "Sólo espero que su condición no empeore.";
+			mes "Sólo espero que tu condición no empeore.";
 			next;
 			mes "[Brian]";
 			mes "Oh... eso me recuerda, cuantos días pasaron desde que vine aquí...";
@@ -5501,7 +5501,7 @@ dic_dun01,153,107,4	script	Tyler#13_3	489,{
 			mes "Todos nuestros amigos solicitaron este trabajo porque podíamos hacer algo relacionado con piedras y metales trabajando en un túnel.";
 			next;
 			mes "[Tyler]";
-			mes "Puede que ahora esté categorizando piedras en el pueblo, pero estoy seguro de que está contento con su trabajo.";
+			mes "puedes que ahora esté categorizando piedras en el pueblo, pero estoy seguro de que está contento con tu trabajo.";
 			next;
 			mes "[Tyler]";
 			mes "Si te lo encuentras en el pueblo, dile que estoy bien y que no se preocupe.";
@@ -5680,11 +5680,11 @@ dic_dun01,235,243,0	script	John#13_3	454,{
 dic_dun02,110,127,5	script	Rose#13_3	489,{
 	if (isequipped(2782)) {
 		if (ep13_3_bra < 4) {
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Lalala~";
 			mes "¡Sí ~!";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "¡Je, je, je!";
 			mes "¡Soy tan increíble!";
 			mes "¡Esta es una solución perfecta!";
@@ -5693,54 +5693,54 @@ dic_dun02,110,127,5	script	Rose#13_3	489,{
 		}
 		else if (ep13_3_bra == 4) {
 			if (checkquest(11162) >= 0) {
-				mes "[Rosa]";
+				mes "[Rose]";
 				mes "Dígale que no hay ningún problema excepto que soy demasiado bueno en mi trabajo.";
 				mes "Porque soy perfecto.";
 				close;
 			}
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Lalala~";
 			mes "¡Sí ~!";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "¡Je, je, je!";
 			mes "¡Soy tan increíble!";
 			mes "¡Esta es una solución perfecta!";
 			mes "¡No veo errores en mi trabajo!";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "¡Quién eres!";
-			mes "Nunca se puede ocultar la belleza. Por favor, intenta no mirarme intensamente. Sé que soy hermosa.";
+			mes "Nunca se puedes ocultar la belleza. Por favor, intenta no mirarme intensamente. Sé que soy hermosa.";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "¿Qué? ¿Viniste en nombre de Frede?";
 			mes "¿Quieres decir que no eres mi admirador?";
 			mes "Tsk....";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Dígale que no hay ningún problema excepto que soy demasiado bueno en mi trabajo.";
 			mes "Porque soy perfecto.";
 			setquest 11162;
 			close;
 		}
 		else if ((ep13_3_bra > 4) && (ep13_3_bra < 8)) {
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Dígale que no hay ningún problema excepto que soy demasiado bueno en mi trabajo.";
 			mes "Porque soy perfecto.";
 			close;
 		}
 		else if (ep13_3_bra == 8) {
 			if (checkquest(11168) >= 0) {
-				mes "[Rosa]";
+				mes "[Rose]";
 				mes "Regresaré al pueblo pronto.";
 				mes "Podemos encontrarnos entonces~";
 				close;
 			}
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Ah ~";
 			mes "¿Entonces regresaste porque me extrañaste?";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "No tienes que ser tímido.";
 			mes "Si realmente tienes sentimientos, las diferencias raciales no deberían ser un problema.";
 			next;
@@ -5748,28 +5748,28 @@ dic_dun02,110,127,5	script	Rose#13_3	489,{
 			mes "[" + strcharinfo(0) + "]";
 			mes "Le das Bradium a Rose.";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Aww... no deberías haberlo hecho.";
 			mes "Mi^f57d7dlatido del corazón^000000saltado.";
 			mes "Ya me estás cuidando.";
 			mes "él, él, él";
 			next;
-			mes "[Rosa]";
+			mes "[Rose]";
 			mes "Regresaré al pueblo pronto.";
 			mes "Podemos encontrarnos entonces~";
 			setquest 11168;
 			close;
 		}
-		mes "[Rosa]";
+		mes "[Rose]";
 		mes "¿Estás aquí?";
 		mes "Justo a tiempo cuando estaba a punto de regresar al pueblo porque te extrañaba.";
 		next;
-		mes "[Rosa]";
+		mes "[Rose]";
 		mes "¿Debemos estar conectados?";
 		mes "^f57d7dJajaja��^000000";
 		close;
 	}
-	mes "[Rosa]";
+	mes "[Rose]";
 	mes "����� �� ��";
 	mes "������ �� ��";
 	mes "����";
@@ -5779,34 +5779,34 @@ dic_dun02,110,127,5	script	Rose#13_3	489,{
 dic_dun01,64,107,7	script	Bain#13_3	490,{
 	if (isequipped(2782)) {
 		if (ep13_3_bra < 4) {
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Se toma madera resistente y se levanta para hacer un pilar.";
 			mes "Sencillo, ¿no?";
 			next;
-			mes "[Baño]";
-			mes "Para fijar la madera montada, es necesario utilizar cuñas para mantenerla en su lugar.";
+			mes "[Bain]";
+			mes "Para fijar la madera montada, es necesario utilizar cuñas para mantenerla en tu lugar.";
 			mes "Sencillo, ¿no?";
 			close;
 		}
 		else if (ep13_3_bra == 4) {
 			if (checkquest(11163) >= 0) {
-				mes "[Baño]";
+				mes "[Bain]";
 				mes "Sólo dile que estoy bien.";
 				mes "Sencillo, ¿no?";
 				close;
 			}
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Se toma madera resistente y se levanta para hacer un pilar.";
 			mes "Sencillo, ¿no?";
 			next;
-			mes "[Baño]";
-			mes "Para fijar la madera montada, es necesario utilizar cuñas para mantenerla en su lugar.";
+			mes "[Bain]";
+			mes "Para fijar la madera montada, es necesario utilizar cuñas para mantenerla en tu lugar.";
 			mes "Sencillo, ¿no?";
 			next;
-			mes "[Baño]";
-			mes "¿Qué es? ¿Tiene alguna pregunta?";
+			mes "[Bain]";
+			mes "¿Qué es? ¿tienes alguna pregunta?";
 			next;
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "¿Frede te pidió que vinieras?";
 			mes "Sólo dile que estoy bien.";
 			mes "Sencillo, ¿no?";
@@ -5814,22 +5814,22 @@ dic_dun01,64,107,7	script	Bain#13_3	490,{
 			close;
 		}
 		else if (ep13_3_bra < 8) {
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Sólo dile que estoy bien.";
 			mes "Sencillo, ¿no?";
 			close;
 		}
 		else if (ep13_3_bra == 8) {
 			if (checkquest(11169) >= 0) {
-				mes "[Baño]";
+				mes "[Bain]";
 				mes "Pero estaré en problemas si no vuelvo al pueblo por Bradium.";
 				next;
-				mes "[Baño]";
+				mes "[Bain]";
 				mes "Gracias.";
 				mes "Espero verte de nuevo.";
 				close;
 			}
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Encontré una mancha de color marrón oscuro en mi hombro.";
 			mes "No se sale. Tendré que volver al pueblo para recibir tratamiento.";
 			next;
@@ -5837,34 +5837,34 @@ dic_dun01,64,107,7	script	Bain#13_3	490,{
 			mes "[" + strcharinfo(0) + "]";
 			mes "Frede me pidió que te diera esto.";
 			next;
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Encontré una mancha de color marrón oscuro en mi hombro.";
 			mes "No se sale. Tendré que volver al pueblo para recibir tratamiento.";
 			next;
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Pero estaré en problemas si no vuelvo al pueblo por Bradium.";
 			next;
-			mes "[Baño]";
+			mes "[Bain]";
 			mes "Gracias.";
 			mes "Espero verte de nuevo.";
 			setquest 11169;
 			close;
 		}
-		mes "[Baño]";
+		mes "[Bain]";
 		mes "Nos volvemos a encontrar.";
 		mes "No habría tenido la oportunidad de regresar al pueblo si no me hubieras dado el Bradium antes.";
 		next;
-		mes "[Baño]";
+		mes "[Bain]";
 		mes "Estaré eternamente agradecido.";
 		mes "Estoy dispuesto a enseñarte cómo erigir un pilar cuando quieras.";
 		next;
-		mes "[Baño]";
+		mes "[Bain]";
 		mes "¡¡Estas cosas no se las enseño a cualquiera!!";
 		mes "¡¡Ja, ja, ja!!";
 		mes "¿No estás emocionado por eso?";
 		close;
 	}
-	mes "[Baño]";
+	mes "[Bain]";
 	mes "����� �� ";
 	mes "����� �� ��";
 	close;
@@ -5873,72 +5873,72 @@ dic_dun01,64,107,7	script	Bain#13_3	490,{
 dic_dun01,58,225,4	script	Lash#13_3	491,{
 	if (isequipped(2782)) {
 		if (ep13_3_bra < 4) {
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "Suspiro......";
 			mes "Estoy tan cansado...";
 			mes "Pero el cansancio me ayuda a seguir adelante.";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "El sudor, la respiración agitada y el cansancio continuo demuestran que soy un verdadero Sapha.";
 			mes "Y realmente lo disfruto. Ja, ja, ja, ja.";
 			close;
 		}
 		else if (ep13_3_bra == 4) {
 			if (checkquest(11164) >= 0) {
-				mes "[Latigazo]";
+				mes "[Lash]";
 				mes "Si quieres decirle cómo estoy, mira mi antebrazo. ¿No dice 'Fuerte'?";
 				next;
-				mes "[Latigazo]";
+				mes "[Lash]";
 				mes "¡Solo dile lo que ves!";
 				mes "¡Ja, ja, ja, ja, ja!";
 				close;
 			}
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "Suspiro......";
 			mes "Estoy tan cansado...";
 			mes "Pero el cansancio me ayuda a seguir adelante.";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "El sudor, la respiración agitada y el cansancio continuo demuestran que soy un verdadero Sapha.";
 			mes "Y realmente lo disfruto. Ja, ja, ja, ja.";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "¿Pero cuál es tu negocio aquí?";
 			mes "¿Quieres compartir el trabajo y el sudor?";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "¿Mmm?";
 			mes "Oh, ¿eres el mensajero de Frede?";
 			mes "Para mal.";
 			mes "Pensé que eras como yo a juzgar por tu antebrazo.";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "Si quieres decirle cómo estoy, mira mi antebrazo. ¿No dice 'Fuerte'?";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "¡Solo dile lo que ves!";
 			mes "¡Ja, ja, ja, ja, ja!";
 			setquest 11164;
 			close;
 		}
 		else if (ep13_3_bra < 8) {
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "Si quieres decirle cómo estoy, mira mi antebrazo. ¿No dice 'Fuerte'?";
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "¡Solo dile lo que ves!";
 			mes "¡Ja, ja, ja, ja, ja!";
 			close;
 		}
 		else if (ep13_3_bra == 8) {
 			if (checkquest(11170) >= 0) {
-				mes "[Latigazo]";
+				mes "[Lash]";
 				mes "¡¡¡¡Guau!!!!";
 				mes "¡Me has salvado!";
-				mes "[Latigazo]";
+				mes "[Lash]";
 				mes "¡Habría perecido aquí convertido en cenizas si no fuera por ti!";
 				close;
 			}
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "Gemir...";
 			mes "¿Es... esto lo que llaman fatiga?";
 			mes "Nunca supe que sentiría esto. Sollozo.";
@@ -5947,22 +5947,22 @@ dic_dun01,58,225,4	script	Lash#13_3	491,{
 			mes "[" + strcharinfo(0) + "]";
 			mes "Frede me pidió que te diera esto.";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "¡¡¡¡Guau!!!!";
 			mes "¡Me has salvado!";
 			next;
-			mes "[Latigazo]";
+			mes "[Lash]";
 			mes "¡Habría perecido aquí convertido en cenizas si no fuera por ti!";
 			setquest 11170;
 			close;
 		}
-		mes "[Latigazo]";
+		mes "[Lash]";
 		mes "¡¡Ja, ja, ja!!";
 		mes "¡Eres mi salvador!";
 		mes "¡Nuestra amistad durará para siempre sin importar la raza!";
 		close;
 	}
-	mes "[Latigazo]";
+	mes "[Lash]";
 	mes "������ �� �𢱡� �� ��";
 	mes "����� �� �С�� �� ";
 	mes "���� �� ";
@@ -6010,10 +6010,10 @@ dic_in01,349,129,5	script	Bouy#13_3	449,{
 			mes "¿Hay otra manera?";
 			next;
 			mes "[chico]";
-			mes "Se necesita mucho tiempo para refinar un mineral de bradio grande, pero los trozos pequeños de bradio serán rápidos.";
+			mes "Se necesitas mucho tiempo para refinar un mineral de bradio grande, pero los trozos pequeños de bradio serán rápidos.";
 			next;
 			mes "[chico]";
-			mes "El mineral de bradio se puede recolectar en cualquier lugar de esta área pero la efectividad de las piezas refinadas es baja.";
+			mes "El mineral de bradio se puedes recolectar en cualquier lugar de esta área pero la efectividad de las piezas refinadas es baja.";
 			next;
 			mes "[chico]";
 			mes "Puedes recolectar fácilmente^f57d7dPiezas de Bradium de monstruos cercanos.^000000.";
@@ -6041,7 +6041,7 @@ dic_in01,349,129,5	script	Bouy#13_3	449,{
 				close;
 			}
 			mes "[chico]";
-			mes "El mineral de bradio se puede recolectar en cualquier lugar de esta área pero la efectividad de las piezas refinadas es baja.";
+			mes "El mineral de bradio se puedes recolectar en cualquier lugar de esta área pero la efectividad de las piezas refinadas es baja.";
 			next;
 			mes "[chico]";
 			mes "Puedes recolectar fácilmente^f57d7dPiezas de Bradium de monstruos cercanos.^000000.";
@@ -6065,11 +6065,11 @@ dic_in01,349,129,5	script	Bouy#13_3	449,{
 			close;
 		}
 		mes "[chico]";
-		mes "Saphas no puede vivir a menos que consumamos Bradium continuamente.";
+		mes "Saphas no puedes vivir a menos que consumamos Bradium continuamente.";
 		mes "Por eso necesitábamos espacios para inyectar Bradium en todo el pueblo.";
 		next;
 		mes "[chico]";
-		mes "Pero aquellos que trabajan fuera de la aldea no pueden regresar con frecuencia para recargar su Bradium, por lo que proporcionamos Bradium que es portátil.";
+		mes "Pero aquellos que trabajan fuera de la aldea no pueden regresar con frecuencia para recargar tu Bradium, por lo que proporcionamos Bradium que es portátil.";
 		next;
 		mes "[chico]";
 		mes "Pero recientemente hubo un problema con la minería de Bradium en el área de Manuk y tenemos escasez de suministros. No tenemos suficiente para repartir.";
@@ -6122,12 +6122,12 @@ dic_in01,349,129,5	script	Bouy#13_3	449,{
 	next;
 	mes "[Ben]";
 	mes "¿No te parece extraño ese tipo?";
-	mes "Nunca había visto su raza antes de unirme a la expedición.";
+	mes "Nunca había visto tu raza antes de unirme a la expedición.";
 	next;
 	mes "[Mahá]";
 	mes "Ah. ¿En realidad?";
 	mes "Entonces eres sólo tú.";
-	mes "Debe haber una razón por la que está aquí.";
+	mes "debes haber una razón por la que está aquí.";
 	next;
 	mes "[Ben]";
 	mes "................";
@@ -6141,7 +6141,7 @@ dic_in01,349,129,5	script	Bouy#13_3	449,{
 	if(select("¿Qué es?:Quédate en silencio y escucha.") == 2) {
 		mes "[Ben]";
 		mes "Mmm...";
-		mes "Eso puede ser cierto pero ¿no estás pensando demasiado?";
+		mes "Eso puedes ser cierto pero ¿no estás pensando demasiado?";
 		next;
 		mes "[Mahá]";
 		mes "No me gusta meterme en problemas.";
@@ -6199,8 +6199,8 @@ mid_campin,93,114,3	script	Guard Aello#ep133_is03	967,{
 			mes "No es un gran secreto pero...";
 			next;
 			mes "[Aello]";
-			mes "El Sapha de Manuk quiere hablar contigo.";
-			mes "Agiff dice que cualquiera de la expedición puede reunirse con él, pero...";
+			mes "El Sapha de Manuk quieres hablar contigo.";
+			mes "Agiff dice que cualquiera de la expedición puedes reunirse con él, pero...";
 			mes "Creo que debería ir alguien con más experiencia.";
 			next;
 			mes "[Aello]";
@@ -6245,37 +6245,37 @@ mid_campin,93,114,3	script	Guard Aello#ep133_is03	967,{
 
 mid_campin,111,120,3	script	Soldier#ep133_is04	852,{
 	if (ep13_3_invite == 1) {
-		mes "[Soldado]";
+		mes "[Soldier]";
 		mes "Lo sentimos, pero esta sala actualmente está restringida para visitantes.";
 		next;
 		if (select("Tengo autorización.:Es eso así.") == 1) {
-			mes "[Soldado]";
+			mes "[Soldier]";
 			mes "¿Tú haces?";
 			mes "Cómo te llamas.";
 			mes "Gracias.";
 			mes "Entonces tu eres" + strcharinfo(0) + ".";
 			next;
-			mes "[Soldado]";
+			mes "[Soldier]";
 			mes "Puedes entrar ahora.";
 			close2;
 			warp "mid_campin",165,126;
 			end;
 		}
-		mes "[Soldado]";
+		mes "[Soldier]";
 		mes "No debes entrar sin el permiso de Aello.";
 		mes "Sin excepciones.";
 		close;
 	}
 	else if (ep13_3_invite > 1) {
-		mes "[Soldado]";
+		mes "[Soldier]";
 		mes "Has vuelto.";
-		mes "¿Está usted familiarizado con el mensajero Sapha ahora?";
-		mes "Tenemos grandes expectativas de usted.";
+		mes "¿Está tu familiarizado con el mensajero Sapha ahora?";
+		mes "Tenemos grandes expectativas de tu.";
 		close2;
 		warp "mid_campin",165,126;
 		end;
 	}
-	mes "[Soldado]";
+	mes "[Soldier]";
 	mes "Lo siento.";
 	mes "Esta sala está restringida para visitantes.";
 	close;
@@ -6284,7 +6284,7 @@ mid_campin,111,120,3	script	Soldier#ep133_is04	852,{
 function	script	eldicastes_c	{
 	switch(getarg(0)) {
 		case 1:
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Sigamos..";
 			mes "Aunque los detalles ya están zanjados.";
 			next;
@@ -6306,7 +6306,7 @@ function	script	eldicastes_c	{
 			next;
 			mes "[Vyhannus]";
 			mes "Raza amable nacida de un mundo distinto al nuestro.";
-			mes "estamos agradecidos por su amabilidad";
+			mes "estamos agradecidos por tu amabilidad";
 			mes "en ayudarnos y cooperar con nosotros.";
 			next;
 			mes "[Vyhannus]";
@@ -6315,17 +6315,17 @@ function	script	eldicastes_c	{
 			mes "La capital de Safa.";
 			next;
 			select("¿Invitar? ¿Visita? ¡¿Ciudad?!:¿Qué se supone que significa eso, Sabueso?");
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Tal como él dijo.";
 			mes "Nuestro equipo de expedición ayuda a los Sapha desde hace algún tiempo.";
-			mes "Recoge bradium para su supervivencia o";
+			mes "Recoge bradium para tu supervivencia o";
 			next;
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Elimina las feroces bestias que los amenazan.";
 			mes ".. ......";
 			next;
-			mes "[Sabueso]";
-			mes "Por eso, a cambio, nos han enviado una invitación oficial para visitar su capital.";
+			mes "[Hound]";
+			mes "Por eso, a cambio, nos han enviado una invitación oficial para visitar tu capital.";
 			mes "Por eso he estado seleccionando miembros de la expedición para enviarlos a El Dicastes, la ciudad capital de Sapha.";
 			next;
 			select("..Te refieres a..");
@@ -6348,11 +6348,11 @@ function	script	eldicastes_c	{
 			mes "" + strcharinfo(0) + "";
 			next;
 			select("Nunca lo hubiera imaginado.");
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "¿No deberías ya estar acostumbrado a lo inesperado?";
 			mes "Vamos... no eres un novato... jaja.";
 			next;
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Si te vas a ir, será mejor que lo hagas ahora.";
 			mes "Vuelve conmigo una vez que estés listo para partir.";
 			mes "Te haré saber tu misión.";
@@ -6368,7 +6368,7 @@ function	script	eldicastes_c	{
 			mes "Una vez que le digas a Avalanche que eres un huésped de la ciudad, te dejará pasar el camino hacia El Dicastes.";
 			next;
 			mes "[Vyhannus]";
-			mes "No puedes pasar sin su aprobación, así que asegúrate de obtener su permiso.";
+			mes "No puedes pasar sin tu aprobación, así que asegúrate de obtener tu permiso.";
 			mes "Él te dejará pasar con mis recomendaciones.";
 			next;
 			mes "[Vyhannus]";
@@ -6379,12 +6379,12 @@ function	script	eldicastes_c	{
 			changequest 7182,7183;
 			close;
 		case 3:
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Mi nombre es Perro.";
 			mes "¿Estás aquí por petición de Aello?";
 			next;
 			select("Sí. Me dijo que me reuniera con Sapha.");
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Bueno. Deberías poder hablar con él, ¿verdad?";
 			mes "¿Empezamos presentándonos?";
 			mes "Esto es...";
@@ -6402,7 +6402,7 @@ function	script	eldicastes_c	{
 				mes "Es como un anillo de sabiduría.";
 			}
 			else {
-				mes "[Sabueso]";
+				mes "[Hound]";
 				mes "¿Qué estás diciendo?";
 				mes "¡Eso fue grosero!";
 				next;
@@ -6416,11 +6416,11 @@ function	script	eldicastes_c	{
 			mes "¿Vamos al grano?";
 			mes "La razón por la que estoy aquí...";
 			next;
-			mes "[La voz de alguien]";
+			mes "[Someone's voice]";
 			mes "Disculpe, espere un segundo.";
 			enablenpc "Hibba Agip#ep133_is07";
 			next;
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "¡Comandante!";
 			mes "Has venido con tan poca antelación.";
 			mes "¿Hay alguna situación?";
@@ -6457,7 +6457,7 @@ function	script	eldicastes_c	{
 			mes "También intentamos mantener una actitud neutral.";
 			mes "Porque siempre es mejor fortalecer la amnidad como tercero que tomar partido en un conflicto.";
 			next;
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Bien..";
 			mes "Supongo que no está del todo mal...";
 			next;
@@ -6476,7 +6476,7 @@ function	script	eldicastes_c	{
 			mes "[Hibba Agip]";
 			mes "Entonces todo está arreglado con él.";
 			mes "Y... ah sí, tú.";
-			mes "Por favor, vaya a encontrarse con el inspector en la habitación de al lado después de esto.";
+			mes "Por favor, vayas a encontrarse con el inspector en la habitación de al lado después de esto.";
 			mes "¿Entiendo?";
 			next;
 			mes "[Hibba Agip]";
@@ -6502,13 +6502,13 @@ mid_campin,168,128,3	script	Sapha from Manuk	451,{
 		if (!ep13_3_invite) {
 			mes "-Parece el mensajero Sapha de Manuk.-";
 			next;
-			mes "[Sabueso]";
+			mes "[Hound]";
 			mes "Lo siento pero ¿te irás ahora?";
 			mes "¿No pareces tener autorización del capitán o de Aello?";
 			close;
 		}
 		if (ep13_3_invite == 1) {
-			mes "[Safa]";
+			mes "[Sapha]";
 			mes "- Esta persona se parece al mensajero Sapha de Manuk. -";
 			mes "Te quedas ahí parado sin";
 			mes "sabiendo lo que dice, entonces el";
@@ -6520,7 +6520,7 @@ mid_campin,168,128,3	script	Sapha from Manuk	451,{
 			mes "[Vyhannus]";
 			mes "Tu comandante es como el viento.";
 			mes "También tenemos a alguien así en Manuk.";
-			mes "Su nombre es Galten. Es tan rápido que no notarás el peso de su armadura.";
+			mes "tu nombre es Galten. Es tan rápido que no notarás el peso de tu armadura.";
 			next;
 			callfunc "eldicastes_c",1;
 		} 
@@ -6531,7 +6531,7 @@ mid_campin,168,128,3	script	Sapha from Manuk	451,{
 			mes "[Vyhannus]";
 			mes "Avalanche estará en el edificio de operaciones de Manuk.";
 			mes "Una vez que él lo apruebe, podrás usar el túnel que conduce a la ciudad capital.";
-			mes "El túnel puede dar un poco de miedo.";
+			mes "El túnel puedes dar un poco de miedo.";
 			mes "Pero estoy seguro de que llegarás al final ya que eres fuerte.";
 			close;
 		} 
@@ -6584,12 +6584,12 @@ mid_campin,168,128,3	script	Sapha from Manuk	451,{
 		mes "[Vyhannus]";
 		mes "Eso es todo.";
 	}
-	mes "[Safa]";
+	mes "[Sapha]";
 	mes "�����? �� ����...";
 	mes "���� �� ?";
 	mes "���..?";
 	next;
-	mes "[Sabueso]";
+	mes "[Hound]";
 	mes "¿Dónde suena tu intérprete?";
 	mes "No voy a ser tu traductor personal.";
 	close;
@@ -6597,14 +6597,14 @@ mid_campin,168,128,3	script	Sapha from Manuk	451,{
 
 mid_campin,168,125,3	script	Hound#ep133_is06	997,{
 	if (!isequipped(2782)) {
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "¿Dónde está el timbre del intérprete?";
 		mes "Deberíamos crearlo si no tenemos uno.";
 		mes "Me gustaría hablar en persona.";
 		close;
 	}
 	if (!ep13_3_invite) {
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "Lo siento pero ¿te irás ahora?";
 		mes "¿No pareces tener autorización del capitán o de Aello?";
 		close2;
@@ -6619,36 +6619,36 @@ mid_campin,168,125,3	script	Hound#ep133_is06	997,{
 		callfunc "eldicastes_c",2;
 	} 
 	else if (ep13_3_invite == 4) {
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "Lo primero que debes hacer cuando llegues a Manuk es encontrarte con el General Guard Avalanche.";
 		mes "Dile a Avalanche que eres tú el invitado por Vyhannus.";
 		next;
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "Luego pasarás por un sencillo proceso de confirmación y se te permitirá atravesar el túnel hasta la ciudad capital.";
 		mes "Pasar por el túnel es fácil siempre que seas educado.";
 		next;
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "Y no olvides lo que dijo el capitán.";
 		mes "El inspector Doha está en la habitación de al lado.";
 		close; 
 	}
 	else if (ep13_3_invite > 4) {
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "Acabo de regresar de Manuk de un envío a largo plazo.";
 		mes "y aún no he descansado.";
-		mes "El Dicastes... Encontraré tiempo para visitarlo una vez que su grupo de avanzada se instale.";
+		mes "El Dicastes... Encontraré tiempo para visitarlo una vez que tu grupo de avanzada se instale.";
 		next;
-		mes "[Sabueso]";
+		mes "[Hound]";
 		mes "Tengo que cuidar de Vyhannus aquí.";
 		mes "Podríamos ver el día en que Saphas como Vyhannus vivan con nosotros en nuestro continente.";
 		close;
 	}
-	mes "[Sabueso]";
+	mes "[Hound]";
 	mes "Acabo de regresar de Manuk de un envío a largo plazo.";
 	mes "y aún no he descansado.";
-	mes "El Dicastes... Encontraré tiempo para visitarlo una vez que su grupo de avanzada se instale.";
+	mes "El Dicastes... Encontraré tiempo para visitarlo una vez que tu grupo de avanzada se instale.";
 	next;
-	mes "[Sabueso]";
+	mes "[Hound]";
 	mes "Tengo que cuidar de Vyhannus aquí.";
 	mes "Podríamos ver el día en que Saphas como Vyhannus vivan con nosotros en nuestro continente.";
 	close;
@@ -6665,7 +6665,7 @@ OnInit:
 }
 
 man_in01,315,52,3	script	Guard Captain Avalanche	450,{
-	mes "[Capitán de la Guardia Avalancha]";
+	mes "[Guard Captain Avalanche]";
 	if (!isequipped(2782)) {
 		mes "�����? �� ����...";
 		mes "���� �� ?";
@@ -6673,36 +6673,36 @@ man_in01,315,52,3	script	Guard Captain Avalanche	450,{
 		close;	
 	}
 	if (ep13_3_invite == 4) {
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Eres humano.";
 		mes "¿Qué quieres aquí?";
 		next;
 		select("He venido con la invitación de Vyhannus.");
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Ah. Jarute Vyhannus.";
 		mes "Pensé que sería mejor para él llevar un guardia con él, pero.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Supongo que Vyhannus confiaba en ustedes, los humanos.";
 		mes "Estoy bien siempre y cuando Vyhannus te apruebe.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Le autorizo ​​a pasar por El Dicastes, la ciudad capital.";
 		mes "Hay un túnel que conduce a la ciudad capital justo afuera de este edificio que desciende por la cordillera este de este pueblo.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Es un túnel que llega a la ciudad capital. No hay otro desvío porque la montaña Kamidal es muy grande.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "El túnel está bien mantenido pero hubo un tiempo en el que parte del túnel que conecta";
 		mes "con la cueva más baja de la montaña se derrumbó y se recibieron informes de monstruos salvajes.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Por eso te recomiendo que te muevas en grupo.";
-		mes "Es peligroso y puede ser un largo viaje.";
+		mes "Es peligroso y puedes ser un largo viaje.";
 		mes "Eso es todo lo que tengo que decir por ahora.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Por favor, avíseme cualquier novedad sobre la ciudad capital cuando regrese.";
 		mes "Jajaja..";
 		set ep13_3_invite, 5;
@@ -6710,33 +6710,33 @@ man_in01,315,52,3	script	Guard Captain Avalanche	450,{
 		close2;
 	}
 	else if (ep13_3_invite == 5) {
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Sal de este edificio y sigue recto debajo de la montaña al este del pueblo.";
 		mes "Sabrás dónde está si ves soldados custodiando el túnel.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Espero que la Luz de El Dicastes os muestre el camino.";
 		close;
 	}
 	else if (ep13_3_invite == 6) {
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Oh... Tienes la Luz de El Dicastes.";
 		mes "Sería útil para tu viaje.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "El camino a la capital antes era una mina.";
 		mes "Así que tenemos informes de la aparición de monstruos salvajes, aunque el túnel está bien mantenido.";
 		next;
-		mes "[Avalancha]";
+		mes "[Avalanche]";
 		mes "Cuídate siempre en todo momento.";
 		mes "Jaja... pero ustedes, los humanos, son muy fuertes.";
 		close;
 	}
-	mes "[Avalancha]";
+	mes "[Avalanche]";
 	mes "El camino a la capital antes era una mina.";
 	mes "Así que tenemos informes de la aparición de monstruos salvajes, aunque el túnel está bien mantenido.";
 	next;
-	mes "[Avalancha]";
+	mes "[Avalanche]";
 	mes "Cuídate siempre en todo momento.";
 	mes "Jaja... pero claro, ustedes los humanos son muy fuertes.";
 	close;
@@ -6751,19 +6751,19 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 		mes "- No puedo comunicarme con él. -";
 		close;
 	}
-	mes "[Empleado Rhawyne]";
+	mes "[Clerk Rhawyne]";
 	mes "¿Le puedo ayudar en algo?";
 	next;
 	switch (select("Regístrate como aventurero.:Hablar.:Cancelar.")) {
 		case 1:
 			if (ep13_3_invite < 5) {
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "¿Quieres registrarte como aventurero?";
 				mes "Extraño.";
 				mes "No estás en nuestra lista de visitantes.";
 				mes "¿Entraste sin permiso?";
 				next;
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Todas las demás carreras sin permiso oficial están restringidas.";
 				mes "Enviaré por un Galten de inmediato.";
 				next;
@@ -6772,7 +6772,7 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 				close;
 			}
 			else if (ep13_3_invite == 5) {
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "¿Quieres registrarte como aventurero?";
 				mes "Lo compararé con la lista de invitados de Manuk.";
 				mes "¿Cómo te llamas?";
@@ -6780,57 +6780,57 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 				mes "[" + strcharinfo(0) + "]";
 				mes "Es" + strcharinfo(0) + ".";
 				next;
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Sí.." + strcharinfo(0) + "...";
 				mes "Lo encontré.";
 				mes "Bienvenidos a El Dicastes, ciudad capital de Sapha.";
 				next;
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Serás tratado igual que otros Saphas aquí.";
 				mes "y se le permite hacer lo que desee";
-				mes "y puede tener contratos con solicitudes oficiales de Dicastes.";
+				mes "y puedes tener contratos con solicitudes oficiales de Dicastes.";
 				next;
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Este es un pequeño recuerdo por visitar El Dicastes.";
 				mes "Podrás utilizarlo para regresar a El Dicastes cuando lo desees.";
 				next;
 				set ep13_3_invite, 6;
 				getitem 2844,1; //El_Dicastes_Light
 				completequest 7184;
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Debajo de la zona residencial de Pioms se encuentra un lugar especial para los humanos.";
 				mes "Se llama en tu idioma...";
 				mes "Pub. Espero que puedas visitar allí.";
 				close;
 			}
-			mes "[Empleado Rhawyne]";
+			mes "[Clerk Rhawyne]";
 			mes "Extraño.";
 			mes "¿Aún no estás registrado?";
 			mes "Veo tu nombre en los registros.";
 			close;
 		case 2:
 			if (ep13_3_secret == 12) {
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Te reconozco.";
 				mes "¿Le puedo ayudar en algo?";
 				next;
 				if (select("Quiero reunirme con el ministro.:Nada especial.") == 1) {
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "¿Quieres conocer al ministro?";
 					mes "¿Qué ministro?";
-					mes "Ravail no puede encontrarse en persona ni siquiera con certificaciones de explotación.";
+					mes "Ravail no puedes encontrarse en persona ni siquiera con certificaciones de explotación.";
 					next;
 					if (select("Ahat:Otro ministro") == 1) {
 						if (countitem(6304) > 2) {
-							mes "[Empleado Rhawyne]";
+							mes "[Clerk Rhawyne]";
 							mes "Realmente ya has recopilado 3 certificaciones de exploits de Sapha.";
 							mes "Está bien. Enviaré una solicitud.";
 							next;
-							mes "[Empleado Rhawyne]";
+							mes "[Clerk Rhawyne]";
 							mes "Tome el ascensor hasta la oficina administrativa.";
 							mes "Hay otro ascensor en el pasillo al lado de la Oficina Administrativa.";
 							next;
-							mes "[Empleado Rhawyne]";
+							mes "[Clerk Rhawyne]";
 							mes "Es un ascensor independiente que conduce a la oficina del alto ministro.";
 							mes "Serás guiado frente a la oficina.";
 							delitem 6304,3; //Sapa_Feat_Cert
@@ -6838,106 +6838,106 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 							changequest 7197,7198;
 							close;
 						}
-						mes "[Empleado Rhawyne]";
-						mes "Necesita 3 certificaciones de exploits de Sapha para cumplir con Ahat.";
+						mes "[Clerk Rhawyne]";
+						mes "necesitas 3 certificaciones de exploits de Sapha para cumplir con Ahat.";
 						mes "Sabes qué es la certificación de exploits de Sapha, ¿verdad?";
 						mes "Bueno, por favor intenta ayudar en El Dicastes para recogerlos.";
 						close;
 					}
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "¿Otro ministro? ¿OMS?";
 					next;
 					select("Lo siento, pero no conozco a nadie más.");
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Eres difícil.";
 					mes "A diferencia de otros Saphas, los ministros están muy ocupados.";
 					close;
 				}
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "¿De qué tienes curiosidad hoy?";
 				close;
 			}
 			else if (ep13_3_secret == 13) {
-				mes "[Empleado Rhawyne]";
+				mes "[Clerk Rhawyne]";
 				mes "Ahat está en el mismo piso que el alto ministro Ravail.";
 				mes "Tome el ascensor hasta la oficina administrativa y luego lo guiarán frente al ascensor separado.";
 				close;
 			}
-			mes "[Empleado Rhawyne]";
+			mes "[Clerk Rhawyne]";
 			mes "¿De qué tienes curiosidad hoy?";
 			next;
 			switch (select("Sobre solicitudes oficiales:Sobre el pub del aventurero:¿Eh?:¿Explotar la certificación de Sapha?:Terminar la conversación.")) {
 				case 1:
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Si Diel o los ministros necesitan ayuda para las operaciones en la capital";
 					mes "publican un aviso en el tablero público.";
 					next;
-					mes "[Empleado Rhawyne]";
-					mes "Cualquiera que pueda aceptar el trabajo puede aceptar la solicitud.";
+					mes "[Clerk Rhawyne]";
+					mes "Cualquiera que pueda aceptar el trabajo puedes aceptar la solicitud.";
 					mes "Los aventureros que estén registrados oficialmente también pueden aceptar trabajos.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Después de manejar una solicitud";
 					mes "Se le otorga una certificación de explotación por ayudar a El Dicastes.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Es mejor dedicar tiempo libre a estas peticiones oficiales.";
 					mes "Porque estás contribuyendo a la comunidad.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Debido al aumento de visitantes de otros mundos,";
-					mes "Algunas solicitudes están dirigidas a usted.";
+					mes "Algunas solicitudes están dirigidas a tu.";
 					mes "Puedes elegir.";
 					close;
 				case 2:
-					mes "[Empleado Rhawyne]";
-					mes "El pub de aventureros está abierto para la comodidad de visitantes como usted.";
+					mes "[Clerk Rhawyne]";
+					mes "El pub de aventureros está abierto para la comodidad de visitantes como tu.";
 					mes "Está ubicado en la zona residencial de Piom debajo de la zona de mina y fábrica.";
 					next;
-					mes "[Empleado Rhawyne]";
-					mes "Pensamos que el entorno de vida aquí sería desconocido e inconveniente para usted.";
+					mes "[Clerk Rhawyne]";
+					mes "Pensamos que el entorno de vida aquí sería desconocido e inconveniente para tu.";
 					mes "Así que intentamos crear un lugar similar al que tienes en casa con un poco de ayuda de los aventureros.";
 					mes "Espero que te guste.";
 					close;
 				case 3:
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Ahat es el próximo ministro después de Ravail.";
 					mes "¿Por qué?";
 					mes "Porque la respetamos.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "¿Qué debería decir? Nos gustaría protegerla.";
 					mes "Pero no estoy seguro de cómo se usa el respeto en tu idioma.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Eso es popular.";
-					mes "No muchos lo han visto y trabaja en su habitación todo el tiempo.";
+					mes "No muchos lo han visto y trabaja en tu habitación todo el tiempo.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "Si quieres conocer a Ahat... bueno.";
-					mes "Es muy bueno en su trabajo pero es muy tímido con los extraños.";
+					mes "Es muy bueno en tu trabajo pero es muy tímido con los extraños.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "No le gusta estar en lugares donde se reúne mucha gente.";
 					mes "Por eso apenas la vemos.";
 					close;
 				case 4:
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "¿Explotar la certificación?";
-					mes "Las certificaciones de exploits están hechas para personas ajenas como usted.";
+					mes "Las certificaciones de exploits están hechas para personas ajenas como tu.";
 					mes "Se entregan como recompensa cuando los aventureros ayudan con las solicitudes de Saphas en toda la ciudad.";
 					next;
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "La certificación de exploit se utiliza para reunirse con los ministros.";
 					mes "Supongo que para conocer ministros ocupados, al menos debes contribuir a nuestra sociedad.";
 					close;
 				case 5:
-					mes "[Empleado Rhawyne]";
+					mes "[Clerk Rhawyne]";
 					mes "No dude en hacer preguntas cuando necesite ayuda.";
 					close;
 			}
 		case 3:
-			mes "[Empleado Rhawyne]";
+			mes "[Clerk Rhawyne]";
 			mes "No dude en hacer preguntas cuando necesite ayuda.";
 			close;
 	}
@@ -6952,7 +6952,7 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 		close;
 	}
 	if ((MaxWeight - Weight) < 1000) {
-		mes "No se puede continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
+		mes "No se puedes continuar porque el peso de sus artículos es demasiado alto. Intentemos de nuevo después de que te deshagas de algo de peso.";
 		close;
 	}
 	if (.@re$ == "Kareka") {
@@ -7018,7 +7018,7 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 			mes "Si traes certificaciones de exploits de Sapha, lanzaré hechizos de 1 a 3 pasos a tu^990099Luz de El Dicastes^000000.";
 			next;
 			mes "[Kareka]";
-			mes "Pero, por supuesto, dado que se trata de agregar hechizos además de su magia original, no puedo garantizar que obtengas lo que deseas en un solo intento.";
+			mes "Pero, por supuesto, dado que se trata de agregar hechizos además de tu magia original, no puedo garantizar que obtengas lo que deseas en un solo intento.";
 			close;
 		}
 		if (countitem(2844) < 1) {
@@ -7065,7 +7065,7 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 				mes "Si trabajas duro en esta ciudad, obtendrás una Certificación de Explotación de Sapha.";
 				next;
 				mes .@n$;
-				mes "Si encuentra una de las certificaciones, ¿puede traérmela?";
+				mes "Si encuentra una de las certificaciones, ¿puedes traérmela?";
 				next;
 				mes .@n$;
 				mes "Podemos hacer un intercambio y no te arrepentirás.";
@@ -7074,10 +7074,10 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 				mes "He estado recopilando certificaciones de exploits de Sapha durante un año para conocer a Ahat.";
 				next;
 				mes .@n$;
-				mes "Pero estoy lejos de serlo porque se necesita una posición alta y algún soborno para que una criatura tan baja como yo lo conozca.";
+				mes "Pero estoy lejos de serlo porque se necesitas una posición alta y algún soborno para que una criatura tan baja como yo lo conozca.";
 				next;
 				mes .@n$;
-				mes "Si tiene alguna certificación de exploit de Sapha de sobra, compártala conmigo. Prometo devolverte el dinero en servicios. Nunca llegarás a ningún otro lugar.";
+				mes "Si tienes alguna certificación de exploit de Sapha de sobra, compártala conmigo. Prometo devolverte el dinero en servicios. Nunca llegarás a ningún otro lugar.";
 				close;
 			}
 		}
@@ -7218,7 +7218,7 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 		mes "y necesitas^9900993 certificaciones de explotación de Sapha^000000para el procedimiento.";
 		next;
 		mes .@n$;
-		mes "Por favor tenga en cuenta que";
+		mes "Por favor tengas en cuenta que";
 		mes "Este es un proceso delicado de";
 		mes "lanzando un inmenso poder al equipo.";
 		mes "¿Estás listo?";
@@ -7231,7 +7231,7 @@ dic_in01,42,264,3	script	Adventurer Clerk#ep133	453,{
 		next;
 		mes .@n$;
 		mes "Si no te gusta";
-		mes "actualización de su equipo";
+		mes "actualización de tu equipo";
 		mes "Puedo retirar tu equipo";
 		mes "y destruir todos los registros";
 		mes "de ello";
@@ -7405,10 +7405,10 @@ dic_fild01,228,159,4	script	Jahbong#pa0829	496,{
 			mes "¡Maullido!";
 			next;
 			mes "[Jahbong]";
-			mes "^8000801Botas salvajes^000000¡Son zapatos para tus pies! ¡Compre uno y Jalapeño allí lo refinará para usted!";
+			mes "^8000801Botas salvajes^000000¡Son zapatos para tus pies! ¡Compre uno y Jalapeño allí lo refinará para tu!";
 			next;
 			mes "[Jahbong]";
-			mes "^8000801 cola salvaje^000000es bastante duro! ¡¡Mancho de allí puede ayudarte a solucionarlo!!";
+			mes "^8000801 cola salvaje^000000es bastante duro! ¡¡Mancho de allí puedes ayudarte a solucionarlo!!";
 			next;
 			mes "[Jahbong]";
 			mes "^8000801campana dorada^000000es un accesorio. ¡Brare pasó 40 años haciendo esto! ¡O tal vez 4 años! ¡Bueno, vuelve cuando necesites algo!";
@@ -7425,7 +7425,7 @@ dic_fild01,228,159,4	script	Jahbong#pa0829	496,{
 			mes "[Jahbong]";
 			mes "¡¡No soy un artículo!! ¡¡No seré misericordioso si me tratas como tal!!";
 			next;
-			mes "- Puede que reaccione extremadamente, pero Jahbong no parece estar realmente enojado. -";
+			mes "- puedes que reaccione extremadamente, pero Jahbong no parece estar realmente enojado. -";
 			close;
 		default:
 			break;
@@ -7450,150 +7450,150 @@ dic_fild01,228,159,4	script	Jahbong#pa0829	496,{
 //============================================================
 moc_para01,44,19,3	script	Cat Paw Agent#gekk	496,{
 	if (BaseLevel < 70)	{
-		mes "[Agente de pata de gato]";
+		mes "[Cat Paw Agent]";
 		mes "¡Oye, humano! ¿Viniste a hacer una solicitud también? ¿Cuándo será mi turno?";
 		next;
-		mes "[Agente de pata de gato]";
-		mes "Nuestro grupo Cat Paw Merchant realmente necesita toda la ayuda que pueda obtener. Pero por el aspecto de todas esas solicitudes que Ebenor tiene en la mano, ¡Cat Paw Merchant estará cerrado cuando mi solicitud se publique en el tablero!";
+		mes "[Cat Paw Agent]";
+		mes "Nuestro grupo Cat Paw Merchant realmente necesitas toda la ayuda que pueda obtener. Pero por el aspecto de todas esas solicitudes que Ebenor tienes en la mano, ¡Cat Paw Merchant estará cerrado cuando mi solicitud se publique en el tablero!";
 		next;
-		mes "[Agente de pata de gato]";
+		mes "[Cat Paw Agent]";
 		mes "Me rompe el corazón pensar que mis colegas estarán temblando bajo la tormenta de nieve. Espero no meterme en problemas ya que no puedo hacer nada al respecto, ¿verdad?";
 		close;
 	}
 	if (ep13_start != 100) {
-		mes "[Agente de pata de gato]";
+		mes "[Cat Paw Agent]";
 		mes "¡Oye, humano! ¿Viniste a hacer una solicitud también? ¿Cuándo será mi turno?";
 		next;
-		mes "[Agente de pata de gato]";
-		mes "Nuestro grupo Cat Paw Merchant realmente necesita toda la ayuda que pueda obtener. Pero por el aspecto de todas esas solicitudes que Ebenor tiene en la mano, ¡Cat Paw Merchant estará cerrado cuando mi solicitud se publique en el tablero!";
+		mes "[Cat Paw Agent]";
+		mes "Nuestro grupo Cat Paw Merchant realmente necesitas toda la ayuda que pueda obtener. Pero por el aspecto de todas esas solicitudes que Ebenor tienes en la mano, ¡Cat Paw Merchant estará cerrado cuando mi solicitud se publique en el tablero!";
 		next;
-		mes "[Agente de pata de gato]";
+		mes "[Cat Paw Agent]";
 		mes "Me rompe el corazón pensar que mis colegas estarán temblando bajo la tormenta de nieve. Espero no meterme en problemas ya que no puedo hacer nada al respecto, ¿verdad?";
 		next;
 		if (select ("Why don't you collect it yourself?:I'm sorry to hear that.") == 1) {
 				emotion ET_HUK;
-				mes "[Agente de pata de gato]";
+				mes "[Cat Paw Agent]";
 				mes "¡¡Humano!! Eres un genio!!";
 				mes "¿Cómo se te ocurrió eso?";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "Soy el agente Geck del Comerciante de Patas de Gato.";
 				mes "Car Paw Merchant ha estado vagando durante mucho tiempo en este mundo de Midgard desde que perdimos nuestra patria.";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "Pero ahora nos damos cuenta de que no hay lugar para nuestro grupo aquí en Midgard.";
 				mes "Geck, Gyareuk y Gorureung pensaron mucho en ello.";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "¡Pero finalmente encontramos un lugar donde establecernos!";
-				mes "Puede que haga un poco de frío, ¡pero allí no hay Kafra ni Jonda!";
+				mes "puedes que hagas un poco de frío, ¡pero allí no hay Kafra ni Jonda!";
 				mes "¡Ganaremos terreno en nuestra nueva tierra!";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "Pero, por supuesto, para empezar no tenemos ninguna influencia allí.";
 				mes "Sin embargo, no pensamos escatimar esfuerzos en ello.";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "¡¡Humano!! ¿Sabías que hay un enorme agujero cerca del pueblo de Marruecos y sus alrededores?";
 				mes "¡Dicen que puedes viajar a una nueva zona a través del agujero!";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "Pero tendrás que pasar por pruebas e investigaciones para llegar a un lugar antes de probarlo.";
 				mes "¡Para mí, creo que es una tontería pasar por este problema!";
 				next;
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "Debemos enviar a alguien lo antes posible para comenzar a explorar la zona.";
 				mes "Mientras los humanos desperdician el dinero, nuestro comerciante de patas de gato debería conformarse primero y continuar con nuestra investigación.";
 				next;
 				if (select ("I also want to go and help the merchants.:I'm not interested.") == 1) {
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "¡Eres mejor que otros humanos!";
 						mes "Si realmente lo dices en serio, firma aquí.";
 						mes "Estoy coleccionando señales para estar del lado bueno de Gyareuk... no importa. ¡Les haré saber que eres mi patrocinador!";
 						next;
 						input .@inputstr$;
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "" + strcharinfo(0) + "? Los nombres humanos me resultan extraños.";
 						next;
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "Ahora eres el esclavo personal... patrocinador de Geck.";
 						mes "No preguntes por qué no eres patrocinador del comerciante.";
-						mes "Un buen ser humano no husmea donde no debe.";
+						mes "Un buen ser humano no husmea donde no debes.";
 						next;
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "Ahora que has firmado, todo lo que tenemos que hacer es irnos al otro mundo.";
 						mes "Escuché a los humanos llamarlo Ash-Vacuum.";
 						mes "Nadie le explicó a Geck por qué se llamaba así.";
 						next;
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "Pero humano.";
 						mes "Tendrás que pagar para llegar al Ash-Vacuum.";
 						mes "Geck no tendría ningún gasto en enviarte allí yo mismo, pero debemos pedir ayuda a otros agentes.";
 						next;
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "Entonces necesitarás algo de dinero para comprar pescado para los agentes que te ayuden.";
 						mes "Te presentaré a un agente que te enviará al otro mundo sin hacer preguntas por sólo 50.000 zenys.";
 						next;
 						if (select ("Pay 50,000 zeny.:No way!") == 1) {
 								if (Zeny < 50000) {
-									mes "[Agente Geck]";
-									mes "Geck aprendió a no tratar con gente que no puede pagar.";
+									mes "[Agent Geck]";
+									mes "Geck aprendió a no tratar con gente que no puedes pagar.";
 									close;
 								}
-								mes "[Agente Geck]";
+								mes "[Agent Geck]";
 								mes "Con esto, nuestro contrato ya está completo.";
 								mes "Geck te ayudará a llegar a Ash-Vacuum de una sola pieza.";
 								set Zeny, Zeny - 50000;
 								set ep13_start, 100;
 								next;
-								mes "[Agente Geck]";
+								mes "[Agent Geck]";
 								mes "No lo olvides, humano. La razón por la que Geck te está ayudando es para ayudar al comerciante de patas de gato que trabaja duro en el otro mundo.";
 								next;
-								mes "[Agente Geck]";
+								mes "[Agent Geck]";
 								mes "Ahora te transportaré. Ve a encontrarte con nuestro agente en la esquina derecha.";
 								close2;
 								warp "moc_fild20", 342, 198;
 								end;
 						}
-						mes "[Agente Geck]";
+						mes "[Agent Geck]";
 						mes "Geck no obliga a los humanos.";
 						mes "Pero creo que cambiarás de opinión.";
 						close;
 				}
-				mes "[Agente Geck]";
+				mes "[Agent Geck]";
 				mes "¿Conociste al comerciante de patas de gato en Ash-Vacuum, humano?";
 				close;
 		}
-		mes "[Agente de pata de gato]";
+		mes "[Cat Paw Agent]";
 		mes "¡Pero nuestro Cat Paw Merchant superará cualquier obstáculo!";
 		close;
 	}
-	mes "[Agente Geck]";
+	mes "[Agent Geck]";
 	mes "¿Conociste al comerciante de patas de gato en Ash-Vacuum, humano?";
 	next;
 	if (select ("Send me back:I'm busy") == 1) {
-		mes "[Agente Geck]";
+		mes "[Agent Geck]";
 		mes "¡No hay tiempo que perder, humano!";
 		mes "¡Te enviaré de regreso de inmediato!";
 		warp "moc_fild20", 342, 198;
 		close;
 	}
-	mes "[Agente Geck]";
+	mes "[Agent Geck]";
 	mes "¡Oye, humano! ¿No dijiste que ayudarías al comerciante de patas de gato?";
 	close;
 }
 
 moc_fild20,368,197,3	script	Cat#to22	876,{
 	if (ep13_start != 100) {
-		mes "[Gato]";
+		mes "[Cat]";
 		mes "Miau ~";
 		close;
 	}
 	mes "Un pequeño Agente de Pata de Gato te mira y asiente con la cabeza hacia atrás.";
-	mes "Parece que quiere que te subas a su espalda para trepar por la pared.";
+	mes "Parece que quieres que te subas a tu espalda para trepar por la pared.";
 	next;
 	if (select ("But you are so cute...:Let's do this!") == 1) {
-		mes "El pequeño Cat Paw Agent tiene pequeños patrones negros como si estuvieran estampados en su pelaje blanco.";
+		mes "El pequeño Cat Paw Agent tienes pequeños patrones negros como si estuvieran estampados en tu pelaje blanco.";
 		next;
 		mes "El cuerpo pequeño no es tan alto como el tobillo y sus patas pequeñas pero gruesas parecen pequeños cojines. Las orejas que se inclinaban hacia atrás cuando miraba lo grande que eras despertaron tu instinto protector.";
 		next;
@@ -7609,32 +7609,32 @@ moc_fild20,368,197,3	script	Cat#to22	876,{
 
 moc_fild22b,182,179,3	script	Cat Paw Agent#Tat	495,{
 	if (ep13_start != 100) {
-		mes "[Agente de pata de gato]";
-		mes "Este lugar no tiene ningún significado para nosotros.";
+		mes "[Cat Paw Agent]";
+		mes "Este lugar no tienes ningún significado para nosotros.";
 		close;
 	}
-	mes "[Agente de pata de gato]";
+	mes "[Cat Paw Agent]";
 	mes "Escuchado de Geck.";
 	mes "Soy la estrella en ascenso del Comerciante de Patas de Gato, Tat.";
 	next;
-	mes "[Hacer encaje]";
+	mes "[Tat]";
 	mes "Escuché que estás ofreciendo pescado de alta calidad para pagar nuestro pasaje.";
-	mes "También escuché que el pescado es muy fresco y tiene escamas doradas brillantes.";
+	mes "También escuché que el pescado es muy fresco y tienes escamas doradas brillantes.";
 	next;
-	mes "[Hacer encaje]";
+	mes "[Tat]";
 	mes "I usually only allow our Cat Paw Merchant agents to go through but since you are here on Geck's behalf and seeing you are reliable, I'll let you through.";
 	next;
-	mes "[Hacer encaje]";
+	mes "[Tat]";
 	mes "¿Estás listo?";
 	next;
 	if (select ("To the other world!:I need some time.") == 1) {
-		mes "[Hacer encaje]";
+		mes "[Tat]";
 		mes "¡No olvides que estás en deuda con el comerciante de patas de gato, humano!";
 		close2;
 		warp "mid_camp", 210, 291;
 		end;
 	}
-	mes "[Hacer encaje]";
+	mes "[Tat]";
 	mes "¿No se supone que debes terminar de prepararte antes de venir aquí?";
 	close;
 }
