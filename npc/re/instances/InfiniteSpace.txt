@@ -11,65 +11,65 @@
 //============================================================
 
 cmd_fild07,58,278,3	script	Reckless Explorer#pa0829_01	4_F_GON,{
-	mes "^FF0000Please note that, any abnormal monster handling inside the instance such as taming is not considered normal and may hinder the instance progress.^000000"; 
+	mes "^FF0000Ten en cuenta que cualquier manejo anormal de monstruos dentro de la instancia, como domesticar, no se considera normal y puede obstaculizar el progreso de la instancia.^000000"; 
 	next;
 	if (BaseLevel < 100) {
 		mes "[ Reckless Explorer ]";
-		mes "Will you come back to me after getting a little bit stronger? How about getting to level 100 first?";
+		mes "Podrias volver despues de hacerte un poco mas fuerte? Que tal si primero llegas al nivel 100?";
 		close;
 	}
 	if (isbegin_quest(12364) != 2) {
 		mes "[ Reckless Explorer ]";
-		mes "Ah, no, I didn't meant to go inside. I didn't meant to violate any laws.";
+		mes "Ah, no, no tenia intencion de entrar. No queria violar ninguna ley.";
 		next;
-		select("What are you talking about?");
+		select("De que estas hablando?");
 		mes "[ Reckless Explorer ]";
 		mes "Ha?";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "Hmm, are you one of the Royal Palace's suppression squad?";
+		mes "Hmm, eres parte del escuadron de represion del Palacio Real?";
 		next;
-		select("I'm an ordinary adventurer.");
+		select("Soy un aventurero comun.");
 		mes "[ Reckless Explorer ]";
-		mes "Phew~ That's a relief.";
-		mes "I've never soon you before, so I thought you are one of the suppression squad of the palace.";
+		mes "Uf~ Que alivio.";
+		mes "Nunca te habia visto antes, asi que pense que eras del escuadron de represion del palacio.";
 		next;
-		if (select("What if I am one of the suppression squad?:What's the matter?") == 1) {
+		if (select("Y si soy del escuadron de represion?:Cual es el asunto?") == 1) {
 			mes "[ Reckless Explorer ]";
-			mes "I'm just an ordinary woman who's out for a walk. And this is the end of my walk, and I'm going to...";
+			mes "Solo soy una mujer comun que salio a pasear. Y este es el final de mi paseo, y me voy a...";
 			close;
 		}
 		mes "[ Reckless Explorer ]";
-		mes "Have you heard about the Paros Lighthouse collapse?";
+		mes "Has escuchado sobre el colapso del Faro de Paros?";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "^777700(She moved close to me)^000000";
-		mes "The Paros Lighthouse here collapsed for some unknown reason some time ago, and there's a lot of stuff underneath it.";
+		mes "^777700(Se acerco a mi)^000000";
+		mes "El Faro de Paros colapso por alguna razon desconocida hace un tiempo, y hay muchas cosas debajo de el.";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "Some of the restoration workers and guards that were sent to the palace went missing. Rumors has it that monsters are crawling down there.";
+		mes "Algunos de los trabajadores de restauracion y guardias enviados por el palacio desaparecieron. Los rumores dicen que hay monstruos ahi abajo.";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "Because its depth is seemingly endless, the people here became afraid of this place and started calling it Infinite Space.";
+		mes "Como su profundidad parece no tener fin, la gente empezo a tenerle miedo a este lugar y lo llamo Espacio Infinito.";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "I know some people who sneaked in and made a fortune. That's why I'm going to give it a try, are you interested?";
+		mes "Conozco a algunas personas que se colaron e hicieron una fortuna. Por eso voy a intentarlo, te interesa?";
 		next;
-		if (select("I'm not interested.:Si.") == 1) {
+		if (select("No me interesa.:Si.") == 1) {
 			mes "[ Reckless Explorer ]";
-			mes "That's unfortunate. Come back whenever you change your mind. I'll welcome you anytime.";
+			mes "Que lastima. Vuelve cuando cambies de opinion. Te recibire en cualquier momento.";
 			close;
 		}
 		mes "[ Reckless Explorer ]";
-		mes "All right, Just one thing, I'm inexperienced and a novice adventurer. So I'll help you explore down there by guiding you from somewhere safe.";
+		mes "De acuerdo. Solo una cosa, soy inexperta y una aventurera novata. Asi que te ayudare a explorar ahi abajo guiandote desde algun lugar seguro.";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "I'm an adventure tour, and you can explore it yourself. Aren't we compatible with each other? Then, let's get started when you're ready.";
+		mes "Yo soy la guia de aventura, y tu puedes explorar por tu cuenta. No somos compatibles? Entonces, empecemos cuando estes listo.";
 		setquest 12364;
 		completequest 12364;
 	} else {
 		mes "[ Reckless Explorer ]";
-		mes "Are you going in there again this time?";
+		mes "Vas a entrar ahi otra vez?";
 		switch (checkquest(12365,PLAYTIME)) {
 			case -1:
 				break;
@@ -78,7 +78,7 @@ cmd_fild07,58,278,3	script	Reckless Explorer#pa0829_01	4_F_GON,{
 			case 1:
 				next;
 				mes "[ Reckless Explorer ]";
-				mes "Oh, your whole body is shouting that it's tired. You can't go down there like this.";
+				mes "Oh, todo tu cuerpo grita que esta cansado. No puedes bajar ahi asi.";
 				close;
 
 			case 2:
@@ -91,13 +91,13 @@ cmd_fild07,58,278,3	script	Reckless Explorer#pa0829_01	4_F_GON,{
 	.@party_id = getcharid(1);
 	if (!.@party_id) {
 		mes "[ Reckless Explorer ]";
-		mes "It's impossible alone. Would you like to organize a party at least one person or join another party and come back?";
+		mes "Es imposible solo. Te gustaria organizar un grupo de al menos una persona o unirte a otro grupo y volver?";
 		close;
 	}
-	if (select("Prepare to enter Infinite Space:Cancelarar") == 2)
+	if (select("Prepararse para entrar al Espacio Infinito:Cancelar") == 2)
 		close;
 	mes "[ Reckless Explorer ]";
-	mes "Once the passage opens, take a breath for a while and talk to me again.";
+	mes "Una vez que se abra el pasaje, toma un respiro y habla conmigo de nuevo.";
 	if (instance_create(.@md_name$) == -3)
 		dispbottom "The reservation of the instance '" + .@md_name$ + "' has failed due to an active instance.";
 	close;
@@ -110,7 +110,7 @@ cmd_fild07,54,280,5	script	Temporary Entrance#pa0829_01	PORTAL,{
 
 		case 0:
 		case 1:
-			mes "The passage is not yet activated.";
+			mes "El pasaje aun no esta activado.";
 			close;
 
 		case 2:
@@ -123,11 +123,11 @@ cmd_fild07,54,280,5	script	Temporary Entrance#pa0829_01	PORTAL,{
 	switch (instance_enter(.@md_name$)) {
 		case IE_OK:
 			setquest 12365;
-			mapannounce "cmd_fild07", strcharinfo(0) + " of the party, "+ .@party_name$ +", is entering the " + .@md_name$ + ".", bc_map, "0x00FF99";
+			mapannounce "cmd_fild07", strcharinfo(0) + " del grupo "+ .@party_name$ +" esta entrando a " + .@md_name$ + ".", bc_map, "0x00FF99";
 			end;
 
 		default:
-			mes "The passage is not yet activated.";
+			mes "El pasaje aun no esta activado.";
 			close;
 	}
 }
@@ -531,7 +531,7 @@ OnUnitSpawn:
 		sleep 10000;
 		while (.@index < getarraysize(.@unit_id)) {
 			if (unitexists('boss_id)) {
-				mapannounce 'map$,"The boss monster is trying to summon its allies.",0xFFFF00;
+				mapannounce 'map$,"El monstruo jefe esta intentando invocar a sus aliados.",0xFFFF00;
 				getunitdata 'boss_id,.@data;
 				.@x = .@data[UMOB_X];
 				.@y = .@data[UMOB_Y];
@@ -556,14 +556,14 @@ OnMobKill:
 			enablenpc instance_npcname("#w" + 'floor + "_t");
 
 		if ('floor == 50) {
-			mapannounce 'map$,"Reckless Explorer : It seems there are no other way from here. It's dangerous, so you'd better return outside.",0xFFFF00;
+			mapannounce 'map$,"Exploradora Temeraria : Parece que no hay otro camino desde aqui. Es peligroso, asi que mejor regresa afuera.",0xFFFF00;
 			enablenpc instance_npcname("#w50_ppl");
 		}
 		if ('floor < 50) {
 			if (('floor%10) == 0)
-				mapannounce 'map$,"Reckless Explorer : This area is safe. Use the passage to go to the next area.",0xFFFF00;
+				mapannounce 'map$,"Exploradora Temeraria : Esta area es segura. Usa el pasaje para ir a la siguiente area.",0xFFFF00;
 			else
-				mapannounce 'map$,"Reckless Explorer : This area is safe. Go through the passage to the next area.",0xFFFF00;
+				mapannounce 'map$,"Exploradora Temeraria : Esta area es segura. Cruza el pasaje para ir a la siguiente area.",0xFFFF00;
 			// Enable warp portal to next floor
 			enablenpc instance_npcname("#w" + 'floor);
 			'floor += 1;
@@ -576,12 +576,12 @@ OnPoringKill:
 1@infi,42,8,1	script	#w0_0	4_F_GON,{
 	if (is_party_leader() && !'mode && 'sanity == 0) {
 		mes "[ Reckless Explorer ]";
-		mes "I have went in and out of this place many times and figured out a way to provoke the monsters in here. You can get more rewards if you're going to deal with heated ones.";
+		mes "He entrado y salido de este lugar muchas veces y descubri una forma de provocar a los monstruos de aqui. Puedes obtener mas recompensas si te enfrentas a los mas furiosos.";
 		next;
 		mes "[ Reckless Explorer ]";
-		mes "What do you think? Would you like to try something challenging?";
+		mes "Que piensas? Te gustaria intentar algo desafiante?";
 		next;
-		if (select("I want to proceed normally:I want to proceed with something difficult") == 1 && 'sanity == 0) {
+		if (select("Quiero avanzar normalmente:Quiero avanzar con algo dificil") == 1 && 'sanity == 0) {
 			'mode = 1;
 			'poring_chance = 1;
 		} else {
@@ -589,17 +589,17 @@ OnPoringKill:
 			'poring_chance = 2;
 		}
 		mes "[ Reckless Explorer ]";
-		mes "Good. Shall we go now?";
+		mes "Bien. Nos vamos?";
 		close2;
 		if ('sanity == 0) {
 			'sanity = 1;
 			disablenpc instance_npcname(strnpcinfo(0));
 			hideoffnpc instance_npcname("#w0");
-			npctalk "Reckless Explorer : Woah~ It's very neat for a sunken place, don't you think?",instance_npcname("#w0");
+			npctalk "Exploradora Temeraria : Woah~ Esta muy ordenado para ser un lugar hundido, no crees?",instance_npcname("#w0");
 			sleep 3000;
-			npctalk "Reckless Explorer : I would believe it to be an ancient site, not a lighthouse. It's so well organized...",instance_npcname("#w0");
+			npctalk "Exploradora Temeraria : Creeria que es un sitio antiguo, no un faro. Esta tan bien organizado...",instance_npcname("#w0");
 			sleep 3000;
-			npctalk "Reckless Explorer : Oh, did you hear something?",instance_npcname("#w0");
+			npctalk "Exploradora Temeraria : Oh, escuchaste algo?",instance_npcname("#w0");
 			donpcevent instance_npcname("#inf_space_mobs") + "::OnSummon";
 			sleep 3000;
 			npctalk "Reckless Explorer : Oh, that must be the monsters haunting this place.",instance_npcname("#w0");

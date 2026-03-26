@@ -24,18 +24,18 @@ moc_para01,25,35,4	script	Instructor Boya#para01	4_M_KNIGHT_GOLD,{
 	mes "[Boya]";
 	if (!callfunc("F_HasEdenGroupMark")) {
 		mes "No estas en mi grupo, verdad?";
-		mes "No tengo nada que decirle a los de afuera.";
-		mes "Si quieres algo, registrate en mi grupo.";
+		mes "I don't have anything to say to outsiders.";
+		mes "If you want something register with my group.";
 		next;
 		mes "[Boya]";
-		mes "Para registrarte en el Grupo Eden, habla con Laime Evenor a mi lado.";
+		mes "To register with the Eden Group ask Laime Evenor next to me.";
 		close;
 	}
 	if (para_suv01 == 0) {
 		mes "Que hay?";
 		mes "Si tienes misiones normales usa el tablero de anuncios.";
 		next;
-		switch (select("Cual es tu responsabilidad?:Don't you have equipment?:Ignorar.")) {
+		switch (select("Cual es tu responsabilidad?:Don't you have equipment?:Ignore.")) {
 			mes "[Boya]";
 		case 1:
 			mes "Doy misiones de entrenamiento a los miembros.";
@@ -58,7 +58,7 @@ moc_para01,25,35,4	script	Instructor Boya#para01	4_M_KNIGHT_GOLD,{
 			mes "[Boya]";
 			mes "Si quieres unirte, no dudes.";
 			next;
-			switch (select("Participar en el entrenamiento.:Ignorar.")) {
+			switch (select("Participar en el entrenamiento.:Ignore.")) {
 				mes "[Boya]";
 			case 1:
 				callsub S_Quest1;
@@ -66,46 +66,46 @@ moc_para01,25,35,4	script	Instructor Boya#para01	4_M_KNIGHT_GOLD,{
 				callsub S_Quest3;
 			case 2:
 				mes "Es tu decision.";
-				mes "No es asunto mio, pero probablemente deberias reconsiderarlo.";
+				mes "It's not my business but you should probably reconsider.";
 				close;
 			}
 		case 2:
-			mes "Eh?";
-			mes "Eres muy honesto!";
-			mes "Vaya. Querias saber algo sobre el equipo?";
+			mes "Huh?";
+			mes "You are so honest!";
+			mes "Gosh. You wanted to know something about equipment?";
 			next;
 			mes "[Boya]";
-			mes "Tengo un conjunto de uniforme gratis para los miembros de nuestro grupo.";
-			mes "Pero no lo puedo dar gratis.";
+			mes "I have a uniform set which is free for our group members.";
+			mes "But, I can't give it for free.";
 			next;
 			mes "[Boya]";
-			mes "Se lo damos a los grandes participantes que dan lo mejor de si en el entrenamiento.";
+			mes "We give it to great participants who do their best in the training.";
 			next;
-			mes "-Boya te mira de arriba a abajo.";
-			mes "Hmm... parece que piensa que algo esta mal.-";
+			mes "-Boya eyes you from top to bottom.";
+			mes "Hmm... he seems to think something is wrong.-";
 			next;
 			mes "[Boya]";
-			mes "Por la emocion.";
+			mes "Due to emotion.";
 			next;
-			select("Que?!");
+			select("What?!");
 			mes "[Boya]";
-			mes "Entonces, te vas a unir al entrenamiento o no?";
-			mes "Me veo un poco gracioso, en realidad estoy muy ocupado, me llamaban el brillante Rune Knight.";
-			mes "Toma una decision, apurate.";
+			mes "So, will you join the training or not?";
+			mes "I look a little bit funny, actually I am really busy I was called shining Rune Knight.";
+			mes "Make a decision, hurry.";
 			next;
-			switch (select("Participar en el entrenamiento.:Rechazar!!")) {
+			switch (select("Participar en el entrenamiento.:Refuse!!")) {
 				mes "[Boya]";
 			case 1:
 				callsub S_Quest1;
 				callsub S_Quest2;
 				callsub S_Quest3;
 			case 2:
-				mes "Eres muy grosero!";
+				mes "You are so rude!";
 				specialeffect2 EF_HIT1;
 				percentheal -50,0;
 				next;
-				mes "-Golpea rapido y este brillante Rune Knight se vuelve invisible.";
-				mes "Duele demasiado-";
+				mes "-Beats quickly and this shining Rune Knight turns invisible.";
+				mes "It hurts too much-";
 				close;
 			}
 		case 3:
@@ -114,85 +114,85 @@ moc_para01,25,35,4	script	Instructor Boya#para01	4_M_KNIGHT_GOLD,{
 		}
 	}
 	else if (para_suv01 < 5) {
-		mes "Oye, ya te hable de todas las areas de entrenamiento.";
-		mes "Te lo explicare de nuevo, por favor concentrate.";
+		mes "Hey, I already talked all about the training areas.";
+		mes "I will explain again please concentrate.";
 		next;
 		mes "[Boya]";
-		mes "Un oasis al sureste de Morocc.";
-		mes "Hay un perro grande en el centro.";
-		mes "La historia detallada esta escrita en el registro, ves?";
+		mes "An oasis souteast of Morocc.";
+		mes "There is a big dog in the center.";
+		mes "The detailed story is written in the log, see?";
 	}
 	else if (para_suv01 == 5) {
-		mes "Oh, regresaste.";
+		mes "Oh you've come back.";
 		mes "Buen trabajo.";
-		mes "Ahora te estas adaptando.";
+		mes "Now you are adapting.";
 		next;
 		mes "[Boya]";
-		mes "Paso 1 completado.";
-		mes "Felicidades.";
-		mes "Te daremos un uniforme y algo de equipo.";
+		mes "Completed step 1.";
+		mes "Congratulations.";
+		mes "We will give you a uniform and some equipment.";
 		next;
 		mes "[Boya]";
-		mes "Puedes ver una gran puerta azul junto al tablero?";
-		mes "Entra y sigue caminando hasta el final del pasillo derecho. Ahi hay un almacen de equipo.";
+		mes "Can you see a large blue gate next to the board?";
+		mes "Go inside then keep walking until the end of the right passage. There is an equipment storage there.";
 		next;
 		mes "[Boya]";
-		mes "Dile al encargado que yo te envie. El te dara algunas cosas.";
+		mes "Inform the manager that I sent you. He will give you some stuff.";
 		mes "Ve ve ve!";
 		para_suv01 = 11;
 		completequest 7132;
 	}
 	else if (para_suv01 < 10) {
-		mes "El nombre del entrenamiento era 'Conquista la Alcantarilla!'.";
-		mes "Exploraste la alcantarilla completamente?";
+		mes "The training name was 'Conquer the Culvert!.";
+		mes "Did you explore the culvert fully?";
 		next;
 		mes "[Boya]";
-		mes "Regresa cuando hayas completado todos los cursos del entrenador local.";
+		mes "Come back when you've completed all the courses from the local trainer.";
 	}
 	else if (para_suv01 == 10) {
-		mes "Oh, regresaste.";
+		mes "Oh you're back.";
 		mes "Buen trabajo.";
-		mes "Ahora te estas adaptando.";
+		mes "Now you are adapting.";
 		next;
 		mes "[Boya]";
-		mes "Paso 1 completado.";
-		mes "Felicidades.";
-		mes "Mi equipo te dara un uniforme y algo de equipo.";
+		mes "Completed step 1.";
+		mes "Congratulations.";
+		mes "My team will give you a uniform and some equipment.";
 		next;
 		mes "[Boya]";
-		mes "Puedes ver una gran puerta azul junto al tablero?";
-		mes "Entra y sigue caminando hasta el final del pasillo derecho. Ahi hay un almacen de equipo.";
+		mes "Can you see a large blue gate next to the board?";
+		mes "Go inside then keep walking until the end of the right passage. There is an equipment storage there.";
 		next;
 		mes "[Boya]";
-		mes "Dile al encargado que yo te envie. El te dara algunas cosas.";
+		mes "Inform the manager that I sent you. He will give you some stuff.";
 		mes "Ve ve ve!";
 		para_suv01 = 11;
 		completequest 7137;
 	}
 	else if (para_suv01 == 11) {
-		mes "Que estas haciendo?";
-		mes "Obtene el equipo del encargado del almacen.";
-		mes "Nuestro uniforme es genial, jaja.";
+		mes "What are you doing?";
+		mes "Get the equipment from the storage manager.";
+		mes "Our uniform is pretty awesome haha.";
 	}
 	else if (para_suv01 == 12) {
-		mes "Y, te gustaron los suministros?";
-		mes "Me gusta el gorro rojo.";
-		mes "El liston rojo es muy lindo.";
+		mes "Um, did you like the supplies?";
+		mes "I like the red hat.";
+		mes "The red ribbon is really cute.";
 		next;
 		mes "[Boya]";
 		if (BaseLevel > 25) {
-			mes "Y pareces estar listo.";
-			mes "Ya puedes tomar la clase superior.";
-			mes "Que dices, quieres?";
+			mes "And you seem to.";
+			mes "Able to take upper class, now.";
+			mes "What about it, do you want?";
 			next;
-			switch (select("No, para nada.:Por supuesto que si.")) {
+			switch (select("No, way.:Absolutely, I will.")) {
 				mes "[Boya]";
 			case 1:
 				mes "En serio?";
-				mes "En realidad no me importa, pero el uniforme cambiara como clase superior.";
+				mes "Actually I don't care but the uniform will be changed as upper class.";
 				close;
 			case 2:
-				mes "Genial.";
+				mes "Cool.";
 				mes "Let me choose a proper place for you.";
 				next;
 				mes "[Boya]";
@@ -201,204 +201,204 @@ moc_para01,25,35,4	script	Instructor Boya#para01	4_M_KNIGHT_GOLD,{
 			}
 		}
 		else {
-			mes "El entrenamiento de batalla esta organizado en pasos.";
-			mes "Cuando puedas unirte al siguiente paso, regresa despues de subir mas de nivel.";
+			mes "The battle training is organized into steps.";
+			mes "When you able to join next step come back again after leveling more.";
 			next;
 			mes "[Boya]";
-			mes "El siguiente paso de entrenamiento esta disponible para los de nivel 26 o mas.";
-			mes "Cuando alcances ese nivel, ven de nuevo, entendido?";
+			mes "The next training step is available for those over Level 26.";
+			mes "When you reach that level, come by again. get it?";
 		}
 	}
 	else if (para_suv01 < 16) {
-		mes "El area de entrenamiento esta en la cueva al norte de Payon.";
-		mes "Un miembro del personal ya fue enviado ahi.";
-		mes "Encuentralo y sigue sus instrucciones.";
+		mes "The training area is at the north cave of Payon.";
+		mes "A staff member is already dispatched there.";
+		mes "Find him and follow his directions.";
 	}
 	else if (para_suv01 == 16) {
-		mes "Terminaste el segundo paso del entrenamiento.";
-		mes "Ahora entiendes como esta organizado este mundo?";
+		mes "You finished the second step of training.";
+		mes "Now do you understand how this world is organized?";
 		next;
 		mes "[Boya]";
-		mes "Certificare que completaste el entrenamiento.";
-		mes "La persona a cargo del almacen de equipo te dara lo que necesitas.";
+		mes "I will certify that you completed the training.";
+		mes "The person in charge of equipment storage will supply you with what you need.";
 		next;
 		mes "[Boya]";
-		mes "Elige un equipo que se adapte a tus habilidades.";
+		mes "Choose an equipment that fits your particular set of skills.";
 		para_suv01 = 22;
 		completequest 7141;
 	}
 	else if (para_suv01 < 21) {
-		mes "El area de entrenamiento esta al suroeste de Morocc.";
+		mes "The training area is southwest of Morocc.";
 		mes "Enter the Saint Darmain Fortress to reach it directly.";
 		next;
 		mes "[Boya]";
-		mes "Hay alguien ahi llamado... Eh... esta esperando a que sigas sus instrucciones.";
+		mes "There's someone there named... Uh... he is waiting for you to follow his direction.";
 	}
 	else if (para_suv01 == 21) {
-		mes "Terminaste el segundo paso del entrenamiento.";
-		mes "Ahora entiendes como esta organizado este mundo?";
+		mes "You finished the second step of training.";
+		mes "Now do you understand how this world is organized?";
 		next;
 		mes "[Boya]";
-		mes "Certificare que completaste el entrenamiento.";
-		mes "La persona a cargo del almacen de equipo te dara lo que necesitas.";
+		mes "I will certify that you completed the training.";
+		mes "The person in charge of equipment storage will supply you with what you need.";
 		para_suv01 = 22;
 		completequest 7146;
 	}
 	else if (para_suv01 == 22) {
-		mes "Les damos equipo y armadura a los aprendices despues de pasar el segundo paso del entrenamiento.";
-		mes "Ve al almacen y habla con la persona a cargo.";
+		mes "We serve trainees with equipment and armor after passing the second step of training.";
+		mes "Go to the storage and meet the person in charge there.";
 		next;
 		mes "[Boya]";
-		mes "Para encontrar el almacen, pasa la puerta azul junto al tablero de misiones, al final del pasillo a la derecha.";
+		mes "To find the storage pass the blue gate next to the mission board then at the end of the hallway to the right side.";
 	}
 	else if (para_suv01 == 23) {
-		mes "Oye, cuanto tiempo sin verte.";
-		mes "Y que pasa?";
+		mes "Hey long time no see.";
+		mes "So what's up?";
 		next;
-		switch (select("I want to join training.:Nada.")) {
+		switch (select("I want to join training.:Nothing.")) {
 			mes "[Boya]";
 		case 1:
-			mes "Hmm... en serio?";
-			mes "Dejame ver... cual paso es bueno para ti...";
+			mes "Hmm... really?";
+			mes "Let me see... which step is good for you...";
 			next;
 			mes "[Boya]";
 			if (BaseLevel < 40) {
-				mes "Lo siento mucho, pero para este entrenamiento necesitas ser al menos nivel 40.";
-				mes "Concentrate en subir de nivel y luego regresa.";
+				mes "Sooo sorry but to join this training You need to be at least level 40.";
+				mes "Concentrate to become higher level then come back.";
 				close;
 			}
 			callsub S_Quest3;
 		case 2:
-			mes "Viniste a verme?";
-			mes "Solo eso? Sin nada?";
-			mes "Al menos pudiste haber traido un chocolate...";
+			mes "Did you come to see me?";
+			mes "Just that? Without anything?";
+			mes "At could have least brought some chocolate...";
 			next;
 			mes "[Boya]";
-			mes "Rollo de banana o pajita rayada... lo que sea.";
-			mes "Oh, no como bocadillos con canela...";
+			mes "Banana roll or stripe straw... anything.";
+			mes "Oh, I don't eat snacks with cinnamon...";
 			close;
 		}
 	}
 	else if (para_suv01 < 28) {
-		mes "Mmm. La aldea Orc tiene una Empleada Kafra, asi que puedes usar los servicios Kafra.";
+		mes "Umm. Orc village has a Kafra Employee there so you can use the Kafra services.";
 		next;
 		mes "[Boya]";
-		mes "Uno de nuestros miembros enviados esta esperando en el edificio cerca de la Empleada Kafra.";
+		mes "One of our dispatched members is waiting in the building near the Kafra Employee.";
 	}
 	else if (para_suv01 == 28) {
-		mes "Genial! Pasaste el tercer paso del entrenamiento.";
-		mes "Certificare que completaste el entrenamiento.";
-		mes "La persona a cargo del almacen de equipo te dara algo de equipo.";
+		mes "Cool! You passed the third step of training.";
+		mes "I will certify that you completed the training.";
+		mes "The person in charge of equipment storage will supply you with some equipment.";
 		next;
 		mes "[Boya]";
-		mes "Les damos equipo y armadura a los aprendices despues de pasar el segundo paso del entrenamiento.";
-		mes "Ve al almacen y habla con la persona a cargo.";
+		mes "We serve trainees with equipment and armor after passing the second step of training.";
+		mes "Go to the storage and meet the person in charge there.";
 		next;
 		mes "[Boya]";
-		mes "Para encontrar el almacen, pasa la puerta azul junto al tablero de misiones, al final del pasillo a la derecha.";
+		mes "To find the storage pass the blue gate next to the mission board then at the end of the hallway to the right side.";
 		para_suv01 = 37;
 		completequest 7151;
 	}
 	else if (para_suv01 < 32) {
-		mes "Mmm. La aldea Orc tiene una Empleada Kafra, asi que puedes usar los servicios Kafra ahi.";
+		mes "Umm. Orc village has a Kafra Employee there so you can use the Kafra services there.";
 		next;
 		mes "[Boya]";
-		mes "Uno de nuestros miembros enviados esta esperando en el edificio cerca de la Empleada Kafra.";
+		mes "One of our dispatched members is waiting in the building near the Kafra Employee.";
 	}
 	else if (para_suv01 == 32) {
-		mes "Genial! Pasaste el tercer paso del entrenamiento.";
-		mes "Certificare que completaste el entrenamiento.";
-		mes "La persona a cargo del almacen de equipo te dara algo de equipo.";
+		mes "Cool! You passed the third step of training.";
+		mes "I will certify that you completed the training.";
+		mes "The person in charge of equipment storage will supply you with some equipment.";
 		next;
 		mes "[Boya]";
-		mes "Les damos equipo y armadura a los aprendices despues de pasar el segundo paso del entrenamiento.";
-		mes "Ve al almacen y habla con la persona a cargo.";
+		mes "We serve trainees with equipment and armor after passing the second step of training.";
+		mes "Go to the storage and meet the person in charge there.";
 		next;
 		mes "[Boya]";
-		mes "Para encontrar el almacen, pasa la puerta azul junto al tablero de misiones, al final del pasillo a la derecha.";
+		mes "To find the storage pass the blue gate next to the mission board then at the end of the hallway to the right side.";
 		para_suv01 = 37;
 		completequest 7155;
 	}
 	else if (para_suv01 < 36) {
-		mes "Primero toma un barco hacia Bayalan desde Izlude!";
-		mes "Hay una cueva subterranea. Entra y llega al piso inferior donde encontraras una historica ciudad submarina.";
+		mes "First take a ship toward to Bayalan from Izlude!";
+		mes "There is an underground cave. Go in and get to the bottom floor where you will find a historic underwater city..";
 		next;
 		mes "[Boya]";
-		mes "Hay un aprendiz enviado cerca de la entrada de la Ciudad Oceanica.";
+		mes "There is a dispatched trainee around the entrance of the Ocean City.";
 	}
 	else if (para_suv01 == 36) {
-		mes "Genial! Pasaste el tercer paso del entrenamiento.";
-		mes "Certificare que completaste el entrenamiento.";
-		mes "La persona a cargo del almacen de equipo te dara algo de equipo.";
+		mes "Cool! You passed the third step of training.";
+		mes "I will certify that you completed the training.";
+		mes "The person in charge of equipment storage will supply you with some equipment.";
 		next;
 		mes "[Boya]";
-		mes "Les damos equipo y armadura a los aprendices despues de pasar el segundo paso del entrenamiento.";
-		mes "Ve al almacen y habla con la persona a cargo.";
+		mes "We serve trainees with equipment and armor after passing the second step of training.";
+		mes "Go to the storage and meet the person in charge there.";
 		next;
 		mes "[Boya]";
-		mes "Para encontrar el almacen, pasa la puerta azul junto al tablero de misiones, al final del pasillo a la derecha.";
+		mes "To find the storage pass the blue gate next to the mission board then at the end of the hallway to the right side.";
 		para_suv01 = 37;
 		completequest 7159;
 	}
 	else if (para_suv01 == 37) {
 		mes "[Boya]";
-		mes "Si terminas todos los pasos, ve y recoge tus suministros.";
-		mes "Ofrecemos equipo a quienes completan el entrenamiento.";
+		mes "If you finish all of the steps go and get your supplies.";
+		mes "We offer equipment to those who complete the training.";
 		next;
 		mes "[Boya]";
-		mes "Podemos darte otras cosas.";
-		mes "Si tienes preguntas, preguntale a la persona a cargo del arsenal.";
+		mes "We might serve you other things.";
+		mes "If you have any questions, ask the person in charge of the arsenal.";
 		next;
 		mes "[Boya]";
-		mes "El arsenal esta pasando la puerta azul, al final del lado derecho del pasillo.";
+		mes "The arsenal is past the blue gate and at the end of the right side of the passage.";
 	}
 	else if (para_suv01 >= 38) {
-		mes "Mi jefe creo todos los cursos para el entrenamiento.";
-		mes "Despues de fabricar el uniforme y los suministros, cambio de opinion y dijo que no puede darlos gratis.";
+		mes "My boss created all the courses for the training.";
+		mes "After he manufactured the uniform and supplies he changed his mind and said that he can't give them for free.";
 		next;
 		mes "[Boya]";
-		mes "Las personas que muestren su esfuerzo por mi equipo y el mundo pueden obtener suministros.";
-		mes "Por eso se crearon estos cursos.";
+		mes "People who show their effort for my team and the world can get some supplies.";
+		mes "That's why these courses were made.";
 		next;
 		mes "[Boya]";
-		mes "Basicamente debemos ofrecer estos suministros para principiantes";
-		mes "pero si los expertos quieren participar en este entrenamiento, los aceptamos.";
+		mes "Basically we are supposed to offer these supplies for beginners";
+		mes "but if experts want to participate this training, we accept them.";
 		next;
 		mes "[Boya]";
-		mes "Aunque el uniforme y el equipo puedan ser inutiles.";
-		mes "participar en este entrenamiento significa que quieren ser miembros de nuestro grupo.";
+		mes "Although the uniform and equipment might be useless.";
+		mes "participating in this training means they want to become a member of our group.";
 		next;
 		mes "[Boya]";
-		mes "Si, eso es todo.";
-		mes "Por eso cuando decidimos el diseno del gorro fue muy dificil.";
+		mes "Yes that's all.";
+		mes "That's why when we decided a hat design it was really difficult.";
 		next;
 		mes "[Boya]";
-		mes "Recuerda esto cuando uses el equipo.";
-		mes "Pero si decides venderlos o intercambiarlos, no es asunto nuestro.";
+		mes "Remember this when you use the equipment.";
+		mes "But if you decide to sell or trade them off, it is none of our concern.";
 	}
 	else {
 		mes "Que quieres?";
-		mes "Dudo que necesites mas entrenamiento.";
+		mes "I doubt that you need more training.";
 		next;
 		mes "[Boya]";
-		mes "No hay nada mas que pueda ensenarle a un maestro de batalla como tu.";
+		mes "There is nothing more I can teach a battle master such as yourself.";
 	}
 	close;
 S_Quest1:
-	mes "En serio? Ya pareces listo.";
-	mes "Tenemos un total de 3 pasos para el entrenamiento.";
-	mes "Dejame ver...";
+	mes "Really? You already seem ready.";
+	mes "We have a total of 3 steps for the training.";
+	mes "Let me see...";
 	next;
 	mes "[Boya]";
 	if (BaseLevel < 12) {
-		mes "Mmm. Deberias subir mas tu nivel!";
-		mes "Necesitas ser al menos nivel 12!";
-		mes "Lo siento, pero esas son las reglas.";
+		mes "Umm. You should raise your level more!";
+		mes "You need to be at least level 12!";
+		mes "I'm sorry but those are the rules.";
 		close;
 	}
 	if (BaseLevel < 20) {
-		mes "El primer paso es el curso A.";
-		mes "El curso A se llama 'Conquista el Desierto!'.";
+		mes "The first step is course A.";
+		mes "Course A is called 'Conquer the Desert!'.";
 		mes "It's the most proper mission for your level.";
 		next;
 		mes "[Boya]";
@@ -406,50 +406,50 @@ S_Quest1:
 		mes "From there go south and then east. There is small oasis in the center of that field.^000000";
 		next;
 		mes "[Boya]";
-		mes "Si vas ahi, encontraras un perro cerca del oasis.";
-		mes "Es muy misterioso y puede hablar, asi que no te sorprendas.";
+		mes "If you go there, you will find a dog around the oasis.";
+		mes "He is really mysterious and he can speak so don't be suprised.";
 		next;
 		mes "[Boya]";
 		mes "Tell the dog ^4d4dffBoya is really great.^000000";
 		mes "If you have any questions ask that dog.";
 		next;
 		mes "[Boya]";
-		mes "Por que me miras fijamente?";
-		mes "Tenia que inventar una contrasena, no?";
-		mes "Que tiene de malo esa contrasena?";
+		mes "Why are you staring at me?";
+		mes "I had to come up with a password right?";
+		mes "What's wrong with that password?";
 		next;
 		mes "[Boya]";
-		mes "De todos modos, ese lugar no esta lejos de aqui, es un lugar razonable para un principiante como tu.";
+		mes "Anyway, that place is not far from here so, it is a reasonable place for a beginner like you.";
 		mes "Ok, que Freya te bendiga~!";
 		para_suv01 = 1;
 		setquest 7128;
 		close;
 	}
 	if (BaseLevel < 26) {
-		mes "Te enviare al primer paso del curso B.";
-		mes "El curso B se llama 'Conquista la Alcantarilla!'.";
+		mes "I'll send you to the first step of course B.";
+		mes "Course B is called 'Conquer the Culvert!'.";
 		mes "It's the most proper mission for your level.";
 		next;
 		mes "[Boya]";
-		mes "Necesitas registrarte para explorar la alcantarilla en Prontera en el Gremio de Caballeros.";
+		mes "You need to register to explore the culvert in Prontera at the Knight Guild.";
 		mes "After registering there go to the western gate of Prontera. The manager of the culvert is near the entrance.";
 		next;
 		mes "[Boya]";
-		mes "Una vez que entres a la alcantarilla, encontraras un gato enviado. No te sorprendas si te habla.";
+		mes "Once you enter the culvert you can find a dispatched cat. Don't be surprised if he talks to you.";
 		next;
 		mes "[Boya]";
 		mes "Tell the cat ^4d4dffBoya's help is like a giant and beautiful tuna^000000.";
-		mes "Es muy misterioso y puede hablar, asi que no te sorprendas.";
-		mes "Te dara un objetivo de batalla cuando le digas eso.";
-		mes "Si tienes preguntas, preguntale al gato.";
+		mes "He is really mysterious and he can speak so don't be suprised.";
+		mes "He will give you a battle target when you tell him that.";
+		mes "If you have any questions ask the cat.";
 		next;
 		mes "[Boya]";
-		mes "Por que me miras asi?";
-		mes "Es solo una contrasena que me invente.";
+		mes "Why are you staring at me like that?";
+		mes "It's just a password that I made up.";
 		next;
 		mes "[Boya]";
 		mes "Anyway...";
-		mes "Ese lugar no esta lejos de aqui, es un lugar razonable para un principiante como tu.";
+		mes "That place is nor far from here so, it is a reasonable place for a beginner like you.";
 		mes "Ok, que Freya te bendiga~!";
 		para_suv01 = 6;
 		setquest 7133;
@@ -458,7 +458,7 @@ S_Quest1:
 	return;
 S_Quest2:
 	if (BaseLevel < 33) {
-		mes "Genial.";
+		mes "Cool.";
 		mes "Let me choose a proper place for you.";
 		next;
 		mes "[Boya]";
@@ -477,16 +477,16 @@ S_Quest2:
 		next;
 		mes "[Boya]";
 		mes "Anyway he is one of us so he will know me.";
-		mes "Te dara una mision.";
+		mes "He will give you a mission.";
 		mes "If you have questions ask him.";
 		next;
 		mes "[Boya]";
-		mes "Por que me miras fijamente?";
-		mes "No nos hemos visto en mucho tiempo, por eso no recuerdo su nombre!";
+		mes "Why are you staring at me?";
+		mes "We haven't met for a long time that's why I can't remember his name!";
 		next;
 		mes "[Boya]";
 		mes "Anyway...";
-		mes "Ese lugar no esta lejos de aqui, asi que regresa rapido.";
+		mes "That place is not far from here so, come back quickly.";
 		mes "Ok, que Freya te bendiga~!";
 		para_suv01 = 13;
 		setquest 7138;
@@ -498,31 +498,31 @@ S_Quest2:
 		mes "It's the most proper mission for your level.";
 		next;
 		mes "[Boya]";
-		mes "Viaja al suroeste de la Ciudad de Morocc.";
-		mes "Ahi encontraras un agujero en el suelo hacia una cueva llamada Anthell.";
+		mes "Travel just southwest of Morocc City.";
+		mes "There you will find a hole in the ground to a cave called Anthell.";
 		next;
 		mes "[Boya]";
-		mes "Hay muchas hormigas ahi. ok?";
-		mes "Tambien esta cubierta de arena, asi que ten cuidado ahi, ok.";
+		mes "There are lots of ants in there. kk?";
+		mes "It is also covered in sand so be careful in there ok.";
 		next;
 		mes "[Boya]";
-		mes "Por eso se llama ant hell.";
-		mes "Uno de nuestros miembros estara esperando ahi.";
-		mes "Su nombre es... K? M? Hmm? En fin, no me acuerdo.";
+		mes "That's why it's called ant hell.";
+		mes "One of our members will be waiting there.";
+		mes "His name is... K? M? Hmm? Anyway I can't remember.";
 		next;
 		mes "[Boya]";
-		mes "El es de los nuestros, asi que me conoce.";
-		mes "Te dara una mision.";
-		mes "Si tienes preguntas, preguntale.";
+		mes "He is one of us so he will know me.";
+		mes "He will give you a mission.";
+		mes "If you have any questions ask him.";
 		next;
 		mes "[Boya]";
-		mes "Por que me miras fijamente?";
-		mes "No nos hemos visto en mucho tiempo, por eso no recuerdo su nombre!";
+		mes "Why are you staring at me?";
+		mes "We haven't met for a long time that's why I can't remember his name!";
 		next;
 		mes "[Boya]";
 		mes "Anyway...";
-		mes "Ese lugar no esta lejos de aqui, asi que regresa rapido.";
-		mes "Ok, que Freya te bendiga~!!";
+		mes "That place is not far from here so, come back quickly.";
+		mes "Ok, blessing you~!!";
 		para_suv01 = 17;
 		setquest 7142;
 		close;
@@ -530,24 +530,24 @@ S_Quest2:
 	return;
 S_Quest3:
 	if (BaseLevel < 50) {
-		mes "Estas en el tercer paso del curso A.";
-		mes "Este curso se llama 'Conquista la aldea Orc!'.";
-		mes "Dejame ver...";
+		mes "You are on the third step of course A.";
+		mes "This course is called 'Conquer Orc village!'.";
+		mes "Let me see...";
 		next;
 		mes "[Boya]";
-		mes "Pasa por la puerta de Prontera y sigue caminando al oeste. La aldea Orc esta en esa direccion.";
-		mes "O puedes salir por la puerta oeste de Geffen y seguir hacia el sureste.";
+		mes "Go through the gate of Prontera and keep walking to the west. Orc Village is in that direction.";
+		mes "Or you can go out through the western gate of Geffen and keep heading southeast..";
 		next;
 		mes "[Boya]";
-		mes "Mmm. La aldea Orc tiene una Empleada Kafra enviada, asi que puedes usar los servicios Kafra.";
-		mes "Es tu decision.";
+		mes "Umm. Orc village has a Kafra Employee dispatched there so you could use the Kafra services..";
+		mes "It's up to you.";
 		next;
 		mes "[Boya]";
-		mes "Uno de nuestros miembros enviados esta esperando en el edificio cerca de la Empleada Kafra.";
+		mes "One of our dispatched members is waiting in the building near the Kafra Employee.";
 		next;
 		mes "[Boya]";
-		mes "Ella te explicara que se necesita hacer ahi.";
-		mes "Si tienes preguntas, preguntale.";
+		mes "She will explain what needs to be done there.";
+		mes "If you have any questions ask her.";
 		next;
 		mes "[Boya]";
 		mes "Ok, que Freya te bendiga!";
@@ -555,24 +555,24 @@ S_Quest3:
 		setquest 7147;
 	}
 	else if (BaseLevel < 60) {
-		mes "Estas en el tercer paso del curso B.";
-		mes "Este curso se llama 'Conquista la mazmorra Orc!'.";
+		mes "You are on the third step of course B.";
+		mes "This course is called 'Conquer Orc dungeon!'.";
 		mes "It's the most proper mission for your level.";
 		next;
 		mes "[Boya]";
-		mes "Pasa por la puerta de Prontera y sigue caminando al oeste. La aldea Orc esta en esa direccion.";
-		mes "O puedes salir por la puerta oeste de Geffen y seguir hacia el sureste.";
+		mes "Go through the gate of Prontera and keep walking to the west. Orc Village is in that direction.";
+		mes "Or you can go out through the western gate of Geffen and keep heading southeast..";
 		next;
 		mes "[Boya]";
-		mes "Mmm. La aldea Orc tiene una Empleada Kafra enviada, asi que puedes usar los servicios Kafra.";
-		mes "Es tu decision.";
+		mes "Umm. Orc village has a Kafra Employee dispatched there so you could use the Kafra services..";
+		mes "It's up to you.";
 		next;
 		mes "[Boya]";
-		mes "Uno de nuestros miembros enviados esta esperando en el edificio cerca de la Empleada Kafra.";
+		mes "One of our dispatched members is waiting in the building near the Kafra Employee.";
 		next;
 		mes "[Boya]";
-		mes "Ella te explicara que se necesita hacer ahi.";
-		mes "Si tienes preguntas, preguntale.";
+		mes "She will explain what needs to be done there.";
+		mes "If you have any questions ask her.";
 		next;
 		mes "[Boya]";
 		mes "Ok, que Freya te bendiga!";
@@ -580,20 +580,20 @@ S_Quest3:
 		setquest 7152;
 	}
 	else {
-		mes "Estas en el ultimo paso.";
-		mes "Este curso se llama 'Conquista la Ciudad Oceanica!'.";
-		mes "No se si es el curso adecuado o no, pero de todos modos es el ultimo curso de nuestro entrenamiento.";
+		mes "You are on the last step.";
+		mes "This course is called 'Conquer the Ocean City!'.";
+		mes "I don't know if it is the proper course or not, but anyway it's the last course of our training.";
 		next;
 		mes "[Boya]";
-		mes "Primero toma un barco a la Isla Byalan desde Izlude!";
-		mes "Hay una cueva subterranea. Entra y llega al piso inferior donde encontraras una historica ciudad submarina.";
+		mes "First take a ship to Byalan Island from Izlude!";
+		mes "There is an underground cave. Go in and get to the bottom floor where you will find a historic underwater city..";
 		next;
 		mes "[Boya]";
-		mes "Aunque esta bajo el agua, puedes respirar, asi que no te preocupes.";
-		mes "Hay un aprendiz enviado cerca de la entrada de la Ciudad Oceanica.";
+		mes "Although it's underwater, you can breath so don't worry.";
+		mes "There is a dispatched trainee around the entrance of the Ocean City.";
 		next;
 		mes "[Boya]";
-		mes "Dile que yo te envie y sigue sus instrucciones.";
+		mes "Tell him that I sent you and follow his directions.";
 		mes "Ok, que Freya te bendiga!";
 		para_suv01 = 33;
 		setquest 7156;
@@ -606,47 +606,47 @@ moc_fild11,180,253,5	script	Talking Dog#para03	972,{
 		mes "[Talking Dog]";
 		mes "kkkkuuuuahhh.";
 		mes "rrrrrruuuuhh.";
-		mes "guauguau..";
+		mes "bowwow..";
 		next;
 		mes "[Talking Dog]";
 		mes "Que hay?";
-		mes "Eres!";
-		mes "Un miembro del Grupo Eden.";
-		mes "Viniste a darme comida? No me gustan las bebidas.";
+		mes "You are!";
+		mes "A member of the Eden Group.";
+		mes "Have you come to give me a meal? I don't like drinks.";
 		next;
 		switch (select("Boya is really perfect.:Boya is really great.:Boya is really soft.")) {
 		case 1:
 			mes "[Talking Dog]";
 			mes "Uhh...";
-			mes "Que estas diciendo.";
+			mes "What are you saying.";
 			close;
 		case 2:
 			mes "[Talking Dog]";
-			mes "Ahh... eh...";
-			mes "Vaya, viniste aqui a participar en el entrenamiento?";
-			mes "Si Boya te envio entonces sabes que es entrenamiento de batalla.";
-			mes "Guau guau...";
+			mes "Ahh... um...";
+			mes "Gosh, did you come here to participate in the training?";
+			mes "If Boya sent you then you know that it's battle training.";
+			mes "Bow wow...";
 			next;
 			mes "[Talking Dog]";
-			mes "Si es asi, deberia empezar a asegurar este oasis mejor?";
-			mes "Puedes ver un Condor volando?";
+			mes "If so, should I start securing this oasis more clearly?";
+			mes "Can you see a Condor flying?";
 			next;
 			mes "[Talking Dog]";
-			mes "Puedes espantarlos por mi?";
-			mes "Para que la gente pueda usar este oasis de forma mas segura y comoda.";
+			mes "Can you scare them away for me?";
+			mes "So people can use this oasis safer and more comfortably.";
 			next;
 			mes "[Talking Dog]";
-			mes "Debemos cazar al menos 10 Condors, ok?";
-			mes "Dormire un rato.";
-			mes "Krrrr woo guau...";
+			mes "We should hunt at least 10 Condors, ok?";
+			mes "I will sleep for a while.";
+			mes "Krrrr woo bow...";
 			set para_suv01,2;
 			changequest 7128,7129;
 			close;
 		case 3:
 			mes "[Talking Dog]";
-			mes "Estas bien?";
-			mes "Nunca has visto un perro que habla?";
-			mes "De que estas hablando?";
+			mes "Are you ok?";
+			mes "Haven't you seen a talking dog before?";
+			mes "What are you talking about?";
 			close;
 		}
 	}
@@ -654,45 +654,45 @@ moc_fild11,180,253,5	script	Talking Dog#para03	972,{
 		if (checkquest(7129,HUNTING) == 2) {
 			mes "[Talking Dog]";
 			mes "Woooohh...";
-			mes "Genial!";
-			mes "Puedo sentir mi juventud en ti.";
+			mes "Great!";
+			mes "I can feel my youth from you.";
 			next;
 			mes "[Talking Dog]";
-			mes "No importa.";
-			mes "Busquemos el siguiente objetivo!";
-			mes "Ok. Saquemos a los Desert Wolves de aqui.";
+			mes "Nevermind.";
+			mes "Let's find the next target kk!";
+			mes "Ok. Let's drive the Desert Wolves out of here.";
 			next;
 			mes "[Talking Dog]";
-			mes "Si crecen se volveran peligrosos.";
+			mes "If they grow up they will become dangerous.";
 			mes "......";
 			next;
 			mes "[Talking Dog]";
-			mes "Por que, por que me miras asi?";
-			mes "Ellos son lobos y yo soy un buen perro.";
-			mes "Pero no siempre fui un perro toda mi vida.";
+			mes "Why, why are you looking at me like that?";
+			mes "They are wolves and I am a nice dog.";
+			mes "But I haven't always been a dog my entire life.";
 			next;
 			mes "[Talking Dog]";
-			mes "Te mostrare que no tienes que sentir lastima por mi.";
+			mes "I will show you that don't have to pity me at all.";
 			next;
 			mes "[Talking Dog]";
-			mes "Orinan donde sea y no tienen verguenza.";
-			mes "Solo mueven la cola cuando crecen y muerden a la gente sin importarles!";
+			mes "They pee wherever and have no shame.";
+			mes "Just waving their tails when they grow up and biting people without any care!";
 			next;
 			mes "[Talking Dog]";
-			mes "Debes cazar al menos 10!";
-			mes "Exactamente 10!";
+			mes "You must hunt at least 10!";
+			mes "Exactly 10!";
 			mes "Ve ve ve!";
 			set para_suv01,3;
 			changequest 7129,7130;
 			close;
 		}
 		mes "[Talking Dog]";
-		mes "Primero sigamos al pajaro calvo y ruidoso.";
-		mes "Si, Condors.";
-		mes "Mata 10 Condors. Parece muy facil, verdad?";
-		mes "Oh, si estas cansado te ayudare.";
+		mes "First lets follow the bald and noisy bird.";
+		mes "Yes Condors.";
+		mes "Kill 10 Condors. It seems to easy, right?";
+		mes "Oh, if you are tired I will help you.";
 		next;
-		mes "-Cuando el perro ladro, tus HP y SP se recuperaron.-";
+		mes "-When the dog barked, your HP and SP recovered.-";
 		npcskill "AL_HEAL",11,99,60;
 		percentheal 100,100;
 		close;
@@ -700,37 +700,37 @@ moc_fild11,180,253,5	script	Talking Dog#para03	972,{
 	if (para_suv01 == 3) {
 		if (checkquest(7130,HUNTING) == 2) {
 			mes "[Talking Dog]";
-			mes "Eres perfecto.";
+			mes "You are so perfect.";
 			next;
 			mes "[Talking Dog]";
-			mes "O no. Jeje, en fin, gracias por tu ayuda.";
-			mes "El oasis ya esta casi asegurado.";
-			mes "Ok, es el ultimo paso!";
+			mes "Or not. Hehe, anyway thanks for your help.";
+			mes "The oasis has almost been secured now.";
+			mes "Ok, it's the last step!";
 			next;
 			mes "[Talking Dog]";
-			mes "Hay un monstruo molesto que se esconde en la arena y envenena a la gente de la nada.";
+			mes "There's an annoying monster that hides in the sand and poisons people out of nowhere.";
 			next;
 			mes "[Talking Dog]";
-			mes "Todas las cosas bellas tienen algo de veneno, pero estos de verdad matan.";
-			mes "Mata a los Scorpions que son llamados el veneno del desierto!";
+			mes "All beautiful things have some poison inside but these actually kill.";
+			mes "Kill Scorpions which are called the poison of the desert!";
 			next;
 			mes "[Talking Dog]";
-			mes "Es el ultimo paso asi que hagamoslo simple";
-			mes "Solo caza 5!";
-			mes "Guau guau!";
+			mes "It's the last step so let's make it simple";
+			mes "Just hunt 5!";
+			mes "Bow wow!";
 			set para_suv01,4;
 			changequest 7130,7131;
 			close;
 		}
 		mes "[Talking Dog]";
-		mes "No quiero que muestres lastima.";
-		mes "Soy un perro con corazon de oro.";
+		mes "I don't want you to show any pity.";
+		mes "I am dog with a golden heart.";
 		next;
 		mes "[Talking Dog]";
-		mes "Despues de cazar los 10 Desert Wolves regresa de nuevo.";
-		mes "Oh, si estas cansado te ayudare.";
+		mes "After hunting the 10 Desert Wolves come back again.";
+		mes "Oh, if you are tired I will help you.";
 		next;
-		mes "-Cuando el perro ladro, tus HP y SP se recuperaron.-";
+		mes "-When the dog barked, your HP and SP recovered.-";
 		npcskill "AL_HEAL",11,99,60;
 		percentheal 100,100;
 		close;
@@ -738,55 +738,55 @@ moc_fild11,180,253,5	script	Talking Dog#para03	972,{
 	if (para_suv01 == 4) {
 		if (checkquest(7131,HUNTING) == 2) {
 			mes "[Talking Dog]";
-			mes "Um. Excelente.";
-			mes "Eres increible!";
+			mes "Um. Excellent.";
+			mes "You are awesome!";
 			next;
 			mes "[Talking Dog]";
-			mes "Gracias a tu esfuerzo el oasis esta seguro.";
-			mes "No mires alrededor!";
-			mes "Si yo digo que esta seguro!";
+			mes "Thanks to your effort the oasis is secure.";
+			mes "Don't look around!";
+			mes "If I say it's secure!";
 			mes "Uhuhuhuh aaaang!";
 			next;
 			mes "[Talking Dog]";
-			mes "Aqui aqui aqui.";
-			mes "Si excavo mas y mas, puedo encontrar Scorpions pero";
-			mes "este oasis sera mas seguro de seguro.";
+			mes "Here here here.";
+			mes "If I dig more and more, I can find Scorpions but";
+			mes "this oasis will be safer for sure.";
 			next;
 			mes "[Talking Dog]";
 			mes "Puedes estar orgulloso y confiado en ti mismo y dar lo mejor de ti.";
-			mes "Has ayudado mucho a que mi descanso sea comodo.";
+			mes "You've helped a lot to make my rest comfortable.";
 			next;
 			mes "[Talking Dog]";
-			mes "Has ayudado a conquistar el desierto,";
-			mes "y pasaste los pasos de entrenamiento de principiante, asi que estampare mis patas.";
+			mes "You've helped to conquer the desert,";
+			mes "and passed the beginner training steps so I will stamp my feet.";
 			mes "krrrrreuung. hup.";
 			next;
 			mes "[Talking Dog]";
-			mes "Regresa al cuartel general del Grupo Eden y muestraselo al llamativo Rune Knight.";
-			mes "Dejame decirte de nuevo que eres genial!";
+			mes "Go back to the Eden Group headquarters and show it to the flashy Rune Knight.";
+			mes "Let me say again that you are great!";
 			mes "Hooooohooo~";
 			set para_suv01,5;
 			changequest 7131,7132;
 			close;
 		}
 		mes "[Talking Dog]";
-		mes "Cacemos solo 5 Scorpions.";
-		mes "Para que haya paz en este oasis.";
+		mes "Let's hunt only 5 Scorpions.";
+		mes "So we can make peace in this oasis.";
 		next;
 		mes "[Talking Dog]";
-		mes "Cuando duerma una siesta ya no me morderan la cola.";
-		mes "Gracias a eso ya no me lastimaran las patas.";
+		mes "When I take a nap they won't chew my tail any more.";
+		mes "Due to his mistake my feet won't be hurt at all.";
 		next;
 		mes "[Talking Dog]";
-		mes "Tu puedes pelear.";
-		mes "Yo puedo descansar mas comodamente.";
-		mes "Otras personas tambien estaran mas seguras.";
+		mes "You can fight.";
+		mes "I can rest more comfortably.";
+		mes "Other people are going to be safer too.";
 		next;
 		mes "[Talking Dog]";
-		mes "Todos pensaran bien del Grupo Eden.";
-		mes "Oh, si estas cansado te ayudare.";
+		mes "Everyone will think fondly of the Eden Group.";
+		mes "Oh, if you are tired I will help you.";
 		next;
-		mes "-Cuando el perro ladro, tus HP y SP se recuperaron.-";
+		mes "-When the dog barked, your HP and SP recovered.-";
 		npcskill "AL_HEAL",11,99,60;
 		percentheal 100,100;
 		close;
@@ -797,40 +797,40 @@ moc_fild11,180,253,5	script	Talking Dog#para03	972,{
 		mes "oopssss kup.";
 		next;
 		mes "[Talking Dog]";
-		mes "Por que sigues aqui?";
-		mes "Ya terminaste aqui.";
-		mes "Hooooo guau guau.";
+		mes "Why are you still here?";
+		mes "You are done here.";
+		mes "Hooooo bow wow.";
 		close;
 	}
 	if (para_suv01 > 5) {
 		mes "[Talking Dog]";
-		mes "Oye~ Que pasa?";
-		mes "Y el Rune Knight?";
+		mes "Hey man~ What's going on?";
+		mes "What about the Rune Knight?";
 		mes "Krrrrr...";
-		mes "Juk juk...";
+		mes "Hyuk huk...";
 		next;
 		mes "[Talking Dog]";
-		mes "El Grupo Eden es genial.";
-		mes "Son un grupo muy bueno.";
-		mes "Aceptaron a un perro parlante vagabundo.";
-		mes "Cuidate y buena suerte.";
+		mes "The Eden Group is cool.";
+		mes "They're a really good group.";
+		mes "They accepted a wandering talking dog.";
+		mes "Take care and good luck.";
 		close;
 	}
-	mes "Oye mira.";
-	mes "Soy un perro que habla.";
-	mes "No soy un lobo.";
-	mes "Originalmente no era un perro...";
+	mes "Hey look.";
+	mes "I'm a talking dog.";
+	mes "Not a wolf.";
+	mes "I wasn't a dog originally...";
 	next;
 	if (callfunc("F_HasEdenGroupMark")) {
 		mes "[Talking Dog]";
-		mes "De todos modos, eres miembro del Grupo Eden?";
-		mes "Oh, que bueno verte.";
-		mes "Yo tambien soy miembro del Grupo Eden.";
-		mes "Cuidate y buena suerte.";
+		mes "Anyway are you a Eden Group member?";
+		mes "Oh good to see you.";
+		mes "I am also a member of Eden Group.";
+		mes "Take care and good luck.";
 		close;
 	}
 	mes "[Talking Dog]";
-	mes "Por que me miras asi?";
+	mes "Why are you looking at me like that?";
 	mes "......";
 	close;
 }
@@ -838,57 +838,57 @@ moc_fild11,180,253,5	script	Talking Dog#para03	972,{
 prt_sewb1,131,262,3	script	Timid Cat#para04	422,{
 	if (para_suv01 < 6) {
 		mes "[Timid Cat]";
-		mes "Miau...";
-		mes "Quien eres, miau?";
-		mes "Por que estas aqui, miau?";
+		mes "Meow...";
+		mes "Who are you meow?";
+		mes "Why are you here meow?";
 		close;
 	}
 	if (para_suv01 == 6) {
 		mes "[Timid Cat]";
-		mes "Vamos, miau...";
-		mes "Puede que este aqui parado hablandote asi, miau, pero sigo siendo un gato, miau...";
+		mes "Come on meow...";
+		mes "I may be standing here and talking to you like this meow but I am a still a cat meow...";
 		next;
 		mes "[Timid Cat]";
-		mes "Querido humano, eres";
-		mes "miembro de mi grupo?";
-		mes "De... de verdad...!";
-		mes "La ayuda del querido Boya es como un gigante y...";
+		mes "Dear human you are";
+		mes "a member of my group?";
+		mes "Re... really...!";
+		mes "Dear Boya's help is like a giant and...";
 		next;
 		switch (select("Beautiful Saury:Fresh Mackerel:Beautiful Tuna")) {
 		case 1:
 			mes "[Timid Cat]";
-			mes "Saury grande y hermoso...";
-			mes "Soy timido.";
+			mes "Big and beautiful Saury...";
+			mes "I am shy.";
 			close;
 		case 2:
 			mes "[Timid Cat]";
-			mes "Quiero comer caballa.";
-			mes "Donde estan las caballas grandes y frescas, miau?";
+			mes "I want to eat mackerel.";
+			mes "Where are the big and fresh mackerel meow?";
 			close;
 		case 3:
 			mes "[Timid Cat]";
-			mes "Conoces el atun grande y hermoso?";
-			mes "El querido Boya te envio aqui seguro.";
-			mes "Como te explico esto...?";
+			mes "Do you know the big and beautiful tuna?";
+			mes "Dear Boya sent you here for sure.";
+			mes "How do I explain this...?";
 			next;
 			mes "[Timid Cat]";
-			mes "Algo paso debajo de mis patas ahora, miau?";
-			mes "Quieres matar a un gato.";
-			mes "El ambiente aqui es terrible.";
+			mes "Did something pass under my feet just now meow?";
+			mes "Do you want to kill a cat.";
+			mes "The environment here is terrible.";
 			next;
 			mes "[Timid Cat]";
-			mes "De todos modos estoy haciendo lo que me asignaron.";
-			mes "Asi que hola, bienvenido.";
+			mes "Anyway I'm doing what I was assigned to do.";
+			mes "So hi, hello and welcome.";
 			next;
 			mes "[Timid Cat]";
-			mes "Viniste aqui para pelear?";
-			mes "Caza esos Thief Bugs, apurate!";
-			mes "Caza al menos 10!";
-			mes "Miaaau!";
+			mes "Did you come here to have a battle?";
+			mes "Hunt those Thief Bugs, hurry up!";
+			mes "Hunt at least 10!";
+			mes "Meooow!";
 			next;
 			mes "[Timid Cat]";
-			mes "De verdad no me gustan esos bichos asquerosos...";
-			mes "Miau~!";
+			mes "I really don't like those nasty crawlers...";
+			mes "Meow~!";
 			next;
 			mes "^4d4dffThe cat was suprised by";
 			mes "a thief bug and froze in";
@@ -902,37 +902,37 @@ prt_sewb1,131,262,3	script	Timid Cat#para04	422,{
 	if (para_suv01 == 7) {
 		if (checkquest(7134,HUNTING) == 2) {
 			mes "[Timid Cat]";
-			mes "Ahora entiendes las sucias y humedas alcantarillas subterraneas?";
-			mes "Eeeh mira que sigue, miau.";
+			mes "Now do you understand the dirty and humid underground sewers?";
+			mes "Eeeh look what's next meow.";
 			next;
 			mes "[Timid Cat]";
-			mes "Es un simbolo de suciedad junto a esos Thief Bugs.";
-			mes "Caza algunos Tarou para limpiar las alcantarillas.";
+			mes "It's a symbol of dirt next to those Thief Bugs.";
+			mes "Hunt some Tarou to make the sewers cleaner.";
 			next;
 			mes "[Timid Cat]";
-			mes "Para nuestros miembros que se unen a esta mision.";
-			mes "Caza 10 Tarou.";
-			mes "Facil, no?";
+			mes "For our members joining this mission.";
+			mes "Hunt 10 Tarou.";
+			mes "Easy, ain't it?";
 			next;
 			mes "[Timid Cat]";
-			mes "Por que no te lo pedi de una vez? jjj..??";
-			mes "Mmm........";
-			mes "Porque es solo una mision de entrenamiento.";
+			mes "Why didn't I ask you at once? kkk..??";
+			mes "Umm........";
+			mes "Because it's just a training mission.";
 			next;
 			mes "[Timid Cat]";
-			mes "Las misiones de entrenamiento son dificiles y molestas.";
-			mes "Asi que apurate y caza 10 Tarou.";
+			mes "Training missions are hard and anoying.";
+			mes "So go hurry and hunt 10 Tarou.";
 			set para_suv01,8;
 			changequest 7134,7135;
 			close;
 		}
 		mes "[Timid Cat]";
-		mes "Limpia las alcantarillas. El primer paso es cazar Thief Bugs.";
-		mes "No es simple, miau?";
+		mes "Clean the sewers. Now the first step is hunting Thief Bugs.";
+		mes "Isn't that simple, meow?";
 		next;
 		mes "[Timid Cat]";
-		mes "Asegurate de revisar tu mapa para no perderte.";
-		mes "Es un servicio, miau.";
+		mes "Take care to check your map so you don't get lost.";
+		mes "It's a service meeow.";
 		npcskill "AL_HEAL",11,99,60;
 		percentheal 100,100;
 		close;
@@ -940,37 +940,37 @@ prt_sewb1,131,262,3	script	Timid Cat#para04	422,{
 	if (para_suv01 == 8) {
 		if (checkquest(7135,HUNTING) == 2) {
 			mes "[Timid Cat]";
-			mes "Buen trabajo~!";
-			mes "Como te deshiciste de esos bichos sucios y Tarou. Eres valiente.";
+			mes "Great job~!";
+			mes "How'd you get rid of those dirty bugs and Tarou. You are brave.";
 			next;
 			mes "[Timid Cat]";
-			mes "Ahora ten valor porque te enviare a un oponente mas fuerte.";
-			mes "Pero primero, para probar tu valor, caza Familiars.";
+			mes "Now have courage because I'm sending you to a stronger opponent.";
+			mes "But first in order to test your courage, hunt Familiars.";
 			next;
 			mes "[Timid Cat]";
-			mes "Los Familiars te morderan, asi que ten cuidado.";
-			mes "Son malos.";
-			mes "Me asustan, asi que solo caza 5 y deberia ser suficiente.";
+			mes "Familiars will bite you so be careful.";
+			mes "They are mean.";
+			mes "They scare me so just hunt 5 and that should be enough.";
 			next;
 			mes "[Timid Cat]";
-			mes "Eso me mostrara que eres valiente.";
-			mes "Miau~!";
+			mes "That will show me that you are brave.";
+			mes "Meow~!";
 			next;
 			mes "[Timid Cat]";
-			mes "No tengo nada...";
+			mes "I don't have anything...";
 			mes "......";
-			mes "Que quieres, miau? Los Familiars estan esperando para pelear contigo, apurate, muevete~!";
+			mes "What do you want meow? Familiars are waiting to fight with you, hurry up, move~!";
 			set para_suv01,9;
 			changequest 7135,7136;
 			close;
 		}
 		mes "[Timid Cat]";
-		mes "Si no puedes matar a los Tarou podrias contraer todo tipo de enfermedades sucias.";
-		mes "Asi que sientete orgulloso y da lo mejor de ti para matarlos.";
+		mes "If you can't kill the Tarou you might get all kinds of dirty diseases.";
+		mes "So be proud of yourself and do your best to kill them.";
 		next;
 		mes "[Timid Cat]";
-		mes "Te ayudare un poco.";
-		mes "Aqui, he recuperado tu fuerza, miau..";
+		mes "I will help you a little.";
+		mes "Here, I have recovered your strengh meow..";
 		npcskill "AL_HEAL",11,99,60;
 		percentheal 100,100;
 		close;
@@ -978,52 +978,52 @@ prt_sewb1,131,262,3	script	Timid Cat#para04	422,{
 	if (para_suv01 == 9) {
 		if (checkquest(7136,HUNTING) == 2) {
 			mes "[Timid Cat]";
-			mes "Eres genial, miau~";
-			mes "Los mataste tan rapido!";
-			mes "Miau...";
+			mes "You are great meow~";
+			mes "You killed them so quickly!";
+			mes "Meow...";
 			next;
 			mes "[Timid Cat]";
-			mes "Ahora no les tienes miedo a los bichos ni a los tarou.";
-			mes "Gracias por participar en la mision de entrenamiento Conquista la Alcantarilla.";
+			mes "Now you are not scared of bugs and tarou at all.";
+			mes "Thanks for participating in the Conquer the Culvert training mission.";
 			next;
 			mes "[Timid Cat]";
 			mes "Now go back to the headquarters and ask Instructor Boya to make sure he has the beautiful tuna...";
-			mes "Estare esperando aqui.";
+			mes "I will be waiting here.";
 			next;
 			mes "[Timid Cat]";
-			mes "Sabes como llegar al Cuartel General del Grupo Eden?";
-			mes "Prontera es la ciudad mas cercana desde aqui.";
-			mes "Ve a Prontera y encuentra un Teleportador del Grupo Eden.";
+			mes "Do you know how to get to the Eden Group Headquarters?";
+			mes "Prontera is the closest city from here.";
+			mes "Go to Prontera and find an Eden Group Teleporter.";
 			set para_suv01,10;
 			changequest 7136,7137;
 			close;
 		}
 		mes "[Timid Cat]";
-		mes "Los Familiars son muy aterradores.";
-		mes "Siempre estan volando.";
+		mes "Familiars are really scary.";
+		mes "They're always flying.";
 		next;
 		mes "[Timid Cat]";
-		mes "Es el ultimo curso, asi que animo.";
-		mes "Te ayudare un poco.";
-		mes "Aqui, he recuperado tu fuerza, miau..";
+		mes "It's the last course so cheer up.";
+		mes "I will help you a little.";
+		mes "Here, I have recovered your strengh meow..";
 		npcskill "AL_HEAL",11,99,60;
 		percentheal 100,100;
 		close;
 	}
 	if (para_suv01 >= 10) {
 		mes "[Timid Cat]";
-		mes "Completaste 'Conquista la Alcantarilla'.";
-		mes "Regresa al cuartel general del Grupo Eden para reportarte con Boya.";
+		mes "You've completed 'Conquer the Culvert'.";
+		mes "Go back to the Eden Group headquarters to report to Boya.";
 		next;
 		mes "[Timid Cat]";
-		mes "Boya podria comerse mi atun mientras te espera.";
+		mes "Boya might eat my tuna while he is waiting for you.";
 		close;
 	}
 	mes "[Timid Cat]";
-	mes "Como estas, miau?";
-	mes "Te ofreciste como voluntario para conquistar la Alcantarilla?";
-	mes "Eres miembro del Grupo Eden seguro.";
-	mes "Estas ayudando a hacer del mundo un lugar mejor.";
+	mes "How are you meeow?";
+	mes "Did you volunteer to conquer the Culvert?";
+	mes "You are a member of the Edgen Group for sure.";
+	mes "You are helping to make the world a better place.";
 	close;
 }
 
@@ -1174,7 +1174,7 @@ anthell01,29,264,5	script	Eden Member Cloud#para06	899,{
 	if (para_suv01 < 17) {
 		if (callfunc("F_HasEdenGroupMark")) {
 			mes "[Cloud]";
-			mes "Ups.";
+			mes "Oops.";
 			mes "You are a member of my group.";
 			mes "Why did you come here, are you looking for danger?";
 			next;
@@ -1441,7 +1441,7 @@ in_orcs01,38,175,3	script	Eden Member Hooksha	803,{
 			mes "[Hooksha]";
 			mes "Now it's time to hunt 10 Orc Warriors.";
 			mes "If you are in trouble just come back here to safety.";
-			mes "Entiendes?";
+			mes "Do you understand?";
 			set para_suv01,26;
 			changequest 7148,7149;
 			close;
@@ -1491,7 +1491,7 @@ in_orcs01,38,175,3	script	Eden Member Hooksha	803,{
 	if (para_suv01 == 27) {
 		if (checkquest(7150,HUNTING) == 2) {
 			mes "[Hooksha]";
-			mes "Buen trabajo.";
+			mes "Great job.";
 			mes "Now you should understand how the orc tribe works here in Orc Village.";
 			mes "You've followed the training mission well under hot and humid circumstances.";
 			mes "You have now completed the 'Conquer Orc Village!' training mission. Congratulations.";
@@ -1985,7 +1985,7 @@ moc_para01,112,96,5	script	Administrator Michael	4_M_RUSMAN1,{
 			next;
 			mes "[Michael]";
 			mes "Sorry, but I can't find any record that you can obtain supplies.";
-			mes "Estas seguro?";
+			mes "Are you sure?";
 		}
 		close;
 	case 2:
@@ -2012,7 +2012,7 @@ moc_para01,112,96,5	script	Administrator Michael	4_M_RUSMAN1,{
 				disable_items;
 				mes "What status bonus do you want to upgrade?";
 				next;
-				switch (select("Upgrade STR:Upgrade AGI:Upgrade VIT:Upgrade INT:Upgrade DEX:Upgrade LUK:No importa.")) {
+				switch (select("Upgrade STR:Upgrade AGI:Upgrade VIT:Upgrade INT:Upgrade DEX:Upgrade LUK:Nevermind.")) {
 				case 1: callsub S_Upgrade,"STR",4701;
 				case 2: callsub S_Upgrade,"AGI",4731;
 				case 3: callsub S_Upgrade,"VIT",4741;
@@ -2036,7 +2036,7 @@ moc_para01,112,96,5	script	Administrator Michael	4_M_RUSMAN1,{
 		if (para_suv02 == 4) {
 			mes "Umm, didn't you upgrade this already?";
 			mes "According to the records";
-			mes "'+strcharinfo(0)+': Has already upgraded their Hat.";
+			mes ""+strcharinfo(0)+": Has already upgraded their Hat.";
 			next;
 			mes "[Michael]";
 			mes "We can only offer 1 upgrade.";
@@ -2052,9 +2052,9 @@ moc_para01,112,96,5	script	Administrator Michael	4_M_RUSMAN1,{
 	}
 S_Upgrade:
 	mes "[Michael]";
-	mes "Ya veo.";
-	mes "I will ^4d4dffUpgrade '+ getarg(0) +'^000000.";
-	mes "Estas seguro?";
+	mes "I see.";
+	mes "I will ^4d4dffUpgrade "+ getarg(0) +"^000000.";
+	mes "Are you sure?";
 	next;
 	switch (select("Yes I am.:No wait.")) {
 	case 1:
@@ -2089,9 +2089,9 @@ S_Select:
 		mes getarg(.@i+1)+": "+ getarg(.@i+2) +". "+ getarg(.@i+3) +".";
 	}
 	if (.@total_arg < 7)
-		mes "It is Lv. 2 and the required level is '+ (para_suv01 == 22 ? '26' : '40') +'.";
+		mes "It is Lv. 2 and the required level is "+ (para_suv01 == 22 ? "26" : "40") +".";
 	else
-		mes "Both of them are Lv. 2 weapons and the required level is '+ (para_suv01 == 22 ? '26' : '40') +'.";
+		mes "Both of them are Lv. 2 weapons and the required level is "+ (para_suv01 == 22 ? "26" : "40") +".";
 	next;
 	mes "[Michael]";
 	mes "They also can't be traded with other players or be refined.";
@@ -2102,14 +2102,14 @@ S_Select:
 	if (.@total_arg < 7) {
 		.@i = 1;
 		mes "[Michael]";
-		mes "You'll receive the '+ getarg(.@i+1) +'.";
+		mes "You'll receive the "+ getarg(.@i+1) +".";
 		next;
 		mes "[Michael]";
 	}
 	else {
 		.@i = (select(.@menu$) -1) *5 +1;
 		mes "[Michael]";
-		mes "You've chosen the '+ getarg(.@i+1) +'.";
+		mes "You've chosen the "+ getarg(.@i+1) +".";
 	}
 	if (para_suv01 == 22) {
 		mes "Additionally you'll receive the Eden Group Boots II and Uniform II.";
@@ -2145,7 +2145,7 @@ S_Select:
 			para_suv02 = 2;
 		else
 			para_suv02 = 3;
-		mes "A '+ getarg(.@i+2) +', Uniform and Boots all 3 supplies.";
+		mes "A "+ getarg(.@i+2) +", Uniform and Boots all 3 supplies.";
 		mes "Please check it again.";
 		next;
 		mes "[Michael]";
@@ -2166,12 +2166,12 @@ moc_para01,179,44,3	script	Chef	820,{
 		mes "Choose one of the three course meals A, B or C.";
 		mes "Do you want a explanation?";
 		next;
-		switch (select("I want a explanation.:Order course meal A:Order course meal B:Order course meal C:Terminar conversacion.")) {
+		switch (select("I want a explanation.:Order course meal A:Order course meal B:Order course meal C:End Conversation.")) {
 		case 1:
 			mes "[Chef]";
 			mes "Uh? what do you want to know?";
 			next;
-			switch (select("About course meal A.:About course meal B.:About course meal C.:Terminar conversacion.")) {
+			switch (select("About course meal A.:About course meal B.:About course meal C.:End Conversation.")) {
 			case 1:
 				mes "[Chef]";
 				mes "Course meal A is for nomal people.";
@@ -2348,7 +2348,7 @@ moc_para01,179,44,3	script	Chef	820,{
 			close;
 		case 5:
 			mes "[Chef]";
-			mes "Es tu decision.";
+			mes "It's up to you.";
 			close;
 		}
 	case 2:
@@ -2364,7 +2364,7 @@ moc_para01,179,44,3	script	Chef	820,{
 			if (para_suv01 == 0) {
 				if (BaseLevel < 41) {
 					mes "[Chef]";
-					mes "Como estas?";
+					mes "How are you?";
 					mes "Ah... now you don't look like a beginner.";
 					mes "Do you want to know some good information?";
 					next;
@@ -2538,7 +2538,7 @@ moc_para01,23,35,5	script	Instructor Ur#2nd01	4_M_KNIGHT_BLACK,{
 			setquest 7214;// Advanced Training at Comodo
 		}
 		else if (BaseLevel < 80) {
-			mes "Veamos...";
+			mes "Let's see...";
 			mes "Your level would suggest that Comodo is just too easy for you.";
 			mes "Yeah, here we go.";
 			next;
@@ -2665,7 +2665,7 @@ moc_para01,23,35,5	script	Instructor Ur#2nd01	4_M_KNIGHT_BLACK,{
 	}
 	else if (para_2nd01 == 11) {
 		if (BaseLevel > 79) {
-			mes "Ah, ever so improving '+ strcharinfo(0) +'?";
+			mes "Ah, ever so improving "+ strcharinfo(0) +"?";
 			mes "To what do I owe this pleasure?";
 			next;
 			switch( select( "I came for more training.", "I'm just visiting." ) ) {
@@ -2743,7 +2743,7 @@ moc_para01,23,35,5	script	Instructor Ur#2nd01	4_M_KNIGHT_BLACK,{
 		mes "BK is a great blacksmith, he'll make your weapon stronger.";
 		next;
 		mes "[Instructor Ur]";
-		mes "Buen trabajo!";
+		mes "Good job!";
 		para_2nd01 = 30;
 		erasequest 7232;//Report to Instructor Ur
 	}
@@ -2801,7 +2801,7 @@ S_Para2:
 	}
 	return;
 S_Direction:
-	mes "So, have you been in ^4d4dff'+ getarg(0) +'^000000 yet?";
+	mes "So, have you been in ^4d4dff"+ getarg(0) +"^000000 yet?";
 	mes "Didn't I tell you to go there?";
 	mes "Go there first and then come back to me. Okay?";
 	return;
@@ -2882,7 +2882,7 @@ S_Quest89100:
 comodo,173,354,5	script	Dispatched Instructor#02	1_M_JOBTESTER,{
 	mes "[Romeo]";
 	if (para_2nd01 < 1) {
-		mes "Como estas?";
+		mes "How are you?";
 		mes "Comodo has the best weather in the whole world.";
 		mes "Even during the winter, Comodo has great weather.";
 		next;
@@ -2896,7 +2896,7 @@ comodo,173,354,5	script	Dispatched Instructor#02	1_M_JOBTESTER,{
 		mes "This area is a place for relaxation.";
 	}
 	else if (para_2nd01 == 1) {
-		mes "Como estas?";
+		mes "How are you?";
 		mes "You were sent here by Instructor Ur right?";
 		mes "Did you come here for a quest?";
 		next;
@@ -3006,7 +3006,7 @@ um_fild01,34,280,5	script	Instructor Romeo#2nd02	1_M_JOBTESTER,{
 			next;
 			mes "[Romeo]";
 			mes "This is the last test.";
-			mes "Buena suerte.";
+			mes "Good luck.";
 			para_2nd01 = 4;
 			erasequest 7216;// More Golem Hunting
 			setquest 7217;// Field drops
@@ -3510,7 +3510,7 @@ mid_camp,212,229,3	script	Dispatched Instructor#06	4_F_HUWOMAN,{
 		mes "[Margaret]";
 		mes "Ok, I'm in a bit of a situation right now so I asked Instructor Ur to use his missions to help.";
 		next;
-		select("Una situacion?");
+		select("A situation?");
 		mes "[Margaret]";
 		mes "Yes, ";
 		mes "Find Mine and do what he asks you.";
@@ -3665,7 +3665,7 @@ spl_fild02,377,149,3	script	Dispatched Instructor#08	4_M_DST_MASTER,{
 	else if (para_2nd01 == 25) {
 		mes "Oh cruel world...";
 		mes "...";
-		mes "Quien eres?";
+		mes "Who are you?";
 		next;
 		if (select( "Margaret sent me.", "Yeah I'm here..." ) == 1) {
 			mes "[Mine]";
@@ -3701,13 +3701,13 @@ spl_fild02,377,149,3	script	Dispatched Instructor#08	4_M_DST_MASTER,{
 		next;
 		mes "[Mine]";
 		mes "I promise you I'll give you something good.";
-		mes "Gracias.";
+		mes "Thanks.";
 		para_2nd01 = 26;
 		setquest 7236;// Pinguicula Hunt
 	}
 	else if (para_2nd01 == 26) {
 		if (checkquest(7236,HUNTING) == 2) {
-			mes "Excelente!";
+			mes "Excellent!";
 			mes "Now I can go back to the camp and...";
 			next;
 			mes "[Mine]";
@@ -3845,7 +3845,7 @@ moc_para01,111,83,3	script	Blacksmith Thorn#2nd10	2_M_OLDBLSMITH,{
 			if (.@countitem[0] >= .@amount[0] && .@countitem[1] >= .@amount[1]) {
 				mes "Let me guess...";
 				mes "You've brought me the best quality materials.";
-				mes "Bien.";
+				mes "Good.";
 				next;
 				mes "[Thorn]";
 				mes "I can always use more Iron materials.";
@@ -3876,7 +3876,7 @@ moc_para01,111,83,3	script	Blacksmith Thorn#2nd10	2_M_OLDBLSMITH,{
 		}
 		else if (para_2nd04 == 4) {
 			if (checkquest(7241,PLAYTIME) == 0) {
-				mes "Regresa despues.";
+				mes "Come back later.";
 				mes "You have to wait for some time first.";
 			}
 			else {
@@ -4064,8 +4064,8 @@ S_Enchant:
 			4741;// Vitality2
 		.@1st = .@bonus[ rand(1,12) ];
 		.@2nd = .@bonus[ rand(1,12) ];
-		mes "Eden Group '+ getarg(1) +'?";
-		mes "Entiendo.";
+		mes "Eden Group "+ getarg(1) +"?";
+		mes "I understand.";
 		mes "Remember the stats that are enhanced will be random.";
 		mes "You sure you want me to enhance this?";
 		next;
@@ -4076,7 +4076,7 @@ S_Enchant:
 			mes "It's your choice.";
 			close;
 		case 2:
-			mes "Entiendo.";
+			mes "I understand.";
 			mes "Let's begin the enhancement.";
 			next;
 			specialeffect EF_REPAIRWEAPON;
@@ -4093,7 +4093,7 @@ S_Enchant:
 			close;
 		}
 	}
-	mes "Hmm... Don't you have the '+ getarg(1) +'?";
+	mes "Hmm... Don't you have the "+ getarg(1) +"?";
 	mes "I don't think you have it with you.";
 	close;
 }
@@ -4228,7 +4228,7 @@ moc_para01,112,79,3	script	Weapons Expert BK#2nd11	4_M_REPAIR,{
 			next;
 			mes "[BK]";
 			mes "Basically I will add a random monster card with the property type that you choose.";
-			mes "Buena suerte!";
+			mes "Good luck!";
 			next;
 			switch( select( "Brute Type", "Plant Type", "Insect Type", "Fish Type", "Dragon Type", "Increased Heal" ) ) {
 			case 1:
@@ -4260,7 +4260,7 @@ moc_para01,112,79,3	script	Weapons Expert BK#2nd11	4_M_REPAIR,{
 					if (.@arg[0] == 4805)
 						mes "Good. Your weapon will now increase Heal effectiveness.";
 					else
-						mes "Good. Your weapon will increase attacks to '+ .@type$ +' type monsters.";
+						mes "Good. Your weapon will increase attacks to "+ .@type$ +" type monsters.";
 					next;
 					specialeffect EF_REPAIRWEAPON;
 					progressbar "ffff00",3;
@@ -4373,7 +4373,7 @@ sec_in02,25,33,4	script	Assistant#para_suvquest	422,{
 		mes "Enter the modified value";
 		next;
 		input .@input,0,9999;
-		mes "Value of para_suv0'+.@var+' has been changed to '+.@input+'.";
+		mes "Value of para_suv0"+.@var+" has been changed to "+.@input+".";
 		setd "para_suv0"+.@var,.@input;
 		close;
 	} else {
