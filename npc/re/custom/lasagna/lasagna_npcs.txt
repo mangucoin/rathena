@@ -20,8 +20,8 @@ OnTouch:
 		setpcblock PCBLOCK_NPC, true;
 		sleep2 100;
 		setpcblock PCBLOCK_NPC, false;
-		npctalk "Hey, newbie! Get over here!", "Vigilante Ajegna#doram0", bc_self;
-		npctalk "Come on over here! Click me, quick!", "Vigilante Ajegna#doram0", bc_self;
+		npctalk "Oye, novato! Ven aqui!", "Vigilante Ajegna#doram0", bc_self;
+		npctalk "Ven aqui! Hazme clic, rapido!", "Vigilante Ajegna#doram0", bc_self;
 		setquest 7711;// Beginning
 	}
 	end;
@@ -30,43 +30,43 @@ OnTouch:
 lasa_fild01,49,304,3	script	Vigilante Ajegna#doram0	4_DR_SOLDIER,{
 	if (Class != Job_Summoner) {
 		mes "[Vigilante Ajegna]";
-		mes "Huh? I doubt you're from Far-Star.";
-		mes "I get it! You're from the New Continent, aren't you?";
+		mes "Eh? Dudo que seas de Far-Star.";
+		mes "Ya entiendo! Eres del Nuevo Continente, verdad?";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "If you're planning to cross that ridge, I wouldn't recommend it.";
-		mes "Why don't you just return to your village from here?";
+		mes "Si planeas cruzar esa cordillera, no te lo recomiendo.";
+		mes "Por que no regresas a tu aldea desde aqui?";
 		close;
 	}
 	switch( isbegin_quest(7712) ) {
 	case 0:
 		mes "[Vigilante Ajegna]";
-		mes "Oh, there you go!";
-		mes "You can talk to others in the same way you just spoke to me.";
+		mes "Oh, aqui estas!";
+		mes "Puedes hablar con otros de la misma forma en que me hablaste a mi.";
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffBasically, you talk by left-clicking the mouse button while hovering the cursor over an NPC.";
-		mes "Left-click the mouse button to talk with an NPC, move about and attack a target.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffBasicamente, hablas haciendo clic izquierdo con el mouse mientras pasas el cursor sobre un NPC.";
+		mes "Haz clic izquierdo para hablar con un NPC, moverte y atacar un objetivo.^000000";
 		cutin "tutorial01.bmp",4;
 		next;
 		cutin "",255;
 		mes "[Vigilante Ajegna]";
-		mes "Good work crossing over the mountain, newbie.";
-		mes "Just like yourself, there are a bunch of people who are crossing this mountain range these days to reach the ^4d4dffNew Continent^000000.";
+		mes "Buen trabajo cruzando la montana, novato.";
+		mes "Al igual que tu, hay un monton de gente que esta cruzando esta cordillera estos dias para llegar al ^4d4dffNuevo Continente^000000.";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "Honestly, I was surprised, too.";
-		mes "I never imagined even in my wildest dreams that there would be any other continent other than ^4d4dffMidgard^000000 or ^4d4dffFar-Star,^000000 which we live in.";
+		mes "Honestamente, yo tambien me sorprendi.";
+		mes "Jamas imagine, ni en mis suenos mas locos, que existiria otro continente aparte de ^4d4dffMidgard^000000 o ^4d4dffFar-Star,^000000 donde vivimos.";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "That explains the slew of Dorams, who simply wander about, in ^4d4dffLasagna^000000, which was nothing but a fishing village in the border area.";
+		mes "Eso explica la cantidad de Dorams que simplemente deambulan por ^4d4dffLasagna^000000, que no era mas que un pueblo pesquero en la zona fronteriza.";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "What's worse is that the Dorams who come from outside of Lasagna would often cause problems. This is really causing a headache for the Vigilante Corp.";
-		mes "A Vigilante's job is to assist the Dorams who are in the New Continent expedition, in addition to maintaining public order, so please help.";
+		mes "Lo peor es que los Dorams que vienen de fuera de Lasagna a menudo causan problemas. Esto le esta dando un dolor de cabeza al Cuerpo de Vigilantes.";
+		mes "El trabajo de un Vigilante es ayudar a los Dorams que estan en la expedicion al Nuevo Continente, ademas de mantener el orden publico, asi que por favor ayuda.";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "Do you see the Doram over there? He's ^4d4dffAglio^000000. He'll let you in on some useful stuff. Go meet the guy.";
+		mes "Ves al Doram de alla? El es ^4d4dffAglio^000000. Te contara cosas utiles. Ve a conocerlo.";
 		if (isbegin_quest(7711) == 0)
 			setquest 7711;
 		completequest 7711;// Beginning
@@ -74,20 +74,20 @@ lasa_fild01,49,304,3	script	Vigilante Ajegna#doram0	4_DR_SOLDIER,{
 		close;
 	case 1:
 		mes "[Vigilante Ajegna]";
-		mes "I should welcome the new Dorams coming in here.";
-		mes "^4d4dffAglio^000000 will let you in on more details. He's right over there.";
+		mes "Deberia darle la bienvenida a los nuevos Dorams que llegan aqui.";
+		mes "^4d4dffAglio^000000 te dara mas detalles. Esta justo por alla.";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "Aglio is one of the very, I mean, very good Doram in the Farfalle Vigilante Corp, so watch and learn!";
+		mes "Aglio es uno de los muy, digo, muy buenos Doram en el Cuerpo de Vigilantes Farfalle, asi que observa y aprende!";
 		close;
 	case 2:
 		mes "[Vigilante Ajegna]";
-		mes "If you have any questions, don't hesitate to ask him.";
-		mes "Don't be a stranger even when you're out on the New Continent!";
+		mes "Si tienes alguna pregunta, no dudes en preguntarle.";
+		mes "No seas un extrano incluso cuando estes en el Nuevo Continente!";
 		next;
 		mes "[Vigilante Ajegna]";
-		mes "The Lasagna Port is over that way!";
-		mes "Don't tell me you're here because you didn't know that.";
+		mes "El Puerto de Lasagna esta por alla!";
+		mes "No me digas que estas aqui porque no lo sabias.";
 		close;
 	}
 OnInit:
@@ -98,67 +98,67 @@ OnInit:
 lasa_fild01,53,322,3	script	Applicant Paul#doramt13	4_M_MERCAT1,4,4,{
 	if (Class != Job_Summoner) {
 		mes "[Paul]";
-		mes "~Shrieks~ You startled me!";
-		mes "A human? Wow, what an odd-looking one!";
+		mes "~Grita~ Me asustaste!";
+		mes "Un humano? Vaya, que aspecto tan extrano!";
 		close;
 	}
 	switch( isbegin_quest(7723) ) {
 	case 0:
 		mes "[Paul]";
-		mes "So, you're that adventurer Doram, eh?";
-		mes "Hey, what do you think?";
-		mes "You agree with me about damage, right? STR comes first!";
+		mes "Asi que tu eres ese Doram aventurero, eh?";
+		mes "Oye, que opinas?";
+		mes "Estas de acuerdo conmigo sobre el dano, verdad? STR va primero!";
 		next;
 		mes "[Paul]";
-		mes "You need to be on the offense to win the battle.";
-		mes "^4d4dffThe quickest way to boost ATK is to boost STR^000000!";
+		mes "Necesitas estar a la ofensiva para ganar la batalla.";
+		mes "^4d4dffLa forma mas rapida de aumentar ATK es aumentar STR^000000!";
 		next;
 		mes "[MacCarnie]";
-		mes "...Reckless attacks are of no use!";
-		mes "No attack will work if you miss the target!";
+		mes "...Los ataques temerarios no sirven de nada!";
+		mes "Ningun ataque funcionara si fallas el objetivo!";
 		next;
 		mes "[MacCarnie]";
-		mes "So, ^4d4dffyou need to boost DEX first to increase Accuracy^000000.";
-		mes "It doesn't matter how strong you are. You need to hit the target first!";
+		mes "Entonces, ^4d4dffnecesitas aumentar DEX primero para incrementar la Precision^000000.";
+		mes "No importa que tan fuerte seas. Necesitas golpear al objetivo primero!";
 		next;
 		mes "[MacCarnie]";
-		mes "I refuse to use martial arts willy-nilly as you do!";
-		mes "^4d4dffI'm using the summoning skill by boosting INT for magical attacks!^000000";
+		mes "Me niego a usar artes marciales a lo loco como tu!";
+		mes "^4d4dffEstoy usando la habilidad de invocacion aumentando INT para ataques magicos!^000000";
 		next;
 		mes "[Paul]";
-		mes "Pfff! What's wrong with using the summoning skills to complement the physical skills?";
-		mes "Are you implying that I haven't got a clue?";
+		mes "Pfff! Que tiene de malo usar las habilidades de invocacion para complementar las habilidades fisicas?";
+		mes "Estas insinuando que no tengo ni idea?";
 		next;
 		mes "[MacCarnie]";
-		mes "...That's not what I meant! This cat's brains must be full of fat!";
+		mes "...Eso no es lo que quise decir! El cerebro de este gato debe estar lleno de grasa!";
 		next;
 		mes "[Vigilante Gnocchi]";
-		mes "...Stop fighting, you two!";
-		mes "Hey, there. Newcomer.";
-		mes "You can ask me if there is something you'd like to know.";
-		npctalk "You can ask me if there is something you'd like to know.", "Vigilante Gnocchi#doramt13", bc_self;
+		mes "...Dejen de pelear, ustedes dos!";
+		mes "Oye, tu. Recien llegado.";
+		mes "Puedes preguntarme si hay algo que te gustaria saber.";
+		npctalk "Puedes preguntarme si hay algo que te gustaria saber.", "Vigilante Gnocchi#doramt13", bc_self;
 		setquest 7723;// The potential within
 		close;
 	case 1:
 		mes "[Paul]";
-		mes "He might tell you What's good about being a Vigilante, so go ahead and ask him.";
-		mes "He'll prove that I was right, after all.";
+		mes "El podria decirte que tiene de bueno ser un Vigilante, asi que ve y preguntale.";
+		mes "El probara que yo tenia razon, despues de todo.";
 		close;
 	case 2:
 		mes "[Paul]";
-		mes "So, is this all about boosting your abilities based on your competencies?";
+		mes "Entonces, todo esto se trata de aumentar tus habilidades segun tus competencias?";
 		next;
 		mes "[Paul]";
-		mes "Come to think of it, there is a ^4d4dffhypnotist^000000 in the village.";
-		mes "^4d4dffYou can reset skills and statuses through a hypnotist^000000. Just so you know that you can.";
+		mes "Ahora que lo pienso, hay un ^4d4dffhipnotista^000000 en la aldea.";
+		mes "^4d4dffPuedes reiniciar habilidades y estados a traves de un hipnotista^000000. Solo para que sepas que puedes.";
 		close;
 	}
 OnTouch:
 	if (Class == Job_Summoner && isbegin_quest(7723) == 0) {
 		setpcblock PCBLOCK_NPC, true;
-		npctalk "You, dimwit! Nothing beats damage! You should boost your STR first!", "Applicant Paul#doramt13", bc_self;
+		npctalk "Tu, tonto! Nada supera el dano! Deberias aumentar tu STR primero!", "Applicant Paul#doramt13", bc_self;
 		sleep2 2000;
-		npctalk "You have no idea! DEX comes first if you want your attack to be successful!!", "Applicant MacCarnie#doramt13", bc_self;
+		npctalk "No tienes ni idea! DEX va primero si quieres que tu ataque sea exitoso!!", "Applicant MacCarnie#doramt13", bc_self;
 		sleep2 1000;
 		setpcblock PCBLOCK_NPC, false;
 		emotion ET_STARE, getnpcid(0, "Applicant Paul#doramt13");
@@ -175,66 +175,66 @@ lasa_fild01,50,321,6	duplicate(Applicant Paul#doramt13)	Applicant MacCarnie#dora
 lasa_fild01,54,325,3	script	Vigilante Gnocchi#doramt13	4_DR_SOLDIER,{
 	if (Class != Job_Summoner) {
 		mes "[Vigilante Gnocchi]";
-		mes "Ahem! This is like a gateway to the Far-Star Continent.";
-		mes "No more humans are allowed!";
+		mes "Ejem! Esto es como una puerta de entrada al Continente Far-Star.";
+		mes "No se permiten mas humanos!";
 		close;
 	}
 	switch( isbegin_quest(7723) ) {
 	case 0:
-		npctalk "Do you happen to know why they are making so much noise?", "", bc_self;
+		npctalk "Sabes por que estan haciendo tanto ruido?", "", bc_self;
 		end;
 	case 1:
 		mes "[Vigilante Gnocchi]";
-		mes "So they were having an animated discussion over status.";
+		mes "Asi que estaban teniendo una discusion animada sobre estados.";
 		next;
 		break;
 	case 2:
 		mes "[Vigilante Gnocchi]";
-		mes "Do you need more explanation on the status?";
+		mes "Necesitas mas explicacion sobre los estados?";
 		next;
-		if (select( "Yes.", "No." ) == 2) {
+		if (select( "Si.", "No." ) == 2) {
 			mes "[Vigilante Gnocchi]";
-			mes "Up to level 49, the village hypnotist will reset your stats and skills.";
-			mes "This will let you practice and experiment which will help find the path that works for you.";
+			mes "Hasta el nivel 49, el hipnotista de la aldea reiniciara tus stats y habilidades.";
+			mes "Esto te permitira practicar y experimentar, lo que te ayudara a encontrar el camino que funcione para ti.";
 			close;
 		}
 		break;
 	}
 	mes "[Vigilante Gnocchi]";
-	mes "Press the ^4d4dffAlt+Q^000000 keys to view your physical stats.";
-	mes "Calibration is also available depending on your equipment.";
+	mes "Presiona las teclas ^4d4dffAlt+Q^000000 para ver tus stats fisicos.";
+	mes "La calibracion tambien esta disponible dependiendo de tu equipo.";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "Let me explain the statuses in detail.";
-	mes "^4d4dffSTR means strength^000000. It ^4d4dffboosts physical attacks^000000.";
+	mes "Dejame explicarte los estados en detalle.";
+	mes "^4d4dffSTR significa fuerza^000000. ^4d4dffAumenta los ataques fisicos^000000.";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "^4d4dffVIT is vitality which indicates health^000000. This is what ^4d4dffboosts your overall HP^000000.";
-	mes "^4d4dffAGI means agility^000000. It affects ^4d4dffevasion and attack speed^000000.";
+	mes "^4d4dffVIT es vitalidad que indica salud^000000. Es lo que ^4d4dffaumenta tu HP general^000000.";
+	mes "^4d4dffAGI significa agilidad^000000. Afecta la ^4d4dffevasion y velocidad de ataque^000000.";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "^4d4dffINT refers to intelligence and MATK means magical attack^000000. If your skills are centered on magic, you must boost INT first and foremost.";
+	mes "^4d4dffINT se refiere a inteligencia y MATK significa ataque magico^000000. Si tus habilidades se centran en la magia, debes aumentar INT ante todo.";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "^4d4dffDEX is related with dexterity and accuracy^000000.";
-	mes "You can both quicken casting speed and boost the accuracy of your attacks.";
+	mes "^4d4dffDEX esta relacionado con la destreza y la precision^000000.";
+	mes "Puedes tanto acelerar la velocidad de casteo como aumentar la precision de tus ataques.";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "^4d4dffLUK means luck; the more luck you have, the higher your critical hit rate (CRI) becomes^000000.";
-	mes "It also means you can dodge an enemy's attack more easily.";
+	mes "^4d4dffLUK significa suerte; mientras mas suerte tengas, mayor sera tu tasa de golpe critico (CRI)^000000.";
+	mes "Tambien significa que puedes esquivar el ataque de un enemigo mas facilmente.";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "If you want to boost your physical attacks, focus on STR. If what you want is magical attacks, go for INT. Got it?";
+	mes "Si quieres aumentar tus ataques fisicos, enfocate en STR. Si lo que quieres son ataques magicos, ve por INT. Entendido?";
 	next;
 	mes "[Vigilante Gnocchi]";
-	mes "DEX is highly crucial in the early stages because it is what boosts Accuracy.";
-	mes "This can be a difficult concept to get, so you should try boosting this and that to find your own way.";
+	mes "DEX es muy importante en las etapas tempranas porque es lo que aumenta la Precision.";
+	mes "Este puede ser un concepto dificil de entender, asi que deberias intentar aumentar esto y aquello para encontrar tu propio camino.";
 	if (isbegin_quest(7723) == 1) {
 		completequest 7723;// The potential within
 		getexp 50,50;
 		next;
 		mes "[Vigilante Gnocchi]";
-		mes "I wish you godspeed!";
+		mes "Te deseo buena suerte!";
 	}
 	close;
 OnInit:
@@ -245,59 +245,59 @@ OnInit:
 lasa_fild01,60,322,3	script	Vigilante Aglio#doram02	4_DR_AGLIO,{
 	if (Class != Job_Summoner) {
 		mes "[Vigilante Aglio]";
-		mes "Oh! You must be the famous strangers from the New Continent, eh?";
-		mes "Out-of-towner Dorams abound in this place, I definitely don't want any more of them.";
+		mes "Oh! Ustedes deben ser los famosos extranjeros del Nuevo Continente, eh?";
+		mes "Los Dorams foraneos abundan en este lugar, definitivamente no quiero mas de ellos.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "Wouldn't they be surprised to see you guys?";
-		mes "Moreover, it's dangerous to cross the mountain ridge.";
-		mes "This is for your own good. Just go back to where you come from.";
+		mes "No se sorprenderian de verlos?";
+		mes "Ademas, es peligroso cruzar la cordillera.";
+		mes "Es por tu propio bien. Solo regresa de donde viniste.";
 		close;
 	}
 	if (checkweight(1001,2) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	if (lasagna_quest[0] == 0) {
 		mes "[Vigilante Aglio]";
-		mes "Oh, hello?";
-		mes "I'm Aglio. I'm going to be your attendant from this point on.";
-		mes "Consider it a privilege.";
-		mes "Because I'm one of the ace members of the Farfalle Vigilante Corp.";
+		mes "Oh, hola?";
+		mes "Soy Aglio. Voy a ser tu acompanante de ahora en adelante.";
+		mes "Consideralo un privilegio.";
+		mes "Porque soy uno de los miembros estrella del Cuerpo de Vigilantes Farfalle.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "I'm sure I can be of help for just about anything.";
-		mes "First off, let's see what you've got.";
+		mes "Estoy seguro de que puedo ayudarte con casi cualquier cosa.";
+		mes "Primero, veamos que tienes.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "Hang on. Let me check if you are properly equipped first.";
-		mes "You don't want to fight with bare hands, now do you?";
-		mes "^4d4dffYou should equip your weapons.^000000";
+		mes "Espera. Dejame revisar si estas bien equipado primero.";
+		mes "No quieres pelear con las manos vacias, verdad?";
+		mes "^4d4dffDeberias equipar tus armas.^000000";
 		next;
 		cutin "tutorial03.BMP",4;
-		mes "!- Notice -!";
-		mes "^4d4dffYou can use or equip an item by double-clicking it.";
-		mes "Open or close the item window with the shortcut key [Alt+E].";
+		mes "!- Aviso -!";
+		mes "^4d4dffPuedes usar o equipar un objeto haciendo doble clic en el.";
+		mes "Abre o cierra la ventana de objetos con la tecla de atajo [Alt+E].";
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffCheck out your equipped items easily by pressing the shortcut key [Alt+Q].";
-		mes "Simply drag the appropriate items to the area you'd like to equip.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffRevisa tus objetos equipados facilmente presionando la tecla de atajo [Alt+Q].";
+		mes "Simplemente arrastra los objetos apropiados al area donde quieras equiparlos.^000000";
 		next;
 		cutin "",255;
 		mes "[Vigilante Aglio]";
-		mes "Now that we've checked your weapons, why don't we take a look at a target to hunt?";
-		mes "Do you see those ^4d4dffEggring^000000 wandering around over there?";
+		mes "Ahora que revisamos tus armas, por que no echamos un vistazo a un objetivo para cazar?";
+		mes "Ves esos ^4d4dffEggring^000000 deambulando por alla?";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "They may look dumb but they can be a real pain in the butt. They will pick up and eat anything they come across.";
-		mes "They are a dime a dozen around here, so they're a great target for the novice Dorams to test their worth on.";
+		mes "Pueden parecer tontos pero pueden ser un verdadero dolor de cabeza. Recogen y comen cualquier cosa que encuentren.";
+		mes "Hay un monton de ellos por aqui, asi que son un gran objetivo para que los Dorams novatos demuestren su valor.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "Go ahead and get rid of some ^4d4dffEggring^000000, will you? ^4d4dffThree^000000 should do for now.";
+		mes "Adelante, elimina algunos ^4d4dffEggring^000000, si? ^4d4dffTres^000000 deberian ser suficientes por ahora.";
 		if (isbegin_quest(7712) == 0)
 			setquest 7712;// Where am I? Who am I??
 		completequest 7712;
@@ -306,36 +306,36 @@ lasa_fild01,60,322,3	script	Vigilante Aglio#doram02	4_DR_AGLIO,{
 		next;
 		cutin "tutorial02.BMP",4;
 		mes "^4d4dff!- Notice -!^000000";
-		mes "You have accepted a quest from an NPC.";
-		mes "^4d4dffCheck out the quest details by pressing the shortcut key [Alt+U],^000000 or through the Quest icon found in the menu tray.^000000";
+		mes "Has aceptado una mision de un NPC.";
+		mes "^4d4dffRevisa los detalles de la mision presionando la tecla de atajo [Alt+U],^000000 o a traves del icono de Mision en la bandeja del menu.^000000";
 		close3;
 	}
 	if (lasagna_quest[0] == 1 || lasagna_quest[0] == 2 || lasagna_quest[0] == 3) {
 		if (lasagna_quest[0] == 1) {
 			if (checkquest(7713,HUNTING) < 2) {
 				mes "[Vigilante Aglio]";
-				mes "Alright, to warm up, go and eliminate ^4d4dffthree Eggrings^000000.";
+				mes "Bien, para calentar, ve y elimina ^4d4dfftres Eggrings^000000.";
 				next;
 				mes "[Vigilante Aglio]";
-				mes "What do they look like? You'll see just by glancing at them right away. You can't miss them!";
-				mes "They abound around here. Go get them, tiger!";
+				mes "Como se ven? Los veras con solo echarles un vistazo. No puedes no verlos!";
+				mes "Abundan por aqui. Ve por ellos, tigre!";
 				next;
 				cutin "tutorial02.BMP",4;
 				mes "^4d4dff!- Notice -!^000000";
-				mes "^4d4dffCheck out the quest details by pressing the shortcut key [Alt+U],^000000 or through the Quest icon found in the menu tray.^000000";
+				mes "^4d4dffRevisa los detalles de la mision presionando la tecla de atajo [Alt+U],^000000 o a traves del icono de Mision en la bandeja del menu.^000000";
 				close3;
 			}
 			mes "[Vigilante Aglio]";
-			mes "Whoa, you're good!";
-			mes "I should've seen that in you because crossing the mountains is never easy.";
+			mes "Vaya, eres bueno!";
+			mes "Deberia haberlo visto en ti porque cruzar las montanas nunca es facil.";
 			next;
 			mes "[Vigilante Aglio]";
-			mes "I believe you can do very well, even in a new location.";
-			mes "Here, take this.";
+			mes "Creo que puedes hacerlo muy bien, incluso en un lugar nuevo.";
+			mes "Toma, ten esto.";
 			next;
 			mes "[Vigilante Aglio]";
-			mes "I brought some snacks for you.";
-			mes "It's cool apple juice!";
+			mes "Te traje unos bocadillos.";
+			mes "Es un jugo de manzana frio!";
 			completequest 7713;// First Battle!
 			getexp 70,70;
 			setquest 7714;// Refreshing Apple Juice
@@ -346,54 +346,54 @@ lasa_fild01,60,322,3	script	Vigilante Aglio#doram02	4_DR_AGLIO,{
 		if (lasagna_quest[0] == 2) {
 			if (countitem(531) > 0) {
 				mes "[Vigilante Aglio]";
-				mes "Click the 'Item' icon in the basic information window found in the upper left-hand side to open the item window.";
+				mes "Haz clic en el icono de 'Objeto' en la ventana de informacion basica en la parte superior izquierda para abrir la ventana de objetos.";
 				next;
 				mes "[Vigilante Aglio]";
-				mes "The item window comes with four tabs.";
-				mes "Items are automatically placed into the Item, Gear and Etc tabs, depending on their type.";
+				mes "La ventana de objetos tiene cuatro pestanas.";
+				mes "Los objetos se colocan automaticamente en las pestanas Objeto, Equipo y Etc, segun su tipo.";
 				next;
 				mes "[Vigilante Aglio]";
-				mes "To use or equip an item, ^4d4dffdouble-click that item^000000, or";
-				mes "^4d4dffdrag it to the Equipment window^000000 to use.";
+				mes "Para usar o equipar un objeto, ^4d4dffhaz doble clic en ese objeto^000000, o";
+				mes "^4d4dffarrastralo a la ventana de Equipo^000000 para usarlo.";
 				next;
 				cutin "tutorial03.BMP",4;
-				mes "!- Notice -!";
-				mes "^4d4dffYou can use or equip an item by double-clicking it.";
-				mes "Open or close the item window with the shortcut key [Alt+E].";
+				mes "!- Aviso -!";
+				mes "^4d4dffPuedes usar o equipar un objeto haciendo doble clic en el.";
+				mes "Abre o cierra la ventana de objetos con la tecla de atajo [Alt+E].";
 				next;
-				mes "!- Notice -!";
-				mes "^4d4dffCheck out your equipped items easily by pressing the shortcut key [Alt+Q].";
-				mes "Or, simply drag the appropriate items to the area you'd like to equip.^000000";
+				mes "!- Aviso -!";
+				mes "^4d4dffRevisa tus objetos equipados facilmente presionando la tecla de atajo [Alt+Q].";
+				mes "O simplemente arrastra los objetos apropiados al area donde quieras equiparlos.^000000";
 				next;
 				cutin "",255;
 				mes "[Vigilante Aglio]";
-				mes "If you want to ^4d4dffsee a detailed description for each item, right-click that item.^000000";
-				mes "This shows the detailed description of the selected item.";
+				mes "Si quieres ^4d4dffver una descripcion detallada de cada objeto, haz clic derecho en ese objeto.^000000";
+				mes "Esto muestra la descripcion detallada del objeto seleccionado.";
 				next;
 				cutin "tutorial04.BMP",4;
-				mes "!- Notice -!";
-				mes "^4d4dffRight-click an item to view its detailed description.^000000";
+				mes "!- Aviso -!";
+				mes "^4d4dffHaz clic derecho en un objeto para ver su descripcion detallada.^000000";
 				next;
-				mes "!- Notice -!";
-				mes "^4d4dffIf a player wishes, they can use the social options such as Booking, Party, or Guild. Here, they join a party or request transactions.^000000";
+				mes "!- Aviso -!";
+				mes "^4d4dffSi un jugador lo desea, puede usar las opciones sociales como Reserva, Grupo o Gremio. Aqui pueden unirse a un grupo o solicitar transacciones.^000000";
 				next;
 				cutin "",255;
 				mes "[Vigilante Aglio]";
-				mes "Well, then. ^4d4dffGo ahead and drink the apple juice that I gave you.^000000";
+				mes "Bien, entonces. ^4d4dffAdelante, bebe el jugo de manzana que te di.^000000";
 				close;
 			}
 			mes "[Vigilante Aglio]";
-			mes "How do you like it? It's cool, sweet, and just good, right?";
-			mes "I would've given you more if I had any, but...no.";
+			mes "Que te parecio? Esta frio, dulce y simplemente bueno, verdad?";
+			mes "Te hubiera dado mas si tuviera, pero...no.";
 			next;
 			mes "[Vigilante Aglio]";
-			mes "Oh, right! I'll give you this, too.";
-			mes "It'll restore your stamina if you take it when you're tired.";
+			mes "Oh, cierto! Te dare esto tambien.";
+			mes "Restaurara tu energia si lo tomas cuando estes cansado.";
 			next;
 			mes "[Vigilante Aglio]";
-			mes "Also, I'll give you a new staff.";
-			mes "It should be better than that sprout you brought with you.";
-			mes "Now you know how to equip an item because I already explained it to you, don't you?";
+			mes "Tambien te dare un nuevo baculo.";
+			mes "Deberia ser mejor que ese brote que trajiste contigo.";
+			mes "Ahora sabes como equipar un objeto porque ya te lo explique, verdad?";
 			erasequest 7714;// Refreshing Apple Juice
 			getitem 569,30;// Novice Potion
 			getitem 1687,1;// Beginner Foxtail Staff [1]
@@ -403,134 +403,134 @@ lasa_fild01,60,322,3	script	Vigilante Aglio#doram02	4_DR_AGLIO,{
 		next;
 		classchange( 4_DR_KID_01, "Kid#doram03t", bc_self );
 		mes "[Vigilante Aglio]";
-		mes "I'll direct you to the village, now.";
+		mes "Te dirigire a la aldea ahora.";
 		npctalk "....Aglioooooo!!", "Kid#doram03t", bc_self;
 		next;
-		npctalk "Oh, my days! You startled me!", "", bc_self;
+		npctalk "Ay, cielos! Me asustaste!", "", bc_self;
 		mes "[Vigilante Aglio]";
-		mes "What's up?";
-		mes "Oh, you're the youngest kitten of the tool merchant!";
-		mes "it's dangerous around here. What brought you all this way?";
+		mes "Que pasa?";
+		mes "Oh, eres el gatito mas joven del comerciante de herramientas!";
+		mes "Es peligroso por aqui. Que te trajo hasta aca?";
 		next;
 		mes "[The Youngest Kitten of the Tool Merchant]";
-		mes "Oh, actually...I lost it!";
-		mes "There was a box!";
-		mes "I was supposed to give it to Haru.";
-		mes "I was just trying to hang out for a while, but I fell down!";
+		mes "Oh, en realidad...lo perdi!";
+		mes "Habia una caja!";
+		mes "Se suponia que debia darsela a Haru.";
+		mes "Solo estaba tratando de pasear un rato, pero me cai!";
 		next;
 		mes "[The Youngest Kitten of the Tool Merchant]";
-		mes "Please find it, Aglio!";
-		mes "Or, I'm going to be in trouble!";
+		mes "Por favor encuentrala, Aglio!";
+		mes "O voy a estar en problemas!";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "So, you were running an errand to deliver a box to Healer Haru.";
-		mes "But you fell down while hanging out for a while and lost the box. Is that it?";
+		mes "Entonces, estabas haciendo un mandado para entregar una caja a la Sanadora Haru.";
+		mes "Pero te caiste mientras paseabas un rato y perdiste la caja. Es eso?";
 		next;
 		mes "[The Youngest Child of the Tool Merchant]";
-		mes "Yes, sir!";
-		mes "You're so good at summing it up!";
+		mes "Si, senor!";
+		mes "Eres muy bueno resumiendo!";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "Alright. You just return to your village.";
-		mes "I'll see what I can do. You return home and wait.";
+		mes "Bien. Tu solo regresa a tu aldea.";
+		mes "Vere que puedo hacer. Regresa a casa y espera.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "One more thing. Just drop that habit of acting like you're naive in front of the strangers!";
+		mes "Una cosa mas. Deja esa costumbre de actuar como si fueras ingenuo frente a los extranjeros!";
 		next;
 		mes "[The Youngest Kitten of the Tool Merchant]";
-		mes "Come on...I'm the cutest, youngest kitten from Lasagna!";
-		mes "Anyway, I hope you help me by finding that box. Please.";
+		mes "Vamos...soy el gatito mas lindo y joven de Lasagna!";
+		mes "De todos modos, espero que me ayudes encontrando esa caja. Por favor.";
 		next;
-		npctalk "You know that I love you, don't you?", "Kid#doram03t", bc_self;
+		npctalk "Sabes que te quiero, verdad?", "Kid#doram03t", bc_self;
 		sleep2 1000;
-		npctalk "Just go, already!", "", bc_self;
+		npctalk "Ya vete!", "", bc_self;
 		classchange( HIDDEN_WARP_NPC, "Kid#doram03t", bc_self );
 		mes "[Vigilante Aglio]";
 		mes ".....";
-		mes "........~Sighs deeply~...";
+		mes "........~Suspira profundamente~...";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "Well, there's no choice, then.";
+		mes "Bueno, no hay opcion entonces.";
 		mes "" + strcharinfo(0) + "";
-		mes "I think you can step up and handle it this time.";
+		mes "Creo que puedes dar un paso al frente y encargarte esta vez.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "it's a relief to have a competent Doram with me.";
-		mes "My guess is that an ^4d4dffEggring must've eaten that box.^000000";
+		mes "Es un alivio tener a un Doram competente conmigo.";
+		mes "Mi suposicion es que un ^4d4dffEggring debe haberse comido esa caja.^000000";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "Keep hunting Eggrings until you find that box...";
-		mes "Let's go!";
+		mes "Sigue cazando Eggrings hasta que encuentres esa caja...";
+		mes "Vamos!";
 		setquest 7715;// Midding Box
 		lasagna_quest[0] = 4;
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffYou accepted a new quest from Vigilante Aglio.";
-		mes "Check out the details of the quest in the Quest Information Window.";
+		mes "!- Aviso -!";
+		mes "^4d4dffAceptaste una nueva mision de Vigilante Aglio.";
+		mes "Revisa los detalles de la mision en la Ventana de Informacion de Misiones.";
 		next;
-		mes "!- Notice -!";
-		mes "Press the ^4d4dffAlt + U^000000 shortcut key to open the Quest Information Window.";
+		mes "!- Aviso -!";
+		mes "Presiona la tecla de atajo ^4d4dffAlt + U^000000 para abrir la Ventana de Informacion de Misiones.";
 		close;
 	}
 	if (lasagna_quest[0] == 4) {
 		if (countitem(1081) < 1) {// Midding Box
 			mes "[Vigilante Aglio]";
-			mes "You must remember Eggrings, you've hunted them before, haven't you?";
-			mes "They are easily spotted around here.";
+			mes "Debes recordar a los Eggrings, los has cazado antes, no?";
+			mes "Son faciles de encontrar por aqui.";
 			next;
 			mes "[Vigilante Aglio]";
-			mes "I have no idea which Eggring swallowed the box, but, you'll find it once you start hunting them.";
+			mes "No tengo idea de cual Eggring se trago la caja, pero la encontraras una vez que empieces a cazarlos.";
 			next;
 			mes "[Vigilante Aglio]";
-			mes "Well, then. I'm counting on you.";
+			mes "Bueno, entonces. Cuento contigo.";
 			close;
 		}
 		mes "[Vigilante Aglio]";
-		mes "Ohh...! This is the box!";
-		mes "You can bring this when you visit the village!";
+		mes "Ohh...! Esta es la caja!";
+		mes "Puedes llevar esto cuando visites la aldea!";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "^4d4dffWhen you arrive in the village, find the tool shop first and deliver this box.^000000";
+		mes "^4d4dffCuando llegues a la aldea, encuentra la tienda de herramientas primero y entrega esta caja.^000000";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "I'll let you know how to reach the village.";
-		mes "Follow the arrows that just appeared on the ground.";
+		mes "Te dire como llegar a la aldea.";
+		mes "Sigue las flechas que acaban de aparecer en el suelo.";
 		erasequest 7715;// Midding Box
 		setquest 7716;// To the Village!
 		getexp 100,100;
 		lasagna_quest[0] = 5;
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffSometimes NPCs will help you find your destination through the Navigation tool.";
-		mes "Links can be created if there is a need for it. If you see the [Target], click it for pathfinding.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffA veces los NPCs te ayudaran a encontrar tu destino a traves de la herramienta de Navegacion.";
+		mes "Se pueden crear enlaces si es necesario. Si ves el [Objetivo], haz clic para buscar el camino.^000000";
 		cutin "navi01.bmp",4;
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffCall up the Navigation panel by clicking the appropriate menu icon.";
-		mes "Search for the target, set the goal, and click Pathfinding.";
-		mes "Arrows will be generated pointing toward the location of the target.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffAbre el panel de Navegacion haciendo clic en el icono de menu correspondiente.";
+		mes "Busca el objetivo, establece la meta y haz clic en Buscar Camino.";
+		mes "Se generaran flechas apuntando hacia la ubicacion del objetivo.^000000";
 		cutin "navi02.bmp",4;
 		navigateto "lasagna",168,124;
 		close3;
 	}
 	if (lasagna_quest[0] == 5) {
 		mes "[Vigilante Aglio]";
-		mes "What's in front of you is Lasagna, the harbor village.";
-		mes "You should bring that box to the tool shop first, right?";
+		mes "Lo que tienes enfrente es Lasagna, la aldea portuaria.";
+		mes "Deberias llevar esa caja a la tienda de herramientas primero, verdad?";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "I'll let you know how to reach the village.";
-		mes "Follow the arrows that just appeared on the ground.";
+		mes "Te dire como llegar a la aldea.";
+		mes "Sigue las flechas que acaban de aparecer en el suelo.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "I'll be right behind you!";
-		mes "Don't worry about me. Just keep going.";
+		mes "Estare justo detras de ti!";
+		mes "No te preocupes por mi. Solo sigue adelante.";
 		navigateto "lasagna",168,124;
 		close;
 	}
 	mes "[Vigilante Aglio]";
-	mes "Haven't you left for Midgard yet?";
-	mes "Well, problems do occur at the harbor from time to time, but I thought it wouldn't be an issue for you.";
+	mes "Aun no has partido hacia Midgard?";
+	mes "Bueno, los problemas ocurren en el puerto de vez en cuando, pero pense que no seria un problema para ti.";
 	close;
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(7712) > 0 && (checkquest(7713,HUNTING) == -1 || checkquest(7713,HUNTING) == 2)" );
@@ -541,46 +541,46 @@ lasa_fild01,62,321,3	script	Kid#doram03t	HIDDEN_WARP_NPC,{ end; }
 
 lasa_fild01,132,374,3	script	Sloth#doram	4_DR_KID_01,3,3,{
 	if (checkweight(1001,3) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	switch( isbegin_quest(7719) ) {
 	case 0:
 		mes "[Sloth]";
-		mes "Hmm...You look energetic.";
-		mes "You see, I have an upset stomach.";
+		mes "Hmm...Te ves energico.";
+		mes "Veras, tengo el estomago revuelto.";
 		next;
 		mes "[Sloth]";
-		mes "The weather is sunny and warm, but...";
-		mes "I think I'm having a very bad day...";
+		mes "El clima esta soleado y calido, pero...";
+		mes "Creo que estoy teniendo un dia muy malo...";
 		next;
 		mes "[Sloth]";
-		mes "I should pluck all the Red Grass in this herb field...";
+		mes "Deberia arrancar toda la Red Grass de este campo de hierbas...";
 		next;
 		mes "[Sloth]";
-		mes "But I'm pleasantly full in this fine sunny weather...";
-		mes "And there's a good breeze blowing...";
+		mes "Pero estoy agradablemente lleno en este buen clima soleado...";
+		mes "Y hay una buena brisa soplando...";
 		next;
 		mes "[Sloth]";
-		mes "I don't think I can ever drag myself up.";
-		mes "But I'm supposed to pluck the Red Grass...";
-		mes "If you do it I'll give you anchovies, okay?";
+		mes "No creo que pueda levantarme jamas.";
+		mes "Pero se supone que debo arrancar la Red Grass...";
+		mes "Si lo haces te dare anchoas, esta bien?";
 		next;
-		switch( select( "I'll pluck the Red Grass for you.", "Move your butt, you lazy sloth!" ) ) {
+		switch( select( "Arrancare la Red Grass por ti.", "Mueve tu trasero, flojo perezoso!" ) ) {
 		case 1:
 			mes "[Sloth]";
-			mes "^4d4dffPluck 3 Red Grass and then collect 2 Red Herbs^000000 around here!";
+			mes "^4d4dffArranca 3 Red Grass y luego recolecta 2 Red Herbs^000000 por aqui!";
 			next;
 			mes "[Sloth]";
-			mes "This may be of great help to you!";
-			mes "Well, then. I'm counting on you.";
+			mes "Esto puede ser de gran ayuda para ti!";
+			mes "Bueno, entonces. Cuento contigo.";
 			next;
 			mes "[Sloth]";
-			mes "I'll rest here to make my upset stomach feel better.";
+			mes "Descansare aqui para que mi estomago revuelto se sienta mejor.";
 			setquest 7719;// Time to Digest
 			close;
 		case 2:
@@ -592,37 +592,37 @@ lasa_fild01,132,374,3	script	Sloth#doram	4_DR_KID_01,3,3,{
 	case 1:
 		if (checkquest(7719,HUNTING) != 2) {
 			mes "[Sloth]";
-			mes "What I want isn't too much.";
-			mes "Just ^4d4dffpluck the Red Grass and collect 2 Red Herbs^000000 around here. That's all.";
+			mes "Lo que quiero no es demasiado.";
+			mes "Solo ^4d4dffarranca la Red Grass y recolecta 2 Red Herbs^000000 por aqui. Eso es todo.";
 			next;
 			mes "[Sloth]";
-			mes "They grow too fast and keep growing no matter how many times I pluck them. I've had it...";
+			mes "Crecen demasiado rapido y siguen creciendo sin importar cuantas veces las arranque. Ya me canse...";
 			close;
 		}
 		if (countitem(507) < 2) {
 			mes "[Sloth]";
-			mes "What I want isn't too much.";
-			mes "Just ^4d4dffpluck the Red Grass and collect 2 Red Herbs^000000 around here. That's all.";
+			mes "Lo que quiero no es demasiado.";
+			mes "Solo ^4d4dffarranca la Red Grass y recolecta 2 Red Herbs^000000 por aqui. Eso es todo.";
 			close;
 		}
 		mes "[Sloth]";
-		mes "Oh...This aroma!";
-		mes "You plucked the Red Herbs just right.";
+		mes "Oh...Este aroma!";
+		mes "Arrancaste las Red Herbs justo como debia ser.";
 		next;
 		mes "[Sloth]";
-		mes "I'll munch on them like twigs and digest them just like that. Meow!";
+		mes "Las masticare como ramitas y las digerire asi nomas. Meow!";
 		next;
 		mes "[Sloth]";
-		mes "I'll give you the left-over herbs as a reward.";
-		mes "Chew them up and ^4d4dffyour HP will be restored.^000000";
+		mes "Te dare las hierbas sobrantes como recompensa.";
+		mes "Masticalas y ^4d4dfftu HP se restaurara.^000000";
 		next;
 		mes "[Sloth]";
-		mes "If you ask Haru, she'll tell you how to turn them into a potion with more effects.";
+		mes "Si le preguntas a Haru, te dira como convertirlas en una pocion con mas efectos.";
 		next;
 		mes "[Sloth]";
-		mes "Anyway, I'm the cat who knows how to return the favor.";
-		mes "This is for you.";
-		mes "Stay out of trouble, now.";
+		mes "De todos modos, soy el gato que sabe como devolver el favor.";
+		mes "Esto es para ti.";
+		mes "No te metas en problemas, vale?";
 		completequest 7719;
 		delitem 507,1;// Red Herb
 		getitem 11601,20;// Delicious Anchovy
@@ -632,14 +632,14 @@ lasa_fild01,132,374,3	script	Sloth#doram	4_DR_KID_01,3,3,{
 		close;
 	case 2:
 		mes "[Sloth]";
-		mes "I'm feeling... so tired...";
+		mes "Me siento... tan cansado...";
 		close;
 	}
 OnTouch:
 	if (isbegin_quest(7719) == 2)
-		npctalk "~Growling~", "", bc_self;
+		npctalk "~Gruuunido~", "", bc_self;
 	else
-		npctalk "Hey, there! Get over here for a minute!", "", bc_self;
+		npctalk "Oye, tu! Ven aqui un momento!", "", bc_self;
 	end;
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(7719)" );
@@ -649,49 +649,49 @@ OnInit:
 lasa_fild01,103,344,3	script	Well-known Troublemaker	4_DR_KID_01,3,3,{
 	if (Class != Job_Summoner) {
 		mes "[Well-known Troublemaker]";
-		mes "What brought you all the way up here, human?";
-		mes "Be gone! Be gone, meeow!";
+		mes "Que te trajo hasta aqui arriba, humano?";
+		mes "Fuera! Fuera, meeow!";
 		next;
 		mes "[Well-known Troublemaker]";
-		mes "This is like a gateway. It cannot and should not be tainted by humans!";
+		mes "Esto es como una puerta de entrada. No puede ni debe ser contaminada por humanos!";
 		close;
 	}
 	switch( isbegin_quest(7721) ) {
 	case 0:
 		mes "[Well-known Kittie]";
-		mes "Hey, buddy!";
-		mes "Nyo-hoho! Nyo-hoho! You look so hectic. Where are you going?";
-		mes "To me, you look like a newbie adventurer who has just crossed the mountain ridge, meeow.";
+		mes "Oye, amigo!";
+		mes "Nyo-hoho! Nyo-hoho! Te ves muy agitado. A donde vas?";
+		mes "Para mi, pareces un aventurero novato que acaba de cruzar la cordillera, meeow.";
 		next;
 		mes "[Well-known Kittie]";
-		mes "Aren't you too weak to handle the Dorams in Lasagna?";
+		mes "No eres demasiado debil para lidiar con los Dorams de Lasagna?";
 		next;
 		mes "[Well-known Kittie]";
-		mes "Do you even know how to use skills?";
-		mes "To me, you look like a greenhorn who's simply acting out.";
+		mes "Sabes siquiera como usar habilidades?";
+		mes "Para mi, pareces un novaton que simplemente esta actuando.";
 		next;
-		select( "I'm a better fighter than you are!", "Whoa, is that so?" );
+		select( "Soy mejor peleador que tu!", "Vaya, es asi?" );
 		mes "[Well-known Kittie]";
-		mes "Nyo-ho! Nyo-ho! How dare you disrespect me?";
-		mes "How about making a bet with me?";
-		next;
-		mes "[Well-known Kittie]";
-		mes "I'll give you 10 full minutes while you hunt ^4d4dff3 Leaf Lunatics and 2 Grass Fabres^000000 around here!";
+		mes "Nyo-ho! Nyo-ho! Como te atreves a faltarme al respeto?";
+		mes "Que tal si hacemos una apuesta?";
 		next;
 		mes "[Well-known Kittie]";
-		mes "If you show me what you're made of, I'll get out of your way.";
+		mes "Te dare 10 minutos completos para que caces ^4d4dff3 Leaf Lunatics y 2 Grass Fabres^000000 por aqui!";
 		next;
-		switch( select( "Accept.", "Decline." ) ) {
+		mes "[Well-known Kittie]";
+		mes "Si me demuestras de que estas hecho, me quitare de tu camino.";
+		next;
+		switch( select( "Aceptar.", "Rechazar." ) ) {
 		case 1:
 			mes "[Well-known Kittie]";
-			mes "You've got 10 minutes. No more, no less!";
-			mes "^4d4dff3 Leaf Lunatics and 2 Grass Fabres!^000000";
+			mes "Tienes 10 minutos. Ni mas, ni menos!";
+			mes "^4d4dff3 Leaf Lunatics y 2 Grass Fabres!^000000";
 			setquest 7721;// Cat showoff contest
 			close;
 		case 2:
 			mes "[Well-known Kittie]";
-			mes "Are you running away?!";
-			mes "No adventurer with a faint heart ever survived on the New Continent!";
+			mes "Te estas escapando?!";
+			mes "Ningun aventurero cobarde sobrevivio en el Nuevo Continente!";
 			close;
 		}
 	case 1:
@@ -699,118 +699,118 @@ lasa_fild01,103,344,3	script	Well-known Troublemaker	4_DR_KID_01,3,3,{
 		.@quest_playtime = checkquest(7721,PLAYTIME);
 		if (.@quest_playtime < 2 && .@quest_hunting < 2) {
 			mes "[Well-known Kittie]";
-			mes "Eliminate ^4d4dff3 Leaf Lunatics and 2 Grass Fabres^000000 swarming around here within ^4d4dff10 minutes^000000!";
+			mes "Elimina ^4d4dff3 Leaf Lunatics y 2 Grass Fabres^000000 que pululan por aqui en ^4d4dff10 minutos^000000!";
 			close;
 		}
 		if (.@quest_playtime == 2 && .@quest_hunting < 2) {
 			mes "[Well-known Kittie]";
 			mes "Nyo-hoho!! Nyo-hoho!!";
-			mes "Was it too tough for you to handle?";
-			mes "What do you think? Want to give it another try?";
+			mes "Fue demasiado dificil para ti?";
+			mes "Que opinas? Quieres intentarlo de nuevo?";
 			next;
 			mes "[Well-known Kittie]";
-			mes "Was it too hard for you?";
-			mes "Are you using your ^4d4dffskills^000000 well while hunting?";
+			mes "Fue muy dificil para ti?";
+			mes "Estas usando bien tus ^4d4dffhabilidades^000000 mientras cazas?";
 			next;
 			mes "[Well-known Kittie]";
-			mes "You can ^4d4dffbring up the Skill Tree by pressing the [Alt+S] shortcut key or clicking the corresponding skill icon.^000000";
+			mes "Puedes ^4d4dffabrir el Arbol de Habilidades presionando la tecla de atajo [Alt+S] o haciendo clic en el icono de habilidad correspondiente.^000000";
 			next;
 			mes "[Well-known Kittie]";
-			mes "Setup the skill you'd like to use so that you can use it while in battle.";
+			mes "Configura la habilidad que quieras usar para poder usarla durante la batalla.";
 			next;
 			mes "[Well-known Kittie]";
-			mes "^4d4dffSkills that are activated manually ^000000 can be ^4d4dffplaced on the quickbar^000000 for fast use.";
+			mes "^4d4dffLas habilidades que se activan manualmente ^000000 se pueden ^4d4dffcolocar en la barra rapida^000000 para uso rapido.";
 			next;
 			mes "[Well-known Kittie]";
-			mes "...Now you know how to use skills.";
-			mes "So, what are you going to do?";
+			mes "...Ahora sabes como usar habilidades.";
+			mes "Entonces, que vas a hacer?";
 			next;
-			switch( select( "Try again.", "I'll quit right now!" ) ) {
+			switch( select( "Intentar de nuevo.", "Lo dejo ahora mismo!" ) ) {
 			case 1:
 				mes "[Well-known Kittie]";
-				mes "You have moxie and I like that!";
-				mes "Alright, then. Give it another go!";
+				mes "Tienes agallas y eso me gusta!";
+				mes "Muy bien, entonces. Intentalo otra vez!";
 				erasequest 7721;
 				setquest 7721;// Cat showoff contest
 				close;
 			case 2:
 				mes "[Well-known Kittie]";
-				mes "How can you hope to survive the New Continent with that weak mindset?";
-				mes "Nyo-hoho! Nyo-hoho! I'm the strongest Doram in this domain!";
+				mes "Como esperas sobrevivir en el Nuevo Continente con esa mentalidad debil?";
+				mes "Nyo-hoho! Nyo-hoho! Soy el Doram mas fuerte de este dominio!";
 				close;
 			}
 		}
 		if (.@quest_playtime < 2 && .@quest_hunting == 2) {
 			mes "[Well-known Kittie]";
-			mes "Hmm...You are good.";
-			mes "I feel challenged whenever I stumble upon a competent Doram such as you.";
+			mes "Hmm...Eres bueno.";
+			mes "Me siento retado cada vez que me encuentro con un Doram competente como tu.";
 		}
 		else {
 			mes "[Well-known Kittie]";
-			mes "Time is already up! Nyo-hoho!!";
-			mes "So that again proves that I'm the best in this domain!";
+			mes "El tiempo ya se acabo! Nyo-hoho!!";
+			mes "Eso demuestra otra vez que soy el mejor de este dominio!";
 		}
 		next;
 		mes "[Well-known Kittie]";
-		mes "You finished the job on a high note so I'd like to help you in return.";
+		mes "Terminaste el trabajo de manera excelente asi que me gustaria ayudarte a cambio.";
 		next;
 		mes "[Well-known Kittie]";
-		mes "By the way, do you know what a ^4d4dffSkill Tree^000000 is?";
-		mes "Did I teach you about that?";
-		mes "Do you remember anything about it?";
+		mes "Por cierto, sabes que es un ^4d4dffArbol de Habilidades^000000?";
+		mes "Te ensene sobre eso?";
+		mes "Recuerdas algo al respecto?";
 		next;
 		mes "[Well-known Kittie]";
-		mes "You can ^4d4dffbring up the Skill Tree by pressing the [Alt+S] shortcut key or clicking the corresponding skill icon.^000000";
+		mes "Puedes ^4d4dffabrir el Arbol de Habilidades presionando la tecla de atajo [Alt+S] o haciendo clic en el icono de habilidad correspondiente.^000000";
 		next;
 		mes "[Well-known Kittie]";
-		mes "Setup the skill you'd like to use so that you can use it while in battle.";
+		mes "Configura la habilidad que quieras usar para poder usarla durante la batalla.";
 		next;
 		mes "[Well-known Kittie]";
-		mes "^4d4dffSkills that are activated manually ^000000 can be ^4d4dffplaced on the quickbar^000000 for fast use.";
+		mes "^4d4dffLas habilidades que se activan manualmente ^000000 se pueden ^4d4dffcolocar en la barra rapida^000000 para uso rapido.";
 		next;
 		mes "[Well-known Kittie]";
-		mes "...Now you know how to use skills.";
-		mes "You should thank me. Nyo-hoho!";
+		mes "...Ahora sabes como usar habilidades.";
+		mes "Deberias agradecerme. Nyo-hoho!";
 		completequest 7721;// Cat showoff contest
 		getexp 120,120;
 		close2;
 		setpcblock PCBLOCK_NPC, true;
 		classchange( 4_DR_AGLIO, "Vigilante Aglio#doram12", bc_self );
 		sleep2 1000;
-		npctalk "You! You're picking a fight with another innocent passerby?", "Vigilante Aglio#doram12", bc_self;
+		npctalk "Tu! Estas buscando pelea con otro transeuntes inocente?", "Vigilante Aglio#doram12", bc_self;
 		sleep2 2000;
-		npctalk "Picking a fight? This is what we call training!", "Well-known Troublemaker", bc_self;
+		npctalk "Buscar pelea? A esto le llamamos entrenamiento!", "Well-known Troublemaker", bc_self;
 		sleep2 2000;
-		npctalk "Shut your mouth! You're joining the Vigilante Corp the moment you return to the village, got it?", "Vigilante Aglio#doram12", bc_self;
+		npctalk "Cierra la boca! Te uniras al Cuerpo de Vigilantes en cuanto regreses a la aldea, entendido?", "Vigilante Aglio#doram12", bc_self;
 		sleep2 2000;
-		npctalk "Well, uh...I'm...uh...I'm free-spirited! That's all!", "Well-known Troublemaker", bc_self;
+		npctalk "Bueno, eh...Yo...eh...Soy de espiritu libre! Eso es todo!", "Well-known Troublemaker", bc_self;
 		sleep2 2000;
 		npctalk "Enough. " + strcharinfo(0) + " the next destination is the tool shop in the village. I'll let you know where it is, again.", "Vigilante Aglio#doram12", bc_self;
 		sleep2 2000;
 		npctalk "I'll see you again in the village!", "Vigilante Aglio#doram12", bc_self;
 		navigateto "lasagna",168,124;
 		sleep2 2000;
-		npctalk "You're just full of it.", "Well-known Troublemaker", bc_self;
+		npctalk "Estas lleno de fanfarronerias.", "Well-known Troublemaker", bc_self;
 		classchange( HIDDEN_WARP_NPC, "Vigilante Aglio#doram12", bc_self );
 		setpcblock PCBLOCK_NPC, false;
 		end;
 	case 2:
 		mes "[Well-known Kittie]";
-		mes "Do you need to be enlightened again?";
+		mes "Necesitas que te iluminen de nuevo?";
 		next;
 		mes "[Well-known Kittie]";
-		mes "There's nothing special about life in this world.";
-		mes "You'd better make yourself familiar with the skill tree. It is accessed when you click the Skill icon.";
+		mes "No hay nada especial sobre la vida en este mundo.";
+		mes "Sera mejor que te familiarices con el arbol de habilidades. Se accede haciendo clic en el icono de Habilidad.";
 		next;
 		mes "[Well-known Kittie]";
-		mes "Battle Dorams are specialized in summoning.";
-		mes "Focus on using the summoning skills so that you can win battles.";
+		mes "Los Dorams de batalla se especializan en invocacion.";
+		mes "Enfocate en usar las habilidades de invocacion para poder ganar batallas.";
 		close;
 	}
 
 OnTouch:
 	if (Class == Job_Summoner && isbegin_quest(7721) == 0)
-		npctalk "Meeow?? Is this another out-of-towner Doram that I haven't met before?", "", bc_self;
+		npctalk "Meeow?? Es este otro Doram foraneo que no he conocido antes?", "", bc_self;
 	end;
 
 OnInit:
@@ -826,49 +826,49 @@ lasagna,168,125,3	script	Kid#doram04t	4_DR_KID_01,{
 	if (lasagna_quest[0] == 5) {
 		if (countitem(1081) > 0) {
 			mes "[Kitten]";
-			mes "This is it!!";
+			mes "Esta es!!";
 			next;
-			mes "The kitten hoisted the box given to him up high, screaming out in joy";
+			mes "El gatito levanto la caja que le dieron bien alto, gritando de alegria";
 			next;
 			mes "[Tool Merchant]";
-			mes "Wait. This box looks familiar...";
-			mes "Hey! Isn't this the box that I told you to deliver to Haru?";
+			mes "Espera. Esta caja me resulta familiar...";
+			mes "Oye! No es esta la caja que te dije que le entregaras a Haru?";
 			next;
 			mes "[Kitten]";
-			mes "~Gulps~";
-			mes "I'm leaving! Right now!";
-			mes "Thank you for finding the box!";
+			mes "~Traga saliva~";
+			mes "Me voy! Ahora mismo!";
+			mes "Gracias por encontrar la caja!";
 			delitem 1081, countitem(1081);// Delivery Box
 			completequest 7716;// To the Village!
 			getexp 70,70;
 			classchange( HIDDEN_WARP_NPC, "", bc_self );
 			lasagna_quest[0] = 6;
 			next;
-			npctalk "...Wow, that was fast.", "Tool Merchant#doram05t", bc_self;
+			npctalk "...Vaya, eso fue rapido.", "Tool Merchant#doram05t", bc_self;
 			mes "[Tool Merchant]";
-			mes "Anyway, thank you for finding the box.";
-			mes "If you have the time, sit down and talk with me.";
+			mes "De todos modos, gracias por encontrar la caja.";
+			mes "Si tienes tiempo, sientate y habla conmigo.";
 			close;
 		}
 	}
 	if (lasagna_quest[0] < 6) {
 		mes "[Kitten]";
-		mes "Why is he taking so long...?";
-		mes "I'm worried.";
+		mes "Por que se tarda tanto...?";
+		mes "Estoy preocupado.";
 		next;
-		select("Is there anything that troubles you?");
+		select("Hay algo que te preocupe?");
 		mes "[Kitten]";
-		mes "No, it's nothing.";
-		mes "I'm not one of the Dorams who would randomly give up on their errands!";
+		mes "No, no es nada.";
+		mes "No soy de los Dorams que abandonarian sus mandados asi nomas!";
 		next;
-		mes "The little Doram starts whining, secretly being conscious of the adult Doram next to him.";
+		mes "El pequeno Doram empieza a quejarse, siendo secretamente consciente del Doram adulto a su lado.";
 		close;
 	}
 	mes "[Kitten]";
-	mes "I was told you're headed to the New Continent.";
-	mes "I want to go there myself, too!";
+	mes "Me dijeron que te diriges al Nuevo Continente.";
+	mes "Yo tambien quiero ir alla!";
 	close2;
-	npctalk "You're too young! Just join the Vigilante Corp.", "Tool Merchant#doram05t", bc_self;
+	npctalk "Eres muy joven! Solo unete al Cuerpo de Vigilantes.", "Tool Merchant#doram05t", bc_self;
 	end;
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "isbegin_quest(7716) == 1" );
@@ -879,56 +879,56 @@ lasagna,165,125,5	script	Tool Merchant#doram05t	4_DR_M_01,{
 	if (lasagna_quest[0] == 5) {
 		if (countitem(1081) > 0) {
 			mes "[Kitten]";
-			mes "This is it!!";
+			mes "Esta es!!";
 			next;
-			mes "The kitten hoisted the box given to him up high, screaming out in joy";
+			mes "El gatito levanto la caja que le dieron bien alto, gritando de alegria";
 			next;
 			mes "[Tool Merchant]";
-			mes "Wait. This box looks familiar...";
-			mes "Hey! Isn't this the box that I told you to deliver to Haru?";
+			mes "Espera. Esta caja me resulta familiar...";
+			mes "Oye! No es esta la caja que te dije que le entregaras a Haru?";
 			next;
 			mes "[Kitten]";
-			mes "~Gulps~";
-			mes "I'm leaving! Right now!";
-			mes "Thank you for finding the box!";
+			mes "~Traga saliva~";
+			mes "Me voy! Ahora mismo!";
+			mes "Gracias por encontrar la caja!";
 			delitem 1081, countitem(1081);// Delivery Box
 			completequest 7716;// To the Village!
 			getexp 70,70;
 			classchange( HIDDEN_WARP_NPC, "Kid#doram04t", bc_self );
 			lasagna_quest[0] = 6;
 			next;
-			npctalk "...Wow, that was fast.", "", bc_self;
+			npctalk "...Vaya, eso fue rapido.", "", bc_self;
 			mes "[Tool Merchant]";
-			mes "Anyway, thank you for finding the box.";
-			mes "If you have the time, sit down and talk with me.";
+			mes "De todos modos, gracias por encontrar la caja.";
+			mes "Si tienes tiempo, sientate y habla conmigo.";
 			close;
 		}
 	}
 	if (lasagna_quest[0] == 6) {
 		if (checkweight(1001,6) == 0) {
-			mes "- Hold on a second here!! -";
-			mes "- You have too many items. -";
-			mes "- That means you can no longer receive any items. -";
-			mes "- Free up some space -";
-			mes "- and try again. -";
+			mes "- Espera un momento!! -";
+			mes "- Tienes demasiados objetos. -";
+			mes "- Eso significa que ya no puedes recibir mas objetos. -";
+			mes "- Libera algo de espacio -";
+			mes "- e intentalo de nuevo. -";
 			close;
 		}
 		mes "[Tool Merchant]";
-		mes "You must be here to apply for the expedition to the New Continent.";
-		mes "It looks like my son caused some trouble for you.";
-		mes "Thank you for your help.";
+		mes "Debes estar aqui para inscribirte en la expedicion al Nuevo Continente.";
+		mes "Parece que mi hijo te causo algunos problemas.";
+		mes "Gracias por tu ayuda.";
 		next;
 		mes "[Tool Merchant]";
-		mes "This is not much, but please take it. It's a token of my appreciation.";
-		mes "I also gave you ^4d4dffa new set of clothes^000000 so that you can change out of your dirty ones.";
+		mes "Esto no es mucho, pero por favor aceptalo. Es una muestra de mi agradecimiento.";
+		mes "Tambien te di ^4d4dffun nuevo conjunto de ropa^000000 para que te cambies la sucia.";
 		next;
 		mes "[Tool Merchant]";
-		mes "You can find other tool merchants like me in each village.";
-		mes "You can buy and sell the items through those merchants.";
+		mes "Puedes encontrar otros comerciantes de herramientas como yo en cada aldea.";
+		mes "Puedes comprar y vender objetos a traves de esos comerciantes.";
 		next;
 		mes "[Tool Merchant]";
-		mes "Ask ^4d4dffHealer Haru about the Combination Kit^000000 and she'll help you use it effectively.";
-		mes "Just take this with you.";
+		mes "Preguntale a ^4d4dffla Sanadora Haru sobre el Kit de Combinacion^000000 y ella te ayudara a usarlo eficazmente.";
+		mes "Solo lleva esto contigo.";
 		setquest 7717;// Merchant's Kindness
 		getitem 569,50;// Novice Potion
 		getitem 12323,10;// Novice Fly Wing
@@ -940,43 +940,43 @@ lasagna,165,125,5	script	Tool Merchant#doram05t	4_DR_M_01,{
 		lasagna_quest[0] = 7;
 		next;
 		mes "[Tool Merchant]";
-		mes "If you want to dispose of any items, you should see me.";
-		mes "Do you understand?";
+		mes "Si quieres deshacerte de algun objeto, deberias verme.";
+		mes "Entiendes?";
 		next;
 		mes "[Tool Merchant]";
-		mes "^4d4dffHealer Haru's house^000000 is straight ^4d4dffto the east^000000 from here.";
+		mes "^4d4dffLa casa de la Sanadora Haru^000000 esta derecho ^4d4dffhacia el este^000000 desde aqui.";
 		next;
 		mes "[Tool Merchant]";
-		mes "Plants and grasses are packed in front of her house because she's busy testing medicinal herbs.";
-		mes "^4d4dffIt's the house where lots of flowerpots are aligned.^000000 You can't miss it.";
+		mes "Las plantas y hierbas estan amontonadas frente a su casa porque esta ocupada probando hierbas medicinales.";
+		mes "^4d4dffEs la casa donde hay muchas macetas alineadas.^000000 No puedes no verla.";
 		close;
 	}
 	if (lasagna_quest[0] == 7) {
 		mes "[Tool Merchant]";
-		mes "Haru is a very smart girl, so every sick person goes to her place.";
+		mes "Haru es una chica muy inteligente, asi que toda persona enferma va a su lugar.";
 		next;
 		mes "[Tool Merchant]";
-		mes "You're about to go on a journey and she's going to be a lot of help.";
-		mes "Be sure to meet her.";
+		mes "Estas a punto de emprender un viaje y ella te sera de mucha ayuda.";
+		mes "Asegurate de conocerla.";
 		next;
 		mes "[Tool Merchant]";
-		mes "^4d4dffHealer Haru's house^000000 is straight ^4d4dffto the east^000000 from here.";
+		mes "^4d4dffLa casa de la Sanadora Haru^000000 esta derecho ^4d4dffhacia el este^000000 desde aqui.";
 		next;
 		mes "[Tool Merchant]";
-		mes "Plants and grasses are packed in front of her house because she's busy testing medicinal herbs.";
-		mes "^4d4dffIt's the house where lots of flowerpots are aligned.^000000 You can't miss it.";
+		mes "Las plantas y hierbas estan amontonadas frente a su casa porque esta ocupada probando hierbas medicinales.";
+		mes "^4d4dffEs la casa donde hay muchas macetas alineadas.^000000 No puedes no verla.";
 		next;
 		mes "[Tool Merchant]";
-		mes "Is there anything you need?";
+		mes "Hay algo que necesites?";
 	}
 	else {
 		mes "[Tool Merchant]";
-		mes "Welcome.";
+		mes "Bienvenido.";
 	}
 	next;
-	if (select( "Buy an item.", "Sell your belongings." ) == 1) {
+	if (select( "Comprar un objeto.", "Vender tus pertenencias." ) == 1) {
 		mes "[Tool Merchant]";
-		mes "Do you need anything? I have basic potions, traps, magnifiers...You name it!";
+		mes "Necesitas algo? Tengo pociones basicas, trampas, lupas...Lo que quieras!";
 		close2;
 		if ( getbattleflag("feature.barter") ) {
 			callshop "tool_shop_lasagna#Extended",1;
@@ -986,7 +986,7 @@ lasagna,165,125,5	script	Tool Merchant#doram05t	4_DR_M_01,{
 		end;
 	}
 	mes "[Tool Merchant]";
-	mes "Good thinking! I knew you would. you'd better sell away items that you no longer need!";
+	mes "Buena idea! Sabia que lo harias. Sera mejor que vendas los objetos que ya no necesitas!";
 	close2;
 	callshop "tool_shop_lasagna",2;
 	end;
@@ -1002,13 +1002,13 @@ OnInit:
 lasagna,224,126,5	script	Healer Haru#doram07t	4_DR_M_02,{
 	if (lasagna_quest[0] == 7) {
 		mes "[Healer Haru]";
-		mes "I see a lot of out-of-towners these days.";
-		mes "What do you need?";
+		mes "Veo muchos foraneos estos dias.";
+		mes "Que necesitas?";
 		.@menu$[2] = "Show her the Combination Kit.";
 	}
 	else {
 		mes "[Healer Haru]";
-		mes "What's up?";
+		mes "Que pasa?";
 		setarray .@menu$[0], "Somebody, help me!", "About First Aid", "About Medical Botany";
 	}
 	next;
@@ -1017,48 +1017,48 @@ lasagna,224,126,5	script	Healer Haru#doram07t	4_DR_M_02,{
 		if (Class == Job_Summoner) {
 			mes "[Healer Haru]";
 			mes "Oh, no...";
-			mes "It's going to be fine.";
+			mes "Va a estar bien.";
 			npcskill "AL_HEAL",10,130,115;// 1748 hp
 			percentheal 0,100;
 			close;
 		}
 		mes "[Healer Haru]";
-		mes "Oh, dear...";
-		mes "Does it hurt a lot?";
-		mes "You need 5,000 Zeny to heal it all. Do you want me to do it?";
+		mes "Oh, cielos...";
+		mes "Te duele mucho?";
+		mes "Necesitas 5,000 Zeny para curarlo todo. Quieres que lo haga?";
 		next;
-		if (select( "Say yes.", "It's too expensive." ) == 2) {
+		if (select( "Decir que si.", "Es demasiado caro." ) == 2) {
 			mes "[Healer Haru]";
-			mes "Take your time and get some rest.";
+			mes "Tomate tu tiempo y descansa un poco.";
 			close;
 		}
 		if (Zeny >= 5000)// intended ?
 			Zeny = Zeny - 5000;
 		mes "[Healer Haru]";
-		mes "Thank you for using our service.";
+		mes "Gracias por usar nuestro servicio.";
 		// npcskill "AL_HEAL",10,130,115;// 1748 hp
 		percentheal 100,100;
 		close;
 	case 2:
 		if (getskilllv("NV_FIRSTAID") > 0) {
 			mes "[Healer Haru]";
-			mes "You already know what First Aid is...";
-			mes "Please. I don't have all day.";
+			mes "Ya sabes que son los Primeros Auxilios...";
+			mes "Por favor. No tengo todo el dia.";
 			close;
 		}
 		mes "[Healer Haru]";
-		mes "Oh, you'd like to learn about First Aid! How admirable of you!";
-		mes "First Aid is a skill converting your SP into HP in an emergency.";
+		mes "Oh, te gustaria aprender sobre Primeros Auxilios! Que admirable de tu parte!";
+		mes "Primeros Auxilios es una habilidad que convierte tu SP en HP en una emergencia.";
 		next;
 		mes "[Healer Haru]";
-		mes "The healing amount can be minimal...";
-		mes "But you can at least avoid getting stunned by a critical hit.";
+		mes "La cantidad de curacion puede ser minima...";
+		mes "Pero al menos puedes evitar quedar aturdido por un golpe critico.";
 		specialeffect EF_BEGINSPELL6;
 		specialeffect EF_SPELLBREAKER;
 		next;
 		mes "[Healer Haru]";
-		mes "Click the ^4d4dffSkill^000000 button to open the Skill Window.";
-		mes "FYI, the shortcut key is ^4d4dffAlt+S^000000.";
+		mes "Haz clic en el boton ^4d4dffHabilidad^000000 para abrir la Ventana de Habilidades.";
+		mes "Para tu informacion, la tecla de atajo es ^4d4dffAlt+S^000000.";
 		getexp 100,100;
 		if (isbegin_quest(7722) == 0) {
 			setquest 7722;// EMT
@@ -1067,57 +1067,57 @@ lasagna,224,126,5	script	Healer Haru#doram07t	4_DR_M_02,{
 		skill "NV_FIRSTAID",1,SKILL_PERM_GRANT;
 		next;
 		mes "[Healer Haru]";
-		mes "Well, then. I'll let you in on something juicy while I'm at it.";
-		mes "Press the ^4d4dffF12 key^000000, will you?";
-		mes "Surprise! It brings up the shortcut key window where nine small slots are arranged in a row.";
+		mes "Bueno, entonces. Te contare algo interesante ya que estamos.";
+		mes "Presiona la tecla ^4d4dffF12^000000, si?";
+		mes "Sorpresa! Abre la ventana de teclas de atajo donde hay nueve pequenas ranuras en fila.";
 		next;
 		mes "[Healer Haru]";
-		mes "Drag the corner area in the right-hand side of the shortcut key window to view other pages.";
+		mes "Arrastra el area de la esquina en el lado derecho de la ventana de atajos para ver otras paginas.";
 		next;
 		mes "[Healer Haru]";
-		mes "It's easy to use. ^4d4dffEach slot corresponds to the keys from F1 through F9.^000000";
-		mes "Drag your skill or item to use in the slot and press the corresponding key to activate it instantly.";
+		mes "Es facil de usar. ^4d4dffCada ranura corresponde a las teclas de F1 a F9.^000000";
+		mes "Arrastra tu habilidad u objeto a la ranura y presiona la tecla correspondiente para activarlo al instante.";
 		next;
 		cutin "tutorial05.BMP",4;
-		mes "!- Notice -!";
-		mes "^4d4dffTo place an item or skill icon to use, drag it to the shortcut key slot.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffPara colocar un icono de objeto o habilidad, arrastralo a la ranura de tecla de atajo.^000000";
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffTo use or equip an item or equipment registered in the slot, press the key that corresponds to each slot from F1 to F9.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffPara usar o equipar un objeto o equipo registrado en la ranura, presiona la tecla que corresponda a cada ranura de F1 a F9.^000000";
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffIn the shortcut key settings, you can select the corresponding shortcut keys as you desire.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffEn la configuracion de teclas de atajo, puedes seleccionar las teclas de atajo correspondientes como desees.^000000";
 		next;
-		mes "!- Notice -!";
-		mes "^4d4dffPlace an item and/or skill that you often use for quick usage.^000000";
+		mes "!- Aviso -!";
+		mes "^4d4dffColoca un objeto y/o habilidad que uses frecuentemente para un uso rapido.^000000";
 		cutin "",255;
 		next;
 		mes "[Healer Haru]";
-		mes "Well, now. Open the Skill Window and place the First Aid skill in a shortcut key slot to use.";
-		mes "It's going to be a lot easier to use it.";
+		mes "Bien. Abre la Ventana de Habilidades y coloca la habilidad de Primeros Auxilios en una ranura de tecla de atajo.";
+		mes "Sera mucho mas facil usarla.";
 		close;
 	case 3:
 		if (isbegin_quest(7718) == 0 || lasagna_quest[0] == 7) {
 			mes "[Healer Haru]";
-			mes "Oh, so you're here to learn the potion combination?";
-			mes "Then, you need a combination scroll first.";
-			mes "Above all, the most important out of all the combination items should be a potion.";
+			mes "Oh, entonces estas aqui para aprender la combinacion de pociones?";
+			mes "Entonces, necesitas un pergamino de combinacion primero.";
+			mes "Sobre todo, lo mas importante de todos los objetos de combinacion deberia ser una pocion.";
 			next;
 			mes "[Healer Haru]";
-			mes "Have you ever seen the grass growing in the field while you're traveling?";
+			mes "Has visto alguna vez el pasto creciendo en el campo mientras viajas?";
 			mes "^4d4dffRed Grass, Blue Grass, Green Grass, White Grass...^000000etc...";
 			next;
 			mes "[Healer Haru]";
-			mes "You can obtain herbs from these grasses.";
-			mes "Each herb is a good source to be processed into various kinds of medicine.";
+			mes "Puedes obtener hierbas de estos pastos.";
+			mes "Cada hierba es una buena fuente para ser procesada en varios tipos de medicina.";
 			next;
 			mes "[Healer Haru]";
-			mes "Red Herbs are running out.";
-			mes "I think you should go pick some now.";
+			mes "Las Red Herbs se estan acabando.";
+			mes "Creo que deberias ir a recoger algunas ahora.";
 			next;
 			mes "[Healer Haru]";
-			mes "The herbs are growing in the entrance of the village. Did you see them?";
-			mes "^4d4dffGo and collect 1 Red Herb in the entrance of the village.^000000 This should be a good practice.";
+			mes "Las hierbas estan creciendo en la entrada de la aldea. Las viste?";
+			mes "^4d4dffVe y recolecta 1 Red Herb en la entrada de la aldea.^000000 Esta deberia ser una buena practica.";
 			if (isbegin_quest(7717) == 1)
 				erasequest 7717;
 			if (isbegin_quest(7718) == 0)
@@ -1126,54 +1126,54 @@ lasagna,224,126,5	script	Healer Haru#doram07t	4_DR_M_02,{
 				lasagna_quest[0] = 8;
 			next;
 			mes "[Healer Haru]";
-			mes "Come on. Hurry!";
+			mes "Vamos. Apurate!";
 			close2;
 			if (lasagna_quest[0] == 7 && Class == Job_Summoner)
-				npctalk "Hey, there. Newbie Doram. Talk to me.", "Hypnotist#doram08t", bc_self;
+				npctalk "Oye, tu. Doram novato. Habla conmigo.", "Hypnotist#doram08t", bc_self;
 			end;
 		}
 		if (isbegin_quest(7718) == 1) {
 			if (countitem(507) > 0) {
 				if (checkweight(1001,5) == 0) {
-					mes "- Hold on a second here!! -";
-					mes "- You have too many items. -";
-					mes "- That means you can no longer receive any items. -";
-					mes "- Free up some space -";
-					mes "- and try again. -";
+					mes "- Espera un momento!! -";
+					mes "- Tienes demasiados objetos. -";
+					mes "- Eso significa que ya no puedes recibir mas objetos. -";
+					mes "- Libera algo de espacio -";
+					mes "- e intentalo de nuevo. -";
 					close;
 				}
 				mes "[Healer Haru]";
-				mes "You've got them, perfect.";
-				mes "This ^4d4dffherb is effective even when eaten as it is, but, it is far more effective when it is made into a potion.^000000";
+				mes "Los conseguiste, perfecto.";
+				mes "Esta ^4d4dffhierba es efectiva incluso cuando se come asi, pero es mucho mas efectiva cuando se convierte en pocion.^000000";
 				next;
 				mes "[Healer Haru]";
-				mes "Effects vary for the herbs, depending on their colors.";
-				mes "^4d4dffGreen Herbs are known for detoxification.^000000";
-				mes "^4d4dff Blue Herbs restore SP^000000.";
+				mes "Los efectos varian para las hierbas, dependiendo de sus colores.";
+				mes "^4d4dffLas Green Herbs son conocidas por la desintoxicacion.^000000";
+				mes "^4d4dff Las Blue Herbs restauran SP^000000.";
 				next;
 				mes "[Healer Haru]";
-				mes "Anything else?";
-				mes "Well, now. Your HP is being restored as the Red Herb does it's work.";
-				mes "Press juice out of it and put them in a bottle...";
+				mes "Algo mas?";
+				mes "Bueno. Tu HP se esta restaurando mientras la Red Herb hace su trabajo.";
+				mes "Exprime el jugo y ponlo en una botella...";
 				next;
 				mes "[Healer Haru]";
-				mes "This is what we call a potion that you can take anytime, anywhere!";
-				mes "This is for you on this special encounter.";
+				mes "Esto es lo que llamamos una pocion que puedes tomar en cualquier momento y lugar!";
+				mes "Esto es para ti en este encuentro especial.";
 				next;
 				mes "[Healer Haru]";
-				mes "Prepare the materials written in the combination scroll.";
-				mes "Then, ^4d4dffuse the Combination Kit or cooking utensils^000000 to make an item you want.";
+				mes "Prepara los materiales escritos en el pergamino de combinacion.";
+				mes "Entonces, ^4d4dffusa el Kit de Combinacion o utensilios de cocina^000000 para hacer el objeto que quieras.";
 				next;
 				mes "[Healer Haru]";
-				mes "You can also make various other types of tools, other than potions, with the materials you pick up, so use them well.";
+				mes "Tambien puedes hacer varios otros tipos de herramientas, aparte de pociones, con los materiales que recojas, asi que usalos bien.";
 				next;
 				mes "[Healer Haru]";
-				mes "I gave you Red Herbs and apples.";
-				mes "So give it a try and craft something with the Combination Kit.";
+				mes "Te di Red Herbs y manzanas.";
+				mes "Asi que intentalo y fabrica algo con el Kit de Combinacion.";
 				next;
 				mes "[Healer Haru]";
-				mes "Here's the directions. To read the combination scroll,";
-				mes "^4d4dffRight-click the scroll,^000000 and then, click the ^4d4dffbook-shaped icon^000000 found in the description window.";
+				mes "Aqui estan las instrucciones. Para leer el pergamino de combinacion,";
+				mes "^4d4dffHaz clic derecho en el pergamino,^000000 y luego, haz clic en el ^4d4dfficono con forma de libro^000000 en la ventana de descripcion.";
 				if (isbegin_quest(7717) > 0)
 					erasequest 7717;
 				if (isbegin_quest(7718) == 0)
@@ -1185,35 +1185,35 @@ lasagna,224,126,5	script	Healer Haru#doram07t	4_DR_M_02,{
 				getitem 12849,10;// Combination Kit
 				getitem 507,1;// Red Herb
 				getitem 512,1;// Apple
-				npctalk "Oh! Here you are!", "Vigilante Aglio#doram09", bc_self;
+				npctalk "Oh! Aqui estas!", "Vigilante Aglio#doram09", bc_self;
 				classchange( 4_DR_AGLIO, "Vigilante Aglio#doram09", bc_self );
 				lasagna_quest[0] = 9;
 				close;
 			}
 			else {
 				mes "[Healer Haru]";
-				mes "There is a place near the entrance of the village where herbs grow.";
-				mes "^4d4dffBeat the Red Grass and get 1 Red Herb^000000.";
+				mes "Hay un lugar cerca de la entrada de la aldea donde crecen hierbas.";
+				mes "^4d4dffGolpea la Red Grass y obtiene 1 Red Herb^000000.";
 				next;
 				mes "[Healer Haru]";
-				mes "You should know what the herbs look like.";
+				mes "Deberias saber como se ven las hierbas.";
 				close;
 			}
 		}
 		mes "[Healer Haru]";
-		mes "I've given you all the details about the basics of medicinal botany.";
-		mes "By the way, there is ^4d4dffShining Grass^000000 in this world.";
+		mes "Te he dado todos los detalles sobre los basicos de la botanica medicinal.";
+		mes "Por cierto, hay ^4d4dffShining Grass^000000 en este mundo.";
 		next;
 		mes "[Healer Haru]";
-		mes "You have no idea what kind of herb the Shining Grass will produce.";
-		mes "I was lucky enough to obtain Igdrasil's Fruit once.";
+		mes "No tienes idea de que tipo de hierba producira la Shining Grass.";
+		mes "Tuve la suerte de obtener Igdrasil's Fruit una vez.";
 		next;
 		mes "[Healer Haru]";
-		mes "Rumor has it that, among humans, ^4d4dffAlchemist^000000, ^4d4dffCreator^000000, or the upper-level ^4d4dffGeneric^000000";
-		mes "are highly specialized in crafting potions.";
+		mes "Se rumorea que, entre los humanos, ^4d4dffAlchemist^000000, ^4d4dffCreator^000000, o el nivel superior ^4d4dffGeneric^000000";
+		mes "estan altamente especializados en fabricar pociones.";
 		next;
 		mes "[Healer Haru]";
-		mes "If you happen to meet a human in the Midgard Continent, why don't you ask them?";
+		mes "Si llegas a conocer a un humano en el Continente Midgard, por que no les preguntas?";
 		close;
 	}
 
@@ -1226,79 +1226,79 @@ OnInit:
 lasagna,222,123,5	script	Hypnotist#doram08t	4_CAT_MERMASTER,{
 	if (Class != Job_Summoner) {
 		mes "[Hypnotist]";
-		mes "Oh! So you're that famous human everyone is talking about!";
-		mes "But why is your hair uneven?";
+		mes "Oh! Asi que tu eres ese humano famoso del que todos hablan!";
+		mes "Pero por que tu cabello esta desparejo?";
 		next;
 		mes "[Hypnotist]";
-		mes "Have you come down with a skin disease or something?";
-		mes "This healer next to me is really good. You should ask her to take a look at it!";
+		mes "Te dio alguna enfermedad de la piel o algo?";
+		mes "Esta sanadora a mi lado es muy buena. Deberias pedirle que te revise!";
 		next;
 		mes "[Hypnotist]";
-		mes "You're really big and that type of poor hair just doesn't go well with you...";
-		mes "It must've been a lot of work.";
+		mes "Eres realmente grande y ese tipo de cabello pobre no te queda bien...";
+		mes "Debe haber sido mucho trabajo.";
 		close;
 	}
 	mes "[Hypnotist]";
-	mes "I'm casting hypnosis on the young lads for their future.";
+	mes "Estoy lanzando hipnosis a los jovenes para su futuro.";
 	next;
 	if (BaseLevel > 49) {
 		mes "[Hypnotist]";
-		mes "You must have been over with wandering by now.";
+		mes "Ya debes haber terminado de deambular a estas alturas.";
 		close;
 	}
 	mes "[Hypnotist]";
-	mes "If you don't like a skill you just learned, I can reset it for you.";
+	mes "Si no te gusta una habilidad que acabas de aprender, puedo reiniciarla por ti.";
 	next;
 	mes "[Hypnotist]";
-	mes "^4d4dffUp to level 49, your skills and status can be reset anytime you want.^000000";
+	mes "^4d4dffHasta el nivel 49, tus habilidades y estados se pueden reiniciar cuando quieras.^000000";
 	next;
-	.@s = select( "Reset the status.", "Reset the skill." );
+	.@s = select( "Reiniciar los estados.", "Reiniciar las habilidades." );
 	if (Weight > 0) {
 		mes "[Hypnotist]";
-		mes "Your items can be lost, so be sure to make yourself weigh ^FF00000^000000.";
+		mes "Tus objetos se pueden perder, asi que asegurate de que tu peso sea ^FF00000^000000.";
 		next;
 		mes "[Hypnotist]";
-		mes "The Cat Paw Commerce Group is responsible for the warehouse, so leave your items to them.";
+		mes "El Grupo Comercial Cat Paw es responsable del almacen, asi que dejales tus objetos.";
 		close;
 	}
 	if (.@s == 1) {
 		resetstatus();
 		mes "[Hypnotist]";
-		mes "Your status has been reset successfully!";
+		mes "Tus estados se han reiniciado exitosamente!";
 		next;
 		mes "[Hypnotist]";
-		mes "I don't do it for the experienced. So you should figure out your own status well beforehand.";
+		mes "No lo hago para los experimentados. Asi que deberias decidir bien tus estados de antemano.";
 		close;
 	}
 	resetskill();
 	mes "[Hypnotist]";
-	mes "Your skill has been reset successfully!";
+	mes "Tus habilidades se han reiniciado exitosamente!";
 	next;
 	mes "[Hypnotist]";
-	mes "I reset skills and statuses without charge only when your level stays at 49 or below.";
-	mes "Before that, I advise you to practice with many skills in diverse ways, to help you decide what you like.";
+	mes "Reinicio habilidades y estados sin costo solo cuando tu nivel es 49 o menos.";
+	mes "Antes de eso, te aconsejo practicar con muchas habilidades de diversas formas, para ayudarte a decidir que te gusta.";
 	close;
 }
 
 lasagna,230,127,3	script	Vigilante Aglio#doram09	HIDDEN_WARP_NPC,{
 	if (lasagna_quest[0] == 9) {
 		mes "[Vigilante Aglio]";
-		mes "I was looking for you at the tool shop and they said you headed here.";
+		mes "Te estaba buscando en la tienda de herramientas y me dijeron que viniste aqui.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "First off, we should meet up with our leader to make decisions about the schedule.";
-		mes "We'd better head to the square.";
+		mes "Primero, debemos reunirnos con nuestro lider para tomar decisiones sobre el horario.";
+		mes "Sera mejor que vayamos a la plaza.";
 		next;
 		mes "[Vigilante Aglio]";
-		mes "I think you can find another Vigilante like myself in the square...";
+		mes "Creo que puedes encontrar otro Vigilante como yo en la plaza...";
 		navigateto "lasagna",170,152;
 		close;
 	}
 }
 
 izlude,117,165,3	script	Cat Paw Shrimp Merchant#iz	4_M_MERCAT1,{
-	npctalk "Here are the shrimps, carrots and catnip!", "", bc_self;
-	switch( select( "Buy", "Sell", "Cancel" ) ) {
+	npctalk "Aqui estan los camarones, zanahorias y hierba gatera!", "", bc_self;
+	switch( select( "Comprar", "Vender", "Cancelar" ) ) {
 	case 1:
 		callshop "doram_shrimp",1;
 		end;
@@ -1306,7 +1306,7 @@ izlude,117,165,3	script	Cat Paw Shrimp Merchant#iz	4_M_MERCAT1,{
 		callshop "doram_shrimp",2;
 		end;
 	case 3:
-		npctalk "Come back again soon!", "", bc_self;
+		npctalk "Vuelve pronto!", "", bc_self;
 		end;
 	}
 }
@@ -1346,7 +1346,7 @@ yuno,205,116,5	duplicate(Cat Paw Shrimp Merchant#iz)	Cat Paw Shrimp Merchant#yu	
 
 izlude,195,213,5	script	Con-Chliina Crewman#doi	4_M_MERCAT1,{
 	mes "[Con-Chliina Crewman]";
-	mes "From the continent of Midgard to Far-Star!";
+	mes "Del continente de Midgard a Far-Star!";
 	next;
 	mes "[Con-Chliina Crewman]";
 	if (Class == Job_Summoner)
@@ -1355,14 +1355,14 @@ izlude,195,213,5	script	Con-Chliina Crewman#doi	4_M_MERCAT1,{
 		.@cost = 2000;
 	mes "Only ^0000cd" + .@cost + " Zenies^000000 to the port city Lasagna.";
 	next;
-	if (select( "To Lasagna - " + .@cost + "z", "Cancel" ) == 2) {
+	if (select( "To Lasagna - " + .@cost + "z", "Cancelar" ) == 2) {
 		mes "[Con-Chliina Crewman]";
-		mes "I see.";
+		mes "Ya veo.";
 		close;
 	}
 	if (Zeny < .@cost) {
 		mes "[Con-Chliina Crewman]";
-		mes "Not enough? How about checking how much he has?";
+		mes "No es suficiente? Que tal si revisas cuanto tienes?";
 		close;
 	}
 	Zeny = Zeny - .@cost;
@@ -1378,208 +1378,208 @@ izlude_d,195,213,5	duplicate(Con-Chliina Crewman#doi)	Con-Chliina Crewman#doid	4
 izlude,138,183,3	script	Vigilante Penne#doect01	4_DR_SOLDIER,{
 	if (Class == Job_Summoner) {
 		mes "[Vigilante Penne]";
-		mes "Hiya! Isn't it delightful to see the Farfalle Vigilante even here?";
+		mes "Hola! No es genial ver al Vigilante Farfalle incluso aqui?";
 		next;
 		mes "[Vigilante Penne]";
-		mes "By the way, how's your settlement in this land coming along?";
-		mes "Have you been to ^4d4dffProntera^000000 or ^4d4dffPayon^000000 near here?";
+		mes "Por cierto, como va tu asentamiento en esta tierra?";
+		mes "Has estado en ^4d4dffProntera^000000 o ^4d4dffPayon^000000 cerca de aqui?";
 		next;
 		mes "[Vigilante Penne]";
-		mes "There is a Paradise Group you might want to visit.";
-		mes "It doesn't hurt to go visit there.";
+		mes "Hay un Grupo Paraiso que quizas quieras visitar.";
+		mes "No esta de mas ir a visitarlos.";
 		close;
 	}
 	mes "[Vigilante Penne]";
-	mes "Humans always intrigue me with their peculiar look.";
-	mes "Like a big, hairless cat!";
+	mes "Los humanos siempre me intrigan con su aspecto peculiar.";
+	mes "Como un gato grande y sin pelo!";
 	next;
 	mes "[Vigilante Penne]";
-	mes "Me? Let me explain. I'm the proud member of the Farfalle Vigilante from the great Far-Star Continent.";
+	mes "Yo? Dejame explicarte. Soy el orgulloso miembro del Vigilante Farfalle del gran Continente Far-Star.";
 	next;
-	switch( select( "Far-Star Continent?", "Farfalle Vigilante?", "Are you from the Cat Paw Commerce Group?" ) ) {
+	switch( select( "Continente Far-Star?", "Vigilante Farfalle?", "Eres del Grupo Comercial Cat Paw?" ) ) {
 	case 1:
 		mes "[Vigilante Penne]";
-		mes "There are more continents other than Midgard.";
-		mes "The land we crossed from is called Far-Star.";
+		mes "Hay mas continentes aparte de Midgard.";
+		mes "La tierra de donde cruzamos se llama Far-Star.";
 		next;
 		mes "[Vigilante Penne]";
-		mes "Well, we're no different because we thought there was only the Far-Star Continent under the sun.";
-		mes "The world sure is wide...";
+		mes "Bueno, no somos diferentes porque pensabamos que solo existia el Continente Far-Star bajo el sol.";
+		mes "El mundo si que es grande...";
 		close;
 	case 2:
 		mes "[Vigilante Penne]";
-		mes "So, do you see this ribbon that goes perfectly well with this cool uniform?";
-		mes "(Show the below-neck area.)";
+		mes "Entonces, ves esta cinta que combina perfectamente con este uniforme genial?";
+		mes "(Muestra el area debajo del cuello.)";
 		next;
 		mes "[Vigilante Penne]";
-		mes "This is the symbol of our Farfalle Vigilante.";
-		mes "We are the legendary Vigilante Corp that protects Lasagna!";
+		mes "Este es el simbolo de nuestro Vigilante Farfalle.";
+		mes "Somos el legendario Cuerpo de Vigilantes que protege Lasagna!";
 		next;
 		mes "[Vigilante Penne]";
-		mes "You have no idea how cool our leader Peperoncino can be...";
-		mes "We do all kinds of chores from handling the urchins at the port to maintaining the security of the village.";
+		mes "No tienes idea de lo genial que puede ser nuestro lider Peperoncino...";
+		mes "Hacemos todo tipo de tareas, desde manejar a los pilluelos del puerto hasta mantener la seguridad de la aldea.";
 		next;
 		mes "[Vigilante Penne]";
-		mes "Moreover, you can come to this...Mid...Midgur...Midgar...";
-		mes "Anyway! You're allowed to come here only when the Farfalle Vigilante accepts.";
+		mes "Ademas, puedes venir a este...Mid...Midgur...Midgar...";
+		mes "En fin! Solo se te permite venir aqui cuando el Vigilante Farfalle lo acepte.";
 		next;
-		mes "This proud cat is getting really talkative...";
+		mes "Este gato orgulloso se esta poniendo muy hablador...";
 		close2;
-		npctalk "Huh? Are you just passing by?", "", bc_self;
+		npctalk "Eh? Solo estas de paso?", "", bc_self;
 		end;
 	case 3:
 		mes "[Vigilante Penne]";
-		mes "No, That's not it!!";
-		mes "The Cat Paw Commerce Group is led by Captain Tomei-Tomas!";
+		mes "No, eso no es!!";
+		mes "El Grupo Comercial Cat Paw esta liderado por el Capitan Tomei-Tomas!";
 		next;
 		mes "[Vigilante Penne]";
-		mes "I'm with the Farfalle Vigilante commanded by Leader Peperoncino!";
+		mes "Estoy con el Vigilante Farfalle comandado por el Lider Peperoncino!";
 		next;
 		mes "[Vigilante Penne]";
-		mes "Oh, my days! So you haven't even been to Lasagna, have you?";
-		mes "Our great Captain Gamberri ventured here in person!";
+		mes "Ay, cielos! Asi que ni siquiera has estado en Lasagna, verdad?";
+		mes "Nuestro gran Capitan Gamberri se aventuro aqui en persona!";
 		next;
 		mes "[Vigilante Penne]";
-		mes "We are gracious enough to give humans like you a chance to go to the land of Lasagna.";
-		mes "Before long, this Midgur...Midgarr...?? This land will soon be controlled by us, the Dorams!";
+		mes "Somos lo suficientemente amables para darles a humanos como tu la oportunidad de ir a la tierra de Lasagna.";
+		mes "Pronto, este Midgur...Midgarr...?? Esta tierra pronto sera controlada por nosotros, los Dorams!";
 		next;
 		mes "[Vigilante Penne]";
-		mes "You'd better earn our favor. If you do, we might give you a job to clean anchovies in Lasagna!";
+		mes "Sera mejor que te ganes nuestro favor. Si lo haces, podriamos darte un trabajo limpiando anchoas en Lasagna!";
 		close;
 	}
 }
 
 lasagna,209,301,3	script	Mustachi#dorcon01	4_DR_KID_01,{
 	mes "[Mustachi]";
-	mes "We trim your beards. We comb your tails. Be sure to groom yourselves before setting out to the new world.";
-	mes "There's a hair designer in downtown, so make sure you drop by.";
+	mes "Recortamos sus barbas. Peinamos sus colas. Asegurense de asearse antes de partir al nuevo mundo.";
+	mes "Hay un disenador de cabello en el centro, asi que asegurate de pasar por ahi.";
 	close;
 }
 
 lasagna,232,181,5	script	Linguina#dorcon01	4_CAT_ADV1,{
 	mes "[Linguina]";
-	mes "This is a pub but also an adventurers' club where adventurers stop by. They come from all over the place and share their stories as well as find companions for adventures.";
+	mes "Este es un bar pero tambien un club de aventureros donde los aventureros se detienen. Vienen de todas partes y comparten sus historias y encuentran companeros para aventuras.";
 	next;
 	mes "[Linguina]";
-	mes "These days, many people come to seek information before heading off to the new world.";
+	mes "Hoy en dia, mucha gente viene a buscar informacion antes de partir al nuevo mundo.";
 	next;
 	mes "[Linguina]";
-	mes "About ten years ago, it was a conciliating place to rehab hoodlum dorams and recruit them as vigilantes. Before that, rough sailors came to relax after a hard day's work.";
+	mes "Hace unos diez anos, era un lugar conciliador para rehabilitar dorams delincuentes y reclutarlos como vigilantes. Antes de eso, marineros rudos venian a relajarse despues de un duro dia de trabajo.";
 	next;
 	mes "[Linguina]";
-	mes "Chief Peperoncino and Captain Gamberry first met here as well. The three became sworn brothers and became legends after their endeavors proved to be successful.";
+	mes "El Jefe Peperoncino y el Capitan Gamberry se conocieron aqui tambien. Los tres se convirtieron en hermanos jurados y se volvieron leyendas despues de que sus esfuerzos resultaron exitosos.";
 	next;
 	mes "[Linguina]";
-	mes "So people who wish to succeed or adventurers who wish to become just like them come here a lot.";
+	mes "Asi que la gente que desea tener exito o aventureros que desean ser como ellos vienen aqui mucho.";
 	close;
 }
 
 lasagna,227,187,1	script	Vongolo#dorcon01	4_CAT_SAILOR1,{
 	mes "[Vongolo]";
-	mes "Did you decide what you'll have?";
+	mes "Ya decidiste que vas a pedir?";
 	next;
 	mes "[Vongolo]";
-	mes "Everyone orders kaluna milk here because of the oven resolution by Peperoncino, Gamberry, and Thomas. But Pub-Oven's real specialty menu is the fish cake.";
+	mes "Todos piden leche kaluna aqui por la resolucion del horno de Peperoncino, Gamberry y Thomas. Pero la verdadera especialidad de Pub-Oven es el pastel de pescado.";
 	next;
 	mes "[Vongolo]";
-	mes "Fish cake is a white fish fillet mashed with boiled beans that is shaped and fried. It's really delicious but no one asks for it.";
+	mes "El pastel de pescado es un filete de pescado blanco machacado con frijoles hervidos que se moldea y se frie. Es realmente delicioso pero nadie lo pide.";
 	next;
 	mes "[Vongolo]";
-	mes "So we don't even have the ingredients prepared these days. When there's an order once in a while, we run to the fish store to buy a cod and start cooking then.";
+	mes "Asi que ni siquiera tenemos los ingredientes preparados estos dias. Cuando hay un pedido de vez en cuando, corremos a la pescaderia a comprar un bacalao y empezamos a cocinar.";
 	next;
 	mes "[Vongolo]";
-	mes "Oh, It's really good...";
+	mes "Oh, es realmente bueno...";
 	close;
 }
 
 lasagna,220,172,6	script	Master of Property#do_h	4_M_BABYCAT,{
 	.@r = rand(0,4);
 	if (.@r == 0)
-		npctalk "Earth element defeats Wind element.", "", bc_self;
+		npctalk "El elemento Tierra derrota al elemento Viento.", "", bc_self;
 	else if (.@r == 1)
-		npctalk "Water element is superior to Fire element.", "", bc_self;
+		npctalk "El elemento Agua es superior al elemento Fuego.", "", bc_self;
 	else if (.@r == 2)
-		npctalk "Wind element outperforms Water element.", "", bc_self;
+		npctalk "El elemento Viento supera al elemento Agua.", "", bc_self;
 	else if (.@r == 3)
-		npctalk "Fire element beats Earth element.", "", bc_self;
+		npctalk "El elemento Fuego vence al elemento Tierra.", "", bc_self;
 	else
-		npctalk "Holy element and Dark element are in stark contrast to each other.", "", bc_self;
+		npctalk "Los elementos Sagrado y Oscuro estan en fuerte contraste entre si.", "", bc_self;
 	mes "[Property Cat]";
-	mes "Every life in this world comes with a property.";
-	mes "There are numerous kinds of elements from neutral to four major natural elements, alongside the holy and dark elements.";
+	mes "Toda vida en este mundo viene con una propiedad.";
+	mes "Hay numerosos tipos de elementos, desde neutro hasta los cuatro elementos naturales principales, junto con los elementos sagrado y oscuro.";
 	next;
 	mes "[Property Cat]";
-	mes "Most representative elements are the natural ones.";
-	mes "Put simply, these are the elements of Water, Wind, Earth, and Fire.";
-	mes "Besides, there are elements of Undead, Holiness and Darkness.";
+	mes "Los elementos mas representativos son los naturales.";
+	mes "En pocas palabras, estos son los elementos de Agua, Viento, Tierra y Fuego.";
+	mes "Ademas, hay elementos de No-Muerto, Sagrado y Oscuridad.";
 	next;
 	mes "[Property Cat]";
-	mes "Each element is intertwined with each other. So be smart and use the opposing elements.";
+	mes "Cada elemento esta entrelazado con los demas. Asi que se inteligente y usa los elementos opuestos.";
 	next;
 	mes "[Property Cat]";
-	mes "That way, you can get the upper hand of a battle.";
-	mes "Let me give you a brief example on their correlation.";
+	mes "De esa manera, puedes obtener la ventaja en una batalla.";
+	mes "Dejame darte un breve ejemplo de su correlacion.";
 	next;
 	mes "[Property Cat]";
-	mes "Fire element is highly resistant to Earth element.";
-	mes "Meanwhile, Earth element definitely outperforms Wind element.";
+	mes "El elemento Fuego es altamente resistente al elemento Tierra.";
+	mes "Mientras tanto, el elemento Tierra definitivamente supera al elemento Viento.";
 	next;
 	mes "[Property Cat]";
-	mes "Wind element beats Water element.";
-	mes "Yet, Water element defeats Fire element.";
+	mes "El elemento Viento vence al elemento Agua.";
+	mes "Sin embargo, el elemento Agua derrota al elemento Fuego.";
 	next;
 	mes "[Property Cat]";
-	mes "Holy element and Dark element directly oppose each other, and you should keep that in mind.";
+	mes "Los elementos Sagrado y Oscuro se oponen directamente, y deberias tenerlo en cuenta.";
 	next;
 	mes "[Property Cat]";
-	mes "Other than that, there are also Neutral and Undead elements. You'll soon know what they are about.";
-	mes "You will have to see it for yourself.";
+	mes "Aparte de eso, tambien hay elementos Neutro y No-Muerto. Pronto sabras de que se tratan.";
+	mes "Tendras que verlo por ti mismo.";
 	close;
 }
 
 lasagna,208,188,3	script	Cat Paw Service#lasagna	4_M_MERCAT1,4,4,{
 	if (Class == Job_Summoner && isbegin_quest(7720) == 0) {
 		if (checkweight(1001,2) == 0) {
-			mes "- Hold on a second here!! -";
-			mes "- You have too many items. -";
-			mes "- That means you can no longer receive any items. -";
-			mes "- Free up some space -";
-			mes "- and try again. -";
+			mes "- Espera un momento!! -";
+			mes "- Tienes demasiados objetos. -";
+			mes "- Eso significa que ya no puedes recibir mas objetos. -";
+			mes "- Libera algo de espacio -";
+			mes "- e intentalo de nuevo. -";
 			close;
 		}
 		mes "[Cat Paw Commerce Group]";
-		mes "Hey, little fellow!";
-		mes "Are you headed to the Midgard Continent?";
-		mes "Then, you'd better listen to me!";
+		mes "Oye, amiguito!";
+		mes "Te diriges al Continente Midgard?";
+		mes "Entonces, sera mejor que me escuches!";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "Like our Cat Paw Commerce Group, there are other groups who provide the ^4d4dffLocation sharing service^000000 and the ^4d4dffWarehouse service^000000.";
+		mes "Como nuestro Grupo Comercial Cat Paw, hay otros grupos que proporcionan el ^4d4dffservicio de Compartir Ubicacion^000000 y el ^4d4dffservicio de Almacen^000000.";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "They are: ^4d4dffKafra^000000 and ^4d4dffZonda^000000.";
-		mes "Of course, don't forget about the Cat Paw Commerce Group!";
+		mes "Son: ^4d4dffKafra^000000 y ^4d4dffZonda^000000.";
+		mes "Por supuesto, no te olvides del Grupo Comercial Cat Paw!";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "^4d4dffLocation sharing^000000 is to save the location for you to return to.";
-		mes "If you fall down due to fatigue during an adventure, you should return to the village. That's what you can do with this service.";
+		mes "^4d4dffCompartir Ubicacion^000000 es para guardar la ubicacion a la que puedes regresar.";
+		mes "Si caes por fatiga durante una aventura, deberias regresar a la aldea. Eso es lo que puedes hacer con este servicio.";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "Use the ^4d4dffButterfly Wings^000000 item to fly straight to that location.";
+		mes "Usa el objeto ^4d4dffButterfly Wings^000000 para volar directo a esa ubicacion.";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "Most of the locations shared are the safe village or city.";
+		mes "La mayoria de las ubicaciones compartidas son la aldea o ciudad segura.";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "The ^4d4dffWarehouse service^000000 is also similar.";
-		mes "You pay a little service fee to deposit your items safely.";
+		mes "El ^4d4dffservicio de Almacen^000000 tambien es similar.";
+		mes "Pagas una pequena tarifa de servicio para depositar tus objetos de forma segura.";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "You can't just carry around every item with you, can you?";
-		mes "This is where the warehouse comes in handy.";
+		mes "No puedes cargar cada objeto contigo, verdad?";
+		mes "Aqui es donde el almacen resulta util.";
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "You can deposit and take out your item in the warehouse anytime, anywhere if you pay the service fee!";
-		mes "Now do you get it?";
+		mes "Puedes depositar y sacar tus objetos del almacen en cualquier momento y lugar si pagas la tarifa de servicio!";
+		mes "Ahora lo entiendes?";
 		setquest 7720;// Service Manual
 		completequest 7720;// Service Manual
 		getitem 12323,10;// Novice Fly Wing
@@ -1587,66 +1587,66 @@ lasagna,208,188,3	script	Cat Paw Service#lasagna	4_M_MERCAT1,4,4,{
 		getexp 50,50;
 		next;
 		mes "[Cat Paw Commerce Group]";
-		mes "Oh, do you want me to explain it again?";
+		mes "Oh, quieres que te lo explique de nuevo?";
 		next;
-		if (select( "No.", "Please." ) == 2) {
+		if (select( "No.", "Por favor." ) == 2) {
 			mes "[Cat Paw Commerce Group]";
-			mes "Like our Cat Paw Commerce Group, there are other groups who provide the ^4d4dffLocation sharing service^000000 and the ^4d4dffWarehouse service^000000.";
+			mes "Como nuestro Grupo Comercial Cat Paw, hay otros grupos que proporcionan el ^4d4dffservicio de Compartir Ubicacion^000000 y el ^4d4dffservicio de Almacen^000000.";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "They are: ^4d4dffKafra^000000 and ^4d4dffZonda^000000.";
-			mes "Of course, don't forget about the Cat Paw Commerce Group!";
+			mes "Son: ^4d4dffKafra^000000 y ^4d4dffZonda^000000.";
+			mes "Por supuesto, no te olvides del Grupo Comercial Cat Paw!";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "^4d4dffLocation sharing^000000 is to save the location for you to return to.";
-			mes "If you fall down due to fatigue during an adventure, you should return to the village. That's what you can do with this service.";
+			mes "^4d4dffCompartir Ubicacion^000000 es para guardar la ubicacion a la que puedes regresar.";
+			mes "Si caes por fatiga durante una aventura, deberias regresar a la aldea. Eso es lo que puedes hacer con este servicio.";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "Use the ^4d4dffButterfly Wings^000000 item to fly straight to that location.";
+			mes "Usa el objeto ^4d4dffButterfly Wings^000000 para volar directo a esa ubicacion.";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "Most of the locations shared are the safe village or city.";
+			mes "La mayoria de las ubicaciones compartidas son la aldea o ciudad segura.";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "The ^4d4dffWarehouse service^000000 is also similar.";
-			mes "You pay a little service fee to deposit your items safely.";
+			mes "El ^4d4dffservicio de Almacen^000000 tambien es similar.";
+			mes "Pagas una pequena tarifa de servicio para depositar tus objetos de forma segura.";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "You can't just carry around every item with you, can you?";
-			mes "This is where the warehouse comes in handy.";
+			mes "No puedes cargar cada objeto contigo, verdad?";
+			mes "Aqui es donde el almacen resulta util.";
 			next;
 			mes "[Cat Paw Commerce Group]";
-			mes "You can deposit and take out your item in the warehouse anytime, anywhere if you pay the service fee!";
-			mes "Now do you get it?";
+			mes "Puedes depositar y sacar tus objetos del almacen en cualquier momento y lugar si pagas la tarifa de servicio!";
+			mes "Ahora lo entiendes?";
 			close;
 		}
 		mes "[Cat Paw Commerce Group]";
-		mes "Then, what do you want me to help you with?";
+		mes "Entonces, en que quieres que te ayude?";
 	}
 	else {
 		mes "[Cat Paw Commerce Group]";
-		mes "Come on! Welcome!";
-		mes "What do you want me to help you?";
+		mes "Vamos! Bienvenido!";
+		mes "En que quieres que te ayude?";
 	}
 	next;
-	switch( select( "Location sharing service", "Warehouse service", "Quit." ) ) {
+	switch( select( "Servicio de Compartir Ubicacion", "Servicio de Almacen", "Salir." ) ) {
 	case 1:
 		mes "[Cat Paw Commerce Group]";
-		mes "Saved, meow!";
+		mes "Guardado, meow!";
 		savepoint "lasagna",193,183,1,1;
 		close;
 	case 2:
 		if (!callfunc("F_CanOpenStorage")) {
 			mes "[Cat Paw Commerce Group]";
-			mes "I'm sorry, but...";
+			mes "Lo siento, pero...";
 			if (Class == Job_Summoner) {
-				mes "You should learn the new basic skill first.";
-				mes "Go and learn the skill if you want to use the warehouse.";
+				mes "Deberias aprender la nueva habilidad basica primero.";
+				mes "Ve y aprende la habilidad si quieres usar el almacen.";
 			}
 			else {
-				mes "You should learn some basic skills first if you want to use the warehouse.";
-				mes "Go and learn the skills until you reach the level to use the warehouse.";
-				mes "I believe it should be ^4d4dffbasic level 6^000000 for humans.";
+				mes "Deberias aprender algunas habilidades basicas primero si quieres usar el almacen.";
+				mes "Ve y aprende las habilidades hasta que alcances el nivel para usar el almacen.";
+				mes "Creo que deberia ser ^4d4dffnivel basico 6^000000 para humanos.";
 			}
 			close;
 		}
@@ -1655,27 +1655,27 @@ lasagna,208,188,3	script	Cat Paw Service#lasagna	4_M_MERCAT1,4,4,{
 		else {
 			if (Zeny < 50) {
 				mes "[Cat Paw Commerce Group]";
-				mes "If you don't have cheese, I'll gladly take Zeny.";
-				mes "The Warehouse Service costs 50 Zeny.";
+				mes "Si no tienes queso, con gusto aceptare Zeny.";
+				mes "El Servicio de Almacen cuesta 50 Zeny.";
 				close;
 			}
 			Zeny = Zeny - 50;
 		}
 		// todo kafra points
 		mes "[Cat Paw Commerce Group]";
-		mes "I'll get the warehouse open.";
-		mes "Come back again!";
+		mes "Abrire el almacen.";
+		mes "Vuelve pronto!";
 		close2;
 		openstorage();
 		end;
 	case 3:
 		mes "[Cat Paw Commerce Group]";
-		mes "Come again then.";
+		mes "Vuelve entonces.";
 		close;
 	}
 OnTouch:
 	if (Class == Job_Summoner && isbegin_quest(7720) != 2)
-		npctalk "Meow! Hey, a new friend! I've got a story to tell you. You don't want to miss this!", "", bc_self;
+		npctalk "Meow! Oye, un nuevo amigo! Tengo una historia que contarte. No te la quieras perder!", "", bc_self;
 	end;
 OnInit:
 	// note: permanent for human
@@ -1685,7 +1685,7 @@ OnInit:
 
 lasagna,171,105,5	script	Emergency Patient#dorco	4_M_DIEMAN,5,5,{
 	emotion ET_HELP;
-	npctalk "S-someone help me... Dorams, they're so cute I'm going to die...", "", bc_self;
+	npctalk "A-alguien ayudeme... Los Dorams, son tan lindos que me voy a morir...", "", bc_self;
 	end;
 OnTouch:
 	emotion ET_HELP;
@@ -1694,46 +1694,46 @@ OnTouch:
 
 lasagna,200,278,5	script	Recruiter#dorcon01	4_CAT_ADV2,{
 	mes "[Recruiter]";
-	mes "Go for a chance to win a cruise trip and annual salary of one hundred million with a price of three anchovies! Chances are in favor of those who don't doubt!";
+	mes "Participa por la oportunidad de ganar un viaje en crucero y un salario anual de cien millones con un precio de tres anchoas! Las oportunidades favorecen a quienes no dudan!";
 	next;
 	mes "[Gomae]";
-	mes "Vigilantes! Over here! there's someone here tricking people to get on board!";
+	mes "Vigilantes! Aqui! hay alguien aqui enganando a la gente para que se suba a bordo!";
 	next;
 	mes "[Recruiter]";
-	mes "Blah! No luck here!";
+	mes "Bah! Aqui no hay suerte!";
 	close;
 }
 
 lasagna,202,276,5	script	Gomae#dorcon01	4_DR_F_01,{
-	npctalk "I heard that there are illegal anchovy boats tricking people to get on board these days. It's a scary world. The vigilantes have their eyes wide open to catch them.", "", bc_self;
+	npctalk "Escuche que hay barcos de anchoas ilegales enganando a la gente para que se suba a bordo estos dias. Es un mundo aterrador. Los vigilantes tienen los ojos bien abiertos para atraparlos.", "", bc_self;
 	end;
 }
 
 lasagna,211,186,5	script	Boarding Attendant#dorc	4_CAT_ADV1,5,5,{
 	if (lasagna_quest[1] < 12) {
 		mes "[Boarding Attendant]";
-		mes "We wish you a pleasant day on Con-Chliina!";
+		mes "Les deseamos un dia agradable en Con-Chliina!";
 		close;
 	}
 	if (lasagna_quest[1] == 12) {
 		mes "[Boarding Attendant]";
-		mes "Hello, adventurer!";
+		mes "Hola, aventurero!";
 		next;
 		mes "[Boarding Attendant]";
-		mes "I assist those who finished their training from Farfalle Vigilantes with boarding on Con-Chliina.";
+		mes "Ayudo a quienes terminaron su entrenamiento con los Vigilantes Farfalle a abordar el Con-Chliina.";
 		next;
 		mes "[Boarding Attendant]";
-		mes "Those heading to the new world should follow the red yarn and go to the ^0000cddock^000000.";
+		mes "Los que se dirigen al nuevo mundo deben seguir el hilo rojo e ir al ^0000cdmuelle^000000.";
 		next;
 		mes "[Boarding Attendant]";
-		mes "Please check to see if you have the boarding pass with you before boarding!";
+		mes "Por favor verifica si tienes el pase de abordaje contigo antes de abordar!";
 		navigateto "lasagna",205,325;
 		close;
 	}
 	end;
 OnTouch:
 	if (isbegin_quest(11445) == 2 && isbegin_quest(14545) == 0)
-		npctalk "Please don't miss the announcement about the details of Con-Chliina!", "", bc_self;
+		npctalk "Por favor no te pierdas el anuncio sobre los detalles de Con-Chliina!", "", bc_self;
 	end;
 OnInit:
 	questinfo( QTYPE_QUEST, QMARK_YELLOW, "!isbegin_quest(14545)" );
@@ -1741,11 +1741,11 @@ OnInit:
 }
 
 lasa_fild01,356,374,7	script	Cow#dorcon01	4_BULL,{
-	npctalk "Moo -", "", bc_self;
+	npctalk "Muu -", "", bc_self;
 	end;
 }
 lasa_fild01,352,376,5	script	Cow#dorcon02	4_WHITE_COW,{
-	npctalk "Moo - Moo -", "", bc_self;
+	npctalk "Muu - Muu -", "", bc_self;
 	end;
 }
 lasa_fild01,361,372,3	script	Cow#dorcon03	4_BULL,{
@@ -1756,127 +1756,127 @@ lasa_fild01,361,372,3	script	Cow#dorcon03	4_BULL,{
 lasagna,217,192,5	script	Kittie#do_hint01	4_CAT_SAILOR1,{
 	npctalk "F12! F12!", "", bc_self;
 	mes "[Kittie]";
-	mes "^4d4dffPress the F12 key and it will bring up the shortcut key slots.^000000";
+	mes "^4d4dffPresiona la tecla F12 y se abriran las ranuras de teclas de atajo.^000000";
 	next;
 	cutin "tutorial05.BMP",4;
-	mes "!- Notice -!";
-	mes "^4d4dffTo prepare an item or skill icon to use, drag it to the shortcut key slot.";
+	mes "!- Aviso -!";
+	mes "^4d4dffPara preparar un icono de objeto o habilidad para usar, arrastralo a la ranura de tecla de atajo.";
 	next;
-	mes "!- Notice -!";
-	mes "^4d4dffTo use or equip an item or equipment registered in the slot, press the key that corresponds to each slot from F1 to F9.";
+	mes "!- Aviso -!";
+	mes "^4d4dffPara usar o equipar un objeto o equipo registrado en la ranura, presiona la tecla correspondiente a cada ranura de F1 a F9.";
 	next;
-	mes "!- Notice -!";
-	mes "^4d4dffIn the shortcut key settings, you can select the corresponding shortcut key as you desire.";
+	mes "!- Aviso -!";
+	mes "^4d4dffEn la configuracion de teclas de atajo, puedes seleccionar la tecla de atajo correspondiente como desees.";
 	next;
-	mes "!- Notice -!";
-	mes "^4d4dffPrepare an item and/or skill that you often use for faster use.";
+	mes "!- Aviso -!";
+	mes "^4d4dffPrepara un objeto y/o habilidad que uses frecuentemente para un uso mas rapido.";
 	cutin "",255;
 	close;
 }
 
 lasagna,260,134,3	script	Rasmus#dorcon01	4_CAT_SAILOR3,{
-	npctalk "Red yarn will take you to the place you want to go, and the yellow road will take you home. don't forget. If you get lost, follow the red yarn.", "", bc_self;
+	npctalk "El hilo rojo te llevara al lugar donde quieres ir, y el camino amarillo te llevara a casa. No lo olvides. Si te pierdes, sigue el hilo rojo.", "", bc_self;
 	end;
 }
 
 lasagna,244,231,3	script	Crewman of Anchovy Fish	4_CAT_SAILOR1,{
-	npctalk "Follow this yellow cheese road and you'll reach my hometown. I want to go back there one day.", "", bc_self;
+	npctalk "Sigue este camino de queso amarillo y llegaras a mi pueblo natal. Quiero volver alli algun dia.", "", bc_self;
 	end;
 }
 
 lasagna,190,239,5	script	Youngster meow#dorcon01	4_CAT_ADV1,{
-	npctalk "I'm the boss of this playground-", "", bc_self;
+	npctalk "Soy el jefe de este parque-", "", bc_self;
 	end;
 }
 
 lasagna,180,230,7	script	Youngster meow#dorcon02	4_CAT_ADV2,{
-	npctalk "Whew, you little kids... You guys are too young for me.", "", bc_self;
+	npctalk "Uf, ninos chiquitos... Son demasiado jovenes para mi.", "", bc_self;
 	end;
 }
 
 lasagna,192,245,7	script	Youngster meow#dorcon03	4_CAT_REST,{
-	npctalk "There are one ten two ten three ten yarn balls... So many!", "", bc_self;
+	npctalk "Hay una decena dos decenas tres decenas de ovillos de lana... Tantos!", "", bc_self;
 	end;
 }
 
 lasagna,184,234,5	script	Youngster meow#dorcon04	4_M_BABYCAT,{
-	npctalk "Anyone who wants to ride the seesaw- come here-", "", bc_self;
+	npctalk "Quien quiera subirse al subibajon- venga aqui-", "", bc_self;
 	end;
 }
 
 lasagna,186,231,3	script	Youngster meow#dorcon05	4_DR_KID_01,{
 	emotion ET_CRY;
-	npctalk "Why Isn't this rolling- Make it roll-", "", bc_self;
+	npctalk "Por que no rueda esto- Haganlo rodar-", "", bc_self;
 	end;
 }
 
 lasagna,226,196,5	script	Aram#dorcon01	4_DR_F_02,{
 	setpcblock PCBLOCK_NPC, true;
-	npctalk "Is this the famous Pub-Oven?", "Tos#dorcon01", bc_self;
+	npctalk "Es este el famoso Pub-Oven?", "Tos#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Stop looking around like a hillbilly!", "", bc_self;
+	npctalk "Deja de mirar a todos lados como un pueblerino!", "", bc_self;
 	sleep2 2000;
-	npctalk "Wow! Look at this! Would this be the place where all three of them sat down?", "Porto#dorcon01", bc_self;
+	npctalk "Guau! Mira esto! Sera este el lugar donde los tres se sentaron?", "Porto#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Geesh! You're just screaming that you're a hillbilly!", "", bc_self;
+	npctalk "Uy! Estas gritando que eres un pueblerino!", "", bc_self;
 	sleep2 2000;
-	npctalk "Since we're here, Let's make an oven resolution!", "Tos#dorcon01", bc_self;
+	npctalk "Ya que estamos aqui, hagamos una resolucion de horno!", "Tos#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "That's why we went through the trouble to come here! Just like Peperoncino, Thomas, and Gamberry, we'll unite and become successful!", "Porto#dorcon01", bc_self;
+	npctalk "Por eso nos tomamos la molestia de venir aqui! Igual que Peperoncino, Thomas y Gamberry, nos uniremos y seremos exitosos!", "Porto#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Boss! Three glasses of kaluna milk shaken hard, please! And egg yolk on top!", "Tos#dorcon01", bc_self;
+	npctalk "Jefe! Tres vasos de leche kaluna bien agitados, por favor! Y yema de huevo encima!", "Tos#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Oh, this is embarrassing! How many times do I have to tell you that everyone here has it stirred?!", "", bc_self;
+	npctalk "Ay, que verguenza! Cuantas veces tengo que decirte que aqui todos la piden revuelta?!", "", bc_self;
 	sleep2 2000;
-	npctalk "Stirred or shaken, who cares as long as It's tasty?", "Porto#dorcon01", bc_self;
+	npctalk "Revuelta o agitada, que importa mientras sea sabrosa?", "Porto#dorcon01", bc_self;
 	sleep2 1000;
-	npctalk "don't let people notice that you're from out of town!", "", bc_self;
+	npctalk "No dejes que la gente note que eres de fuera!", "", bc_self;
 	sleep2 2000;
-	npctalk "Who cares if it shows?! Apparently, there Aren't too many Lasagna natives here.", "Tos#dorcon01", bc_self;
+	npctalk "Que importa si se nota?! Al parecer, no hay muchos nativos de Lasagna aqui.", "Tos#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Yeah, Let's just enjoy ourselves since we're here. I'll try not to let it show too much.", "Porto#dorcon01", bc_self;
+	npctalk "Si, solo disfrutemos ya que estamos aqui. Intentare que no se note mucho.", "Porto#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Yeah, yeah. I won't show it.", "Tos#dorcon01", bc_self;
+	npctalk "Si, si. No lo mostrare.", "Tos#dorcon01", bc_self;
 	sleep2 2000;
 	classchange( 4_CAT_SAILOR3, "Employee#dorcon01", bc_self );
-	npctalk "Three glasses of kaluna milk. Here you go.", "Employee#dorcon01", bc_self;
+	npctalk "Tres vasos de leche kaluna. Aqui tienen.", "Employee#dorcon01", bc_self;
 	sleep2 2000;
 	classchange( HIDDEN_WARP_NPC, "Employee#dorcon01", bc_self );
-	npctalk "Finally!", "Porto#dorcon01", bc_self;
+	npctalk "Por fin!", "Porto#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Let's all make a toast. Hold the glasses high!", "Tos#dorcon01", bc_self;
+	npctalk "Hagamos un brindis. Levanten los vasos!", "Tos#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "We weren't born on the same day, but Let's all die on the same day!", "", bc_self;
+	npctalk "No nacimos el mismo dia, pero muramos todos el mismo dia!", "", bc_self;
 	sleep2 2000;
-	npctalk "Why mention death?", "Tos#dorcon01", bc_self;
+	npctalk "Por que mencionar la muerte?", "Tos#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "Then one for all! All for one!", "Porto#dorcon01", bc_self;
+	npctalk "Entonces uno para todos! Todos para uno!", "Porto#dorcon01", bc_self;
 	sleep2 1000;
 	npctalk "......", "", bc_self;
 	sleep2 2000;
-	npctalk "Cheesy...", "", bc_self;
+	npctalk "Cursi...", "", bc_self;
 	setpcblock PCBLOCK_NPC, false;
 	end;
 }
 
 lasagna,228,193,5	script	Porto#dorcon01	4_DR_M_01,{
 	setpcblock PCBLOCK_NPC, true;
-	npctalk "Since I've come all the way here, I should try the kaluna milk!", "", bc_self;
+	npctalk "Ya que vine hasta aca, deberia probar la leche kaluna!", "", bc_self;
 	sleep2 2000;
-	npctalk "Don't be so loud! Everyone is looking!", "Aram#dorcon01", bc_self;
+	npctalk "No seas tan ruidoso! Todos estan mirando!", "Aram#dorcon01", bc_self;
 	sleep2 2000;
-	npctalk "You know, you're the one who's louder.", "", bc_self;
+	npctalk "Sabes, tu eres el mas ruidoso.", "", bc_self;
 	sleep2 2000;
-	npctalk "Right, right.", "Tos#dorcon01", bc_self;
+	npctalk "Si, si.", "Tos#dorcon01", bc_self;
 	setpcblock PCBLOCK_NPC, false;
 	end;
 }
 
 lasagna,229,197,5	script	Tos#dorcon01	4_DR_M_02,{
 	setpcblock PCBLOCK_NPC, true;
-	npctalk "Befitting to its fame, this place is packed with people.", "", bc_self;
+	npctalk "Acorde a su fama, este lugar esta lleno de gente.", "", bc_self;
 	sleep2 2000;
-	npctalk "Stop looking around like a hillbilly!", "Aram#dorcon01", bc_self;
+	npctalk "Deja de mirar a todos lados como un pueblerino!", "Aram#dorcon01", bc_self;
 	setpcblock PCBLOCK_NPC, false;
 	end;
 }
@@ -1884,41 +1884,41 @@ lasagna,229,197,5	script	Tos#dorcon01	4_DR_M_02,{
 lasagna,226,199,5	script	Employee#dorcon01	HIDDEN_WARP_NPC,{ end; }
 
 lasagna,230,192,3	script	Perky Doram#do_hint03	4_CAT_ADV2,{
-	npctalk "Always right-click when it comes to information! Right-click a human, item and cat to know more about them!", "", bc_self;
+	npctalk "Siempre haz clic derecho cuando se trate de informacion! Haz clic derecho en un humano, objeto y gato para saber mas sobre ellos!", "", bc_self;
 	end;
 }
 
 lasagna,235,193,3	script	Customer#dorcon02	4_DR_TORTEL,{
 	setpcblock PCBLOCK_NPC, true;
-	npctalk "Always right-click when it comes to information! Right-click a human, item and cat to know more about them!", "", bc_self;
+	npctalk "Siempre haz clic derecho cuando se trate de informacion! Haz clic derecho en un humano, objeto y gato para saber mas sobre ellos!", "", bc_self;
 	sleep2 1000;
 	emotion ET_THROB;
-	npctalk "Ha- ppi- ness-", "", bc_self;
+	npctalk "Fe- li- ci- dad-", "", bc_self;
 	sleep2 2000;
 	emotion ET_SLEEPY;
-	npctalk "We're full, so there's only one thing to do. Sleep.", "", bc_self;
+	npctalk "Estamos llenos, asi que solo queda una cosa por hacer. Dormir.", "", bc_self;
 	setpcblock PCBLOCK_NPC, false;
 	end;
 }
 
 lasagna,220,190,5	script	Customer#dorcon01	4_CAT_ADV1,{
-	npctalk "Have you ever seen the crazy seagull nearby the south bridge over there? It was hopping like crazy. What's going on?", "", bc_self;
+	npctalk "Has visto alguna vez a la gaviota loca cerca del puente sur por alla? Estaba saltando como loca. Que esta pasando?", "", bc_self;
 	end;
 }
 
 lasagna,220,194,3	script	Serious Doram#do_hint08	4_M_MERCAT1,{
-	npctalk "Humans say their weapons become stronger through refinement. What's refinement anyway?", "", bc_self;
+	npctalk "Los humanos dicen que sus armas se hacen mas fuertes a traves del refinamiento. Que es el refinamiento de todas formas?", "", bc_self;
 	end;
 }
 
 
 lasagna,221,175,5	script	Smart Doram#do_hint06	4_CAT_SAILOR2,{
-	npctalk "DEX (Dexterity) is about accuracy and casting speed.", "", bc_self;
+	npctalk "DEX (Destreza) se trata de precision y velocidad de casteo.", "", bc_self;
 	end;
 }
 
 lasagna,219,178,3	script	Kittie#do_hint02	4_CAT_SAILOR3,{
-	npctalk "Double-click a consumable item to use.", "", bc_self;
+	npctalk "Haz doble clic en un objeto consumible para usarlo.", "", bc_self;
 	end;
 }
 
@@ -1936,133 +1936,133 @@ lasagna,208,179,3	script	Kittie the Eraser#do_hi	4_M_MERCAT1,{
 */
 
 lasagna,225,174,3	script	Doram On The Journey#do	4_CAT_3COLOR,{
-	npctalk "You can't recover naturally if the items you carry exceed 50% of your max weight amount.", "", bc_self;
+	npctalk "No puedes recuperarte naturalmente si los objetos que cargas exceden el 50% de tu peso maximo.", "", bc_self;
 	end;
 }
 
 lasagna,233,174,5	script	Boozer#dorcon01	4_CAT_SAILOR5,{
-	npctalk "Kaluna milk should be stirred. With many wanders flocking around here lately, there's been an increase in those who shake it. But That's how kids drink it, Isn't?", "", bc_self;
+	npctalk "La leche kaluna se debe revolver. Con tantos viajeros llegando por aqui ultimamente, ha aumentado los que la agitan. Pero asi es como la toman los ninos, no?", "", bc_self;
 	end;
 }
 
 lasagna,236,173,3	script	Boozer#dorcon02	4_CAT_SAILOR5,{
-	npctalk "Kaluna milk should be shaken. You have to shake it to taste the delicate flavor produced when adequately fermented kaluna is mixed with milk.", "", bc_self;
+	npctalk "La leche kaluna se debe agitar. Tienes que agitarla para saborear el delicado sabor que se produce cuando la kaluna adecuadamente fermentada se mezcla con la leche.", "", bc_self;
 	end;
 }
 
 lasagna,236,179,5	script	Meow goon#dorcon01	4_DR_M_01,{
 	mes "[Meow goon]";
-	mes "If you run into a problem, ask them for help. You know, the twins in the vigilante corps. Aglio... Ali... Ol...";
+	mes "Si tienes algun problema, pideles ayuda. Ya sabes, los gemelos del cuerpo de vigilantes. Aglio... Ali... Ol...";
 	next;
 	mes "[Meow goon]";
-	mes "Right! They're Aglio and Oligo!";
-	npctalk "Aglio and Oligo!", "", bc_self;
+	mes "Cierto! Son Aglio y Oligo!";
+	npctalk "Aglio y Oligo!", "", bc_self;
 	next;
 	emotion ET_SWEAT, getnpcid(0, "Goon meow#dorcon01");
 	mes "[Goon meow]";
-	mes "Hey, That's not it... No...";
+	mes "Oye, eso no es... No...";
 	next;
 	mes "[Meow goon]";
 	mes "No?";
 	next;
 	mes "[Goon meow]";
-	mes "They're Aglio and Olio. Not Aglio and Oligo. You made them sound like a sugar.";
-	npctalk "They're Aglio and Olio.", "Goon meow#dorcon01", bc_self;
+	mes "Son Aglio y Olio. No Aglio y Oligo. Los hiciste sonar como un azucar.";
+	npctalk "Son Aglio y Olio.", "Goon meow#dorcon01", bc_self;
 	next;
 	mes "[Meow goon]";
-	mes "Whichever.";
+	mes "Da igual.";
 	close;
 }
 
 lasagna,235,178,5	script	Goon meow#dorcon01	4_DR_M_02,{
 	mes "[Goon meow]";
-	mes "It's dangerous to put yourself out into the world. Take these tri-colored anchovies.";
-	npctalk "It's dangerous to put yourself out into the world.", "", bc_self;
+	mes "Es peligroso aventurarse al mundo. Toma estas anchoas tricolor.";
+	npctalk "Es peligroso aventurarse al mundo.", "", bc_self;
 	next;
 	mes "[Meow goon]";
-	mes "Everyone keep away! I'm dangerous. Krahh! How long can the tri-colored anchovies hold off?!";
-	npctalk "Everyone keep away! I'm dangerous.", "Meow goon#dorcon01", bc_self;
+	mes "Todos alejense! Soy peligroso. Krahh! Cuanto tiempo pueden resistir las anchoas tricolor?!";
+	npctalk "Todos alejense! Soy peligroso.", "Meow goon#dorcon01", bc_self;
 	next;
 	mes "[Goon meow]";
-	mes "I'm... finished... You go ahead...";
+	mes "Estoy... acabado... Tu sigue adelante...";
 	next;
 	mes "[Meow goon]";
-	mes "Kah... The poltergeist that had been sleeping inside my bag is raging!";
+	mes "Kah... El poltergeist que dormia dentro de mi bolsa esta furioso!";
 	next;
 	emotion ET_BEST;
 	emotion ET_BEST, getnpcid(0, "Meow goon#dorcon01");
 	mes "[Goon meow]";
-	mes "Good! This should be enough to keep me from getting snubbed in the new world.";
-	npctalk "We're thoroughly prepared all right!", "Meow goon#dorcon01";
+	mes "Bien! Esto deberia ser suficiente para evitar que me desprecien en el nuevo mundo.";
+	npctalk "Estamos bien preparados!", "Meow goon#dorcon01";
 	close;
 }
 
 lasagna,232,187,6	script	Fettuccina#dorcon01	4_CAT_SAILOR2,{
 	mes "[Fettuccina]";
-	mes "I've worked here for a while, but I'm still the youngest so I do all the dishes.";
+	mes "He trabajado aqui un tiempo, pero sigo siendo el mas joven asi que lavo todos los platos.";
 	next;
 	mes "[Fettuccina]";
-	mes "A glass before sailing out, a glass on land after a long voyage, a glass for everyone who came from out of town to make an oven resolution, a glass for every regular customers, a glass for everyone who drinks because others drink it..";
+	mes "Un vaso antes de zarpar, un vaso en tierra despues de un largo viaje, un vaso para todos los que vinieron de fuera a hacer una resolucion de horno, un vaso para cada cliente habitual, un vaso para todos los que beben porque otros beben..";
 	next;
 	mes "[Fettuccina]";
-	mes "So basically, It's beyond your imagination how many glasses I have to wash each day. Not only that, I have to listen to vigilance corps and merchants' low-ranking dorams whine, and counsel rookie adventurers.";
+	mes "Basicamente, esta mas alla de tu imaginacion cuantos vasos tengo que lavar cada dia. No solo eso, tengo que escuchar las quejas de los dorams de bajo rango del cuerpo de vigilantes y comerciantes, y aconsejar a aventureros novatos.";
 	next;
 	mes "[Fettuccina]";
-	mes "Really, 24 hours are too short. We should hire one more person!";
+	mes "En serio, 24 horas son muy pocas. Deberiamos contratar a una persona mas!";
 	close;
 }
 
 lasagna,131,245,5	script	The diligent second son	4_CAT_3COLOR,{
 	if (checkweight(1001,1) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	mes "[Yota Chara]";
-	mes "Father, mother. Please come back home safely.";
-	mes "(He's making something, mumbling.)";
+	mes "Padre, madre. Por favor regresen a casa sanos y salvos.";
+	mes "(Esta haciendo algo, murmurando.)";
 	next;
-	if (select( "Craft Amulet", "About the Family" ) == 2) {
+	if (select( "Fabricar Amuleto", "Sobre la Familia" ) == 2) {
 		mes "[Yota Chara]";
-		mes "...My parents keep going out into the dangerous areas. I'm still a child to help them, so what I do is to make these amulets for them.";
+		mes "...Mis padres siguen saliendo a las areas peligrosas. Todavia soy un nino para ayudarlos, asi que lo que hago es hacerles estos amuletos.";
 		next;
 		emotion ET_PROFUSELY_SWEAT;
 		mes "[Yota Chara]";
-		mes "What if some bad news reach us even if I try hard making these amulets for their safety?";
+		mes "Que pasa si nos llegan malas noticias aunque me esfuerce haciendo estos amuletos para su seguridad?";
 		next;
 		mes "[Yota Chara]";
-		mes "I get startled each time some mail arrives...";
+		mes "Me asusto cada vez que llega un correo...";
 		next;
 		emotion ET_CRY, getnpcid(0, "The skittish fourth#wea");
 		mes "[Dandi Chara]";
-		mes "Whatever happened to our parents? ~Bursting into crying~";
+		mes "Que les paso a nuestros padres? ~Se pone a llorar~";
 		next;
 		emotion ET_BEST, getnpcid(0, "The brave third#weapon");
 		mes "[Jogi Chara]";
-		mes "Well, then. I'll be your dad!!";
+		mes "Bueno, entonces. Yo sere tu papa!!";
 		next;
 		emotion ET_CRY, getnpcid(0, "The skittish fourth#wea");
 		emotion ET_PROFUSELY_SWEAT;
 		mes "[Dandi Chara]";
-		mes "~Keeps crying uncontrollably~ No way!! Mom!! Dad!!";
+		mes "~Sigue llorando sin control~ No puede ser!! Mama!! Papa!!";
 		next;
 		mes "[Goma Chara]";
 		emotion ET_FRET, getnpcid(0, "The sensitive-minded ela");
 		emotion ET_PROFUSELY_SWEAT;
-		mes "Both will be totally fine and return to us soon. So quit it! Did you really have to make him cry, huh?!";
+		mes "Ambos estaran perfectamente bien y regresaran pronto. Ya basta! De verdad tenias que hacerlo llorar, eh?!";
 		next;
 		emotion ET_THINK;
-		mes "- Yota became disheartened and started making another amulet, quietly. -";
+		mes "- Yota se desanimo y empezo a hacer otro amuleto, en silencio. -";
 		close;
 	}
 	mes "[Yota Chara]";
-	mes "...Do you have someone you're close to and whom you wish for their wellness?";
-	mes "If you want an amulet, you can exchange it with the Doram tokens. I have a bunch of amulets with me.";
+	mes "...Tienes a alguien cercano a quien le desees bienestar?";
+	mes "Si quieres un amuleto, puedes intercambiarlo con los tokens Doram. Tengo un monton de amuletos conmigo.";
 	next;
-	.@s = select( "Low-grade Horse Mackerel Amulet", "Low-grade Leaf Amulet", "Low-grade Rabbit Amulet", "Shining Twig Charm", "Fresh Tuna Amulet", "Plump Earthworm Amulet" );
+	.@s = select( "Amuleto de Jurel de Baja Calidad", "Amuleto de Hoja de Baja Calidad", "Amuleto de Conejo de Baja Calidad", "Amuleto de Ramita Brillante", "Amuleto de Atun Fresco", "Amuleto de Lombriz Gordita" );
 	mes "[Yota Chara]";
 	switch(.@s) {
 	case 1:
@@ -2094,19 +2094,19 @@ lasagna,131,245,5	script	The diligent second son	4_CAT_3COLOR,{
 	}
 	mes "Will you exchange it for " + .@cost + " " + mesitemlink( 25142, false ) + "?";
 	next;
-	if (select( "Exchange", "Cancel" ) == 2) {
+	if (select( "Intercambiar", "Cancelar" ) == 2) {
 		mes "[Yota Chara]";
-		mes "Did...did I misspeak, or what?";
-		mes "I'm not an expert but I did my best.";
+		mes "Yo...dije algo malo, o que?";
+		mes "No soy un experto pero hice mi mejor esfuerzo.";
 		close;
 	}
 	if (countitem(25142) < .@cost) {
 		mes "[Yota Chara]";
-		mes "I'm sorry. My sister will get pretty mad if I don't sell it for the proper money. Will you come back with 10 Doram Tokens?";
+		mes "Lo siento. Mi hermana se enojara mucho si no lo vendo por el precio justo. Volveras con 10 Doram Tokens?";
 		close;
 	}
 	mes "[Yota Chara]";
-	mes "Thanks you. I hope my amulet will be of good use to you...";
+	mes "Gracias. Espero que mi amuleto te sea de buen uso...";
 	delitem 25142, .@cost;
 	getitem .@item_id, 1;
 	close;
@@ -2114,51 +2114,51 @@ lasagna,131,245,5	script	The diligent second son	4_CAT_3COLOR,{
 
 lasagna,131,250,5	script	The brave third#weapon	4_DR_M_02,{
 	if (checkweight(1001,1) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	mes "[Jogi Chara]";
-	mes "~Whirring~";
-	mes "Here is Jogi, the bomber from Lasagna!";
-	mes "Drop your weapons and surrender!";
+	mes "~Zumbido~";
+	mes "Aqui esta Jogi, el bombardero de Lasagna!";
+	mes "Suelta tus armas y rindete!";
 	next;
-	if (select( "Act as if you surrender.", "Ignore him." ) == 2) {
+	if (select( "Actuar como si te rindieras.", "Ignorarlo." ) == 2) {
 		mes "[Jogi Chara]";
-		mes "~Makes a whiffing sound~";
-		mes "~Thumping sound~";
-		mes "Huh? Where do you think you're going?";
+		mes "~Hace un sonido de soplido~";
+		mes "~Sonido de golpe~";
+		mes "Eh? A donde crees que vas?";
 		close;
 	}
 	mes "[Jogi Chara]";
-	mes "Wahaha! Another victory for me! What a rewarding day!";
-	mes "What should we do next?";
+	mes "Wahaha! Otra victoria para mi! Que dia tan gratificante!";
+	mes "Que hacemos ahora?";
 	next;
-	if (select( "Exchange tokens for a weapon.", "About the Family" ) == 2) {
+	if (select( "Intercambiar tokens por un arma.", "Sobre la Familia" ) == 2) {
 		emotion ET_BEST;
 		mes "[Jogi Chara]";
-		mes "My sister told me my parents are warriors! They left for a huge adventure!!";
+		mes "Mi hermana me dijo que mis padres son guerreros! Se fueron a una gran aventura!!";
 		next;
 		emotion ET_BEST;
 		mes "[Jogi Chara]";
-		mes "I'll join the Militia and become great like my parents!";
-		mes "I'm still too young to join the Militia, but, I'm positive that I can be the ace of the band once I join it because I'm committed to training myself.";
+		mes "Me unire a la Milicia y sere grandioso como mis padres!";
+		mes "Todavia soy muy joven para unirme a la Milicia, pero estoy seguro de que puedo ser el as del grupo una vez que me una porque estoy comprometido a entrenarme.";
 		next;
 		emotion ET_HNG;
 		mes "[Jogi Chara]";
-		mes "My family members are very lazy. Unless I train them based on my strong belief, they can never become warriors.";
-		mes "Most notoriously, my elder and younger brother can be a real pain in my neck!";
+		mes "Los miembros de mi familia son muy flojos. A menos que los entrene basandome en mi fuerte creencia, nunca podran ser guerreros.";
+		mes "Los mas notorios son mi hermano mayor y menor que pueden ser un verdadero dolor de cabeza!";
 		next;
 		emotion ET_SMILE;
 		mes "[Jogi Chara]";
-		mes "Dandi! Today's training is to <put 10 earthworms on the head!> Get over here!";
+		mes "Dandi! El entrenamiento de hoy es <ponerse 10 lombrices en la cabeza!> Ven aqui!";
 		next;
 		emotion ET_CRY, getnpcid(0, "The skittish fourth#wea");
 		mes "[Dandi Chara]";
-		mes "~Bursting into crying~ Goma Chara!!";
+		mes "~Se pone a llorar~ Goma Chara!!";
 		close;
 	}
 	emotion ET_SPARK;
@@ -2166,7 +2166,7 @@ lasagna,131,250,5	script	The brave third#weapon	4_DR_M_02,{
 	mes "Whoa, a new weapon! New power!";
 	mes "What are you going to give me? Do you have a lot of weapons? Can I search into them? Will you exchange it for " + mesitemlink( 25142, false ) + "?";
 	next;
-	if (select( "Search", "Cancel" ) == 1) {
+	if (select( "Search", "Cancelar" ) == 1) {
 		setarray .@item_data[0],
 			1690, 1,	// Marvelous Foxtail Staff [3]
 			1691, 2,	// Wondrous Foxtail Staff [2]
@@ -2185,9 +2185,9 @@ lasagna,131,250,5	script	The brave third#weapon	4_DR_M_02,{
 			}
 			if (.@i == .@total_item) {
 				mes "[Jogi Chara]";
-				mes "That's it?";
+				mes "Eso es todo?";
 				next;
-				if (select( "Search again.", "Stop." ) == 2)
+				if (select( "Buscar de nuevo.", "Parar." ) == 2)
 					break;
 			}
 			else {
@@ -2195,14 +2195,14 @@ lasagna,131,250,5	script	The brave third#weapon	4_DR_M_02,{
 				mes "Whoa! This is ^3131FF" + getitemname(.@item_data[.@i]) + "^000000!";
 				mes "Exchange it for " + .@item_data[.@i+1] + " " + mesitemlink( 25142, false ) + "! Please? Will you do it, please?";
 				next;
-				if (select( "Exchange", "Quit exchanging" ) == 2) {
+				if (select( "Intercambiar", "Quit exchanging" ) == 2) {
 					mes "[Jogi Chara]";
-					mes "~Giggles~ We should see each other more often!";
+					mes "~Risitas~ Deberiamos vernos mas seguido!";
 					close;
 				}
 				mes "[Jogi Chara]";
-				mes "Yay!! Thanks a mil!";
-				mes "Can I look for something else?";
+				mes "Yay!! Mil gracias!";
+				mes "Puedo buscar algo mas?";
 				delitem .@item_data[.@i],1;
 				getitem 25142,.@item_data[.@i+1];// Doram token
 				next;
@@ -2210,52 +2210,52 @@ lasagna,131,250,5	script	The brave third#weapon	4_DR_M_02,{
 		}
 	}
 	mes "[Jogi Chara]";
-	mes "~Scoffs~ Alright, then.";
+	mes "~Bufido~ Muy bien, entonces.";
 	close;
 }
 
 lasagna,140,250,3	script	The skittish fourth#wea	4_DR_F_01,{
 	if (checkweight(1001,1) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	emotion ET_HUK;
 	mes "[Dandi Chara]";
-	mes "~Shrieks~ Hi...Hiya...";
-	mes "You really startled me...I thought it was Jogi.";
+	mes "~Grito~ Ho...Hola...";
+	mes "De verdad me asustaste...Pense que era Jogi.";
 	next;
-	if (select( "Exchange tokens for armor.", "About the Family" ) == 2) {
+	if (select( "Intercambiar tokens por armadura.", "Sobre la Familia" ) == 2) {
 		mes "[Dandi Chara]";
-		mes "She gets angry easily but makes new clothes for me, saying I deserve pretty ones.";
-		mes "I like her...";
+		mes "Se enoja facilmente pero me hace ropa nueva, diciendo que merezco ropa bonita.";
+		mes "Me agrada...";
 		next;
 		emotion ET_CRY;
 		mes "[Dandi Chara]";
-		mes "My brothers can be pretty mean. So I try my best to obey what Dandi tells me to.";
-		mes "Still, Yota would never show his smiles, while Jogi would bring me hideous stuff like an earthworm, saying I should be tougher. ~Makes a sobbing sound~";
+		mes "Mis hermanos pueden ser bastante malos. Asi que hago mi mejor esfuerzo para obedecer lo que Dandi me dice.";
+		mes "Aun asi, Yota nunca muestra sus sonrisas, mientras que Jogi me trae cosas horrorosas como lombrices, diciendo que deberia ser mas fuerte. ~Hace un sonido de sollozo~";
 		next;
 		emotion ET_CRY;
 		mes "[Dandi Chara]";
-		mes "What's more, Jogi keeps wandering near the forest, saying He's going for the Militia. Mom said it's dangerous...";
+		mes "Ademas, Jogi sigue deambulando cerca del bosque, diciendo que va por la Milicia. Mama dijo que es peligroso...";
 		next;
 		emotion ET_CRY;
 		mes "[Dandi Chara]";
-		mes "What if a monster takes my brother away? That monster's gotta hurt a lot...";
+		mes "Que pasa si un monstruo se lleva a mi hermano? Ese monstruo debe doler mucho...";
 		next;
 		emotion ET_SURPRISE;
 		mes "[Dandi Chara]";
-		mes "Do you happen to have any piece of armor to spare for my brother? Would you give it to me? I'll pay for it...";
+		mes "De casualidad tienes alguna pieza de armadura de sobra para mi hermano? Me la darias? La pagare...";
 		close;
 	}
 	mes "[Dandi Chara]";
-	mes "Do you mind if I search you to see the items you have with you?";
+	mes "Te importa si te reviso para ver los objetos que tienes contigo?";
 	mes "If I find an item suitable for Jogi, I'll pay " + mesitemlink( 25142, false ) + "....";
 	next;
-	if (select( "Search", "Cancel" ) == 1) {
+	if (select( "Search", "Cancelar" ) == 1) {
 		setarray .@item_data[0],	// keep the order
 			15156, 4,	// Elegant Doram Suit [1]
 			20790, 4,	// Elegant Doram Manteau [1]
@@ -2290,9 +2290,9 @@ lasagna,140,250,3	script	The skittish fourth#wea	4_DR_F_01,{
 			}
 			if (.@i == .@total_item) {
 				mes "[Dandi Chara]";
-				mes "...I think That's just it. Should I look over it again, or stop right here?";
+				mes "...Creo que eso es todo. Deberia revisarlo de nuevo, o paramos aqui?";
 				next;
-				if (select( "Search again.", "Stop." ) == 2)
+				if (select( "Buscar de nuevo.", "Parar." ) == 2)
 					break;
 			}
 			else {
@@ -2300,14 +2300,14 @@ lasagna,140,250,3	script	The skittish fourth#wea	4_DR_F_01,{
 				mes "Whoa, this must be ^3131FF" + getitemname(.@item_data[.@i]) + "^000000!!";
 				mes "Don't you want to exchange this with " + .@item_data[.@i+1] + " " + mesitemlink( 25142, false ) + "?";
 				next;
-				if (select( "Exchange", "Quit exchanging" ) == 2) {
+				if (select( "Intercambiar", "Quit exchanging" ) == 2) {
 					mes "[Dandi Chara]";
-					mes "I know. I searched into your inventory too much. Sorry...";
+					mes "Lo se. Revise demasiado tu inventario. Perdon...";
 					close;
 				}
 				mes "[Dandi Chara]";
-				mes "Thank you.";
-				mes "Can I look for something else?";
+				mes "Gracias.";
+				mes "Puedo buscar algo mas?";
 				delitem .@item_data[.@i],1;
 				getitem 25142,.@item_data[.@i+1];// Doram token
 				next;
@@ -2315,52 +2315,52 @@ lasagna,140,250,3	script	The skittish fourth#wea	4_DR_F_01,{
 		}
 	}
 	mes "[Dandi Chara]";
-	mes "Alright...Thank you for your...help, I guess...";
+	mes "Bien...Gracias por tu...ayuda, supongo...";
 	close;
 }
 
 lasagna,140,245,3	script	The sensitive-minded ela	4_CAT_SAILOR3,{
 	if (checkweight(1001,1) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	mes "[Goma Chara]";
-	mes "I'm Goma Chara, the eldest daughter of the Charas. These brats are who quicken my ageing process...";
-	mes "If you happen to have the amulet that my brother Yota made, I can polish it for you.";
+	mes "Soy Goma Chara, la hija mayor de los Chara. Estos mocosos son los que aceleran mi envejecimiento...";
+	mes "Si tienes el amuleto que mi hermano Yota hizo, puedo pulirlo por ti.";
 	next;
-	if (select( "Upgrade Amulet", "About the Family" ) == 2) {
+	if (select( "Mejorar Amuleto", "Sobre la Familia" ) == 2) {
 		mes "[Goma Chara]";
-		mes "My father was a born seaman so went out into the sea a long time ago, saying he'll catch the world's largest tuna.";
+		mes "Mi padre era un marinero nato asi que se fue al mar hace mucho tiempo, diciendo que atraparia el atun mas grande del mundo.";
 		next;
 		mes "[Goma Chara]";
-		mes "My mother can be a collector so she would go into the deepmost side of the forest, looking for the odd fruits. She would come and go even before I know it.";
+		mes "Mi madre puede ser una coleccionista asi que se adentraria en lo mas profundo del bosque, buscando frutas extranas. Iba y venia antes de que me diera cuenta.";
 		next;
 		mes "[Goma Chara]";
-		mes "So taking care of these bratty brothers has become my responsibility! I wonder why I was born the eldest! I've almost had it!";
-		next;
-		emotion ET_FRET;
-		mes "[Goma Chara]";
-		mes "Yota! Tidy up your place after making amulets! Pick up the scales of horse mackerels there. Oh, my days...";
+		mes "Asi que cuidar a estos hermanos malcriados se ha convertido en mi responsabilidad! Me pregunto por que naci la mayor! Ya casi no aguanto!";
 		next;
 		emotion ET_FRET;
 		mes "[Goma Chara]";
-		mes "Jogi, Dandi is about to burst into crying. Please behave yourself, will you?";
+		mes "Yota! Ordena tu lugar despues de hacer amuletos! Recoge las escamas de jurel de ahi. Ay, cielos...";
+		next;
+		emotion ET_FRET;
+		mes "[Goma Chara]";
+		mes "Jogi, Dandi esta a punto de ponerse a llorar. Por favor comportate, si?";
 		next;
 		emotion ET_ANGER;
 		mes "[Goma Chara]";
-		mes "~Signs deeply~ My head is spinning!";
-		mes "I'm sorry but our chit-chat ends here. Time flies when you're busy taking care of little brothers.";
+		mes "~Suspira profundamente~ Me da vueltas la cabeza!";
+		mes "Lo siento pero nuestra charla termina aqui. El tiempo vuela cuando estas ocupada cuidando hermanitos.";
 		close;
 	}
 	mes "[Goma Chara]";
-	mes "Yota often makes quality amulets, but he still needs more polishing.";
-	mes "If he pays attention to details, his amulets will be even greater. But he just doesn't care.";
+	mes "Yota a menudo hace amuletos de calidad, pero todavia necesita mas pulido.";
+	mes "Si pusiera atencion a los detalles, sus amuletos serian aun mejores. Pero simplemente no le importa.";
 	next;
-	.@s = select( "Polish the Horse Mackerel Amulet.", "Polish the Leaf Amulet.", "Polish the Rabbit Amulet." ) - 1;
+	.@s = select( "Pulir el Amuleto de Jurel.", "Pulir el Amuleto de Hoja.", "Pulir el Amuleto de Conejo." ) - 1;
 	setarray .@ids[0], 28413,28416,28419;
 	.@start_ID = .@ids[.@s];
 	if ((countitem(.@start_ID) - isequippedcnt(.@start_ID))  > 0) {	// basic amulet to upgrade
@@ -2375,35 +2375,35 @@ lasagna,140,245,3	script	The sensitive-minded ela	4_CAT_SAILOR3,{
 	}
 	else if ((countitem(.@start_ID+2) - isequippedcnt(.@start_ID+2))  > 0) {	// player have some "perfect" amulet in inventory
 		mes "[Goma Chara]";
-		mes "This amulet is already perfect!";
+		mes "Este amuleto ya es perfecto!";
 		close;
 	}
 	if (.@your_charm_ID < 1) {
 		mes "[Goma Chara]";
-		mes "Show me your amulet, will you? I can't seem to find it in your inventory.";
+		mes "Muestrame tu amuleto, si? No puedo encontrarlo en tu inventario.";
 		close;
 	}
 	mes "[Goma Chara]";
 	mes "Let me. Hmm... " + getitemname(.@your_charm_ID) + ", it is.";
-	mes "...I knew this was going to happen again. Worse, this one must require a lot more time to polish!";
+	mes "...Sabia que esto iba a pasar de nuevo. Peor, este debe requerir mucho mas tiempo para pulir!";
 	next;
 	mes "[Goma Chara]";
 	mes "Hey, if you give me " + .@needCoin + " " + mesitemlink( 25142, false ) + ", I'll fix this for you.";
 	mes "This should produce " + mesitemlink( .@next_charm_ID, false ) + ", I guess. How do you like it?";
 	next;
-	if (select( "Upgrade", "Cancel" ) == 2) {
+	if (select( "Mejorar", "Cancelar" ) == 2) {
 		mes "[Goma Chara]";
-		mes "As you please.";
+		mes "Como quieras.";
 		close;
 	}
 	if (countitem(25142) < .@needCoin) {
 		mes "[Goma Chara]";
-		mes "Insufficient materials, can not be repaired free.";
+		mes "Materiales insuficientes, no se puede reparar gratis.";
 		close;
 	}
 	mes "[Goma Chara]";
-	mes "The inside of this amulet seems pretty tough.";
-	mes "But my dexterity is tougher. Tada! Put my brother's amulet to good use.";
+	mes "El interior de este amuleto parece bastante duro.";
+	mes "Pero mi destreza es mas dura. Tadan! Dale buen uso al amuleto de mi hermano.";
 	delitem 25142, .@needCoin;// Doram token
 	delitem .@your_charm_ID,1;
 	getitem .@next_charm_ID,1;
@@ -2422,42 +2422,42 @@ lasa_fild01,353,370,5	script	Shepherd#dorcon	4_DR_KID_01,{
 			case 0:
 			case 1:
 				mes "[Shepherd]";
-				mes "I'm sorry to say this when you're working so hard to help us, but how about searching for some other work? I think It's a shame to let your skills go to waste.";
+				mes "Lamento decir esto cuando te esfuerzas tanto por ayudarnos, pero que tal si buscas otro trabajo? Creo que es una lastima desperdiciar tus habilidades.";
 				next;
 				mes "[Shepherd]";
 				if (BaseLevel < 14)
-					mes "I heard that honey collect is in need of help, so you should go see ^4D4DFF[Florin]^000000. Thank you for helping us.";
+					mes "Escuche que la recoleccion de miel necesita ayuda, asi que deberias ir a ver a ^4D4DFF[Florin]^000000. Gracias por ayudarnos.";
 				else if (BaseLevel < 16)
-					mes "I heard that Prok needs some help right now. Why don't you go see ^4D4DFF[Prok]^000000? Thank you for helping us.";
+					mes "Escuche que Prok necesita algo de ayuda ahora. Por que no vas a ver a ^4D4DFF[Prok]^000000? Gracias por ayudarnos.";
 				else if (BaseLevel < 20)
-					mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+					mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 				else if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14546;// Take care of grass thief
 				close;
 			case 2:
 				mes "[Shepherd]";
-				mes "Thank you. Now our cows can enjoy delicious meal.";
+				mes "Gracias. Ahora nuestras vacas pueden disfrutar una deliciosa comida.";
 				next;
 				mes "[Shepherd]";
-				mes "But you seem too skilled to do this kind of work. There are many other jobs that require physical strength, so perhaps you should go seek them.";
+				mes "Pero pareces demasiado habil para este tipo de trabajo. Hay muchos otros trabajos que requieren fuerza fisica, asi que quizas deberias ir a buscarlos.";
 				next;
 				mes "[Shepherd]";
-				mes "Not today. Maybe tomorrow? Let me see... Who said needed some help?";
+				mes "Hoy no. Quizas manana? Dejame ver... Quien dijo que necesitaba ayuda?";
 				next;
 				mes "[Shepherd]";
 				if (BaseLevel < 14)
-					mes "I heard that honey collect is in need of help, so you should go see ^4D4DFF[Florin]^000000. Thank you for helping us.";
+					mes "Escuche que la recoleccion de miel necesita ayuda, asi que deberias ir a ver a ^4D4DFF[Florin]^000000. Gracias por ayudarnos.";
 				else if (BaseLevel < 16)
-					mes "I heard that Prok needs some help right now. Why don't you go see ^4D4DFF[Prok]^000000? Thank you for helping us.";
+					mes "Escuche que Prok necesita algo de ayuda ahora. Por que no vas a ver a ^4D4DFF[Prok]^000000? Gracias por ayudarnos.";
 				else if (BaseLevel < 20)
-					mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+					mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 				else if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14546;// Take care of grass thief
 				if (isbegin_quest(14592) == 0 && BaseLevel < 21)
 					setquest 14592;// Resting Time
@@ -2466,7 +2466,7 @@ lasa_fild01,353,370,5	script	Shepherd#dorcon	4_DR_KID_01,{
 			}
 		}
 		mes "[Shepherd]";
-		mes "Hey cows- eat a lot and relax a lot- I'll sing you a song-";
+		mes "Oye vacas- coman mucho y relajense mucho- les cantare una cancion-";
 		close;
 	}
 	switch( checkquest(14592,PLAYTIME) ) {
@@ -2474,30 +2474,30 @@ lasa_fild01,353,370,5	script	Shepherd#dorcon	4_DR_KID_01,{
 		switch( checkquest(14546,HUNTING) ) {
 		case -1:
 			mes "[Shepherd]";
-			mes "Hello, are you the person who's here to help us? Then you can start now.";
+			mes "Hola, eres la persona que vino a ayudarnos? Entonces puedes empezar ahora.";
 			next;
-			if (select( "What is going on?", "I'm not working." ) == 2) {
+			if (select( "Que esta pasando?", "No voy a trabajar." ) == 2) {
 				mes "[" + strcharinfo(0) + "]";
-				mes "Work? That's out of the blue. No, I won't do it!";
+				mes "Trabajar? Eso es de la nada. No, no lo hare!";
 				close;
 			}
 			mes "[" + strcharinfo(0) + "]";
-			mes "If you need help, then you should at least tell me what I should do.";
+			mes "Si necesitas ayuda, entonces al menos deberias decirme que debo hacer.";
 			next;
 			mes "[Shepherd]";
-			mes "Oh, didn't the Chef tell you? I'm sorry, most people come here after hearing the details from him.";
+			mes "Oh, el Chef no te lo dijo? Lo siento, la mayoria de la gente viene aqui despues de escuchar los detalles de el.";
 			next;
 			mes "[Shepherd]";
-			mes "Those Grass Fabres and Leaf Lunatics are eating away the entire grass. But they shouldn't because they're leaving my cute cows here with no food.";
+			mes "Esos Grass Fabres y Leaf Lunatics se estan comiendo todo el pasto. Pero no deberian porque dejan a mis lindas vacas sin comida.";
 			next;
 			mes "[Shepherd]";
-			mes "Our cows have nothing to eat then.";
+			mes "Entonces nuestras vacas no tienen nada que comer.";
 			next;
 			mes "[Shepherd]";
-			mes "If our cows can't eat grass, then we can't milk them. If we have no fresh milk, then we can't make kaluna milk.";
+			mes "Si nuestras vacas no pueden comer pasto, no podemos ordenarlas. Si no tenemos leche fresca, no podemos hacer leche kaluna.";
 			next;
 			mes "[Shepherd]";
-			mes "And... Oh, I don't even want to imagine after that.";
+			mes "Y... Oh, ni siquiera quiero imaginar despues de eso.";
 			next;
 			mes "[Shepherd]";
 			mes "So I need you to catch Grass Fabres and Leaf Lunatics. Five each. Okay, then start!";
@@ -2557,13 +2557,13 @@ lasa_fild02,102,372,5	script	Florin#dorcon	4_DR_F_01,{
 				next;
 				mes "[Florin]";
 				if (BaseLevel < 16)
-					mes "I heard that Prok needs some help right now. Why don't you go see ^4D4DFF[Prok]^000000? Thank you for helping us.";
+					mes "Escuche que Prok necesita algo de ayuda ahora. Por que no vas a ver a ^4D4DFF[Prok]^000000? Gracias por ayudarnos.";
 				else if (BaseLevel < 20)
-					mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+					mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 				else if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14588;// The Competition
 				close;
 			case 2:
@@ -2578,13 +2578,13 @@ lasa_fild02,102,372,5	script	Florin#dorcon	4_DR_F_01,{
 				next;
 				mes "[Florin]";
 				if (BaseLevel < 16)
-					mes "I heard that Prok needs some help right now. Why don't you go see ^4D4DFF[Prok]^000000? Thank you for helping us.";
+					mes "Escuche que Prok necesita algo de ayuda ahora. Por que no vas a ver a ^4D4DFF[Prok]^000000? Gracias por ayudarnos.";
 				else if (BaseLevel < 20)
-					mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+					mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 				else if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14588;// The Competition
 				if (isbegin_quest(14592) == 0 && BaseLevel < 21)
 					setquest 14592;// Resting Time
@@ -2655,7 +2655,7 @@ lasa_fild02,102,372,5	script	Florin#dorcon	4_DR_F_01,{
 			mes "If It's all right with you, may I find you work? You've done a lot today, so please get some good rest and see you tomorrow.";
 			next;
 			mes "[Florin]";
-			mes "I heard that Prok needs some help right now. Why don't you go see ^4D4DFF[Prok]^000000? Thank you for helping us.";
+			mes "Escuche que Prok necesita algo de ayuda ahora. Por que no vas a ver a ^4D4DFF[Prok]^000000? Gracias por ayudarnos.";
 			navigateto "lasa_fild01",177,241;
 			erasequest 14588;// The Competition
 			setquest 14592;// Resting Time
@@ -2704,11 +2704,11 @@ lasa_fild02,177,241,5	script	Prok#dorcon	4_DR_M_02,{
 				next;
 				mes "[Prok]";
 				if (BaseLevel < 20)
-					mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+					mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 				else if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14589;// Sticky ingredient
 				close;
 			case 2:
@@ -2718,11 +2718,11 @@ lasa_fild02,177,241,5	script	Prok#dorcon	4_DR_M_02,{
 					next;
 					mes "[Prok]";
 					if (BaseLevel < 20)
-						mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+						mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 					else if (BaseLevel < 21)
-						mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+						mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 					else
-						mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+						mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 					erasequest 14589;// Sticky ingredient
 					close;
 				}
@@ -2737,11 +2737,11 @@ lasa_fild02,177,241,5	script	Prok#dorcon	4_DR_M_02,{
 				next;
 				mes "[Prok]";
 				if (BaseLevel < 20)
-					mes "Speaking of which, ^4D4DFF[Fisher]^000000 said he needed some help. Would you like to give it a try? Thank you for helping us.";
+					mes "Hablando de eso, ^4D4DFF[Fisher]^000000 dijo que necesitaba algo de ayuda. Te gustaria intentarlo? Gracias por ayudarnos.";
 				else if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14589;// Sticky ingredient
 				if (isbegin_quest(14592) == 0 && BaseLevel < 21)
 					setquest 14592;// Resting Time
@@ -2846,9 +2846,9 @@ lasa_fild02,326,170,5	script	Fisher#dorcon	4_CAT_ADV2,{
 				next;
 				mes "[Fisher]";
 				if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14590;// Hunter's destination
 				close;
 			case 2:
@@ -2863,9 +2863,9 @@ lasa_fild02,326,170,5	script	Fisher#dorcon	4_CAT_ADV2,{
 				next;
 				mes "[Fisher]";
 				if (BaseLevel < 21)
-					mes "^4D4DFF[Sleepy meow]^000000, who lives over there at the mouth of the cave where basilisks live, is desperately seeking for a strong individual. Perhaps you should give it a try for the experience. Thank you for helping us.";
+					mes "^4D4DFF[Sleepy meow]^000000, que vive alla en la entrada de la cueva donde viven los basiliscos, busca desesperadamente a alguien fuerte. Quizas deberias intentarlo por la experiencia. Gracias por ayudarnos.";
 				else
-					mes "Taking a ship from the ^4D4DFF[dock]^000000 in search of a bigger adventure is also a good idea. Thank you for helping us.";
+					mes "Tomar un barco desde el ^4D4DFF[muelle]^000000 en busca de una aventura mas grande tambien es buena idea. Gracias por ayudarnos.";
 				erasequest 14590;// Hunter's destination
 				if (isbegin_quest(14592) == 0 && BaseLevel < 21)
 					setquest 14592;// Resting Time
@@ -2884,7 +2884,7 @@ lasa_fild02,326,170,5	script	Fisher#dorcon	4_CAT_ADV2,{
 			mes "[Fisher]";
 			mes "Oh, what am I going to do. Hey you, adventurer! Hold on a second!";
 			next;
-			if (select( "What's up?", "I'm busy right now." ) == 2) {
+			if (select( "Que pasa?", "I'm busy right now." ) == 2) {
 				mes "[Fisher]";
 				mes "Yeah? Then I guess there's nothing I can do.";
 				close;
@@ -3378,7 +3378,7 @@ lasagna,222,187,3	script	Chef#dorcon	4_CAT_CHEF,{
 				mes "And right now, that effort is being challenged.";
 				next;
 				mes "[" + strcharinfo(0) + "]";
-				mes "What is going on?";
+				mes "Que esta pasando?";
 				next;
 				mes "[Chef]";
 				mes "You must've heard about the cave in Raviol Forest. There are unspeakable things as well as creatures that are delicious food ingredients.";
@@ -3928,11 +3928,11 @@ lasagna,233,197,5	script	Vigilante Olio#lasa	4_DR_OLIO,{
 	}
 	if (lasagna_quest[1] == 2) {
 		if (checkweight(1001,1) == 0) {
-			mes "- Hold on a second here!! -";
-			mes "- You have too many items. -";
-			mes "- That means you can no longer receive any items. -";
-			mes "- Free up some space -";
-			mes "- and try again. -";
+			mes "- Espera un momento!! -";
+			mes "- Tienes demasiados objetos. -";
+			mes "- Eso significa que ya no puedes recibir mas objetos. -";
+			mes "- Libera algo de espacio -";
+			mes "- e intentalo de nuevo. -";
 			close;
 		}
 		mes "[Vigilante Olio]";
@@ -4170,11 +4170,11 @@ lasagna,235,198,3	script	Chief Peperoncino#lasa	4_DR_PEPE,{
 	}
 	if (lasagna_quest[1] == 11) {
 		if (checkweight(1001,2) == 0) {
-			mes "- Hold on a second here!! -";
-			mes "- You have too many items. -";
-			mes "- That means you can no longer receive any items. -";
-			mes "- Free up some space -";
-			mes "- and try again. -";
+			mes "- Espera un momento!! -";
+			mes "- Tienes demasiados objetos. -";
+			mes "- Eso significa que ya no puedes recibir mas objetos. -";
+			mes "- Libera algo de espacio -";
+			mes "- e intentalo de nuevo. -";
 			close;
 		}
 		mes "[Chief Peperoncino]";
@@ -4278,11 +4278,11 @@ lasa_in01,61,91,5	script	Basilisk Prisoner#lasai	4_BASIL_SLAVE,{
 	}
 	if (lasagna_quest[1] == 7) {
 		if (checkweight(1001,2) == 0) {
-			mes "- Hold on a second here!! -";
-			mes "- You have too many items. -";
-			mes "- That means you can no longer receive any items. -";
-			mes "- Free up some space -";
-			mes "- and try again. -";
+			mes "- Espera un momento!! -";
+			mes "- Tienes demasiados objetos. -";
+			mes "- Eso significa que ya no puedes recibir mas objetos. -";
+			mes "- Libera algo de espacio -";
+			mes "- e intentalo de nuevo. -";
 			close;
 		}
 		select("Use a Thorny Vine Flute");// regardless countitem
@@ -4360,7 +4360,7 @@ lasa_in01,61,91,5	script	Basilisk Prisoner#lasai	4_BASIL_SLAVE,{
 		mes "[Long Foxtail]";
 		mes "Ranged physical ATK +5%, MHP + 200.";
 		next;
-		switch( select( "Enriched Foxtail", "Long Foxtail", "Quit." ) ) {
+		switch( select( "Enriched Foxtail", "Long Foxtail", "Salir." ) ) {
 		case 1:
 			getitem 1683,1;// Enriched Foxtail Staff [1]
 			break;
@@ -4476,11 +4476,11 @@ lasa_in01,59,90,5	script	Chief Peperoncino#lasai	4_DR_PEPE,{
 
 lasa_fild02,340,251,3	script	Thorny Vine's Thorn#las	HIDDEN_NPC,4,4,{
 	if (checkweight(1001,1) == 0) {
-		mes "- Hold on a second here!! -";
-		mes "- You have too many items. -";
-		mes "- That means you can no longer receive any items. -";
-		mes "- Free up some space -";
-		mes "- and try again. -";
+		mes "- Espera un momento!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- Eso significa que ya no puedes recibir mas objetos. -";
+		mes "- Libera algo de espacio -";
+		mes "- e intentalo de nuevo. -";
 		close;
 	}
 	if (lasagna_quest[1] == 6) {
@@ -4658,19 +4658,19 @@ lasagna,205,325,5	script	Eggling#dorcon	4_M_MERCAT1,2,2,{
 		mes "Hey, adventurer! Is it your first voyage?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Yes.";
+		mes "Si.";
 		next;
 		mes "[Eggling]";
 		mes "Well, don't bring dishonor to the name of Doram, OK? However, since you have been trained here, you will be able to play your part wherever you are. Good luck.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Thank you.";
+		mes "Gracias.";
 		next;
 		mes "[Eggling]";
 		mes "Oh, I have a favor to ask you. Would you bring it to the ^0000cdSous Chef^000000. Can you do this for me? You will keep sailing on this ship from time to time, you know, right?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Yes.";
+		mes "Si.";
 		next;
 		mes "[Eggling]";
 		mes "Well, well. You seem to know how things work around here. You can bring it to the Sous Chef. However, the Sous Chef is kind of eccentric. You have to say something when you hand over things to him.";
@@ -4682,7 +4682,7 @@ lasagna,205,325,5	script	Eggling#dorcon	4_M_MERCAT1,2,2,{
 		mes "You know what I mean, right?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "Yes.";
+		mes "Si.";
 		next;
 		mes "[Eggling]";
 		mes "You seem to understand it so well. I like it. What is your name, by the way? Haha...";
@@ -4847,7 +4847,7 @@ lasagna,205,325,5	script	Eggling#dorcon	4_M_MERCAT1,2,2,{
 		mes "Wherever you go, it costs ^0000cd" + .@cost + " Zeny^000000.";
 		next;
 	}
-	switch( select( .@menu$[0], .@menu$[1], .@menu$[2], "Cancel" ) ) {
+	switch( select( .@menu$[0], .@menu$[1], .@menu$[2], "Cancelar" ) ) {
 	case 1:
 		mes "[Eggling]";
 		mes "Get in there.";
@@ -4937,7 +4937,7 @@ conch_in,65,58,3	script	Purser#dorcon	4_CAT_ADV1,{
 			npctalk "However, we cannot sail off right at this moment.", "", bc_self;
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "What is going on?";
+			mes "Que esta pasando?";
 			next;
 			mes "[Purser]";
 			mes "Look at Lasagna out there.";
@@ -5175,7 +5175,7 @@ conch_in,24,62,5	script	Stello#dorcon	4_DR_STELO,{
 		mes "Dear Chief Officer!";
 		next;
 		mes "[Stello]";
-		mes "What is going on?";
+		mes "Que esta pasando?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
 		mes "The Purser asked me to check if there wouldn't be any problem sailing off with the thick ^0000cdfog^000000.";
@@ -6019,7 +6019,7 @@ conch_in,96,29,5	script	Recorder#dorcon	4_CAT_MERMASTER,{
 		npctalk "Everything depends on you.", "", bc_self;
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "I see.";
+		mes "Ya veo.";
 		next;
 		mes "[Recorder]";
 		mes "Well, then. Have a safe trip.";
@@ -6993,7 +6993,7 @@ conch_in,181,58,3	script	Helmsman#dorcon	4_CAT_SAILOR5,{
 
 conch_in,179,64,5	script	Cow#dorcon01_bis	4_WHITE_COW,{
 	mes "[Cow]";
-	mes "Moo -";
+	mes "Muu -";
 	next;
 	mes "[Boatswain]";
 	mes "Take your filthy hand off from her! [Woncow] is sensitive, so no one besides me can touch her!";
@@ -7003,7 +7003,7 @@ conch_in,179,64,5	script	Cow#dorcon01_bis	4_WHITE_COW,{
 	next;
 	mes "[Boatswain]";
 	mes "So? What! I won her on a bet. Every time I call her name, it reminds me of that moment of victory. It's beautiful.";
-	npctalk "Moo -", "", bc_self;
+	npctalk "Muu -", "", bc_self;
 	emotion ET_BIGTHROB;
 	npctalk "Right?", "Boatswain#dorcon", bc_self;
 	emotion ET_THROB;
@@ -7508,7 +7508,7 @@ conch_in,186,57,3	script	Sous Chef#dorcon	4_CAT_CHEF,{
 		mes "Let me drop by when I get time.";
 		next;
 		mes "[Sous Chef]";
-		mes "Thank you.";
+		mes "Gracias.";
 		completequest 14555;// Whole new world of taste
 		setquest 14563;// Free time
 		delitem 522,4;// Mastela Fruit
@@ -7614,7 +7614,7 @@ conch_in,186,57,3	script	Sous Chef#dorcon	4_CAT_CHEF,{
 				mes "What I need to day are the ^0000cdCat Hardtack and Malangdo Canned Food^000000. I am curious how the crews of Navi survived through such a long voyage.";
 				npctalk "It sounds cute, but it doesn't sound quite delicious.", "Boatswain#dorcon", bc_self;
 				npctalk "But you'll still eat them, right?", "Helmsman#dorcon", bc_self;
-				npctalk "Yes.", "Boatswain#dorcon", bc_self;
+				npctalk "Si.", "Boatswain#dorcon", bc_self;
 				next;
 				mes "[Sous Chef]";
 				mes "I'd like to know how they are made. Please bring me some. ^0000cd5 Cat Hardtacks and 5 Malangdo Canned Food^000000 would do.";
@@ -7918,7 +7918,7 @@ lasa_dun01,153,103,3	script	Vigilante#dorcon02	4_DR_SOLDIER,{
 			next;
 			mes "[Vigilante]";
 			mes "Remember, the peace of Tartufi is the peace of the ocean. It means hope. Please ingratiate yourself with Tartufi.";
-			npctalk "Please.", "", bc_self;
+			npctalk "Por favor.", "", bc_self;
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "Yes. I'll make sure to resolve the problem.";
@@ -8646,7 +8646,7 @@ lasagna,226,181,3	script	Kalu#dorcon	4_CAT_CHEF,{
 		mes "If you want to drink kaluna milk, then go see the guy next door. But you'd better hurry. Stirred or shaken, that won't matter pretty soon.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "What is going on?";
+		mes "Que esta pasando?";
 		next;
 		mes "[Kalu]";
 		mes "You know what the main ingredients of kaluna milk are? They're ^0000cdkaluna^000000, the essence made from fermenting a special shellfish called ^0000cdkalunyak^000000, and fresh milk.";

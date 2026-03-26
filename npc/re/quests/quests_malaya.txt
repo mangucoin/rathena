@@ -30,70 +30,70 @@
 //============================================================
 malaya,266,76,3	script	Rodel the Guard#malaya	570,4,4,{
 	if (MaxWeight - Weight < 1000 || checkweight(1201,1) == 0) {
-		mes "Cannot proceed with the quest. You are carrying too many items. -";
+		mes "No se puede continuar con la mision. Estas cargando demasiados objetos. -";
 		close;
 	}
 	if (malaya_hi == 0) {
 		mes "[Rodel the Guard]";
-		mes "Traveling at such confusing times?";
-		mes "Villagers have been feeling more threatened by evil spirits recently.";
-		mes "Villagers are scared and trembling with fear.";
+		mes "Viajando en tiempos tan confusos?";
+		mes "Los aldeanos se han sentido mas amenazados por espiritus malignos ultimamente.";
+		mes "Los aldeanos estan asustados y temblando de miedo.";
 		next;
 		mes "[Rodel the Guard]";
-		mes "So... the citizens of Port Malaya will feel uncomfortable around you even though there are no hard feelings toward you.";
-		mes "Inns and stops may be closed to outsiders.";
+		mes "Asi que... los ciudadanos de Port Malaya se sentiran incomodos a tu alrededor aunque no tengan nada en tu contra.";
+		mes "Las posadas y paradas pueden estar cerradas para los forasteros.";
 		next;
 		mes "[Rodel the Guard]";
-		mes "There is no definite solution to this, but you might want to meet Phong in Mumbaki first.";
-		mes "If the village leader gives his confirmation, other people might be less worried.";
+		mes "No hay una solucion definitiva para esto, pero quizas quieras conocer a Phong in Mumbaki primero.";
+		mes "Si el lider de la aldea da su confirmacion, la gente podria preocuparse menos.";
 		next;
 		mes "[Rodel the Guard]";
-		mes "I will mark on the map the location of Phong in Mumbaki.";
-		mes "I welcome your visit though the times are harsh.";
+		mes "Marcare en el mapa la ubicacion de Phong in Mumbaki.";
+		mes "Te doy la bienvenida aunque los tiempos sean dificiles.";
 		viewpoint 1, 185, 358, 0, 0x0A82FF;
 		set malaya_hi, 1;
 		setquest 7350;
 		close;
 	} else if (malaya_hi == 1) {
 		mes "[Rodel the Guard]";
-		mes "Meet with Phong in Mumbaki first.";
-		mes "If you are proven to have a pure soul, other villagers will not avoid you.";
-		mes "If you are not sure of the location, I will mark it on your map.";
+		mes "Reune con Phong in Mumbaki primero.";
+		mes "Si demuestras tener un alma pura, los demas aldeanos no te evitaran.";
+		mes "Si no estas seguro de la ubicacion, la marcare en tu mapa.";
 		viewpoint 1, 185, 358, 0, 0x0A82FF;
 		close;
 	} else if (malaya_hi >= 20) {
 		if (BaseLevel < 100) {
 			mes "[Rodel the Guard]";
-			mes "How is the life here?";
-			mes "People aren't so bad are they?";
-			mes "If you were a little more skillful, there might be a job for you. Right now, you are little bit below the standard.";
+			mes "Como es la vida aqui?";
+			mes "La gente no es tan mala, verdad?";
+			mes "Si fueras un poco mas habil, podria haber un trabajo para ti. Ahora mismo, estas un poco por debajo del estandar.";
 			next;
 			mes "[Rodel the Guard]";
-			mes "If you become stronger,";
-			mes "I was thinking of giving you the extermination mission that's being carried out in the city. What a shame. ";
+			mes "Si te haces mas fuerte,";
+			mes "estaba pensando en darte la mision de exterminacion que se lleva a cabo en la ciudad. Que lastima. ";
 			close;
 		}
 		.@playtime = checkquest(7405, PLAYTIME);
 		if (.@playtime == 0) {
 			mes "[Rodel the Guard]";
-			mes "Whew, thanks to you, I have one less thing to worry about.";
-			mes "I will lose less of my things.";
-			mes "Job well done.";
+			mes "Uf, gracias a ti, tengo una preocupacion menos.";
+			mes "Perdere menos de mis cosas.";
+			mes "Buen trabajo.";
 			next;
 			mes "[Rodel the Guard]";
-			mes "You can come back if you want.";
-			mes "You understand what I mean right?";
+			mes "Puedes volver cuando quieras.";
+			mes "Entiendes lo que quiero decir, verdad?";
 			close;
 		} else if (.@playtime == 2) {
 			erasequest 7405;
 			mes "[Rodel the Guard]";
-			mes "Oh, about Jejeling that you hunted down before.";
-			mes "People traveling in and out of Baryo are happy about it.";
-			mes "If it's not much too much trouble, I'd like to ask for your help one more time.";
+			mes "Oh, sobre los Jejeling que cazaste antes.";
+			mes "La gente que viaja dentro y fuera de Baryo esta contenta por eso.";
+			mes "Si no es mucha molestia, me gustaria pedirte ayuda una vez mas.";
 			next;
 			mes "[Rodel the Guard]";
-			mes "You don't have to do it now, just whenever you are comfortable.";
-			mes "Come and find me when you decide.";
+			mes "No tienes que hacerlo ahora, solo cuando te sientas comodo.";
+			mes "Ven a buscarme cuando te decidas.";
 			close;
 		} else {
 			.@hunting = checkquest(7404, HUNTING);
@@ -101,34 +101,34 @@ malaya,266,76,3	script	Rodel the Guard#malaya	570,4,4,{
 				mes "[Rodel the Guard]";
 				switch(rand(1, 6)) {
 				case 1:
-					mes "Recently, there have been a few that gained recognition for their bravery among the villagers." + $malayaNames$[0] + ", " + $malayaNames$[3] + ", " + $malayaNames$[5] + "... Isn't that amazing?";
+					mes "Recientemente, algunos han ganado reconocimiento por su valentia entre los aldeanos." + $malayaNames$[0] + ", " + $malayaNames$[3] + ", " + $malayaNames$[5] + "... No es increible?";
 					break;
 				case 2:
-					mes "Yesterday, I saw someone who was carried off to the hospital after rolling down the stairs at the park. That person went by the name of " + $malayaNames$[1] + ". I wonder if that person is alright.";
+					mes "Ayer, vi a alguien que fue llevado al hospital despues de rodar por las escaleras del parque. Esa persona se llamaba " + $malayaNames$[1] + ". Me pregunto si estara bien.";
 					break;
 				case 3:
-					mes "The one who contributed the most in the Jejeling hunt was " + $malayaNames$[1] + ".";
+					mes "El que mas contribuyo en la caceria de Jejeling fue " + $malayaNames$[1] + ".";
 					break;
 				case 4:
-					mes "If you are bored, how about you stand guard for me? This is a heck of a job. You have to keep standing like a statue even till the sun rises up above your head.";
+					mes "Si estas aburrido, que tal si haces guardia por mi? Este es un trabajo terrible. Tienes que seguir de pie como una estatua incluso hasta que el sol suba sobre tu cabeza.";
 					break;
 				case 5:
-					mes "Have you been alone with a woman inside a Jeepney? Wow that was awkward...  I'm never going to get married at this rate...";
+					mes "Has estado a solas con una mujer dentro de un Jeepney? Vaya, eso fue incomodo... Nunca me voy a casar a este paso...";
 					break;
 				case 6:
-					mes "Recently among visitors, one became a close friend to me. Do you know " + $malayaNames$[1] + "? Oh, of course you are a good friend as well.";
+					mes "Recientemente entre los visitantes, uno se hizo amigo cercano mio. Conoces a " + $malayaNames$[1] + "? Oh, por supuesto que tu tambien eres un buen amigo.";
 					break;
 				}
-				mes "Oh yes, there is a job for you if you are not too busy. Are you interested?";
+				mes "Ah si, hay un trabajo para ti si no estas muy ocupado. Te interesa?";
 				next;
 				mes "[Rodel the Guard]";
-				mes "We are going to organize an extensive Jejeling hunt this time.";
-				mes "Peddlers going in and out of Baryo are always complaining about Jejelings.";
+				mes "Vamos a organizar una gran caceria de Jejeling esta vez.";
+				mes "Los comerciantes que entran y salen de Baryo siempre se quejan de los Jejelings.";
 				next;
-				if (select("Join the Jejeling hunt.:Refuse.") == 2) {
+				if (select("Unirse a la caceria de Jejeling.:Rechazar.") == 2) {
 					mes "[Rodel the Guard]";
-					mes "Is that so? I'm sorry to hear that.";
-					mes "Things would be so much simpler if we had a person like you around.";
+					mes "Es asi? Lamento escuchar eso.";
+					mes "Las cosas serian mucho mas simples si tuvieramos a alguien como tu cerca.";
 					close;
 				}
 				mes "[Rodel the Guard]";

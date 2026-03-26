@@ -1,16 +1,16 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Bard Skill Quest
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Lupus, Reddozen; L0ne_W0lf
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.6
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Official quest for the Bard skill "Pang Voice"
 //= Prerequisite: Geffen Bard Quest
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.0 for fully working skills only [Lupus]
 //= 1.1 Added more new skill quests for more classes [Lupus]
 //=     Somehow eA engine doesn't let you keep learn't skill
@@ -30,284 +30,284 @@
 prontera,174,328,3	script	Young Man#bard_q1	89,3,3,{
 	if (BaseJob == Job_Bard) {
 		emotion ET_HUK;
-		mes "[Timid Young Man]";
+		mes "[Joven Timido]";
 		mes "Eh? Wwwaaaah--!";
-		mes "Y-you're--it's-it's--";
+		mes "T-tu eres--es-es--";
 		if (Upper != 1)
-			mes "It's a freakin' Bard!";
+			mes "Es un maldito Bard!";
 		else
-			mes "It's a freakin' Minstrel!";
-		mes "D-don't come any closer!";
-		mes "I... I don't like you guys!";
+			mes "Es un maldito Minstrel!";
+		mes "N-no te acerques!";
+		mes "Yo... No me caen bien ustedes!";
 		next;
-		if (select("Wha--? Why the heck not?:Hey, take it easy, man.") == 1) {
-			mes "[Timid Young Man]";
-			mes "N-no! Don't look at me!";
-			mes "I know what you're trying";
-			mes "to do! Please, I haven't";
-			mes "done anything to you!";
-			mes "J-just s-stay away!";
+		if (select("Que--? Por que no?:Oye, tranquilo, viejo.") == 1) {
+			mes "[Joven Timido]";
+			mes "N-no! No me mires!";
+			mes "Se lo que estas tratando";
+			mes "de hacer! Por favor, no te";
+			mes "he hecho nada!";
+			mes "S-solo a-alejate!";
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "Um...";
-			mes "I'm not really trying";
-			mes "to do anything. Why";
-			mes "don't you relax, and--";
+			mes "Realmente no estoy";
+			mes "tratando de hacer nada. Por";
+			mes "que no te relajas, y--";
 			next;
-			mes "[Timid Young Man]";
-			mes "Relax?! Nobody believes me";
-			mes "when I tell them how dangerous";
-			mes "you guys are. You think you're";
-			mes "so smug with your funny jokes";
-			mes "and lovely songs, but I know";
-			mes "what kind of powers you have!";
+			mes "[Joven Timido]";
+			mes "Relajarme?! Nadie me cree";
+			mes "cuando les digo lo peligrosos";
+			mes "que son ustedes. Creen que son";
+			mes "la gran cosa con sus chistes graciosos";
+			mes "y canciones bonitas, pero yo se";
+			mes "que tipo de poderes tienen!";
 			close;
 		}
 		else {
-			mes "[Timid Young Man]";
-			mes "N-no! Don't look at me!";
-			mes "I know what you're trying";
-			mes "to do! Please, I haven't";
-			mes "done anything to you!";
-			mes "J-just s-stay away!";
+			mes "[Joven Timido]";
+			mes "N-no! No me mires!";
+			mes "Se lo que estas tratando";
+			mes "de hacer! Por favor, no te";
+			mes "he hecho nada!";
+			mes "S-solo a-alejate!";
 			next;
-			if (select("Offer him a drink.:Reassure him that you're safe.") == 1) {
+			if (select("Ofrecerle una bebida.:Asegurarle que no eres peligroso.") == 1) {
 				mes "[" + strcharinfo(0) + "]";
-				mes "Look, I don't know what";
-				mes "you've got against me, but";
-				mes "you really need to relax.";
-				mes "Here, have a drink on me.";
+				mes "Mira, no se que tienes";
+				mes "en contra mia, pero";
+				mes "realmente necesitas relajarte.";
+				mes "Toma, una bebida, yo invito.";
 				next;
 				if (countitem(12112) > 0) {
-					mes "[Timid Young Man]";
-					mes "Oh~! Isn't that";
-					mes "a Tropical Sograt?";
-					mes "That's my favorite";
-					mes "drink in all the world!";
+					mes "[Joven Timido]";
+					mes "Oh~! Eso no es";
+					mes "un Tropical Sograt?";
+					mes "Es mi bebida favorita";
+					mes "en todo el mundo!";
 					if (qskill_bard == 9) {
-						mes "Thanks so--waitaminute.";
+						mes "Gracias por--esperaahi.";
 						next;
-						mes "[Timid Young Man]";
-						mes "This is some sort";
-						mes "of weird trick, isn't it?";
-						mes "And to think I almost";
-						mes "f-f-fell for it! P-please";
-						mes "j-just leave me alone!";
+						mes "[Joven Timido]";
+						mes "Esto es algun tipo";
+						mes "de truco raro, verdad?";
+						mes "Y pensar que casi";
+						mes "c-c-caigo! P-por favor,";
+						mes "s-solo dejame en paz!";
 						close;
 					}
 					else if (qskill_bard > 0) {
 						next;
-						mes "[Timid Young Man]";
-						mes "Wait, I've seen you before.";
-						mes "And you brought me a drink";
-						mes "just like this one. You...";
-						mes "You d-didn't learn th-that";
-						mes "w-w-weird skill, d-did you?";
-						mes "Wait, no. You couldn't have...";
+						mes "[Joven Timido]";
+						mes "Espera, te he visto antes.";
+						mes "Y me trajiste una bebida";
+						mes "igual a esta. Tu...";
+						mes "Tu n-no aprendiste e-esa";
+						mes "h-h-habilidad rara, v-verdad?";
+						mes "Espera, no. No pudiste haber...";
 						next;
 						mes "[" + strcharinfo(0) + "]";
-						mes "Oh, please~";
-						mes "You know, I think";
-						mes "that maybe you";
-						mes "worry too much.";
+						mes "Oh, por favor~";
+						mes "Sabes, creo que";
+						mes "tal vez te";
+						mes "preocupas demasiado.";
 						close;
 					}
 					else {
 						next;
-						mes "[Timid Young Man]";
-						mes "^333333*Gulp Gulp*^000000";
-						mes "Ahhhh~ Oh, you don't";
-						mes "understand how long I've";
-						mes "been wanting this drink!";
-						mes "It tastes so good, and";
-						mes "now I feel sooo relaxed...";
+						mes "[Joven Timido]";
+						mes "^333333*Glug Glug*^000000";
+						mes "Ahhhh~ Oh, no entiendes";
+						mes "cuanto tiempo llevo";
+						mes "queriendo esta bebida!";
+						mes "Sabe tan bien, y";
+						mes "ahora me siento taaaan relajado...";
 						next;
-						switch(select("See? I'm not dangerous at all~:So what makes someone like me so scary?")) {
+						switch(select("Ves? No soy nada peligroso~:Entonces que tiene alguien como yo de aterrador?")) {
 						case 1:
-							mes "[Timid Young Man]";
-							mes "Hmmm... Maybe.";
-							mes "Maybe all of you Bards";
-							mes "and Minstrels aren't that";
-							mes "bad. But I can never forget";
-							mes "what that Bard did to me...";
+							mes "[Joven Timido]";
+							mes "Hmmm... Quizas.";
+							mes "Quizas todos los Bards";
+							mes "y Minstrels no son tan";
+							mes "malos. Pero nunca podre olvidar";
+							mes "lo que ese Bard me hizo...";
 							next;
-							mes "[Timid Young Man]";
-							mes "It all started when I was";
-							mes "traveling through Umbala and";
-							mes "met a strange Bard who was";
-							mes "studying under the tutelage";
-							mes "of Puchuchartan, the Utan";
-							mes "Shaman of the village.";
+							mes "[Joven Timido]";
+							mes "Todo empezo cuando estaba";
+							mes "viajando por Umbala y";
+							mes "conoci a un Bard extrano que";
+							mes "estudiaba bajo la tutela";
+							mes "de Puchuchartan, el Shaman";
+							mes "Utan de la aldea.";
 							next;
-							mes "[Timid Young Man]";
-							mes "That Bard and I got along fairly well until he took me to Umbala's";
-							mes "Bungee Jump. He insisted that I jump at least once for the ''full";
-							mes "Umbala experience.'' I refused, seeing as they don't use bungees.";
+							mes "[Joven Timido]";
+							mes "Ese Bard y yo nos llevamos bastante bien hasta que me llevo al Bungee";
+							mes "Jump de Umbala. Insistio en que saltara al menos una vez por la ''experiencia";
+							mes "completa de Umbala.'' Me negue, ya que no usan cuerdas elasticas.";
 							next;
-							mes "[Timid Young Man]";
-							mes "The Bard seemed offended";
-							mes "and claimed it was perfectly";
-							mes "safe, and that only a few people";
-							mes "have died by jumping. Then, he";
-							mes "just... He gave me this intense look.";
+							mes "[Joven Timido]";
+							mes "El Bard parecio ofenderse";
+							mes "y afirmo que era perfectamente";
+							mes "seguro, y que solo unas pocas personas";
+							mes "han muerto al saltar. Luego, el";
+							mes "simplemente... Me dio una mirada intensa.";
 							next;
-							mes "[Timid Young Man]";
-							mes "His eyes seemed so full";
-							mes "of rage! I remember him";
-							mes "mumbling something, and";
-							mes "all of a sudden, I lost control";
-							mes "of my body! My arms and legs";
-							mes "were just moving on their own!";
+							mes "[Joven Timido]";
+							mes "Sus ojos parecian llenos";
+							mes "de rabia! Recuerdo que";
+							mes "murmuraba algo, y";
+							mes "de repente, perdi el control";
+							mes "de mi cuerpo! Mis brazos y piernas";
+							mes "se movian solos!";
 							next;
-							mes "[Timid Young Man]";
-							mes "Before long, I found myself";
-							mes "struggling to keep myself from";
-							mes "leaping off that Bungee Jump.";
-							mes "But the more I resisted, the";
-							mes "more violently I'd flail toward";
-							mes "the edge. It was horrible!";
+							mes "[Joven Timido]";
+							mes "Al poco rato, me encontre";
+							mes "luchando por evitar";
+							mes "saltar del Bungee Jump.";
+							mes "Pero entre mas me resistia,";
+							mes "mas violentamente me agitaba hacia";
+							mes "el borde. Fue horrible!";
 							next;
-							mes "[Timid Young Man]";
-							mes "That was the most terrifying";
-							mes "experience of my life! It was";
-							mes "bad enough that I risked my";
-							mes "life, but that feeling of not";
-							mes "having any control over your";
-							mes "body is so overwhelming!";
+							mes "[Joven Timido]";
+							mes "Esa fue la experiencia mas";
+							mes "aterradora de mi vida! Ya era";
+							mes "suficientemente malo arriesgar mi";
+							mes "vida, pero esa sensacion de no";
+							mes "tener ningun control sobre tu";
+							mes "cuerpo es tan abrumadora!";
 							next;
 							mes "[" + strcharinfo(0) + "]";
-							mes "Wait, you're saying";
-							mes "a Bard did this to you?";
-							mes "I've never heard of a song";
-							mes "or skill with that sort of effect before. That's really strange...";
+							mes "Espera, dices que";
+							mes "un Bard te hizo esto?";
+							mes "Nunca he oido de una cancion";
+							mes "o habilidad con ese tipo de efecto. Es realmente extrano...";
 							next;
-							mes "[Timid Young Man]";
-							mes "Well, I've never heard";
-							mes "of that sort of power up";
-							mes "until I had to experience";
-							mes "it for myself. Oh, I can still";
-							mes "see that evil smile of his";
-							mes "in my nightmares...";
+							mes "[Joven Timido]";
+							mes "Bueno, yo nunca habia";
+							mes "oido de ese tipo de poder";
+							mes "hasta que tuve que experimentarlo";
+							mes "yo mismo. Oh, aun puedo";
+							mes "ver esa sonrisa malvada suya";
+							mes "en mis pesadillas...";
 							next;
-							mes "[Timid Young Man]";
-							mes "Anyway, thanks for that";
-							mes "drink, it really helped me";
-							mes "settle my nerves. But I must";
-							mes "warn you not to look for that";
-							mes "strange Bard. I'm sure he's really some sort of demon or something...";
+							mes "[Joven Timido]";
+							mes "En fin, gracias por esa";
+							mes "bebida, realmente me ayudo a";
+							mes "calmar los nervios. Pero debo";
+							mes "advertirte que no busques a ese";
+							mes "Bard extrano. Estoy seguro de que en realidad es algun tipo de demonio o algo...";
 							next;
 							if (JobLevel > 39) {
-								mes "[Timid Young Man]";
-								mes "But... If you really";
-								mes "want to attain that sort";
-								mes "of power, I can't really";
-								mes "stop you. Thankfully, nobody";
-								mes "has any idea of where he is~";
+								mes "[Joven Timido]";
+								mes "Pero... Si realmente";
+								mes "quieres obtener ese tipo";
+								mes "de poder, no puedo";
+								mes "detenerte. Por suerte, nadie";
+								mes "tiene idea de donde esta~";
 								delitem 12112,1; //Tropical_Sograt
 								set qskill_bard,1;
 							}
 							else {
-								mes "[Timid Young Man]";
-								mes "Even if you could find that";
-								mes "Bard to get him to teach you";
-								mes "how he did that to me, I'm sure";
-								mes "he mentioned something about";
-								mes "being at least ^660000Job Level 40^000000 to";
-								mes "be able to handle that power...";
+								mes "[Joven Timido]";
+								mes "Incluso si pudieras encontrar a ese";
+								mes "Bard para que te ensene";
+								mes "como me hizo eso, estoy seguro de";
+								mes "que menciono algo sobre";
+								mes "ser al menos ^660000Nivel de Trabajo 40^000000 para";
+								mes "poder manejar ese poder...";
 								delitem 12112,1; //Tropical_Sograt
 							}
 							close;
 						case 2:
-							mes "[Timid Young Man]";
-							mes "^333333*Sigh*^000000 Well, maybe all Bards";
-							mes "and Minstrels aren't terrifying. But any Bard will remind me";
-							mes "of the one that I met during my";
-							mes "travels. Just thinking about";
-							mes "that time gives me goosebumps.";
+							mes "[Joven Timido]";
+							mes "^333333*Suspiro*^000000 Bueno, quizas no todos los Bards";
+							mes "y Minstrels son aterradores. Pero cualquier Bard me recordara";
+							mes "al que conoci durante mis";
+							mes "viajes. Solo pensar en";
+							mes "ese momento me da escalofrios.";
 							next;
-							mes "[Timid Young Man]";
-							mes "It all started when I was";
-							mes "traveling through Umbala and";
-							mes "met a strange Bard who was";
-							mes "studying under the tutelage";
-							mes "of Puchuchartan, the Utan";
-							mes "Shaman of the village.";
+							mes "[Joven Timido]";
+							mes "Todo empezo cuando estaba";
+							mes "viajando por Umbala y";
+							mes "conoci a un Bard extrano que";
+							mes "estudiaba bajo la tutela";
+							mes "de Puchuchartan, el Shaman";
+							mes "Utan de la aldea.";
 							next;
-							mes "[Timid Young Man]";
-							mes "That Bard and I got along fairly well until he took me to Umbala's";
-							mes "Bungee Jump. He insisted that I jump at least once for the ''full";
-							mes "Umbala experience.'' I refused, seeing as they don't use bungees.";
+							mes "[Joven Timido]";
+							mes "Ese Bard y yo nos llevamos bastante bien hasta que me llevo al Bungee";
+							mes "Jump de Umbala. Insistio en que saltara al menos una vez por la ''experiencia";
+							mes "completa de Umbala.'' Me negue, ya que no usan cuerdas elasticas.";
 							next;
-							mes "[Timid Young Man]";
-							mes "The Bard seemed offended";
-							mes "and claimed it was perfectly";
-							mes "that a few people have died";
-							mes "by jumping. Then, he just...";
-							mes "He gave me this intense look.";
+							mes "[Joven Timido]";
+							mes "El Bard parecio ofenderse";
+							mes "y afirmo que era perfectamente";
+							mes "seguro, que solo unas pocas personas han muerto";
+							mes "al saltar. Luego, el simplemente...";
+							mes "Me dio una mirada intensa.";
 							next;
-							mes "[Timid Young Man]";
-							mes "His eyes seemed so full";
-							mes "of rage! I remember him";
-							mes "mumbling something, and";
-							mes "all of a sudden, I lost control";
-							mes "of my body! My arms and legs";
-							mes "were just moving on their own!";
+							mes "[Joven Timido]";
+							mes "Sus ojos parecian llenos";
+							mes "de rabia! Recuerdo que";
+							mes "murmuraba algo, y";
+							mes "de repente, perdi el control";
+							mes "de mi cuerpo! Mis brazos y piernas";
+							mes "se movian solos!";
 							next;
-							mes "[Timid Young Man]";
-							mes "Before long, I found myself";
-							mes "struggling to keep myself from";
-							mes "leaping off that Bungee Jump.";
-							mes "But the more I resisted, the";
-							mes "more violently I'd flail toward";
-							mes "the edge. It was horrible!";
+							mes "[Joven Timido]";
+							mes "Al poco rato, me encontre";
+							mes "luchando por evitar";
+							mes "saltar del Bungee Jump.";
+							mes "Pero entre mas me resistia,";
+							mes "mas violentamente me agitaba hacia";
+							mes "el borde. Fue horrible!";
 							next;
-							mes "[Timid Young Man]";
-							mes "That was the most terrifying";
-							mes "experience of my life! It was";
-							mes "bad enough that I risked my";
-							mes "life, but that feeling of not";
-							mes "having any control over your";
-							mes "body is so overwhelming!";
+							mes "[Joven Timido]";
+							mes "Esa fue la experiencia mas";
+							mes "aterradora de mi vida! Ya era";
+							mes "suficientemente malo arriesgar mi";
+							mes "vida, pero esa sensacion de no";
+							mes "tener ningun control sobre tu";
+							mes "cuerpo es tan abrumadora!";
 							next;
 							mes "[" + strcharinfo(0) + "]";
-							mes "Wait, you're saying";
-							mes "a Bard did this to you?";
-							mes "I've never heard of a song";
-							mes "or skill with that sort of effect before. That's really strange...";
+							mes "Espera, dices que";
+							mes "un Bard te hizo esto?";
+							mes "Nunca he oido de una cancion";
+							mes "o habilidad con ese tipo de efecto. Es realmente extrano...";
 							next;
-							mes "[Timid Young Man]";
-							mes "Well, I've never heard";
-							mes "of that sort of power up";
-							mes "until I had to experience";
-							mes "it for myself. Oh, I can still";
-							mes "see that evil smile of his";
-							mes "in my nightmares...";
+							mes "[Joven Timido]";
+							mes "Bueno, yo nunca habia";
+							mes "oido de ese tipo de poder";
+							mes "hasta que tuve que experimentarlo";
+							mes "yo mismo. Oh, aun puedo";
+							mes "ver esa sonrisa malvada suya";
+							mes "en mis pesadillas...";
 							next;
-							mes "[Timid Young Man]";
-							mes "Anyway, thanks for that";
-							mes "drink, it really helped me";
-							mes "settle my nerves. But I must";
-							mes "warn you not to look for that";
-							mes "strange Bard. I'm sure he's really some sort of demon or something...";
+							mes "[Joven Timido]";
+							mes "En fin, gracias por esa";
+							mes "bebida, realmente me ayudo a";
+							mes "calmar los nervios. Pero debo";
+							mes "advertirte que no busques a ese";
+							mes "Bard extrano. Estoy seguro de que en realidad es algun tipo de demonio o algo...";
 							next;
 							if (JobLevel > 39) {
-								mes "[Timid Young Man]";
-								mes "But... If you really";
-								mes "want to attain that sort";
-								mes "of power, I can't really";
-								mes "stop you. Thankfully, nobody";
-								mes "has any idea of where he is~";
+								mes "[Joven Timido]";
+								mes "Pero... Si realmente";
+								mes "quieres obtener ese tipo";
+								mes "de poder, no puedo";
+								mes "detenerte. Por suerte, nadie";
+								mes "tiene idea de donde esta~";
 								delitem 12112,1; //Tropical_Sograt
 								set qskill_bard,1;
 							}
 							else {
-								mes "[Timid Young Man]";
-								mes "Even if you could find that";
-								mes "Bard to get him to teach you";
-								mes "how he did that to me, I'm sure";
-								mes "he mentioned something about";
-								mes "being at least ^660000Job Level 40^000000 to";
-								mes "be able to handle that power...";
+								mes "[Joven Timido]";
+								mes "Incluso si pudieras encontrar a ese";
+								mes "Bard para que te ensene";
+								mes "como me hizo eso, estoy seguro de";
+								mes "que menciono algo sobre";
+								mes "ser al menos ^660000Nivel de Trabajo 40^000000 para";
+								mes "poder manejar ese poder...";
 								delitem 12112,1; //Tropical_Sograt
 							}
 							close;
@@ -315,60 +315,60 @@ prontera,174,328,3	script	Young Man#bard_q1	89,3,3,{
 					}
 				}
 				else {
-					mes "[Timid Young Man]";
-					mes "Eh...?! Um, th-that's";
-					mes "nice of y-you to offer,";
-					mes "but I'm p-pretty picky";
-					mes "about what I d-drink.";
-					mes "P-plus, I don't k-know";
-					mes "if I can t-trust you.";
+					mes "[Joven Timido]";
+					mes "Eh...?! Um, e-es";
+					mes "muy amable d-de tu parte ofrecer,";
+					mes "pero soy b-bastante exigente";
+					mes "con lo que b-bebo.";
+					mes "A-ademas, no s-se";
+					mes "si puedo c-confiar en ti.";
 					next;
-					mes "[Timid Young Man]";
-					mes "I don't think there's";
-					mes "much that could get m-me";
-					mes "to ch-change my m-mind!";
-					mes "Well... Maybe if you brought";
-					mes "my favorite drink, Tropical";
-					mes "Sograt, I would reconsider...";
+					mes "[Joven Timido]";
+					mes "No creo que haya";
+					mes "mucho que pueda hacer que c-cambie";
+					mes "d-de o-opinion!";
+					mes "Bueno... Quizas si trajeras";
+					mes "mi bebida favorita, Tropical";
+					mes "Sograt, lo reconsideraria...";
 					close;
 				}
 			}
 			mes "[" + strcharinfo(0) + "]";
-			mes "Don't worry,";
-			mes "I won't hurt you.";
+			mes "No te preocupes,";
+			mes "no te hare dano.";
 			next;
-			mes "[Timid Young Man]";
-			mes "Th-that's what th-they";
-			mes "all say, right before they";
-			mes "get into your mind and then";
-			mes "twist it as hard as they can!";
+			mes "[Joven Timido]";
+			mes "E-eso es lo que t-todos";
+			mes "dicen, justo antes de que";
+			mes "se meten en tu mente y luego";
+			mes "la retuercen lo mas que pueden!";
 			if (qskill_bard == 9) {
-				mes "J-just don't t-touch me!";
-				mes "...Ack! And stay away!";
+				mes "S-solo no m-me toques!";
+				mes "...Ack! Y alejate!";
 			}
 			else {
-				mes "E-even if you d-don't have";
-				mes "that p-power, l-leave me alone!";
+				mes "I-incluso si no t-tienes";
+				mes "ese p-poder, d-dejame en paz!";
 			}
 			close;
 		}
 	}
 	else {
-		mes "[Timid Young Man]";
-		mes "Oh... Oh goodness.";
-		mes "Was that a Bard just";
-		mes "over there? Oh, I'm so";
-		mes "afraid of those guys!";
-		mes "And those Minstrels";
-		mes "are even worse!";
+		mes "[Joven Timido]";
+		mes "Oh... Oh cielos.";
+		mes "Ese de ahi era un Bard?";
+		mes "Oh, les tengo tanto";
+		mes "miedo a esos tipos!";
+		mes "Y esos Minstrels";
+		mes "son aun peores!";
 		next;
-		mes "[Timid Young Man]";
-		mes "Don't get me wrong, I love";
-		mes "songs and entertainment,";
-		mes "but you've got to understand!";
-		mes "Some of them have powers";
-		mes "that you wouldn't believe!";
-		mes "I... I've seen them myself!";
+		mes "[Joven Timido]";
+		mes "No me malinterpretes, me encantan";
+		mes "las canciones y el entretenimiento,";
+		mes "pero tienes que entender!";
+		mes "Algunos de ellos tienen poderes";
+		mes "que no creeriax!";
+		mes "Yo... Los he visto yo mismo!";
 		close;
 	}
 
@@ -384,43 +384,43 @@ morocc_in,169,72,7	script	Spiteful-Looking Bard#bs	741,3,3,{
 		if (Class == Job_Clown && qskill_bard == 9) {
 			if (getskilllv("BA_PANGVOICE") != 0) {
 				mes "[Riott]";
-				mes "Geh heh heh~";
-				mes "Been making good use of";
-				mes "what I taught you? Just be";
-				mes "careful and don't use that skill recklessly. Otherwise, people";
-				mes "will hate you as they hate me.";
+				mes "Je je je~";
+				mes "Has estado aprovechando bien lo";
+				mes "que te ensene? Solo ten";
+				mes "cuidado y no uses esa habilidad imprudentemente. De lo contrario, la gente";
+				mes "te odiara como me odian a mi.";
 				next;
 				mes "[Riott]";
-				mes "Your enemies, and the";
-				mes "occasional drunkard, on";
-				mes "the other hand, are different";
-				mes "matters entirely! Bwah hah hah!";
+				mes "Tus enemigos, y el";
+				mes "borracho ocasional, por";
+				mes "otro lado, son asuntos";
+				mes "completamente diferentes! Bwah ja ja!";
 				close;
 			}
 			else {
 				mes "[Riott]";
-				mes "Impossible! You forgot";
-				mes "everything I've taught you?";
-				mes "How can that be? Oh well, it's";
-				mes "no trouble for me to teach that";
-				mes "to you again if you'd like.";
+				mes "Imposible! Olvidaste";
+				mes "todo lo que te ensene?";
+				mes "Como puede ser? Bueno, no es";
+				mes "problema para mi ensenarte eso";
+				mes "de nuevo si quieres.";
 				next;
-				if (select("No, thanks.:Thanks, I'd appreciate that.") == 1) {
+				if (select("No, gracias.:Gracias, te lo agradeceria.") == 1) {
 					mes "[Riott]";
-					mes "What...?";
-					mes "You really don't";
-					mes "want to learn it?";
-					mes "I assure you there's";
-					mes "no strings attached.";
-					mes "If you change your mind...";
+					mes "Que...?";
+					mes "De verdad no";
+					mes "quieres aprenderlo?";
+					mes "Te aseguro que no hay";
+					mes "trampa alguna.";
+					mes "Si cambias de opinion...";
 					close;
 				}
 				mes "[Riott]";
-				mes "First, you must stare";
-				mes "fiercely into the eyes of";
-				mes "your target, and focus on";
-				mes "thoughts of dominance. This";
-				mes "is the basis for mesmerization. Now listen to this incantation...";
+				mes "Primero, debes mirar";
+				mes "fijamente a los ojos de";
+				mes "tu objetivo, y concentrarte en";
+				mes "pensamientos de dominacion. Esta";
+				mes "es la base de la mesmerizacion. Ahora escucha esta invocacion...";
 				next;
 				mes "[Riott]";
 				mes "Uuuummm Baaalaaaa";
@@ -432,208 +432,208 @@ morocc_in,169,72,7	script	Spiteful-Looking Bard#bs	741,3,3,{
 				specialeffect EF_TALK_FROSTJOKE;
 				next;
 				mes "[Riott]";
-				mes "Pang's Voice is used to";
-				mes "confuse people and disrupt";
-				mes "control of their bodies. It's not a fatal skill, but it is effective";
-				mes "in mentally upsetting your enemy. Make very wise use of this skill.";
+				mes "Pang Voice se usa para";
+				mes "confundir a la gente y alterar";
+				mes "el control de sus cuerpos. No es una habilidad fatal, pero es efectiva";
+				mes "para perturbar mentalmente a tu enemigo. Usa esta habilidad con mucha sabiduria.";
 				skill "BA_PANGVOICE",1,SKILL_PERM;
 				close;
 			}
 		}
 		else if (qskill_bard > 8) {
 			mes "[Riott]";
-			mes "Geh heh heh~";
-			mes "Been making good use of";
-			mes "what I taught you? Just be";
-			mes "careful and don't use that skill recklessly. Otherwise, people";
-			mes "will hate you as they hate me.";
+			mes "Je je je~";
+			mes "Has estado aprovechando bien lo";
+			mes "que te ensene? Solo ten";
+			mes "cuidado y no uses esa habilidad imprudentemente. De lo contrario, la gente";
+			mes "te odiara como me odian a mi.";
 			next;
 			mes "[Riott]";
-			mes "Your enemies, and the";
-			mes "occasional drunkard, on";
-			mes "the other hand, are different";
-			mes "matters entirely! Bwah hah hah!";
+			mes "Tus enemigos, y el";
+			mes "borracho ocasional, por";
+			mes "otro lado, son asuntos";
+			mes "completamente diferentes! Bwah ja ja!";
 			close;
 		}
 		else if (qskill_bard == 8) {
 			if (countitem(7277) > 0) {
 				mes "[Riott]";
-				mes "Ah, you've brought me";
-				mes "a Munak Doll made by";
-				mes "Yao Jun, just like you said";
-				mes "you would. Ah yes, this is her";
-				mes "craftsmanship, impeccable";
-				mes "as always. You've done well~";
+				mes "Ah, me trajiste";
+				mes "un Munak Doll hecho por";
+				mes "Yao Jun, justo como dijiste";
+				mes "que harias. Ah si, esta es su";
+				mes "artesania, impecable";
+				mes "como siempre. Lo hiciste bien~";
 				next;
 				mes "[Riott]";
-				mes "To fulfill my part of this";
-				mes "bargain, I shall now teach";
-				mes "you my special skill. Now,";
-				mes "I developed this by listening";
-				mes "to incantations by the Utan";
-				mes "Shaman in Umbala.";
+				mes "Para cumplir mi parte del";
+				mes "trato, ahora te ensenare";
+				mes "mi habilidad especial. Mira,";
+				mes "la desarrolle escuchando";
+				mes "invocaciones del Shaman";
+				mes "Utan en Umbala.";
 				next;
 				mes "[Riott]";
-				mes "First, you must stare";
-				mes "fiercely into the eyes of";
-				mes "your target, and focus on";
-				mes "thoughts of dominance. This";
-				mes "is the basis for mesmerization. Now listen to this incantation...";
+				mes "Primero, debes mirar";
+				mes "fijamente a los ojos de";
+				mes "tu objetivo, y concentrarte en";
+				mes "pensamientos de dominacion. Esta";
+				mes "es la base de la mesmerizacion. Ahora escucha esta invocacion...";
 				next;
 				mes "[Riott]";
-				mes "''Toad's leg, Verit's heart,";
-				mes "spinning stars, spilling zeny,";
-				mes "hands and feet tied. Is this";
-				mes "voices yours, is this voice";
-				mes "mine. Head spinning, head";
-				mes "spinning, head spinning...!''";
+				mes "''Pata de sapo, corazon de Verit,";
+				mes "estrellas girando, zeny cayendo,";
+				mes "manos y pies atados. Es esta";
+				mes "voz tuya, es esta voz";
+				mes "mia. Cabeza girando, cabeza";
+				mes "girando, cabeza girando...!''";
 				specialeffect2 EF_TALK_FROSTJOKE;
 				delitem 7277,1; //Munak_Doll
 				skill "BA_PANGVOICE",1,SKILL_PERM;
 				set qskill_bard,9;
 				next;
 				mes "[Riott]";
-				mes "Remember, it doesn't matter";
-				mes "what you say, but how you say";
-				mes "it. Hypnotically induce your";
-				mes "target with a forbiddenly";
-				mes "seductive rhythm and your";
-				mes "grasp will be inescapable!";
+				mes "Recuerda, no importa";
+				mes "lo que digas, sino como lo dices.";
+				mes "Induce hipnoticamente a tu";
+				mes "objetivo con un ritmo";
+				mes "prohibidamente seductor y tu";
+				mes "agarre sera inescapable!";
 				next;
 				mes "[Riott]";
-				mes "Ah, and use sleight of";
-				mes "hand to distract your target";
-				mes "from your true motive! I find";
-				mes "that casting Unbarring Octave";
-				mes "with this skill works best. This skill's name is ''Pang Voice!''";
+				mes "Ah, y usa trucos de manos";
+				mes "para distraer a tu objetivo";
+				mes "de tu verdadero motivo! Encuentro";
+				mes "que lanzar Unbarring Octave";
+				mes "con esta habilidad funciona mejor. El nombre de esta habilidad es ''Pang Voice!''";
 				next;
 				mes "[Riott]";
-				mes "''Pang Voice'' will mentally";
-				mes "shock your target and disrupt";
-				mes "control of his own body for";
-				mes "a while. You can't exert control";
-				mes "over victims with this skill, but they usually assume otherwise...";
+				mes "''Pang Voice'' impactara mentalmente";
+				mes "a tu objetivo y alterara";
+				mes "el control de su propio cuerpo por";
+				mes "un rato. No puedes ejercer control";
+				mes "sobre las victimas con esta habilidad, pero usualmente asumen lo contrario...";
 				next;
 				mes "[Riott]";
-				mes "You need to be judicious in";
-				mes "your use of this skill! Don't";
-				mes "use it recklessly, or people";
-				mes "will come to hate you as they";
-				mes "hate me. But ''Pang Voice'' can be welcome is certain situations.";
+				mes "Debes ser juicioso en";
+				mes "tu uso de esta habilidad! No";
+				mes "la uses imprudentemente, o la gente";
+				mes "llegara a odiarte como me";
+				mes "odian a mi. Pero ''Pang Voice'' puede ser bienvenido en ciertas situaciones.";
 				next;
 				mes "[Riott]";
-				mes "Subject your enemies to";
-				mes "Pang Voice as much as you";
-				mes "like, and no one will blame";
-				mes "you for it. And you can get away with casting Pang Voice on bullies";
-				mes "and drunkards occasionally...";
+				mes "Somete a tus enemigos a";
+				mes "Pang Voice tanto como";
+				mes "quieras, y nadie te culpara";
+				mes "por ello. Y puedes salirte con la tuya lanzando Pang Voice a bravucones";
+				mes "y borrachos de vez en cuando...";
 				close;
 			}
 			mes "[Riott]";
-			mes "Hmpf. Weren't able";
-			mes "to find me a Munak Doll";
-			mes "yet? Well, don't worry, I'm";
-			mes "a patient man. Just try to get";
-			mes "one for me as soon as you can.";
+			mes "Hmpf. No pudiste";
+			mes "encontrarme un Munak Doll";
+			mes "todavia? Bueno, no te preocupes, soy";
+			mes "un hombre paciente. Solo trata de";
+			mes "conseguirme uno lo antes posible.";
 			close;
 		}
 		else if (qskill_bard == 7) {
 			if (countitem(574) > 4) {
 				mes "[Riott]";
-				mes "Ah, you've brought me";
-				mes "some fresh eggs laid by";
-				mes "Yhelle, just like I asked.";
-				mes "I'm sure it was dangerous";
-				mes "going to Niflheim, but the flavor of these eggs is worth it.";
+				mes "Ah, me trajiste";
+				mes "algunos huevos frescos puestos";
+				mes "por Yhelle, justo como pedi.";
+				mes "Seguro fue peligroso";
+				mes "ir a Niflheim, pero el sabor de estos huevos lo vale.";
 				next;
 				next;
 				mes "[Riott]";
-				mes "To fulfill my part of this";
-				mes "bargain, I shall now teach";
-				mes "you my special skill. Now,";
-				mes "I developed this by listening";
-				mes "to incantations by the Utan";
-				mes "Shaman in Umbala.";
+				mes "Para cumplir mi parte del";
+				mes "trato, ahora te ensenare";
+				mes "mi habilidad especial. Mira,";
+				mes "la desarrolle escuchando";
+				mes "invocaciones del Shaman";
+				mes "Utan en Umbala.";
 				next;
 				mes "[Riott]";
-				mes "First, you must stare";
-				mes "fiercely into the eyes of";
-				mes "your target, and focus on";
-				mes "thoughts of dominance. This";
-				mes "is the basis for mesmerization. Now listen to this incantation...";
+				mes "Primero, debes mirar";
+				mes "fijamente a los ojos de";
+				mes "tu objetivo, y concentrarte en";
+				mes "pensamientos de dominacion. Esta";
+				mes "es la base de la mesmerizacion. Ahora escucha esta invocacion...";
 				next;
 				mes "[Riott]";
-				mes "''Toad's leg, Verit's heart,";
-				mes "spinning stars, spilling zeny,";
-				mes "hands and feet tied. Is this";
-				mes "voices yours, is this voice";
-				mes "mine. Head spinning, head";
-				mes "spinning, head spinning...!''";
+				mes "''Pata de sapo, corazon de Verit,";
+				mes "estrellas girando, zeny cayendo,";
+				mes "manos y pies atados. Es esta";
+				mes "voz tuya, es esta voz";
+				mes "mia. Cabeza girando, cabeza";
+				mes "girando, cabeza girando...!''";
 				specialeffect2 EF_TALK_FROSTJOKE;
 				delitem 574,5; //Egg
 				skill "BA_PANGVOICE",1,SKILL_PERM;
 				set qskill_bard,9;
 				next;
 				mes "[Riott]";
-				mes "Remember, it doesn't matter";
-				mes "what you say, but how you say";
-				mes "it. Hypnotically induce your";
-				mes "target with a forbiddenly";
-				mes "seductive rhythm and your";
-				mes "grasp will be inescapable!";
+				mes "Recuerda, no importa";
+				mes "lo que digas, sino como lo dices.";
+				mes "Induce hipnoticamente a tu";
+				mes "objetivo con un ritmo";
+				mes "prohibidamente seductor y tu";
+				mes "agarre sera inescapable!";
 				next;
 				mes "[Riott]";
-				mes "Ah, and use sleight of";
-				mes "hand to distract your target";
-				mes "from your true motive! I find";
-				mes "that casting Unbarring Octave";
-				mes "with this skill works best. This skill's name is ''Pang Voice!''";
+				mes "Ah, y usa trucos de manos";
+				mes "para distraer a tu objetivo";
+				mes "de tu verdadero motivo! Encuentro";
+				mes "que lanzar Unbarring Octave";
+				mes "con esta habilidad funciona mejor. El nombre de esta habilidad es ''Pang Voice!''";
 				next;
 				mes "[Riott]";
-				mes "''Pang Voice'' will mentally";
-				mes "shock your target and disrupt";
-				mes "control of his own body for";
-				mes "a while. You can't exert control";
-				mes "over victims with this skill, but they usually assume otherwise...";
+				mes "''Pang Voice'' impactara mentalmente";
+				mes "a tu objetivo y alterara";
+				mes "el control de su propio cuerpo por";
+				mes "un rato. No puedes ejercer control";
+				mes "sobre las victimas con esta habilidad, pero usualmente asumen lo contrario...";
 				next;
 				mes "[Riott]";
-				mes "You need to be judicious in";
-				mes "your use of this skill! Don't";
-				mes "use it recklessly, or people";
-				mes "will come to hate you as they";
-				mes "hate me. But ''Pang Voice'' can be welcome is certain situations.";
+				mes "Debes ser juicioso en";
+				mes "tu uso de esta habilidad! No";
+				mes "la uses imprudentemente, o la gente";
+				mes "llegara a odiarte como me";
+				mes "odian a mi. Pero ''Pang Voice'' puede ser bienvenido en ciertas situaciones.";
 				next;
 				mes "[Riott]";
-				mes "Subject your enemies to";
-				mes "Pang Voice as much as you";
-				mes "like, and no one will blame";
-				mes "you for it. And you can get away with casting Pang Voice on bullies";
-				mes "and drunkards occasionally...";
+				mes "Somete a tus enemigos a";
+				mes "Pang Voice tanto como";
+				mes "quieras, y nadie te culpara";
+				mes "por ello. Y puedes salirte con la tuya lanzando Pang Voice a bravucones";
+				mes "y borrachos de vez en cuando...";
 				close;
 			}
 			else {
 				mes "[Riott]";
-				mes "Hmm... You didn't";
-				mes "bring enough Eggs...";
-				mes "This will not do. It'll";
-				mes "be a while until Yhelle";
-				mes "will be able to lay more";
-				mes "eggs. Yes, this isn't enough...";
+				mes "Hmm... No trajiste";
+				mes "suficientes Eggs...";
+				mes "Esto no va a funcionar. Pasara";
+				mes "un rato hasta que Yhelle";
+				mes "pueda poner mas";
+				mes "huevos. Si, esto no es suficiente...";
 				next;
 				mes "[Riott]";
-				mes "Well, to make up for the";
-				mes "missing eggs, go and get ";
-				mes "me ^4D4DFF1 Munak Doll^000000. I know that";
-				mes "Yao Jun's Munak Dolls are";
-				mes "masterpieces, and I am an";
-				mes "an avid collector of her work.";
+				mes "Bueno, para compensar los";
+				mes "huevos faltantes, ve y consigueme";
+				mes "^4D4DFF1 Munak Doll^000000. Se que";
+				mes "los Munak Dolls de Yao Jun son";
+				mes "obras maestras, y soy un";
+				mes "avido coleccionista de su trabajo.";
 				next;
 				mes "[Riott]";
 				if (countitem(574) > 0) {
-					mes "In the meanwhile,";
-					mes "I'll enjoy the few";
-					mes "eggs that you do have!";
-					mes "Bweh heh heh heh heh!";
+					mes "Mientras tanto,";
+					mes "disfrutare los pocos";
+					mes "huevos que si traes!";
+					mes "Bweh je je je je!";
 					delitem 574,countitem(574); //Egg
 				}
 				set qskill_bard,8;
@@ -642,258 +642,258 @@ morocc_in,169,72,7	script	Spiteful-Looking Bard#bs	741,3,3,{
 		}
 		else if (qskill_bard > 1 && qskill_bard < 7) {
 			mes "[Riott]";
-			mes "So have you been";
-			mes "having trouble gathering";
-			mes "eggs from Yhelle? I know";
-			mes "she can be one fast running";
-			mes "chicken. But to survive where";
-			mes "she roosts, she has to be.";
+			mes "Has tenido problemas";
+			mes "recolectando huevos de";
+			mes "Yhelle? Se que puede";
+			mes "ser una gallina muy rapida.";
+			mes "Pero para sobrevivir donde";
+			mes "ella anida, tiene que serlo.";
 			close;
 		}
 		else {
 			mes "[Riott]";
 			mes "Hmmrmpf!";
-			mes "Eh heh heh heh!";
+			mes "Je je je je!";
 			emotion ET_KIK;
 			next;
 			mes "[" + strcharinfo(0) + "]";
 			mes "Um...";
-			mes "What's so funny?";
+			mes "Que es tan gracioso?";
 			next;
 			if (gef_bard_q == 30 || gef_bard_q == 31) {
 				mes "[Riott]";
-				mes "Hm? Ah! That's one of the";
+				mes "Hm? Ah! Ese es uno de los";
 				if (gef_bard_q == 30) {
-					mes "Black Seals that can only";
-					mes "be given by Kino Kitty. You";
-					mes "must be a person of great";
-					mes "emotional depth if he favors";
-					mes "you enough to give you that.";
+					mes "Sellos Negros que solo puede";
+					mes "dar Kino Kitty. Debes";
+					mes "ser una persona de gran";
+					mes "profundidad emocional si te";
+					mes "favorece lo suficiente para darte eso.";
 				}
 				else {
-					mes "Silver Seals that can only";
-					mes "be given by Errende. You";
-					mes "must be truly kind at heart";
-					mes "if he has offered to be your";
-					mes "friend. How about that?";
+					mes "Sellos Plateados que solo puede";
+					mes "dar Errende. Debes";
+					mes "ser realmente bondadoso de corazon";
+					mes "si te ha ofrecido ser tu";
+					mes "amigo. Que te parece?";
 				}
 				next;
 				mes "[Riott]";
-				mes "Geh heh heh~";
-				mes "Hey, take a look";
-				mes "at those two drunks";
-				mes "all the way over there.";
+				mes "Je je je~";
+				mes "Oye, mira a esos";
+				mes "dos borrachos";
+				mes "alla al fondo.";
 				next;
 				mes "[" + strcharinfo(0) + "]";
-				mes "Yeah, I can see them.";
-				mes "But what's so special";
-				mes "about those two guys?";
+				mes "Si, puedo verlos.";
+				mes "Pero que tienen de";
+				mes "especial esos dos tipos?";
 				next;
 				mes "[Riott]";
-				mes "Just...";
-				mes "Keep watching.";
+				mes "Solo...";
+				mes "Sigue mirando.";
 				next;
-				mes "^3355FFRiott stared intensely";
-				mes "at one of the drunken men";
-				mes "and began to harshly murmur";
-				mes "some indistinct words in a";
-				mes "low, hoarse voice. One of the";
-				mes "men starts slightly convulsing.^000000";
+				mes "^3355FFRiott miro intensamente";
+				mes "a uno de los hombres borrachos";
+				mes "y comenzo a murmurar asperamente";
+				mes "algunas palabras indistintas en una";
+				mes "voz baja y ronca. Uno de los";
+				mes "hombres comienza a convulsionar levemente.^000000";
 				next;
-				mes "[Little Bit Drunken Guy]";
-				mes "H-hey...! ^333333*Hiccup!*^000000";
-				mes "What are you doing?!";
-				mes "K-keep your hands to";
-				mes "yourself! Do I look";
-				mes "like a woman to you?";
+				mes "[Tipo Algo Borracho]";
+				mes "O-oye...! ^333333*Hic!*^000000";
+				mes "Que estas haciendo?!";
+				mes "M-manten tus manos";
+				mes "para ti mismo! Acaso";
+				mes "parezco mujer?";
 				next;
-				mes "[More Drunken Guy]";
-				mes "What are you talking";
-				mes "about? Wh-what?! Why";
-				mes "are my arms all wrapped";
-				mes "around you? S-sorry, I was";
-				mes "trying to just go that w--";
-				mes "I wasn't trying to hug you!";
+				mes "[Tipo Mas Borracho]";
+				mes "De que hablas?";
+				mes "Qu-que?! Por que";
+				mes "tengo los brazos alrededor";
+				mes "tuyo? P-perdon, estaba";
+				mes "tratando de ir para alla--";
+				mes "No estaba tratando de abrazarte!";
 				next;
-				mes "[Little Bit Drunken Guy]";
-				mes "Bumping into me,";
-				mes "I understand. But a full";
-				mes "blown hug? Come on, now!";
-				mes "That was totally on purpose!";
-				mes "Wh-what? My h-hand! It's...";
-				mes "It's moving my itself?!";
+				mes "[Tipo Algo Borracho]";
+				mes "Tropezarte conmigo,";
+				mes "lo entiendo. Pero un abrazo";
+				mes "completo? Ya basta!";
+				mes "Eso fue totalmente a proposito!";
+				mes "Qu-que? Mi m-mano! Se esta...";
+				mes "Se esta moviendo sola?!";
 				next;
-				mes "[More Drunken Guy]";
-				mes "Ack! Wh-what are";
-				mes "you doing! S-stop";
-				mes "touching my butt!";
+				mes "[Tipo Mas Borracho]";
+				mes "Ack! Qu-que";
+				mes "estas haciendo! D-deja";
+				mes "de tocarme el trasero!";
 				next;
-				mes "^3355FFThe two men continued";
-				mes "to gesticulate and move";
-				mes "wildly without direction.";
+				mes "^3355FFLos dos hombres continuaron";
+				mes "gesticulando y moviendose";
+				mes "salvajemente sin direccion.";
 				next;
 				mes "[" + strcharinfo(0) + "]";
-				mes "Those two...";
-				mes "Those two probably";
-				mes "had way too much to drink.";
+				mes "Esos dos...";
+				mes "Probablemente esos dos";
+				mes "tomaron demasiado.";
 				next;
 				mes "[Riott]";
-				mes "Nah, they just lost";
-				mes "control of their bodies";
-				mes "for a bit. It's the result";
-				mes "of my skill which sort of";
-				mes "scrambles their minds.";
+				mes "Nah, solo perdieron";
+				mes "control de sus cuerpos";
+				mes "por un momento. Es el resultado";
+				mes "de mi habilidad que";
+				mes "revuelve sus mentes.";
 				next;
 				if (qskill_bard == 1) {
 					mes "[" + strcharinfo(0) + "]";
-					mes "Mind scrambling?";
-					mes "Wait, are you the same";
-					mes "Bard who made someone";
-					mes "jump off Umbala's Bungee";
-					mes "Jump against his will?";
+					mes "Revolver mentes?";
+					mes "Espera, eres el mismo";
+					mes "Bard que hizo que alguien";
+					mes "saltara del Bungee Jump de";
+					mes "Umbala contra su voluntad?";
 					next;
 					mes "[Riott]";
-					mes "Huh? How did you";
-					mes "learn about that?";
-					mes "I'm not proud of that,";
-					mes "(even though it was";
-					mes "hilarious at the time)";
-					mes "but yeah, that was me.";
+					mes "Huh? Como te";
+					mes "enteraste de eso?";
+					mes "No estoy orgulloso de eso,";
+					mes "(aunque fue muy gracioso";
+					mes "en el momento)";
+					mes "pero si, fui yo.";
 					next;
-					if (select("Please teach me that skill!:Oh, alright. Just checking.") == 1) {
+					if (select("Por favor ensenametela!:Oh, bien. Solo verificaba.") == 1) {
 						mes "[Riott]";
-						mes "Hm? You want to learn";
-						mes "how to scramble minds";
-						mes "like I did just now? Well,";
-						mes "I invented this skill, though";
-						mes "I did have a lot of help from";
-						mes "the Utan Shaman. Let's see...";
+						mes "Hm? Quieres aprender";
+						mes "a revolver mentes";
+						mes "como lo hice recien? Bueno,";
+						mes "yo invente esta habilidad, aunque";
+						mes "tuve mucha ayuda del";
+						mes "Shaman Utan. Veamos...";
 						next;
 						mes "[Riott]";
-						mes "Alright. If you want me";
-						mes "to teach you, then bring me";
-						mes "5 Eggs from a chicken named";
-						mes "Yhelle. Yhelle lays the highest";
-						mes "quality eggs: they're delicious";
-						mes "and great for a Bard's voice~";
+						mes "Bien. Si quieres que te";
+						mes "ensene, traeme";
+						mes "5 Eggs de una gallina llamada";
+						mes "Yhelle. Yhelle pone los huevos de";
+						mes "mejor calidad: son deliciosos";
+						mes "y geniales para la voz de un Bard~";
 						next;
 						mes "[Riott]";
-						mes "However, this chicken roosts";
-						mes "in a strange, dangerous place.";
-						mes "You'll need to explore this huge, mysterious tree in Umbala in order";
-						mes "to get there. Last time I went,";
-						mes "I pretty much almost died.";
+						mes "Sin embargo, esta gallina anida";
+						mes "en un lugar extrano y peligroso.";
+						mes "Necesitaras explorar este enorme y misterioso arbol en Umbala para poder";
+						mes "llegar ahi. La ultima vez que fui,";
+						mes "practicamente casi muero.";
 						next;
 						mes "[Riott]";
-						mes "Alright...";
-						mes "So don't forget";
-						mes "to come back here";
-						mes "and bring me back";
-						mes "^4D4DFF5 Yhelle's Eggs^000000, alright?";
+						mes "Bien...";
+						mes "Asi que no olvides";
+						mes "regresar aqui";
+						mes "y traerme";
+						mes "^4D4DFF5 Huevos de Yhelle^000000, de acuerdo?";
 						set qskill_bard,2;
 						close;
 					}
 					mes "[Riott]";
-					mes "Boy, you're a curious one.";
-					mes "But if you know about that";
-					mes "and you bumped into me, you";
-					mes "must certainly travel around";
-					mes "a lot. I can respect a good,";
-					mes "seasoned adventurer like you.";
+					mes "Vaya, eres bastante curioso.";
+					mes "Pero si sabes de eso";
+					mes "y te topaste conmigo,";
+					mes "seguramente viajas mucho";
+					mes "por ahi. Puedo respetar a un buen";
+					mes "aventurero experimentado como tu.";
 					close;
 				}
 				mes "[" + strcharinfo(0) + "]";
-				mes "Wha...?";
-				mes "I can't believe you.";
-				mes "Mind scrambling? That";
-				mes "doesn't make any sense!";
-				mes "They're just really drunk...";
+				mes "Que...?";
+				mes "No puedo creerte.";
+				mes "Revolver mentes? Eso";
+				mes "no tiene ningun sentido!";
+				mes "Estan demasiado borrachos...";
 				next;
 				mes "[Riott]";
-				mes "How dare you question my";
-				mes "power? Oh well, I suppose";
-				mes "I really can't be too angry.";
-				mes "Most people who do believe";
-				mes "me usually claim that I'm";
-				mes "an axis of evil about now...";
+				mes "Como te atreves a cuestionar mi";
+				mes "poder? Oh bueno, supongo";
+				mes "que realmente no puedo enojarme mucho.";
+				mes "La mayoria de los que si me creen";
+				mes "usualmente dicen que soy";
+				mes "un eje del mal a estas alturas...";
 				close;
 			}
 			mes "[Riott]";
-			mes "Eh, nothing much. Say,";
-			mes "you don't have any Bard";
-			mes "Seals? That's a sure sign";
-			mes "that you haven't been really";
-			mes "connecting with the Bard";
-			mes "community. That's a shame...";
+			mes "Eh, nada del otro mundo. Oye,";
+			mes "no tienes ningun Sello";
+			mes "de Bard? Esa es una senal segura";
+			mes "de que no has estado realmente";
+			mes "conectando con la comunidad";
+			mes "de Bards. Que lastima...";
 			next;
 			mes "[Riott]";
-			mes "*Sigh* Alright, I know";
-			mes "how you can meet more Bards.";
-			mes "Why don't you try making friends with Errende? Look for a Bard";
-			mes "dressed in green in Geffen and";
-			mes "you should be able to find him.";
+			mes "*Suspiro* Bien, se";
+			mes "como puedes conocer mas Bards.";
+			mes "Por que no intentas hacerte amigo de Errende? Busca a un Bard";
+			mes "vestido de verde en Geffen y";
+			mes "deberias poder encontrarlo.";
 			close;
 		}
 	}
 	else {
 		mes "[Riott]";
 		mes "Hmmrmpf!";
-		mes "Eh heh heh heh!";
+		mes "Je je je je!";
 		emotion ET_KIK;
 		next;
 		mes "[" + strcharinfo(0) + "]";
 		mes "Um...";
-		mes "What's so funny?";
+		mes "Que es tan gracioso?";
 		next;
 		if (gef_bard_q == 30 || gef_bard_q == 31) {
 			mes "[Riott]";
-			mes "Hm? Ah! That's one of the";
+			mes "Hm? Ah! Ese es uno de los";
 			if (gef_bard_q == 30) {
-				mes "Black Seals that can only";
-				mes "be given by Kino Kitty. You";
-				mes "must be a person of great";
-				mes "emotional depth if he favors";
-				mes "you enough to give you that.";
+				mes "Sellos Negros que solo puede";
+				mes "dar Kino Kitty. Debes";
+				mes "ser una persona de gran";
+				mes "profundidad emocional si te";
+				mes "favorece lo suficiente para darte eso.";
 			}
 			else {
-				mes "Silver Seals that can only";
-				mes "be given by Errende. You";
-				mes "must be truly kind at heart";
-				mes "if he has offered to be your";
-				mes "friend. How about that?";
+				mes "Sellos Plateados que solo puede";
+				mes "dar Errende. Debes";
+				mes "ser realmente bondadoso de corazon";
+				mes "si te ha ofrecido ser tu";
+				mes "amigo. Que te parece?";
 			}
 			next;
 			mes "[Riott]";
-			mes "Geh heh heh~";
-			mes "Hey, take a look";
-			mes "at those two drunks";
-			mes "all the way over there.";
+			mes "Je je je~";
+			mes "Oye, mira a esos";
+			mes "dos borrachos";
+			mes "alla al fondo.";
 			next;
 			mes "[" + strcharinfo(0) + "]";
-			mes "Yeah, I can see";
-			mes "together. But what";
-			mes "about them?";
+			mes "Si, puedo verlos";
+			mes "juntos. Pero que";
+			mes "tienen ellos?";
 			next;
 			mes "[Riott]";
-			mes "Just...";
-			mes "Keep watching.";
+			mes "Solo...";
+			mes "Sigue mirando.";
 			close;
 		}
 		mes "[Riott]";
-		mes "Eh, nothing much. Say,";
-		mes "I notice you don't have";
-		mes "any Bard seals. That tells";
-		mes "me that you don't really";
-		mes "meet that many Bards. You";
-		mes "should really change that.";
+		mes "Eh, nada del otro mundo. Oye,";
+		mes "noto que no tienes";
+		mes "ningun sello de Bard. Eso me dice";
+		mes "que realmente no";
+		mes "conoces a muchos Bards. Deberias";
+		mes "cambiar eso.";
 		next;
 		mes "[Riott]";
-		mes "Bards and Minstrels can";
-		mes "make some pretty handy";
-		mes "friends if you give them";
-		mes "a chance. Here, why don't";
-		mes "you find Errende in Geffen?";
-		mes "He's a pretty popular guy...";
+		mes "Los Bards y Minstrels pueden";
+		mes "ser amigos bastante utiles";
+		mes "si les das una oportunidad.";
+		mes "Oye, por que no";
+		mes "buscas a Errende en Geffen?";
+		mes "Es un tipo bastante popular...";
 		close;
 	}
 
@@ -903,19 +903,19 @@ OnTouch:
 }
 
 // Yhelle the Chicken
-//============================================================ 
+//============================================================
 niflheim,239,70,1	script	Yhelle#bard_chick1	800,3,3,{
 	emotion ET_HUK, playerattached();
 	emotion ET_HUK;
-	mes "[Hen Yhelle]";
-	mes "Cluck-Cluuuck?";
-	mes "Cluck cluck cluck!";
+	mes "[Gallina Yhelle]";
+	mes "Clo-Cloooc?";
+	mes "Clo clo clo!";
 	next;
 	disablenpc "Yhelle#bard_chick1";
 	donpcevent "Yhelle#bard_chick2::OnEnable";
-	mes "^3355FFUpon sensing your";
-	mes "presense, the hen";
-	mes "quickly ran away.^000000";
+	mes "^3355FFAl percibir tu";
+	mes "presencia, la gallina";
+	mes "salio corriendo rapidamente.^000000";
 	close;
 
 OnInit:
@@ -940,15 +940,15 @@ OnTouch:
 niflheim,185,205,3	script	Yhelle#bard_chick2	800,3,3,{
 	emotion ET_HUK, playerattached();
 	emotion ET_HUK;
-	mes "[Hen Yhelle]";
-	mes "Cluck-Cluuuck?";
-	mes "Cluck cluck cluck!";
+	mes "[Gallina Yhelle]";
+	mes "Clo-Cloooc?";
+	mes "Clo clo clo!";
 	next;
 	disablenpc "Yhelle#bard_chick2";
 	donpcevent "Yhelle#bard_chick3::OnEnable";
-	mes "^3355FFUpon sensing your";
-	mes "presense, the hen";
-	mes "quickly ran away.^000000";
+	mes "^3355FFAl percibir tu";
+	mes "presencia, la gallina";
+	mes "salio corriendo rapidamente.^000000";
 	close;
 
 OnEnable:
@@ -966,15 +966,15 @@ OnTouch:
 niflheim,85,203,5	script	Yhelle#bard_chick3	800,3,3,{
 	emotion ET_HUK, playerattached();
 	emotion ET_HUK;
-	mes "[Hen Yhelle]";
-	mes "Cluck-Cluuuck?";
-	mes "Cluck cluck cluck!";
+	mes "[Gallina Yhelle]";
+	mes "Clo-Cloooc?";
+	mes "Clo clo clo!";
 	next;
 	disablenpc "Yhelle#bard_chick3";
 	donpcevent "Yhelle#bard_chick4::OnEnable";
-	mes "^3355FFUpon sensing your";
-	mes "presense, the hen";
-	mes "quickly ran away.^000000";
+	mes "^3355FFAl percibir tu";
+	mes "presencia, la gallina";
+	mes "salio corriendo rapidamente.^000000";
 	close;
 
 OnEnable:
@@ -992,15 +992,15 @@ OnTouch:
 niflheim,149,81,7	script	Yhelle#bard_chick4	800,3,3,{
 	emotion ET_HUK, playerattached();
 	emotion ET_HUK;
-	mes "[Hen Yhelle]";
-	mes "Cluck-Cluuuck?";
-	mes "Cluck cluck cluck!";
+	mes "[Gallina Yhelle]";
+	mes "Clo-Cloooc?";
+	mes "Clo clo clo!";
 	next;
 	disablenpc "Yhelle#bard_chick4";
 	donpcevent "Yhelle#bard_chick5::OnEnable";
-	mes "^3355FFUpon sensing your";
-	mes "presense, the hen";
-	mes "quickly ran away.^000000";
+	mes "^3355FFAl percibir tu";
+	mes "presencia, la gallina";
+	mes "salio corriendo rapidamente.^000000";
 	close;
 
 OnEnable:
@@ -1018,15 +1018,15 @@ OnTouch:
 niflheim,209,144,3	script	Yhelle#bard_chick5	800,3,3,{
 	emotion ET_HUK, playerattached();
 	emotion ET_HUK;
-	mes "[Hen Yhelle]";
-	mes "Cluck-Cluuuck?";
-	mes "Cluck cluck cluck!";
+	mes "[Gallina Yhelle]";
+	mes "Clo-Cloooc?";
+	mes "Clo clo clo!";
 	next;
 	disablenpc "Yhelle#bard_chick5";
 	donpcevent "Yhelle#bard_chick1::OnEnable";
-	mes "^3355FFUpon sensing your";
-	mes "presense, the hen";
-	mes "quickly ran away.^000000";
+	mes "^3355FFAl percibir tu";
+	mes "presencia, la gallina";
+	mes "salio corriendo rapidamente.^000000";
 	close;
 
 OnEnable:
@@ -1042,168 +1042,168 @@ OnTouch:
 }
 
 // Drunken Men
-//============================================================ 
+//============================================================
 morocc_in,178,73,3	script	Customer#bard_skill01	54,{
-	mes "[Little Bit Drunken Guy]";
-	mes "What do you think";
-	mes "is the best drink in";
-	mes "all the world? I think";
-	mes "the Tri-- Tristan? What";
-	mes "was it called again?";
+	mes "[Tipo Algo Borracho]";
+	mes "Cual crees que es";
+	mes "la mejor bebida del";
+	mes "mundo? Yo creo que";
+	mes "el Tri-- Tristan? Como";
+	mes "se llamaba?";
 	next;
-	mes "[More Drunken Guy]";
+	mes "[Tipo Mas Borracho]";
 	mes "Oh! 13 Year Old Tristan?";
-	mes "That's a great drink, sure,";
-	mes "but it's way too expensive for";
-	mes "anything less than a special";
-	mes "occasion. ^333333*Hiccup*^000000 Personally,";
-	mes "I really like Ver... Uh, Ver...";
+	mes "Es una gran bebida, claro,";
+	mes "pero es demasiado cara para";
+	mes "cualquier cosa que no sea una ocasion";
+	mes "especial. ^333333*Hic*^000000 Personalmente,";
+	mes "a mi me gusta mucho el Ver... Eh, Ver...";
 	next;
-	mes "[Little Bit Drunken Guy]";
+	mes "[Tipo Algo Borracho]";
 	mes "Vermilion on the Beach?";
-	mes "Yeah, that's really good,";
-	mes "you'll pass out after just";
-	mes "having one shot! Yeah...";
-	mes "Tro... Tropical! People say";
-	mes "that's good too. Wait, what?";
+	mes "Si, es muy buena,";
+	mes "te desmayaras despues de";
+	mes "un solo trago! Si...";
+	mes "Tro... Tropical! La gente dice";
+	mes "que esa es buena tambien. Espera, que?";
 	next;
-	mes "[Little Bit Drunken Guy]";
-	mes "H-hey...! ^333333*Hiccup!*^000000";
-	mes "What are you doing?!";
-	mes "K-keep your hands to";
-	mes "yourself! Do I look";
-	mes "like a woman to you?";
+	mes "[Tipo Algo Borracho]";
+	mes "O-oye...! ^333333*Hic!*^000000";
+	mes "Que estas haciendo?!";
+	mes "M-manten tus manos";
+	mes "para ti mismo! Acaso";
+	mes "parezco mujer?";
 	next;
-	mes "[More Drunken Guy]";
-	mes "What are you talking";
-	mes "about? Wh-what?! Why";
-	mes "are my arms all wrapped";
-	mes "around you? S-sorry, I was";
-	mes "trying to just go that w--";
-	mes "I wasn't trying to hug you!";
+	mes "[Tipo Mas Borracho]";
+	mes "De que hablas?";
+	mes "Qu-que?! Por que";
+	mes "tengo los brazos alrededor";
+	mes "tuyo? P-perdon, estaba";
+	mes "tratando de ir para alla--";
+	mes "No estaba tratando de abrazarte!";
 	next;
-	mes "[Little Bit Drunken Guy]";
-	mes "Bumping into me,";
-	mes "I understand. But a full";
-	mes "blown hug? Come on, now!";
-	mes "That was totally on purpose!";
-	mes "Wh-what? My h-hand! It's...";
-	mes "It's moving my itself?!";
+	mes "[Tipo Algo Borracho]";
+	mes "Tropezarte conmigo,";
+	mes "lo entiendo. Pero un abrazo";
+	mes "completo? Ya basta!";
+	mes "Eso fue totalmente a proposito!";
+	mes "Qu-que? Mi m-mano! Se esta...";
+	mes "Se esta moviendo sola?!";
 	next;
-	mes "[More Drunken Guy]";
-	mes "Ack! Wh-what are";
-	mes "you doing! S-stop";
-	mes "touching my butt!";
+	mes "[Tipo Mas Borracho]";
+	mes "Ack! Qu-que";
+	mes "estas haciendo! D-deja";
+	mes "de tocarme el trasero!";
 	next;
-	mes "^3355FFA Bard in the room";
-	mes "watches the two drunk";
-	mes "men intently and giggles";
-	mes "at their stupor. Remember:";
-	mes "drinking too much isn't good!^000000";
+	mes "^3355FFUn Bard en la sala";
+	mes "observa a los dos borrachos";
+	mes "atentamente y se rie";
+	mes "de su estupor. Recuerda:";
+	mes "tomar de mas no es bueno!^000000";
 	close;
 }
 
 morocc_in,175,70,7	script	Customer#bard_skill02	50,{
-	mes "[Little Bit Drunken Guy]";
-	mes "What do you think";
-	mes "is the best drink in";
-	mes "all the world? I think";
-	mes "the Tri-- Tristan? What";
-	mes "was it called again?";
+	mes "[Tipo Algo Borracho]";
+	mes "Cual crees que es";
+	mes "la mejor bebida del";
+	mes "mundo? Yo creo que";
+	mes "el Tri-- Tristan? Como";
+	mes "se llamaba?";
 	next;
-	mes "[More Drunken Guy]";
+	mes "[Tipo Mas Borracho]";
 	mes "Oh! 13 Year Old Tristan?";
-	mes "That's a great drink, sure,";
-	mes "but it's way too expensive for";
-	mes "anything less than a special";
-	mes "occasion. ^333333*Hiccup*^000000 Personally,";
-	mes "I really like Ver... Uh, Ver...";
+	mes "Es una gran bebida, claro,";
+	mes "pero es demasiado cara para";
+	mes "cualquier cosa que no sea una ocasion";
+	mes "especial. ^333333*Hic*^000000 Personalmente,";
+	mes "a mi me gusta mucho el Ver... Eh, Ver...";
 	next;
-	mes "[Little Bit Drunken Guy]";
+	mes "[Tipo Algo Borracho]";
 	mes "Vermilion on the Beach?";
-	mes "Yeah, that's really good,";
-	mes "you'll pass out after just";
-	mes "having one shot! Yeah...";
-	mes "Tro... Tropical! People say";
-	mes "that's good too. Wait, what?";
+	mes "Si, es muy buena,";
+	mes "te desmayaras despues de";
+	mes "un solo trago! Si...";
+	mes "Tro... Tropical! La gente dice";
+	mes "que esa es buena tambien. Espera, que?";
 	next;
-	mes "[Little Bit Drunken Guy]";
-	mes "H-hey...! ^333333*Hiccup!*^000000";
-	mes "What are you doing?!";
-	mes "K-keep your hands to";
-	mes "yourself! Do I look";
-	mes "like a woman to you?";
+	mes "[Tipo Algo Borracho]";
+	mes "O-oye...! ^333333*Hic!*^000000";
+	mes "Que estas haciendo?!";
+	mes "M-manten tus manos";
+	mes "para ti mismo! Acaso";
+	mes "parezco mujer?";
 	next;
-	mes "[More Drunken Guy]";
-	mes "What are you talking";
-	mes "about? Wh-what?! Why";
-	mes "are my arms all wrapped";
-	mes "around you? S-sorry, I was";
-	mes "trying to just go that w--";
-	mes "I wasn't trying to hug you!";
+	mes "[Tipo Mas Borracho]";
+	mes "De que hablas?";
+	mes "Qu-que?! Por que";
+	mes "tengo los brazos alrededor";
+	mes "tuyo? P-perdon, estaba";
+	mes "tratando de ir para alla--";
+	mes "No estaba tratando de abrazarte!";
 	next;
-	mes "[Little Bit Drunken Guy]";
-	mes "Bumping into me,";
-	mes "I understand. But a full";
-	mes "blown hug? Come on, now!";
-	mes "That was totally on purpose!";
-	mes "Wh-what? My h-hand! It's...";
-	mes "It's moving my itself?!";
+	mes "[Tipo Algo Borracho]";
+	mes "Tropezarte conmigo,";
+	mes "lo entiendo. Pero un abrazo";
+	mes "completo? Ya basta!";
+	mes "Eso fue totalmente a proposito!";
+	mes "Qu-que? Mi m-mano! Se esta...";
+	mes "Se esta moviendo sola?!";
 	next;
-	mes "[More Drunken Guy]";
-	mes "Ack! Wh-what are";
-	mes "you doing! S-stop";
-	mes "touching my butt!";
+	mes "[Tipo Mas Borracho]";
+	mes "Ack! Qu-que";
+	mes "estas haciendo! D-deja";
+	mes "de tocarme el trasero!";
 	next;
-	mes "^3355FFA Bard in the room";
-	mes "watches the two drunk";
-	mes "men intently and giggles";
-	mes "at their stupor. Remember:";
-	mes "drinking too much isn't good!^000000";
+	mes "^3355FFUn Bard en la sala";
+	mes "observa a los dos borrachos";
+	mes "atentamente y se rie";
+	mes "de su estupor. Recuerda:";
+	mes "tomar de mas no es bueno!^000000";
 	close;
 }
 
 // Bartender
-//============================================================ 
+//============================================================
 morocc_in,166,76,7	script	Bartender#bard_qskill	46,{
 	if (checkweight(1201,1) == 0) {
-		mes "^3355FFHold it right there!";
-		mes "You're carrying too many items and don't have enough inventory space to receive any rewards. Please make more inventory space available and come back to take this challenge.";
+		mes "^3355FFAlto ahi!";
+		mes "Llevas demasiados objetos y no tienes suficiente espacio en tu inventario para recibir recompensas. Por favor libera espacio en tu inventario y regresa para aceptar este desafio.";
 		close;
 	}
 	mes "[Bartender]";
-	mes "So what would";
-	mes "you like to order?";
+	mes "Que te gustaria";
+	mes "ordenar?";
 	next;
-	switch(select("Tropical Sograt:Vermilion on the Beach:Nothing, thanks.")) {
+	switch(select("Tropical Sograt:Vermilion on the Beach:Nada, gracias.")) {
 	case 1:
 		if (MaxWeight - Weight < 2000) {
 			mes "[Bartender]";
-			mes "You sure you can carry";
-			mes "any more stuff with you?";
-			mes "Damn, it doesn't look that";
-			mes "way to me. Take a load off,";
-			mes "and put some stuff with in";
-			mes "your Kafra Storage, alright?";
+			mes "Seguro que puedes cargar";
+			mes "mas cosas contigo?";
+			mes "Rayos, no parece que";
+			mes "puedas. Descansa un poco,";
+			mes "y guarda algunas cosas en";
+			mes "tu Kafra Storage, si?";
 			close;
 		}
 		if (Zeny < 1000) {
 			mes "[Bartender]";
-			mes " You sure you can afford";
-			mes "this now? This drink's";
-			mes "1,000 zeny, so you better";
-			mes "check the cash you have";
-			mes "onhand. Eh, just come back";
-			mes "later when you have the money.";
+			mes "Seguro que puedes pagar";
+			mes "esto ahora? Esta bebida";
+			mes "cuesta 1,000 zeny, asi que mejor";
+			mes "revisa el efectivo que tienes";
+			mes "a la mano. Eh, mejor regresa";
+			mes "despues cuando tengas el dinero.";
 			close;
 		}
 		mes "[Bartender]";
-		mes "Here you are,";
+		mes "Aqui tienes,";
 		mes "1 Tropical Sograt.";
-		mes "It tastes sweet and";
-		mes "mild, but if you're not";
-		mes "careful, you'll pass out";
-		mes "in no time flat. Take it easy.";
+		mes "Sabe dulce y";
+		mes "suave, pero si no tienes";
+		mes "cuidado, te desmayaras";
+		mes "en un instante. Tomate las cosas con calma.";
 		set Zeny, Zeny-1000;
 		getitem 12112,1; //Tropical_Sograt
 		close;
@@ -1211,65 +1211,65 @@ morocc_in,166,76,7	script	Bartender#bard_qskill	46,{
 	case 2:
 		if (MaxWeight - Weight < 2000) {
 			mes "[Bartender]";
-			mes "You sure you can carry";
-			mes "any more stuff with you?";
-			mes "Damn, it doesn't look that";
-			mes "way to me. Take a load off,";
-			mes "and put some stuff with in";
-			mes "your Kafra Storage, alright?";
+			mes "Seguro que puedes cargar";
+			mes "mas cosas contigo?";
+			mes "Rayos, no parece que";
+			mes "puedas. Descansa un poco,";
+			mes "y guarda algunas cosas en";
+			mes "tu Kafra Storage, si?";
 			close;
 		}
 		if (Zeny < 1000) {
 			mes "[Bartender]";
-			mes "You sure you can afford";
-			mes "this now? This drink's";
-			mes "1,000 zeny, so you better";
-			mes "check the cash you have";
-			mes "onhand. Eh, just come back";
-			mes "later when you have the money.";
+			mes "Seguro que puedes pagar";
+			mes "esto ahora? Esta bebida";
+			mes "cuesta 1,000 zeny, asi que mejor";
+			mes "revisa el efectivo que tienes";
+			mes "a la mano. Eh, mejor regresa";
+			mes "despues cuando tengas el dinero.";
 			close;
 		}
 		mes "[Bartender]";
-		mes "Here you go.";
-		mes "Be sure that you";
-		mes "enjoy your drinking";
-		mes "without going crazy.";
+		mes "Aqui tienes.";
+		mes "Asegurate de disfrutar";
+		mes "tu bebida sin";
+		mes "volverte loco.";
 		set Zeny, Zeny-1000;
 		getitem 12113,1; //Vermilion_The_Beach
 		close;
 
 	case 3:
 		mes "[Bartender]";
-		mes "Alright, then.";
-		mes "I'll see you around.";
+		mes "Bien, entonces.";
+		mes "Nos vemos luego.";
 		close;
 	}
 }
 
 // Function
-//============================================================ 
+//============================================================
 function	script	F_BardSkillYhelle	{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
-		mes "^3355FFHold it right there!";
-		mes "You're carrying too many items and don't have enough inventory space to receive any rewards. Please make more inventory space available and come back to take this challenge.";
+		mes "^3355FFAlto ahi!";
+		mes "Llevas demasiados objetos y no tienes suficiente espacio en tu inventario para recibir recompensas. Por favor libera espacio en tu inventario y regresa para aceptar este desafio.";
 		close;
 	}
 	emotion ET_HUK, playerattached();
 	emotion ET_HUK;
-	mes "[Hen Yhelle]";
-	mes "Cluck-Cluuuck?";
-	mes "Cluck cluck cluck!";
+	mes "[Gallina Yhelle]";
+	mes "Clo-Cloooc?";
+	mes "Clo clo clo!";
 	next;
 	if (rand(1,3) == 2) {
 		disablenpc "Yhelle#bard_chick"+getarg(0);
 		donpcevent "Yhelle#bard_chick"+getarg(1)+"::OnEnable";
-		mes "^3355FFUpon sensing your";
-		mes "presense, the hen";
-		mes "quickly ran away.^000000";
+		mes "^3355FFAl percibir tu";
+		mes "presencia, la gallina";
+		mes "salio corriendo rapidamente.^000000";
 		if (qskill_bard > 1 && qskill_bard < 7) {
-			mes "^3355FFYou found ^3333331 Egg^3355FF in the";
-			mes "place where Yhelle the";
-			mes "Hen was roosting.^000000";
+			mes "^3355FFEncontraste ^3333331 Egg^3355FF en el";
+			mes "lugar donde la Gallina";
+			mes "Yhelle estaba anidando.^000000";
 			set qskill_bard,qskill_bard+1;
 			getitem 574,1; //Egg
 		}
@@ -1277,9 +1277,9 @@ function	script	F_BardSkillYhelle	{
 	else {
 		disablenpc "Yhelle#bard_chick"+getarg(0);
 		donpcevent "Yhelle#bard_chick"+getarg(1)+"::OnEnable";
-		mes "^3355FFUpon sensing your";
-		mes "presense, the hen";
-		mes "quickly ran away.^000000";
+		mes "^3355FFAl percibir tu";
+		mes "presencia, la gallina";
+		mes "salio corriendo rapidamente.^000000";
 	}
 	return;
 }

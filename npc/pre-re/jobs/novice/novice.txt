@@ -28,7 +28,7 @@
 // Bulletin Board
 new_1-1,66,114,4	script	Bulletin Board#nv	111,{
 	mes "^FF0000=================================^000000";
-	mes "^FF0000 ^000000 ^E40CAA[Welcome]^CC0000 to ^FF9000Novice^7FFF00 Training ^00FF00Grounds ^E40CAA[Welcome]^FF0000^000000";
+	mes "^FF0000 ^000000 ^E40CAA[Bienvenido]^CC0000 a ^FF9000Novice^7FFF00 Training ^00FF00Grounds ^E40CAA[Bienvenido]^FF0000^000000";
 	mes "^FF0000=================================^000000";
 	close;
 }
@@ -40,8 +40,8 @@ new_5-1,66,114,4	duplicate(Bulletin Board#nv)	Bulletin Board#nv5	111
 
 new_1-1,144,116,2	script	Guard#nv1	105,{
 	mes "[Training Grounds Guard]";
-	mes "Welcome to the Training Grounds.";
-	mes "You are now in the outer court yard. Please go inside the castle to begin your training.";
+	mes "Bienvenido a los Campos de Entrenamiento.";
+	mes "Ahora estas en el patio exterior. Por favor entra al castillo para comenzar tu entrenamiento.";
 	close;
 }
 
@@ -53,20 +53,20 @@ new_5-1,144,116,2	duplicate(Guard#nv1)	Guard#nv5-1	105
 new_1-1,144,107,2	script	Guard#nv2	105,{
 	mes "[Training Grounds Guard]";
 	if(rand(2)) {
-		mes "Come in!";
-		mes "I would like";
-		mes "to welcome you to";
-		mes "the Training Grounds!";
+		mes "Entra!";
+		mes "Me gustaria";
+		mes "darte la bienvenida a";
+		mes "los Campos de Entrenamiento!";
 		next;
 		mes "[Training Grounds Guard]";
-		mes "In here, you can prepare";
-		mes "yourself for your future";
-		mes "adventures throughout the";
-		mes "Ragnarok world!";
+		mes "Aqui, puedes prepararte";
+		mes "para tus futuras";
+		mes "aventuras a lo largo del";
+		mes "mundo de Ragnarok!";
 	}
 	else {
-		mes "Go, Novice, go!";
-		mes "Fight, and grow stronger! Look towards a brighter tomorrow!";
+		mes "Vamos, Novice, vamos!";
+		mes "Pelea y hazte mas fuerte! Mira hacia un manana mas brillante!";
 	}
 	close;
 }
@@ -80,49 +80,49 @@ new_5-1,144,107,2	duplicate(Guard#nv2)	Guard#nv5-2	105
 // Receptionist
 new_1-2,100,29,4	script	Receptionist#nv1	86,{
 	mes "[Training Grounds Receptionist]";
-	mes "Hello, you look to be new here.";
-	mes "What is your name?";
+	mes "Hola, pareces ser nuevo aqui.";
+	mes "Como te llamas?";
 	next;
 	input .@charname$;
 	if (.@charname$!=strcharinfo(0)) {
 		mes "[Training Grounds Receptionist]";
-		mes "Sorry, but I don't think I heard";
-		mes "you correctly";
+		mes "Lo siento, pero creo que no te";
+		mes "escuche bien";
 		close;
 	}
 	mes "[Training Grounds Receptionist]";
-	mes "Welcome!";
-	mes "You are at the entrance";
-	mes "of the ^3355FFTraining Grounds^000000.";
+	mes "Bienvenido!";
+	mes "Estas en la entrada";
+	mes "de los ^3355FFCampos de Entrenamiento^000000.";
 	next;
 	mes "[Training Grounds Receptionist]";
-	mes "If you're new";
-	mes "to the Ragnarok world,";
-	mes "please choose the";
-	mes "^3355FFTraining Grounds Introduction^000000";
-	mes "menu for more information.";
+	mes "Si eres nuevo";
+	mes "en el mundo de Ragnarok,";
+	mes "por favor elige la opcion";
+	mes "^3355FFIntroduccion a los Campos de Entrenamiento^000000";
+	mes "en el menu para mas informacion.";
 	next;
 	while (1) {
-		switch(select("Apply for training.:Direct access to Ragnarok Online.:^3355FFTraining Grounds Introduction.^000000:I need a moment to think.")) {
+		switch(select("Inscribirme al entrenamiento.:Acceso directo a Ragnarok Online.:^3355FFIntroduccion a los Campos de Entrenamiento.^000000:Necesito un momento para pensar.")) {
 		case 1:
 			mes "[Training Grounds Receptionist]";
-			mes "Thank you for applying for Novice training. For detailed information of each training course, please inquire the Guides for assistance.";
+			mes "Gracias por inscribirte al entrenamiento de Novato. Para informacion detallada de cada curso de entrenamiento, por favor consulta a los Guias para asistencia.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "When you have questions about the training course process, please feel free to ask any of the Tutors.";
+			mes "Cuando tengas preguntas sobre el proceso del curso de entrenamiento, no dudes en preguntarle a cualquiera de los Tutores.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "You will now be transferred";
-			mes "to the Training Grounds.";
+			mes "Ahora seras transferido";
+			mes "a los Campos de Entrenamiento.";
 			close2;
 			warp "new_1-2",100,70;
 			end;
 		case 2:
 			mes "[Training Grounds Receptionist]";
-			mes "I understand.";
-			mes "Please do your";
-			mes "best, and I wish you";
-			mes "the best of luck!";
+			mes "Entiendo.";
+			mes "Por favor da";
+			mes "lo mejor de ti, y te deseo";
+			mes "la mejor de las suertes!";
 			close2;
 			set nov_1st_cos,0;
 			set nov_2nd_cos,0;
@@ -160,36 +160,36 @@ new_1-2,100,29,4	script	Receptionist#nv1	86,{
 			end;
 		case 3:
 			mes "[Training Grounds Receptionist]";
-			mes "This training grounds was established in order to provide useful information to new players of Ragnarok Online by the Rune-Midgarts Kingdom's Board of Education.";
+			mes "Estos campos de entrenamiento fueron establecidos para proporcionar informacion util a los nuevos jugadores de Ragnarok Online por la Junta de Educacion del Reino de Rune-Midgarts.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "The training course is organized into two parts: the Basic Knowledge classes, and Field Combat training.";
+			mes "El curso de entrenamiento esta organizado en dos partes: las clases de Conocimiento Basico, y el entrenamiento de Combate de Campo.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "Through the first course, players will learn the necessary knowledge for a smoother gaming experience.";
+			mes "A traves del primer curso, los jugadores aprenderan los conocimientos necesarios para una experiencia de juego mas fluida.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "In Field Combat Training,";
-			mes "players will engage in actual battle with weak monsters so they can learn the basics of fighting.";
+			mes "En el Entrenamiento de Combate de Campo,";
+			mes "los jugadores participaran en batallas reales con monstruos debiles para aprender los fundamentos del combate.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "With this battle practice,";
-			mes "players will be able to gain more experience before they enter the real world.";
+			mes "Con esta practica de batalla,";
+			mes "los jugadores podran ganar mas experiencia antes de entrar al mundo real.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "At the end of the training, we will provide an introduction to the 1st Job Classes. This will help players decide which job class is best for them.";
+			mes "Al final del entrenamiento, proporcionaremos una introduccion a las Primeras Clases. Esto ayudara a los jugadores a decidir que clase es la mejor para ellos.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "If you wish to participate in the training grounds, please choose '^3355FFApply for training^000000' in the menu.";
+			mes "Si deseas participar en los campos de entrenamiento, por favor elige '^3355FFInscribirme al entrenamiento^000000' en el menu.";
 			next;
 			mes "[Training Grounds Receptionist]";
-			mes "Otherwise, if you want to skip the basic training and immediately enter the world of Ragnarok Online, please choose '^3355FFDirect access to Ragnarok Online^000000.'";
+			mes "De lo contrario, si quieres saltarte el entrenamiento basico y entrar directamente al mundo de Ragnarok Online, por favor elige '^3355FFAcceso directo a Ragnarok Online^000000.'";
 			next;
 			break;
 		case 4:
 			mes "[Training Grounds Receptionist]";
-			mes "I understand.";
-			mes "Please, take your time.";
+			mes "Entiendo.";
+			mes "Por favor, tomate tu tiempo.";
 			close;
 		}
 	}
@@ -203,167 +203,167 @@ new_1-1,53,114,4	script	Shion#nv1	727,{
 	if (nov_get_item04 > 9 || nov_get_item05 > 9) {
 		mes "[Shion]";
 		mes "Hm...?";
-		mes "What are you";
-		mes "still doing here?";
-		mes "Oh, you used a ^3355FFButterfly Wing^000000, didn't you?";
+		mes "Que haces";
+		mes "todavia aqui?";
+		mes "Oh, usaste un ^3355FFButterfly Wing^000000, verdad?";
 		next;
 		mes "[Shion]";
 		mes "No, no, no~";
-		mes "You're supposed to use the Butterfly Wing when you want to go back to a town ^666666after^000000 completing your training here, alright?";
+		mes "Se supone que debes usar el Butterfly Wing cuando quieras volver a una ciudad ^666666despues^000000 de completar tu entrenamiento aqui, de acuerdo?";
 		next;
 		mes "[Shion]";
-		mes "Now, let me send";
-		mes "you back to the";
-		mes "Training Grounds.";
+		mes "Ahora, dejame";
+		mes "enviarte de vuelta a los";
+		mes "Campos de Entrenamiento.";
 		close2;
 		warp "new_1-2",99,99;
 		end;
 	}
 	else if (nov_1st_cos > 2) {
 		mes "[Shion]";
-		mes "The Training Grounds";
-		mes "are located just past";
-		mes "the bridge located";
-		mes "to the right.";
+		mes "Los Campos de Entrenamiento";
+		mes "estan justo pasando";
+		mes "el puente ubicado";
+		mes "a la derecha.";
 		next;
 		mes "[Shion]";
-		mes "Although you'll";
-		mes "be sitting through";
-		mes "some classes, you";
-		mes "won't regret it.";
-		mes "Now, go for it!";
+		mes "Aunque tendras que";
+		mes "sentarte en";
+		mes "algunas clases, no";
+		mes "te arrepentiras.";
+		mes "Ahora, adelante!";
 		close;
 	}
 	else if (nov_1st_cos == 2) {
 		mes "[Shion]";
-		mes "Hey...";
-		mes "You little rascal!";
+		mes "Oye...";
+		mes "Pequeno bribonzuelo!";
 		next;
 		mes "[Shion]";
-		mes "Wait...";
-		mes "Calm down Shion.";
-		mes "You're a professional";
-		mes "trainer! Don't get all";
-		mes "upset at a Novice!";
+		mes "Espera...";
+		mes "Calmate Shion.";
+		mes "Eres una entrenadora";
+		mes "profesional! No te";
+		mes "enojes con un Novato!";
 		next;
 		mes "[Shion]";
-		mes "Go and cross the bridge to the right, right now! ^666666*Ahem*^000000 You'll see and castle, and inside you can meet all sorts of tutors.";
+		mes "Ve y cruza el puente a la derecha, ahora mismo! ^666666*Ejem*^000000 Veras un castillo, y adentro podras conocer todo tipo de tutores.";
 		next;
 		mes "[Shion]";
-		mes "If you can't see the entrance, just change your in-game camera angle by holding down the ^3355FFright Mouse button^000000 and dragging your mouse. Easy, right?";
+		mes "Si no puedes ver la entrada, cambia el angulo de tu camara manteniendo presionado el ^3355FFboton derecho del Mouse^000000 y arrastrando el mouse. Facil, verdad?";
 		next;
 		mes "[Shion]";
-		mes "To reset your camera angle,";
-		mes "just double-click the right Mouse button. Okay then, take care!";
+		mes "Para reiniciar el angulo de tu camara,";
+		mes "solo haz doble clic en el boton derecho del Mouse. Bien, cuidate!";
 		next;
 		mes "[Shion]";
-		mes "Oh, and before you leave,";
-		mes "learn how to treat a lady nice, okay? Then they might give you gifts like this!";
+		mes "Oh, y antes de irte,";
+		mes "aprende a tratar bien a una dama, de acuerdo? Asi podrian darte regalos como este!";
 		set nov_1st_cos,3;
 		getexp 9,0;
 		close;
 	}
 	else if (nov_1st_cos == 1) {
 		mes "[Shion]";
-		mes "Huh...?";
-		mes "Why are you";
-		mes "still here?";
-		mes "^666666*Sigh...*^000000";
+		mes "Eh...?";
+		mes "Por que sigues";
+		mes "aqui?";
+		mes "^666666*Suspiro...*^000000";
 		next;
 		mes "[Shion]";
-		mes "Hey, when you enter the Training Grounds, you'll learn all sorts of things that will help you play the game. You'll even have the chance to get zeny and other rewards.";
+		mes "Oye, cuando entres a los Campos de Entrenamiento, aprenderas todo tipo de cosas que te ayudaran a jugar. Incluso tendras la oportunidad de conseguir zeny y otras recompensas.";
 		next;
 		mes "[Shion]";
-		mes "You can even gain";
-		mes "experience like this!";
+		mes "Incluso puedes ganar";
+		mes "experiencia asi!";
 		set nov_1st_cos,3;
 		getexp 9,0;
 		next;
 		mes "[Shion]";
-		mes "Everything you'll learn here in the Training Grounds will benefit your gameplay. So just think positive, okay?";
+		mes "Todo lo que aprendas aqui en los Campos de Entrenamiento beneficiara tu juego. Asi que piensa positivo, de acuerdo?";
 		close;
 	}
 	else {
 		mes "[Shion]";
-		mes "Hello there~";
-		mes "Welcome to the";
-		mes "Training Grounds!";
+		mes "Hola~";
+		mes "Bienvenido a los";
+		mes "Campos de Entrenamiento!";
 		next;
 		mes "[Shion]";
-		mes "Let's see.";
-		mes "Your name is...";
+		mes "Veamos.";
+		mes "Tu nombre es...";
 		mes "" + strcharinfo(0) + ".";
 		next;
 		mes "[Shion]";
-		mes "My name is Shion.";
-		mes "Yes, this is the first time we've met, of course. Hahahaha~!";
+		mes "Mi nombre es Shion.";
+		mes "Si, esta es la primera vez que nos vemos, por supuesto. Jajajaja~!";
 		next;
 		mes "[Shion]";
-		mes "Now that we've met, is there anything I can help you with?";
-		mes "I'm here for your questions~";
+		mes "Ahora que nos conocemos, hay algo en lo que pueda ayudarte?";
+		mes "Estoy aqui para tus preguntas~";
 		next;
-		switch(select("Where should I go?:About Basic Interfaces.:Who the crap are you?")) {
+		switch(select("A donde deberia ir?:Sobre las Interfaces Basicas.:Quien diablos eres?")) {
 		case 1:
 			mes "[Shion]";
-			mes "Do you see the bridge to your";
-			mes "right side? Just cross the bridge and you'll arrive at a castle. All you have to do is walk inside!";
+			mes "Ves el puente a tu";
+			mes "derecha? Solo cruza el puente y llegaras a un castillo. Todo lo que tienes que hacer es entrar!";
 			next;
 			mes "[Shion]";
-			mes "The entrance of the castle";
-			mes "is a ^4D4DFFspinning white light^000000. These portals are what allow you to move from one zone to another.";
+			mes "La entrada del castillo";
+			mes "es una ^4D4DFFluz blanca giratoria^000000. Estos portales te permiten moverte de una zona a otra.";
 			next;
 			mes "[Shion]";
-			mes "Do you know how to move?";
-			mes "Left click on a spot, and you'll walk over to that spot. Piece of cake, huh?";
+			mes "Sabes como moverte?";
+			mes "Haz clic izquierdo en un lugar y caminaras hacia alli. Pan comido, no?";
 			next;
 			mes "[Shion]";
-			mes "So go for it!";
-			mes "Basically, you must enter the castle in order to start your adventures.";
+			mes "Asi que adelante!";
+			mes "Basicamente, debes entrar al castillo para comenzar tus aventuras.";
 			next;
 			mes "[Shion]";
-			mes "There are soldiers";
-			mes "at the entrance, so don't";
-			mes "worry about getting lost.";
-			mes "Take care now~!";
+			mes "Hay soldados";
+			mes "en la entrada, asi que no";
+			mes "te preocupes por perderte.";
+			mes "Cuidate~!";
 			set nov_1st_cos,1;
 			close;
 		case 2:
 			mes "[Shion]";
-			mes "Basic Interfaces...";
-			mes "Do you know what Click, Double-click and Drag mean?";
+			mes "Interfaces Basicas...";
+			mes "Sabes que significan Clic, Doble clic y Arrastrar?";
 			next;
 			mes "[Shion]";
-			mes "When you press the";
-			mes "left Mouse button once,";
-			mes "that is a click. When you press the mouse button twice in a row, that's a double-click.";
+			mes "Cuando presionas el";
+			mes "boton izquierdo del Mouse una vez,";
+			mes "eso es un clic. Cuando presionas el boton del mouse dos veces seguidas, eso es un doble clic.";
 			next;
 			mes "[Shion]";
-			mes "Dragging is when you move your Mouse while holding down the";
-			mes "Mouse button after clicking on something.";
+			mes "Arrastrar es cuando mueves tu Mouse mientras mantienes presionado el";
+			mes "boton del Mouse despues de hacer clic en algo.";
 			next;
 			mes "[Shion]";
-			mes "Before we start talking about";
-			mes "the Basic Interfaces, you should remember these terms, just because we'll be using them frequently.";
+			mes "Antes de empezar a hablar sobre";
+			mes "las Interfaces Basicas, deberias recordar estos terminos, ya que los usaremos frecuentemente.";
 			next;
 			mes "[Shion]";
-			mes "Inside the castle, there is a Basic Interfaces Tutor who can teach you the basics more clearly, okay? Enter the castle to start your training.";
+			mes "Dentro del castillo hay un Tutor de Interfaces Basicas que te ensenara los fundamentos mas claramente. Entra al castillo para comenzar tu entrenamiento.";
 			next;
 			mes "[Shion]";
-			mes "The entrance";
-			mes "of the castle is";
-			mes "a ^4D4DFFspinning white light^000000.";
+			mes "La entrada";
+			mes "del castillo es";
+			mes "una ^4D4DFFluz blanca giratoria^000000.";
 			next;
 			mes "[Shion]";
-			mes "There are soldiers";
-			mes "at the entrance, so don't";
-			mes "worry about getting lost.";
-			mes "Take care now~!";
+			mes "Hay soldados";
+			mes "en la entrada, asi que no";
+			mes "te preocupes por perderte.";
+			mes "Cuidate~!";
 			set nov_1st_cos,1;
 			close;
 		case 3:
 			mes "[Shion]";
-			mes "Me? I'm Shion!";
-			mes "But that's a rude way of asking! I'm volunteering my time and effort here, so you've got to show me a little bit of respect at least!";
+			mes "Yo? Soy Shion!";
+			mes "Pero esa es una forma muy grosera de preguntar! Estoy como voluntaria aqui, asi que al menos muestrame un poco de respeto!";
 			set nov_1st_cos,2;
 			close;
 		}
@@ -380,42 +380,42 @@ new_5-1,53,114,4	duplicate(Shion#nv1)	Shion#nv5	727
 new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 	if (nov_get_item02 > 9 && nov_get_item03 > 9 && nov_get_item04 > 9) {
 		mes "[Kris]";
-		mes "You've completed all the essential courses. Have you spoken to the assistant tutors already? The field combat training will be your next course. Would you like to proceed?";
+		mes "Has completado todos los cursos esenciales. Ya hablaste con los tutores asistentes? El entrenamiento de combate de campo sera tu siguiente curso. Te gustaria continuar?";
 		next;
-		switch(select("Sure!:No, I'll come back later.:Send me to a town!")) {
+		switch(select("Claro!:No, volvere despues.:Enviame a una ciudad!")) {
 		case 1:
 			mes "[Kris]";
-			mes "Your next course is Field Combat training. Please listen carefully to your next trainer, and I hope you pass the course. Godspeed.";
+			mes "Tu siguiente curso es el entrenamiento de Combate de Campo. Por favor escucha con atencion a tu siguiente entrenador, y espero que apruebes el curso. Buena suerte.";
 			close2;
 			warp "new_1-2",28,178;
 			end;
 		case 2:
 			mes "[Kris]";
-			mes "Alright then. In the meantime, you might want to speak to the assistant tutors, as the basic information taught in the essential courses may not be enough for new adventurers.";
+			mes "Muy bien entonces. Mientras tanto, podrias hablar con los tutores asistentes, ya que la informacion basica ensenada en los cursos esenciales podria no ser suficiente para nuevos aventureros.";
 			next;
 			mes "[Kris]";
-			mes "Feel free to come back any time when you need my assistance.";
+			mes "Sientete libre de volver cuando necesites mi ayuda.";
 			close;
 		case 3:
 			mes "[Kris]";
-			mes "So, would you like to be sent to a town? If you're confident that you've learned enough, head over to the right and speak to the ^3355FFKafra Employee^000000.";
+			mes "Entonces, te gustaria que te envie a una ciudad? Si confias en que has aprendido suficiente, ve a la derecha y habla con la ^3355FFEmpleada Kafra^000000.";
 			next;
 			mes "[Kris]";
-			mes "The Kafra Services are very convenient once you get out into the real world. Their Teleport Service can be used to travel from town to town, and you can keep your items safe in the Kafra Storage.";
+			mes "Los Servicios Kafra son muy convenientes una vez que salgas al mundo real. Su Servicio de Teletransporte puede usarse para viajar de ciudad en ciudad, y puedes guardar tus objetos en el Almacen Kafra.";
 			next;
 			mes "[Kris]";
-			mes "We may never meet again, but I hope you grow stronger and become a great adventurer. Godspeed.";
+			mes "Quizas nunca nos volvamos a ver, pero espero que te hagas mas fuerte y te conviertas en un gran aventurero. Buena suerte.";
 			close;
 		}
 	}
 	else if (nov_get_item02 < 10) {
 		mes "[Kris]";
-		mes "Hello, may I see your";
-		mes "proof of registration?";
+		mes "Hola, puedo ver tu";
+		mes "comprobante de registro?";
 		next;
 		if (NEW_MES_FLAG0) {
 			mes "[Kris]";
-			mes "Ah, " + strcharinfo(0) + ", you've applied for an old training course that we no longer provide for our trainees. Let me issue a new proof of registration for you.";
+			mes "Ah, " + strcharinfo(0) + ", te inscribiste en un curso antiguo que ya no ofrecemos. Dejame darte un nuevo comprobante de registro.";
 			set NEW_MES_FLAG0,0;
 			set NEW_MES_FLAG1,0;
 			set NEW_MES_FLAG2,0;
@@ -428,40 +428,40 @@ new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 			next;
 		}
 		mes "[Kris]";
-		mes "Okay, now";
-		mes "you're ready to go.";
-		mes "In my class, I teach the";
-		mes "use of the most basic";
-		mes "interfaces.";
+		mes "Bien, ahora";
+		mes "estas listo.";
+		mes "En mi clase, enseno el";
+		mes "uso de las interfaces";
+		mes "mas basicas.";
 		next;
 		mes "[Kris]";
 		mes strcharinfo(0)+".";
-		mes "would you like to learn";
-		mes "more about interface";
-		mes "fundamentals?";
+		mes "te gustaria aprender";
+		mes "mas sobre los fundamentos";
+		mes "de las interfaces?";
 		next;
-		switch(select("Yes.:Nah, I'm a pro~:Cancel.")) {
+		switch(select("Si.:Nah, soy un pro~:Cancelar.")) {
 		case 1:
 			mes "[Kris]";
-			mes "First, it's possible to move every interface window on your screen by dragging the window. Just click on the window, hold down the mouse button and move your mouse.";
+			mes "Primero, es posible mover cada ventana de interfaz en tu pantalla arrastrando la ventana. Solo haz clic en la ventana, manten presionado el boton del mouse y mueve el mouse.";
 			next;
 			mes "[Kris]";
-			mes "Now, let me explain each interface window according to their default positions on your screen.";
+			mes "Ahora, dejame explicarte cada ventana de interfaz segun sus posiciones predeterminadas en tu pantalla.";
 			next;
 			mes "[Kris]";
-			mes "At the upper left side of your screen, you will see a window with your character name and level. This is the ^3355FFBasic Information Window^000000.";
+			mes "En la parte superior izquierda de tu pantalla, veras una ventana con el nombre y nivel de tu personaje. Esta es la ^3355FFVentana de Informacion Basica^000000.";
 			next;
 			mes "[Kris]";
 			if (BaseLevel < 8) {
-				mes "Let me give you";
-				mes "some experience points.";
-				mes "Keep an eye on your Basic Info Window and observe the change in your Base Level experience gauge.";
+				mes "Dejame darte";
+				mes "algunos puntos de experiencia.";
+				mes "Observa tu Ventana de Info Basica y mira el cambio en la barra de experiencia de Nivel Base.";
 				next;
 				mes "[Kris]";
-				mes "Did you see...?";
-				mes "As you gain experience,";
-				mes "the experience gauge fills up.";
-				mes "Once it is 100 % full, you gain an experience level, and the gauge is reset to 0.";
+				mes "Lo viste...?";
+				mes "A medida que ganas experiencia,";
+				mes "la barra de experiencia se llena.";
+				mes "Una vez que este al 100%, ganas un nivel de experiencia, y la barra se reinicia a 0.";
 				set nov_get_item02,10;
 				switch (BaseLevel) {
 				case 1: getexp 10,0; break;
@@ -474,67 +474,67 @@ new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 				}
 			}
 			else {
-				mes "But...";
-				mes "I guess you're already familiar with the Base Level experience gauge.";
+				mes "Pero...";
+				mes "supongo que ya estas familiarizado con la barra de experiencia de Nivel Base.";
 			}
 			next;
 			mes "[Kris]";
-			mes "At the bottom of the Basic Info Window, you will see two different experience gauge bars. The top bar is for your current Base Level, and the bottom one displays experience for your current Job Level.";
+			mes "En la parte inferior de la Ventana de Info Basica, veras dos barras de experiencia diferentes. La barra superior es para tu Nivel Base actual, y la inferior muestra la experiencia de tu Nivel de Trabajo actual.";
 			next;
 			mes "[Kris]";
-			mes "When the Job Level";
-			mes "Experience bar is filled, you will earn a Job Level, and a ^3355FFSkill Point^000000. Skill Points are spent to learn skills for your character.";
+			mes "Cuando la barra de Experiencia";
+			mes "de Nivel de Trabajo se llene, ganaras un Nivel de Trabajo, y un ^3355FFPunto de Habilidad^000000. Los Puntos de Habilidad se usan para aprender habilidades para tu personaje.";
 			next;
 			mes "[Kris]";
-			mes "On the right side";
-			mes "of the Basic Info window,";
-			mes "you will see various";
-			mes "Menu buttons.";
+			mes "En el lado derecho";
+			mes "de la ventana de Info Basica,";
+			mes "veras varios";
+			mes "botones de Menu.";
 			next;
 			mes "[Kris]";
-			mes "Clicking these Menu buttons will open other Interface Windows, such as the Inventory Window";
-			mes "or Party Window.";
+			mes "Al hacer clic en estos botones del Menu se abriran otras Ventanas de Interfaz, como la Ventana de Inventario";
+			mes "o la Ventana de Grupo.";
 			next;
 			mes "[Kris]";
-			mes "Now...";
-			mes "The ^3355FFChat Window^000000 is";
-			mes "located at the bottom";
-			mes "of your screen.";
+			mes "Ahora...";
+			mes "La ^3355FFVentana de Chat^000000 esta";
+			mes "ubicada en la parte inferior";
+			mes "de tu pantalla.";
 			next;
 			mes "[Kris]";
-			mes "At the bottom right of the Chat Window, you should see 2 blue buttons. The left button allows you to change your chatting options.";
+			mes "En la parte inferior derecha de la Ventana de Chat, veras 2 botones azules. El boton izquierdo te permite cambiar tus opciones de chat.";
 			next;
 			mes "[Kris]";
-			mes "The '^3355FFSend to All^000000' option";
-			mes "allows you to chat with";
-			mes "everyone on your screen.";
+			mes "La opcion '^3355FFEnviar a Todos^000000'";
+			mes "te permite chatear con";
+			mes "todos en tu pantalla.";
 			next;
 			mes "[Kris]";
-			mes "The '^3355FFSend to Party^000000' and '^3355FFSend to Guild^000000' options allows you to send messages to only members of your party or guild, regardless of how far they are.";
+			mes "Las opciones '^3355FFEnviar al Grupo^000000' y '^3355FFEnviar al Gremio^000000' te permiten enviar mensajes solo a miembros de tu grupo o gremio, sin importar que tan lejos esten.";
 			next;
 			mes "[Kris]";
-			mes "You can drag the Scroll Bar";
-			mes "on the right side of the Chat Window to review a conversation. Since the Chat Window is always active, you won't have any problem communicating with other players.";
+			mes "Puedes arrastrar la Barra de Desplazamiento";
+			mes "en el lado derecho de la Ventana de Chat para revisar una conversacion. Como la Ventana de Chat siempre esta activa, no tendras problemas para comunicarte con otros jugadores.";
 			next;
 			mes "[Kris]";
-			mes "Now, one of the most important interfaces is the ^3355FFMini-Map^000000, located at the upper-right of your screen.";
+			mes "Now, one of the most important interfaces is the ^3355FFMini-Map^000000, located at the upper-right de tu pantalla.";
 			next;
 			mes "[Kris]";
-			mes "The red dots on the Mini-Map indicate locations of ^3355FFWarp Portals^000000 which connect to different zones.";
+			mes "Los puntos rojos en el Mini-Mapa indican las ubicaciones de ^3355FFPortales Warp^000000 que conectan a diferentes zonas.";
 			next;
 			mes "[Kris]";
-			mes "If you've joined a party or a guild, the Mini-Map will also show you the location of your party or guild members if they are on the same map.";
+			mes "Si te has unido a un grupo o gremio, el Mini-Mapa tambien te mostrara la ubicacion de los miembros de tu grupo o gremio si estan en el mismo mapa.";
 			next;
 			mes "[Kris]";
-			mes "Please click the Menu buttons";
-			mes "on the right side of your Basic Info window and familiarize yourself with the other interfaces.";
+			mes "Por favor haz clic en los botones del Menu";
+			mes "on the right side of your Basic Info window and familiarize yourself with the other mas basicas.";
 			next;
 			mes "[Kris]";
-			mes "Well, that was my brief overview on in-game interfaces. It might seem like a lot of information now, but it will soon become second nature.";
+			mes "Well, that was my brief overview on in-game mas basicas. It might seem like a lot of information now, but it will soon become second nature.";
 			if (JobLevel < 7) {
 				next;
 				mes "[Kris]";
-				mes "Let me give you a little bit of Job experience points. Open your Skill Window and distribute your Skill Points into ^3355FFBasic Skills^000000.";
+				mes "Dejame darte a little bit of Job experience points. Open your Skill Window and distribute your Skill Points into ^3355FFBasic Skills^000000.";
 				set nov_get_item02,11;
 				switch (JobLevel) {
 				case 1: getexp 0,10; break;
@@ -547,20 +547,20 @@ new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 			}
 			else {
 				mes "[Kris]";
-				mes "Your Job Level is much higher than I had expected. You must already know the basic information by now.";
+				mes "Tu Nivel de Trabajo es mucho mas alto de lo que esperaba. Ya debes conocer la informacion basica a estas alturas.";
 			}
 			next;
 			mes "[Kris]";
-			mes "Now, why don't you speak to Edwin? He will teach you more regarding the basic use of Skills. Ah, and let me give you a small present: a Tattered Novice Ninja Suit!";
+			mes "Ahora, por que no hablas con Edwin? El te ensenara mas sobre el uso basico de Habilidades. Ah, y dejame darte un pequeno regalo: un Tattered Novice Ninja Suit!";
 			set nov_get_item02,12;
 			getitem 2352,1; //Novice_Plate
 			close;
 		case 2:
 			mes "[Kris]";
-			mes "Let me guide you";
-			mes "to the Field Combat";
-			mes "Training Course.";
-			mes "You can come back any time if you feel that you need a review.";
+			mes "Dejame guiarte";
+			mes "al Curso de Entrenamiento";
+			mes "de Combate de Campo.";
+			mes "Puedes volver cuando sientas que necesitas repasar.";
 			close2;
 			warp "new_1-2",28,178;
 			end;
@@ -571,38 +571,38 @@ new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 	}
 	else if (nov_get_item03 < 10) {
 		mes "[Kris]";
-		mes "How may I help you?";
-		mes "Can I see your proof of registration?";
+		mes "En que puedo ayudarte?";
+		mes "Can I see your comprobante de registro?";
 		next;
 		mes "[Kris]";
-		mes "It seems that you haven't attended the Skill Information class yet. Please talk to a tutor to the very left of this room to attend his class.";
+		mes "Parece que aun no has asistido a la clase de Informacion de Habilidades. Por favor habla con un tutor al extremo izquierdo de esta sala para asistir a su clase.";
 		next;
-		switch(select("Thank you!:I'm tired of classes~:Cancel")) {
+		switch(select("Gracias!:Estoy cansado de clases~:Cancelar")) {
 		case 1:
 			mes "[Kris]";
-			mes "When you attend the Skill Information class, you'll gain a better understanding of the use of skills.";
+			mes "Cuando asistas a la clase de Informacion de Habilidades, obtendras una mejor comprension del uso de habilidades.";
 			next;
 			mes "[Kris]";
-			mes "Since the use of skills is integral to survival in Midgard, I strongly suggest that you attend the class. Come, I shall guide you there.";
+			mes "Ya que el uso de habilidades es fundamental para sobrevivir en Midgard, te sugiero que asistas a la clase. Ven, te guiare alli.";
 			close2;
 			warp "new_1-2",84,107;
 			end;
 		case 2:
 			mes "[Kris]";
-			mes "I see. In that case, you must be ready for the Field Combat Training Course. Shall I send you there right away?";
+			mes "I see. In that case, you must be ready for the Field Combat de Combate de Campo. Shall I send you there right away?";
 			next;
-			if (select("No! W-wait!:Please do~!") == 1) {
+			if (select("No! E-espera!:Por favor~!") == 1) {
 				mes "[Kris]";
 				mes "...?!";
-				mes "O...kay then.";
-				mes "Please come back";
-				mes "when you're ready.";
+				mes "E-esta bien.";
+				mes "Por favor vuelve";
+				mes "cuando estes listo.";
 				close;
 			}
 			else {
 				mes "[Kris]";
-				mes "Godspeed,";
-				mes "young Novice.";
+				mes "Buena suerte,";
+				mes "joven Novato.";
 				close2;
 				warp "new_1-2",28,178;
 				end;
@@ -614,35 +614,35 @@ new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 	}
 	else if (nov_get_item04 < 10) {
 		mes "[Kris]";
-		mes "How may I help you?";
-		mes "Can I see your proof of registration?";
+		mes "En que puedo ayudarte?";
+		mes "Can I see your comprobante de registro?";
 		next;
 		mes "[Kris]";
-		mes "It looks like you still haven't attended the Item Information class yet. Please speak to the tutor to the very right of this room to attend her class.";
+		mes "Parece que aun no has asistido a la clase de Informacion de Objetos. Por favor habla con la tutora al extremo derecho de esta sala para asistir a su clase.";
 		next;
-		switch(select("Thank you.:I'm tired of classes~:Cancel")) {
+		switch(select("Gracias.:Estoy cansado de clases~:Cancelar")) {
 		case 1:
 			mes "[Kris]";
-			mes "The Item Information class is very useful for you to learn how to use your Hot keys and Hot key bars. Come, let me guide you there.";
+			mes "La clase de Informacion de Objetos es muy util para aprender a usar tus Teclas Rapidas y barras de Teclas Rapidas. Ven, dejame guiarte alli.";
 			close2;
 			warp "new_1-2",115,107;
 			end;
 		case 2:
 			mes "[Kris]";
-			mes "I see. In that case, you must be ready for the Field Combat Training Course. Shall I send you there right away?";
+			mes "I see. In that case, you must be ready for the Field Combat de Combate de Campo. Shall I send you there right away?";
 			next;
-			if (select("No! W-wait!:Please do~!") == 1) {
+			if (select("No! E-espera!:Por favor~!") == 1) {
 				mes "[Kris]";
 				mes "...?!";
-				mes "O...kay then.";
-				mes "Please come back";
-				mes "when you're ready.";
+				mes "E-esta bien.";
+				mes "Por favor vuelve";
+				mes "cuando estes listo.";
 				close;
 			}
 			else {
 				mes "[Kris]";
-				mes "Godspeed,";
-				mes "young Novice.";
+				mes "Buena suerte,";
+				mes "joven Novato.";
 				close2;
 				warp "new_1-2",28,178;
 				end;
@@ -657,51 +657,51 @@ new_1-2,99,105,3	script	Interfaces Tutor#nv1	751,{
 new_1-2,83,111,3	script	Skill Tutor#nv	753,{
 	if (nov_get_item02 > 9 && nov_get_item03 > 9 && nov_get_item04 > 9) {
 		mes "[Cecil]";
-		mes "Huh...?";
-		mes "Did you need more help?";
-		mes "I see that you've completed all the essential courses. Did you speak to the assistant tutors too?";
+		mes "Eh...?";
+		mes "Necesitas mas ayuda?";
+		mes "Veo que has completado todos los cursos esenciales. Tambien hablaste con los tutores asistentes?";
 		next;
-		switch(select("Send me to the next course!:Assistant tutors?:Take me to a town!")) {
+		switch(select("Enviame al siguiente curso!:Tutores asistentes?:Llevame a una ciudad!")) {
 		case 1:
 			mes "[Cecil]";
-			mes "Ah! Right, right.";
-			mes "You've got to take on the Field Combat Training Course sometime, I suppose.";
+			mes "Ah! Cierto, cierto.";
+			mes "Supongo que tendras que hacer el Curso de Combate de Campo en algun momento.";
 			next;
 			mes "[Cecil]";
-			mes "Man, I'm so jealous of the instructors in the Field Combat Training Course. Teaching basic information is just soooo not as cool as beating stuff up.";
+			mes "Man, I'm so jealous of the instructors in the Field Combat de Combate de Campo. Teaching basic information is just soooo not as cool as beating stuff up.";
 			next;
 			mes "[Cecil]";
-			mes "Ah, right.";
-			mes "Field Combat.";
-			mes "I'm sending you now.";
-			mes "Good luck, kid!";
+			mes "Ah, cierto.";
+			mes "Combate de Campo.";
+			mes "Te envio ahora.";
+			mes "Buena suerte, chico!";
 			close2;
 			warp "new_1-2",28,178;
 			end;
 		case 2:
 			mes "[Cecil]";
-			mes "You know about the";
-			mes "assistant tutors, don't you?";
+			mes "Conoces a los";
+			mes "tutores asistentes, verdad?";
 			next;
 			mes "[Cecil]";
-			mes "Listen. The three of tutors in this room only teach the most basic information. The courses we teach are meant to be passed quickly.";
+			mes "Escucha. Los tres tutores en esta sala solo ensenan la informacion mas basica. Los cursos que ensenamos estan hechos para completarse rapido.";
 			next;
 			mes "[Cecil]";
-			mes "But some people might benefit a little bit more if they learned some more detailed information.";
+			mes "Pero algunas personas podrian beneficiarse mas si aprendieran informacion mas detallada.";
 			next;
 			mes "[Cecil]";
-			mes "If you're completely new to Ragnarok, it couldn't hurt to attend the classes held by the assistant tutors at least once.";
+			mes "Si eres completamente nuevo en Ragnarok, no estaria mal asistir a las clases de los tutores asistentes al menos una vez.";
 			next;
 			mes "[Cecil]";
-			mes "A guy named Leo Handerson seems to know a lot about skills, so I think his knowledge would be useful to you.";
+			mes "Un tipo llamado Leo Handerson parece saber mucho sobre habilidades, asi que creo que su conocimiento te seria util.";
 			close;
 		case 3:
 			mes "[Cecil]";
-			mes "A town...?";
-			mes "What do I look like, your own personal Peco Peco?";
+			mes "Una ciudad...?";
+			mes "Que parezco, tu Peco Peco personal?";
 			next;
 			mes "[Cecil]";
-			mes "That's right, you might be too young to know about that. Listen, if you want to move to a town, speak to the Kafra Lady to the right, okay?";
+			mes "Es verdad, quizas eres muy joven para saber de eso. Escucha, si quieres ir a una ciudad, habla con la Senora Kafra a la derecha, de acuerdo?";
 			close;
 		}
 	}
@@ -711,7 +711,7 @@ new_1-2,83,111,3	script	Skill Tutor#nv	753,{
 		mes "Heh, I like your name!";
 		if (NEW_MES_FLAG0) {
 			mes "By the way, your proof of registration has expired, so let me give you a new one.";
-			mes "Let me give you a new one.";
+			mes "Dejame darte a new one.";
 			set NEW_MES_FLAG0,0;
 			set NEW_MES_FLAG1,0;
 			set NEW_MES_FLAG2,0;
@@ -914,7 +914,7 @@ new_1-2,83,111,3	script	Skill Tutor#nv	753,{
 new_1-2,115,111,3	script	Item Tutor#nv	726,{
 	if (nov_get_item02 > 9 && nov_get_item03 > 9 && nov_get_item04 > 9) {
 		mes "[Alice]";
-		mes "Huh...?";
+		mes "Eh...?";
 		mes "Do you need help looking for someone? You seem to have completed all of the essential courses. Where do you need to go?";
 		next;
 		switch(select("I'm not sure~!:Send me to a town.:Cancel")) {
@@ -1019,7 +1019,7 @@ new_1-2,115,111,3	script	Item Tutor#nv	726,{
 			mes "of the Inventory Window.";
 			next;
 			mes "[Alice]";
-			mes "When you click on the ^4A708Bequip^000000 tab, you can view every item in your inventory that you can equip. Let me give you some equipment so that you can try them on.";
+			mes "When you click on the ^4A708Bequip^000000 tab, you can view every item in your inventory that you can equip. Dejame darte some equipment so that you can try them on.";
 			next;
 			mes "[Alice]";
 			mes "Got them? Good.";
@@ -1377,7 +1377,7 @@ new_1-2,118,108,3	script	Kafra Employee#nv1	117,{
 				mes "[Kafra Employee]";
 				mes "Thank you, let";
 				mes "me send you to the";
-				mes "Field Combat Training Course.";
+				mes "Field Combat de Combate de Campo.";
 				close2;
 				warp "new_1-2",28,178;
 				end;
@@ -1617,7 +1617,7 @@ new_1-2,161,182,5	script	Instructor#nv	92,{
 			mes "The numerical value next to the weight limit shows the current amount of Zeny, the currency of Midgard, that you possess.";
 			next;
 			mes "[Edwin]";
-			mes "On the right side of the";
+			mes "En el lado derecho of the";
 			mes "Basic Info Window is a series of buttons that will open other interface windows. Click them one by one, and check what you can do with them.";
 			next;
 			mes "[Edwin]";
@@ -1770,7 +1770,7 @@ new_1-2,182,182,3	script	Somatology Instructor	754,{
 			mes "So the physical attack bonus is 16. Now, if you had a total of 50 STR, the attack bonus would be 25. And if your STR is 100, your attack bonus would be 100.";
 			next;
 			mes "[Jare Riotte]";
-			mes "Okay, now let's move";
+			mes "Bien, ahora let's move";
 			mes "on to Agility (AGI).";
 			mes "Agility affects your Flee Rate and Attack Speed. The higher your Flee Rate, the better chance you have of avoiding enemy attacks.";
 			next;
@@ -2234,7 +2234,7 @@ new_1-2,17,182,5	script	Helper#nv	84,{
 			mes "Do you understand these battle commands? Now, I will teaching you about monster behaviors and properties, experience gained through battle, and items you can earn from dead monsters.";
 			next;
 			mes "[Elmeen]";
-			mes "Field Combat Training can be actually be pretty dangerous for new adventurers. Let me give you";
+			mes "Field Combat Training can be actually be pretty dangerous for new adventurers. Dejame darte";
 			mes "a little more strength through the power of my magic.";
 			next;
 			mes "[Elmeen]";
@@ -2545,8 +2545,8 @@ new_1-2,38,182,3	script	Entrance Guard#nv	92,{
 		case 2:
 			mes "[Muriel]";
 			mes "No problem.";
-			mes "If you're not sure if you can pass the test or not, why don't you go talk to the Helper to the left one more time? Please come back";
-			mes "when you're ready.";
+			mes "If you're not sure if you can pass the test or not, why don't you go talk to the Helper to the left one more time? Por favor vuelve";
+			mes "cuando estes listo.";
 			close;
 		}
 		close;
@@ -2609,8 +2609,8 @@ new_1-2,38,182,3	script	Entrance Guard#nv	92,{
 		case 2:
 			mes "[Muriel]";
 			mes "No problem.";
-			mes "If you're not sure if you can pass the test or not, why don't you go talk to the Helper to the left one more time? Please come back";
-			mes "when you're ready.";
+			mes "If you're not sure if you can pass the test or not, why don't you go talk to the Helper to the left one more time? Por favor vuelve";
+			mes "cuando estes listo.";
 			close;
 		}
 	}
@@ -2637,7 +2637,7 @@ new_1-2,38,182,3	script	Entrance Guard#nv	92,{
 		case 2:
 			mes "[Muriel]";
 			mes "No problem.";
-			mes "If you're not sure if you can pass the test or not, why don't you go talk to the Helper to the left one more time? Please come back when you're ready.";
+			mes "If you're not sure if you can pass the test or not, why don't you go talk to the Helper to the left one more time? Por favor vuelve when you're ready.";
 			close;
 		}
 	}
@@ -2781,7 +2781,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 		mes "Secondly, after you finish the course we will suggest the job class that seems best suited to your personality and teleport you to a town where you can change into the job we suggested.";
 		next;
 		mes "[Hanson]";
-		mes "Now...";
+		mes "Ahora...";
 		mes "What would";
 		mes "you like to do?";
 		next;
@@ -3734,7 +3734,7 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 			}
 		case 2:
 			mes "[Hanson]";
-			mes "I understand.";
+			mes "Entiendo.";
 			mes "Let me transport";
 			mes "you to the world of";
 			mes "Ragnarok Online";
@@ -3790,8 +3790,8 @@ new_1-4,100,29,1	script	Hanson#nv	46,{
 	else if (nov_3_swordman == 40) {
 		mes "[Hanson]";
 		mes "Hmmm...?";
-		mes "Why are you";
-		mes "still here?";
+		mes "Por que sigues";
+		mes "aqui?";
 		next;
 		mes "[Hanson]";
 		mes "You didn't say anything, so";
@@ -3915,7 +3915,7 @@ S_UserJobchoice:
 	}
 	next;
 	mes "[Hanson]";
-	mes "Let me give you";
+	mes "Dejame darte";
 	mes "some supplies. Then";
 	mes "you will transported";
 	mes "to the chosen town.";
@@ -4108,7 +4108,7 @@ new_1-4,91,22,4	script	Bruce#nv	57,{
 					mes "[Bruce]";
 					mes "Hanson is waiting";
 					mes "for you now. Good luck";
-					mes "out there, young Novice.";
+					mes "out there, joven Novato.";
 					close;
 				}
 			}
@@ -4122,7 +4122,7 @@ new_1-4,91,22,4	script	Bruce#nv	57,{
 			mes "[Bruce]";
 			mes "Hanson is waiting";
 			mes "for you now. Good luck";
-			mes "out there, young Novice.";
+			mes "out there, joven Novato.";
 			close;
 		}
 		else {
@@ -4265,7 +4265,7 @@ new_1-4,91,22,4	script	Bruce#nv	57,{
 					mes "[Bruce]";
 					mes "Hanson is waiting";
 					mes "for you now. Good luck";
-					mes "out there, young Novice.";
+					mes "out there, joven Novato.";
 					close;
 				}
 			}

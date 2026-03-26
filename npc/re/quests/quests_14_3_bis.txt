@@ -12,49 +12,49 @@
 moro_vol,94,110,5	script	Guardian Nidhogg#143nyd01	4_F_NYDHOG,{
 	mes "[Nidhogg]";
 	if (ep4_3_mockill == 0) {
-		mes "Soon we'll face a decisive war.";
-		mes "I'll do my best to fulfill my duty as the Guardian.";
+		mes "Pronto enfrentaremos una guerra decisiva.";
+		mes "Hare mi mejor esfuerzo para cumplir mi deber como Guardian.";
 		cutin "ep14_nyd04.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "I'm preparing a gift for you to make up for my past transgressions against you.";
+		mes "Estoy preparando un regalo para ti para compensar mis transgresiones pasadas contra ti.";
 		close3;
 	}
 	if ($ep143_3_expbuff == 1) {
-		mes "I hope you'll like my gift. Yggdrasil's blessing doesn't last forever, ";
-		mes "but it'll last at least long enough to aid you and your party in battle.";
+		mes "Espero que te guste mi regalo. La bendicion de Yggdrasil no dura para siempre, ";
+		mes "pero durara al menos lo suficiente para ayudarte a ti y a tu grupo en batalla.";
 		cutin "ep14_nyd04.bmp",2;
 		close3;
 	}
 	if (ep4_3_mockill == 1 && countitem(6715) > 0) {
-		mes "Oh, it's a shard of his soul.";
-		mes "He's destined to endlessly roam the world that he's created in his mind.";
-		mes "Vengeance is meted out, but the results aren't as satisfying as I thought.";
+		mes "Oh, es un fragmento de su alma.";
+		mes "Esta destinado a vagar sin fin por el mundo que creo en su mente.";
+		mes "La venganza fue cumplida, pero los resultados no son tan satisfactorios como pense.";
 		cutin "ep14_nyd01.bmp",2;
 		next;
 		mes "[Nidhogg]";
-		mes "May I have this Soul Shard?";
-		mes "In exchange, I'll give you and your party";
-		mes "the biggest gift I can give.";
+		mes "¿Puedo quedarme con este Fragmento de Alma?";
+		mes "A cambio, les dare a ti y a tu grupo";
+		mes "el regalo mas grande que puedo dar.";
 		cutin "ep14_nyd03.bmp",2;
 		next;
-		if (select( "Give the Soul Shard.", "Decline." ) == 2) {
+		if (select( "Entregar el Fragmento de Alma.", "Rechazar." ) == 2) {
 			mes "[Nidhogg]";
-			mes "Watch out for the Demon God's negative influence on you.";
+			mes "Ten cuidado con la influencia negativa del Dios Demonio sobre ti.";
 			cutin "ep14_nyd04.bmp",2;
 			close3;
 		}
 		if ($ep143_3_expbuff == 1) {
 			mes "[Nidhogg]";
-			mes "Oh, you already received Yggdrasil's blessing.";
-			mes "I'll take a rain check on this.";
+			mes "Oh, ya recibiste la bendicion de Yggdrasil.";
+			mes "Lo dejare para otra ocasion.";
 			cutin "ep14_nyd01.bmp",2;
 			close3;
 		}
 		cutin "ep14_nyd04.bmp",2;
 		mes "[Nidhogg]";
-		mes "Thank you.";
-		mes "May Yggdrasil bless you.";
+		mes "Gracias.";
+		mes "Que Yggdrasil te bendiga.";
 		delitem 6715,1;// P_Of_Evil_Soul
 		$ep143_3_expbuff = 1;
 		$ep143_3_exptime = 0;
@@ -62,22 +62,22 @@ moro_vol,94,110,5	script	Guardian Nidhogg#143nyd01	4_F_NYDHOG,{
 		announce "Nidhogg: May Yggdrasil bless the Demon God slayers " + strcharinfo(0) + " and others.", bc_all, "0xFF0000";
 		donpcevent "Loki#1432loki01::OnEventOn";
 		next;
-		mes "^4d4dffGood job taking out Demon God Morocc. The server EXP rate has increased by 10% for about 1 hour.^000000";
+		mes "^4d4dffBuen trabajo eliminando al Dios Demonio Morocc. La tasa de EXP del servidor ha aumentado un 10% por aproximadamente 1 hora.^000000";
 		close3;
 	}
-	mes "I don't understand this;";
-	mes "I badly wanted to get rid of him from this world,";
-	mes "yet I feel like I'm empty on the inside.";
+	mes "No entiendo esto;";
+	mes "queria desesperadamente deshacerme de el de este mundo,";
+	mes "pero me siento vacio por dentro.";
 	cutin "ep14_nyd02.bmp",2;
 	next;
 	mes "[Nidhogg]";
-	mes "This must be";
-	mes "how people feel when they've lost their jobs overnight.";
+	mes "Esto debe ser";
+	mes "como se siente la gente cuando pierde su trabajo de la noche a la manana.";
 	cutin "ep14_nyd01.bmp",2;
 	next;
 	mes "[Nidhogg]";
-	mes "At least I've saved enough money";
-	mes "to go without a job for a while.";
+	mes "Al menos ahorre suficiente dinero";
+	mes "para estar sin trabajo por un tiempo.";
 	cutin "ep14_nyd04.bmp",2;
 	close3;
 
@@ -120,15 +120,15 @@ OnInterIfInitOnce:
 moro_vol,97,110,3	script	Loki#1432loki01	4_M_ROKI2,{
 	cutin "ep14_roki01.bmp",2;
 	mes "[Loki]";
-	mes "Things haven't even started off yet;";
-	mes "they will only when his true colors are revealed.";
+	mes "Las cosas ni siquiera han comenzado aun;";
+	mes "solo lo haran cuando se revelen sus verdaderos colores.";
 	close3;
 
 OnEventOn:
 	initnpctimer;
 	end;
 OnTimer5000:
-	announce "For defeating Morocc, you have been rewarded with an extra 10% Server EXP reward for 1 hour.", bc_all, "0xFF0000";
+	announce "Por derrotar a Morocc, han sido recompensados con un 10% extra de EXP en el servidor por 1 hora.", bc_all, "0xFF0000";
 	end;
 OnTimer11500:
 	announce " ", bc_all, "0xFF0000";
@@ -141,47 +141,47 @@ OnTimer12000:
 
 moro_vol,98,107,3	script	Magic Scholar#143avt01	4_M_FAIRYAVANT,{
 	if (checkweight(1304,3) == 0) {
-		mes "You are carrying too many items to proceed with the quest.";
-		mes "Please make some room in your inventory.";
+		mes "Llevas demasiados objetos para continuar con la mision.";
+		mes "Por favor haz espacio en tu inventario.";
 		close;
 	}
 	cutin "avant01.bmp",1;
 	if (ep14_2_mylord < 33) {
 		mes "[Magic Scholar]";
-		mes "Stop bothering me.";
-		mes "If you're here to donate your body for my experiment, then you can stay.";
-		mes "Or scram!";
+		mes "Deja de molestarme.";
+		mes "Si vienes a donar tu cuerpo para mi experimento, entonces puedes quedarte.";
+		mes "¡O largate!";
 		close3;
 	}
 	if (ep14_2_mylord == 33) {
 		mes "[Avant]";
-		mes "What brings you, rookie?";
-		mes "Did you come to laugh at my misery, like everyone else?";
+		mes "¿Que te trae por aqui, novato?";
+		mes "¿Viniste a reirte de mi desgracia, como todos los demas?";
 		next;
-		select( "Why are you here?", "Are you sorry for what you've done?" );
+		select( "¿Por que estas aqui?", "¿Te arrepientes de lo que hiciste?" );
 		mes "[Avant]";
-		mes "*Snort*";
-		mes "This is a matter of pride.";
-		mes "I admit that my action sent my kinsmen in harm's way.";
+		mes "*Bufido*";
+		mes "Es una cuestion de orgullo.";
+		mes "Admito que mis acciones pusieron en peligro a los mios.";
 		next;
 		cutin "avant02.bmp",1;
 		mes "[Avant]";
-		mes "I want to say that I'm doing this to make up for what I did,";
-		mes "like everyone wants to believe. *Smirk*";
+		mes "Quisiera decir que estoy haciendo esto para compensar lo que hice,";
+		mes "como todos quieren creer. *Sonrisa burlona*";
 		next;
 		mes "[Avant]";
-		mes "But if I'm honest with myself,";
-		mes "I'm doing this to get back at Shnaim and Morocc for using me like a tool.";
+		mes "Pero si soy honesto conmigo mismo,";
+		mes "estoy haciendo esto para vengarme de Shnaim y Morocc por usarme como una herramienta.";
 		next;
 		mes "[Avant]";
-		mes "I'm planning to be the last one standing after everything goes down.";
+		mes "Planeo ser el ultimo en pie cuando todo termine.";
 		ep14_2_mylord = 34;
 		close3;
 	}
 	if (BaseLevel < 140) {
 		mes "[Avant]";
-		mes "I've got no use for weaklings.";
-		mes "Come back when you become stronger.";
+		mes "No tengo uso para los debiles.";
+		mes "Vuelve cuando seas mas fuerte.";
 		close3;
 	}
 	switch( checkquest(7584,PLAYTIME) ) {
@@ -189,9 +189,9 @@ moro_vol,98,107,3	script	Magic Scholar#143avt01	4_M_FAIRYAVANT,{
 		if (isbegin_quest(7583) == 1) {// Collecting Mana
 			if (countitem(6708) > 2) {
 				mes "[Avant]";
-				mes "Not bad, rookie.";
-				mes "Let me take the Mana Crystallines.";
-				mes "Good job.";
+				mes "Nada mal, novato.";
+				mes "Dejame tomar los Cristales de Mana.";
+				mes "Buen trabajo.";
 				delitem 6708, countitem(6708);// Mana_crystal
 				erasequest 7583;// Collecting Mana
 				setquest 7584;// Unending Battle
@@ -199,47 +199,47 @@ moro_vol,98,107,3	script	Magic Scholar#143avt01	4_M_FAIRYAVANT,{
 				close3;
 			}
 			mes "[Avant]";
-			mes "Greenhorn, if you defeat those strong Demons, you'll find some mana crystallines.";
-			mes "I want you to bring them to me,";
-			mes "at least three at a time. Got it?";
+			mes "Novato, si derrotas a esos Demonios fuertes, encontraras algunos cristales de mana.";
+			mes "Quiero que me los traigas,";
+			mes "al menos tres a la vez. ¿Entendido?";
 			close3;
 		}
 		if (checkquest(7581,HUNTING) == 0 || checkquest(7581,HUNTING) == 1) {
 			mes "[Avant]";
-			mes "Hey, rookie.";
-			mes "Do you see those massive goons?";
-			mes "If you hunt those Distorted,";
+			mes "Oye, novato.";
+			mes "¿Ves a esos grandulones?";
+			mes "Si cazas a esas Reencarnaciones Distorsionadas,";
 			next;
 			mes "[Avant]";
-			mes "Blazing, and Freezing Reincarnations, you'll find some mana crystallines.";
-			mes "Part of mana stolen from the orb, the crystallines are what";
-			mes "make those Demon runts so strong.";
+			mes "Ardientes y Congelantes, encontraras algunos cristales de mana.";
+			mes "Parte del mana robado del orbe, los cristales son lo que";
+			mes "hace a esos demonios tan fuertes.";
 			next;
 			mes "[Avant]";
-			mes "I want you to";
-			mes "get rid of them and bring me Mana Crystallines.";
-			mes "Don't try to keep them from me: they're not useful for you.";
+			mes "Quiero que";
+			mes "te deshagas de ellos y me traigas Cristales de Mana.";
+			mes "No intentes quedartelos: no te son utiles.";
 			next;
 			mes "[Avant]";
-			mes "Three Reincarnations, thus three Mana Crystallines.";
-			mes "Bring them at least for Kardui of Eclage.";
+			mes "Tres Reencarnaciones, por lo tanto tres Cristales de Mana.";
+			mes "Traelos al menos por Kardui de Eclage.";
 			setquest 7583;// Collecting Mana
 			close3;
 		}
 		mes "[Avant]";
-		mes "Hm, I didn't know such a small amount of mana could produce";
-		mes "such great power.";
-		mes "Dirty Demons.";
+		mes "Hm, no sabia que una cantidad tan pequena de mana pudiera producir";
+		mes "tanto poder.";
+		mes "Malditos Demonios.";
 		close3;
 	case 0:
 	case 1:
 		mes "[Avant]";
-		mes "I hope you'll come back for the next subjugation.";
+		mes "Espero que vuelvas para la proxima incursion.";
 		close3;
 	case 2:
 		mes "[Avant]";
-		mes "Soon the Human Alliance will send out a Demon subjugation party. Come by before you leave.";
-		mes "You want to collect the mana, don't you?";
+		mes "Pronto la Alianza Humana enviara un grupo de incursion contra Demonios. Pasa antes de irte.";
+		mes "Quieres recolectar el mana, ¿verdad?";
 		erasequest 7584;
 		close3;
 	}
@@ -254,62 +254,62 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 	cutin "hisie01.bmp",0;
 	mes "[Hishieh]";
 	if (ep14_2_mylord < 15) {
-		mes "Are you from the Human Alliance?";
-		mes "I don't remember asking for your assistance, yet.";
+		mes "¿Eres de la Alianza Humana?";
+		mes "No recuerdo haber pedido tu asistencia, todavia.";
 		next;
 		mes "[Hishieh]";
-		mes "If something were to happen, I'd send word to your commander-in-chief, Hibba Agip.";
+		mes "Si algo llegara a pasar, le enviaria un mensaje a tu comandante en jefe, Hibba Agip.";
 		close3;
 	}
 	if (ep14_2_mylord < 33) {
-		mes "Can we really learn the truth about the Demon God in this place?";
-		mes "It's filled with creatures I've never seen.";
+		mes "¿Realmente podemos descubrir la verdad sobre el Dios Demonio en este lugar?";
+		mes "Esta lleno de criaturas que nunca he visto.";
 		next;
 		mes "[Hishieh]";
-		mes "Creepy...";
+		mes "Espeluznante...";
 		close3;
 	}
 	if (ep14_2_mylord == 33) {
-		mes "The instigator of all the bad things is really hiding out in here, huh?";
-		mes "How exciting!";
+		mes "¿El instigador de todas las cosas malas realmente se esconde aqui?";
+		mes "¡Que emocionante!";
 		next;
 		mes "[Hishieh]";
-		mes "Oh, why am I here?";
-		mes "I came on Kar's behalf.";
-		mes "He can't leave Eclage while supplying it with mana that the orb can't.";
+		mes "Oh, ¿por que estoy aqui?";
+		mes "Vine en nombre de Kar.";
+		mes "El no puede dejar Eclage mientras la abastece con el mana que el orbe no puede.";
 		next;
 		mes "[Hishieh]";
-		mes "Our priorities lie with Yggdrasil and her Guardian.";
-		mes "Plus, we really can't afford to lose the newborn Mayor.";
+		mes "Nuestras prioridades estan con Yggdrasil y su Guardian.";
+		mes "Ademas, realmente no podemos permitirnos perder al nuevo Alcalde.";
 		next;
 		cutin "hisie04.bmp",0;
 		mes "[Hishieh]";
-		mes "I was able to persuade the Elders to let me command the army,";
-		mes "but I'm still a commander in name only.";
+		mes "Logre persuadir a los Ancianos para que me dejaran comandar el ejercito,";
+		mes "pero sigo siendo un comandante solo de nombre.";
 		next;
-		select("What happened to Avant?");
+		select("¿Que paso con Avant?");
 		cutin "hisie02.bmp",0;
 		mes "[Hishieh]";
 		mes "Hm...";
-		mes "We're using his knowledge.";
-		mes "We could have killed him, but that would've been too easy.";
+		mes "Estamos usando su conocimiento.";
+		mes "Pudimos haberlo matado, pero eso hubiera sido demasiado facil.";
 		next;
 		mes "[Hishieh]";
-		mes "It's a kind of revenge I guess, huh.";
-		mes "After all, his only transgression is that he loves his science too much.";
+		mes "Es una especie de venganza supongo, ¿no?";
+		mes "Despues de todo, su unica transgresion es que ama demasiado su ciencia.";
 		next;
 		mes "[Hishieh]";
-		mes "Even the Elders acknowledged his talent and decided to save his life.";
-		mes "Above all...";
+		mes "Incluso los Ancianos reconocieron su talento y decidieron salvarle la vida.";
+		mes "Sobre todo...";
 		next;
 		mes "[Hishieh]";
-		mes "(Lowering his voice)";
-		mes "No one else knows the orb's mana has been stolen.";
-		mes "As far as others know, Avant's only responsible for me and Kar.";
+		mes "(Bajando la voz)";
+		mes "Nadie mas sabe que el mana del orbe fue robado.";
+		mes "Hasta donde los demas saben, Avant solo es responsable de lo que me paso a mi y a Kar.";
 		next;
 		mes "[Hishieh]";
-		mes "Avant's over there. You can ask him questions if you'd like.";
-		mes "Hah hah. ";
+		mes "Avant esta por alla. Puedes hacerle preguntas si quieres.";
+		mes "Ja ja. ";
 		close3;
 	}
 	switch( checkquest(7600,PLAYTIME) ) {
@@ -317,75 +317,75 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 		switch( checkquest(7595,HUNTING) ) {
 		case -1:
 			if (isbegin_quest(7593) == 1) {
-				mes "The Temple of the Demon God, huh? Okay, well if you find stray mana from the orb in there, could you take care of it?";
-				mes "I don't know what kind of shape the mana is taking at the moment, but you won't mistake it for anything else.";
+				mes "El Templo del Dios Demonio, ¿eh? Bueno, si encuentras mana perdido del orbe ahi dentro, ¿podrias encargarte?";
+				mes "No se que forma esta tomando el mana en este momento, pero no lo confundiras con nada mas.";
 				next;
 				mes "[Hishieh]";
-				mes "If you find stray mana from the orb, then please hit and disperse it.";
-				mes "It'll find its way back to Yggdrasil and the orb.";
-				mes "Can you do that for us?";
+				mes "Si encuentras mana perdido del orbe, por favor golpealo y dispersalo.";
+				mes "Encontrara su camino de vuelta a Yggdrasil y al orbe.";
+				mes "¿Puedes hacer eso por nosotros?";
 				next;
-				if (select( "Gladly.", "Sorry." ) == 2) {
+				if (select( "Con gusto.", "Lo siento." ) == 2) {
 					cutin "hisie02.bmp",0;
 					mes "[Hishieh]";
-					mes "No worries.";
-					mes "I'll ask someone else.";
-					mes "We're good.";
+					mes "No te preocupes.";
+					mes "Le pedire a alguien mas.";
+					mes "Estamos bien.";
 					close3;
 				}
 				mes "[Hishieh]";
-				mes "I owe you so much,";
-				mes "I don't know how to repay you.";
-				mes "Thank you.";
+				mes "Te debo tanto,";
+				mes "que no se como pagarte.";
+				mes "Gracias.";
 				next;
 				mes "[Hishieh]";
-				mes "Please release 3 Brilliant Manas, 3 Life Manas, and 3 Earth Manas.";
-				mes "I'll be counting on you.";
-				mes "Come back safely, you hear?";
+				mes "Por favor libera 3 Manas Brillantes, 3 Manas de Vida y 3 Manas de Tierra.";
+				mes "Cuento contigo.";
+				mes "Regresa a salvo, ¿me oyes?";
 				setquest 7595;// Wandering Orb Magic
 				close3;
 			}
-			mes "Avant knows about the orb's mana better than anyone else.";
-			mes "Even Kar and I can barely stand Avant, but he really needs your help.";
+			mes "Avant sabe sobre el mana del orbe mejor que nadie.";
+			mes "Incluso Kar y yo apenas soportamos a Avant, pero realmente necesita tu ayuda.";
 			next;
 			mes "[Hishieh]";
-			mes "This isn't just about collecting the orb's mana, but also has to do with the Demon God.";
-			mes "Most of my kinsmen don't know yet the orb's core mana has been stolen.";
+			mes "Esto no se trata solo de recolectar el mana del orbe, sino que tambien tiene que ver con el Dios Demonio.";
+			mes "La mayoria de los mios aun no saben que el mana central del orbe fue robado.";
 			next;
 			cutin "hisie02.bmp",0;
 			mes "[Hishieh]";
-			mes "And I want to keep it that way.";
-			mes "Please help us.";
-			mes "Kar and I really need you.";
+			mes "Y quiero que siga asi.";
+			mes "Por favor ayudanos.";
+			mes "Kar y yo realmente te necesitamos.";
 			close3;
 		case 0:
 		case 1:
-			mes "All you have to do is just hit and disperse the moving globes of mana in the Temple of the Demon God.";
-			mes "Then the mana will be returned to Yggdrasil.";
+			mes "Todo lo que tienes que hacer es golpear y dispersar los globos de mana en movimiento en el Templo del Dios Demonio.";
+			mes "Entonces el mana sera devuelto a Yggdrasil.";
 			next;
 			mes "[Hishieh]";
-			mes "If you find solidified, immobile mana, just absorb them";
-			mes "by touching it.";
+			mes "Si encuentras mana solidificado e inmovil, simplemente absorbelo";
+			mes "tocandolo.";
 			next;
 			mes "[Hishieh]";
-			mes "It's no longer useful for us, but this is for you";
-			mes "to fight the Demons.";
+			mes "Ya no es util para nosotros, pero esto es para que tu";
+			mes "luches contra los Demonios.";
 			close3;
 		case 2:
 			cutin "hisie04.bmp",0;
-			mes "Good job!";
-			mes "I've felt the mana returning.";
-			mes "You did great. Kar will be excited!";
+			mes "¡Buen trabajo!";
+			mes "He sentido el mana regresando.";
+			mes "Lo hiciste genial. ¡Kar estara emocionado!";
 			next;
 			cutin "hisie01.bmp",0;
 			mes "[Hishieh]";
-			mes "This isn't much, but I want you to have it.";
-			mes "Hope you'll like it.";
-			mes "A substantial amount of mana has been leaked out of the orb.";
+			mes "No es mucho, pero quiero que lo tengas.";
+			mes "Espero que te guste.";
+			mes "Una cantidad sustancial de mana se ha filtrado del orbe.";
 			next;
 			mes "[Hishieh]";
-			mes "If you're planning to reenter the Temple of the Demon God, then please look for more mana globes.";
-			mes "You should go rest for now.";
+			mes "Si planeas volver a entrar al Templo del Dios Demonio, por favor busca mas globos de mana.";
+			mes "Deberias ir a descansar por ahora.";
 			erasequest 7595;// Wandering Orb Magic
 			setquest 7600;// Promising Tomorrow
 			getitem 22567,1;// Squad_Prize
@@ -394,18 +394,18 @@ moro_vol,95,108,7	script	Hishieh#143hisie01	4_M_FARIY_HISIE,{
 		}
 	case 0:
 	case 1:
-		mes "Not all the stray globes of mana from the orb have been retrieved,";
-		mes "though we're making progress.";
-		mes "I'll appreciate if you can come back tomorrow and help us again.";
+		mes "No todos los globos de mana perdidos del orbe han sido recuperados,";
+		mes "aunque estamos haciendo progreso.";
+		mes "Te agradeceria si pudieras volver manana y ayudarnos de nuevo.";
 		close3;
 	case 2:
 		erasequest 7600;// Promising Tomorrow
-		mes "If you're planning to reenter the Temple of the Demon God, then I'd like to ask you a favor.";
-		mes "Yes, it's the same thing I asked you before:";
-		mes "return the mana.";
+		mes "Si planeas volver a entrar al Templo del Dios Demonio, me gustaria pedirte un favor.";
+		mes "Si, es lo mismo que te pedi antes:";
+		mes "devuelve el mana.";
 		next;
 		mes "[Hishieh]";
-		mes "Talk to me again if you want to help us.";
+		mes "Habla conmigo de nuevo si quieres ayudarnos.";
 		close3;
 	}
 	end;
@@ -419,55 +419,55 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 	cutin "ep13_captin_edq.bmp",2;
 	mes "[Hibba Agip]";
 	if (ep14_3_mors01 == 0 || BaseLevel < 160) {
-		mes "This place is bizarre beyond comprehension.";
-		mes "Morocc is here somewhere.";
+		mes "Este lugar es extrano mas alla de la comprension.";
+		mes "Morocc esta aqui en algun lugar.";
 		next;
 		mes "[Hibba Agip]";
-		mes "This definitely looks abysmal enough for someone like him to hang around.";
-		mes "Those must have been dragged in from the Morocc Desert, then contaminated by his evil energy.";
+		mes "Esto definitivamente se ve lo suficientemente abismal para que alguien como el ande por aqui.";
+		mes "Esos deben haber sido arrastrados desde el Desierto de Morocc, luego contaminados por su energia maligna.";
 		next;
 		mes "[Hibba Agip]";
-		mes "Sigh...";
-		mes "We have a long and winding load ahead of us.";
+		mes "Suspiro...";
+		mes "Tenemos un largo y sinuoso camino por delante.";
 		mes "...";
 		next;
 		mes "[Hibba Agip]";
-		mes "Sigh.";
-		mes "I'll call you when I need you.";
-		mes "Till then, focus on staying alive.";
+		mes "Suspiro.";
+		mes "Te llamare cuando te necesite.";
+		mes "Hasta entonces, concentrate en sobrevivir.";
 		close3;
 	}
 	if (ep4_3_mockill == 0) {
 		if (isbegin_quest(7597) == 1) {
-			mes "Ah, our hero is back!";
-			mes "Mwah hah hah, finally we've reached the end of our expedition!";
-			mes "Good job!";
-			mes "I thank you on behalf of the entire humankind.";
+			mes "¡Ah, nuestro heroe ha vuelto!";
+			mes "Mua ja ja, ¡finalmente hemos llegado al final de nuestra expedicion!";
+			mes "¡Buen trabajo!";
+			mes "Te agradezco en nombre de toda la humanidad.";
 			next;
 			mes "[Adjutant Abidal]";
-			mes "You're incredible!";
-			mes "You've saved the world!";
-			mes "After this, I'm going to go back home...";
+			mes "¡Eres increible!";
+			mes "¡Has salvado al mundo!";
+			mes "Despues de esto, voy a volver a casa...";
 			next;
 			mes "[Hiva Agip]";
-			mes "Abidal, enough!";
-			mes "Are you trying to raise a red flag?!";
+			mes "¡Abidal, basta!";
+			mes "¡¿Estas tratando de gafarnos?!";
 			next;
 			mes "[Hiva Agip]";
-			mes "This isn't much, but I want you to have it.";
-			mes "Thank you for your service.";
-			mes "Hah hah.";
-			mes "Finally I can sleep!";
+			mes "No es mucho, pero quiero que lo tengas.";
+			mes "Gracias por tu servicio.";
+			mes "Ja ja.";
+			mes "¡Finalmente puedo dormir!";
 			next;
 			mes "[Hiva Agip]";
-			mes "Wait, I sense something ominous around you...";
-			mes "Oh gods, what is this?!";
-			mes "Are you trying to have your soul devoured by the Demon God?!";
+			mes "Espera, siento algo ominoso a tu alrededor...";
+			mes "¡Oh dioses, ¿que es esto?!";
+			mes "¡¿Estas tratando de que el Dios Demonio devore tu alma?!";
 			next;
 			mes "[Hiva Agip]";
-			mes "Give it to me, and I'll crystallize it for you.";
-			mes "And I want you to meet that Guardian lady at the Laphine camp.";
-			mes "She might know about this.";
+			mes "Damelo, y lo cristalizare por ti.";
+			mes "Y quiero que conozcas a esa Guardian en el campamento Laphine.";
+			mes "Ella podria saber sobre esto.";
 			ep4_3_mockill = 1;
 			erasequest 7597;// Fall of the False God
 			setquest 7598;// Caged God
@@ -477,63 +477,63 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 			close3;
 		}
 		if (isbegin_quest(7593) == 1) {
-			mes "The Temple of the Demon God is discovered inside the cave in the central hill.";
-			mes "A tree is blocking the entry to the temple.";
+			mes "El Templo del Dios Demonio fue descubierto dentro de la cueva en la colina central.";
+			mes "Un arbol esta bloqueando la entrada al templo.";
 			next;
 			mes "[Hibba Agip]";
-			mes "That purple lady called the Guardian said she'd go there soon.";
-			mes "You should find her.";
+			mes "Esa dama purpura llamada la Guardian dijo que iria pronto.";
+			mes "Deberias encontrarla.";
 			close3;
 		}
-		mes "Well-met.";
-		mes "I've heard a path has been cleared in that dark cave.";
-		mes "Sometimes I think this condemned basin is alive.";
+		mes "Bienvenido.";
+		mes "Escuche que se despejo un camino en esa cueva oscura.";
+		mes "A veces creo que esta maldita cuenca esta viva.";
 		next;
 		mes "[Hibba Agip]";
-		mes "You're smart and capable. I don't have to explain why I'm telling you this, do I?";
-		mes "Don't worry. I've sent out an advance party.";
+		mes "Eres inteligente y capaz. No tengo que explicarte por que te digo esto, ¿verdad?";
+		mes "No te preocupes. He enviado un grupo de avanzada.";
 		next;
 		mes "[Hibba Agip]";
-		mes "Be joyous, comrade!";
-		mes "It won't be long before our perilous journey is over!";
-		mes "And you'll be the one to end it.";
+		mes "¡Alegrate, camarada!";
+		mes "¡No falta mucho para que nuestro peligroso viaje termine!";
+		mes "Y tu seras quien lo termine.";
 		next;
 		mes "[Hibba Agip]";
-		mes "We've decided to call the newly discovered place the Temple of the Demon God.";
-		mes "Actually the first scout named it, and the name stuck.";
+		mes "Hemos decidido llamar al lugar recien descubierto el Templo del Dios Demonio.";
+		mes "En realidad el primer explorador lo nombro, y el nombre quedo.";
 		next;
 		mes "[Hibba Agip]";
-		mes "I'd like to put you on a subjugation mission in the Temple of the Demon God.";
-		mes "This is not an order, but a request;";
-		mes "you decide to take the mission at your own risk.";
+		mes "Me gustaria ponerte en una mision de incursion en el Templo del Dios Demonio.";
+		mes "Esto no es una orden, sino una peticion;";
+		mes "tu decides aceptar la mision bajo tu propio riesgo.";
 		next;
-		if (select( "I'll do it.", "No." ) == 2) {
+		if (select( "Lo hare.", "No." ) == 2) {
 			mes "[Hibba Agip]";
-			mes "I understand";
-			mes "you don't want to risk your life for the world peace.";
-			mes "Enjoy living until the end of the world.";
+			mes "Entiendo";
+			mes "que no quieras arriesgar tu vida por la paz mundial.";
+			mes "Disfruta vivir hasta el fin del mundo.";
 			close3;
 		}
 		mes "[Hibba Agip]";
-		mes "I knew I chose the right person for the job.";
-		mes "Loki said the Demon God hadn't fully recovered from";
-		mes "the damage received upon the break of his seal.";
+		mes "Sabia que elegi a la persona correcta para el trabajo.";
+		mes "Loki dijo que el Dios Demonio no se habia recuperado completamente";
+		mes "del dano recibido al romperse su sello.";
 		next;
 		mes "[Hibba Agip]";
-		mes "He's still licking his wounds,";
-		mes "which gives us a perfect opportunity to get at him.";
-		mes "Good luck.";
+		mes "Aun esta lamiendo sus heridas,";
+		mes "lo que nos da una oportunidad perfecta para atacarlo.";
+		mes "Buena suerte.";
 		setquest 7593;// Demon God Subjugation
 		close3;
 	}
 	if (isbegin_quest(7597) == 1) {
-		mes "*Whistle* Good work!";
-		mes "How's the Temple of the Demon God?";
-		mes "Still the same?";
+		mes "*Silbido* ¡Buen trabajo!";
+		mes "¿Como esta el Templo del Dios Demonio?";
+		mes "¿Sigue igual?";
 		next;
 		mes "[Hiva Agip]";
-		mes "Take your reward.";
-		mes "See you again.";
+		mes "Toma tu recompensa.";
+		mes "Nos vemos.";
 		erasequest 7597;// Fall of the False God
 		setquest 7598;// Caged God
 		getitem 22567,1;// Squad_Prize
@@ -542,54 +542,54 @@ moro_vol,108,88,5	script	Commander Hibba Agip#14301	4_M_REDSWORD,{
 	}
 	switch( checkquest(7598,PLAYTIME) ) {
 	case -1:
-		mes "For the life of me, I can't figure out what's happening.";
-		mes "This place has gone to the dogs since that monster proclaimed that he would replace God.";
+		mes "Por mas que lo intento, no puedo entender que esta pasando.";
+		mes "Este lugar se fue al demonio desde que ese monstruo proclamo que reemplazaria a Dios.";
 		next;
 		mes "[Hiva Agip]";
-		mes "I'm afraid once warped, dimensions can never be the same.";
-		mes "Could you go back to the Temple of the Demon God once more?";
+		mes "Me temo que una vez distorsionadas, las dimensiones nunca vuelven a ser iguales.";
+		mes "¿Podrias volver al Templo del Dios Demonio una vez mas?";
 		next;
-		if (select( "Sure.", "No." ) == 2) {
+		if (select( "Claro.", "No." ) == 2) {
 			mes "[Hiva Agip]";
-			mes "I understand.";
-			mes "You've done enough already.";
-			mes "I'll send someone else.";
+			mes "Entiendo.";
+			mes "Ya hiciste suficiente.";
+			mes "Enviare a alguien mas.";
 			close3;
 		}
 		mes "[Hiva Agip]";
-		mes "The Temple of the Demon God is stuck in a perpetual time loop,";
-		mes "just like all the other Dimensional Cracks.";
+		mes "El Templo del Dios Demonio esta atrapado en un bucle temporal perpetuo,";
+		mes "igual que todas las demas Grietas Dimensionales.";
 		next;
 		mes "[Hiva Agip]";
-		mes "He tried desperately to escape from this world, but all to no avail.";
-		mes "That world of his is now filled with nothing but hellish memories that repeat themselves over and over.";
+		mes "Intento desesperadamente escapar de este mundo, pero todo fue en vano.";
+		mes "Ese mundo suyo ahora esta lleno de nada mas que recuerdos infernales que se repiten una y otra vez.";
 		next;
 		mes "[Hiva Agip]";
-		mes "Good luck exploring the temple. If you see Morocc again, don't hesitate to kill the Demon God again.";
-		mes "He doesn't deserve commiseration.";
-		mes "Godspeed.";
+		mes "Buena suerte explorando el templo. Si ves a Morocc de nuevo, no dudes en matar al Dios Demonio otra vez.";
+		mes "No merece compasion.";
+		mes "Que te vaya bien.";
 		if (isbegin_quest(7593) == 0)
 			setquest 7593;// Demon God Subjugation
 		close3;
 	case 0:
 	case 1:
-		mes "Now that we've taken care of the main body, we can take things slow.";
-		mes "Why don't you go rest for now?";
-		mes "Leave the rest to us.";
+		mes "Ahora que nos encargamos del cuerpo principal, podemos tomarlo con calma.";
+		mes "¿Por que no vas a descansar por ahora?";
+		mes "Dejanos el resto a nosotros.";
 		close3;
 	case 2:
 		erasequest 7598;// Caged God
-		mes "I wouldn't believe you had an intense battle yesterday if I didn't already know about it.";
-		mes "Are you ready for another battle?";
+		mes "No creeria que tuviste una batalla intensa ayer si no lo supiera ya.";
+		mes "¿Estas listo para otra batalla?";
 		next;
 		mes "[Hiva Agip]";
-		mes "Let me know when you're ready.";
-		mes "Morocc is gone, yet his temple stands.";
-		mes "It might have something to do with the Dimensional Crack.";
+		mes "Avisame cuando estes listo.";
+		mes "Morocc se fue, pero su templo sigue en pie.";
+		mes "Podria tener algo que ver con la Grieta Dimensional.";
 		next;
 		mes "[Hiva Agip]";
-		mes "Oh, don't worry. I'm not thinking to send you out there.";
-		mes "Hah hah hah!";
+		mes "Oh, no te preocupes. No estoy pensando en enviarte alla.";
+		mes "¡Ja ja ja!";
 		close3;
 	}
 	end;
@@ -607,58 +607,58 @@ moro_vol,110,90,3	script	Adjutant Abidal#14302	4_M_SAGE_C,{
 		case -1:
 			if (isbegin_quest(7593) == 1) {
 				mes "[Abidal]";
-				mes "Are you on the quest to subjugate the Temple of the Demon God?";
-				mes "Then please do me a favor.";
-				mes "Our scouts have reported on the presence of a Frost Spider and a Fire Wolf that have tasted the Frost of Genesis.";
+				mes "¿Estas en la mision de incursion al Templo del Dios Demonio?";
+				mes "Entonces por favor hazme un favor.";
+				mes "Nuestros exploradores han reportado la presencia de una Arana de Hielo y un Lobo de Fuego que probaron la Escarcha del Genesis.";
 				next;
 				mes "[Abidal]";
-				mes "They're just as evil as their master Morocc.";
-				mes "Please exterminate the Frost Spider and Fire Wolf.";
+				mes "Son tan malvados como su amo Morocc.";
+				mes "Por favor extermina a la Arana de Hielo y al Lobo de Fuego.";
 				next;
-				if (select( "Accept.", "Decline." ) == 2) {
+				if (select( "Aceptar.", "Rechazar." ) == 2) {
 					mes "[Abidal]";
-					mes "Are you afraid you can't handle them?";
-					mes "I understand.";
-					mes "They're formidable enemies.";
+					mes "¿Tienes miedo de no poder con ellos?";
+					mes "Entiendo.";
+					mes "Son enemigos formidables.";
 					close;
 				}
 				mes "[Abidal]";
-				mes "Thank you.";
-				mes "The Fire Spider is called Brinaranea; the Fire Wolf, Muspellskoll.";
-				mes "Please exterminate those creatures of the Demon God.";
-				mes "Good luck.";
+				mes "Gracias.";
+				mes "La Arana de Fuego se llama Brinaranea; el Lobo de Fuego, Muspellskoll.";
+				mes "Por favor extermina a esas criaturas del Dios Demonio.";
+				mes "Buena suerte.";
 				setquest 7594;// Frost Spider and Fire Wolf
 				close;
 			}
 			mes "[Abidal]";
-			mes "Did you come to help us subjugate the Demon God?";
-			mes "Please be careful; the environment of this place keeps changing without any warning.";
+			mes "¿Viniste a ayudarnos a combatir al Dios Demonio?";
+			mes "Por favor ten cuidado; el ambiente de este lugar sigue cambiando sin previo aviso.";
 			close;
 		case 0:
 		case 1:
 			mes "[Abidal]";
-			mes "According to my intel, the Demon God has several henchmen.";
-			mes "I'd like you to eliminate the biggest threat among them.";
+			mes "Segun mi informacion, el Dios Demonio tiene varios secuaces.";
+			mes "Me gustaria que eliminaras a la mayor amenaza entre ellos.";
 			next;
 			mes "[Abidal]";
-			mes "It won't be easy, but I have faith in you.";
-			mes "The future of Midgard rests on your shoulders.";
+			mes "No sera facil, pero tengo fe en ti.";
+			mes "El futuro de Midgard descansa sobre tus hombros.";
 			close;
 		case 2:
 			mes "[Abidal]";
-			mes "You did it!";
-			mes "I knew you would!";
-			mes "Congratulations!";
+			mes "¡Lo lograste!";
+			mes "¡Sabia que lo harias!";
+			mes "¡Felicidades!";
 			next;
 			mes "[Abidal]";
-			mes "But I'm afraid this is not over yet.";
-			mes "I have this nagging sense of misgiving.";
-			mes "I'm sorry. Maybe I'm thinking irrationally.";
+			mes "Pero me temo que esto aun no termina.";
+			mes "Tengo un persistente sentimiento de inquietud.";
+			mes "Lo siento. Tal vez estoy pensando irracionalmente.";
 			next;
 			mes "[Abidal]";
-			mes "I've prepared a small token of appreciation for you.";
-			mes "I'm sorry this is the best I can do.";
-			mes "Thank you for your hard work.";
+			mes "He preparado una pequena muestra de agradecimiento para ti.";
+			mes "Lo siento, esto es lo mejor que puedo hacer.";
+			mes "Gracias por tu arduo trabajo.";
 			erasequest 7594;// Frost Spider and Fire Wolf
 			setquest 7599;// Unending Hunt
 			getitem 22567,1;// Squad_Prize
@@ -667,18 +667,18 @@ moro_vol,110,90,3	script	Adjutant Abidal#14302	4_M_SAGE_C,{
 	case 0:
 	case 1:
 		mes "[Abidal]";
-		mes "You did great. You should go rest.";
+		mes "Lo hiciste genial. Deberias ir a descansar.";
 		close;
 	case 2:
 		erasequest 7599;// Unending Hunt
 		mes "[Abidal]";
-		mes "Are you well rested?";
-		mes "You look like you are.";
-		mes "That's great because we're worried about the Temple of the Demon God. We can't seem to close it.";
+		mes "¿Descansaste bien?";
+		mes "Parece que si.";
+		mes "Que bueno porque estamos preocupados por el Templo del Dios Demonio. No podemos cerrarlo.";
 		next;
 		mes "[Abidal]";
-		mes "I might ask you again to exterminate Frost Spiders and Fire Wolves.";
-		mes "Why wouldn't the Temple of the Demon God disappear?";
+		mes "Tal vez te pida de nuevo que extermines Aranas de Hielo y Lobos de Fuego.";
+		mes "¿Por que no desaparece el Templo del Dios Demonio?";
 		close;
 	}
 	end;
@@ -691,10 +691,10 @@ OnInit:
 moro_vol,111,87,1	script	 Instructor Igrid#14303	4_M_CRU,{
 	if (BaseLevel < 140) {
 		mes "[Instructor Igrid]";
-		mes "You.";
-		mes "(Shaking her head) You won't do.";
-		mes "You're too weak to fight these Demons.";
-		mes "Go back and train some more.";
+		mes "Tu.";
+		mes "(Sacudiendo la cabeza) No serviras.";
+		mes "Eres muy debil para luchar contra estos Demonios.";
+		mes "Vuelve y entrena mas.";
 		close;
 	}
 	switch( checkquest(7582,PLAYTIME) ) {
@@ -702,55 +702,55 @@ moro_vol,111,87,1	script	 Instructor Igrid#14303	4_M_CRU,{
 		switch( checkquest(7581,HUNTING) ) {
 		case -1:
 			mes "[Instructor Igrid]";
-			mes "Hey, well-met.";
-			mes "I need your help.";
-			mes "Some of those Demons pouring out of the Flaming Basin are a real pain in the neck.";
+			mes "Oye, bienvenido.";
+			mes "Necesito tu ayuda.";
+			mes "Algunos de esos Demonios que salen de la Cuenca Llameante son un verdadero dolor de cabeza.";
 			next;
 			mes "[Instructor Igrid]";
-			mes "Morocc Reincarnations have invaded here just as well, and some of them are noticeably strong.";
-			mes "I want you to get rid of them.";
+			mes "Las Reencarnaciones de Morocc han invadido aqui tambien, y algunas de ellas son notablemente fuertes.";
+			mes "Quiero que te deshagas de ellas.";
 			next;
-			if (select( "Why me?", "Sure." ) == 1) {
+			if (select( "¿Por que yo?", "Claro." ) == 1) {
 				mes "[Instructor Igrid]";
-				mes "Um, this is unexpected.";
-				mes "I thought you came to protect the peace and prosperity of Midgard. Did you not?";
+				mes "Um, esto es inesperado.";
+				mes "Pense que viniste a proteger la paz y prosperidad de Midgard. ¿No es asi?";
 				next;
 				mes "[Instructor Igrid]";
-				mes "Maybe I gave you too much credit.";
-				mes "All right, I'll ask someone else.";
-				mes "I'm really disappointed in you.";
+				mes "Tal vez te di demasiado credito.";
+				mes "Esta bien, le pedire a alguien mas.";
+				mes "Estoy muy decepcionada de ti.";
 				close;
 			}
 			mes "[Instructor Igrid]";
-			mes "You don't disappoint me.";
-			mes "Listen, in the center of the basin is a high hill.";
-			mes "In four directions from the center roams a strong Demon.";
+			mes "No me decepcionas.";
+			mes "Escucha, en el centro de la cuenca hay una colina alta.";
+			mes "En las cuatro direcciones desde el centro ronda un Demonio fuerte.";
 			next;
 			mes "[Instructor Igrid]";
-			mes "They look just like those Reincarnations that attacked Morocc City,";
-			mes "but bigger and stronger.";
+			mes "Se parecen a esas Reencarnaciones que atacaron la Ciudad de Morocc,";
+			mes "pero mas grandes y fuertes.";
 			next;
 			mes "[Instructor Igrid]";
-			mes "For the smooth operation of the subjugation mission,";
-			mes "please ^4d4dffeliminate Distorted Morocc Reincarnation, Blazing Morocc Reincarnation, and Freezing Morocc Reincarnation.^000000";
-			mes "I'll be counting on you.";
+			mes "Para la operacion fluida de la mision de incursion,";
+			mes "por favor ^4d4dffelimina a la Reencarnacion Distorsionada de Morocc, la Reencarnacion Ardiente de Morocc y la Reencarnacion Congelante de Morocc.^000000";
+			mes "Cuento contigo.";
 			setquest 7581;// Eliminating Risks
 			close;
 		case 0:
 		case 1:
 			mes "[Instructor Igrid]";
-			mes "Please ^4d4dffeliminate Distorted Morocc Reincarnation, Blazing Morocc Reincarnation, and Freezing Morocc Reincarnation.^000000";
-			mes "You can find them stationed in four directions from the center of the basin.";
+			mes "Por favor ^4d4dffelimina a la Reencarnacion Distorsionada de Morocc, la Reencarnacion Ardiente de Morocc y la Reencarnacion Congelante de Morocc.^000000";
+			mes "Puedes encontrarlas apostadas en las cuatro direcciones desde el centro de la cuenca.";
 			close;
 		case 2:
 			mes "[Instructor Igrid]";
-			mes "You really took out those strong Demons.";
-			mes "That should be enough to break the spirit of the rest.";
-			mes "Good job.";
+			mes "Realmente acabaste con esos Demonios fuertes.";
+			mes "Eso deberia ser suficiente para quebrar el espiritu del resto.";
+			mes "Buen trabajo.";
 			next;
 			mes "[Instructor Igrid]";
-			mes "I hope you'll come back to help me again.";
-			mes "Let's go back home together, yeah?";
+			mes "Espero que vuelvas a ayudarme de nuevo.";
+			mes "Volvamos a casa juntos, ¿si?";
 			erasequest 7581;// Eliminating Risks
 			setquest 7582;// Daily Cleaning
 			getexp 1000000,800000;
@@ -759,17 +759,17 @@ moro_vol,111,87,1	script	 Instructor Igrid#14303	4_M_CRU,{
 	case 0:
 	case 1:
 		mes "[Instructor Igrid]";
-		mes "You.";
-		mes "Do you mean those giant reincarnations?";
-		mes "I've assigned some more adventurers to take care of them.";
+		mes "Tu.";
+		mes "¿Te refieres a esas reencarnaciones gigantes?";
+		mes "He asignado mas aventureros para encargarse de ellas.";
 		next;
 		mes "[Instructor Igrid]";
-		mes "You should rest for the day. Come back to hunt tomorrow.";
+		mes "Deberias descansar por hoy. Vuelve a cazar manana.";
 		close;
 	case 2:
 		mes "[Instructor Igrid]";
-		mes "It's almost time for a Demon hunt.";
-		mes "Aren't you excited? Because I am! Hah hah!";
+		mes "Ya casi es hora de una caceria de Demonios.";
+		mes "¿No estas emocionado? ¡Porque yo si! ¡Ja ja!";
 		erasequest 7582;// Daily Cleaning
 		close;
 	}
@@ -782,64 +782,64 @@ OnInit:
 
 moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 	if (checkweight(1304,3) == 0) {
-		mes "You are carrying too many items to proceed with the quest.";
-		mes "Please make some room in your inventory.";
+		mes "Llevas demasiados objetos para continuar con la mision.";
+		mes "Por favor haz espacio en tu inventario.";
 		close;
 	}
 	cutin "ep13_heslanta.bmp",2;
 	mes "[Jeruth Hesranta]";
 	if (ep13_3_secret < 22) {
-		mes "I'm Hesranta, commander of the Sappha army.";
-		mes "It's my honor to fight beside you Humans.";
+		mes "Soy Hesranta, comandante del ejercito Sappha.";
+		mes "Es un honor luchar junto a ustedes los Humanos.";
 		close3;
 	}
 	if (ep13_3_secret < 24) {// custom translation
-		mes "I didn't expect to see you here!";
-		mes "... although a lot of things happened, I'm still waiting for you to complete the first thing I asked!";
+		mes "¡No esperaba verte aqui!";
+		mes "... aunque muchas cosas pasaron, ¡todavia estoy esperando que completes lo primero que te pedi!";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Please come back to help me!";
+		mes "¡Por favor vuelve a ayudarme!";
 		close3;
 	}
 	if (ep13_3_secret == 24) {
-		mes "Long time, no see.";
-		mes "Do you remember me?";
-		mes "We had an important discussion together back in Diel.";
+		mes "Cuanto tiempo sin vernos.";
+		mes "¿Me recuerdas?";
+		mes "Tuvimos una discusion importante en Diel.";
 		next;
-		select("Why are you here?");
+		select("¿Por que estas aqui?");
 		mes "[Jeruth Hesranta]";
-		mes "I persuaded the Elders to let me bring an army here.";
-		mes "As you suspected, Ahat isn't a Sappha.";
-		next;
-		mes "[Jeruth Hesranta]";
-		mes "Only I'm aware of that knowledge at the moment.";
-		mes "Everyone else has pretty much forgotten he ever existed.";
+		mes "Persuadi a los Ancianos para que me dejaran traer un ejercito aqui.";
+		mes "Como sospechabas, Ahat no es un Sappha.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "My undying suspicion about him kept me safe from Ahat's hypnosis.";
-		mes "He used the unspeakable talent to disappear.";
+		mes "Solo yo estoy al tanto de ese conocimiento por el momento.";
+		mes "Todos los demas practicamente olvidaron que alguna vez existio.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "After he disappeared, I persuaded the Elders that we must join the subjugation of the Demon God.";
-		mes "Other Sapphas were against me, for the safety of our kind,";
+		mes "Mi incesante sospecha sobre el me mantuvo a salvo de la hipnosis de Ahat.";
+		mes "El uso el talento innombrable para desaparecer.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "but it's in our nature to help our friends at all costs.";
-		mes "So I've brought our bravest Gartens to the battlefield.";
+		mes "Despues de que desaparecio, persuadi a los Ancianos de que debemos unirnos a la incursion contra el Dios Demonio.";
+		mes "Otros Sapphas estaban en mi contra, por la seguridad de nuestra especie,";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Long story short,";
-		mes "you no longer have to work for Ahat.";
-		mes "If you need the Contribution Certificate, do me a favor later and I'll give you one.";
+		mes "pero esta en nuestra naturaleza ayudar a nuestros amigos a toda costa.";
+		mes "Asi que traje a nuestros Gartens mas valientes al campo de batalla.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "You know Chesher, don't you?";
-		mes "When it comes to him,";
-		mes "I can't trust anyone else.";
+		mes "Para hacerla corta,";
+		mes "ya no tienes que trabajar para Ahat.";
+		mes "Si necesitas el Certificado de Contribucion, hazme un favor despues y te dare uno.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "I want to collect information about him first before I proceed with my plan.";
-		mes "Please stay safe until I talk to you again.";
+		mes "Conoces a Chesher, ¿verdad?";
+		mes "Cuando se trata de el,";
+		mes "no puedo confiar en nadie mas.";
+		next;
+		mes "[Jeruth Hesranta]";
+		mes "Quiero recolectar informacion sobre el primero antes de proceder con mi plan.";
+		mes "Por favor mantente a salvo hasta que hable contigo de nuevo.";
 		ep13_3_secret = 25;
 		ep13_3_ahtdayq = 0;
 		if (isbegin_quest(7200) > 0)
@@ -854,47 +854,47 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 	}
 	if (ep13_3_secret == 25) {
 		if (BaseLevel < 140) {// custom translation
-			mes "Do you remember that we talked about Chesher?";
-			mes "He's a sensitive issue, so I can't talk to other Sapphas about him.";
+			mes "¿Recuerdas que hablamos sobre Chesher?";
+			mes "Es un tema delicado, asi que no puedo hablar con otros Sapphas sobre el.";
 			next;
 			mes "[Jeruth Hesranta]";
-			mes "But... it does not seem to please you,";
-			mes "go back and train some more.";
+			mes "Pero... no parece que estes listo,";
+			mes "vuelve y entrena un poco mas.";
 			close3;
 		}
-		mes "Do you remember that we talked about Chesher?";
-		mes "He's a sensitive issue, so I can't talk to other Sapphas about him.";
-		mes "And I was thinking...";
+		mes "¿Recuerdas que hablamos sobre Chesher?";
+		mes "Es un tema delicado, asi que no puedo hablar con otros Sapphas sobre el.";
+		mes "Y estaba pensando...";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Maybe you could help me confirm my suspicion.";
+		mes "Tal vez podrias ayudarme a confirmar mi sospecha.";
 		next;
-		select("What suspicion?");
+		select("¿Que sospecha?");
 		mes "[Jeruth Hesranta]";
-		mes "There are some things that don't seem to belong to this Flaming Basin.";
-		mes "They're boxes of some kind.";
-		next;
-		mes "[Jeruth Hesranta]";
-		mes "Animated by the Demon God's evil energy, those boxes are running amok about the basin.";
-		mes "Now I'm concerned...";
-		next;
-		select("You're concerned?");
-		mes "[Jeruth Hesranta]";
-		mes "They're the spitting images of Bradium Boxes in Dicastes.";
-		mes "Could you exterminate them and help me determine their identity?";
+		mes "Hay algunas cosas que no parecen pertenecer a esta Cuenca Llameante.";
+		mes "Son unas cajas de algun tipo.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "They really could be the Bradium Boxes that Chesher stole from Dicastes.";
-		mes "If so, I can use the boxes to replenish my army.";
+		mes "Animadas por la energia maligna del Dios Demonio, esas cajas estan causando estragos por la cuenca.";
+		mes "Ahora estoy preocupado...";
 		next;
-		select("And retrieve the stolen Bradiums as well.");
+		select("¿Estas preocupado?");
 		mes "[Jeruth Hesranta]";
-		mes "Correct. My army isn't getting much support, since this expedition has been solely my idea.";
-		mes "It's just wishful thinking; we won't know until we have the boxes.";
+		mes "Son identicas a las Cajas de Bradium en Dicastes.";
+		mes "¿Podrias exterminarlas y ayudarme a determinar su identidad?";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "For now please hunt one box and let me know what you find from it.";
-		mes "I'll be waiting.";
+		mes "Realmente podrian ser las Cajas de Bradium que Chesher robo de Dicastes.";
+		mes "Si es asi, puedo usar las cajas para reabastecer a mi ejercito.";
+		next;
+		select("Y recuperar los Bradiums robados tambien.");
+		mes "[Jeruth Hesranta]";
+		mes "Correcto. Mi ejercito no esta recibiendo mucho apoyo, ya que esta expedicion ha sido solo mi idea.";
+		mes "Es solo una ilusion; no lo sabremos hasta que tengamos las cajas.";
+		next;
+		mes "[Jeruth Hesranta]";
+		mes "Por ahora, por favor caza una caja y dime que encuentras dentro.";
+		mes "Estare esperando.";
 		setquest 7578;// Rampaging Box
 		ep13_3_secret = 26;
 		close3;
@@ -903,38 +903,38 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 		if (checkquest(7578,HUNTING) != 2) {
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
-			mes "Just hunt 1 ^4d4dffRampaging Box^000000 and bring me what you find inside it.";
+			mes "Solo caza 1 ^4d4dffRampaging Box^000000 y traeme lo que encuentres dentro.";
 			if (isbegin_quest(7578) == 0)
 				setquest 7578;
 			close3;
 		}
 		if (countitem(6392) < 1) {// Bradium_Box
-			mes "I see that you've subjugated a Rampaging Box,";
-			mes "but my real objective was to check its contents.";
-			mes "^4d4dffPlease exterminate a box and bring me the item you've found from it.^000000";
+			mes "Veo que acabaste con una Rampaging Box,";
+			mes "pero mi verdadero objetivo era revisar su contenido.";
+			mes "^4d4dffPor favor extermina una caja y traeme el objeto que encuentres dentro.^000000";
 			close3;
 		}
-		mes "I was right.";
-		mes "It's amazing how such an animate object can move on its own.";
-		mes "It must be enchanted, don't you think?";
+		mes "Tenia razon.";
+		mes "Es increible como un objeto animado puede moverse por si solo.";
+		mes "Debe estar encantado, ¿no crees?";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "This confirms my suspicion:";
-		mes "those boxes in the Flaming Basin are Bradium Boxes from El Dicastes.";
+		mes "Esto confirma mi sospecha:";
+		mes "esas cajas en la Cuenca Llameante son Cajas de Bradium de El Dicastes.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "I don't want to impose on your kindness, but I hope you'll continue to hunt these boxes.";
-		mes "You're the only one I can trust with this, at least for now.";
-		mes "Gartens are brave, but they'll want to understand why Bradium Boxes are found in this place.";
+		mes "No quiero abusar de tu amabilidad, pero espero que continues cazando estas cajas.";
+		mes "Eres el unico en quien puedo confiar con esto, al menos por ahora.";
+		mes "Los Gartens son valientes, pero querran entender por que hay Cajas de Bradium en este lugar.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "Then I'll have to tell them everything,";
-		mes "starting with Ahat, and that most Sapphas have forgotten about him will make things really complicated.";
+		mes "Entonces tendre que contarles todo,";
+		mes "empezando por Ahat, y que la mayoria de los Sapphas lo hayan olvidado hara las cosas muy complicadas.";
 		next;
-		select("When do I start?");
+		select("¿Cuando empiezo?");
 		mes "[Jeruth Hesranta]";
-		mes "How about now?";
-		mes "^4d4dffPlease hunt those Rampaging Boxes and collect 10 Bradium Boxes.^000000";
+		mes "¿Que tal ahora?";
+		mes "^4d4dffPor favor caza esas Rampaging Boxes y recolecta 10 Cajas de Bradium.^000000";
 		delitem 6392,1;// Bradium_Box
 		completequest 7578;// Rampaging Box
 		setquest 7579;// Collecting Bradiums
@@ -948,32 +948,32 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 		case 0:
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
-			mes "Welcome back.";
-			mes "Are you ready for the day?";
+			mes "Bienvenido de vuelta.";
+			mes "¿Estas listo para el dia?";
 			break;
 		case 1:
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
-			mes "Rampaging Boxes themselves aren't threatening, but they're surrounded by dangerous monsters. Please be careful.";
+			mes "Las Rampaging Boxes en si no son amenazantes, pero estan rodeadas de monstruos peligrosos. Por favor ten cuidado.";
 			next;
 			mes "[Jeruth Hesranta]";
-			mes "Happy hunting!";
+			mes "¡Buena caceria!";
 			close3;
 		case 2:
 			if (countitem(6392) < 10) {
-				mes "It's amazing how those ore-filled boxes are moving on their own.";
-				mes "Maybe that's how the Demon God is recruiting his soldiers.";
+				mes "Es increible como esas cajas llenas de mineral se mueven solas.";
+				mes "Tal vez asi es como el Dios Demonio recluta a sus soldados.";
 				close3;
 			}
 			cutin "ep13_heslanta.bmp",2;
 			mes "[Jeruth Hesranta]";
-			mes "Good job.";
-			mes "I can't thank you enough.";
-			mes "Let me take all the Bradium Boxes.";
+			mes "Buen trabajo.";
+			mes "No puedo agradecerte lo suficiente.";
+			mes "Dejame tomar todas las Cajas de Bradium.";
 			next;
 			mes "[Jeruth Hesranta]";
-			mes "I can feel other people's eyes on us. Hah hah.";
-			mes "See you again.";
+			mes "Puedo sentir las miradas de otros sobre nosotros. Ja ja.";
+			mes "Nos vemos.";
 			delitem 6392, countitem(6392);// Bradium_Box
 			erasequest 7579;// Collecting Bradiums
 			setquest 7580;// Collecting Every Day
@@ -984,34 +984,34 @@ moro_vol,136,84,3	script	Jeruth Hesranta#ep143	4_MAN_JERUTOO,{
 		break;
 	case 0:
 	case 1:
-		mes "Hah hah, we're not in a hurry at the moment.";
-		mes "I wonder if Chesher knows we're stealing back his Bradium Boxes.";
+		mes "Ja ja, no tenemos prisa por el momento.";
+		mes "Me pregunto si Chesher sabe que estamos recuperando sus Cajas de Bradium.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "What should I feed the poor cat later?";
-		mes "Oh, keep up the good work collecting Bradium Boxes.";
+		mes "¿Que le dare de comer al pobre gato despues?";
+		mes "Oh, sigue con el buen trabajo recolectando Cajas de Bradium.";
 		break;
 	case 2:
 		cutin "ep13_heslanta.bmp",2;
 		mes "[Jeruth Hesranta]";
-		mes "It's time to collect Bradium Boxes.";
+		mes "Es hora de recolectar Cajas de Bradium.";
 		erasequest 7580;// Collecting Every Day
 		break;
 	}
 	next;
-	if (select( "I'll get on with it.", "I'll come back later." ) == 2) {
+	if (select( "Me pondre en marcha.", "Volvere despues." ) == 2) {
 		mes "[Jeruth Hesranta]";
-		mes "No problem.";
-		mes "Come back whenever you can.";
+		mes "No hay problema.";
+		mes "Vuelve cuando puedas.";
 		next;
 		mes "[Jeruth Hesranta]";
-		mes "I'm sorry that";
-		mes "I can't stop asking you for favors.";
+		mes "Lo siento por";
+		mes "no poder dejar de pedirte favores.";
 		close3;
 	}
 	mes "[Jeruth Hesranta]";
-	mes "That's the spirit!";
-	mes "hunt Rampaging Boxes and collect Bradiums.";
+	mes "¡Ese es el espiritu!";
+	mes "Caza Rampaging Boxes y recolecta Bradiums.";
 	setquest 7579;// Collecting Bradiums
 	close3;
 
@@ -1037,45 +1037,45 @@ function	script	kick_mob	{
 
 moro_vol,88,107,5	script	Magic Scholar Dophe#143vol01	4_F_FAIRYKID5,{
  	mes "[Dophe]";
- 	mes "A Human, I see.";
- 	mes "Looking at you, I can't help but muse on our situation.";
- 	mes "You and I are having conversation.";
+ 	mes "Un Humano, ya veo.";
+ 	mes "Al mirarte, no puedo evitar reflexionar sobre nuestra situacion.";
+ 	mes "Tu y yo estamos teniendo una conversacion.";
  	next;
  	mes "[Dophe]";
- 	mes "This so-called Dimensional Crack, where the Demon God has taken up residence, falls into Bifrost's jurisdiction.";
+ 	mes "Esta llamada Grieta Dimensional, donde el Dios Demonio ha tomado residencia, cae bajo la jurisdiccion de Bifrost.";
  	next;
 	mes "[Dophe]";
-	mes "He and us are like two sides of the coin, or above and below the waterline.";
+	mes "El y nosotros somos como dos caras de la moneda, o arriba y abajo de la linea de agua.";
 	next;
 	mes "[Dophe]";
-	mes "He and us aren't exactly running parallel to each other, but maybe standing in a universe parallel to each other's.";
+	mes "El y nosotros no estamos exactamente corriendo en paralelo, pero tal vez estemos en un universo paralelo al del otro.";
 	next;
 	mes "[Dophe]";
 	mes "...";
 	next;
 	mes "[Dophe]";
-	mes "My point is:";
-	mes "he could be under our nose, and we're unable to see him.";
-	mes "If his lair is located somewhere in Bifrost's territory,";
+	mes "Mi punto es:";
+	mes "podria estar bajo nuestras narices, y somos incapaces de verlo.";
+	mes "Si su guarida esta ubicada en algun lugar del territorio de Bifrost,";
 	next;
 	mes "[Dophe]";
-	mes "the only possible scenario for us is";
-	mes "obliteration.";
+	mes "el unico escenario posible para nosotros es";
+	mes "la aniquilacion.";
 	close;
 }
 
 moro_vol,87,104,5	script	Magic Scholar Konpana#143vol02	4_M_FAIRYKID5,{
 	mes "[Konpana]";
-	mes "This place is nothing like I've imagined.";
-	mes "No grassy field or forest, really?";
+	mes "Este lugar no es nada como lo imagine.";
+	mes "¿Ningun campo de hierba o bosque, en serio?";
 	close;
 }
 
 moro_vol,88,102,6	script	Magic Scholar Makia#143vol03	4_M_FAIRYKID3,{
 	mes "[Makia]";
-	mes "This place is overrun with strange creatures.";
-	mes "Everywhere is burning with fire, yet the air isn't suffocating.";
-	mes "Amazing.";
+	mes "Este lugar esta invadido de criaturas extranas.";
+	mes "Todo esta ardiendo en fuego, pero el aire no es sofocante.";
+	mes "Increible.";
 	close;
 }
 
@@ -1091,8 +1091,8 @@ moro_vol,108,105,0	duplicate(Combat Laphine#sol01)	Combat Laphine#sol09	4_M_FAIR
 
 moro_vol,106,111,3	script	Battle Commander#sol10	4_M_FAIRYSOLDIER,3,3,{
 	mes "[Commander Laphine]";
-	mes "We're in the process of regrouping for the upcoming battle.";
-	mes "Please don't bother us.";
+	mes "Estamos en proceso de reagruparnos para la proxima batalla.";
+	mes "Por favor no nos molestes.";
 	close;
 
 OnTouch:
@@ -1107,33 +1107,33 @@ OnEventOn:
 	.is_enabled = 1;
 	enablenpc "#soltalk01";
 	sleep 3000;
-	npctalk "Commander: Soldiers, finally it's time to put your training to use!", "Battle Commander#sol10";
+	npctalk "Comandante: ¡Soldados, finalmente es hora de poner su entrenamiento en practica!", "Battle Commander#sol10";
 	sleep 3000;
-	npctalk "Commander: WE ARE!", "Battle Commander#sol10";
+	npctalk "Comandante: ¡SOMOS!", "Battle Commander#sol10";
 	sleep 2000;
-	npctalk "WE ARE!", "Combat Laphine#sol01";
-	npctalk "WE ARE!", "Combat Laphine#sol02";
-	npctalk "WE ARE!", "Combat Laphine#sol03";
+	npctalk "¡SOMOS!", "Combat Laphine#sol01";
+	npctalk "¡SOMOS!", "Combat Laphine#sol02";
+	npctalk "¡SOMOS!", "Combat Laphine#sol03";
 	sleep 1500;
-	npctalk "THE PROUD!", "Combat Laphine#sol04";
-	npctalk "THE PROUD!", "Combat Laphine#sol05";
-	npctalk "THE PROUD!", "Combat Laphine#sol06";
+	npctalk "¡LOS ORGULLOSOS!", "Combat Laphine#sol04";
+	npctalk "¡LOS ORGULLOSOS!", "Combat Laphine#sol05";
+	npctalk "¡LOS ORGULLOSOS!", "Combat Laphine#sol06";
 	sleep 1500;
-	npctalk "LAPHNES!", "Combat Laphine#sol07";
-	npctalk "LAPHNES!", "Combat Laphine#sol08";
-	npctalk "LAPHNES!", "Combat Laphine#sol09";
+	npctalk "¡LAPHNES!", "Combat Laphine#sol07";
+	npctalk "¡LAPHNES!", "Combat Laphine#sol08";
+	npctalk "¡LAPHNES!", "Combat Laphine#sol09";
 	sleep 3000;
-	npctalk "Commander: We fight evil!", "Battle Commander#sol10";
+	npctalk "Comandante: ¡Luchamos contra el mal!", "Battle Commander#sol10";
 	sleep 2000;
-	npctalk "Fight evil!", "Combat Laphine#sol01";
-	npctalk "Fight evil!", "Combat Laphine#sol02";
-	npctalk "Fight evil!", "Combat Laphine#sol03";
-	npctalk "Fight evil!", "Combat Laphine#sol04";
-	npctalk "Fight evil!", "Combat Laphine#sol05";
-	npctalk "Fight evil!", "Combat Laphine#sol06";
-	npctalk "Fight evil!", "Combat Laphine#sol07";
-	npctalk "Fight evil!", "Combat Laphine#sol08";
-	npctalk "Fight evil!", "Combat Laphine#sol09";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol01";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol02";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol03";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol04";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol05";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol06";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol07";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol08";
+	npctalk "¡Contra el mal!", "Combat Laphine#sol09";
 	sleep 17000;
 	disablenpc "#soltalk01";
 	.is_enabled = 0;
@@ -1147,21 +1147,21 @@ OnInit:
 moro_vol,101,102,0	script	Laphine Magician#wsol01	4_F_FAIRY2,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "...Freeze them all! Freeze!";
+		npctalk "...¡Congelenlos a todos! ¡Congelen!";
 	else if (.@ttemp == 2)
-		npctalk "(Exhaling through his mouth)";
+		npctalk "(Exhalando por la boca)";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
 		npctalk "...";
 	else
-		npctalk "The Guardian is watching. I can't make any mistakes.";
+		npctalk "La Guardian esta observando. No puedo cometer errores.";
 	end;
 }
 
 moro_vol,103,102,0	script	Laphine Magician#wsol02	4_F_MORAFINE1,{
 	if (rand(1,5) == 5)
-		npctalk "Shush.";
+		npctalk "Shh.";
 	else
 		npctalk "...";
 	end;
@@ -1170,70 +1170,70 @@ moro_vol,103,102,0	script	Laphine Magician#wsol02	4_F_MORAFINE1,{
 moro_vol,105,102,0	script	Laphine Magician#wsol03	4_M_FAIRYKID5,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Those Humans behind us are bothering me.";
+		npctalk "Esos Humanos detras de nosotros me molestan.";
 	else if (.@ttemp == 2)
-		npctalk "I shouldn't have volunteered to come here. I miss my yai...";
+		npctalk "No deberia haberme ofrecido de voluntario para venir aqui. Extrano a mi yai...";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
-		npctalk "How long do we have to wait?";
+		npctalk "¿Cuanto tiempo tenemos que esperar?";
 	else
-		npctalk "Sigh.";
+		npctalk "Suspiro.";
 	end;
 }
 
 moro_vol,107,102,0	script	Laphine Magician#wsol04	4_F_FAIRYKID5,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "I'm nervous.";
+		npctalk "Estoy nerviosa.";
 	else if (.@ttemp == 2)
-		npctalk "The Sapphas aren't enemies... The Sapphas aren't enemies... Argh, but I want to beat them senseless!";
+		npctalk "Los Sapphas no son enemigos... Los Sapphas no son enemigos... ¡Argh, pero quiero darles una paliza!";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
 		npctalk "...";
 	else
-		npctalk "I'm trying to remember to fire the moment I see the enemy.";
+		npctalk "Estoy tratando de recordar disparar en el momento que vea al enemigo.";
 	end;
 }
 
 moro_vol,109,102,0	script	Laphine Magician#wsol05	4_M_FAIRYKID5,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "I'm trying to remember to fire the moment I see the enemy.";
+		npctalk "Estoy tratando de recordar disparar en el momento que vea al enemigo.";
 	else if (.@ttemp == 2)
-		npctalk "I like tension--it keeps me on edge. Heh heh.";
+		npctalk "Me gusta la tension--me mantiene alerta. Je je.";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
 		npctalk "...";
 	else
-		npctalk "I'm nervous.";
+		npctalk "Estoy nervioso.";
 	end;
 }
 
 moro_vol,93,128,1	script	Combat Laphine#line01	4_M_FAIRYSOLDIER2,2,3,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Yeah, yeah~";
+		npctalk "Si, si~";
 	else if (.@ttemp == 2)
-		npctalk "Watch out!";
+		npctalk "¡Cuidado!";
 	else if (.@ttemp == 3)
-		npctalk "*Yawn*";
+		npctalk "*Bostezo*";
 	else if (.@ttemp == 4)
-		npctalk "Please be careful.";
+		npctalk "Por favor ten cuidado.";
 	else
-		npctalk "Back off--it's dangerous!";
+		npctalk "¡Atras--es peligroso!";
 	end;
 
 OnTouch:	// prevent the player from triggering the text
 	end;
 OnTouchNPC:
 	.@hidden_name$ = strnpcinfo(2);
-	if (.@hidden_name$ == "line01")      kick_mob( "Enemy in sight!",2000 );
-	else if (.@hidden_name$ == "line03") kick_mob( "G-get away!",2000 );
-	else if (.@hidden_name$ == "line05") kick_mob( "Don't you dare!",2000 );
-	else if (.@hidden_name$ == "line07") kick_mob( "Enemy in sight!",2000 );
+	if (.@hidden_name$ == "line01")      kick_mob( "¡Enemigo a la vista!",2000 );
+	else if (.@hidden_name$ == "line03") kick_mob( "¡A-alejate!",2000 );
+	else if (.@hidden_name$ == "line05") kick_mob( "¡No te atrevas!",2000 );
+	else if (.@hidden_name$ == "line07") kick_mob( "¡Enemigo a la vista!",2000 );
 	end;
 }
 
@@ -1247,26 +1247,26 @@ moro_vol,111,129,7	duplicate(Combat Laphine#line01)	Combat Laphine#line07	4_M_FA
 moro_vol,85,117,1	script	Combat Laphine#line11	4_F_FAIRYSOLDIER,2,2,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Yeah, yeah~";
+		npctalk "Si, si~";
 	else if (.@ttemp == 2)
-		npctalk "Watch out!";
+		npctalk "¡Cuidado!";
 	else if (.@ttemp == 3)
-		npctalk "You're in a war zone. Don't let your guard down.";
+		npctalk "Estas en zona de guerra. No bajes la guardia.";
 	else if (.@ttemp == 4)
-		npctalk "Please be careful.";
+		npctalk "Por favor ten cuidado.";
 	else
-		npctalk "I'm worried for the guys at the front lines.";
+		npctalk "Estoy preocupada por los chicos en las lineas del frente.";
 	end;
 
 OnTouch:
 	end;
 OnTouchNPC:
 	.@hidden_name$ = strnpcinfo(2);
-	if (.@hidden_name$ == "line11")      kick_mob( "You've come this far, huh?",2000 );
-	else if (.@hidden_name$ == "line13") kick_mob( "Enemy in sight!",2000 );
-	else if (.@hidden_name$ == "line15") kick_mob( "I'll wipe the floor with you!",2000 );
-	else if (.@hidden_name$ == "line17") kick_mob( "Yaap-!",2000 );
-	else if (.@hidden_name$ == "line19") kick_mob( "Enemy in sight!",2000 );
+	if (.@hidden_name$ == "line11")      kick_mob( "¿Has llegado hasta aqui, eh?",2000 );
+	else if (.@hidden_name$ == "line13") kick_mob( "¡Enemigo a la vista!",2000 );
+	else if (.@hidden_name$ == "line15") kick_mob( "¡Voy a barrer el piso contigo!",2000 );
+	else if (.@hidden_name$ == "line17") kick_mob( "¡Yaap-!",2000 );
+	else if (.@hidden_name$ == "line19") kick_mob( "¡Enemigo a la vista!",2000 );
 	end;
 }
 
@@ -1280,15 +1280,15 @@ moro_vol,114,114,7	duplicate(Combat Laphine#line11)	Combat Laphine#line19	4_M_FA
 moro_vol,103,118,1	script	Combat Laphine#line16	4_F_FAIRYSOLDIER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "The Sapphas had better not flank us.";
+		npctalk "Mas les vale a los Sapphas no flanquearnos.";
 	else if (.@ttemp == 2)
-		npctalk "Watch out!";
+		npctalk "¡Cuidado!";
 	else if (.@ttemp == 3)
-		npctalk "You're in a war zone. Don't let your guard down.";
+		npctalk "Estas en zona de guerra. No bajes la guardia.";
 	else if (.@ttemp == 4)
-		npctalk "Please be careful.";
+		npctalk "Por favor ten cuidado.";
 	else
-		npctalk "I'm worried for the guys at the front lines.";
+		npctalk "Estoy preocupada por los chicos en las lineas del frente.";
 	end;
 }
 
@@ -1296,16 +1296,16 @@ moro_vol,110,117,7	duplicate(Combat Laphine#line16)	Combat Laphine#line18	4_M_FA
 
 moro_vol,104,86,3	script	Ryoson#14304	4_M_ALCHE_A,{
 	mes "[Ryoson]";
-	mes "Of course I'm nervous. You don't have to ask me that.";
-	mes "Why the Administrative Officer put me in charge of the knights is beyond me.";
+	mes "Por supuesto que estoy nervioso. No tienes que preguntarme eso.";
+	mes "Por que el Oficial Administrativo me puso a cargo de los caballeros esta mas alla de mi comprension.";
 	next;
 	mes "[Ryoson]";
-	mes "They're not knights-in-training, or even apprentice knights. They're freaking Rune Knights.";
-	mes "Ah, I'm too inexperienced and powerless to do anything with them.";
+	mes "No son caballeros en entrenamiento, ni siquiera caballeros aprendices. Son malditos Rune Knights.";
+	mes "Ah, soy demasiado inexperto e impotente para hacer algo con ellos.";
 	next;
 	mes "[Ryoson]";
-	mes "At least my safety is guaranteed so long as the three knights are with me.";
-	mes "I hope.";
+	mes "Al menos mi seguridad esta garantizada mientras los tres caballeros esten conmigo.";
+	mes "Espero.";
 	close;
 }
 
@@ -1314,9 +1314,9 @@ moro_vol,101,87,5	script	Rune-Midgarts Knight#mid01	4_M_KNIGHT_BLACK,{
 	if (.@ttemp == 1)
 		npctalk "...";
 	else if (.@ttemp == 2)
-		npctalk "Too quiet.";
+		npctalk "Demasiado silencio.";
 	else if (.@ttemp == 3)
-		npctalk "I really need to let off some steam.";
+		npctalk "Realmente necesito desahogarme.";
 	else if (.@ttemp == 4)
 		npctalk "Grr...";
 	else
@@ -1327,28 +1327,28 @@ moro_vol,101,87,5	script	Rune-Midgarts Knight#mid01	4_M_KNIGHT_BLACK,{
 moro_vol,101,85,5	script	Rune-Midgarts Knight#mid02	4_M_KNIGHT_GOLD,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "I'm here to protect important personnel.";
+		npctalk "Estoy aqui para proteger al personal importante.";
 	else if (.@ttemp == 2)
-		npctalk "Ryoson, don't panic--fear spreads like wildfire.";
+		npctalk "Ryoson, no entres en panico--el miedo se esparce como polvora.";
 	else if (.@ttemp == 3)
-		npctalk "I really hope I can accomplish my mission.";
+		npctalk "Realmente espero poder cumplir mi mision.";
 	else if (.@ttemp == 4)
-		npctalk "Sigh.";
+		npctalk "Suspiro.";
 	else
-		npctalk "So far, so good.";
+		npctalk "Hasta ahora, todo bien.";
 	end;
 }
 
 moro_vol,103,83,1	script	Rune-Midgarts Knight#mid03	4_M_KNIGHT_SILVER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "Ryoson, no one's going to bite ya. Don't be so afraid.";
+		npctalk "Ryoson, nadie te va a morder. No tengas tanto miedo.";
 	else if (.@ttemp == 2)
-		npctalk "Fighting the Demon God is like every knight's wet dream has come true.";
+		npctalk "Luchar contra el Dios Demonio es como el sueno de todo caballero hecho realidad.";
 	else if (.@ttemp == 3)
 		npctalk "Hmm...";
 	else if (.@ttemp == 4)
-		npctalk "Tension in the battlefield always thrills me.";
+		npctalk "La tension en el campo de batalla siempre me emociona.";
 	else
 		npctalk "...";
 	end;
@@ -1356,36 +1356,36 @@ moro_vol,103,83,1	script	Rune-Midgarts Knight#mid03	4_M_KNIGHT_SILVER,{
 
 moro_vol,110,83,3	script	Hugh#14305	4_M_LGTGUARD,{
 	mes "[Hugh]";
-	mes "We're here at last.";
-	mes "At first, I couldn't believe all those rumors about the Demon God's hideout and stronghold.";
+	mes "Finalmente estamos aqui.";
+	mes "Al principio, no podia creer todos esos rumores sobre el escondite y fortaleza del Dios Demonio.";
 	next;
 	mes "[Hugh]";
-	mes "As things stand, I have no hope of going back to the mainland any time soon.";
+	mes "Tal como estan las cosas, no tengo esperanzas de volver al continente pronto.";
 	next;
 	mes "[Hugh]";
-	mes "Gosh, I'm tired of those guys.";
-	mes "I'd better find the Demon God quickly.";
+	mes "Dios, estoy cansado de esos tipos.";
+	mes "Sera mejor que encuentre al Dios Demonio rapido.";
 	next;
 	mes "[Hugh]";
-	mes "Have I thought about losing?";
-	mes "I have, but I try not to.";
-	mes "I'll never going to win if I let myself believe I'll lose.";
+	mes "¿Si he pensado en perder?";
+	mes "Si, pero intento no hacerlo.";
+	mes "Nunca voy a ganar si me dejo creer que voy a perder.";
 	next;
 	mes "[Hugh]";
-	mes "We Schwarzwaldians are born to win.";
+	mes "Los Schwarzwaldianos nacimos para ganar.";
 	close;
 }
 
 moro_vol,108,81,7	script	Schwarzwald Elite#sch01	4_M_EIN_SOLDIER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "For the glory of Schwarzwald!";
+		npctalk "¡Por la gloria de Schwarzwald!";
 	else if (.@ttemp == 2)
-		npctalk "I thought Einbroch had bad air, and this place is no better.";
+		npctalk "Pense que Einbroch tenia mal aire, y este lugar no es mejor.";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
-		npctalk "We're going to win!";
+		npctalk "¡Vamos a ganar!";
 	else
 		npctalk "...";
 	end;
@@ -1394,13 +1394,13 @@ moro_vol,108,81,7	script	Schwarzwald Elite#sch01	4_M_EIN_SOLDIER,{
 moro_vol,111,80,1	script	Schwarzwald Elite#sch02	4_M_EIN_SOLDIER,{
 	.@ttemp = rand(1,5);
 	if (.@ttemp == 1)
-		npctalk "For the glory of Schwarzwald!";
+		npctalk "¡Por la gloria de Schwarzwald!";
 	else if (.@ttemp == 2)
-		npctalk "For Midgard!";
+		npctalk "¡Por Midgard!";
 	else if (.@ttemp == 3)
 		npctalk "...";
 	else if (.@ttemp == 4)
-		npctalk "We're going to win!";
+		npctalk "¡Vamos a ganar!";
 	else
 		npctalk "...";
 	end;
@@ -1411,13 +1411,13 @@ moro_vol,113,81,3	script	Schwarzwald Elite#sch03	4_M_EIN_SOLDIER,{
 	if (.@ttemp == 1)
 		npctalk "Sigh.";
 	else if (.@ttemp == 2)
-		npctalk "Which one would you prefer: fighting the Demon God or standing watch in Einbroch?";
+		npctalk "¿Que preferiries: luchar contra el Dios Demonio o hacer guardia en Einbroch?";
 	else if (.@ttemp == 3)
-		npctalk "My eyes are suddenly misty... I'd better chin up... *Inhale*";
+		npctalk "Mis ojos se nublaron de repente... Mejor me animo... *Inhala*";
 	else if (.@ttemp == 4)
-		npctalk "We're going to win, though.";
+		npctalk "Vamos a ganar, igual.";
 	else
-		npctalk "I wish I trained harder.";
+		npctalk "Ojala hubiera entrenado mas.";
 	end;
 }
 

@@ -876,7 +876,7 @@ prt_cas_q,28,28,3	script	Court Mage Nillem#ep16_wiz01	4_M_JOB_WIZARD,{
 		if (select( "¡Vamos ahora!", "Necesito hacer algunos preparativos." ) == 2) {
 			mes "[Nillem]";
 			mes "Luego, avíseme cuando esté listo.";
-			mes "Si no me presento, ven a ^4d4dffPast Memories of the Royal Family^000000 de inmediato.";
+			mes "Si no me presento, ven a ^4d4dffRecuerdos Pasados de la Familia Real^000000 de inmediato.";
 			next;
 			mes "[Nillem]";
 			mes "Sabes cómo llegar allí.";
@@ -1052,7 +1052,7 @@ function	script	F_banquet_main_4_spica	{
 	cutin "ep16_nihi_miseria_heine01",2;
 	mes "[Nyhill]";
 	mes "" + .@char_name$ + ", Visité tu habitación para disculparte, pero ya te habías ido al salón de banquetes.";
-	unittalk getcharid(3), "" + .@char_name$ + " : Apology?", bc_self;
+	unittalk getcharid(3), "" + .@char_name$ + " : Disculpa?", bc_self;
 	next;
 	cutin "ep16_nihi_miseria_heine04",2;
 	mes "[Nyhill]";
@@ -1445,7 +1445,7 @@ OnTouch:
 		sleep2 3000;
 		npctalk "La droga funcionó de maravilla. Jaja... Ese señor no lo toleraba como me dijeron.", "#ep16_7689_01", bc_self;
 		sleep2 1000;
-		unittalk getcharid(3), "" + .@name$ + " : (Lord?)", bc_self;
+		unittalk getcharid(3), "" + .@name$ + " : (Senor?)", bc_self;
 		sleep2 3000;
 		npctalk "¿Qué debemos hacer ahora?", "#ep16_7689_02", bc_self;
 		sleep2 3000;
@@ -1458,7 +1458,7 @@ OnTouch:
 		cloakoffnpcself( "Skia Nerius#ep16_7689" );
 		npctalk "¿Encontraste a Nyhill?", "Skia Nerius#ep16_7689", bc_self;
 		sleep2 1000;
-		unittalk getcharid(3), "" + .@name$ + " : What the!", bc_self;
+		unittalk getcharid(3), "" + .@name$ + " : Pero que!", bc_self;
 		sleep2 2000;
 		npctalk "¿Por qué estás tan sorprendido? ¿Qué estás mirando?", "Skia Nerius#ep16_7689", bc_self;
 		sleep2 3000;
@@ -1528,7 +1528,7 @@ prt_cas,25,35,5	script	Skia Nerius#ep16_7690	4_EP16_SKIA,{
 		cutin "ep16_skia_nerius01",0;
 		mes "[Skia]";
 		mes "Bueno, ya casi es la hora, así que...";
-		unittalk getcharid(3), "" + strcharinfo(0) + " : Time?", bc_self;
+		unittalk getcharid(3), "" + strcharinfo(0) + " : Tiempo?", bc_self;
 		next;
 		cutin "ep16_nihi_miseria_heine01",2;
 		mes "[Nyhill]";
@@ -1751,7 +1751,7 @@ prt_lib,91,85,3	script	Mage Nillem#ep16_warp	4_M_JOB_WIZARD,{
 		mes "Él gestiona la entrada.";
 		mes "Él te guiará.";
 		erasequest 7694;// I'd Like to See that Too
-		setquest 7695;// Escape from the Past Memories of the Royal Family
+		setquest 7695;// Escape from the Recuerdos Pasados de la Familia Real
 		ep16_royal = 13;
 		close;
 	case 13:
@@ -1859,7 +1859,7 @@ prt_lib,88,90,1	script	Room of Consciousness#evt_gate01	PORTAL,{
 			mes "Sólo el líder del partido puede entrar.^000000";
 			close;
 		case IE_OK:
-			mapannounce "prt_lib", "Party member " + strcharinfo(0) + " of party's " + getpartyname( getcharid(1) ) + " enters Ritual of Blessing.", bc_map,0xFF99,FW_NORMAL,12;
+			mapannounce "prt_lib", "Miembro del grupo " + strcharinfo(0) + " del grupo " + getpartyname( getcharid(1) ) + " entra al Ritual de Bendicion.", bc_map,0xFF99,FW_NORMAL,12;
 			//warp "2@mir",101,12;
 			end;
 		}
@@ -2190,7 +2190,7 @@ prt_lib,85,82,5	script	Ian Walther#ep16_lib01	1_M_JOBTESTER,{
 		mes "Creo que fui yo.";
 		mes "Tengo este recuerdo hablando con alguien mientras estaba borracho.";
 		next;
-		unittalk .@account_id, "" + .@name$ + " : (Does it mean...)", bc_self;
+		unittalk .@account_id, "" + .@name$ + " : (Eso significa que...)", bc_self;
 		mes "[Nyhill]";
 		mes "Creo que así fue como salió la historia.";
 		mes "Estoy profundamente avergonzado.";
@@ -2208,7 +2208,7 @@ prt_lib,85,82,5	script	Ian Walther#ep16_lib01	1_M_JOBTESTER,{
 		mes "¿Tanto deseabas ser rey?";
 		mes "¡Peter es miembro de tu propia familia!";
 		next;
-		unittalk .@account_id, "" + .@name$ + " : (They were looking for a target...)", bc_self;
+		unittalk .@account_id, "" + .@name$ + " : (Estaban buscando un objetivo...)", bc_self;
 		mes "[Nyhill]";
 		mes "........Phew...";
 		mes "No es eso...";
@@ -2217,7 +2217,7 @@ prt_lib,85,82,5	script	Ian Walther#ep16_lib01	1_M_JOBTESTER,{
 		mes "Habla por ti mismo.";
 		mes "Necesito saber lo inútil que eres.";
 		next;
-		unittalk .@account_id, "" + .@name$ + " : (It was just a misfortune that Nyhill was marked as the target...)", bc_self;
+		unittalk .@account_id, "" + .@name$ + " : (Fue solo una desgracia que Nyhill fuera marcado como el objetivo...)", bc_self;
 		mes "[Nyhill]";
 		mes "No tengo nada que decir al respecto.";
 		mes "Sin embargo...";
@@ -2251,7 +2251,7 @@ prt_lib,85,82,5	script	Ian Walther#ep16_lib01	1_M_JOBTESTER,{
 		mes "[Maximilian]";
 		mes "¿Tienes una prueba?";
 		mes "No se te ocurrió la historia simplemente para ayudarlo, ¿verdad?";
-		unittalk .@account_id, "" + .@name$ + " : (Skia will testify for him since we found him together.)", bc_self;
+		unittalk .@account_id, "" + .@name$ + " : (Skia testificara por el ya que lo encontramos juntos.)", bc_self;
 		next;
 		select("Lady Nerius testificará...");
 		mes "[Ian Walther]";
@@ -2520,7 +2520,7 @@ prt_lib_q,91,85,3	script	Nillem#ep16_lib_q	4_M_JOB_WIZARD,{
 		mes "[Nillem]";
 		mes "¿Qué pasa con eso?";
 		mes "Nos veremos todos los días a partir de ahora, ¿no?";
-		unittalk getcharid(3), "" + strcharinfo(0) + " : ......Phew..", bc_self;
+		unittalk getcharid(3), "" + strcharinfo(0) + " : ......Uf..", bc_self;
 		next;
 		mes "[Nillem]";
 		mes "Bueno, ¿volvemos entonces?";
@@ -2698,7 +2698,7 @@ prt_lib_q,88,90,1	script	Swaying Space#evt_gate02	4_ENERGY_RED,{
 			mes "Sólo el líder del partido puede entrar.^000000";
 			close;
 		case IE_OK:
-			mapannounce strnpcinfo(4), "Party member " + strcharinfo(0) + " of party's " + getpartyname( getcharid(1) ) + " enters Room of Consciousness.", bc_map,0xFF99,FW_NORMAL,12;
+			mapannounce strnpcinfo(4), "Miembro del grupo " + strcharinfo(0) + " del grupo " + getpartyname( getcharid(1) ) + " entra a la Sala de Conciencia.", bc_map,0xFF99,FW_NORMAL,12;
 			//warp "1@mir",101,10;
 			end;
 		}
@@ -3189,7 +3189,7 @@ prt_cas,319,211,3	script	Royal Sauce Master#ep16	4_M_ALCHE_B,{
 		mes "¡Oh!";
 		mes "¡Muy bien!";
 		mes "¡Gracias a ti pude hacer la salsa perfecta!";
-		mes "Bring it to the Head Chef now!";
+		mes "Llevalo al Chef Principal ahora!";
 		next;
 		mes "[Oriental Oyster]";
 		mes "Pareces tener talento para hacer salsas.";
@@ -5538,7 +5538,7 @@ prt_cas_q,19,85,4	script	Kronecker G. Heine#ep16_01	4_EP16_GRANZ,{
 				next;
 				cutin "ep16_petter_heine01",0;
 				mes "[Peter]";
-				mes "It doesn't seem that way...";
+				mes "No parece ser asi...";
 				mes "Debe haberse sentido desanimado porque se ha descuidado su derecho.";
 				next;
 				cutin "ep16_kronecker_granz_heine",2;
@@ -5558,7 +5558,7 @@ prt_cas_q,19,85,4	script	Kronecker G. Heine#ep16_01	4_EP16_GRANZ,{
 				mes "He oído que tú eres quien asistiría al ritual.";
 				mes "Afortunadamente, el próximo rey podría ser de la familia Heine.";
 				next;
-				unittalk getcharid(3), "" + strcharinfo(0) + " : You mean Peter will...?", bc_self;
+				unittalk getcharid(3), "" + strcharinfo(0) + " : Quieres decir que Peter va a...?", bc_self;
 				mes "[Kronecker]";
 				mes "En la Asamblea Real anterior en la que se pusieron a prueba los candidatos al trono...";
 				next;
@@ -5597,7 +5597,7 @@ prt_cas_q,19,85,4	script	Kronecker G. Heine#ep16_01	4_EP16_GRANZ,{
 				next;
 				mes "[Kronecker]";
 				mes "Por algo se llama Mijeria.";
-				unittalk getcharid(3), "" + strcharinfo(0) + " : Mijeria? Misery?", bc_self;
+				unittalk getcharid(3), "" + strcharinfo(0) + " : Mijeria? Miseria?", bc_self;
 				next;
 				mes "[Friedrich]";
 				cutin "ep16_friedrich_stolz_heine",1;
@@ -5671,7 +5671,7 @@ prt_cas_q,19,85,4	script	Kronecker G. Heine#ep16_01	4_EP16_GRANZ,{
 		mes "No sabíamos que lo que había en la Sala de la Conciencia era ^4d4dff, una pieza falsa de Imir Heart^000000.";
 		next;
 		mes "[Kronecker]";
-		mes "Buscamos en los registros de ^4d4dffPast Memories of the Royal Family^000000 el registro de esa parte.";
+		mes "Buscamos en los registros de ^4d4dffRecuerdos Pasados de la Familia Real^000000 el registro de esa parte.";
 		next;
 		mes "[Kronecker]";
 		mes "No pudimos encontrar ninguno.";
@@ -8276,7 +8276,7 @@ function	script	F_kids_roegenburg_quest	{
 prontera,271,70,3	script	Kiddo#ep16lug01	4_M_MIKID,{
 	if (ep16_lug < 4) {
 		mes "[Allen]";
-		mes "Do you want business with us? But we don't meet with anybody.";
+		mes "Quieres hacer negocios con nosotros? Pero no nos reunimos con nadie.";
 		next;
 		mes "[Allen]";
 		mes "No somos personas fáciles con las que nadie pueda hablar.";
@@ -14165,7 +14165,7 @@ prt_cas,368,125,3	script	Dumk#ep16_etc03	4_M_SHADOWCHASER,{
 	npctalk "¡¡¡Mira con quién estás hablando!!! ¿Quieres buscar un problema conmigo?", "Dumk#ep16_etc03", bc_self;
 	sleep2 1000;
 	setpcblock PCBLOCK_NPC, false;
-	unittalk getcharid(3), "" + strcharinfo(0) + " : (Shaking the head from side to side)", bc_self;
+	unittalk getcharid(3), "" + strcharinfo(0) + " : (Sacudiendo la cabeza de lado a lado)", bc_self;
 	emotion ET_STARE_ABOUT, playerattached();
 	end;
 }
@@ -14200,7 +14200,7 @@ prt_cas,367,123,7	script	Kid#ep16_etc04	4_M_ACROSS,{
 	npctalk "¡¡¡Mira con quién estás hablando!!! ¿Quieres buscar un problema conmigo?", "Dumk#ep16_etc03", bc_self;
 	sleep2 1000;
 	setpcblock PCBLOCK_NPC, false;
-	unittalk getcharid(3), "" + strcharinfo(0) + " : (Shaking the head from side to side)", bc_self;
+	unittalk getcharid(3), "" + strcharinfo(0) + " : (Sacudiendo la cabeza de lado a lado)", bc_self;
 	emotion ET_STARE_ABOUT, playerattached();
 	end;
 }
@@ -14536,7 +14536,7 @@ prt_q,157,334,3	script	Nillem#ep16_pprt01	4_M_JOB_WIZARD,{
 		mes "[Nillem]";
 		mes "¿Qué pasa con eso?";
 		mes "Nos veremos todos los días a partir de ahora, ¿no?";
-		unittalk getcharid(3), "" + strcharinfo(0) + " : ......Phew..", bc_self;
+		unittalk getcharid(3), "" + strcharinfo(0) + " : ......Uf..", bc_self;
 		next;
 		mes "[Nillem]";
 		mes "Bueno, ¿volvemos entonces?";
@@ -15656,7 +15656,7 @@ prt_q,79,102,8	script	Soldier#EP161HU03	4_M_GEF_SOLDIER,{
 		next;
 		emotion ET_PROFUSELY_SWEAT;
 		mes "[Soldier]";
-		mes "Dear adventurer, you know nothing.";
+		mes "Querido aventurero, no sabes nada.";
 		next;
 		mes "[Soldier]";
 		mes "Ay, no les iba a contar esta historia, porque no quería alardear...";
@@ -16930,7 +16930,7 @@ prt_pri00,58,128,4	script	Overwatcher Terketh#ep16	4_M_JOB_HUNTER,{
 		mes "Déjame enviarte.";
 		mes "Si subes las escaleras, encontrarás la Oficina del Cruzado.";
 		mes "Debes ir a dónde ir después de eso, ¿verdad?";
-		erasequest 7695;// Escape from the Past Memories of the Royal Family
+		erasequest 7695;// Escape from the Recuerdos Pasados de la Familia Real
 		setquest 7696;// What's Next?
 		ep16_royal = 14;
 		warp "prt_pri00",53,128;
@@ -17775,9 +17775,9 @@ prt_prison,243,17,4	script	Prisoner 243DV17#EP161D	4_PORING,{
 		mes "[Prisoner 243DV17]";
 		mes "" + .@string$ + " ? ¿Es eso todo?";
 		next;
-		mapannounce "prt_prison", "Mysterious Shout: Idiot " + strcharinfo(0) + " says " + .@string$ + "", bc_map, 0x9CFF00;
+		mapannounce "prt_prison", "Grito Misterioso: Idiota " + strcharinfo(0) + " dice " + .@string$ + "", bc_map, 0x9CFF00;
 		sleep2 3000;
-		mapannounce "prt_prison", "Mysterious Laughter: Giggle", bc_map, 0x9CFF00;
+		mapannounce "prt_prison", "Risa Misteriosa: Jijiji", bc_map, 0x9CFF00;
 		mes "Me ridiculizaron sin motivo y realmente me siento mal.";
 		next;
 		mes "[Prisoner 243DV17]";

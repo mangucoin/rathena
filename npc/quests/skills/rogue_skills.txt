@@ -1,15 +1,15 @@
-//===== rAthena Script ======================================= 
+//===== rAthena Script =======================================
 //= Rogue Skills Quests
-//===== By: ================================================== 
+//===== By: ==================================================
 //= Lupus, Reddozen
-//===== Current Version: ===================================== 
+//===== Current Version: =====================================
 //= 1.8
-//===== Compatible With: ===================================== 
+//===== Compatible With: =====================================
 //= rAthena Project
-//===== Description: ========================================= 
+//===== Description: =========================================
 //= [Official Conversion]
 //= Quests for skills: CLose Confine
-//===== Additional Comments: ================================= 
+//===== Additional Comments: =================================
 //= 1.4 Rescripted to Aegis 10.3 stadards. [L0ne_W0lf]
 //= 1.5 Fixed bad NPC header data to comply with rev. 11603. [L0ne_W0lf]
 //= 1.6 Bug fixes as pointed out by Brainstorm in bugreport:351 [L0ne_W0lf]
@@ -60,59 +60,59 @@ OnTouch_:
 		specialeffect2 EF_LIGHTSPHERE;
 		set ROG_SK,11;
 		mes "[Killer]";
-		mes "Wh-what have";
-		mes "you done to me?!";
-		mes "C-can't... move!";
+		mes "Q-que me";
+		mes "has hecho?!";
+		mes "N-no puedo... moverme!";
 		next;
 		mes "[Haijara Greg]";
-		mes "Oh? I didn't expect";
-		mes "you to be able to cast";
-		mes "Close Confine so soon!";
-		mes "Amazing, just amazing!";
-		mes "Now, this is a good chance";
-		mes "for you to master the skill...";
+		mes "Oh? No esperaba";
+		mes "que pudieras lanzar";
+		mes "Close Confine tan pronto!";
+		mes "Increible, simplemente increible!";
+		mes "Ahora, esta es una buena oportunidad";
+		mes "para que domines la habilidad...";
 		next;
 		mes "[Haijara Greg]";
-		mes "Now pay attention.";
-		mes "I want you to practice";
-		mes "predicting your opponent's";
-		mes "movement intent on this killer.";
-		mes "You should be able to see which way he plans to move by his aura.";
+		mes "Ahora presta atencion.";
+		mes "Quiero que practiques";
+		mes "predecir la intencion de movimiento";
+		mes "de tu oponente con este asesino.";
+		mes "Deberias poder ver hacia donde planea moverse por su aura.";
 		next;
 		mes "[Haijara Greg]";
-		mes "If he plans to move to left,";
-		mes "his aura will be white. If he";
-		mes "moves to the right, it will be";
-		mes "yellow. If he intends to go";
-		mes "backward, it will be pale red.";
+		mes "Si planea moverse a la izquierda,";
+		mes "su aura sera blanca. Si se";
+		mes "mueve a la derecha, sera";
+		mes "amarilla. Si tiene intencion de ir";
+		mes "hacia atras, sera rojo palido.";
 		next;
 		setarray .@Effects[1],EF_CHANGECOLD,EF_CHANGEWIND,EF_CHANGEEARTH;
 		for(set .@lim_1,0; .@lim_1<10; set .@lim_1,.@lim_1+1) {
 			set .@move_1,rand(1,3);
 			specialeffect .@Effects[.@move_1];
-			if (select("Block him to the Left:Block him to the Right:Block his Retreat") == .@move_1) {
-				mes "^3355FFThe killer remains";
-				mes "unable to move and looks";
-				mes "incredibly confused! Right";
-				mes "now, you're using the Close";
-				mes "Confine skill perfectly!^000000";
+			if (select("Bloquealo a la Izquierda:Bloquealo a la Derecha:Bloquea su Retirada") == .@move_1) {
+				mes "^3355FFEl asesino permanece";
+				mes "incapaz de moverse y se ve";
+				mes "increiblemente confundido! Ahora";
+				mes "mismo, estas usando la habilidad";
+				mes "Close Confine perfectamente!^000000";
 				specialeffect EF_POTION1;
 				specialeffect2 EF_POTION7;
 			}
 			else {
-				mes "^3355FFWait--!";
-				mes "For some reason,";
-				mes "you sense that's not";
-				mes "the direction the killer";
-				mes "is moving at this moment.";
-				mes "You naturally correct yourself.^000000";
+				mes "^3355FFEspera--!";
+				mes "Por alguna razon,";
+				mes "sientes que esa no es";
+				mes "la direccion en la que el asesino";
+				mes "se esta moviendo en este momento.";
+				mes "Naturalmente te corriges.^000000";
 			}
 			next;
 		}
-		mes "^3355FFYou successfully";
-		mes "retrieved the priceless";
-		mes "skill book written by the";
-		mes "legendary Chae Takbae.^000000";
+		mes "^3355FFRecuperaste exitosamente";
+		mes "el invaluable libro de";
+		mes "habilidades escrito por el";
+		mes "legendario Chae Takbae.^000000";
 		close2;
 		disablenpc "Killer#Rogueguild";
 		donpcevent "#killershow01::OnDisable";
@@ -121,8 +121,8 @@ OnTouch_:
 	else if (ROG_SK == 11) {
 		mes "[Killer]";
 		mes "Grrrrr...";
-		mes "S-still...";
-		mes "C-can't... Move!";
+		mes "T-todavia...";
+		mes "N-no puedo... Moverme!";
 		close2;
 		disablenpc "Killer#Rogueguild";
 		donpcevent "#killershow01::OnDisable";
@@ -135,10 +135,10 @@ in_rogue,355,179,0	script	Haijara Greg#rogueguild	46,{
 	if (BaseJob == Job_Rogue) {
 		if (ROG_SK == 12 && Upper == 1) {
 			mes "[Haijara Greg]";
-			mes "Hm? Ah, amnesia as";
-			mes "resulting from transcending,";
-			mes "eh? Then I will teach you the";
-			mes "Close Confine skill once again.";
+			mes "Hm? Ah, amnesia como";
+			mes "resultado de trascender,";
+			mes "eh? Entonces te ensenare la";
+			mes "habilidad Close Confine una vez mas.";
 			specialeffect2 EF_LIGHTSPHERE;
 			skill "RG_CLOSECONFINE",1,SKILL_PERM;
 			set ROG_SK,13;
@@ -146,270 +146,270 @@ in_rogue,355,179,0	script	Haijara Greg#rogueguild	46,{
 		}
 		else if (ROG_SK == 13 && Upper == 1) {
 			mes "[Haijara Greg]";
-			mes "A Stalker, eh?";
-			mes "Make sure that you";
-			mes "use your abilities to";
-			mes "malign foes that deserve";
-			mes "to be stalked. Best of";
-			mes "luck to you, adventurer.";
+			mes "Un Stalker, eh?";
+			mes "Asegurate de usar";
+			mes "tus habilidades para";
+			mes "perseguir a los enemigos que";
+			mes "merecen ser acechados. La mejor";
+			mes "de las suertes, aventurero.";
 			close;
 		}
 		else {
 			if (ROG_SK < 1) {
 				mes "[Haijara Greg]";
-				mes "H-how did you find this";
-				mes "place? I thought this panic";
-				mes "room was supposed to be";
-				mes "impenetrable, even by Rogues!";
+				mes "C-como encontraste este";
+				mes "lugar? Pense que esta sala";
+				mes "de panico era supuestamente";
+				mes "impenetrable, incluso para Rogues!";
 				next;
 				mes "[Haijara Greg]";
-				mes "This can't be good!";
-				mes "It will only be a matter of";
-				mes "time before they find me...";
+				mes "Esto no puede ser bueno!";
+				mes "Solo sera cuestion de";
+				mes "tiempo antes de que me encuentren...";
 				close;
 			}
 			else if (ROG_SK == 1) {
 				mes "[Haijara Greg]";
-				mes "Wh-who are you,";
-				mes "and how did you get";
-				mes "in here? Identify yourself!";
+				mes "Q-quien eres,";
+				mes "y como llegaste";
+				mes "aqui? Identificate!";
 				next;
-				if (select("I don't mean you any harm!:Give us what we want!") == 1) {
+				if (select("No tengo malas intenciones!:Danos lo que queremos!") == 1) {
 					mes "[Haijara Greg]";
 					mes "No...?";
-					mes "Then... Then";
-					mes "why have you come?";
-					mes "It is no accident that";
-					mes "you have found me.";
+					mes "Entonces... Entonces";
+					mes "por que has venido?";
+					mes "No es casualidad que";
+					mes "me hayas encontrado.";
 					next;
-					if (select("I came to help you.:Oh, actually, I wasn't looking for you.") == 1) {
+					if (select("Vine a ayudarte.:Oh, en realidad, no te estaba buscando.") == 1) {
 						mes "[Haijara Greg]";
-						mes "Hmm... Well, I suppose";
+						mes "Hmm... Bueno, supongo";
 						if (Upper == 1)
-							mes "I can trust a fellow Stalker";
+							mes "que puedo confiar en un Stalker";
 						else
-							mes "I can trust a fellow Rogue";
-						mes "with my predictament. Honor";
-						mes "among thieves and all that.";
-						mes "Alright. Have you ever heard";
-						mes "the legend of Chae Takbae?";
+							mes "que puedo confiar en un Rogue";
+						mes "con mi situacion. Honor";
+						mes "entre ladrones y todo eso.";
+						mes "Muy bien. Alguna vez escuchaste";
+						mes "la leyenda de Chae Takbae?";
 						next;
-						if (select("No:Yes") == 1) {
+						if (select("No:Si") == 1) {
 							mes "[Haijara Greg]";
-							mes "100 years ago, Chae Takbae";
-							mes "was the very first person to";
-							mes "transcend his limits. He was";
-							mes "also the very person to choose";
-							mes "a different path, rather than the job order he previously had.";
+							mes "Hace 100 anos, Chae Takbae";
+							mes "fue la primera persona en";
+							mes "trascender sus limites. Tambien";
+							mes "fue la primera persona en elegir";
+							mes "un camino diferente, en vez del orden de clase que tenia previamente.";
 							next;
 							mes "[Haijara Greg]";
-							mes "He was originally a Monk,";
-							mes "but after transcending, he";
-							mes "somehow became a Stalker.";
-							mes "Retaining his knowledge of";
-							mes "the Monk's Root skill, he adapted it for the purposes of the Rogues.";
+							mes "Originalmente era un Monk,";
+							mes "pero despues de trascender,";
+							mes "de alguna forma se convirtio en Stalker.";
+							mes "Reteniendo su conocimiento de";
+							mes "la habilidad Root del Monk, la adapto para los propositos de los Rogues.";
 							next;
 							mes "[Haijara Greg]";
-							mes "Chae Takbae recorded the";
-							mes "fundamentals for this new";
-							mes "Rogue skill in a book that";
-							mes "I was fortunate enough to";
-							mes "obtain. But as soon as I got";
-							mes "it, the blackmailing begain...";
+							mes "Chae Takbae registro los";
+							mes "fundamentos de esta nueva";
+							mes "habilidad de Rogue en un libro que";
+							mes "tuve la fortuna de obtener.";
+							mes "Pero tan pronto como lo consegui,";
+							mes "el chantaje comenzo...";
 							next;
 							mes "[Haijara Greg]";
-							mes "There are unscrupulous";
-							mes "parties that will use any";
-							mes "means to take the book away";
-							mes "from me. I can understand, as";
-							mes "my sons and I have learned new";
-							mes "skills from Takbae's writings.";
+							mes "Hay personas sin escrupulos";
+							mes "que usaran cualquier medio";
+							mes "para quitarme el libro. Lo";
+							mes "entiendo, ya que mis hijos y yo";
+							mes "hemos aprendido nuevas habilidades";
+							mes "de los escritos de Takbae.";
 							next;
 							mes "[Haijara Greg]";
-							mes "However, I am running";
-							mes "out of time and those men";
-							mes "will inevitably find me.";
-							mes "Will you help me save";
-							mes "myself and my sons?";
+							mes "Sin embargo, me estoy";
+							mes "quedando sin tiempo y esos";
+							mes "hombres inevitablemente me encontraran.";
+							mes "Me ayudarias a salvarme";
+							mes "a mi y a mis hijos?";
 							next;
-							if (select("Sure!:Sorry, but I'm busy.") == 1) {
+							if (select("Claro!:Lo siento, pero estoy ocupado.") == 1) {
 								mes "[Haijara Greg]";
-								mes "Oh, thank you so much!";
-								mes "Listen, I can't risk being";
-								mes "found, so would you take";
-								mes "this letter to my youngest";
-								mes "son, ^FF0000Louis Greg^000000? Hurry,";
-								mes "there's not much time left!";
+								mes "Oh, muchas gracias!";
+								mes "Escucha, no puedo arriesgarme";
+								mes "a ser encontrado, asi que podrias";
+								mes "llevar esta carta a mi hijo";
+								mes "menor, ^FF0000Louis Greg^000000? Apurate,";
+								mes "no queda mucho tiempo!";
 								set ROG_SK,2;
 								close;
 							}
 							mes "[Haijara Greg]";
-							mes "I... I see.";
-							mes "But please realize";
-							mes "that, if not you, who";
-							mes "can I trust to help me?";
+							mes "Ya... ya veo.";
+							mes "Pero por favor date cuenta";
+							mes "de que, si no eres tu, en quien";
+							mes "puedo confiar para que me ayude?";
 							close;
 						}
 						mes "[Haijara Greg]";
-						mes "Then you would know the";
-						mes "value of the skill book he has";
-						mes "written that I now possess.";
-						mes "However, I'm hounded by men";
-						mes "who will do anything to get it.";
-						mes "Would you please help me?";
+						mes "Entonces conoces el";
+						mes "valor del libro de habilidades que";
+						mes "el escribio y que ahora poseo.";
+						mes "Sin embargo, me persiguen hombres";
+						mes "que haran cualquier cosa por obtenerlo.";
+						mes "Por favor, me ayudarias?";
 						next;
-						if (select("Sure!:Sorry, but I'm busy.") == 1) {
+						if (select("Claro!:Lo siento, pero estoy ocupado.") == 1) {
 							mes "[Haijara Greg]";
-							mes "Oh, thank you so much!";
-							mes "Listen, I can't risk being";
-							mes "found, so would you take";
-							mes "this letter to my youngest";
-							mes "son, ^FF0000Louis Greg^000000? Hurry,";
-							mes "there's not much time left!";
+							mes "Oh, muchas gracias!";
+							mes "Escucha, no puedo arriesgarme";
+							mes "a ser encontrado, asi que podrias";
+							mes "llevar esta carta a mi hijo";
+							mes "menor, ^FF0000Louis Greg^000000? Apurate,";
+							mes "no queda mucho tiempo!";
 							set ROG_SK,2;
 							close;
 						}
 						mes "[Haijara Greg]";
-						mes "I... I see.";
-						mes "But please realize";
-						mes "that, if not you, who";
-						mes "can I trust to help me?";
+						mes "Ya... ya veo.";
+						mes "Pero por favor date cuenta";
+						mes "de que, si no eres tu, en quien";
+						mes "puedo confiar para que me ayude?";
 						close;
 					}
 					mes "[Haijara Greg]";
 					mes "Hm...?";
-					mes "That seems unlikely, but";
-					mes "I suppose I better give you";
-					mes "the benefit of the doubt.";
-					mes "Well then, I hope that you";
-					mes "can find your way out of here.";
+					mes "Eso parece poco probable, pero";
+					mes "supongo que mejor te doy";
+					mes "el beneficio de la duda.";
+					mes "Bueno entonces, espero que";
+					mes "puedas encontrar la salida de aqui.";
 					close;
 				}
 				mes "[Haijara Greg]";
-				mes "I see. So be it.";
-				mes "I'll show you the skill";
-				mes "that you covet so much...";
+				mes "Ya veo. Que asi sea.";
+				mes "Te mostrare la habilidad";
+				mes "que tanto codicias...";
 				mes "^FF0000Close Confine^000000!";
 				specialeffect EF_CHANGECOLD;
 				specialeffect2 EF_CHANGEWIND;
 				next;
 				mes "[Haijara Greg]";
-				mes "Hmpf. Now you are";
-				mes "helpless, allowing";
-				mes "me to do this: ^FF0000Back Stab^000000!";
+				mes "Jmpf. Ahora estas";
+				mes "indefenso, lo que me permite";
+				mes "hacer esto: ^FF0000Back Stab^000000!";
 				specialeffect2 EF_COMBOATTACK5;
 				percentheal -95,0;
 				next;
 				mes "[Haijara Greg]";
-				mes "Now get out of here.";
-				mes "Never show your greedy";
-				mes "face in front of me again.";
-				mes "And just be happy that";
-				mes "I haven't killed you!";
+				mes "Ahora vete de aqui.";
+				mes "Nunca muestres tu cara";
+				mes "codiciosa frente a mi de nuevo.";
+				mes "Y agradece que";
+				mes "no te haya matado!";
 				set ROG_SK,1;
 				close;
 			}
 			else if (ROG_SK == 2) {
 				mes "[Haijara Greg]";
-				mes "We're running out of";
-				mes "time... Please bring this";
-				mes "letter to my youngest son,";
-				mes "^FF0000Louis^000000, as soon as you can!";
-				mes "You can find him in the Rogue";
-				mes "Guild near ^FF0000Hollgrehenn Junior^000000.";
+				mes "Se nos acaba el";
+				mes "tiempo... Por favor lleva esta";
+				mes "carta a mi hijo menor,";
+				mes "^FF0000Louis^000000, lo mas pronto posible!";
+				mes "Puedes encontrarlo en el Gremio";
+				mes "de Rogues cerca de ^FF0000Hollgrehenn Junior^000000.";
 				close;
 			}
 			else if (ROG_SK == 3) {
 				mes "[Haijara Greg]";
-				mes "Louis sent you to find";
-				mes "^FF0000Thor^000000? He's in the Rogue";
-				mes "Guild near ^FF0000Hermanthorn Jr.^000000,";
-				mes "isn't he? I'm sorry that you";
-				mes "have to visit my sons one by";
-				mes "one... I know it's impractical.";
+				mes "Louis te envio a buscar";
+				mes "a ^FF0000Thor^000000? El esta en el Gremio";
+				mes "de Rogues cerca de ^FF0000Hermanthorn Jr.^000000,";
+				mes "no es asi? Lamento que tengas";
+				mes "que visitar a mis hijos uno por";
+				mes "uno... Se que no es practico.";
 				close;
 			}
 			else if (ROG_SK == 4) {
 				mes "[Haijara Greg]";
-				mes "Ah, looking for ^FF0000Jay^000000, eh?";
-				mes "He's near ^FF0000Antonio Jr.^000000 here";
-				mes "in the Rogue Guild. Or at";
-				mes "least, he's usually there.";
+				mes "Ah, buscando a ^FF0000Jay^000000, eh?";
+				mes "El esta cerca de ^FF0000Antonio Jr.^000000 aqui";
+				mes "en el Gremio de Rogues. O al";
+				mes "menos, usualmente esta ahi.";
 				close;
 			}
 			else if (ROG_SK == 5) {
 				mes "[Haijara Greg]";
-				mes "Oh, you're back!";
-				mes "And you've brought";
-				mes "a letter from Jay.";
-				mes "Good, good, let me";
-				mes "read what he has to say...";
+				mes "Oh, volviste!";
+				mes "Y trajiste";
+				mes "una carta de Jay.";
+				mes "Bien, bien, dejame";
+				mes "leer lo que tiene que decir...";
 				set ROG_SK,6;
 				next;
 				mes "[Haijara Greg]";
-				mes "Ah, great news! He's";
-				mes "contacted the Rogue Guild";
-				mes "to request extra protection";
-				mes "and to alert their guard. I can";
-				mes "finally relax just a little now. No one messes with Rogues.";
+				mes "Ah, excelentes noticias! El";
+				mes "contacto al Gremio de Rogues";
+				mes "para solicitar proteccion extra";
+				mes "y alertar a la guardia. Por fin";
+				mes "puedo relajarme un poco. Nadie se mete con los Rogues.";
 				next;
 				mes "[Haijara Greg]";
-				mes "Thank you very much for";
-				mes "your help. I would be in";
-				mes "hiding forever if it weren't";
-				mes "for you. In return, let me";
-				mes "offer you the chance to learn";
-				mes "Chae Takbae's secret skill.";
+				mes "Muchas gracias por";
+				mes "tu ayuda. Estaria";
+				mes "escondido para siempre si no";
+				mes "fuera por ti. A cambio, dejame";
+				mes "ofrecerte la oportunidad de aprender";
+				mes "la habilidad secreta de Chae Takbae.";
 				next;
 				mes "[Haijara Greg]";
-				mes "Please speak to ^FF0000Thor^000000";
-				mes "and tell him that I've";
-				mes "permitted you to learn";
-				mes "the skill I have taught";
-				mes "all of my sons. He'll";
-				mes "comply, I'm sure of it.";
+				mes "Por favor habla con ^FF0000Thor^000000";
+				mes "y dile que te he";
+				mes "dado permiso de aprender";
+				mes "la habilidad que le he ensenado";
+				mes "a todos mis hijos. El";
+				mes "aceptara, estoy seguro.";
 				close;
 			}
 			else if (ROG_SK == 6) {
 				mes "[Haijara Greg]";
-				mes "Please ask Thor to teach";
-				mes "you Chae Takbae's secret";
-				mes "Rogue skill. Understand that";
-				mes "I can't teach you this skill";
-				mes "with the equipment here in";
-				mes "this sloven panic room.";
+				mes "Por favor pidele a Thor que te";
+				mes "ensene la habilidad secreta";
+				mes "de Rogue de Chae Takbae. Entiende";
+				mes "que no puedo ensenarte esta";
+				mes "habilidad con el equipo que hay";
+				mes "en esta desordenada sala de panico.";
 				close;
 			}
 			else if (ROG_SK == 7) {
 				mes "[Haijara Greg]";
-				mes "Hm...? Aren't you";
-				mes "supposed to be in the";
-				mes "middle of training to learn";
-				mes "that skill? Please speak to";
-				mes "Thor and complete your training.";
+				mes "Hm...? No se supone";
+				mes "que deberias estar en medio";
+				mes "del entrenamiento para aprender";
+				mes "esa habilidad? Por favor habla con";
+				mes "Thor y completa tu entrenamiento.";
 				close;
 			}
 			else if (ROG_SK == 8) {
 				mes "[Haijara Greg]";
-				mes "You've completed the";
-				mes "training? Ah, that's quite";
-				mes "exceptional. However, you";
-				mes "should speak to Thor first...";
+				mes "Completaste el";
+				mes "entrenamiento? Ah, eso es";
+				mes "bastante excepcional. Sin embargo,";
+				mes "deberias hablar con Thor primero...";
 				close;
 			}
 			else if (ROG_SK == 9) {
 				mes "[Haijara Greg]";
-				mes "Oh, you've come back!";
-				mes "I hear that you've completed";
-				mes "the training and are ready";
-				mes "to hear about the applications";
-				mes "for the Close Confine skill.";
+				mes "Oh, volviste!";
+				mes "Escuche que completaste";
+				mes "el entrenamiento y estas listo";
+				mes "para escuchar sobre las aplicaciones";
+				mes "de la habilidad Close Confine.";
 				next;
 				mes "[Haijara Greg]";
-				mes "Wah! What th--?!";
-				mes "Stop! P-please, stop";
-				mes "that man! We can't let";
-				mes "him steal that book!";
+				mes "Wah! Que dem--?!";
+				mes "Alto! P-por favor, detengan";
+				mes "a ese hombre! No podemos dejar";
+				mes "que robe ese libro!";
 				specialeffect EF_COMBOATTACK5;
 				donpcevent "Killer#Rogueguild::OnEnable";
 				set ROG_SK,10;
@@ -417,126 +417,126 @@ in_rogue,355,179,0	script	Haijara Greg#rogueguild	46,{
 			}
 			else if (ROG_SK == 10) {
 				mes "[Haijara Greg]";
-				mes "That man just stole the";
-				mes "Close Confine skill book!";
-				mes "Please! Don't let him get";
-				mes "away! That book is priceless!";
+				mes "Ese hombre acaba de robar el";
+				mes "libro de habilidad Close Confine!";
+				mes "Por favor! No dejes que";
+				mes "escape! Ese libro no tiene precio!";
 				donpcevent "#killershow01::OnEnable";
 				close;
 			}
 			else if (ROG_SK == 11) {
 				donpcevent "Killer#Rogueguild::OnDisable";
 				donpcevent "#killershow01::OnDisable";
-				mes "^3355FFYou returned the";
-				mes "skill book written by";
-				mes "Chae Takbae to Haijara.^000000";
+				mes "^3355FFDevolviste el";
+				mes "libro de habilidades escrito por";
+				mes "Chae Takbae a Haijara.^000000";
 				next;
 				mes "[Haijara Greg]";
-				mes "Thanks so much for your";
-				mes "assistance. Now, if you'd";
-				mes "like to know some detailed";
-				mes "information about Close";
-				mes "Confine, I can tell you more";
-				mes "about the skill if you like.";
+				mes "Muchas gracias por tu";
+				mes "ayuda. Ahora, si te gustaria";
+				mes "saber informacion detallada";
+				mes "sobre Close Confine, puedo";
+				mes "contarte mas sobre la habilidad";
+				mes "si quieres.";
 				next;
-				if (select("Yes, please.:No, thanks.") == 1) {
+				if (select("Si, por favor.:No, gracias.") == 1) {
 					mes "[Haijara Greg]";
-					mes "As you must know,";
-					mes "Close Confine immobilizes";
-					mes "an enemy that is very close";
-					mes "to you. However, there are";
-					mes "a few nuances regarding its";
-					mes "use on players or monsters.";
+					mes "Como debes saber,";
+					mes "Close Confine inmoviliza";
+					mes "a un enemigo que esta muy cerca";
+					mes "de ti. Sin embargo, hay";
+					mes "algunos detalles respecto a su";
+					mes "uso en jugadores o monstruos.";
 					next;
 					mes "[Haijara Greg]";
-					mes "Now, Close Confine is";
-					mes "similar to the Monk's skill,";
-					mes "Root, but it only inhibits the";
-					mes "enemy's movement, not";
-					mes "its attack capabilities.";
+					mes "Ahora, Close Confine es";
+					mes "similar a la habilidad Root del Monk,";
+					mes "pero solo inhibe el";
+					mes "movimiento del enemigo, no";
+					mes "sus capacidades de ataque.";
 					next;
 					mes "[Haijara Greg]";
-					mes "With the exception of";
-					mes "Back Stab, which we can";
-					mes "only use once during Close";
-					mes "Confine's duration, we can";
-					mes "use any skill during the";
-					mes "Close Confine status.";
+					mes "Con la excepcion de";
+					mes "Back Stab, que solo podemos";
+					mes "usar una vez durante la duracion";
+					mes "de Close Confine, podemos";
+					mes "usar cualquier habilidad durante";
+					mes "el estado de Close Confine.";
 					next;
 					mes "[Haijara Greg]";
-					mes "Enemies affected by";
-					mes "Close Confine can escape";
-					mes "by using Fly Wing, Butterfly";
-					mes "Wings, or the Teleport or";
-					mes "Hiding skills. However, only";
-					mes "Hiding is active during WoE.";
+					mes "Los enemigos afectados por";
+					mes "Close Confine pueden escapar";
+					mes "usando Fly Wing, Butterfly";
+					mes "Wings, o las habilidades Teleport o";
+					mes "Hiding. Sin embargo, solo";
+					mes "Hiding esta activo durante WoE.";
 					next;
 					mes "[Haijara Greg]";
-					mes "Therefore, Close Confine";
-					mes "can be a very useful skill";
-					mes "during Guild War sieges, given";
-					mes "that the target doesn't use the";
-					mes "the Hiding skill to get away.";
+					mes "Por lo tanto, Close Confine";
+					mes "puede ser una habilidad muy util";
+					mes "durante los asedios de Guerra de";
+					mes "Gremios, siempre que el objetivo no";
+					mes "use la habilidad Hiding para escapar.";
 					next;
 					mes "[Haijara Greg]";
-					mes "With the exception of Boss";
-					mes "monsters, Close Confine";
-					mes "will immobilize monsters for";
-					mes "10 seconds, giving Rogues";
-					mes "new possibilities when";
-					mes "hunting in a party.";
+					mes "Con la excepcion de monstruos";
+					mes "Boss, Close Confine";
+					mes "inmovilizara monstruos por";
+					mes "10 segundos, dando a los Rogues";
+					mes "nuevas posibilidades cuando";
+					mes "cazan en grupo.";
 					next;
 					mes "[Haijara Greg]";
-					mes "Well, that's all I can tell";
-					mes "you about Close Confine.";
-					mes "I hope that you can learn";
-					mes "more about this skill through";
-					mes "practice, and that you become as great a legend as Chae Takbae.";
+					mes "Bueno, eso es todo lo que puedo";
+					mes "decirte sobre Close Confine.";
+					mes "Espero que puedas aprender";
+					mes "mas sobre esta habilidad con la";
+					mes "practica, y que te conviertas en una leyenda tan grande como Chae Takbae.";
 					set ROG_SK,12;
 					skill "RG_CLOSECONFINE",1,SKILL_PERM;
 					specialeffect2 EF_LIGHTSPHERE;
 					close;
 				}
 				mes "[Haijara Greg]";
-				mes "All right then...";
-				mes "I hope that you can";
-				mes "learn more about Close";
-				mes "Confine through diligent";
-				mes "practice. Good luck, and";
-				mes "thanks again for your help.";
+				mes "Esta bien entonces...";
+				mes "Espero que puedas";
+				mes "aprender mas sobre Close";
+				mes "Confine con practica";
+				mes "diligente. Buena suerte, y";
+				mes "gracias de nuevo por tu ayuda.";
 				set ROG_SK,12;
 				skill "RG_CLOSECONFINE",1,SKILL_PERM;
 				specialeffect2 EF_LIGHTSPHERE;
 				close;
 			}
 			mes "[Haijara Greg]";
-			mes "Thank you for helping";
-			mes "me protect this priceless";
-			mes "skill book. I hope that the";
-			mes "next time we meet, we'll be";
-			mes "comrades on the battlefield...";
+			mes "Gracias por ayudarme";
+			mes "a proteger este invaluable";
+			mes "libro de habilidades. Espero que la";
+			mes "proxima vez que nos veamos, seamos";
+			mes "camaradas en el campo de batalla...";
 			close;
 		}
 	}
 	else {
 		mes "[Haijara Greg]";
-		mes "H-how did you find this";
-		mes "place? I thought this panic";
-		mes "room was supposed to be";
-		mes "impenetrable, even by Rogues!";
+		mes "C-como encontraste este";
+		mes "lugar? Pense que esta sala";
+		mes "de panico era supuestamente";
+		mes "impenetrable, incluso para Rogues!";
 		next;
 		mes "[Haijara Greg]";
-		mes "This can't be good!";
-		mes "It will only be a matter of";
-		mes "time before they find me...";
+		mes "Esto no puede ser bueno!";
+		mes "Solo sera cuestion de";
+		mes "tiempo antes de que me encuentren...";
 		next;
 		mes "[Haijara Greg]";
-		mes "Please...";
-		mes "Find me a Stalker";
-		mes "or a Rogue that I can";
-		mes "trust and send him to";
-		mes "help me! I don't have ";
-		mes "much time left...";
+		mes "Por favor...";
+		mes "Encuentrame un Stalker";
+		mes "o un Rogue en quien";
+		mes "pueda confiar y envialo a";
+		mes "ayudarme! No me queda";
+		mes "mucho tiempo...";
 		close;
 	}
 }
@@ -545,154 +545,154 @@ in_rogue,152,29,0	script	Louis Greg#rogueguild	84,{
 	if (BaseJob == Job_Rogue || Class == Job_Thief_High) {
 		if (ROG_SK < 1) {
 			mes "[Louis Greg]";
-			mes "My father just...";
-			mes "He just vanished!";
-			mes "He was teaching me and";
-			mes "my brothers a new skill,";
-			mes "but lately he began acting";
-			mes "paranoid for some reason...";
+			mes "Mi padre simplemente...";
+			mes "Simplemente desaparecio!";
+			mes "Nos estaba ensenando a mi y";
+			mes "a mis hermanos una nueva habilidad,";
+			mes "pero ultimamente empezo a actuar";
+			mes "paranoico por alguna razon...";
 			next;
 			mes "[Louis Greg]";
-			mes "Maybe he went into hiding?";
-			mes "I know there's a hidden panic";
-			mes "room in the Rogue Guild, but";
-			mes "even I don't know where to find";
-			mes "it. I hope everything's okay...";
+			mes "Quizas se fue a esconder?";
+			mes "Se que hay una sala de panico";
+			mes "oculta en el Gremio de Rogues, pero";
+			mes "ni yo se donde encontrarla.";
+			mes "Espero que este bien...";
 			set ROG_SK,1;
 			close;
 		}
 		else if (ROG_SK == 1) {
 			mes "[Louis Greg]";
-			mes "Father did warn that";
-			mes "people might come after us";
-			mes "if they're learned about the";
-			mes "new skill we were learning.";
-			mes "Maybe he went into hiding in";
-			mes "the Rogue Guild's panic room...";
+			mes "Papa nos advirtio que";
+			mes "personas podrian venir tras nosotros";
+			mes "si se enteraban de la";
+			mes "nueva habilidad que estabamos aprendiendo.";
+			mes "Quizas se fue a esconder en";
+			mes "la sala de panico del Gremio de Rogues...";
 			close;
 		}
 		else if (ROG_SK == 2) {
 			mes "[Louis Greg]";
-			mes "What's this...?";
-			mes "A letter from my";
-			mes "father? Oh, he must";
-			mes "be alright! Quick, let";
-			mes "me read it right away!";
+			mes "Que es esto...?";
+			mes "Una carta de mi";
+			mes "padre? Oh, debe";
+			mes "estar bien! Rapido, dejame";
+			mes "leerla de inmediato!";
 			set ROG_SK,3;
 			next;
 			mes "[Louis Greg]";
-			mes "Oh no, he may be safe for";
-			mes "now, but father is being hunted";
-			mes "by some dangerous people? My";
-			mes "brother Thor will want to know";
-			mes "about this. Let me write him";
-			mes "a letter really quickly...";
+			mes "Oh no, puede que este a salvo por";
+			mes "ahora, pero papa esta siendo perseguido";
+			mes "por gente peligrosa? Mi";
+			mes "hermano Thor va a querer saber";
+			mes "sobre esto. Dejame escribirle";
+			mes "una carta rapidamente...";
 			next;
 			mes "[Louis Greg]";
-			mes "I know that I'm in no";
-			mes "position to ask any favors,";
-			mes "but I guess my father must";
-			mes "trust you. Please, would you";
-			mes "take my letter and deliver it";
-			mes "to my older brother, Thor?";
+			mes "Se que no estoy en posicion";
+			mes "de pedir favores,";
+			mes "pero supongo que mi padre debe";
+			mes "confiar en ti. Por favor, podrias";
+			mes "tomar mi carta y entregarla";
+			mes "a mi hermano mayor, Thor?";
 			next;
 			mes "[Louis Greg]";
-			mes "You can find Thor";
-			mes "next to Hermanthorn Jr.";
-			mes "inside the Rogue Guild.";
-			mes "I'd really appreciate it if";
-			mes "you could help my family.";
+			mes "Puedes encontrar a Thor";
+			mes "junto a Hermanthorn Jr.";
+			mes "dentro del Gremio de Rogues.";
+			mes "Te agradeceria mucho si";
+			mes "pudieras ayudar a mi familia.";
 			close;
 		}
 		else if (ROG_SK == 3) {
 			mes "[Louis Greg]";
-			mes "My elder brother, ^FF0000Thor^000000,";
-			mes "must know about this right";
-			mes "away! Please bring him this";
-			mes "letter for me. He should be";
-			mes "near ^FF0000Hermanthorn Jr.^000000 here";
-			mes "inside the Rogue Guild.";
+			mes "Mi hermano mayor, ^FF0000Thor^000000,";
+			mes "debe saber de esto de";
+			mes "inmediato! Por favor llevale esta";
+			mes "carta por mi. El deberia estar";
+			mes "cerca de ^FF0000Hermanthorn Jr.^000000 aqui";
+			mes "dentro del Gremio de Rogues.";
 			close;
 		}
 		else if (ROG_SK == 4) {
 			mes "[Louis Greg]";
-			mes "You're looking for my";
-			mes "brother, Jay? He's usually";
-			mes "hanging out here in the";
-			mes "Rogue Guild with Antonio Jr.";
+			mes "Estas buscando a mi";
+			mes "hermano, Jay? Usualmente";
+			mes "anda por aqui en el";
+			mes "Gremio de Rogues con Antonio Jr.";
 			close;
 		}
 		else if (ROG_SK == 5) {
 			mes "[Louis Greg]";
-			mes "If you need to speak";
-			mes "to my father, he's still";
-			mes "probably in the hidden panic";
-			mes "room inside the Rogue Guild.";
-			mes "I still don't know where that";
-			mes "place could possibly be...";
+			mes "Si necesitas hablar";
+			mes "con mi padre, probablemente";
+			mes "sigue en la sala de panico oculta";
+			mes "dentro del Gremio de Rogues.";
+			mes "Todavia no se donde";
+			mes "puede estar ese lugar...";
 			close;
 		}
 		else if (ROG_SK == 6) {
 			mes "[Louis Greg]";
-			mes "You want to learn the";
-			mes "secret Rogue skill? Oh,";
-			mes "you should probably talk";
-			mes "to ^FF0000Thor^000000 about that. I...";
-			mes "I'm really bad at explaining";
-			mes "things to people. Really bad.";
+			mes "Quieres aprender la";
+			mes "habilidad secreta de Rogue? Oh,";
+			mes "probablemente deberias hablar";
+			mes "con ^FF0000Thor^000000 sobre eso. Yo...";
+			mes "Soy muy malo explicando";
+			mes "cosas a la gente. Muy malo.";
 			close;
 		}
 		else if (ROG_SK == 7) {
 			mes "[Louis Greg]";
-			mes "Hm? You're in the middle";
-			mes "of learning the secret Rogue";
-			mes "skill, aren't you? Ooh, then";
-			mes "you're not supposed to be here";
-			mes "just yet. Please go back and";
-			mes "talk to ^FF0000Thor^000000 again, okay?";
+			mes "Hm? Estas en medio";
+			mes "de aprender la habilidad secreta";
+			mes "de Rogue, no? Ooh, entonces";
+			mes "no deberias estar aqui";
+			mes "todavia. Por favor regresa y";
+			mes "habla con ^FF0000Thor^000000 de nuevo, si?";
 			close;
 		}
 		else if (ROG_SK == 8) {
 			mes "[Louis Greg]";
 			mes "Oh, oh!";
-			mes "You're done with";
-			mes "the training? Ah,";
-			mes "then you need to";
-			mes "talk to Thor again!";
+			mes "Terminaste el";
+			mes "entrenamiento? Ah,";
+			mes "entonces necesitas";
+			mes "hablar con Thor de nuevo!";
 			close;
 		}
 		else if (ROG_SK == 9) {
 			mes "[Louis Greg]";
-			mes "You wanted to learn";
-			mes "more about Close Confine?";
-			mes "Ugh, then you better speak";
-			mes "to my father. I just learned";
-			mes "that skill myself, you know.";
+			mes "Querias saber";
+			mes "mas sobre Close Confine?";
+			mes "Ugh, entonces mejor habla";
+			mes "con mi padre. Yo mismo acabo de";
+			mes "aprender esa habilidad, sabes.";
 			close;
 		}
 		else if (ROG_SK == 11) {
 			mes "[Louis Greg]";
-			mes "I just heard from my";
-			mes "brothers that Chae Takbae";
-			mes "developed Close Confine";
-			mes "as a way to brutally beat his";
-			mes "enemies, keeping them from";
-			mes "running away. Is that true?";
+			mes "Acabo de escuchar de mis";
+			mes "hermanos que Chae Takbae";
+			mes "desarrollo Close Confine";
+			mes "como una forma de golpear brutalmente";
+			mes "a sus enemigos, evitando que";
+			mes "huyeran. Es eso cierto?";
 			close;
 		}
 		mes "[Louis Greg]";
-		mes "Wow, you're really";
-		mes "great! I wish I were";
-		mes "as powerful as you.";
-		mes "I hate being a kid!";
+		mes "Wow, eres realmente";
+		mes "genial! Ojala fuera";
+		mes "tan poderoso como tu.";
+		mes "Odio ser un nino!";
 		close;
 	}
 	mes "[Louis Greg]";
-	mes "Why'd I become a Rogue?";
-	mes "I guess I just like being";
-	mes "sneaky. That, and being";
-	mes "moral and law abiding is";
-	mes "just too tough, you know?";
+	mes "Por que me volvi Rogue?";
+	mes "Supongo que me gusta ser";
+	mes "sigiloso. Eso, y ser";
+	mes "moral y respetuoso de la ley es";
+	mes "simplemente muy dificil, sabes?";
 	close;
 }
 
@@ -700,99 +700,99 @@ in_rogue,268,125,2	script	Thor Greg#rogueguild	86,{
 	if (BaseJob == Job_Rogue || Class == Job_Thief_High) {
 		if (ROG_SK < 1) {
 			mes "[Thor Greg]";
-			mes "Where did father go?";
-			mes "I hope those weird men";
-			mes "didn't get to him. With";
-			mes "any luck, he's hidden in";
-			mes "the panic room, but still...";
+			mes "A donde fue papa?";
+			mes "Espero que esos hombres";
+			mes "extranos no lo hayan atrapado. Con";
+			mes "algo de suerte, esta escondido en";
+			mes "la sala de panico, pero aun asi...";
 			set ROG_SK,1;
 			close;
 		}
 		else if (ROG_SK == 1) {
 			mes "[Thor Greg]";
-			mes "Hm... My father might";
-			mes "be hiding in the panic";
-			mes "room. I've never been able";
-			mes "to find it, but Markie says";
-			mes "that the entrance is cleverly";
-			mes "hidden to her left. Hmmm...";
+			mes "Hm... Mi padre podria";
+			mes "estar escondido en la sala";
+			mes "de panico. Nunca he podido";
+			mes "encontrarla, pero Markie dice";
+			mes "que la entrada esta habilmente";
+			mes "oculta a su izquierda. Hmmm...";
 			close;
 		}
 		else if (ROG_SK == 2) {
 			mes "[Thor Greg]";
-			mes "Are you looking for";
-			mes "my little brother, ^FF0000Louis^000000?";
-			mes "Oh, he's always hanging";
-			mes "around that ^FF0000Hollgrehenn Jr.^000000";
-			mes "here in the Rogue Guild.";
-			mes "What did you need him for?";
+			mes "Estas buscando a";
+			mes "mi hermanito, ^FF0000Louis^000000?";
+			mes "Oh, el siempre anda";
+			mes "por donde esta ^FF0000Hollgrehenn Jr.^000000";
+			mes "aqui en el Gremio de Rogues.";
+			mes "Para que lo necesitabas?";
 			close;
 		}
 		else if (ROG_SK == 3) {
 			mes "[Thor Greg]";
-			mes "What's this you're";
-			mes "giving me? A letter";
-			mes "from Louis? Let's see...";
+			mes "Que es esto que";
+			mes "me das? Una carta";
+			mes "de Louis? Veamos...";
 			set ROG_SK,4;
 			next;
 			mes "[Thor Greg]";
-			mes "Oh God, father's in";
-			mes "serious trouble! I better";
-			mes "tell my older brother, Jay,";
-			mes "right away! Quick, find ^FF0000Jay^000000";
-			mes "next to ^FF0000Antonio Jr.^000000 here in";
-			mes "the guild! P-please hurry!";
+			mes "Dios mio, papa esta en";
+			mes "serios problemas! Mejor le";
+			mes "digo a mi hermano mayor, Jay,";
+			mes "de inmediato! Rapido, busca a ^FF0000Jay^000000";
+			mes "junto a ^FF0000Antonio Jr.^000000 aqui en";
+			mes "el gremio! P-por favor apurate!";
 			close;
 		}
 		else if (ROG_SK == 4) {
 			mes "[Thor Greg]";
-			mes "You can find Jay hanging";
-			mes "out with Antonio Jr. here";
-			mes "inside the Rogue Guild. ";
-			mes "Please bring him the letter";
-			mes "I've written as soon as possible!";
+			mes "Puedes encontrar a Jay";
+			mes "con Antonio Jr. aqui";
+			mes "dentro del Gremio de Rogues.";
+			mes "Por favor llevale la carta";
+			mes "que escribi lo antes posible!";
 			close;
 		}
 		else if (ROG_SK == 5) {
 			mes "[Thor Greg]";
-			mes "Hopefully, father hasn't";
-			mes "gone outside of the Rogue";
-			mes "Guild's panic room. That";
-			mes "may be the only place";
-			mes "where he's safe...";
+			mes "Con suerte, papa no ha";
+			mes "salido de la sala de panico";
+			mes "del Gremio de Rogues. Ese";
+			mes "puede ser el unico lugar";
+			mes "donde esta a salvo...";
 			close;
 		}
 		else if (ROG_SK == 6) {
 			mes "[Thor Greg]";
-			mes "What's that? Father";
-			mes "wanted me to teach you";
-			mes "the secret Rogue skill?";
-			mes "Alright, I'll train you in the";
-			mes "same way father did. Would";
-			mes "you like an explanation first?";
+			mes "Que dices? Papa";
+			mes "queria que te ensenara";
+			mes "la habilidad secreta de Rogue?";
+			mes "Muy bien, te entrenare de la";
+			mes "misma forma que papa lo hizo. Te";
+			mes "gustaria una explicacion primero?";
 			next;
 			mes "[Thor Greg]";
-			mes "If you don't want an";
-			mes "explanation, I'll just";
-			mes "send you to the training";
-			mes "ground right away so that";
-			mes "you can learn ^FF0000Close Confine^000000.";
+			mes "Si no quieres una";
+			mes "explicacion, simplemente";
+			mes "te enviare al campo de";
+			mes "entrenamiento de inmediato para que";
+			mes "puedas aprender ^FF0000Close Confine^000000.";
 			next;
-			if (select("Listen to Explanation:Go to Training Ground") == 1) {
+			if (select("Escuchar la Explicacion:Ir al Campo de Entrenamiento") == 1) {
 				mes "[Thor Greg]";
-				mes "Alright, the very first step";
-				mes "to learning ^FF0000Close Confine^000000";
-				mes "is to master blocking your";
-				mes "enemy's movement. I'll send";
-				mes "you to a special training";
-				mes "ground so you can practice.";
+				mes "Muy bien, el primer paso";
+				mes "para aprender ^FF0000Close Confine^000000";
+				mes "es dominar el bloqueo del";
+				mes "movimiento de tu enemigo. Te";
+				mes "enviare a un campo de entrenamiento";
+				mes "especial para que practiques.";
 				next;
 				mes "[Thor Greg]";
-				mes "There, you'll encounter our";
-				mes "training partner. Approach her";
-				mes "closely and make sure that you";
-				mes "predict and block her movements";
-				mes "to the left, right or backward. Get ready, I'm sending you now...";
+				mes "Ahi, te encontraras con nuestra";
+				mes "companera de entrenamiento. Acercate";
+				mes "a ella y asegurate de predecir y";
+				mes "bloquear sus movimientos a la";
+				mes "izquierda, derecha o hacia atras. Preparate, te envio ahora...";
 				close2;
 				warp "in_rogue",89,114;
 				end;
@@ -802,89 +802,89 @@ in_rogue,268,125,2	script	Thor Greg#rogueguild	86,{
 		}
 		else if (ROG_SK == 7) {
 			mes "[Thor Greg]";
-			mes "Alright, I'm going to break";
-			mes "the fourth wall here and assume";
-			mes "you were disconnected from the";
-			mes "game. Would you like to return";
-			mes "to the training ground in order";
-			mes "to learn ^FF0000Close Confine^000000?";
+			mes "Bien, voy a romper la";
+			mes "cuarta pared aqui y asumir";
+			mes "que te desconectaste del";
+			mes "juego. Te gustaria volver";
+			mes "al campo de entrenamiento para";
+			mes "aprender ^FF0000Close Confine^000000?";
 			next;
-			if (select("Yes, please.:No, thanks.") == 1) {
+			if (select("Si, por favor.:No, gracias.") == 1) {
 				mes "[Thor Greg]";
-				mes "Alright, the very first step";
-				mes "to learning ^FF0000Close Confine^000000";
-				mes "is to master blocking your";
-				mes "enemy's movement. I'll send";
-				mes "you to a special training";
-				mes "ground so you can practice.";
+				mes "Muy bien, el primer paso";
+				mes "para aprender ^FF0000Close Confine^000000";
+				mes "es dominar el bloqueo del";
+				mes "movimiento de tu enemigo. Te";
+				mes "enviare a un campo de entrenamiento";
+				mes "especial para que practiques.";
 				next;
 				mes "[Thor Greg]";
-				mes "There, you'll encounter our";
-				mes "training partner. Approach her";
-				mes "closely and make sure that you";
-				mes "predict and block her movements";
-				mes "to the left, right or backward. Get ready, I'm sending you now...";
+				mes "Ahi, te encontraras con nuestra";
+				mes "companera de entrenamiento. Acercate";
+				mes "a ella y asegurate de predecir y";
+				mes "bloquear sus movimientos a la";
+				mes "izquierda, derecha o hacia atras. Preparate, te envio ahora...";
 				set ROG_SK,6;
 				close2;
 				warp "in_rogue",89,114;
 				end;
 			}
 			mes "[Thor Greg]";
-			mes "Alright, alright.";
-			mes "When you feel ready";
-			mes "to resume training,";
-			mes "just let me know.";
+			mes "Esta bien, esta bien.";
+			mes "Cuando te sientas listo";
+			mes "para retomar el entrenamiento,";
+			mes "solo avisame.";
 			close;
 
 		}
 		else if (ROG_SK == 8) {
 			mes "[Thor Greg]";
-			mes "Ah, I hear from Kienna";
-			mes "that you've completed your";
-			mes "training. Congratulations!";
-			mes "Now, please speak to my";
-			mes "father so that he can explain the Close Confine skill in detail.";
+			mes "Ah, escuche de Kienna";
+			mes "que completaste tu";
+			mes "entrenamiento. Felicidades!";
+			mes "Ahora, por favor habla con mi";
+			mes "padre para que pueda explicarte la habilidad Close Confine en detalle.";
 			set ROG_SK,9;
 			close;
 		}
 		else if (ROG_SK == 9) {
 			mes "[Thor Greg]";
-			mes "Please talk to my father";
-			mes "so that he can explain the";
-			mes "nuances of the Close Confine";
-			mes "skill to you. He should still be in the Rogue Guild's panic room.";
+			mes "Por favor habla con mi padre";
+			mes "para que pueda explicarte los";
+			mes "detalles de la habilidad Close";
+			mes "Confine. El deberia seguir en la sala de panico del Gremio de Rogues.";
 			close;
 		}
 		else if (ROG_SK == 11) {
 			mes "[Thor Greg]";
-			mes "You know, Chae Takbae";
-			mes "would say, ''I'm Chae";
-			mes "Takbae. And you are...?''";
-			mes "to opponents, and right";
-			mes "before they could answer,";
-			mes "he'd beat them to a pulp.";
+			mes "Sabes, Chae Takbae";
+			mes "solia decir, ''Soy Chae";
+			mes "Takbae. Y tu eres...?''";
+			mes "a sus oponentes, y justo";
+			mes "antes de que pudieran responder,";
+			mes "los hacia papilla.";
 			next;
 			mes "[Thor Greg]";
-			mes "He really is";
-			mes "a legendary hero";
-			mes "amongst Rogues...!";
+			mes "Realmente es";
+			mes "un heroe legendario";
+			mes "entre los Rogues...!";
 			close;
 		}
 		mes "[Thor Greg]";
 		mes "Hm...?";
-		mes "It seems that";
-		mes "you're much stronger";
-		mes "than even me. There's";
-		mes "probably not too many";
-		mes "people who'd mess with you...";
+		mes "Parece que";
+		mes "eres mucho mas fuerte";
+		mes "que incluso yo. Probablemente";
+		mes "no hay mucha gente";
+		mes "que se meteria contigo...";
 		close;
 	}
 	mes "[Thor Greg]";
-	mes "Hmm, gank this, gank";
-	mes "that. *Sigh* It's my most";
-	mes "shameful fault: I spend zeny";
-	mes "almost as quickly as I can";
-	mes "steal it. It's irresponsible...";
+	mes "Hmm, robar esto, robar";
+	mes "aquello. *Suspiro* Es mi mayor";
+	mes "defecto vergonzoso: gasto zeny";
+	mes "casi tan rapido como puedo";
+	mes "robarlo. Es irresponsable...";
 	close;
 }
 
@@ -892,146 +892,146 @@ in_rogue,181,114,3	script	Jay Greg#rogueguild	85,{
 	if (BaseJob == Job_Rogue || Class == Job_Thief_High) {
 		if (ROG_SK < 1) {
 			mes "[Jay Greg]";
-			mes "My father must be hidden";
-			mes "in the Rogue Guild's panic";
-			mes "room. Strangely, my brothers";
-			mes "and I can never find it and";
-			mes "figure out whether he's safe...";
+			mes "Mi padre debe estar escondido";
+			mes "en la sala de panico del Gremio";
+			mes "de Rogues. Curiosamente, mis hermanos";
+			mes "y yo nunca podemos encontrarla y";
+			mes "saber si esta a salvo...";
 			set ROG_SK,1;
 			next;
 			mes "[Jay Greg]";
-			mes "Recently, he's been pursued";
-			mes "by these strange men who've";
-			mes "been threatening our family.";
-			mes "Well, he did just teach us";
-			mes "a new skill, so he can use";
-			mes "that to protect himself...";
+			mes "Recientemente, ha sido perseguido";
+			mes "por unos hombres extranos que han";
+			mes "estado amenazando a nuestra familia.";
+			mes "Bueno, el acaba de ensenarnos";
+			mes "una nueva habilidad, asi que puede";
+			mes "usarla para protegerse...";
 			close;
 		}
 		else if (ROG_SK == 1) {
 			mes "[Jay Greg]";
-			mes "I'm guessing my father";
-			mes "hid himself in the Rogue";
-			mes "Guild's panic room. We can";
-			mes "never find it, but supposedly";
-			mes "the entrance is hidden close";
-			mes "to Markie somewhere.";
+			mes "Supongo que mi padre";
+			mes "se escondio en la sala de";
+			mes "panico del Gremio de Rogues. Nunca";
+			mes "podemos encontrarla, pero supuestamente";
+			mes "la entrada esta oculta cerca";
+			mes "de Markie en algun lugar.";
 			close;
 		}
 		else if (ROG_SK == 2) {
 			mes "[Jay Greg]";
-			mes "You're looking for";
-			mes "Louis, my little brother?";
-			mes "He's here in the Rouge Guild,";
-			mes "so it shouldn't be too hard to";
-			mes "find him. He's probably just";
-			mes "standing near Hollgrehen Jr.";
+			mes "Estas buscando a";
+			mes "Louis, mi hermanito?";
+			mes "El esta aqui en el Gremio de Rogues,";
+			mes "asi que no deberia ser muy dificil";
+			mes "encontrarlo. Probablemente esta";
+			mes "parado cerca de Hollgrehen Jr.";
 			close;
 		}
 		else if (ROG_SK == 3) {
 			mes "[Jay Greg]";
-			mes "Thor? He should be";
-			mes "around the Rogue Guild";
-			mes "somewhere. Have you tried";
-			mes "looking around Hermathorn Jr.?";
+			mes "Thor? El deberia estar";
+			mes "por algun lugar del Gremio";
+			mes "de Rogues. Has intentado";
+			mes "buscar cerca de Hermathorn Jr.?";
 			close;
 		}
 		else if (ROG_SK == 4) {
 			mes "[Jay Greg]";
-			mes "A letter for me...?";
-			mes "Ah, it's from Thor, so";
-			mes "I guess I better read";
-			mes "it right away. Hmmm...";
+			mes "Una carta para mi...?";
+			mes "Ah, es de Thor, asi";
+			mes "que mejor la leo";
+			mes "de inmediato. Hmmm...";
 			set ROG_SK,5;
 			next;
 			mes "[Jay Greg]";
-			mes "I see... I must report";
-			mes "this to the Rogue Guild";
-			mes "right away, and send a reply";
-			mes "to my father. Hmm. Let me";
-			mes "write him a letter right now.";
-			mes "Please give me a moment...";
+			mes "Ya veo... Debo reportar";
+			mes "esto al Gremio de Rogues";
+			mes "de inmediato, y enviar una respuesta";
+			mes "a mi padre. Hmm. Dejame";
+			mes "escribirle una carta ahora mismo.";
+			mes "Por favor dame un momento...";
 			next;
 			mes "[Jay Greg]";
-			mes "There, it's done. Please";
-			mes "give this to my father with";
-			mes "all the haste you can muster.";
-			mes "I know it's much to ask, but";
-			mes "I cannot find the way to the";
-			mes "hidden panic room myself...";
+			mes "Listo, esta hecha. Por favor";
+			mes "dasela a mi padre con toda";
+			mes "la prisa que puedas.";
+			mes "Se que es mucho pedir, pero";
+			mes "yo mismo no puedo encontrar el";
+			mes "camino a la sala de panico oculta...";
 			close;
 		}
 		else if (ROG_SK == 5) {
 			mes "[Jay Greg]";
-			mes "Please give my reply";
-			mes "to my father as soon as";
-			mes "you can. He's still hidden";
-			mes "in the Rogue Guild's panic";
-			mes "room. That is, if our enemies";
-			mes "still haven't found him yet.";
+			mes "Por favor dale mi respuesta";
+			mes "a mi padre lo antes";
+			mes "posible. El sigue escondido";
+			mes "en la sala de panico del Gremio";
+			mes "de Rogues. Eso es, si nuestros";
+			mes "enemigos aun no lo han encontrado.";
 			close;
 		}
 		else if (ROG_SK == 6) {
 			mes "[Jay Greg]";
-			mes "You need to train for";
-			mes "the Close Confine skill?";
-			mes "I think Thor is the only";
-			mes "one with access to the";
-			mes "training ground, so";
-			mes "talk to him first.";
+			mes "Necesitas entrenar la";
+			mes "habilidad Close Confine?";
+			mes "Creo que Thor es el unico";
+			mes "con acceso al campo de";
+			mes "entrenamiento, asi que";
+			mes "habla con el primero.";
 			close;
 		}
 		else if (ROG_SK == 7) {
 			mes "[Jay Greg]";
-			mes "You need to train for";
-			mes "the Close Confine skill?";
-			mes "I think Thor is the only";
-			mes "one with access to the";
-			mes "training ground, so";
-			mes "talk to him first.";
+			mes "Necesitas entrenar la";
+			mes "habilidad Close Confine?";
+			mes "Creo que Thor es el unico";
+			mes "con acceso al campo de";
+			mes "entrenamiento, asi que";
+			mes "habla con el primero.";
 			close;
 		}
 		else if (ROG_SK == 8) {
 			mes "[Jay Greg]";
-			mes "Ah, you finished the";
-			mes "training for Close Confine,";
-			mes "did you? Great, now go and";
-			mes "tell my brother, Thor.";
+			mes "Ah, terminaste el";
+			mes "entrenamiento de Close Confine,";
+			mes "verdad? Genial, ahora ve y";
+			mes "dile a mi hermano, Thor.";
 			close;
 		}
 		else if (ROG_SK == 9) {
 			mes "[Jay Greg]";
-			mes "Hm. You should probably";
-			mes "talk to my father to learn";
-			mes "more of the nuances about";
-			mes "the Close Confine skill.";
-			mes "Have you seen him in the";
-			mes "Rogue Guild's panic room?";
+			mes "Hm. Probablemente deberias";
+			mes "hablar con mi padre para saber";
+			mes "mas sobre los detalles de";
+			mes "la habilidad Close Confine.";
+			mes "Lo has visto en la sala de";
+			mes "panico del Gremio de Rogues?";
 			close;
 		}
 		else if (ROG_SK == 12) {
 			mes "[Jay Greg]";
-			mes "Chae Takbae sure";
-			mes "seemed like a stubborn,";
-			mes "thuggish guy. But he must";
-			mes "have been pretty smart to";
-			mes "invent some of his own skills.";
+			mes "Chae Takbae seguro";
+			mes "parecia un tipo terco y";
+			mes "rudo. Pero debio ser";
+			mes "bastante inteligente para";
+			mes "inventar sus propias habilidades.";
 			close;
 		}
 		mes "[Jay Greg]";
-		mes "I get the feeling";
-		mes "that you're going to";
-		mes "be one of the best Rogues";
-		mes "around, if you already aren't.";
+		mes "Tengo la sensacion";
+		mes "de que vas a ser";
+		mes "uno de los mejores Rogues";
+		mes "que existan, si es que no lo eres ya.";
 		close;
 	}
 	mes "[Jay Greg]";
-	mes "Ever since I learned";
-	mes "Intimdate, I've gotten";
-	mes "real punchy, maybe even";
-	mes "masochistic. I mean, if they";
-	mes "hit you with a skill, you can";
-	mes "hit them back with it!";
+	mes "Desde que aprendi";
+	mes "Intimidate, me he vuelto";
+	mes "muy agresivo, quizas hasta";
+	mes "masoquista. Digo, si te";
+	mes "golpean con una habilidad, puedes";
+	mes "devolversela!";
 	close;
 }
 
@@ -1059,19 +1059,19 @@ OnDisable:
 	end;
 
 OnTimer1000:
-	mapannounce "prt_are01","Welcome to the Close Confine Training Ground. You will be automatically teleported outside in 5 minutes.",bc_map,"0x00ff00";
+	mapannounce "prt_are01","Bienvenido al Campo de Entrenamiento de Close Confine. Seras teletransportado afuera automaticamente en 5 minutos.",bc_map,"0x00ff00";
 	end;
 
 OnTimer290000:
-	mapannounce "prt_are01","You will be teleported outside in 20 seconds.",bc_map,"0x00ff00";
+	mapannounce "prt_are01","Seras teletransportado afuera en 20 segundos.",bc_map,"0x00ff00";
 	end;
 
 OnTimer310000:
-	mapannounce "prt_are01","You will be teleported outside in 5 seconds.",bc_map,"0x00ff00";
+	mapannounce "prt_are01","Seras teletransportado afuera en 5 segundos.",bc_map,"0x00ff00";
 	end;
 
 OnTimer315000:
-	mapannounce "prt_are01","You are now being teleported outside.",bc_map,"0x00ff00";
+	mapannounce "prt_are01","Ahora estas siendo teletransportado afuera.",bc_map,"0x00ff00";
 	disablenpc "Kienna#1st";
 	disablenpc "Kienna#2nd";
 	disablenpc "Kienna#3rd";
@@ -1099,7 +1099,7 @@ OnEnable:
 	end;
 
 OnTimer3000:
-	mapannounce "prt_are01","Kienna will appear in 1 second. Please approach her as closely as possible.",bc_map,"0x00ff00";
+	mapannounce "prt_are01","Kienna aparecera en 1 segundo. Por favor acercate a ella lo mas posible.",bc_map,"0x00ff00";
 	end;
 
 OnTimer5000:
@@ -1171,88 +1171,88 @@ function	script	F_Kienna	{
 	if (ROG_SK == 6) {
 		donpcevent "#1stmove::OnDisable";
 		mes "[Kienna]";
-		mes "Alright, in this";
-		mes "exercise, you'll need";
-		mes "to predict which way I'm";
-		mes "going to move and block";
-		mes "me from moving, essentially";
-		mes "immobilizing me. Get ready~";
+		mes "Muy bien, en este";
+		mes "ejercicio, necesitaras";
+		mes "predecir hacia donde me voy";
+		mes "a mover y bloquearme";
+		mes "para que no me mueva, basicamente";
+		mes "inmovilizandome. Preparate~";
 		set ROG_SK,7;
 		next;
 		for(set .@lim_1,0; .@lim_1<10; set .@lim_1,.@lim_1+1) {
 			set .@move_1,rand(1,3);
-			if (select("Block her to the Left:Block her to the Right:Block her retreat") == .@move_1) {
+			if (select("Bloqueala a la Izquierda:Bloqueala a la Derecha:Bloquea su Retirada") == .@move_1) {
 				mes "[Kienna]";
-				mes "Huh...?";
-				mes "You blocked me!";
-				mes "Very nice work~";
+				mes "Eh...?";
+				mes "Me bloqueaste!";
+				mes "Muy buen trabajo~";
 				specialeffect EF_POTION1;
 				specialeffect2 EF_POTION7;
 				set .@suc_1,.@suc_1 + 1;
 			}
 			else {
 				mes "[Kienna]";
-				mes "Sorry, but I wasn't";
-				mes "moving in that direction.";
-				mes "Your block attempt failed...";
+				mes "Lo siento, pero no me estaba";
+				mes "moviendo en esa direccion.";
+				mes "Tu intento de bloqueo fallo...";
 			}
 			next;
 		}
 		mes "[Kienna]";
-		mes "Alright, we're done";
-		mes "here. You earned a";
-		switch(.@suc_1) { 
+		mes "Listo, terminamos";
+		mes "aqui. Obtuviste una";
+		switch(.@suc_1) {
 		case 10:
-			mes "training grade of ''^0000FFS^000000.''";
-			mes "That's a perfect score!";
+			mes "calificacion de entrenamiento de ''^0000FFS^000000.''";
+			mes "Esa es una puntuacion perfecta!";
 			break;
 		case 9:
-			mes "training grade of ''^0000FFA^000000.''";
-			mes "You're really good at this!";
+			mes "calificacion de entrenamiento de ''^0000FFA^000000.''";
+			mes "Eres realmente bueno en esto!";
 			break;
 		case 8:
-			mes "training grade of ''^0000FFB +^000000.''";
-			mes "That's very commendable!";
+			mes "calificacion de entrenamiento de ''^0000FFB +^000000.''";
+			mes "Eso es muy encomiable!";
 			break;
 		case 7:
-			mes "training grade of ''^0000FFB^000000.''";
-			mes "That's very nice work~";
+			mes "calificacion de entrenamiento de ''^0000FFB^000000.''";
+			mes "Muy buen trabajo~";
 			break;
 		case 6:
-			mes "training grade of ''^0000FFC +^000000.''";
-			mes "Not too bad, but you";
-			mes "just barely passed!";
+			mes "calificacion de entrenamiento de ''^0000FFC +^000000.''";
+			mes "No esta mal, pero";
+			mes "apenas pasaste!";
 			break;
 		case 5:
-			mes "training grade of ''^FF0000C^000000.''";
+			mes "calificacion de entrenamiento de ''^FF0000C^000000.''";
 			break;
 		case 4:
-			mes "training grade of ''^FF0000D+^000000.''";
+			mes "calificacion de entrenamiento de ''^FF0000D+^000000.''";
 			break;
 		case 3:
-			mes "training grade of ''^FF0000D^000000.''";
+			mes "calificacion de entrenamiento de ''^FF0000D^000000.''";
 			break;
 		case 2:
-			mes "training grade of ''^FF0000F^000000.''";
+			mes "calificacion de entrenamiento de ''^FF0000F^000000.''";
 			break;
 		case 1:
-			mes "training grade of ''^FF0000F -^000000.''";
+			mes "calificacion de entrenamiento de ''^FF0000F -^000000.''";
 			break;
 		case 0:
-			mes "training grade of...";
-			mes "Actually, I'm not able";
-			mes "to calculate it. What";
-			mes "could have happened?!";
+			mes "calificacion de entrenamiento de...";
+			mes "En realidad, no puedo";
+			mes "calcularla. Que";
+			mes "pudo haber pasado?!";
 		}
 		next;
 		if (.@suc_1 > 5) {
 			mes "[Kienna]";
-			mes "I'm happy to say that";
-			mes "you've completed your";
-			mes "training! Let me send";
-			mes "you back to Thor Greg";
-			mes "now so that you can finish";
-			mes "learning ^FF0000Close Confine^000000.";
+			mes "Me alegra decir que";
+			mes "has completado tu";
+			mes "entrenamiento! Dejame enviarte";
+			mes "de vuelta con Thor Greg";
+			mes "para que puedas terminar de";
+			mes "aprender ^FF0000Close Confine^000000.";
 			set ROG_SK,8;
 			disablenpc "Kienna#"+getarg(0);
 			donpcevent "#1st5min::OnDisable";
@@ -1264,14 +1264,14 @@ function	script	F_Kienna	{
 		}
 		else {
 			mes "[Kienna]";
-			mes "Hm. With this grade,";
-			mes "I don't think you're";
-			mes "quite ready to finish";
-			mes "learning Close Confine.";
-			mes "Would you like to try the";
-			mes "training exercise again?";
+			mes "Hm. Con esta calificacion,";
+			mes "no creo que estes";
+			mes "del todo listo para terminar";
+			mes "de aprender Close Confine.";
+			mes "Te gustaria intentar el";
+			mes "ejercicio de entrenamiento de nuevo?";
 			next;
-			if (select("Yes!:No, thanks.") == 1) {
+			if (select("Si!:No, gracias.") == 1) {
 				disablenpc "Kienna#"+getarg(0);
 				donpcevent "#1stmove::OnEnable";
 				set ROG_SK,6;
@@ -1289,12 +1289,12 @@ function	script	F_Kienna	{
 	}
 	else if (ROG_SK == 7) {
 		mes "[Kienna]";
-		mes "You must have canceled";
-		mes "your training in the middle";
-		mes "of the exercise. I'm sorry,";
-		mes "but you'll have to start";
-		mes "from the very beginning";
-		mes "of this training.";
+		mes "Debes haber cancelado";
+		mes "tu entrenamiento en medio";
+		mes "del ejercicio. Lo siento,";
+		mes "pero tendras que empezar";
+		mes "desde el principio";
+		mes "de este entrenamiento.";
 		set ROG_SK,6;
 		close2;
 		disablenpc "Kienna#"+getarg(0);
@@ -1304,11 +1304,11 @@ function	script	F_Kienna	{
 	}
 	else if (ROG_SK == 8) {
 		mes "[Kienna]";
-		mes "You've already completed";
-		mes "the training exercise for";
-		mes "the Close Confine skill.";
-		mes "You no longer have need";
-		mes "for my assistance.";
+		mes "Ya completaste";
+		mes "el ejercicio de entrenamiento de";
+		mes "la habilidad Close Confine.";
+		mes "Ya no necesitas";
+		mes "mi asistencia.";
 		close2;
 		donpcevent "Waiting Room#rogue10::OnEnable";
 		warp "in_rogue",264,124;
@@ -1316,10 +1316,10 @@ function	script	F_Kienna	{
 	}
 	else {
 		mes "[Kienna]";
-		mes "I'm sorry, but I don't";
-		mes "think you belong here.";
-		mes "Let me send you to the";
-		mes "Rogue Guild if you're lost...";
+		mes "Lo siento, pero no creo";
+		mes "que pertenezcas aqui.";
+		mes "Dejame enviarte al Gremio";
+		mes "de Rogues si estas perdido...";
 		close2;
 		donpcevent "Waiting Room#rogue10::OnEnable";
 		warp "in_rogue",264,124;
@@ -1355,15 +1355,15 @@ OnStartArena:
 	end;
 }
 
-//============================================================ 
+//============================================================
 // Old changelog
-//============================================================ 
+//============================================================
 //= 1.0 for fully working skills only [Lupus]
 //= 1.1 Added more new skill quests for more classes [Lupus]
 //= Somehow eA engine doesn't let you keep learn't skill V_V'
 //= 1.2 Added to correct locations, correct NPC's, fixed
 //= some of the items required and made them into real
-//= quests. [Reddozen] 
+//= quests. [Reddozen]
 //= 1.3 Fixed bugs and minor typos. Optimized [Lupus]
 //= 1.3a fixed an item ID typo, thx 2Spiritual Kid
 //= 1.3b Splitted into different files [DracoRPG]
