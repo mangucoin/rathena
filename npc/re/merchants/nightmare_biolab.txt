@@ -410,7 +410,7 @@ OnTimer6000:
 lighthalzen,319,213,4	script	Veteran Adventurer#JCv2	4_M_MELODY,2,2,{
 	disable_items;
 	mes "[Veteran Adventurer]";
-	mes "Oh! You want to exchange mind or grudge pieces?";
+	mes "Oh! Quieres intercambiar piezas de mente o rencor?";
 	next;
 	setarray .@items[0],
 		6469,200,	// Will of Warrior
@@ -418,47 +418,47 @@ lighthalzen,319,213,4	script	Veteran Adventurer#JCv2	4_M_MELODY,2,2,{
 		6471,300;	// Ghost Chill
 	.@color$[0] = countitem(6820) < 200 ? "^777777" : "^000000";
 	.@color$[1] = countitem(6820) < 300 ? "^777777" : "^000000";
-	.@s = select( "Listen to the story.", .@color$[0] + "1 Will of Warrior (200 Energy pieces)", .@color$[0] + "1 Blood Thirst (200 energy pieces)", .@color$[1] + "1 Ghost Chill (300 energy pieces)^000000" ) - 2;
+	.@s = select( "Escuchar la historia.", .@color$[0] + "1 Will of Warrior (200 piezas de energia)", .@color$[0] + "1 Blood Thirst (200 piezas de energia)", .@color$[1] + "1 Ghost Chill (300 piezas de energia)^000000" ) - 2;
 	if (.@s == -1) {
 		emotion ET_QUESTION;
 		mes "[Veteran Adventurer]";
-		mes "You look like you have free time, don't you? Well, my business is slow these days too...";
+		mes "Parece que tienes tiempo libre, no? Bueno, mi negocio esta lento estos dias tambien...";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "One day, the guild master entered in my guild all of a sudden...";
+		mes "Un dia, el maestro de guild entro en mi guild de repente...";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "'^1F294DI'll make all members in all guilds wear the Cloak of the Fallen Soldier!!^000000'.";
+		mes "'^1F294DHare que todos los miembros de todas las guilds lleven la Capa del Soldado Caido!!^000000'.";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "As you know, this equipment requires a large amount of material, so all guild members had no choice but to be stuck in the dungeon and forced to work.";
+		mes "Como sabes, este equipamiento requiere una gran cantidad de material, asi que todos los miembros de la guild no tuvieron mas remedio que quedarse atrapados en la mazmorra y ser forzados a trabajar.";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "You never know what luck you eventually may have. I flung myself into this digging work with determination and found so many rare pieces.";
+		mes "Nunca sabes que suerte puedes tener eventualmente. Me lance a este trabajo de excavacion con determinacion y encontre tantas piezas raras.";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "Ms. Sub-guild master sent me to exchange things with others as a pile kept forming.";
+		mes "La Sra. Sub-maestra de guild me envio a intercambiar cosas con otros mientras se seguia formando una pila.";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "Of course, the amount of exchange was decided by the guild master emphasizing";
-		mes "'^1F294DI'll never accept it if it's below this amount!!^000000'...";
+		mes "Por supuesto, la cantidad de intercambio fue decidida por el maestro de guild enfatizando";
+		mes "'^1F294DNunca lo aceptare si esta por debajo de esta cantidad!!^000000'...";
 		next;
 		emotion ET_HNG;
 		mes "[Veteran Adventurer]";
-		mes "Ms. Sub-guild master tried to throw dirt into the guild master's eyes. We really had a hard time stopping her.";
+		mes "La Sra. Sub-maestra de guild intento echarle tierra en los ojos al maestro de guild. Realmente nos costo mucho detenerla.";
 		next;
 		mes "[Veteran Adventurer]";
-		mes "I guess we can take care of it quickly if he adjusts it to a low amount. (sigh)... That's what happened.";
+		mes "Supongo que podemos encargarnos de esto rapidamente si el ajusta a una cantidad baja. (suspiro)... Eso fue lo que paso.";
 		close;
 	}
 	.@s *= 2;
 	mes "[Veteran Adventurer]";
 	mes "^3300661 " + getitemname(.@items[.@s]) + "^000000 is exchanged with ^CC3333" + .@items[.@s+1] + " Energy Pieces^000000.";
 	next;
-	if (select( "Exchange.", "Do not exchange." ) == 2) {
+	if (select( "Intercambiar.", "No intercambiar." ) == 2) {
 		emotion ET_OTL;
 		mes "[Veteran Adventurer]";
-		mes "What?... I thought you were going to exchange it.";
+		mes "Que?... Pense que ibas a intercambiarlo.";
 		close;
 	}
 	while(true) {
