@@ -547,19 +547,19 @@ lighthalzen,312,296,4	script	Bully#JCv2	4_M_LGTPOOR,{
 		if (countitem(.@exchange[.@index+1]) < .@exchange[.@index+2]) {
 			emotion ET_SCRATCH;
 			mes "[Bully]";
-			mes "No... No... you shouldn't do this.";
-			mes "You told me you would exchange it with " + .@exchange[.@index+2] + " (item)s.";
+			mes "No... No... no deberias hacer esto.";
+			mes "Me dijiste que lo intercambiarias con " + .@exchange[.@index+2] + " objeto(s).";
 			close;
 		}
 		delitem .@exchange[.@index+1], .@exchange[.@index+2];
 		getitem .@exchange[.@index], 1;
 		emotion ET_SEXY;
 		mes "[Bully]";
-		mes "Oh thank you. Is there something else you want to exchange?";
+		mes "Oh gracias. Hay algo mas que quieras intercambiar?";
 		next;
-		if (select( "Continue with the exchange.", "Stop the exchange." ) == 2) {
+		if (select( "Continuar con el intercambio.", "Detener el intercambio." ) == 2) {
 			mes "[Bully]";
-			mes "When you have some energy piece left, come to me again.";
+			mes "Cuando te queden algunas piezas de energia, ven a mi de nuevo.";
 			close;
 		}
 	}
@@ -571,14 +571,14 @@ lhz_dun_n,145,265,4	script	Silent Mind#JCv2	4_CENERE,{
 	mes "[Silent Mind]";
 	mes ". . . . . .!";
 	mes "...";
-	mes "^FF0000*You can obtain the Death's Chest when you give 3 of the same types of souls to the mind.*^000000";
+	mes "^FF0000*Puedes obtener el Cofre de la Muerte cuando entregues 3 del mismo tipo de almas a la mente.*^000000";
 	next;
 	setarray .@item[0],6814,6815,6816,6817,6818,6819;
 	for ( .@i = 0; .@i < 6; ++.@i ) {
 		if (countitem(.@item[.@i]) < 3)
-			.@menu$ += "^777777Not enough " + getitemname(.@item[.@i]) + ".^000000:";
+			.@menu$ += "^777777No hay suficiente " + getitemname(.@item[.@i]) + ".^000000:";
 		else
-			.@menu$ += "Hand over 3 " + getitemname(.@item[.@i]) + ".:";
+			.@menu$ += "Entregar 3 " + getitemname(.@item[.@i]) + ".:";
 	}
 	.@s = select(.@menu$) - 1;
 	while(true) {
@@ -586,7 +586,7 @@ lhz_dun_n,145,265,4	script	Silent Mind#JCv2	4_CENERE,{
 			emotion ET_HNG;
 			mes "[Silent Mind]";
 			mes "!. . . . . .";
-			mes "^FF0000*You need 3 of the same types of souls to trade with the Death's Chest.*^000000";
+			mes "^FF0000*Necesitas 3 del mismo tipo de almas para intercambiar por el Cofre de la Muerte.*^000000";
 			close;
 		}
 		delitem .@item[.@s],3;
@@ -595,9 +595,9 @@ lhz_dun_n,145,265,4	script	Silent Mind#JCv2	4_CENERE,{
 		mes "[Silent Mind]";
 		mes ". . . . . .";
 		mes "...";
-		mes "^FF0000*You've obtained the Death's Chest. Would you like to continue the trade?*^000000";
+		mes "^FF0000*Has obtenido el Cofre de la Muerte. Te gustaria continuar el intercambio?*^000000";
 		next;
-		if (select( "Continue with the exchange.", "Stop the exchange." ) == 2) {
+		if (select( "Continuar con el intercambio.", "Detener el intercambio." ) == 2) {
 			mes "[Silent Mind]";
 			mes ". . . . . .";
 			close;
@@ -607,18 +607,18 @@ lhz_dun_n,145,265,4	script	Silent Mind#JCv2	4_CENERE,{
 
 lhz_dun_n,134,265,2	script	Wandering Mind#JCv2	4_CENERE,{
 	disable_items;
-	npctalk "Kkk... I can... sense...", "", bc_self;
+	npctalk "Kkk... Puedo... sentir...", "", bc_self;
 	mes "[Wandering Mind]";
-	mes "Kkk... I can... sense...the grudges...of countless...subjects...";
+	mes "Kkk... Puedo... sentir...los rencores...de incontables...sujetos...";
 	next;
-	npctalk "Who... am... I?...", "", bc_self;
+	npctalk "Quien... soy... yo?...", "", bc_self;
 	mes "[Wandering Mind]";
-	mes "Where is... here?... here?... Aaargh... Who... am... I?... I cannot... remember...";
+	mes "Donde es... aqui?... aqui?... Aaargh... Quien... soy... yo?... No puedo... recordar...";
 	next;
 	mes "[Wandering Mind]";
-	mes "I need... grudge's... grudge's... strong... power... It will help... both me... and you... all... Kkk...";
+	mes "Necesito... del rencor... del rencor... fuerte... poder... Nos ayudara... a mi... y a ti... a todos... Kkk...";
 	next;
-	switch( select( "Old Helmet enchant", "Old Helmet reset", "Old Helmet enchant description" ) ) {
+	switch( select( "Encantar Old Helmet", "Resetear Old Helmet", "Descripcion de encantamiento Old Helmet" ) ) {
 	case 1:
 		npctalk "Hand over... grudge... grudge...", "", bc_self;
 		mes "[Wandering Mind]";

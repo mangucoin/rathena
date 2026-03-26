@@ -4320,49 +4320,49 @@ mjo_dun02,126,36,0	script	#brisindwarf4	111,3,3,{
 	}
 	if ((god_brising > 45) && (god_brising < 50)) {
 		mes "[Grer]";
-		mes "What!";
+		mes "Que!";
 		hideoffnpc "Grer#1";
 		close;
 	}
 	else if (god_brising == 45) {
 		mes "[" + strcharinfo(0) + "]";
-		mes "Let's see.";
-		mes "Um, that song.";
-		mes "What was the first line...?";
+		mes "Veamos.";
+		mes "Um, esa cancion.";
+		mes "Cual era la primera linea...?";
 		next;
 		input @dwarfsong1$;
 		if (@dwarfsong1$ == "No jewel in the world can compare.") set @point,@point +1;
 		mes "[" + strcharinfo(0) + "]";
 		mes " ' + @dwarfsong1$ + '";
-		mes "Then...ummm..";
-		mes "The second line?";
+		mes "Luego...umm..";
+		mes "La segunda linea?";
 		next;
 		input @dwarfsong2$;
 		if (@dwarfsong2$ == "Our masterpiece made from love.") set @point,@point +1;
 		mes "[" + strcharinfo(0) + "]";
 		mes " ' + @dwarfsong2$ + '";
-		mes "Now, what was";
-		mes "the third line...?";
+		mes "Ahora, cual era";
+		mes "la tercera linea...?";
 		next;
 		input @dwarfsong3$;
 		if (@dwarfsong3$ == "She wanted the dazzling necklace.") set @point,@point +1;
 		mes "[" + strcharinfo(0) + "]";
 		mes " ' + @dwarfsong3$ + '";
-		mes "Now, the fourth";
-		mes "line after that...";
+		mes "Ahora, la cuarta";
+		mes "linea despues de eso...";
 		next;
 		input @dwarfsong4$;
 		if (@dwarfsong4$ == "We wanted the goddess of beauty.") set @point,@point +1;
 		mes "[" + strcharinfo(0) + "]";
 		mes " ' + @dwarfsong4$ + '";
-		mes "Alright, now";
-		mes "for the last line...";
+		mes "Bien, ahora";
+		mes "la ultima linea...";
 		next;
 		input @dwarfsong5$;
 		if (@dwarfsong5$ == "Our happiest times were with her.") set @point,@point +1;
 		mes "[" + strcharinfo(0) + "]";
 		mes " ' + @dwarfsong5$ + '";
-		mes "Alright, let's give it a try.";
+		mes "Bien, intentemoslo.";
 		next;
 		mes "[" + strcharinfo(0) + "]";
 		mes "' + @dwarfsong1$ + '";
@@ -4376,7 +4376,7 @@ mjo_dun02,126,36,0	script	#brisindwarf4	111,3,3,{
 			mes "[Grer]";
 			mes "Wha--?";
 			mes "Berling";
-			mes "did send you!";
+			mes "te envio!";
 			set god_brising,46;
 			stopnpctimer;
 			close;
@@ -4384,15 +4384,15 @@ mjo_dun02,126,36,0	script	#brisindwarf4	111,3,3,{
 		else {
 			mes "[Grer]";
 			mes "Bah!";
-			mes "I knew it!";
-			mes "I can't trust you!";
+			mes "Lo sabia!";
+			mes "No puedo confiar en ti!";
 			close2;
 			warp "mjo_dun02",118,56;
 			end;
 		}
 	}
 	else {
-		mes "^3355FFYou found a hole filled with some clod and a lump of coal.^000000";
+		mes "^3355FFEncontraste un agujero lleno de tierra y un trozo de carbon.^000000";
 		close;
 	}
 
@@ -4410,30 +4410,30 @@ OnTouch_:
 	if (god_brising == 44) {
 		emotion ET_SURPRISE, playerattached();
 		mes "[Male Voice]";
-		mes "Don't come any closer!";
-		mes "How the hell do I feel";
-		mes "Freya's presense on you?";
-		mes "Tell me who you are!";
+		mes "No te acerques mas!";
+		mes "Como demonios siento";
+		mes "la presencia de Freya en ti?";
+		mes "Dime quien eres!";
 		next;
 		switch(select("Soy enviado por Berling.:Wah, me asustaste!")) {
 		case 1:
 			mes "[Male Voice]";
-			mes "Lies! Lies!";
-			mes "Prove it!";
-			mes "Prove yourself!";
+			mes "Mentiras! Mentiras!";
+			mes "Demuestra!";
+			mes "Demuestrate!";
 			set god_brising,45;
 			initnpctimer;
 			close;
 		case 2:
 			mes "[Male Voice]";
-			mes "Get out of here!";
+			mes "Vete de aqui!";
 			close;
 		}
 	}
 	else if (god_brising == 45) {
 		mes "[Male Voice]";
-		mes "Prove it!";
-		mes "Otherwise, leave me alone and let me mine silver. Silver...! Heh heh heh...";
+		mes "Demuestralo!";
+		mes "De lo contrario, dejame en paz y dejame minar plata. Plata...! Je je je...";
 		stopnpctimer;
 		startnpctimer;
 		close;
@@ -4468,8 +4468,8 @@ OnTimer301000:
 mjo_dun02,126,34,1	script	Grer#1	826,{
 	if (god_brising > 47) {
 		mes "[Grer]";
-		mes "As we promised,";
-		mes "Brisingamen will appear in front of human's eyes. But until then, I shall make jewelry of silver. Mwahahaha~";
+		mes "Como prometimos,";
+		mes "Brisingamen aparecera ante los ojos humanos. Pero hasta entonces, hare joyas de plata. Muajajaja~";
 		close2;
 		hideonnpc "Grer#1";
 		end;
@@ -4477,42 +4477,42 @@ mjo_dun02,126,34,1	script	Grer#1	826,{
 	else if (god_brising == 46) {
 		mes "[Grer]";
 		mes "My name is Grer.";
-		mes "I should have been";
-		mes "the last one to be awakened. Now I see that I haven't mined as much silver as I may need.";
+		mes "Deberia haber sido";
+		mes "el ultimo en ser despertado. Ahora veo que no he minado tanta plata como podria necesitar.";
 		next;
 		mes "[Grer]";
-		mes "You might think gold would better suit a goddess, but no. Silver is what makes her golden hair more beautiful.";
+		mes "Podrias pensar que el oro le quedaria mejor a una diosa, pero no. La plata es lo que hace su cabello dorado mas hermoso.";
 		next;
 		mes "[Grer]";
-		mes "Now that we're revived, there's a good chance that we may see her again. I don't really mind anything else.";
+		mes "Ahora que hemos revivido, hay una buena probabilidad de que la veamos de nuevo. Realmente no me importa nada mas.";
 		next;
 		mes "[Grer]";
-		mes "I want her spirit and scent to fill this world. I don't want Odin or Heimdall to know our plan.";
+		mes "Quiero que su espiritu y aroma llenen este mundo. No quiero que Odin o Heimdall se enteren de nuestro plan.";
 		next;
 		mes "[Grer]";
-		mes "Now, this doesn't mean";
-		mes "that I prefer humans over";
-		mes "gods or giants, but if it's for Freya, I'll do anything.";
+		mes "Ahora, esto no significa";
+		mes "que prefiera a los humanos sobre";
+		mes "dioses o gigantes, pero si es por Freya, hare lo que sea.";
 		next;
 		mes "[Grer]";
-		mes "Anyway, now my brothers";
-		mes "have been revived. For that, I give you my thanks. Someday, you will have the power to challenge the gods.";
+		mes "De todos modos, ahora mis hermanos";
+		mes "han sido revividos. Por eso, te doy las gracias. Algun dia, tendras el poder para desafiar a los dioses.";
 		next;
 		mes "[Grer]";
-		mes "Now, I need to";
-		mes "get back to my work.";
-		mes "You'll need a silver ornament for the necklace, so I'll continue to mine silver.";
+		mes "Ahora, necesito";
+		mes "volver a mi trabajo.";
+		mes "Necesitaras un ornamento de plata para el collar, asi que continuare minando plata.";
 		next;
 		mes "[Grer]";
-		mes "I will be working";
-		mes "hard to make the most";
-		mes "beautiful ornament";
-		mes "in the world.";
+		mes "Estare trabajando";
+		mes "duro para hacer el mas";
+		mes "hermoso ornamento";
+		mes "del mundo.";
 		next;
 		mes "[Grer]";
-		mes "Okay, you";
-		mes "may go back now!";
-		mes "Farewell.";
+		mes "Bien, ya puedes";
+		mes "irte ahora!";
+		mes "Adios.";
 		set god_brising,47;
 		close2;
 		hideonnpc "Grer#1";
@@ -4531,8 +4531,8 @@ mjo_dun02,126,34,1	script	Grer#1	826,{
 	}
 	else {
 		mes "[Grer]";
-		mes "Who the";
-		mes "hell are you?!";
+		mes "Quien";
+		mes "demonios eres?!";
 		close2;
 		hideonnpc "Grer#1";
 		end;
