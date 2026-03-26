@@ -1928,14 +1928,14 @@ L_End:
 		mes "Now, can I help you with";
 		mes "anything in particular?";
 		next;
-		switch(select("I need some Cooking Kits.:How is Sir Charles?:Um, who's that kid?")) {
+		switch(select("Necesito Kits de Cocina.:Como esta Sir Charles?:Um, quien es esa niña?")) {
 		case 1:
 			mes "[Madeleine Chu]";
 			mes "Claro, que tipo";
 			mes "de Kits de Cocina";
 			mes "necesitas?";
 			next;
-			switch(select("Outdoor Cooking Kit - 500z:Home Cooking Kit - 1,000z:Show me a different kit.:Quit")) {
+			switch(select("Outdoor Cooking Kit - 500z:Home Cooking Kit - 1,000z:Muestrame un kit diferente.:Salir")) {
 			case 1:
 				callsub S_SellSets,12125;
 				close;
@@ -2097,27 +2097,27 @@ S_SellSets:
 	set .@total_weight,.@sell * .@item_weight;
 	if (Zeny < .@total_cost) {
 		mes "[Madeleine Chu]";
-		mes "Oh, I'm sorry, but you";
-		mes "can't afford this many";
+		mes "Oh, lo siento, pero no";
+		mes "puedes pagar tantos";
 		mes getitemname(.@item_id);
-		mes "Please check your zeny";
-		mes "before purchasing my kits~";
+		mes "Por favor revisa tus zeny";
+		mes "antes de comprar mis kits~";
 		close;
 	}
 	if (!checkweight(.@item_id,.@sell)) {
 		mes "[Madeleine Chu]";
-		mes "I'm sorry, but you don't";
-		mes "have enough room in your";
-		mes "Inventory for this many";
+		mes "Lo siento, pero no tienes";
+		mes "suficiente espacio en tu";
+		mes "Inventario para tantos";
 		mes getitemname(.@item_id) +"...";
 		close;
 	}
 	set Zeny, Zeny-.@total_cost;
 	getitem .@item_id,.@sell;
 	mes "[Madeleine Chu]";
-	mes "Here you are~";
-	mes "Best of luck with";
-	mes "your culinary training!";
+	mes "Aqui tienes~";
+	mes "Mucha suerte con";
+	mes "tu entrenamiento culinario!";
 	return;
 }
 
@@ -2361,7 +2361,7 @@ payon,209,127,3	script	Servant	88,{
 		mes "Solo cuesta 200 zeny,";
 		mes "pero es deliciosisimo~";
 		next;
-		if (select("Sure, I'll buy one!:No, thanks.") == 1) {
+		if (select("Claro, comprare uno!:No, gracias.") == 1) {
 			if (Zeny < 200) {
 				mes "[Chulsoo]";
 				mes "Oh, lo siento, pero";
