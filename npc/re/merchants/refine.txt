@@ -260,9 +260,9 @@ function	script	refinenew	{
 	}
 	.@fullprice = .@price * .@refinecnt;
 	mes "["+ .@npc_name$ +"]";
-	mes "That will cost you " + .@refinecnt + " " + getitemname(.@material) + " and " + .@fullprice + " Zeny. Is that ok?";
+	mes "Eso te costara " + .@refinecnt + " " + getitemname(.@material) + " y " + .@fullprice + " Zeny. ¿Esta bien?";
 	next;
-	if(select("Yes:No...") == 2){
+	if(select("Si:No...") == 2){
 		mes "["+ .@npc_name$ +"]";
 		mes "Tu lo dijiste... Que asi sea.";
 		close;
@@ -278,7 +278,7 @@ function	script	refinenew	{
 	while(.@refinecnt){
 		if (getequipisequiped(.@part) == 0) {
 			mes "["+ .@npc_name$ +"]";
-			mes "Look here... you don't have any items on...";
+			mes "Mira aqui... no tienes ningun articulo puesto...";
 			close;
 		}
 		// anti-hack
@@ -288,9 +288,9 @@ function	script	refinenew	{
 
 		if (getequipid(.@part) != .@refineitemid || (.@menu2 == 1 && getequippercentrefinery(.@part) < 100)) {
 			mes "["+ .@npc_name$ +"]";
-			mes "Clang... No, but did you imagine I could be so stupid?!";
-			mes "You changed it...";
-			mes "Get out before I stun you with my Hammer!!";
+			mes "Clang... No, ¿pero te imaginaste que podia ser tan estupido?!";
+			mes "Lo cambiaste...";
+			mes "¡¡Fuera antes de que te aturda con mi Martillo!!";
 			close;
 		}
 		if (getequippercentrefinery(.@part) > rand(100)) {
@@ -344,21 +344,21 @@ function	script	refinenew	{
 //============================================================
 -	script	Austri#ref	-1,{
 	if (checkweight(1201,1) == 0) {
-		mes "- Wait a minute !! -";
-		mes "- Currently you're carrying -";
-		mes "- too many items with you. -";
-		mes "- Please try again -";
-		mes "- after you lose some weight. -";
+		mes "- ¡¡Espera un momento!! -";
+		mes "- Actualmente estas cargando -";
+		mes "- demasiados articulos contigo. -";
+		mes "- Por favor intenta de nuevo -";
+		mes "- despues de reducir algo de peso. -";
 		close;
 	}
 	mes "[Austri]";
-	mes "If you bring me 3";
-	mes "Oridecon or Elunium";
-	mes "I can exchange them for";
-	mes "Bradium or Carnium.";
-	mes "Just give me 50,000z.";
+	mes "Si me traes 3";
+	mes "Oridecon o Elunium";
+	mes "puedo intercambiarlos por";
+	mes "Bradium o Carnium.";
+	mes "Solo dame 50,000z.";
 	next;
-	switch(select("Oridecon to Bradium.:Elunium to Carnium.:Purified Bradium to Carnium.:No thanks.")) {
+	switch(select("Oridecon a Bradium.:Elunium a Carnium.:Purified Bradium a Carnium.:No gracias.")) {
 	case 1:
 		setarray .@i[0],984,3,6224;  //Oridecon -> Bradium
 		break;
@@ -379,19 +379,19 @@ function	script	refinenew	{
 		getitem .@i[2],1;
 		mes "[Austri]";
 		if (.@i[0] == 6090) {
-			mes "Refining with Refined Bradium";
-			mes "can be a little expensive.";
-			mes "I can exchange it for some Carnium.";
+			mes "Refinar con Bradium Refinado";
+			mes "puede ser un poco caro.";
+			mes "Puedo intercambiarlo por algo de Carnium.";
 		} else
-			mes "Ok! Here's your "+getitemname(.@i[2])+".";
-		mes "Take it and use it well.";
+			mes "¡Ok! Aqui tienes tu "+getitemname(.@i[2])+".";
+		mes "Tomalo y usalo bien.";
 		close;
 	}
 	mes "[Austri]";
-	mes "You better not be trying";
-	mes "to cheat me because you";
-	mes "don't have enough money";
-	mes "or "+getitemname(.@i[0])+".";
+	mes "Mas te vale no estar intentando";
+	mes "engañarme porque no";
+	mes "tienes suficiente dinero";
+	mes "o "+getitemname(.@i[0])+".";
 	close;
 }
 prt_in,85,71,5	duplicate(Austri#ref)	Austri#prt	826
@@ -403,10 +403,10 @@ morocc_in,60,38,5	duplicate(Austri#ref)	Austri#moc	826
 malangdo,224,172,6	script	Clink#mal_normal	544,{
 	disable_items;
 	mes "[Clink]";
-	mes "My cool dad Holink said I have the world's greatest refine hammer!!";
-	mes "Meow Meow~";
-	mes "Who do you think I am?";
-	mes "Yes!!! You!! You want to refine?";
+	mes "¡Mi genial papa Holink dijo que tengo el mejor martillo de refinamiento del mundo!";
+	mes "Miau Miau~";
+	mes "¿Quien crees que soy?";
+	mes "¡¡¡Si!!! ¡¡Tu!! ¿Quieres refinar?";
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(.@i = 1; .@i<=10; set .@i,.@i+1)
@@ -416,43 +416,43 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 		mes "[Clink]";
 		switch(.@part) {
 		case EQI_HEAD_TOP:
-			mes "Dad said. There's no cure for stupidity...";
+			mes "Papa dijo. No hay cura para la estupidez...";
 			break;
 		case EQI_ARMOR:
-			mes "There's nothing to see here!!";
+			mes "¡¡No hay nada que ver aqui!!";
 			break;
 		case EQI_HAND_L:
-			mes "What an arrogant left hand this is!";
+			mes "¡Que mano izquierda tan arrogante!";
 			break;
 		case EQI_HAND_R:
-			mes "What an arrogant right hand this is!";
+			mes "¡Que mano derecha tan arrogante!";
 			break;
 		case EQI_GARMENT:
-			mes "Get that dirty thing off my face!!";
+			mes "¡¡Quita esa cosa sucia de mi cara!!";
 			break;
 		case EQI_SHOES:
-			mes "Kyaong~! Do not provoke me.";
+			mes "¡Kyaong~! No me provoques.";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "Where is the accessory?";
+			mes "¿Donde esta el accesorio?";
 			break;
 		case EQI_HEAD_MID:
 		case EQI_HEAD_LOW:
-			mes "Are you talking about the other head part?";
+			mes "¿Estas hablando de la otra parte de la cabeza?";
 			break;
 		}
 		close;
 	}
 	if (!getequipisenableref(.@part)) {
 		mes "[Clink]";
-		mes "This can't be refined!!";
+		mes "¡¡Esto no se puede refinar!!";
 		close;
 	}
 	.@refinerycnt = getequiprefinerycnt(.@part); //save refinery count
 	if (.@refinerycnt >= 10) {
 		mes "[Clink]";
-		mes "Perfect refining. Did I do this for you?";
+		mes "Refinamiento perfecto. ¿Yo hice esto por ti?";
 		close;
 	}
 	
@@ -466,7 +466,7 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 		switch( getequiparmorlv( .@part ) ){
 			case 1: // Armor
 				.@type$ = "armor";
-				mes "Hmm, an armor refine? Someone like you?";
+				mes "Hmm, ¿un refinamiento de armadura? ¿Alguien como tu?";
 				break;
 			default:
 				// TODO:
@@ -476,20 +476,20 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 		switch( getequipweaponlv( .@part ) ){
 			case 1: // Level 1 Weapon
 				.@type$ = "weapon";
-				mes "A level 1 weapon?";
-				mes "Urr... Annoying... Okay, let's try...";
+				mes "¿Un arma de nivel 1?";
+				mes "Urr... Molesto... Bueno, intentemos...";
 				break;
 			case 2: // Level 2 Weapon
 				.@type$ = "weapon";
-				mes "A level 2 weapon?";
+				mes "¿Un arma de nivel 2?";
 				break;
 			case 3: // Level 3 Weapon
 				.@type$ = "weapon";
-				mes "Woot!! A level 3 weapon? Impressive~";
+				mes "¡¡Woot!! ¿Un arma de nivel 3? Impresionante~";
 				break;
 			case 4: // Level 4 Weapon
 				.@type$ = "weapon";
-				mes "Wow!... A level 4 weapon~!!";
+				mes "¡Wow!... ¡¡Un arma de nivel 4~!!";
 				break;
 			default:
 				// TODO:
@@ -499,37 +499,37 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 		// TODO:
 		close;
 	}
-	mes "You need ^ff9999"+getitemname(.@material)+"^000000 and ^ff9999"+.@price+"^000000 Zeny. Do you have them?";
+	mes "Necesitas ^ff9999"+getitemname(.@material)+"^000000 y ^ff9999"+.@price+"^000000 Zeny. ¿Los tienes?";
 	next;
-	if(select("Yes, I do!!:Forget about it!!") == 2) {
+	if(select("¡¡Si, los tengo!!:¡¡Olvidalo!!") == 2) {
 		mes "[Clink]";
-		mes "I knew it!!";
-		mes "I knew you were not worth trying my magical refining hammer for.";
+		mes "¡¡Lo sabia!!";
+		mes "Sabia que no valias la pena para probar mi magico martillo de refinamiento.";
 		close;
 	}
 	if (getequippercentrefinery(.@part) < 100) {
 		mes "[Clink]";
-		mes "Wow!!";
-		mes "This "+.@type$+" has been refined quite a bit, huh?";
-		mes "You do know that this might break, right?";
+		mes "¡¡Wow!!";
+		mes "Este "+.@type$+" ya ha sido bastante refinado, ¿eh?";
+		mes "Sabes que esto podria romperse, ¿verdad?";
 		next;
 		mes "[Clink]";
-		mes "If you break the "+.@type$+", you can never use it again.";
-		mes "Cards and enchant effects...";
-		mes "the ^ff0000whole thing will disappear^000000.";
-		mes "You still up for this~?";
+		mes "Si rompes el "+.@type$+", nunca podras usarlo de nuevo.";
+		mes "Cartas y efectos de encantamiento...";
+		mes "^ff0000todo desaparecera^000000.";
+		mes "¿Aun quieres seguir~?";
 		next;
-		if(select("Yes, I am!!:Forget about it!!") == 2) {
+		if(select("¡¡Si, quiero!!:¡¡Olvidalo!!") == 2) {
 			mes "[Clink]";
-			mes "I knew it!!";
-			mes "You can't even take this big step. Don't think about refining...";
+			mes "¡¡Lo sabia!!";
+			mes "Ni siquiera puedes dar este gran paso. No pienses en refinar...";
 			close;
 		}
 	}
 	if (countitem(.@material) == 0 || Zeny < .@price) {
 		mes "[Clink]";
-		mes "Hey you!! Didn't I tell you";
-		mes "that you need ^ff9999"+getitemname(.@material)+"^000000 and ^ff9999"+.@price+"^000000 Zeny??!!";
+		mes "¡¡Oye tu!! ¿No te dije";
+		mes "que necesitas ^ff9999"+getitemname(.@material)+"^000000 y ^ff9999"+.@price+"^000000 Zeny??!!";
 		close;
 	}
 	delitem .@material,1;
@@ -549,7 +549,7 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 	if (getequippercentrefinery(.@part) <= rand(100)) {
 		failedrefitem .@part;
 		mes "[Clink]";
-		mes "Cry Hammer!! Cry!!!";
+		mes "¡¡Llora Martillo!! ¡¡¡Llora!!!";
 		next;
 		switch(rand(1,5)) {
 			case 1: emotion ET_CRY; break;
@@ -559,28 +559,28 @@ malangdo,224,172,6	script	Clink#mal_normal	544,{
 			case 5: emotion ET_BIGTHROB; break;
 		}
 		mes "[Clink]";
-		mes "Huh?! I failed?!";
+		mes "¿¡¿Eh?! ¿¡Falle?!";
 		next;
 		mes "[Clink]";
-		mes "Arrgg~ It's all~ Broken...? What a pity~";
+		mes "Arrgg~ Todo~ ¿Roto...? Que lastima~";
 		next;
 		mes "[Clink]";
-		mes "Hey...!! Get me another one.";
-		mes "This is not possible.";
-		mes "How can my hammer fail from refining?";
+		mes "¡¡Oye...!! Traeme otro.";
+		mes "Esto no es posible.";
+		mes "¿Como puede fallar mi martillo al refinar?";
 		close;
 	}
 	successrefitem .@part;
 	mes "[Clink]";
-	mes "Cry Hammer!! Cry!!!";
+	mes "¡¡Llora Martillo!! ¡¡¡Llora!!!";
 	next;
 	emotion ET_CHUP;
 	mes "[Clink]";
-	mes "Ok!! Perfect!!";
-	mes "There's nothing I can't refine";
-	mes "with this special hammer.";
-	mes "You can praise me!!";
-	mes "What a day!!";
+	mes "¡¡Ok!! ¡¡Perfecto!!";
+	mes "No hay nada que no pueda refinar";
+	mes "con este martillo especial.";
+	mes "¡¡Puedes alabarme!!";
+	mes "¡¡Que dia!!";
 	close;
 }
 
@@ -645,36 +645,36 @@ OnInit:
 
 prt_in,63,69,3	script	Dietrich#ns_prt	4_M_02,{
 	mes "[" + strnpcinfo(1) + "]";
-	mes "We sell and exchange various ores used in smelting.";
+	mes "Vendemos e intercambiamos varios minerales usados en la fundicion.";
 	next;
-	switch( select( "View basic smelting ores", "View advanced smelting ores", "View Ether smelting ores", "Cancel" ) ) {
+	switch( select( "Ver minerales basicos de fundicion", "Ver minerales avanzados de fundicion", "Ver minerales de fundicion Ether", "Cancelar" ) ) {
 	case 1:
 		mes "[" + strnpcinfo(1) + "]";
-		mes "Phracon and Emveretarcon are available for use in smelting low-level weapons.";
+		mes "Phracon y Emveretarcon estan disponibles para usar en la fundicion de armas de bajo nivel.";
 		close2;
 		callshop "market_refine_" + strnpcinfo(4);
 		end;
 	case 2:
 		mes "[" + strnpcinfo(1) + "]";
-		mes "We are purifying Elunium Stone or Oridecon Stone, or exchanging them with Bradium or Carnium.";
+		mes "Estamos purificando Elunium Stone u Oridecon Stone, o intercambiandolos por Bradium o Carnium.";
 		close2;
 		callshop "barter_refine_1";
 		end;
 	case 3:
 		mes "[" + strnpcinfo(1) + "]";
-		mes "We add Etel Dust to existing smelting ores and replace them with Ether-bearing smelting ores.";
+		mes "Agregamos Etel Dust a los minerales de fundicion existentes y los reemplazamos con minerales de fundicion que contienen Ether.";
 		close2;
 		callshop "barter_refine_2";
 		end;
 	case 4:
 		mes "[" + strnpcinfo(1) + "]";
-		mes "If you lack the materials used for smelting, come anytime.";
+		mes "Si te faltan los materiales usados para la fundicion, ven cuando quieras.";
 		close;
 	}
 	end;
 
 OnInit:
-	setunittitle getnpcid(0), "<Responsible for smelting products>";
+	setunittitle getnpcid(0), "<Responsable de productos de fundicion>";
 	end;
 }
 payon,137,178,5	duplicate(Dietrich#ns_prt)	Hakhim#2	4_M_ORIENT01
@@ -687,8 +687,8 @@ lhz_in02,281,24,5	duplicate(Dietrich#ns_prt)	Fruel#2	4_M_02
 // Shadowdecon/Zelunium exchange npcs
 prt_in,64,57,3	script	Pauline	4_M_02,{
 	mes "[" + strnpcinfo(1) + "]";
-	mes "Do you have " + mesitemlink( 25728 ) + " or " + mesitemlink( 25730 ) + "?";
-	mes "We will exchange them for refined products for use as smelting goods.";
+	mes "¿Tienes " + mesitemlink( 25728 ) + " o " + mesitemlink( 25730 ) + "?";
+	mes "Los intercambiaremos por productos refinados para usar como materiales de fundicion.";
 	close2;
 	callshop "barter_refine_3";
 	end;

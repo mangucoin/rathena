@@ -762,7 +762,7 @@ OnStart:
 		end;
 	}
 	mes "[Worker]";
-	mes "What!? You are not one of us!!";
+	mes "Que!? Tu no eres uno de los nuestros!!";
 	donpcevent instance_npcname( strnpcinfo(0) ) + "::OnAlert";
 	close;
 
@@ -826,13 +826,13 @@ OnTouch_:
 
 1@xm_d,131,208,8	script	Captured Santa#3	4_M_SANTA,{
 	mes "[Captured Santa]";
-	mes "Even if no one owns it, its not right to steal it from everyone.";
+	mes "Aunque nadie sea el dueno, no esta bien robarselo a todos.";
 	close;
 }
 
 1@xm_d,131,213,4	script	Antonio#1	4_M_ANTONIO,{
 	mes "[Antonio]";
-	mes "Hey, Santa. Stop being stuffy, you old man. Fair is fair after all, kekeke.";
+	mes "Oye, Santa. Deja de ser tan estirado, viejo. Lo justo es justo despues de todo, kekeke.";
 	close;
 
 OnStart:
@@ -981,7 +981,7 @@ OnTouch:
 
 1@xm_d,233,183,3	script	Celine Kimi#0	4_F_KIMI,{
 	mes "[Celine Kimi]";
-	mes "Did you come here as well? Why are all of the humans so anxious to destroy what we built?";
+	mes "Tu tambien viniste aqui? Por que todos los humanos estan tan ansiosos por destruir lo que construimos?";
 	close;
 }
 
@@ -1003,7 +1003,7 @@ OnTouch:
 
 1@xm_d,222,183,6	script	Catherine Jet Johnson#5	4_F_SKULL06GIRL,{
 	mes "[Catherine Jet Johnson]";
-	mes "Wa.. Watch out! Kimi isn't under the normal status.";
+	mes "Wa.. Cuidado! Kimi no esta en un estado normal.";
 	close;
 
 OnStart:
@@ -1270,11 +1270,11 @@ OnTouch_:
 
 1@xm_d,233,183,3	script	Celine Kimi#2	4_F_KIMI,{
 	mes "[Celine Kimi]";
-	mes "You also... came here to kill me?";
+	mes "Tu tambien... viniste aqui a matarme?";
 	close;
 
 OnStart:
-	npctalk "Celine Kimi: You also... came here to kill me?";
+	npctalk "Celine Kimi: Tu tambien... viniste aqui a matarme?";
 	specialeffect EF_MAPPILLAR2;
 	sleep 5000;
 	disablenpc instance_npcname("Celine Kimi#2");
@@ -1347,10 +1347,10 @@ OnStart:
 }
 
 1@xm_d,218,150,5	script	#exwp1	PORTAL,{
-	mes "Will you exit?";
+	mes "Quieres salir?";
 	next;
-	if (select( "Take a look around", "Go outside" ) == 1) {
-		mes "Stop the machine.";
+	if (select( "Echar un vistazo", "Salir afuera" ) == 1) {
+		mes "Detener la maquina.";
 		close;
 	}
 	close2;
@@ -1506,15 +1506,15 @@ OnTimer1000:
 1@xm_d,1,1,3	script	#adsw	CLEAR_NPC,{
 	if (callfunc("F_GM_NPC",1854,0) == 1) {
 		mes "[Time Manager]";
-		mes "What time would you like to return?";
+		mes "A que momento te gustaria regresar?";
 		next;
-		switch (select("Cancel:Factory No.1 Complete:Factory No.2 Complete:Factory No.3 Complete:Boss Start:Boss Complete")) {
+		switch (select("Cancelar:Fabrica No.1 Completa:Fabrica No.2 Completa:Fabrica No.3 Completa:Jefe Inicio:Jefe Completo")) {
 		case 1:
 			break;
 		case 2:
 			transform 1246,180000;
 			enablenpc instance_npcname("#fac1bs");
-			mapannounce 'xm_d_map$, "Coordinator's announcement: Huh? Where's everyone! How dare the workers be absent from their line and muck around!",bc_map,"0xff8800";
+			mapannounce 'xm_d_map$, "Anuncio del Coordinador: Eh? Donde estan todos! Como se atreven los trabajadores a ausentarse de su linea y holgazanear!",bc_map,"0xff8800";
 			warp 'xm_d_map$,70,125;
 			break;
 		case 3:

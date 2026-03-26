@@ -5587,37 +5587,37 @@ alberta,211,28,5	script	Knight Aylvar#illtur	4_M_YOUNGKNIGHT,{
 		mes "In el meantime, I contacted Juno University y fue to Turtle Island, pero I no he achieved any results... I era hoping I podria encontrar a clue asi que I figure out donde Leiphen disappeared to.";
 		next;
 		mes "[Knight Aylvar]";
-		mes "" + .@player_name$ + ", please help us. Can you help me find my friend?";
-		mes "Esto piece podria be a clue. Please tomar a mirar.";
+		mes "" + .@player_name$ + ", por favor ayúdanos. ¿Puedes ayudarme a encontrar a mi amigo?";
+		mes "Esta pieza podría ser una pista. Por favor échale un vistazo.";
 		next;
-		select("Please decir me tu amigo parece que.");
+		select("Por favor dime cómo se ve tu amigo.");
 		mes "[Knight Aylvar]";
-		mes "^0000CDHe wears glasses^000000 y tiene blue short hair. ^0000CDHis cara is solo como a scholar^000000 asi que tu deberia be able to recognize el.";
+		mes "^0000CDUsa lentes^000000 y tiene cabello corto azul. ^0000CDSu cara es como la de un erudito^000000 así que deberías poder reconocerlo.";
 		next;
-		if (select( "Show me el piece. Dejar me tomar a mirar.", "Sorry pero soy busy." ) == 2) {
-			npctalk "Aylvar : Leiphen, my amigo... Please be seguro.", "", bc_self;
+		if (select( "Muéstrame la pieza. Déjame echarle un vistazo.", "Perdón pero estoy ocupado." ) == 2) {
+			npctalk "Aylvar : Leiphen, mi amigo... Por favor estate a salvo.", "", bc_self;
 			mes "[Knight Aylvar]";
-			mes "Sorry to bother tu.";
-			mes "God bless tu.";
+			mes "Perdón por molestarte.";
+			mes "Que Dios te bendiga.";
 			close;
 		}
 		if (checkweight(25315,1) == 0) {
-			mes " - ^424242EStopped handing el piece terminado.^000000 - ";
+			mes " - ^424242Dejó de entregar la pieza.^000000 - ";
 			next;
 			mes "[Knight Aylvar]";
-			mes "I am sorry, " + .@player_name$ + ". You already have too much stuff. I figure it's difficult to find my friend right now.";
+			mes "Lo siento, " + .@player_name$ + ". Ya tienes demasiadas cosas. Me imagino que es difícil buscar a mi amigo ahora mismo.";
 			next;
 			mes "[Knight Aylvar]";
-			mes "Puede tu clear up tu inventory un poco bit? I va a be bien aqui esperando para tu.";
+			mes "¿Podrías liberar un poco tu inventario? Estaré bien aquí esperándote.";
 			close;
 		}
-		mes " - ^424242I grabbed el piece handed terminado by el knight. A small leaf is carved on el turtle shell. Es a bulky piece, pero somehow feels warm.^000000 - ";
+		mes " - ^424242Tomé la pieza que me entregó el caballero. Una pequeña hoja está tallada en el caparazón de tortuga. Es una pieza grande, pero de alguna manera se siente cálida.^000000 - ";
 		next;
-		mes " - ^424242I era mirando at el piece para a mientras, pero de repente algo parecia to appear in my cabeza. De repente a gust blows y my vision gets darker.^000000 - ";
+		mes " - ^424242Estuve mirando la pieza por un rato, pero de repente algo pareció aparecer en mi cabeza. De repente sopla una ráfaga y mi visión se oscurece.^000000 - ";
 		next;
 		emotion ET_KEK;
-		npctalk "Aylvar : Ugh, es el mismo wind como antes. " + .@player_name$ + ", are you ok?", "", bc_self;
-		mes " - ^424242EAylvar's voz is obteniendo smaller y I sintio dizzy. Es starting to smell como wet clay....^000000 - ";
+		npctalk "Aylvar : Ugh, es el mismo viento de antes. " + .@player_name$ + ", ¿estás bien?", "", bc_self;
+		mes " - ^424242La voz de Aylvar se hace más pequeña y me sentí mareado. Empieza a oler a arcilla húmeda....^000000 - ";
 		ill_turtle = 1;
 		setquest 16096;	// To the unknown tortoise island
 		close2;
@@ -5627,64 +5627,64 @@ alberta,211,28,5	script	Knight Aylvar#illtur	4_M_YOUNGKNIGHT,{
 	}
 	if (ill_turtle < 11) {
 		mes "[Knight Aylvar]";
-		mes "" + .@player_name$ + "! Oh, you are ok! I am... worried. After Leiphen, " + .@player_name$ + ", you also disappeared, I was really concerned.";
+		mes "" + .@player_name$ + "! Oh, ¡estás bien! Estaba... preocupado. Después de Leiphen, " + .@player_name$ + ", tú también desapareciste, estaba muy preocupado.";
 		sleep2 500;
 		if (ill_turtle > 5) {
-			unittalk .@account_id, "" + .@player_name$ + " : Es ok, Archeologist Leiphen's location seems to be donde I fue.", bc_self;
+			unittalk .@account_id, "" + .@player_name$ + " : Estoy bien, la ubicación del Arqueólogo Leiphen parece ser donde yo fui.", bc_self;
 			sleep2 1000;
-			npctalk "Aylvar : Realmente? Oh. Leiphen...!", "", bc_self;
+			npctalk "Aylvar : ¿En serio? Oh. ¡Leiphen...!", "", bc_self;
 		}
 		else {
-			unittalk .@account_id, "" + .@player_name$ + " : I am ok. I encontro Archeologist Leiphen.", bc_self;
+			unittalk .@account_id, "" + .@player_name$ + " : Estoy bien. Encontré al Arqueólogo Leiphen.", bc_self;
 			sleep2 1000;
-			npctalk "Aylvar : Realmente? Bueno! Leiphen...!", "", bc_self;
+			npctalk "Aylvar : ¿En serio? ¡Bueno! ¡Leiphen...!", "", bc_self;
 		}
 		next;
 		mes "[Knight Aylvar]";
-		mes "Son tu yendo de vuelta to encontrar Leiphen de nuevo?";
-		npctalk "Aylvar : Is ahi a way para me to ir ahi?", "", bc_self;
+		mes "¿Vas a volver a buscar a Leiphen de nuevo?";
+		npctalk "Aylvar : ¿Hay alguna forma de que yo pueda ir allá?", "", bc_self;
 		sleep2 1000;
-		unittalk .@account_id, "" + .@player_name$ + " : I pensar es hard para tu to ir ahi.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Creo que es difícil para ti ir allá.", bc_self;
 		next;
-		if (select( "Dejar me ir ahi de nuevo.", "I va a ir ahi despues." ) == 2) {
+		if (select( "Déjame ir allá de nuevo.", "Iré allá después." ) == 2) {
 			mes "[Knight Aylvar]";
-			mes "Please save Leiphen.";
-			mes "If I puede ir ahi, I va a save el myself.";
+			mes "Por favor salva a Leiphen.";
+			mes "Si pudiera ir allá, lo salvaría yo mismo.";
 			close;
 		}
 		mes "[Knight Aylvar]";
-		mes "Gracias. Gracias asi que mucho.";
-		mes "Please save Leiphen.";
+		mes "Gracias. Muchísimas gracias.";
+		mes "Por favor salva a Leiphen.";
 		next;
-		mes " - ^424242As el girl quien era ahi le dijo me, I squeezed el piece of el turtle shell, I sintio el wind blowing my hair de nuevo.^000000 - ";
+		mes " - ^424242Como la chica que estaba ahí me dijo, apreté la pieza del caparazón de tortuga, sentí el viento soplando mi cabello de nuevo.^000000 - ";
 		next;
-		npctalk "Aylvar : " + .@player_name$ + ", please be careful!", "", bc_self;
-		mes " - ^424242Before my ojos eran completamente dark, my cheeks sintio el cooler air de el cave....^000000 -";
+		npctalk "Aylvar : " + .@player_name$ + ", ¡por favor ten cuidado!", "", bc_self;
+		mes " - ^424242Antes de que mis ojos estuvieran completamente oscuros, mis mejillas sintieron el aire más frío de la cueva....^000000 -";
 		close2;
 		warp "tur_d03_i",132,187;
 		end;
 	}
 	if (ill_turtle == 11) {
 		mes "[Knight Aylvar]";
-		mes "Hi " + .@player_name$ + ". I have heard every story from Leiphen.";
-		mes "I am worried porque he fue ahi de nuevo. He dijo he haria venir de vuelta despues finds out el secret of eso lugar.";
+		mes "Hola " + .@player_name$ + ". He escuchado toda la historia de Leiphen.";
+		mes "Estoy preocupado porque fue allá de nuevo. Dijo que volvería después de descubrir el secreto de ese lugar.";
 		next;
 		mes "[Knight Aylvar]";
-		mes "No solo Leiphen pero tambien a kid named Narin... quien tu tambien helped. Tu son a great aventurero.";
-		mes "Son tu yendo ahi de nuevo?";
+		mes "No solo Leiphen sino también un chico llamado Narin... a quien tú también ayudaste. Eres un gran aventurero.";
+		mes "¿Vas a ir allá de nuevo?";
 		next;
-		if (select( "Yes. I am yendo ahi.", "No ahora mismo." ) == 2) {
+		if (select( "Sí. Voy para allá.", "No ahora mismo." ) == 2) {
 			emotion ET_SURPRISE;
 			mes "[Knight Aylvar]";
-			mes "Oh, desde tu son yendo ahi de nuevo, please hacer seguro Leiphen is ok tambien.";
+			mes "Oh, ya que vas allá de nuevo, por favor asegúrate de que Leiphen esté bien también.";
 			ill_turtle = 12;
 			setquest 16114;	// Talk with Aylvar
 			completequest 16114;	// Talk with Aylvar
 			close;
 		}
 		mes "[Knight Aylvar]";
-		mes "Please come back again, " + .@player_name$ + ".";
-		mes "On el way, please hacer seguro Leiphen is haciendo bueno.";
+		mes "Por favor vuelve de nuevo, " + .@player_name$ + ".";
+		mes "De camino, por favor asegúrate de que Leiphen esté bien.";
 		ill_turtle = 12;
 		setquest 16114;	// Talk with Aylvar
 		completequest 16114;	// Talk with Aylvar
@@ -5692,19 +5692,19 @@ alberta,211,28,5	script	Knight Aylvar#illtur	4_M_YOUNGKNIGHT,{
 		warp "tur_d03_i",132,187;
 		end;
 	}
-	npctalk "Aylvar : He is a guy donde research is mas importante than himself, asi que I querer to stay closer to el.", "", bc_self;
+	npctalk "Aylvar : Es un tipo donde la investigación es más importante que él mismo, así que quiero estar más cerca de él.", "", bc_self;
 	mes "[Knight Aylvar]";
-	mes "Glad to ver tu de nuevo. I tener reported el information to el Knights Division y ahora my job is to support Leiphen's research.";
-	mes "Son tu yendo ahi de nuevo?";
+	mes "Me alegra verte de nuevo. He reportado la información a la División de Caballeros y ahora mi trabajo es apoyar la investigación de Leiphen.";
+	mes "¿Vas a ir allá de nuevo?";
 	next;
-	if (select( "Yes. I am yendo ahi.", "No ahora mismo." ) == 2) {
+	if (select( "Sí. Voy para allá.", "No ahora mismo." ) == 2) {
 		mes "[Knight Aylvar]";
-		mes "Cuando I escucho his historia, I queria to ir ahi tambien... pero I no puedo do as he explained. I am asi que sad.";
+		mes "Cuando escuché su historia, yo también quería ir allá... pero no puedo hacer lo que él explicó. Estoy muy triste.";
 		close;
 	}
 	mes "[Knight Aylvar]";
-	mes "Please come back again, " + .@player_name$ + ".";
-	mes "If tu encontrar Leiphen, please hacer seguro he is eating.";
+	mes "Por favor vuelve de nuevo, " + .@player_name$ + ".";
+	mes "Si encuentras a Leiphen, por favor asegúrate de que esté comiendo.";
 	close2;
 	emotion ET_KEK;
 	warp "tur_d03_i",132,187;
@@ -5722,73 +5722,73 @@ tur_d04_i,99,191,0	warp	illtur04_03	 2,2,tur_d03_i,217,82
 
 tur_d03_i,132,194,3	script	Portal#illtur02	4_ENERGY_RED,{
 	if (ill_turtle < 11) {
-		mes " - ^424242Beyond el puerta, it appears black, y nada seems to exist. A reddish glow is floating in front of el black sky. A nervous mirando girl appears.^000000 - ";
+		mes " - ^424242Más allá de la puerta, se ve negro, y nada parece existir. Un brillo rojizo flota frente al cielo negro. Una chica de aspecto nervioso aparece.^000000 - ";
 		next;
-		npctalk "Girl : El piece va a ayudar tu. Hold tight.", "Girl#illtur01", bc_self;
+		npctalk "Chica : La pieza te ayudará. Sujétala fuerte.", "Girl#illtur01", bc_self;
 		mes "[Girl]";
-		mes "...It is esto lugar.";
-		mes "Hopeless, desperate, y poisonous.";
+		mes "...Es este lugar.";
+		mes "Sin esperanza, desesperado y venenoso.";
 		next;
-		mes " - ^424242It's a puzzling response, pero it podria ayudar. As el girl le dijo me, I held onto el turtle shell.^000000 - ";
+		mes " - ^424242Es una respuesta desconcertante, pero podría ayudar. Como la chica me dijo, me aferré al caparazón de tortuga.^000000 - ";
 		next;
-		if (select( "De vuelta to Alberta.", "Stay aqui." ) == 2) {
-			unittalk getcharid(3), "" + strcharinfo(0) + " : I tener algo to do aqui.", bc_self;
+		if (select( "De vuelta a Alberta.", "Quedarme aquí." ) == 2) {
+			unittalk getcharid(3), "" + strcharinfo(0) + " : Tengo algo que hacer aquí.", bc_self;
 			mes "[Girl]";
-			mes "......No yendo to de vuelta?";
+			mes "......¿No vas a volver?";
 			close;
 		}
-		npctalk "Girl : Yes. Solo... Ir.", "Girl#illtur01", bc_self;
-		mes " - ^424242The smell of salty wind lifted el hem of my clothing. Tu puede escuchar el waves of Alberta Harbor y el sound of seagulls....^000000 - ";
+		npctalk "Chica : Sí. Solo... Ve.", "Girl#illtur01", bc_self;
+		mes " - ^424242El olor del viento salado levantó el borde de mi ropa. Puedes escuchar las olas del Puerto de Alberta y el sonido de las gaviotas....^000000 - ";
 		close2;
 		warp "alberta",219,31;
 		end;
 	}
 	if (isbegin_quest(16115) == 0) {
-		mes " - ^424242This red light is invisible to Narin. It solo seems to disappear.^000000 - ";
+		mes " - ^424242Esta luz roja es invisible para Narin. Solo parece desaparecer.^000000 - ";
 		next;
-		mes " - ^424242If I no venir de vuelta, ella va a forget. Solo bien antes I walk into el light, Narin's voz echoed de detras de me.^000000 - ";
+		mes " - ^424242Si no vuelvo, ella olvidará. Justo antes de que camine hacia la luz, la voz de Narin resonó detrás de mí.^000000 - ";
 		next;
 		mes "[Narin]";
-		mes "I va a recordar... Come de vuelta. Please. Bro...!";
+		mes "Voy a recordar... Vuelve. Por favor. ¡Herma...!";
 		next;
-		if (select( "Nod y ir to Alberta.", "Nod y turn." ) == 2) {
-			mes " - ^424242Turning alrededor de con a small smile, Narin, holding ella hands, era surprised y glanced terminado.^000000 - ";
+		if (select( "Asentir e ir a Alberta.", "Asentir y voltear." ) == 2) {
+			mes " - ^424242Al voltear con una pequeña sonrisa, Narin, sujetando sus manos, se sorprendió y echó un vistazo.^000000 - ";
 			next;
 			mes "[Narin]";
-			mes "Ah? No yendo de vuelta?";
+			mes "¿Ah? ¿No vas a volver?";
 			next;
-			unittalk getcharid(3), "" + strcharinfo(0) + " : Parece que tu todavia necesitar me. Hizo tu llamar me? I no escuchar clearly, puede tu decir me de nuevo?", bc_self;
+			unittalk getcharid(3), "" + strcharinfo(0) + " : Parece que todavía me necesitas. ¿Me llamaste? No escuché bien, ¿puedes decirme de nuevo?", bc_self;
 			mes "[Narin]";
-			mes "Hey!";
+			mes "¡Oye!";
 			setquest 16115;	// Talk with girl
 			completequest 16115;	// Talk with girl
 			close;
 		}
-		mes " - ^424242I nodded y recalled el bulky piece I tenia ahora mantuvo by my corazon. El sea breeze de el harbor blows by my ears...^000000 - ";
+		mes " - ^424242Asentí y recordé la pieza grande que ahora guardaba junto a mi corazón. La brisa del mar del puerto sopla por mis oídos...^000000 - ";
 		setquest 16115;	// Talk with girl
 		completequest 16115;	// Talk with girl
 		close2;
 		warp "alberta",219,31;
 		end;
 	}
-	mes " - ^424242Now I stand in front of el familiar light. Lightly waved my mano to Narin, ella closed ella ojos y held both hands juntos.^000000 - ";
+	mes " - ^424242Ahora me encuentro frente a la luz familiar. Le hice un leve gesto con la mano a Narin, ella cerró los ojos y juntó ambas manos.^000000 - ";
 	next;
-	mes " - ^424242With empty hands, I pensar of el bulky pero warm piece left in my corazon.^000000 - ";
+	mes " - ^424242Con las manos vacías, pienso en la pieza grande pero cálida que dejé en mi corazón.^000000 - ";
 	next;
-	if (select( "Ir de vuelta to Alberta.", "Stay aqui." ) == 2) {
-		mes " - ^424242Turning alrededor de con a small smile, Narin, holding ella hands, era surprised y glanced terminado.^000000 - ";
+	if (select( "Ir de vuelta a Alberta.", "Quedarme aquí." ) == 2) {
+		mes " - ^424242Al voltear con una pequeña sonrisa, Narin, sujetando sus manos, se sorprendió y echó un vistazo.^000000 - ";
 		next;
 		mes "[Narin]";
-		mes "Ah? No yendo de vuelta?";
+		mes "¿Ah? ¿No vas a volver?";
 		next;
-		unittalk getcharid(3), "" + strcharinfo(0) + " : Parece que tu todavia necesitar me. Hizo tu llamar me? I no escuchar clearly, puede tu decir me de nuevo?", bc_self;
+		unittalk getcharid(3), "" + strcharinfo(0) + " : Parece que todavía me necesitas. ¿Me llamaste? No escuché bien, ¿puedes decirme de nuevo?", bc_self;
 		mes "[Narin]";
-		mes "Hay!";
+		mes "¡Oye!";
 		close;
 	}
-	mes " - ^424242I va a venir de vuelta de nuevo. I poner my hands juntos on my chest.^000000 - ";
+	mes " - ^424242Volveré de nuevo. Junté mis manos sobre mi pecho.^000000 - ";
 	next;
-	mes " - ^424242The consciousness se convirtio far lejos, y el salty, slightly fishy smell of Alberta Harbor tickled my nose.^000000 - ";
+	mes " - ^424242La consciencia se alejó, y el olor salado, ligeramente a pescado del Puerto de Alberta me hizo cosquillas en la nariz.^000000 - ";
 	close2;
 	warp "alberta",219,31;
 	end;
@@ -5797,7 +5797,7 @@ tur_d03_i,132,194,3	script	Portal#illtur02	4_ENERGY_RED,{
 tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 	if (checkweight(1201,1) == 0) {
 		mes "[Girl]";
-		mes "Que son tu haciendo con such a heavy bag? Clear algunos out.";
+		mes "¿Qué haces con una bolsa tan pesada? Libera algo de espacio.";
 		close;
 	}
 	if (ill_turtle == 0)
@@ -5840,12 +5840,12 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 			sleep2 500;
 			unittalk .@account_id, "" + .@player_name$ + " : Uh, que era eso??", bc_self;
 			mes "[Girl]";
-			mes "A spell eso va a proteger tu para a moment.";
-			mes "It va a follow tu alrededor de. Curiosity killed el cat. No mirar into algo eso is unclear. No mirar de vuelta, o talk detras de alguien's de vuelta.";
+			mes "Un hechizo que te protegerá por un momento.";
+			mes "Te seguirá a todas partes. La curiosidad mató al gato. No mires algo que no está claro. No mires atrás, ni hables a espaldas de alguien.";
 			next;
 			mes "[Girl]";
-			mes "^FF0000Don't be alarmed eso tu may breathe strangely.^000000";
-			unittalk .@account_id, "" + .@player_name$ + " : Que do tu mean?", bc_self;
+			mes "^FF0000No te alarmes si respiras de manera extraña.^000000";
+			unittalk .@account_id, "" + .@player_name$ + " : ¿Qué quieres decir?", bc_self;
 			ill_turtle = 2;
 			erasequest 16096;	// To the unknown tortoise island
 			setquest 16097;	// Stranger on Turtle Island 1
@@ -5855,12 +5855,12 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 		case 2:
 			emotion ET_THINK;
 			mes "[Girl]";
-			mes "I no saber. I no saber donde tu vino de, como podria I saber?";
+			mes "No lo sé. No sé de dónde vienes, ¿cómo podría saberlo?";
 			next;
 			mes "[Girl]";
-			mes "Sin embargo, ahi, el empty puerta... podria tener algo, tu podria saber sobre.";
+			mes "Sin embargo, ahí, la puerta vacía... podría tener algo que tú podrías conocer.";
 			next;
-			mes " - ^424242The girl glanced hacia el de vuelta of donde ella era parado. Looking closely, it seems eso algo reddish is floating in front of el black hole. Vamos a ir y mirar.^000000 - ";
+			mes " - ^424242La chica miró hacia la parte de atrás de donde estaba parada. Mirando de cerca, parece que algo rojizo flota frente al agujero negro. Vamos a ir a mirar.^000000 - ";
 			close;
 		case 3:
 			emotion ET_THINK;
@@ -5868,96 +5868,96 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 			mes "......";
 			next;
 			mes "[Girl]";
-			mes "Ir de vuelta. Es peligroso aqui.";
+			mes "Vuelve. Es peligroso aquí.";
 			next;
-			mes " - ^424242The girl dijo briefly y stopped hablando. Ella looks sad....^000000 - ";
+			mes " - ^424242La chica habló brevemente y dejó de hablar. Se ve triste....^000000 - ";
 			close;
 		}
 	}
 	if (ill_turtle < 8) {
 		mes "[Girl]";
-		mes "...Tu, todavia alive?";
+		mes "...Tú, ¿todavía vivo?";
 		next;
 		mes "[Girl]";
-		mes "Antes tu obtener in peligro, obtener el person tu eran mirando para y irse.";
+		mes "Antes de que estés en peligro, encuentra a la persona que buscabas y vete.";
 		close;
 	}
 	if (ill_turtle == 8) {
 		mes "[Girl]";
-		mes "Tu son seguro. Both of tu.";
-		mes "...Sorry para el peligro.";
+		mes "Están a salvo. Ambos.";
+		mes "...Perdón por el peligro.";
 		sleep2 500;
-		unittalk .@account_id, "" + .@player_name$ + " : Es ok, Professor.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Está bien, Profesora.", bc_self;
 		sleep2 2000;
 		cloakoffnpcself( "Archeologist Leiphen#illtur01" );
 		emotion ET_SWEAT, getnpcid(0,"Archeologist Leiphen#illtur01");
-		npctalk "Archeologist Leiphen : ......Oh, I penso I era yendo to die.", "Archeologist Leiphen#illtur01", bc_self;
+		npctalk "Arqueólogo Leiphen : ......Oh, pensé que iba a morir.", "Archeologist Leiphen#illtur01", bc_self;
 		next;
 		mes "[Girl]";
-		mes "Entonces, ir de vuelta. To el lugar tu vino.";
-		mes "Y forget todo.";
+		mes "Entonces, vuelvan. Al lugar de donde vinieron.";
+		mes "Y olviden todo.";
 		next;
-		npctalk "Archeologist Leiphen : Como puede I forget esto lugar!?", "Archeologist Leiphen#illtur01", bc_self;
+		npctalk "Arqueólogo Leiphen : ¡¿Cómo puedo olvidar este lugar!?", "Archeologist Leiphen#illtur01", bc_self;
 		mes "[Archeologist Leiphen]";
-		mes "Huh? Que do tu mean? I va a venir de vuelta de nuevo.";
-		mes "Hasta I encontrar out all of el secrets aqui.";
+		mes "¿Eh? ¿Qué quieres decir? Volveré de nuevo.";
+		mes "Hasta que descubra todos los secretos aquí.";
 		next;
 		mes "[Girl]";
-		mes "Por que do tu ignore my warnings? Arrogant.";
+		mes "¿Por qué ignoras mis advertencias? Arrogante.";
 		emotion ET_HNG, getnpcid(0,"Archeologist Leiphen#illtur01");
-		npctalk "Archeologist Leiphen : I am a professor of archeology.", "Archeologist Leiphen#illtur01", bc_self;
-		mes "Tu may be a professor pero eso does no dar tu el bien to walk alrededor de aqui.";
+		npctalk "Arqueólogo Leiphen : Soy un profesor de arqueología.", "Archeologist Leiphen#illtur01", bc_self;
+		mes "Puede que seas profesor pero eso no te da el derecho de andar por aquí.";
 		next;
 		mes "[Archeologist Leiphen]";
-		mes "......Do tu saber algo?";
-		mes "Please decir me. Donde am I? Que solo paso aqui?";
-		npctalk "Girl : Tu no necesitar to saber, tu son yendo to irse anyway...", "", bc_self;
+		mes "......¿Sabes algo?";
+		mes "Por favor dime. ¿Dónde estoy? ¿Qué acaba de pasar aquí?";
+		npctalk "Chica : No necesitas saber, te vas a ir de todos modos...", "", bc_self;
 		next;
-		if (select( "Para diciendo eso.", "Tu son el arrogant one." ) == 2) {
+		if (select( "Deja de decir eso.", "Tú eres la arrogante." ) == 2) {
 			mes "[Girl]";
-			mes "Para? I no decir algo wrong. Tu son yendo to irse y forget todo pronto. Tu va a nunca venir de vuelta.... bien?";
+			mes "¿Parar? No dije nada malo. Te vas a ir y olvidar todo pronto. Nunca volverás.... ¿verdad?";
 		}
 		else {
-			npctalk "Girl : Que son tu diciendo? I am el arrogant one?", "", bc_self;
+			npctalk "Chica : ¿Qué estás diciendo? ¿Yo soy la arrogante?", "", bc_self;
 			mes "[Girl]";
-			mes "......Fine. Arrogant o no. Think freely. I no care anyway.";
+			mes "......Bien. Arrogante o no. Piensa libremente. No me importa de todos modos.";
 		}
 		next;
 		mes "[Girl]";
-		mes "I dijo antes.... pero no one tiene returned. I am no expecting anyone to.";
-		npctalk "Girl : If tu no expect, hay nada to be disappoint sobre.", "", bc_self;
+		mes "Lo dije antes.... pero nadie ha regresado. No espero que alguien lo haga.";
+		npctalk "Chica : Si no esperas, no hay nada de qué decepcionarte.", "", bc_self;
 		next;
 		emotion ET_QUESTION, .@account_id;
 		sleep2 1000;
 		emotion ET_THINK, .@account_id;
-		unittalk .@account_id, "" + .@player_name$ + " : Tu mean, tu querer us to return hogar.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Quieres decir que quieres que volvamos a casa.", bc_self;
 		mes "[Girl]";
-		mes "......No one comes de vuelta. Es better to no venir aqui. Es full of peligro.";
+		mes "......Nadie vuelve. Es mejor no venir aquí. Está lleno de peligro.";
 		next;
 		emotion ET_SURPRISE, getnpcid(0,"Archeologist Leiphen#illtur01");
 		mes "[Archeologist Leiphen]";
-		mes "Tu querer eso, pero todavia alguien is yendo to venir de vuelta aqui.";
+		mes "Tú quieres eso, pero aun así alguien va a volver aquí.";
 		sleep2 1000;
 		emotion ET_ANGER;
-		npctalk "Girl : ......Think que tu querer.", "", bc_self;
+		npctalk "Chica : ......Piensa lo que quieras.", "", bc_self;
 		next;
 		mes "[Girl]";
-		mes "Whew.........";
+		mes "Uff.........";
 		next;
 		mes "[Girl]";
-		mes "Ok. Fine. Dejar me decir tu. Promise me tu va a ir de vuelta despues escuchando. Es no como I querer to talk mucho.";
+		mes "Ok. Bien. Déjame decirte. Prométeme que te irás después de escuchar. No es como que quiera hablar mucho.";
 		next;
-		npctalk "Girl : soy solo diciendo tu porque eres asi que persistent.", "", bc_self;
+		npctalk "Chica : Solo te lo digo porque eres muy persistente.", "", bc_self;
 		mes "[Girl]";
-		mes "...Dar me a sec. I necesitar tiempo to pensar clearly. Es sido mucho tiempo no hablando....";
+		mes "...Dame un segundo. Necesito tiempo para pensar con claridad. Ha pasado mucho tiempo sin hablar....";
 		next;
-		npctalk "Archeologist Leiphen : Entonces dejar me mirar alrededor de aqui para a mientras.", "Archeologist Leiphen#illtur01", bc_self;
+		npctalk "Arqueólogo Leiphen : Entonces déjame mirar alrededor de aquí por un rato.", "Archeologist Leiphen#illtur01", bc_self;
 		sleep2 1000;
 		cloakonnpcself( "Archeologist Leiphen#illtur01" );
 		emotion ET_OHNO, .@account_id;
-		unittalk .@account_id, "" + .@player_name$ + " : Aunque es asi que peligroso, tu no puedo resist curiosity... Be careful anyway.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Aunque es tan peligroso, no puedes resistir la curiosidad... Ten cuidado de todos modos.", bc_self;
 		mes "[Girl]";
-		mes "voy a talk to tu de nuevo despues a mientras.";
+		mes "Hablaré contigo de nuevo después de un rato.";
 		ill_turtle = 9;
 		erasequest 16104;	// A long-forgotten story
 		setquest 16116;	// Continuous story
@@ -5969,53 +5969,53 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 		sleep2 500;
 		setpcblock PCBLOCK_NPC, false;
 
-		npctalk "Archeologist Leiphen : Ugh, monstruo!", "Archeologist Leiphen#illtur01", bc_self;
-		unittalk .@account_id, "" + .@player_name$ + " : Ugh! Tu son no a kid. Es peligroso aqui. Para wandering alrededor de!", bc_self;
+		npctalk "Arqueólogo Leiphen : ¡Ugh, monstruo!", "Archeologist Leiphen#illtur01", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : ¡Ugh! No eres un niño. Es peligroso aquí. ¡Deja de andar por ahí!", bc_self;
 		mes "[Narin]";
-		mes "Gracias para esperando...";
-		mes "It haria be better to empezar introducing myself. I am Narin. ^0000CDOld Ghost.^000000";
+		mes "Gracias por esperar...";
+		mes "Sería mejor empezar presentándome. Soy Narin. ^0000CDViejo Fantasma.^000000";
 		next;
-		npctalk "Archeologist Leiphen : O..Old GGhost?", "Archeologist Leiphen#illtur01", bc_self;
+		npctalk "Arqueólogo Leiphen : ¿V..Viejo FFfantasma?", "Archeologist Leiphen#illtur01", bc_self;
 		unittalk .@account_id, "" + .@player_name$ + " : ......", bc_self;
 		mes "[Narin]";
-		mes "Tu mirar como tu tener sido a traves de mucho of things antes. I puede ver tu son able to talk normally.";
-		mes "Ordinary gente como a professor no puedo incluso ver us.";
+		mes "Pareces haber pasado por muchas cosas antes. Puedo ver que puedes hablar normalmente.";
+		mes "La gente ordinaria como un profesor ni siquiera puede vernos.";
 		next;
 		mes "[Narin]";
-		mes "All el residents aqui son spirits bound by el burden of resentment. Cuando eres dead, obsessed con algo tu desperately querer, y vas a siempre do el mismo thing sin realizing it..";
-		npctalk "Narin : soy lucky, asi que sometimes I puede obtener out, pero eventually I ir de vuelta y repeat.", "", bc_self;
+		mes "Todos los residentes aquí son espíritus atados por la carga del resentimiento. Cuando estás muerto, obsesionado con algo que quieres desesperadamente, siempre harás lo mismo sin darte cuenta..";
+		npctalk "Narin : Tengo suerte, así que a veces puedo salir, pero eventualmente vuelvo y repito.", "", bc_self;
 		next;
 		mes "[Narin]";
-		mes "Nosotros hate vida. Those quien son no bound by el burden of resentment, esos quien breathe strangely. Nosotros querer to escuchar tu ultimo breath.";
-		mes "Pero unless tu realize us, nosotros cannot realize tu either. Es a bueno thing.";
+		mes "Odiamos la vida. Aquellos que no están atados por la carga del resentimiento, los que respiran de manera extraña. Queremos escuchar tu último aliento.";
+		mes "Pero a menos que tú nos notes, nosotros tampoco podemos notarte. Es algo bueno.";
 		next;
 		mes "[Narin]";
-		mes "It no ultimo long. El longer tu stay aqui, el mas tu notice el uno al otro. Gradually.";
-		mes "Y de repente tu guys realize. Eso es extrano. ...Entonces, es terminado.";
+		mes "No dura mucho. Cuanto más tiempo te quedas aquí, más se notan mutuamente. Gradualmente.";
+		mes "Y de repente se dan cuenta. Eso es extraño. ...Entonces, se acabó.";
 		next;
 		mes "[Narin]";
-		mes "El professor obtuvo my stuff, asi que I podria recognize it bien lejos. Normally I no tener conocido.";
-		npctalk "Archeologist Leiphen : Narin's stuff...?", "Archeologist Leiphen#illtur01", bc_self;
+		mes "El profesor obtuvo mis cosas, así que pude reconocerlo de lejos. Normalmente no lo habría sabido.";
+		npctalk "Arqueólogo Leiphen : ¿Las cosas de Narin...?", "Archeologist Leiphen#illtur01", bc_self;
 		sleep2 1000;
-		npctalk "Narin : Yes, turtle shell, my sculpture.", "", bc_self;
+		npctalk "Narin : Sí, caparazón de tortuga, mi escultura.", "", bc_self;
 		next;
 		mes "[Archeologist Leiphen]";
-		mes "Oh, I sabia it...!!";
-		mes "It era tu quien saved Aylvar. Gracias para helping my amigo!";
+		mes "Oh, ¡lo sabía...!!";
+		mes "Fuiste tú quien salvó a Aylvar. ¡Gracias por ayudar a mi amigo!";
 		next;
-		npctalk "Narin : I hizo it para me. No necesitar to decir thanks.", "", bc_self;
+		npctalk "Narin : Lo hice por mí. No necesitas dar las gracias.", "", bc_self;
 		mes "[Narin]";
-		mes "I queria to do it.  My obsession is...";
-		mes "^0000CDU I no querer anyone obtener die aqui. I querer to save all vida.^000000......";
-		mes "It era solo eso.";
+		mes "Quería hacerlo. Mi obsesión es...";
+		mes "^0000CDNo quiero que nadie muera aquí. Quiero salvar toda vida.^000000......";
+		mes "Solo era eso.";
 		next;
 		emotion ET_ANGER;
 		mes "[Narin]";
-		mes "Oh... realmente, es such a silly historia. Es hard to mantener hablando.";
-		mes "Solo irse me solo para a mientras? Sorry para tomando asi que long.";
+		mes "Oh... en serio, es una historia tan tonta. Es difícil seguir hablando.";
+		mes "¿Solo déjenme sola por un rato? Perdón por tardar tanto.";
 		next;
 		mes "[Archeologist Leiphen]";
-		mes "It's ok. I'll leave you for a moment. " + .@player_name$ + ", let's go together.";
+		mes "Está bien. Te dejaré por un momento. " + .@player_name$ + ", vamos juntos.";
 		emotion ET_OK, .@account_id;
 		ill_turtle = 10;
 		erasequest 16116;	// Continuous story
@@ -6026,35 +6026,35 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 	}
 	if (ill_turtle == 10) {
 		mes "[Narin]";
-		mes "Gracias para esperando. soy bueno ahora. Dejar me finish.";
+		mes "Gracias por esperar. Ya estoy bien. Déjame terminar.";
 		next;
 		cloakoffnpcself( "Archeologist Leiphen#illtur01" );
 		emotion ET_DELIGHT, getnpcid(0,"Archeologist Leiphen#illtur01");
-		npctalk "Archeologist Leiphen : soy ready. Ahi son mucho of interesante things alrededor de aqui.", "Archeologist Leiphen#illtur01", bc_self;
+		npctalk "Arqueólogo Leiphen : Estoy listo. Hay muchas cosas interesantes por aquí.", "Archeologist Leiphen#illtur01", bc_self;
 		mes "[Narin]";
-		mes "Es no el primero tiempo, alguien is aqui. Es a rare event. Cuando I primero vio alguien, I remembered que I queria.";
+		mes "No es la primera vez que alguien está aquí. Es un evento raro. Cuando vi a alguien por primera vez, recordé lo que quería.";
 		next;
 		mes "[Narin]";
-		mes "El man era deathly afraid, pero he era alive y left esto lugar.";
-		mes "Despues eso... I podria stay un poco longer.";
+		mes "El hombre estaba mortalmente asustado, pero estaba vivo y dejó este lugar.";
+		mes "Después de eso... pude quedarme un poco más.";
 		next;
 		mes "[Narin]";
-		mes "Es sido a mientras, I no he lost my mente. I era no swept lejos by resentment y neither razon nor emotion era lost.";
+		mes "Ha pasado un tiempo, no he perdido la razón. No fui arrastrada por el resentimiento y ni la razón ni la emoción se perdieron.";
 		next;
 		mes "[Narin]";
-		mes "Asi que I querer to save all vida. Those quien tener flowed in y incluso esos trapped by el burden forever.";
-		mes "I realized eso all esos I saved fue de vuelta to donde ellos vino de.";
-		npctalk "Narin : Y I am solo knowing y feeling quien I am, que I am haciendo.", "", bc_self;
+		mes "Así que quiero salvar toda vida. Los que han llegado aquí e incluso aquellos atrapados por la carga para siempre.";
+		mes "Me di cuenta de que todos los que salvé volvieron a donde vinieron.";
+		npctalk "Narin : Y yo solo sé y siento quién soy, lo que estoy haciendo.", "", bc_self;
 		next;
 		mes "[Narin]";
-		mes "Es... es hard. Incluso I envy esos trapped by esto burden. Pero... I no pude turn it fuera. El gente quien son in peligro.";
+		mes "Es... es difícil. Incluso envidio a los atrapados por esta carga. Pero... no pude ignorarlo. La gente que está en peligro.";
 		mes "....";
-		mes "Pero I no querer to hope. If tu hope... tu puede be betrayed.";
-		npctalk "Narin : ......Esto is el end of my historia. Ahora dar me el pieces y tu two va a be yendo de vuelta..", "", bc_self;
+		mes "Pero no quiero tener esperanzas. Si esperas... puedes ser traicionado.";
+		npctalk "Narin : ......Este es el final de mi historia. Ahora denme las piezas y ustedes dos se van..", "", bc_self;
 		next;
 		mes "[Narin]";
-		mes "Oh, I almost forgot. Dejar me cast my spell on tu de nuevo. Es weak, asi que it va a no ultimo long.";
-		mes "Solo obtener out antes es terminado.";
+		mes "Oh, casi lo olvido. Déjame lanzar mi hechizo sobre ti de nuevo. Es débil, así que no durará mucho.";
+		mes "Solo sal antes de que se termine.";
 		specialeffect EF_DETECT3;
 		sleep2 1000;
 		specialeffect2 EF_DETECT3;
@@ -6062,74 +6062,74 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 		specialeffect2 EF_CIRCLEPOWER8;
 		specialeffect EF_CIRCLEPOWER8, AREA, "Archeologist Leiphen#illtur01";
 		next;
-		if (select( "Es sido hard on tu siendo solo.", "I am no yendo de vuelta." ) == 2) {
+		if (select( "Ha sido difícil para ti estar sola.", "No voy a volver." ) == 2) {
 			mes "[Narin]";
-			mes "......I no decir tu el long historia to escuchar eso...";
-			mes "Please no care sobre me....";
+			mes "......No te conté la larga historia para escuchar eso...";
+			mes "Por favor no te preocupes por mí....";
 			next;
-			unittalk .@account_id, "" + .@player_name$ + " : Please, nosotros do care. I va a be glad cuando I obtener de vuelta de nuevo. I va a be sad if tu son cold cuando I venir aqui de nuevo.", bc_self;
+			unittalk .@account_id, "" + .@player_name$ + " : Por favor, sí nos importa. Me alegraré cuando vuelva de nuevo. Me pondré triste si eres fría cuando venga aquí de nuevo.", bc_self;
 			mes "[Archeologist Leiphen]";
-			mes "" + .@player_name$ + ", it turns out that you speak very well.";
+			mes "" + .@player_name$ + ", resulta que hablas muy bien.";
 		}
 		else {
 			mes "[Narin]";
-			mes "Que son tu hablando sobre?! I dijo ir de vuelta despues tu listen to my whole historia...!";
-			mes "I no querer to worry anymore!";
+			mes "¡¿De qué estás hablando?! ¡Dije que volvieras después de escuchar toda mi historia...!";
+			mes "¡No quiero preocuparme más!";
 			next;
-			unittalk .@account_id, "" + .@player_name$ + " : Please, nosotros do care. Archeologist Leiphen y myself va a meet tu expectations.", bc_self;
+			unittalk .@account_id, "" + .@player_name$ + " : Por favor, sí nos importa. El Arqueólogo Leiphen y yo cumpliremos tus expectativas.", bc_self;
 			mes "[Archeologist Leiphen]";
-			mes "Yes. Eso es que I queria to decir.";
+			mes "Sí. Eso es lo que quería decir.";
 		}
 		next;
 		mes "[Narin]";
-		mes "Que do tu mean...?";
+		mes "¿Qué quieren decir...?";
 		next;
-		unittalk .@account_id, "" + .@player_name$ + " : Nosotros va a venir de vuelta. Do no sentir solo.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Volveremos. No te sientas sola.", bc_self;
 		mes "[Archeologist Leiphen]";
-		mes "Dejar us ayudar otro souls aqui como tu, Narin, resolver themselves.";
+		mes "Déjanos ayudar a otras almas aquí como tú, Narin, a resolverse.";
 		next;
 		mes "[Narin]";
-		mes "Oh realmente...";
+		mes "Oh en serio...";
 		emotion ET_THINK;
-		mes "......No, it era a coincidence. Ellos son, no como me.";
+		mes "......No, fue una coincidencia. Ellos no son como yo.";
 		next;
 		mes "[Archeologist Leiphen]";
-		mes "Nosotros va a ver. Bien?";
-		unittalk .@account_id, "" + .@player_name$ + " : Por supuesto. Y if it no work, vamos a venir de vuelta to intentar de nuevo y de nuevo.", bc_self;
+		mes "Lo veremos. ¿Bien?";
+		unittalk .@account_id, "" + .@player_name$ + " : Por supuesto. Y si no funciona, volveremos a intentar una y otra vez.", bc_self;
 		next;
-		npctalk "Narin : No, no. It is muy peligroso aqui. Do no intentar to venir de vuelta.", "", bc_self;
+		npctalk "Narin : No, no. Es muy peligroso aquí. No intenten volver.", "", bc_self;
 		mes "[Narin]";
-		mes "Es ok. I va a forget both of tu. All el souls aqui son hizo como eso.";
-		mes "I podria recordar un poco longer. Pero I forget eventually.";
+		mes "Está bien. Olvidaré a ambos. Todas las almas aquí están hechas así.";
+		mes "Podría recordar un poco más. Pero eventualmente olvido.";
 		next;
 		emotion ET_SURPRISE, .@account_id;
-		unittalk .@account_id, "" + .@player_name$ + " : Pero tu todavia recordar el turtle shell pieces. Tu puede recordar de nuevo.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Pero todavía recuerdas las piezas de caparazón de tortuga. Puedes recordar de nuevo.", bc_self;
 		next;
 		mes "[Archeologist Leiphen]";
-		mes "Nosotros puede guess one fact. All el lost memories son in el subconscious mente of Narin.";
-		unittalk .@account_id, "" + .@player_name$ + " : Tu dijo tu querer to save all vida. If tu no he dado up on eso wish, tu puede surely recordar it.", bc_self;
+		mes "Podemos adivinar un hecho. Todos los recuerdos perdidos están en la mente subconsciente de Narin.";
+		unittalk .@account_id, "" + .@player_name$ + " : Dijiste que querías salvar toda vida. Si no has renunciado a ese deseo, seguramente puedes recordarlo.", bc_self;
 		next;
-		unittalk .@account_id, "" + .@player_name$ + " : If tu forget us, nosotros va a remind tu. As mucho as tu forget.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Si nos olvidas, te recordaremos. Tantas veces como olvides.", bc_self;
 		sleep2 2000;
-		unittalk .@account_id, "" + .@player_name$ + " : voy a ayudar tu cuando tu sentir lonely. Tu no va a tener to forget todo.", bc_self;
+		unittalk .@account_id, "" + .@player_name$ + " : Te ayudaré cuando te sientas sola. No tendrás que olvidar todo.", bc_self;
 		mes "[Archeologist Leiphen]";
-		mes "I va a venir de vuelta. Para research y para tu, Narin.";
+		mes "Volveré. Por la investigación y por ti, Narin.";
 		next;
 		mes "[Narin]";
-		mes "Realmente... Realmente? Son tu yendo to venir de vuelta aqui y encontrar me?";
+		mes "¿En serio... En serio? ¿Van a volver aquí y buscarme?";
 		next;
 		mes "[Narin]";
-		mes "I no necesitar to be ... solo...?";
+		mes "¿No tengo que estar ... sola...?";
 		next;
-		select( "I no va a irse tu solo.", "No worry.", "I promise.", "I va a venir de vuelta." );	// note: the selection doesn't change the dialog
+		select( "No te dejaré sola.", "No te preocupes.", "Lo prometo.", "Volveré." );	// note: the selection doesn't change the dialog
 		mes "[Narin]";
 		mes ".........";
 		next;
 		mes "[Narin]";
-		mes "......Thanks...";
+		mes "......Gracias...";
 		next;
 		mes "[Narin]";
-		mes "Thanks... Realmente...";
+		mes "Gracias... De verdad...";
 		next;
 		delitem 25315, countitem(25315);	// Piece_Of_Shell
 		specialeffect2 EF_CIRCLEPOWER2;
@@ -6137,47 +6137,47 @@ tur_d03_i,139,186,3	script	Girl#illtur01	4_F_NARIN,{
 		sleep2 500;
 		emotion ET_SURPRISE, getnpcid(0,"Archeologist Leiphen#illtur01");
 		mes "[Archeologist Leiphen]";
-		mes "Hu? Huh? It's just gone. The " + getitemname(25315) + ".";
-		mes "De repente de my hands... como it melted lejos.";
+		mes "¿Hu? ¿Eh? Se fue. El " + getitemname(25315) + ".";
+		mes "De repente de mis manos... como si se hubiera derretido.";
 		next;
 		mes "[Narin]";
-		mes "It tiene my wishes. Ahora... It no necesitar to exist.";
-		npctalk "Archeologist Leiphen : Que does eso mean?", "Archeologist Leiphen#illtur01", bc_self;
+		mes "Tiene mis deseos. Ahora... no necesita existir.";
+		npctalk "Arqueólogo Leiphen : ¿Qué significa eso?", "Archeologist Leiphen#illtur01", bc_self;
 		next;
 		emotion ET_ANGER;
 		mes "[Narin]";
-		mes "...I, I no saber el specifics razon... Solo eso it podria be eso way.";
+		mes "...Yo, no sé la razón específica... Solo que podría ser de esa manera.";
 		next;
 		mes "[Narin]";
-		mes "...Oh, bien. Aqui... I dar esto to tu. Aqui, tu tambien professor.";
-		unittalk .@account_id, "" + .@player_name$ + " : Que es esto?", bc_self;
-		npctalk "Archeologist Leiphen : It... Es an " + getitemname(25271) + "!", "Archeologist Leiphen#illtur01", bc_self;
+		mes "...Oh, bien. Aquí... te doy esto. Aquí, tú también profesor.";
+		unittalk .@account_id, "" + .@player_name$ + " : ¿Qué es esto?", bc_self;
+		npctalk "Arqueólogo Leiphen : Es... ¡Es un " + getitemname(25271) + "!", "Archeologist Leiphen#illtur01", bc_self;
 		next;
-		npctalk "Narin : ...Is it? De hecho, I tenia it porque it era pretty.", "", bc_self;
+		npctalk "Narin : ...¿Lo es? De hecho, lo tenía porque era bonito.", "", bc_self;
 		mes "[Narin]";
-		mes "Es a sign of promise. I va a intentar to recordar el two of tu. Asi que venir... venir y encontrar me.";
-		mes "Manana, y el day despues manana... voy a be esperando... Brother y professor.";
-		next;
-		mes "[Narin]";
-		mes "Y el others... tu dijo tu haria ayudar ellos. voy a mostrar tu como. Como tu puede ayudar...";
+		mes "Es una señal de promesa. Intentaré recordarlos a los dos. Así que vengan... vengan y encuéntrenme.";
+		mes "Mañana, y el día después de mañana... estaré esperando... Hermano y profesor.";
 		next;
 		mes "[Narin]";
-		mes "^0000CDListen to que ellos querer. Brother, incluso si tu mirar muy trivial, do algo ellos'll be pleased by.^000000";
-		mes "Please... Tal vez one day...";
+		mes "Y los demás... dijiste que los ayudarías. Te mostraré cómo. Cómo puedes ayudar...";
 		next;
-		select("No worry. I va a.");
+		mes "[Narin]";
+		mes "^0000CDEscucha lo que ellos quieren. Hermano, incluso si te parece muy trivial, haz algo que les agrade.^000000";
+		mes "Por favor... Tal vez algún día...";
+		next;
+		select("No te preocupes. Lo haré.");
 		mes "[Narin]";
 		mes ":)...";
 		next;
 		mes "[Narin]";
-		mes "I, I era able to stay solo hasta ahora, porque I podria meet tu two de nuevo someday?";
+		mes "Yo, ¿pude quedarme sola hasta ahora, porque podría encontrarlos a ustedes dos de nuevo algún día?";
 		emotion ET_OK;
-		mes "I va a... recordar... Please... venir de vuelta.";
+		mes "Voy a... recordar... Por favor... vuelvan.";
 		next;
 		mes "[Archeologist Leiphen]";
-		mes "I va a be aqui hasta I encontrar all of el secrets.";
-		mes "Don't worry. " + .@player_name$ + " and myself will not forget about you Narin.";
-		unittalk .@account_id, "" + .@player_name$ + " : Nosotros debe recordar.", bc_self;
+		mes "Estaré aquí hasta que descubra todos los secretos.";
+		mes "No te preocupes. " + .@player_name$ + " y yo no te olvidaremos, Narin.";
+		unittalk .@account_id, "" + .@player_name$ + " : Debemos recordar.", bc_self;
 		ill_turtle = 11;
 		erasequest 16117;	// Continuous story 2
 		setquest 16105;	// A short break, and a promise
