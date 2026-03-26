@@ -1,0 +1,42 @@
+// ============================================================
+// = KunaiRO - Configuracion Compartida y Funciones Auxiliares
+// = Proposito: Centraliza la identidad del servidor, funciones
+// =   de UI compartidas y constantes para todos los NPCs.
+// = Dependencias: Ninguna (debe cargar antes que los demas)
+// = Seguro para actualizaciones: No es parte de rAthena oficial.
+// ============================================================
+
+// ---------------------------------------------------------
+// Funcion Global: KR_Header
+// Muestra un encabezado con marca KunaiRO consistente.
+// Uso: callfunc "KR_Header", "Titulo del NPC";
+// ---------------------------------------------------------
+function	script	KR_Header	{
+	mes "[ ^4444FF" + getarg(0) + "^000000 ]";
+	mes "^888888KunaiRO^000000";
+	mes " ";
+	return;
+}
+
+// ---------------------------------------------------------
+// Funcion Global: KR_Separator
+// Muestra una linea separadora visual.
+// Uso: callfunc "KR_Separator";
+// ---------------------------------------------------------
+function	script	KR_Separator	{
+	mes "^CCCCCC________________________^000000";
+	return;
+}
+
+// ---------------------------------------------------------
+// Funcion Global: KR_Confirm
+// Muestra una confirmacion Si/No.
+// Retorna 1 si confirma, 0 si cancela.
+// Uso: if (callfunc("KR_Confirm", "Pregunta?")) { ... }
+// ---------------------------------------------------------
+function	script	KR_Confirm	{
+	mes getarg(0);
+	if (select("Si, confirmar:No, cancelar") == 1)
+		return 1;
+	return 0;
+}

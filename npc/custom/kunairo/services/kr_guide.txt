@@ -1,0 +1,113 @@
+// ============================================================
+// = KunaiRO - Informador / Guia Premium
+// = Proposito: Informacion del servidor, rates, filosofia
+// =   y links de comunidad para nuevos jugadores.
+// = Dependencias: core/kr_config.txt (KR_Header, KR_Separator)
+// = Seguro para actualizaciones: No es parte de rAthena oficial.
+// ============================================================
+
+-	script	KR_Guide_Core	-1,{
+	callfunc "KR_Header", "Informador";
+	mes "Bienvenido a ^4444FFKunaiRO^000000.";
+	mes "Selecciona la informacion que necesitas.";
+	next;
+
+	switch (select("Rates del Servidor:Sobre KunaiRO:Informacion para Nuevos:Comunidad:Cancelar")) {
+
+		// =====================================================
+		// Rates del Servidor
+		// =====================================================
+		case 1:
+			mes .KR_Name$;
+			mes "^4444FFRates del Servidor^000000";
+			callfunc "KR_Separator";
+			mes " ";
+			mes "Base EXP ........... ^4444FF250x^000000";
+			mes "Job EXP ............ ^4444FF250x^000000";
+			mes " ";
+			mes "Drops Comunes ...... ^4444FF50x^000000";
+			mes "Equipamiento ....... ^4444FF25x^000000";
+			mes " ";
+			mes "Cartas ............. ^4444FF0.50%^000000";
+			mes "Cartas MVP ......... ^4444FF0.01%^000000";
+			mes "MVP Drops .......... ^4444FF5x^000000";
+			callfunc "KR_Separator";
+			close;
+
+		// =====================================================
+		// Sobre KunaiRO
+		// =====================================================
+		case 2:
+			mes .KR_Name$;
+			mes "^4444FFSobre KunaiRO^000000";
+			callfunc "KR_Separator";
+			mes " ";
+			mes "KunaiRO es un servidor ^4444FFMid Rate^000000";
+			mes "pensado para la comunidad LATAM.";
+			mes " ";
+			mes "Nuestra filosofia:";
+			mes "^888888- Progresion rapida pero equilibrada^000000";
+			mes "^888888- Economia estable y justa^000000";
+			mes "^888888- Contenido pensado para largo plazo^000000";
+			mes "^888888- Experiencia competitiva y accesible^000000";
+			mes " ";
+			mes "Tu aventura importa. Cada decision";
+			mes "cuenta en este mundo.";
+			callfunc "KR_Separator";
+			close;
+
+		// =====================================================
+		// Informacion para Nuevos Jugadores
+		// =====================================================
+		case 3:
+			mes .KR_Name$;
+			mes "^4444FFGuia para Nuevos Jugadores^000000";
+			callfunc "KR_Separator";
+			mes " ";
+			mes "^4444FF1.^000000 Usa el ^4444FFJob Master^000000 para cambiar";
+			mes "   de clase cuando cumplas los requisitos.";
+			mes " ";
+			mes "^4444FF2.^000000 El ^4444FFHealer^000000 te curara HP, SP";
+			mes "   y removera estados negativos gratis.";
+			mes " ";
+			mes "^4444FF3.^000000 El ^4444FFWarper^000000 te llevara a cualquier";
+			mes "   ciudad o dungeon del mundo.";
+			mes " ";
+			mes "^4444FF4.^000000 El ^4444FFResetter^000000 te permite redistribuir";
+			mes "   tus stats y skills.";
+			mes " ";
+			mes "^4444FF5.^000000 Explora, forma grupos y disfruta";
+			mes "   la experiencia KunaiRO.";
+			callfunc "KR_Separator";
+			close;
+
+		// =====================================================
+		// Comunidad
+		// =====================================================
+		case 4:
+			mes .KR_Name$;
+			mes "^4444FFComunidad KunaiRO^000000";
+			callfunc "KR_Separator";
+			mes " ";
+			mes "^4444FFDiscord:^000000";
+			mes "discord.gg/kunairo";
+			mes " ";
+			mes "^4444FFWeb:^000000";
+			mes "www.kunairo.com";
+			mes " ";
+			mes "^4444FFFacebook:^000000";
+			mes "fb.com/kunairo";
+			mes " ";
+			mes "Unite a nuestra comunidad LATAM.";
+			mes "Tu opinion importa.";
+			callfunc "KR_Separator";
+			close;
+
+		case 5:
+			close;
+	}
+
+OnInit:
+	.KR_Name$ = "[ ^4444FFInformador^000000 ]";
+	end;
+}

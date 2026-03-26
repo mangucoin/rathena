@@ -1,0 +1,167 @@
+// ============================================================
+// = KunaiRO - Warper Premium
+// = Proposito: Teletransporte por categorias con menus limpios.
+// = Dependencias: core/kr_config.txt (KR_Header)
+// = Seguro para actualizaciones: No es parte de rAthena oficial.
+// ============================================================
+
+-	script	KR_Warper_Core	-1,{
+	callfunc "KR_Header", "Warper";
+	mes "Selecciona una categoria.";
+	next;
+
+	switch (select("Ciudades Principales:Ciudades del Mundo:Dungeons - Bajo:Dungeons - Medio:Dungeons - Alto:Instancias y Especial:Cancelar")) {
+		case 1: goto L_MainCities;
+		case 2: goto L_WorldCities;
+		case 3: goto L_DungeonsLow;
+		case 4: goto L_DungeonsMid;
+		case 5: goto L_DungeonsHigh;
+		case 6: goto L_Special;
+		case 7: close;
+	}
+
+// ---------------------------------------------------------
+// Ciudades Principales (Rune-Midgard)
+// ---------------------------------------------------------
+L_MainCities:
+	mes .KR_Name$;
+	mes "^4444FFCiudades Principales^000000";
+	mes "Selecciona tu destino.";
+	next;
+	switch (select("Prontera:Geffen:Payon:Morroc:Alberta:Aldebaran:Izlude:Comodo:Yuno:Einbroch:Lighthalzen:Hugel:Rachel:Veins:^ Volver")) {
+		case 1:  warp "prontera",155,183;	end;
+		case 2:  warp "geffen",119,67;		end;
+		case 3:  warp "payon",179,100;		end;
+		case 4:  warp "morroc",156,93;		end;
+		case 5:  warp "alberta",28,234;		end;
+		case 6:  warp "aldebaran",140,131;	end;
+		case 7:  warp "izlude",128,114;		end;
+		case 8:  warp "comodo",209,143;		end;
+		case 9:  warp "yuno",157,51;		end;
+		case 10: warp "einbroch",67,195;	end;
+		case 11: warp "lighthalzen",158,92;	end;
+		case 12: warp "hugel",96,145;		end;
+		case 13: warp "rachel",130,110;		end;
+		case 14: warp "veins",216,123;		end;
+		case 15: close2; goto L_Restart;
+	}
+
+// ---------------------------------------------------------
+// Ciudades del Mundo (Internacionales)
+// ---------------------------------------------------------
+L_WorldCities:
+	mes .KR_Name$;
+	mes "^4444FFCiudades del Mundo^000000";
+	mes "Selecciona tu destino.";
+	next;
+	switch (select("Amatsu:Kunlun:Louyang:Ayothaya:Moscovia:Brasilis:Dewata:Malangdo:Eclage:Mora:Lasagna:^ Volver")) {
+		case 1:  warp "amatsu",198,84;		end;
+		case 2:  warp "gonryun",160,121;	end;
+		case 3:  warp "louyang",217,100;	end;
+		case 4:  warp "ayothaya",150,163;	end;
+		case 5:  warp "moscovia",223,184;	end;
+		case 6:  warp "brasilis",196,217;	end;
+		case 7:  warp "dewata",200,180;		end;
+		case 8:  warp "malangdo",140,114;	end;
+		case 9:  warp "eclage",110,39;		end;
+		case 10: warp "mora",55,152;		end;
+		case 11: warp "lasagna",193,187;	end;
+		case 12: close2; goto L_Restart;
+	}
+
+// ---------------------------------------------------------
+// Dungeons - Nivel Bajo (1~50)
+// ---------------------------------------------------------
+L_DungeonsLow:
+	mes .KR_Name$;
+	mes "^4444FFDungeons - Nivel Bajo^000000";
+	mes "Zonas recomendadas para niveles 1~50.";
+	next;
+	switch (select("Ant Hell:Culvert (Prontera):Hidden Temple (Payon):Byalan Island:Coal Mine:Orc Dungeon:Sunken Ship:Toy Factory:^ Volver")) {
+		case 1: warp "anthell01",21,227;	end;
+		case 2: warp "prt_sewb1",131,247;	end;
+		case 3: warp "pay_dun00",21,183;	end;
+		case 4: warp "iz_dun00",168,168;	end;
+		case 5: warp "mjo_dun01",52,17;		end;
+		case 6: warp "orcsdun01",32,170;	end;
+		case 7: warp "treasure01",69,24;	end;
+		case 8: warp "xmas_dun01",205,15;	end;
+		case 9: close2; goto L_Restart;
+	}
+
+// ---------------------------------------------------------
+// Dungeons - Nivel Medio (50~99)
+// ---------------------------------------------------------
+L_DungeonsMid:
+	mes .KR_Name$;
+	mes "^4444FFDungeons - Nivel Medio^000000";
+	mes "Zonas recomendadas para niveles 50~99.";
+	next;
+	switch (select("Clock Tower:Glast Heim:Sphinx:Piramide:Turtle Island:Magma Dungeon:Geffen Dungeon:Aldebaran Dungeon:^ Volver")) {
+		case 1: warp "c_tower1",199,159;	end;
+		case 2: warp "glast_01",370,304;	end;
+		case 3: warp "in_sphinx1",288,9;	end;
+		case 4: warp "moc_pryd01",10,192;	end;
+		case 5: warp "tur_dun01",148,239;	end;
+		case 6: warp "mag_dun01",126,68;	end;
+		case 7: warp "gef_dun00",104,99;	end;
+		case 8: warp "alde_dun01",20,160;	end;
+		case 9: close2; goto L_Restart;
+	}
+
+// ---------------------------------------------------------
+// Dungeons - Nivel Alto (99+)
+// ---------------------------------------------------------
+L_DungeonsHigh:
+	mes .KR_Name$;
+	mes "^4444FFDungeons - Nivel Alto^000000";
+	mes "Zonas para aventureros experimentados.";
+	next;
+	switch (select("Juperos:Thanatos Tower:Abyss Lake:Bio Labs:Ice Cave:Thor Volcano:Nameless Island:Scaraba Hole:Old Glast Heim:Odin Temple:^ Volver")) {
+		case 1:  warp "jupe_core",36,54;		end;
+		case 2:  warp "tha_t01",150,39;			end;
+		case 3:  warp "abyss_01",270,270;		end;
+		case 4:  warp "lhz_dun01",150,288;		end;
+		case 5:  warp "ice_dun01",157,14;		end;
+		case 6:  warp "thor_v01",21,228;		end;
+		case 7:  warp "nameless_n",256,215;		end;
+		case 8:  warp "dic_dun01",262,262;		end;
+		case 9:  warp "1@gl_k",150,20;			end;
+		case 10: warp "odin_tem01",98,149;		end;
+		case 11: close2; goto L_Restart;
+	}
+
+// ---------------------------------------------------------
+// Zonas Especiales
+// ---------------------------------------------------------
+L_Special:
+	mes .KR_Name$;
+	mes "^4444FFZonas Especiales^000000";
+	mes "Selecciona tu destino.";
+	next;
+	switch (select("Eden Group:Training Ground:Mall (Prontera):^ Volver")) {
+		case 1: warp "moc_para01",31,14;	end;
+		case 2: warp "prt_fild08",170,370;	end;
+		case 3: warp "prontera",176,224;	end;
+		case 4: close2; goto L_Restart;
+	}
+
+// Restart point for "Volver" options
+L_Restart:
+	callfunc "KR_Header", "Warper";
+	mes "Selecciona una categoria.";
+	next;
+	switch (select("Ciudades Principales:Ciudades del Mundo:Dungeons - Bajo:Dungeons - Medio:Dungeons - Alto:Instancias y Especial:Cancelar")) {
+		case 1: goto L_MainCities;
+		case 2: goto L_WorldCities;
+		case 3: goto L_DungeonsLow;
+		case 4: goto L_DungeonsMid;
+		case 5: goto L_DungeonsHigh;
+		case 6: goto L_Special;
+		case 7: close;
+	}
+
+OnInit:
+	.KR_Name$ = "[ ^4444FFWarper^000000 ]";
+	end;
+}

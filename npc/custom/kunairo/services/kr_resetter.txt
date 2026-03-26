@@ -1,0 +1,95 @@
+// ============================================================
+// = KunaiRO - Resetter Premium
+// = Proposito: Reseteo de stats y skills con costos configurables.
+// = Dependencias: core/kr_config.txt (KR_Header, KR_Separator)
+// = Seguro para actualizaciones: No es parte de rAthena oficial.
+// ============================================================
+
+-	script	KR_Resetter_Core	-1,{
+	callfunc "KR_Header", "Resetter";
+	mes "Selecciona el tipo de reseteo.";
+	callfunc "KR_Separator";
+
+	// Mostrar costos si aplica
+	if (.KR_ResetStatCost || .KR_ResetSkillCost) {
+		mes "^888888Costos:^000000";
+		if (.KR_ResetStatCost)
+			mes "Stats: ^4444FF" + callfunc("F_InsertComma", .KR_ResetStatCost) + " Zeny^000000";
+		if (.KR_ResetSkillCost)
+			mes "Skills: ^4444FF" + callfunc("F_InsertComma", .KR_ResetSkillCost) + " Zeny^000000";
+		if (.KR_ResetBothCost)
+			mes "Ambos: ^4444FF" + callfunc("F_InsertComma", .KR_ResetBothCost) + " Zeny^000000";
+	}
+	next;
+
+	switch (select("Resetear Stats:Resetear Skills:Resetear Ambos:Cancelar")) {
+		case 1:
+			// Reseteo de Stats
+			if (.KR_ResetStatCost > 0) {
+				if (Zeny < .KR_ResetStatCost) {
+					mes .KR_Name$;
+					mes "No tienes suficiente Zeny.";
+					mes "Necesitas ^FF0000" + callfunc("F_InsertComma", .KR_ResetStatCost) + " Zeny^000000.";
+					close;
+				}
+				set Zeny, Zeny - .KR_ResetStatCost;
+			}
+			resetstatus;
+			specialeffect2 EF_HEAL;
+			mes .KR_Name$;
+			mes "Tus ^4444FFstats^000000 han sido reseteados.";
+			mes "Redistribuye tus puntos con cuidado.";
+			close;
+
+		case 2:
+			// Reseteo de Skills
+			if (.KR_ResetSkillCost > 0) {
+				if (Zeny < .KR_ResetSkillCost) {
+					mes .KR_Name$;
+					mes "No tienes suficiente Zeny.";
+					mes "Necesitas ^FF0000" + callfunc("F_InsertComma", .KR_ResetSkillCost) + " Zeny^000000.";
+					close;
+				}
+				set Zeny, Zeny - .KR_ResetSkillCost;
+			}
+			resetskill;
+			specialeffect2 EF_HEAL2;
+			mes .KR_Name$;
+			mes "Tus ^4444FFskills^000000 han sido reseteados.";
+			mes "Elige tus habilidades sabiamente.";
+			close;
+
+		case 3:
+			// Reseteo de Ambos
+			if (.KR_ResetBothCost > 0) {
+				if (Zeny < .KR_ResetBothCost) {
+					mes .KR_Name$;
+					mes "No tienes suficiente Zeny.";
+					mes "Necesitas ^FF0000" + callfunc("F_InsertComma", .KR_ResetBothCost) + " Zeny^000000.";
+					close;
+				}
+				set Zeny, Zeny - .KR_ResetBothCost;
+			}
+			resetstatus;
+			resetskill;
+			specialeffect2 EF_HEAL;
+			specialeffect2 EF_HEAL2;
+			mes .KR_Name$;
+			mes "Tus ^4444FFstats y skills^000000 han sido reseteados.";
+			mes "Tienes un nuevo comienzo.";
+			close;
+
+		case 4:
+			close;
+	}
+
+// ---------------------------------------------------------
+// Configuracion - Costos en Zeny (0 = gratis)
+// ---------------------------------------------------------
+OnInit:
+	.KR_Name$ = "[ ^4444FFResetter^000000 ]";
+	.KR_ResetStatCost  = 0;       // Costo para resetear stats (0 = gratis)
+	.KR_ResetSkillCost = 0;       // Costo para resetear skills (0 = gratis)
+	.KR_ResetBothCost  = 0;       // Costo para resetear ambos (0 = gratis)
+	end;
+}
