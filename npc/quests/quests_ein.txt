@@ -5682,17 +5682,17 @@ OnTouch_:
 	if (((Shinokas_Quest == 7) || (lhz_heart == 9)) || (lhz_heart == 10)) {
 		mes "[Security System]";
 		mes "^8B0000*Beep Boop*^000000";
-		mes "Restricted Access Area.";
-		mes "Please identify yourself";
-		mes "through the system.";
+		mes "Area de Acceso Restringido.";
+		mes "Por favor identificate";
+		mes "a traves del sistema.";
 		next;
-		switch(select("Identify.:Information:Cancel")) {
+		switch(select("Identificarse.:Informacion:Cancelar")) {
 		case 1:
 			mes "[Security System]";
-			mes "Enter the following";
-			mes "password in 60 seconds.";
-			mes "Failure to do so will result";
-			mes "in lockout. Por favor espera.";
+			mes "Ingresa la siguiente";
+			mes "contrasena en 60 segundos.";
+			mes "No hacerlo resultara";
+			mes "en bloqueo. Por favor espera.";
 			next;
 			set .@startseconds,gettimetick(1);
 			mes "[Security System]";
@@ -5768,61 +5768,61 @@ OnTouch_:
 			mes "[Security System]";
 			if ((.@input1$ == .@word1$) && (.@input2$ == .@word2$)) {
 				if (.@time > 60) {
-					mes "Time over.";
-					mes "It took ^ff0000" + .@time + " seconds^000000";
-					mes "for you to enter the";
-					mes "password. Initiating";
-					mes "lockout. Access denied.";
+					mes "Tiempo agotado.";
+					mes "Tardaste ^ff0000" + .@time + " segundos^000000";
+					mes "en ingresar la";
+					mes "contrasena. Iniciando";
+					mes "bloqueo. Acceso denegado.";
 					close;
 				}
 				else {
-					mes "It took ^ff0000" + .@time + " seconds^000000";
-					mes "for you to enter the";
-					mes "password. Initiating";
-					mes "override. Access granted.";
+					mes "Tardaste ^ff0000" + .@time + " segundos^000000";
+					mes "en ingresar la";
+					mes "contrasena. Iniciando";
+					mes "anulacion. Acceso concedido.";
 					close2;
 					warp "ein_in01",283,25;
 					end;
 				}
 			}
 			else {
-				mes "You have failed";
-				mes "the identification";
-				mes "check. Access denied.";
+				mes "Has fallado";
+				mes "la verificacion de";
+				mes "identificacion. Acceso denegado.";
 				close;
 			}
 		case 2:
 			mes "[Security System]";
-			mes "Debes use the";
-			mes "security system in order";
-			mes "to gain access into the";
-			mes "Einbroch Laboratory.";
+			mes "Debes usar el";
+			mes "sistema de seguridad para";
+			mes "obtener acceso al";
+			mes "Laboratorio de Einbroch.";
 			next;
 			mes "[Security System]";
-			mes "You will be given";
-			mes "a password that you";
-			mes "must input correctly";
-			mes "within 60 seconds.";
-			mes "De lo contrario, you will";
-			mes "fail the security check.";
+			mes "Se te dara";
+			mes "una contrasena que debes";
+			mes "ingresar correctamente";
+			mes "en 60 segundos.";
+			mes "De lo contrario, fallaras";
+			mes "la verificacion de seguridad.";
 			next;
 			mes "[Security System]";
-			mes "If you take longer";
-			mes "than 3 minutes to";
-			mes "enter the password,";
-			mes "the security system";
-			mes "will initiate lockout.";
+			mes "Si tardas mas";
+			mes "de 3 minutos en";
+			mes "ingresar la contrasena,";
+			mes "el sistema de seguridad";
+			mes "iniciara el bloqueo.";
 			close;
 		case 3:
 			mes "[Security System]";
-			mes "You have canceled";
-			mes "the ID security check.";
+			mes "Has cancelado";
+			mes "la verificacion de seguridad de ID.";
 			close;
 		}
 	}
 	else {
-		mes "^3355FFThe door is locked.";
-		mes "Puedesnot enter.^000000";
+		mes "^3355FFLa puerta esta cerrada.";
+		mes "No puedes entrar.^000000";
 		close;
 	}
 }
@@ -5831,12 +5831,12 @@ OnTouch_:
 //============================================================ 
 ein_in01,31,138,3	script	Calla#ein	90,{
 	if (checkweight(908,70) == 0) {
-		mes "^3355FFWait a second!";
-		mes "Ahora mismo, you're carrying";
-		mes "demasiados things with you.";
-		mes "Por favor ven back after";
-		mes "using the Kafra Service";
-		mes "to store some of your items.^000000";
+		mes "^3355FFEspera un segundo!";
+		mes "Ahora mismo, estas cargando";
+		mes "demasiadas cosas contigo.";
+		mes "Por favor vuelve despues";
+		mes "de usar el Servicio Kafra";
+		mes "para guardar algunos de tus objetos.^000000";
 		close;
 	}
 	if (BaseLevel < 60) {
