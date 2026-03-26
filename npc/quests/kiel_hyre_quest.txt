@@ -2018,10 +2018,10 @@ yuno_fild02,93,210,4	script	Cottage Keeper#kh	85,{
 //----------------------------------------------------------------------------
 yuno_fild02,75,218,0	script	Door#kh2	111,{
 	if (KielHyreQuest < 16) {
-		mes "^3355FFThis door is locked.";
-		mes "If someone inside won't";
-		mes "open it for you, then you'll";
-		mes "need the right key to unlock it.";
+		mes "^3355FFEsta puerta esta cerrada con llave.";
+		mes "Si nadie adentro te la";
+		mes "abre, entonces necesitaras";
+		mes "la llave correcta para abrirla.";
 		close;
 	}
 	if (KielHyreQuest == 16) {
@@ -2030,19 +2030,19 @@ yuno_fild02,75,218,0	script	Door#kh2	111,{
 		mes "open it for you, then you'll";
 		mes "need the right key to unlock it.";
 		next;
-		switch(select("Unlock:Cancel")) {
+		switch(select("Abrir:Cancelar")) {
 		case 1:
-			mes "^3355FFYou unlock the door with the";
-			mes "key that Elly gave you, and";
-			mes "as you push it open, a folded";
-			mes "note dropped from top of the";
-			mes "door. The following words";
-			mes "are written on this crude note.";
+			mes "^3355FFAbres la puerta con la";
+			mes "llave que Elly te dio, y";
+			mes "al empujarla, una nota";
+			mes "doblada cayo de la parte superior de la";
+			mes "puerta. Las siguientes palabras";
+			mes "estan escritas en esta nota tosca.";
 			next;
-			mes "6 Forward,";
-			mes "3 Left,";
-			mes "3 Forward,";
-			mes "4 Left";
+			mes "6 Adelante,";
+			mes "3 Izquierda,";
+			mes "3 Adelante,";
+			mes "4 Izquierda";
 			close2;
 			set KielHyreQuest,18;
 			warp "kh_vila",188,18;
@@ -2055,9 +2055,9 @@ yuno_fild02,75,218,0	script	Door#kh2	111,{
 		}
 	}
 	else {
-		mes "^3355FFThe door is open.^000000";
+		mes "^3355FFLa puerta esta abierta.^000000";
 		next;
-		switch(select("Enter:Cancel")) {
+		switch(select("Entrar:Cancelar")) {
 		case 1:
 			warp "kh_vila",188,18;
 			end;
@@ -2084,11 +2084,11 @@ yuno_fild02,109,218,0	script	Door#kh1	111,{
 		mes "open it for you, then you'll";
 		mes "need the right key to unlock it.";
 		next;
-		switch(select("Open:Cancel")) {
+		switch(select("Abrir:Cancelar")) {
 		case 1:
-			mes "^3355FFYou don't have";
-			mes "the key that can";
-			mes "unlock this door.^000000";
+			mes "^3355FFNo tienes";
+			mes "la llave que pueda";
+			mes "abrir esta puerta.^000000";
 			close;
 		case 2:
 			mes "......";
@@ -2105,15 +2105,15 @@ yuno_fild02,109,218,0	script	Door#kh1	111,{
 //----------------------------------------------------------------------------
 kh_vila,191,14,0	script	Wall#kh	139,1,1,{
 	if (KielHyreQuest < 28) {
-		mes "^3355FFIt's just a wall.";
-		mes "It's not particularly";
-		mes "standing in your way.^000000";
+		mes "^3355FFEs solo una pared.";
+		mes "No esta particularmente";
+		mes "en tu camino.^000000";
 		close;
 	}
 	if (KielHyreQuest >= 28) {
-		mes "^3355FFThe wall is now";
-		mes "open, revealing";
-		mes "a secret path.^000000";
+		mes "^3355FFLa pared ahora esta";
+		mes "abierta, revelando";
+		mes "un camino secreto.^000000";
 		next;
 		switch(select("Enter:Cancel")) {
 		case 1:
@@ -2130,27 +2130,27 @@ kh_vila,191,14,0	script	Wall#kh	139,1,1,{
 //----------------------------------------------------------------------------
 kh_vila,184,20,0	script	Book#kh1::BookKHQ1	111,{
 	if (KielHyreQuest != 26) {
-		mes "^3355FFThis bookshelf is^000000";
-		mes "^3355FFcrammed with many^000000";
-		mes "^3355FFlarge, hardcover books^000000";
+		mes "^3355FFEste estante esta^000000";
+		mes "^3355FFlleno de muchos^000000";
+		mes "^3355FFlibros grandes de tapa dura^000000";
 		close;
 	}
 	else if (KielHyreQuest == 26) {
 		if (rand(1,10) == 8) {
-			mes "^3355FFWithout thinking, you";
-			mes "reach for a book from";
-			mes "the bookshelf. As you";
-			mes "pull it towards you, the";
-			mes "wall slides opens open";
-			mes "to reveal a secret path.^000000";
+			mes "^3355FFSin pensarlo, tomas";
+			mes "un libro del estante. Al";
+			mes "jalarlo hacia ti, la";
+			mes "pared se desliza y se abre";
+			mes "revelando un camino";
+			mes "secreto.^000000";
 			set KielHyreQuest,28;
 			specialeffect EF_READYPORTAL2,AREA,"Wall#kh";
 			close;
 		}
 		else {
-			mes "^3355FFThis bookshelf is";
-			mes "crammed with many";
-			mes "large, hardcover books.^000000";
+			mes "^3355FFEste estante esta";
+			mes "lleno de muchos";
+			mes "libros grandes de tapa dura.^000000";
 			close;
 		}
 
@@ -2168,25 +2168,25 @@ kh_vila,179,11,0	script	Letter#kh	-1,1,1,{
 OnTouch:
 	if (KielHyreQuest == 18) {
 		if (checkweight(7490,1) == 0) {
-			mes "^3355FFJust a minute...!";
-			mes "There's something on";
-			mes "the floor here, but you";
-			mes "can't pick it up since";
-			mes "you're carrying too";
-			mes "many items now.^000000";
+			mes "^3355FFUn momento...!";
+			mes "Hay algo en el";
+			mes "piso aqui, pero no";
+			mes "puedes recogerlo ya que";
+			mes "estas cargando demasiados";
+			mes "objetos ahora.^000000";
 			close;
 		}
-		mes "^3355FFYou've found a letter";
-		mes "on the floor. Naturally,";
-		mes "you pick it up, despite";
-		mes "the fact that it's not";
-		mes "addressed to you.^000000";
+		mes "^3355FFHas encontrado una carta";
+		mes "en el piso. Naturalmente,";
+		mes "la recoges, a pesar de";
+		mes "que no esta";
+		mes "dirigida a ti.^000000";
 		getitem 7490,1; //Kyll_Hire_Letter
 		set KielHyreQuest,20;
 		close;
 	} 
 	else{
-		mes "^3355FFYou entered the room.^000000";
+		mes "^3355FFEntraste al cuarto.^000000";
 		close;
 	}
 	end; 
@@ -2196,44 +2196,44 @@ OnTouch:
 // Cottage interior, kitchen; Box (Pet Food vending machine)
 //----------------------------------------------------------------------------
 kh_vila,16,175,0	script	Box#khp1	111,{
-	mes "^FFFFFF##^000000*Tasty-Nutricious-Delicious*";
-	mes "*Cute Pet Doof Vending Machine*";
-	mes "The best food for your Cute Pets";
-	mes "that is superior to the Pet Food";
-	mes "you can buy in the market!";
+	mes "^FFFFFF##^000000*Sabroso-Nutritivo-Delicioso*";
+	mes "*Maquina Expendedora de Comida para Mascotas*";
+	mes "La mejor comida para tus Mascotas";
+	mes "que es superior a la Comida para Mascotas";
+	mes "que puedes comprar en el mercado!";
 	mes "^FFFFFF_^000000";
-	mes "Price: 1,100 zeny (cheap!)";
+	mes "Precio: 1,100 zeny (barato!)";
 	next;
-	switch(select("Buy!:Cancel")) {
+	switch(select("Comprar!:Cancelar")) {
 	case 1:
 		if (Zeny < 1100) {
-			mes "^3355FFUnfortunately, you";
-			mes "don't have enough";
-			mes "zeny to insert into";
-			mes "the vending machine.^000000";
+			mes "^3355FFDesafortunadamente, no";
+			mes "tienes suficiente";
+			mes "zeny para insertar en";
+			mes "la maquina expendedora.^000000";
 			close;
 		}
 		else {
 			mes "^3355FFOh no...!^000000";
-			mes "^3355FF1,100 zeny seems kind";
-			mes "of expensive for Pet Food,";
-			mes "but if it's better than the";
-			mes "normal stuff, it might";
-			mes "be worth a shot.^000000";
+			mes "^3355FF1,100 zeny parece un poco";
+			mes "caro para Comida para Mascotas,";
+			mes "pero si es mejor que";
+			mes "la normal, quiza";
+			mes "valga la pena intentar.^000000";
 			next;
 			mes "^3355FFOh no...!";
-			mes "There's nothing";
-			mes "special about it";
-			mes "at all! It's just";
-			mes "normal Pet Food!";
+			mes "No tiene nada";
+			mes "de especial";
+			mes "en lo absoluto! Es solo";
+			mes "Comida para Mascotas normal!";
 			set Zeny, Zeny-1100;
 			getitem 537,1;	//Pet_Food
 			close;
 		}
 	case 2:
-		mes "^3355FFThis vending machine";
-		mes "seems really shady and";
-		mes "suspicious for some reason.^000000";
+		mes "^3355FFEsta maquina expendedora";
+		mes "parece realmente sospechosa";
+		mes "por alguna razon.^000000";
 		close;
 	}
 }
@@ -2242,25 +2242,25 @@ kh_vila,16,175,0	script	Box#khp1	111,{
 // Cottage interior, kitchen; Apple Box (Useless?)
 //----------------------------------------------------------------------------
 kh_vila,30,184,0	script	Apple Box#khp1	111,{
-	mes "^3355FFYou find a box filled with";
-	mes "ripe, delicious apples.^000000";
+	mes "^3355FFEncuentras una caja llena de";
+	mes "manzanas maduras y deliciosas.^000000";
 	next;
-	switch(select("Take the box:Leave it")) {
+	switch(select("Tomar la caja:Dejarla")) {
 	case 1:
-		mes "^3355FFNo...! Wait!";
-		mes "Something's wrong!";
-		mes "Whatever you do,";
-		mes "don't take this box!^000000";
+		mes "^3355FFNo...! Espera!";
+		mes "Algo esta mal!";
+		mes "Hagas lo que hagas,";
+		mes "no tomes esta caja!^000000";
 		next;
-		mes "^3355FFAnd so, your inner";
-		mes "voice, your Jungian";
-		mes "shadow if you will,";
-		mes "prevented you from";
-		mes "taking the box.^000000";
+		mes "^3355FFY asi, tu voz interior,";
+		mes "tu sombra jungiana";
+		mes "por asi decirlo,";
+		mes "te impidio";
+		mes "tomar la caja.^000000";
 		close;
 	case 2: 
-		mes "^3355FFSomething is wrong";
-		mes "with this box of apples.^000000";
+		mes "^3355FFAlgo esta mal";
+		mes "con esta caja de manzanas.^000000";
 		close;
 	}
 }
@@ -2270,84 +2270,84 @@ kh_vila,30,184,0	script	Apple Box#khp1	111,{
 //----------------------------------------------------------------------------
 kh_vila,44,126,0	script	Map#khp1	111,{
 	if ((KHCottagePoem1 < 2) && (KielHyreQuest < 30)) {
-		mes "^3355FFA magnificent world map,";
-		mes "detailing the Rune-Midgarts";
-		mes "Kingdom, Schwarzwald Republic,";
-		mes "as well as another country to the";
-		mes "west whose name is unfamiliar";
-		mes "to you, is pasted to this wall.^000000";
+		mes "^3355FFUn magnifico mapa mundial,";
+		mes "que detalla el Reino de";
+		mes "Rune-Midgarts, la Republica de Schwarzwald,";
+		mes "asi como otro pais al";
+		mes "oeste cuyo nombre te resulta";
+		mes "desconocido, esta pegado en esta pared.^000000";
 		next;
-		mes "^3355FFAs you examine the";
-		mes "world map more closely,";
-		mes "you find that something has";
-		mes "been hidden underneath it.^000000";
-		switch(select("Ignore:Examine")) {
+		mes "^3355FFAl examinar el";
+		mes "mapa mundial mas de cerca,";
+		mes "descubres que algo ha";
+		mes "sido escondido debajo de el.^000000";
+		switch(select("Ignorar:Examinar")) {
 		case 1:
-			mes "^3355FFWhatever might be";
-			mes "hidden beneath this";
-			mes "map probably isn't";
-			mes "important enough for";
-			mes "you to investigate.^000000";
+			mes "^3355FFLo que sea que este";
+			mes "escondido debajo de este";
+			mes "mapa probablemente no es";
+			mes "lo suficientemente importante para";
+			mes "que lo investigues.^000000";
 			close;
 		case 2:
-			mes "^3355FFUnfortunately, you can't";
-			mes "see what's under the map";
-			mes "since it's pasted to the wall.";
-			mes "You'll need to find some";
-			mes "way to loosen the glue";
-			mes "without damaging the map...^000000";
+			mes "^3355FFDesafortunadamente, no puedes";
+			mes "ver que hay debajo del mapa";
+			mes "ya que esta pegado a la pared.";
+			mes "Necesitaras encontrar alguna";
+			mes "forma de aflojar el pegamento";
+			mes "sin danar el mapa...^000000";
 			set KHCottagePoem1,1;
 			close;
 		}
 	}
 	else  if ((KHCottagePoem1 == 2) && (KielHyreQuest < 30)) {
-		mes "^3355FFYou bring the pot of";
-		mes "steaming hot liquid";
-		mes "close to the world map.";
-		mes "As the paste on the wall";
-		mes "moistens, the map slowly";
-		mes "begins to peel back.^000000";
+		mes "^3355FFAcercas la olla de";
+		mes "liquido hirviente";
+		mes "al mapa mundial.";
+		mes "A medida que el pegamento en la pared";
+		mes "se humedece, el mapa lentamente";
+		mes "comienza a despegarse.^000000";
 		next;
-		mes "^3355FFThe peeling map reveals";
-		mes "a folded piece of paper";
-		mes "hidden beneath it. You";
-		mes "take the paper, and smooth";
-		mes "the map out to adhere it to the";
-		mes "wall once again. A message is";
-		mes "written on the piece of paper.^000000";
+		mes "^3355FFEl mapa despegandose revela";
+		mes "un pedazo de papel doblado";
+		mes "escondido debajo. Tomas";
+		mes "el papel, y alisas";
+		mes "el mapa para pegarlo a la";
+		mes "pared de nuevo. Un mensaje esta";
+		mes "escrito en el pedazo de papel.^000000";
 		next;
-		mes "^0000FFShe will be in a place";
-		mes "as cold as the poles.";
-		mes "When the well is dried";
-		mes "and the earth is cracked,";
-		mes "the path to her heart, a";
-		mes "heart as transparent as";
-		mes "crystal, will be open.^000000";
+		mes "^0000FFElla estara en un lugar";
+		mes "tan frio como los polos.";
+		mes "Cuando el pozo se seque";
+		mes "y la tierra se agriete,";
+		mes "el camino a su corazon, un";
+		mes "corazon tan transparente como";
+		mes "el cristal, se abrira.^000000";
 		next;
-		mes "^3355FFI'll have to fight four";
-		mes "snakes with four swords";
-		mes "to find her. The first sword";
-		mes "is love. The second sword";
-		mes "is despair. The third sword";
-		mes "is rage. The fourth sword is";
-		mes "hope. To find her, to rescue her.^000000";
+		mes "^3355FFDebo pelear con cuatro";
+		mes "serpientes con cuatro espadas";
+		mes "para encontrarla. La primera espada";
+		mes "es amor. La segunda espada";
+		mes "es desesperacion. La tercera espada";
+		mes "es ira. La cuarta espada es";
+		mes "esperanza. Para encontrarla, para rescatarla.^000000";
 		next;
 		mes "^3355FF...............................";
-		mes "The deeper meaning";
-		mes "of this poem, if it even";
-		mes "exists, eludes you.^000000";
+		mes "El significado mas profundo";
+		mes "de este poema, si es que";
+		mes "existe, se te escapa.^000000";
 		set KHCottagePoem1,3;
 		close;
 	}
 	else  if ((KHCottagePoem1 > 2) || (KielHyreQuest >= 30)) {
-		mes "^3355FFThis is were you found";
-		mes "the paper on which the";
-		mes "poem was written. Perhaps";
-		mes "it would be a good idea to";
-		mes "refresh your memory and";
-		mes "read that poem again.^000000";
+		mes "^3355FFAqui es donde encontraste";
+		mes "el papel en el que";
+		mes "el poema fue escrito. Quiza";
+		mes "seria buena idea";
+		mes "refrescar tu memoria y";
+		mes "leer ese poema de nuevo.^000000";
 		next;
-		switch(select("Read:Cancel")) {
+		switch(select("Leer:Cancelar")) {
 		case 1:
 			mes "^0000FFShe will be in a place";
 			mes "as cold as the poles.";
@@ -2371,9 +2371,9 @@ kh_vila,44,126,0	script	Map#khp1	111,{
 			mes "exists, eludes you.^000000";
 			close;
 		case 2:
-			mes "^3355FFThere's no need for";
-			mes "you to reread this poem.";
-			mes "You're a freakin' genius!^000000";
+			mes "^3355FFNo hay necesidad de";
+			mes "que releas este poema.";
+			mes "Eres un completo genio!^000000";
 			close;
 		}
 	}
@@ -2384,39 +2384,39 @@ kh_vila,44,126,0	script	Map#khp1	111,{
 //----------------------------------------------------------------------------
 kh_vila,33,184,0	script	Pot#khp1	111,{
 	if (KHCottagePoem1 < 1) {
-		mes "^3355FFYou've found a pot";
-		mes "filled with boiling,";
-		mes "steaming liquid.^000000";
+		mes "^3355FFHas encontrado una olla";
+		mes "llena de liquido";
+		mes "hirviente y humeante.^000000";
 		close;
 	}
 	else if (KHCottagePoem1 == 1) {
-		mes "^3355FFYou've found a pot";
-		mes "filled with boiling,";
-		mes "steaming liquid.";
-		mes "Steam... That you could";
-		mes "use to loosen the glue on";
-		mes "the map... You're a genius!^000000";
+		mes "^3355FFHas encontrado una olla";
+		mes "llena de liquido";
+		mes "hirviente y humeante.";
+		mes "Vapor... Que podrias";
+		mes "usar para aflojar el pegamento del";
+		mes "mapa... Eres un genio!^000000";
 		next;
-		switch(select("Try it.:That? That won't work!")) {
+		switch(select("Intentarlo.:Eso? Eso no funcionara!")) {
 		case 1:
-			mes "^3355FFYou picked up the";
-			mes "boiling pot, but";
-			mes "slightly burned your";
-			mes "hands by accident.";
+			mes "^3355FFTomaste la olla";
+			mes "hirviente, pero";
+			mes "te quemaste ligeramente las";
+			mes "manos por accidente.";
 			set KHCottagePoem1,2;
 			close;
 
 		case 2:
 			mes "^3355FFNo, no...";
-			mes "We'd better try";
-			mes "something else.^000000";
+			mes "Mejor intentemos";
+			mes "algo diferente.^000000";
 			close;
 		}
 	}
 	else if ((KHCottagePoem1 > 1) || (KielHyreQuest >= 30)){
-		mes "^3355FFThis is where you";
-		mes "picked up the pot filled";
-		mes "with steaming hot liquid.^000000";
+		mes "^3355FFAqui es donde";
+		mes "recogiste la olla llena";
+		mes "de liquido hirviente y humeante.^000000";
 		close;
 	}
 }
@@ -2427,50 +2427,50 @@ kh_vila,33,184,0	script	Pot#khp1	111,{
 kh_vila,14,55,0	script	Calabash#khp1	111,{
 	if ((countitem(7329) < 1) && (countitem(7516) < 1) && (countitem(7491) < 1) && (KielHyreQuest < 38)) {
 		if (checkweight(7329,1) == 0) {
-			mes "^3355FFThat's a nice looking";
-			mes "calabash. You might even";
-			mes "get something from it...";
-			mes "But first you better get";
-			mes "rid of all your extra weight.";
-			mes "And by weight, I mean items.^000000";
+			mes "^3355FFEsa es una calabaza bonita.";
+			mes "Quiza hasta obtengas";
+			mes "algo de ella...";
+			mes "Pero primero deberias";
+			mes "deshacerte de todo tu peso extra.";
+			mes "Y por peso, me refiero a objetos.^000000";
 			close;
 		}
-		mes "^3355FFIt's an expensive";
-		mes "looking calabash--";
-		mes "or in less fancy";
-		mes "words, a ''gourd.''";
-		mes "Would do you do?^000000";
+		mes "^3355FFEs una calabaza de";
+		mes "aspecto costoso--";
+		mes "o en palabras menos";
+		mes "elegantes, un calabazo.";
+		mes "Que haras?^000000";
 		next;
-		switch(select("Break Open Calabash:Look Inside Calabash:Ignore")) {
+		switch(select("Romper la Calabaza:Mirar Dentro de la Calabaza:Ignorar")) {
 		case 1:
-			mes "^3355FFYou can't break";
-			mes "open that calabash...";
-			mes "You're a hero, not a vandal.";
-			mes "Now, if this act of vandalism";
-			mes "can be considered an act of";
-			mes "heroism, then it'd be okay.^000000";
+			mes "^3355FFNo puedes romper";
+			mes "esa calabaza...";
+			mes "Eres un heroe, no un vandalo.";
+			mes "Ahora, si este acto de vandalismo";
+			mes "puede considerarse un acto de";
+			mes "heroismo, entonces estaria bien.^000000";
 			close;
 		case 2:
-			mes "^3355FFYou tenderly place";
-			mes "your hand into the";
-			mes "calabash, and gently";
-			mes "feel around with your";
-			mes "fingers until you retrieve";
-			mes "an Old Bronze Key.^000000";
+			mes "^3355FFCon cuidado introduces";
+			mes "tu mano en la";
+			mes "calabaza, y suavemente";
+			mes "palpas con tus";
+			mes "dedos hasta que recuperas";
+			mes "una Vieja Llave de Bronce.^000000";
 			getitem 7329,1; //Old_Bronze_Key
 			close;
 		case 3:
-			mes "^3355FFThere's probably";
-			mes "nothing inside anyway.^000000";
+			mes "^3355FFProbablemente no hay";
+			mes "nada adentro de todas formas.^000000";
 			close;
 		}
 	}
 	else {
-		mes "^3355FFThis is the expensive";
-		mes "looking calabash from";
-		mes "which you've obtained";
-		mes "the Old Bronze Key.";
-		mes "It's useless to you now.^000000";
+		mes "^3355FFEsta es la calabaza de";
+		mes "aspecto costoso de la que";
+		mes "obtuviste la Vieja";
+		mes "Llave de Bronce.";
+		mes "Ya no te sirve de nada.^000000";
 		close;
 	}
 }
@@ -2480,79 +2480,79 @@ kh_vila,14,55,0	script	Calabash#khp1	111,{
 //----------------------------------------------------------------------------
 kh_vila,39,41,0	script	Pool#khp1	111,{
 	if ((KHCottagePoem1 < 3) && (KielHyreQuest < 30)) {
-		mes "^3355FFYou find a fancy pool";
-		mes "filled with fresh water.^000000";
+		mes "^3355FFEncuentras una fuente elegante";
+		mes "llena de agua fresca.^000000";
 		close;
 	}
 	else if ((KHCottagePoem1 == 3) && (KielHyreQuest < 30)) {
-		mes "^3355FFYou find a fancy pool";
-		mes "filled with fresh water,";
-		mes "along with a conscpicuous";
-		mes "lion statue with two handles.^000000";
+		mes "^3355FFEncuentras una fuente elegante";
+		mes "llena de agua fresca,";
+		mes "junto con una llamativa";
+		mes "estatua de leon con dos manijas.^000000";
 		next;
-		switch(select("Pull Handles:Cancel")) {
+		switch(select("Jalar Manijas:Cancelar")) {
 		case 1:
-			mes "Which handle would";
-			mes "you like to pull first?";
+			mes "Cual manija te";
+			mes "gustaria jalar primero?";
 			next;
-			switch(select("Right Handle:Left Handle")) {
+			switch(select("Manija Derecha:Manija Izquierda")) {
 			case 1:
-				mes "^3355FFYou pull the right";
-				mes "handle, causing water";
-				mes "to gush out of the lion's";
-				mes "mouth. It looks pretty cool~^000000";
+				mes "^3355FFJalas la manija derecha,";
+				mes "causando que el agua";
+				mes "brote de la boca del leon.";
+				mes "Se ve bastante genial~^000000";
 				close;
 			case 2:
-				mes "^3355FFAs soon as you pull the";
-				mes "left handle, the water in";
-				mes "the pool drains away. The";
-				mes "pool empties, and you can";
-				mes "see a layer of green moss";
-				mes "covering the pool's bottom.^000000";
+				mes "^3355FFTan pronto como jalas la";
+				mes "manija izquierda, el agua en";
+				mes "la fuente se drena. La";
+				mes "fuente se vacia, y puedes";
+				mes "ver una capa de musgo verde";
+				mes "cubriendo el fondo de la fuente.^000000";
 				next;
-				switch(select("Ignore:Investigate")) {
+				switch(select("Ignorar:Investigar")) {
 				case 1:
-					mes "^3355FFYou decide that";
-					mes "a pool is little more";
-					mes "than a hole without";
-					mes "any water to fill it.^000000";
+					mes "^3355FFDecides que";
+					mes "una fuente no es mas";
+					mes "que un agujero sin";
+					mes "agua que la llene.^000000";
 					close;
 				case 2:
-					mes "^3355FFAs you look through";
-					mes "the wet moss at the";
-					mes "bottom of the pool,";
-					mes "you stumble upon a";
-					mes "small, peculiar button.^000000";
+					mes "^3355FFAl buscar entre";
+					mes "el musgo humedo en el";
+					mes "fondo de la fuente,";
+					mes "te encuentras con un";
+					mes "pequeno y peculiar boton.^000000";
 					next;
-					switch(select("Press button:Don't Press Button")) {
+					switch(select("Presionar boton:No Presionar Boton")) {
 					case 1:
-						mes "^3355FFYou press the button,";
-						mes "which seems to trigger";
-						mes "a strange sound coming";
-						mes "from the stairs at the hallway.^000000";
+						mes "^3355FFPresionas el boton,";
+						mes "que parece activar";
+						mes "un sonido extrano proveniente";
+						mes "de las escaleras del pasillo.^000000";
 						set KHCottagePoem1,4;
 						close;
 					case 2:
-						mes "^3355FFYou'd better not push";
-						mes "this button. Your enemies";
-						mes "must have hidden it carefully";
-						mes "for you to find: it must be";
-						mes "some sort of nefarious trap.^000000";
+						mes "^3355FFMejor no presiones";
+						mes "este boton. Tus enemigos";
+						mes "deben haberlo escondido cuidadosamente";
+						mes "para que lo encontraras: debe ser";
+						mes "algun tipo de trampa nefasta.^000000";
 						close;
 					}
 				}
 			}
 		case 2:
-			mes "^3355FFYou decided not";
-			mes "to pull any handles.^000000";
+			mes "^3355FFDecidiste no";
+			mes "jalar ninguna manija.^000000";
 			close;
 		}
 	}
 	else if ((KHCottagePoem1 > 3) || (KielHyreQuest >= 30)) {
-		mes "^3355FFThis is where you pressed";
-		mes "the small button that caused";
-		mes "some strange sound to come";
-		mes "from the stairs near the hallway.";
+		mes "^3355FFAqui es donde presionaste";
+		mes "el pequeno boton que causo";
+		mes "un sonido extrano proveniente";
+		mes "de las escaleras cerca del pasillo.";
 		close;
 	}
 }
