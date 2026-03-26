@@ -3789,33 +3789,33 @@ ma_fild01,158,243,6	script	Tribe Blacksmith#malaya	582,{
 	.@equip_refine = getequiprefinerycnt(.@part);
 	if (.@equip_refine < 9) {
 		mes "[Bayani]";
-		mes "No, the sturdiness of this item has not been tested yet. It'll have to be at least +9 refined for me to say, 'Oh this is pretty sturdy armor.";
+		mes "No, la resistencia de este objeto aun no ha sido probada. Tendra que estar al menos refinada +9 para que yo diga, 'Oh esta es una armadura bastante resistente.";
 		close;
 	}
 
 	mes "[Bayani]";
-	mes "Looks like you did your homework! Don't see a flaw! Then I have one question to ask before I start refinement.";
+	mes "Parece que hiciste tu tarea! No veo ningun defecto! Entonces tengo una pregunta antes de empezar el refinamiento.";
 	next;
 	mes "[Bayani]";
-	mes "^0000FFOnce your item is refined, the refinement level will be ^FF00000^0000FF and the item will be upgraded.^000000 You get this part?";
+	mes "^0000FFUna vez que tu objeto sea refinado, el nivel de refinamiento sera ^FF00000^0000FF y el objeto sera mejorado.^000000 Entiendes esto?";
 	next;
-	if (select("No.:Yes.") == 1) {
+	if (select("No.:Si.") == 1) {
 		mes "[Bayani]";
-		mes "What? You didn't know this? Then, read through my instructions and come back again.";
+		mes "Que? No sabias esto? Entonces, lee mis instrucciones y vuelve de nuevo.";
 		close;
 	}
 	mes "[Bayani]";
-	mes "Good. Next question. Once refinement is done,";
-	mes "^0000FFEquipping the Kalasag, Buwaya Sack Cloth, Bakonawa Scale Armor, and Bangungot Boots of Nightmare all at once will lose the ^FF0000Set Effects^0000FF.^000000";
-	mes "Do you understand this point?";
+	mes "Bien. Siguiente pregunta. Una vez que el refinamiento termine,";
+	mes "^0000FFEquipar el Kalasag, Buwaya Sack Cloth, Bakonawa Scale Armor y Bangungot Boots of Nightmare todos a la vez perdera los ^FF0000Efectos de Set^0000FF.^000000";
+	mes "Entiendes este punto?";
 	next;
-	if (select("No.:Yes.") == 1) {
+	if (select("No.:Si.") == 1) {
 		mes "[Bayani]";
-		mes "What? You didn't know this? Then, read through my instructions and come back again.";
+		mes "Que? No sabias esto? Entonces, lee mis instrucciones y vuelve de nuevo.";
 		close;
 	}
 	mes "[Bayani]";
-	mes "Awesome! Then let's start refining " + getitemname(.@item) + ".";
+	mes "Genial! Entonces empecemos a refinar " + getitemname(.@item) + ".";
 	next;
 	specialeffect EF_SONICBLOW;
 	mes "[Bayani]";
@@ -3834,8 +3834,8 @@ ma_fild01,158,243,6	script	Tribe Blacksmith#malaya	582,{
 	delequip .@part;
 	getitem .@newItem, 1; 
 	mes "[Bayani]";
-	mes "Ha ha. Perfect.";
-	mes "Congratulations. Your armor is better than ever.";
+	mes "Ja ja. Perfecto.";
+	mes "Felicidades. Tu armadura es mejor que nunca.";
 	close;
 }
 
@@ -3892,7 +3892,7 @@ malaya,305,281,3	script	Guard#buwaya	570,7,7,{
 		close;
 	}
 	mes "[Guard]";
-	mes "So the talk about treasure was just a rumor? I'm not asking because I want to be rich overnight. Ha ha.";
+	mes "Asi que el rumor del tesoro era solo eso? No pregunto porque quiera hacerme rico de la noche a la manana. Ja ja.";
 	close;
 OnTouch:
 	if ((malaya_hi > 19) && (malaya_buwaya == 0)) {
@@ -4915,7 +4915,7 @@ malaya,275,333,5	script	Singing Woman#bako1	579,{
 
 malaya,290,329,4	script	Frightened Boy#bako1	577,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona1 < 5) {
@@ -5036,7 +5036,7 @@ malaya,285,332,4	script	Old Legend Teller#bako1	574,{
 		close;
 	}
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona1 == 0) {
@@ -5512,49 +5512,49 @@ OnTouch_:
 
 L_Record:
 	mes "[Record left by a swordsman from a hundred years ago]";
-	mes "After fighting with Bakonawa, I sustained a critical wound";
-	mes "and came to this place.";
-	mes "Only thing I can do is";
-	mes "Place the Wooden Doll in one place";
-	mes "the monster would come.";
+	mes "Despues de pelear con Bakonawa, sufri una herida critica";
+	mes "y vine a este lugar.";
+	mes "Lo unico que puedo hacer es";
+	mes "colocar el Muneco de Madera en un lugar";
+	mes "donde el monstruo vendria.";
 	next;
 	mes "[Record left by a swordsman from a hundred years ago]";
-	mes "^0000FFSometimes transforming into a child, or even a old lady,^000000";
-	mes "I know that ^0000FFBakonawa^000000has been";
-	mes "chasing after me in secret to kill me.";
-	mes "Because of that critical injury the monster * sustained,";
+	mes "^0000FFA veces transformandose en un nino, o incluso en una anciana,^000000";
+	mes "Se que ^0000FFBakonawa^000000 me ha estado";
+	mes "persiguiendo en secreto para matarme.";
+	mes "Debido a la herida critica que el monstruo sufrio,";
 	next;
 	mes "[Record left by a swordsman from a hundred years ago]";
-	mes "** it will need nearly a hundred years";
-	mes "for Bakonawa to absorb the power of the moon";
-	mes "to fully recover its power.";
-	mes "Beware of the day the moon disappears.";
+	mes "** necesitara casi cien anos";
+	mes "para que Bakonawa absorba el poder de la luna";
+	mes "y recupere completamente su poder.";
+	mes "Cuidado con el dia que la luna desaparezca.";
 	next;
 	mes "[Record left by a swordsman from a hundred years ago]";
-	mes "The day will come when Bakonawa";
-	mes "will run amuck.";
-	mes "But it will take nearly a hundred years to fully recover its power.";
-	mes "There will always be someone better than me";
-	mes "to defeat the vile creature.";
+	mes "Llegara el dia en que Bakonawa";
+	mes "enloquecera.";
+	mes "Pero tomara casi cien anos para recuperar completamente su poder.";
+	mes "Siempre habra alguien mejor que yo";
+	mes "para derrotar a la vil criatura.";
 	next;
 	mes "[Record left by a swordsman from a hundred years ago]";
-	mes "I will place my trust in the one that will replace me ages from now...";
+	mes "Depositare mi confianza en aquel que me reemplazara en el futuro...";
 	next;
-	mes "How could this be...";
-	mes "Lie told by Bakonawa when it turned into an old lady";
-	mes "in order to take revenge on the swordsman";
-	mes "turned into a legend after all these years.";
+	mes "Como puede ser esto...";
+	mes "La mentira contada por Bakonawa cuando se transformo en una anciana";
+	mes "para vengarse del espadachin";
+	mes "se convirtio en una leyenda despues de todos estos anos.";
 	next;
-	mes "I found out that Bakonawa";
-	mes "is nothing but a blood thirsty monster.";
-	mes "I must tell what I know to the ^0000FFOld Legend Teller^000000";
-	mes "in Malaya.";
+	mes "Descubri que Bakonawa";
+	mes "no es mas que un monstruo sediento de sangre.";
+	mes "Debo contar lo que se al ^0000FFViejo Narrador de Leyendas^000000";
+	mes "en Malaya.";
 	return;
 }
 
 malaya,304,100,4	script	Old Man's Granddaughter	576,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona1 == 0) {
@@ -5597,39 +5597,39 @@ malaya,304,100,4	script	Old Man's Granddaughter	576,{
 
 malaya,286,269,4	script	Angry Man#bako2	578,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	mes "[Angry Man]";
-	mes "Calm Bakonawa?";
-	mes "Do you know how many people have been";
-	mes "sacrificed by Bakonawa?";
-	mes "I will fight on my own if I have to!";
+	mes "Calmar a Bakonawa?";
+	mes "Sabes cuantas personas han sido";
+	mes "sacrificadas por Bakonawa?";
+	mes "Pelearre solo si es necesario!";
 	close;
 }
 
 malaya,276,269,5	script	Calm Woman#bako2	579,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	mes "[Calm Little Girl]";
-	mes "It is too dangerous to fight against";
-	mes "Bakonawa. There is a chance";
-	mes "it will get more angry and put children and";
-	mes "elders in danger.";
+	mes "Es demasiado peligroso pelear contra";
+	mes "Bakonawa. Existe la posibilidad";
+	mes "de que se enfurezca mas y ponga en peligro a ninos y";
+	mes "ancianos.";
 	close;
 }
 
 malaya,276,262,4	script	Angry Boy#bako2	577,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	mes "[Angry Boy]";
-	mes "I lost my father and my friend";
-	mes "to that Bakonawa.";
-	mes "I will surely revenge them!";
+	mes "Perdi a mi padre y a mi amigo";
+	mes "por culpa de Bakonawa.";
+	mes "Los vengare sin duda!";
 	close;
 }
 
@@ -5651,7 +5651,7 @@ malaya,283,265,4	script	Village Chief#bako2	580,{
 		close;
 	}
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona2 == 0) {
@@ -5721,7 +5721,7 @@ malaya,283,265,4	script	Village Chief#bako2	580,{
 		close;
 	} else if (malaya_bakona2 == 3) {
 		mes "[Village Chief]";
-		mes "Retrieve three ^FF0000Lost Belongings^000000 from Tiyanak";
+		mes "Recupera tres ^FF0000Pertenencias Perdidas^000000 de Tiyanak";
 		mes "and deliver them to ^0000FFMissing Person's Son^000000";
 		mes "for me.";
 		close;
@@ -5880,7 +5880,7 @@ malaya,283,265,4	script	Village Chief#bako2	580,{
 
 malaya,269,267,5	script	Missing Person's Father	582,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona2 == 0) {
@@ -5931,7 +5931,7 @@ malaya,269,267,5	script	Missing Person's Father	582,{
 
 malaya,265,274,5	script	Missing Person's Friend	577,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona2 < 2) {
@@ -5977,16 +5977,16 @@ malaya,265,274,5	script	Missing Person's Friend	577,{
 
 L_Quest:
 	next;
-	mes "Leaving behind the crying boy,";
+	mes "Dejando atras al nino llorando,";
 	mes "let's continue to find the lost belongings of the missing people.";
-	mes "Retrieve three ^FF0000Lost Belongings^000000 from Tiyanak";
+	mes "Recupera tres ^FF0000Pertenencias Perdidas^000000 de Tiyanak";
 	mes "and deliver them to ^0000FFMissing Person's Son^000000.";
 	return;
 }
 
 malaya,270,278,4	script	Missing Person's Son	578,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona2 < 3) {
@@ -6023,16 +6023,16 @@ malaya,270,278,4	script	Missing Person's Son	578,{
 
 L_Quest:
 	next;
-	mes "Man crying in agony.";
-	mes "Let's continue to find the lost belongings of the missing people.";
-	mes "Retrieve five ^FF0000Lost Belongings^000000 from Tiyanak";
+	mes "Hombre llorando de agonia.";
+	mes "Sigamos buscando las pertenencias perdidas de las personas desaparecidas.";
+	mes "Recupera cinco ^FF0000Pertenencias Perdidas^000000 de Tiyanak";
 	mes "and deliver them to ^0000FFMissing Person's Mother^000000.";
 	return;
 }
 
 malaya,265,284,4	script	Missing Person's Mother	579,{
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona2 < 4) {
@@ -6090,7 +6090,7 @@ malaya,289,364,4	script	Young Fortune Teller	583,{
 		close;
 	}
 	if (malaya_hi < 20) {
-		mes "- He seems cautious of you. -";
+		mes "- Parece desconfiar de ti. -";
 		close;
 	}
 	if (malaya_bakona2 < 6) {
@@ -6520,7 +6520,7 @@ sec_in02,10,16,5	script	Bakonawa Intro Helper	543,{
 		close;
 	}
 	mes "[Briquet Scheme]";
-	mes "Just boldly tell me";
+	mes "Solo dime sin rodeos";
 	mes "what is it that you want!";
 	next;
 	switch(select("Reset all quests:Just before the end of first quest:Reset secondary quest:Distribution of lost belongings:Just after hunting")) {
@@ -6771,26 +6771,26 @@ L_Reward:
 
 L_Bangungot:
 	mes "[Nurse Maenne]";
-	mes "It's a vicious monster roaming this hospital.";
+	mes "Es un monstruo vicioso que deambula por este hospital.";
 	next;
 	mes "[Nurse Maenne]";
 	mes "Hmmmm...";
-	mes "It's not exactly a monster....";
-	mes "More like a curse or disease...";
+	mes "No es exactamente un monstruo....";
+	mes "Mas bien una maldicion o enfermedad...";
 	next;
 	mes "[Nurse Maenne]";
-	mes "There's a story saying that it used to be a wood fairy.";
+	mes "Hay una historia que dice que solia ser un hada del bosque.";
 	next;
 	mes "[Nurse Maenne]";
-	mes "Anyway, it doesnt change the fact that she killed the patients of this hospital and turned them into monsters.";
+	mes "De todos modos, no cambia el hecho de que mato a los pacientes de este hospital y los convirtio en monstruos.";
 	next;
 	return;
 
 L_Maenne:
 	mes "[Nurse Maenne]";
-	mes "Me?";
-	mes "As you can see, I'm the new nurse here.";
-	mes "I'm a nurse who specializes in 'this' kind of work, instead of looking after patients.";
+	mes "Yo?";
+	mes "Como puedes ver, soy la nueva enfermera aqui.";
+	mes "Soy una enfermera que se especializa en 'este' tipo de trabajo, en lugar de cuidar pacientes.";
 	cutin "malaya_nurseB",2;
 	next;
 	mes "[Nurse Maenne]";

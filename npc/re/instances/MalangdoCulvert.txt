@@ -141,7 +141,7 @@ L_GiveQuest:
 		break;
 	}
 	next;
-	mes "You received a request for the Extermination of ^005500"+getarg(3)+"^000000. If you need more details, please check the quest window.";
+	mes "Recibiste una solicitud para la exterminacion de ^005500"+getarg(3)+"^000000. Si necesitas mas detalles, revisa la ventana de misiones.";
 	close;
 }
 
@@ -157,33 +157,33 @@ mal_in01,172,26,2	script	Madeca#mal	544,{
 	if (BaseLevel < 90) {
 		mes "[Madeca]";
 		mes "Karrrrrrr!!";
-		mes "Let's have some bad seafood that can be boiled or grilled!";
+		mes "Comamos mariscos malos que puedan hervirse o asarse!";
 		next;
 		mes "[Madeca]";
-		mes "Who are you? You are such a totterer. Even seaweed could kill you!";
+		mes "Quien eres? Eres un debilucho. Hasta las algas podrian matarte!";
 		close;
 	}
 	mes "[Madeca]";
 	mes "Oh?";
-	mes "You're the one who took care of my big brother Albo's request. It was a hard job!";
+	mes "Tu eres quien se encargo del pedido de mi hermano mayor Albo. Fue un trabajo duro!";
 	next;
-	set .@i, select("What are you doing here?:Servicio Diario de Alcantarillado General Compensation:Servicio Diario de Alcantarillado Dificil Compensation:Servicio Semanal de Alcantarillado General Compensation:Servicio Semanal de Alcantarillado Dificil Compensation")-1;
+	set .@i, select("Que haces aqui?:Compensacion Servicio Diario General:Compensacion Servicio Diario Dificil:Compensacion Servicio Semanal General:Compensacion Servicio Semanal Dificil")-1;
 	if (.@i == 0) {
 		mes "[Madeca]";
-		mes "I'm here to help my big brother Albo!";
+		mes "Estoy aqui para ayudar a mi hermano mayor Albo!";
 		next;
 		mes "[Madeca]";
-		mes "We provide precious materials to humans who make sludge out of the bad seafood in the Culverts!";
+		mes "Proporcionamos materiales preciosos a los humanos que hacen papilla de los mariscos malos en el Alcantarillado!";
 		next;
 		mes "[Madeca]";
-		mes "We provide A~B Grade Coins as compensation for daily service, and the precious Sea God's Wrath as compensation for weekly service.";
+		mes "Proporcionamos Monedas de Grado A~B como compensacion por el servicio diario, y la preciosa Ira del Dios del Mar como compensacion por el servicio semanal.";
 		next;
 		mes "[Madeca]";
-		mes "If you take care of big brother Albo's request, I will see you very often. So, let's stay close!";
+		mes "Si te encargas del pedido de mi hermano mayor Albo, nos veremos muy seguido. Asi que, seamos cercanos!";
 		close;
 	}
 	mes "[Madeca]";
-	mes "I can't give you compensation for an expired request, so let me check if any of yours have expired.";
+	mes "No puedo darte compensacion por una solicitud expirada, asi que dejame revisar si alguna de las tuyas ha expirado.";
 	next;
 	specialeffect2 EF_SPHERE;
 	progressbar "0xFFFF00",3;
@@ -235,11 +235,11 @@ mal_in01,172,26,2	script	Madeca#mal	544,{
 		break;
 	default:
 		mes "[Madeca]";
-		mes "Something is wrong. Please check this again!";
+		mes "Algo esta mal. Por favor revisa esto de nuevo!";
 		close;
 	}
 	mes "[Madeca]";
-	mes "I don't see any completed mission!";
+	mes "No veo ninguna mision completada!";
 	close;
 
 L_EraseQuest:
@@ -248,15 +248,15 @@ L_EraseQuest:
 			erasequest getarg(.@j);
 	}
 	mes "[Madeca]";
-	mes "Um, I'm sorry. You exceeded the time limit, so I can't give you any payment.";
+	mes "Um, lo siento. Excediste el limite de tiempo, asi que no puedo darte ningun pago.";
 	close;
 
 // callsub L_CheckQuest,<quest ID>,<monster>,<reward item ID>,<reward item amount>;
 L_CheckQuest:
 	if (checkquest(getarg(0),HUNTING) == 2) {
 		mes "[Madeca]";
-		mes "You've punished ^0000ff"+getarg(1)+"^000000!";
-		mes "Here's your pay!";
+		mes "Has castigado a ^0000ff"+getarg(1)+"^000000!";
+		mes "Aqui esta tu pago!";
 		erasequest getarg(0);
 		specialeffect2 EF_STEAL;
 		getitem getarg(2),getarg(3);
@@ -270,26 +270,26 @@ L_CheckQuest:
 mal_in01,160,34,4	script	Missing, the Cleaner	545,{
 	if (BaseLevel < 90) {
 		mes "[Missing, the Cleaner]";
-		mes "Are you talking to me?!";
+		mes "Me estas hablando a mi?!";
 		next;
 		mes "[Missing, the Cleaner]";
-		mes "I'm not sure what made you come here but you can't enter!";
-		mes "Tomas' orders...";
+		mes "No se que te trajo aqui pero no puedes entrar!";
+		mes "Ordenes de Tomas...";
 		next;
-		mes "^770099You must be Base level 90 to enter.^000000";
+		mes "^770099Debes ser nivel base 90 para entrar.^000000";
 		close;
 	}
 	if (in_canal_n == 0) {
 		mes "[Missing, the Cleaner]";
 		mes "(temblando)";
 		next;
-		mes "^660066This cat looks like it's in bad shape. It is slightly trembling.^000000";
+		mes "^660066Este gato parece estar en mal estado. Esta temblando ligeramente.^000000";
 		next;
 		if(select("Acariciar al gato:Estas bien?") == 1) {
 			mes "[Missing, the Cleaner]";
-			mes "Are you talking to me?!";
+			mes "Me estas hablando a mi?!";
 			next;
-			mes "^660066A trembling cat is looking up at you.^000000";
+			mes "^660066Un gato tembloroso te mira hacia arriba.^000000";
 			close;
 		}
 		mes "[Missing, the Cleaner]";

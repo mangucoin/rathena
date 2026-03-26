@@ -1312,27 +1312,27 @@ mora,124,82,4	script	Artifact Collector#blan	522,{
 				break;
 			}
 			mes "[Artifact Collector]";
-			mes "It must also carry any of these enchantments: "+.@str$+" to be craftable by me.";
+			mes "Tambien debe llevar alguno de estos encantamientos: "+.@str$+" para que pueda trabajar en el.";
 			next;
 			select(getitemname(.@empowered[.@i])+" attributes?");
 			callsub L_ShowInfo, .@empowered[.@i];
 			mes "[Artifact Collector]";
-			mes "But please if you do get one, please let me work on it, I'm begging you.";
+			mes "Pero por favor si consigues uno, dejame trabajar en el, te lo suplico.";
 			next;
 		}
 	case 3:
 		mes "[Artifact Collector]";
-		mes "Have yourself a great day. Bye~";
+		mes "Que tengas un gran dia. Adios~";
 		close;
 	}
 	emotion ET_SPARK;
 	mes "[Artifact Collector]";
-	mes "Let me take a look at what you have brought me.";
+	mes "Dejame ver lo que me has traido.";
 	next;
 	if (!getequipisequiped(EQI_HAND_R)) {
 		emotion ET_FRET;
 		mes "[Artifact Collector]";
-		mes "I don't know what you are trying to do... I can't enhance what you don't have.";
+		mes "No se que intentas hacer... No puedo mejorar lo que no tienes.";
 		close;
 	}
 	set .@equip_id, getequipid(EQI_HAND_R);
@@ -1362,50 +1362,50 @@ mora,124,82,4	script	Artifact Collector#blan	522,{
 	default:
 		emotion ET_FRET;
 		mes "[Artifact Collector]";
-		mes "The weapon you have isn't one of the Artifacts I can work with.";
+		mes "El arma que tienes no es uno de los Artefactos con los que puedo trabajar.";
 		close;
 	}
 	if (.@equip_refine < 7) {
 		emotion ET_FRET;
 		mes "[Artifact Collector]";
-		mes "I must insist that the refine level of the Artifact be at least +7!";
+		mes "Debo insistir en que el nivel de refinamiento del Artefacto sea al menos +7!";
 		close;
 	}
 	if (!.@empowered) {
 		emotion ET_FRET;
 		mes "[Artifact Collector]";
-		mes "These attributes just won't do for my research process, try re-randoming them.";
+		mes "Estos atributos simplemente no sirven para mi proceso de investigacion, intenta re-aleatorizarlos.";
 		close;
 	}
 	emotion ET_SEXY;
 	mes "[Artifact Collector]";
-	mes "I'm tingling with excitement!";
-	mes "You've brought me everything I need!!";
+	mes "Estoy temblando de emocion!";
+	mes "Me has traido todo lo que necesito!!";
 	next;
 	emotion ET_OK;
 	mes "[Artifact Collector]";
-	mes "If you are ready I am about to show you what I can do with your +" + .@equip_refine + " Artifact!";
+	mes "Si estas listo estoy a punto de mostrarte lo que puedo hacer con tu Artefacto +" + .@equip_refine + "!";
 	next;
 	mes "[Artifact Collector]";
-	mes "I'm going to take your ^FF0000"+getequipname(EQI_HAND_R)+"^000000 and exchange it, are you ready?";
+	mes "Voy a tomar tu ^FF0000"+getequipname(EQI_HAND_R)+"^000000 e intercambiarlo, estas listo?";
 	next;
-	switch(select("NOOO!:Yes, I'm ready!:What will it be after?")) {
+	switch(select("NOOO!:Si, estoy listo!:Que sera despues?")) {
 	case 1:
 		emotion ET_FRET;
 		mes "[Artifact Collector]";
-		mes "You've got to be kidding... you got my hopes up...";
+		mes "Debes estar bromeando... me hiciste ilusionarme...";
 		close;
 	case 2:
 		break;
 	case 3:
 		callsub L_ShowInfo, .@empowered;
 		mes "[Artifact Collector]";
-		mes "Surely you want to go on?";
+		mes "Seguramente quieres continuar?";
 		next;
-		if(select("No, I don't.:Yes, do it!") == 1) {
+		if(select("No, no quiero.:Si, hazlo!") == 1) {
 			emotion ET_FRET;
 			mes "[Artifact Collector]";
-			mes "You've got to be kidding... you got my hopes up...";
+			mes "Debes estar bromeando... me hiciste ilusionarme...";
 			close;
 		}
 		break;
@@ -1419,7 +1419,7 @@ mora,124,82,4	script	Artifact Collector#blan	522,{
 	delequip EQI_HAND_R;
 	getitem .@empowered,1;
 	mes "[Artifact Collector]";
-	mes "It is perfectly done, you will be so happy! Good bye friend~";
+	mes "Esta perfectamente hecho, estaras muy feliz! Adios amigo~";
 	close;
 
 L_ShowInfo:
@@ -1531,91 +1531,91 @@ function	script	F_Mora_Enchant	{
 mora,105,176,4	script	Master Tailor#pa0829	509,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
+		mes "Tienes demasiados tipos de objetos para hacer eso. Deshazte de algunos e intentalo de nuevo.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
+		mes "Estas cargando demasiado peso para hacer eso. Reduce el peso e intentalo de nuevo.";
 		close;
 	}
 	if (countitem(6380) < 5 || countitem(15024) < 1) {
 		mes "[Master Tailor]";
-		mes "With my touch, I can turn a typical army padding into a piece of art. I'm Kay the Master Tailor, creating art with army paddings.";
+		mes "Con mi toque, puedo convertir un army padding tipico en una obra de arte. Soy Kay el Maestro Sastre, creando arte con army paddings.";
 		next;
 		mes "[Master Tailor]";
-		mes "Well, what's in a name? I can turn your army padding into a piece of art if you bring ^ff00005 Mora Coins and an Army Padding^000000.";
+		mes "Bueno, que hay en un nombre? Puedo convertir tu army padding en una obra de arte si traes ^ff00005 Mora Coins y un Army Padding^000000.";
 		if (countitem(6380)) {
 			next;
 			mes "[Master Tailor]";
-			mes "I happen to have a few army paddings in stock. Would you like to buy one? The price is 1 Mora Coin. So cheap.";
+			mes "Resulta que tengo algunos army paddings en stock. Te gustaria comprar uno? El precio es 1 Mora Coin. Muy barato.";
 			next;
-			switch(select("Maybe next time.:I'll buy one now.")) {
+			switch(select("Quiza la proxima.:Comprare uno ahora.")) {
 	 		case 1:
 				mes "[Master Tailor]";
-				mes "Okay, I understand.";
-				mes "Come back for one if you change your mind.";
+				mes "Esta bien, entiendo.";
+				mes "Vuelve por uno si cambias de opinion.";
 				close;
 			case 2:
 				delitem 6380,1; //Mora_Coin
 				getitem 15024,1; //Army_Padding
 				mes "[Master Tailor]";
-				mes "Here it is.";
-				mes "It's very nice and fluffy. Please come back.";
+				mes "Aqui esta.";
+				mes "Es muy bonito y esponjoso. Por favor vuelve.";
 				close;
 			}
 		}
 		close;
 	}
 	mes "[Master Tailor]";
-	mes "Have you come to add art to one of your army paddings?";
+	mes "Has venido a agregarle arte a uno de tus army paddings?";
 	next;
-	switch(select("Please tell me more.:Yes, I have.")) {
+	switch(select("Cuentame mas por favor.:Si, asi es.")) {
 	case 1:
 		mes "[Master Tailor]";
-		mes "A typical army padding isn't warm enough. It feels rough on your skin and doesn't look good. And artistic value? It has next to none.";
+		mes "Un army padding tipico no es lo suficientemente calido. Se siente aspero en la piel y no se ve bien. Y valor artistico? Casi no tiene.";
 		next;
 		mes "[Master Tailor]";
-		mes "However, I'll embroider it with velvet threads, and add three options to it.";
+		mes "Sin embargo, lo bordare con hilos de terciopelo, y le agregare tres opciones.";
 		next;
 		mes "[Master Tailor]";
-		mes "Bring me ^8888005 Mora Coins^000000 and an Army Padding, and we can add some art together!";
+		mes "Traeme ^8888005 Mora Coins^000000 y un Army Padding, y podremos agregarle algo de arte juntos!";
 		close;
 	case 2:
 		mes "[Master Tailor]";
-		mes "I'm telling you just in case - I'll do whatever I need to do with your army padding, whether it's brand-new or has been mended before.";
+		mes "Te digo por si acaso - hare lo que necesite hacer con tu army padding, ya sea nuevo o haya sido remendado antes.";
 		next;
 		mes "[Master Tailor]";
-		mes "So if you have with you an army padding mended to your liking, put it in a safe place and come back.";
+		mes "Asi que si tienes un army padding remendado a tu gusto, guardalo en un lugar seguro y vuelve.";
 		next;
 		mes "[Master Tailor]";
-		mes "And another thing - once I fail to add art to it, it becomes unusable... you'll need to buy a new one in that case.";
+		mes "Y otra cosa - una vez que falle al agregarle arte, se vuelve inutilizable... necesitaras comprar uno nuevo en ese caso.";
 		next;
-		switch(select("Come on, what's the rush?:Okay! Let's do it!!")) {
+		switch(select("Vamos, cual es la prisa?:Ok! Hagamoslo!!")) {
 		case 1:
 			mes "[Master Tailor]";
-			mes "What's wrong with you?";
-			mes "The villagers keep me busy enough.";
+			mes "Que te pasa?";
+			mes "Los aldeanos me mantienen bastante ocupado.";
 			close;
 		case 2:
 			if (countitem(6380) < 5 || countitem(15024) == 0) {
 				mes "[Master Tailor]";
-				mes "It looks like you don't have everything you need.";
+				mes "Parece que no tienes todo lo que necesitas.";
 				next;
 				mes "[Master Tailor]";
-				mes "You have to have 5 Mora Coins and an Army Padding with you before I can do my work.";
+				mes "Debes tener 5 Mora Coins y un Army Padding contigo antes de que pueda hacer mi trabajo.";
 				close;
 			}
 			if (callfunc("F_Mora_Enchant",15024) == 0) {
 				mes "[Master Tailor]";
 				mes "Oh......";
-				mes "I can't believe I messed up.";
+				mes "No puedo creer que la regue.";
 				next;
 				mes "[Master Tailor]";
-				mes "I want to be alone. Go away!";
+				mes "Quiero estar solo. Vete!";
 				close;
 			}
 			mes "[Master Tailor]";
-			mes "My art looks great.";
+			mes "Mi arte se ve genial.";
 			close;
 		}
 	}
@@ -1624,69 +1624,69 @@ mora,105,176,4	script	Master Tailor#pa0829	509,{
 mora,123,177,6	script	Pendant Crafter#pa0829	509,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
+		mes "Tienes demasiados tipos de objetos para hacer eso. Deshazte de algunos e intentalo de nuevo.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
+		mes "Estas cargando demasiado peso para hacer eso. Reduce el peso e intentalo de nuevo.";
 		close;
 	}
 	if (countitem(6380) < 5 || countitem(2858) == 0) {
 		mes "[Pendant Crafter]";
-		mes "My job is to polish the stone in a Guardian's Pendant, and then carve a symbol with special power on it.";
+		mes "Mi trabajo es pulir la piedra en un Guardian's Pendant, y luego tallar un simbolo con poder especial en ella.";
 		next;
 		mes "[Pendant Crafter]";
-		mes "The process gives the Guardian's Pendant more power than an ordinary accessory.";
+		mes "El proceso le da al Guardian's Pendant mas poder que un accesorio ordinario.";
 		next;
 		mes "[Pendant Crafter]";
-		mes "If you're interested, I can work on your pendant for ^ff00005 Mora Coins^000000. Of course you need to have a Guardian's Pendant so I can work on with you.";
+		mes "Si te interesa, puedo trabajar en tu colgante por ^ff00005 Mora Coins^000000. Por supuesto necesitas tener un Guardian's Pendant para que pueda trabajar contigo.";
 		close;
 	}
 	mes "[Pendant Crafter]";
-	mes "Have you come to have your Guardian's Pendant upgraded?";
+	mes "Has venido a mejorar tu Guardian's Pendant?";
 	next;
-	switch(select("Please tell me more.:Yes, I have.")) {
+	switch(select("Cuentame mas por favor.:Si, asi es.")) {
 	case 1:
 		mes "[Pendant Crafter]";
-		mes "My job is to polish the stone in a Guardian's Pendant, and then carve a symbol with special power on it.";
+		mes "Mi trabajo es pulir la piedra en un Guardian's Pendant, y luego tallar un simbolo con poder especial en ella.";
 		next;
 		mes "[Pendant Crafter]";
-		mes "The process gives the Guardian's Pendant more power than an ordinary accessory.";
+		mes "El proceso le da al Guardian's Pendant mas poder que un accesorio ordinario.";
 		next;
 		mes "[Pendant Crafter]";
-		mes "If you're interested, I can work on your pendant for ^ff00005 Mora Coins^000000. Of course you need to have a Guardian's Pendant so I can work on with you.";
+		mes "Si te interesa, puedo trabajar en tu colgante por ^ff00005 Mora Coins^000000. Por supuesto necesitas tener un Guardian's Pendant para que pueda trabajar contigo.";
 		close;
 	case 2:
 		mes "[Pendant Crafter]";
-		mes "I'm telling you just in case - ";
-		mes "If I work on a Guardian's Pendant that's been upgraded before, it loses its original power.";
+		mes "Te digo por si acaso - ";
+		mes "Si trabajo en un Guardian's Pendant que ya ha sido mejorado antes, pierde su poder original.";
 		next;
 		mes "[Pendant Crafter]";
-		mes "And worse, it can lose its power and become an ordinary pendant. Of course, stone is not as susceptible to damage as cloth, so you won't lose the pendant itself.";
+		mes "Y peor, puede perder su poder y convertirse en un colgante ordinario. Por supuesto, la piedra no es tan susceptible al dano como la tela, asi que no perderas el colgante en si.";
 		next;
-		switch(select("Come on, what's the rush?:Okay! Let's do it!!")) {
+		switch(select("Vamos, cual es la prisa?:Ok! Hagamoslo!!")) {
 		case 1:
 			mes "[Pendant Crafter]";
-			mes "Come back when you're not in a hurry. I always have a lot of time on my hands.";
+			mes "Vuelve cuando no tengas prisa. Siempre tengo mucho tiempo libre.";
 			close;
 		case 2:
 			if (countitem(6380) < 5 || countitem(2858) == 0) {
 				mes "[Pendant Crafter]";
-				mes "It looks like you don't have everything you need.";
+				mes "Parece que no tienes todo lo que necesitas.";
 				next;
 				mes "[Pendant Crafter]";
-				mes "You must have 5 Mora Coins and a Guardian's Pendant with you before I can do my work.";
+				mes "Debes tener 5 Mora Coins y un Guardian's Pendant contigo antes de que pueda hacer mi trabajo.";
 				close;
 			}
 			if (callfunc("F_Mora_Enchant",2858) == 0) {
 				getitem 2858,1; //Pendant_Of_Guardian
 				mes "[Pendant Crafter]";
-				mes "What~!!";
-				mes "What on earth is wrong with it!!";
+				mes "Que~!!";
+				mes "Que demonios le pasa!!";
 				close;
 			}
 			mes "[Pendant Crafter]";
-			mes "Looks like I did it!";
+			mes "Parece que lo logre!";
 			close;
 		}
 	}
@@ -1695,86 +1695,86 @@ mora,123,177,6	script	Pendant Crafter#pa0829	509,{
 mora,134,166,4	script	Bulberry Westhood#pa0829	509,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of things with you to do that. Throw out some of them and try again.";
+		mes "Tienes demasiados tipos de objetos para hacer eso. Deshazte de algunos e intentalo de nuevo.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You are carrying too much weight to do that. Reduce the weight and try again.";
+		mes "Estas cargando demasiado peso para hacer eso. Reduce el peso e intentalo de nuevo.";
 		close;
 	}
 	if (countitem(6380) < 5 || countitem(2568) == 0) {
 		mes "[Bulberry Westhood]";
-		mes "I'm Bulberry Westhood, keeping the tradition of quality hoods alive.";
+		mes "Soy Bulberry Westhood, manteniendo viva la tradicion de las capuchas de calidad.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "I only handle quality items - not random scarfs from a marketplace.";
+		mes "Solo trabajo con objetos de calidad - no bufandas aleatorias del mercado.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "If you have anything that you think is of high enough quality, come find me with ^ff00005 Mora Coins^000000.";
+		mes "Si tienes algo que creas que es de suficiente calidad, buscame con ^ff00005 Mora Coins^000000.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "I can improve its high quality with my own hands.";
+		mes "Puedo mejorar su alta calidad con mis propias manos.";
 		close;
 	}
 	mes "[Bulberry Westhood]";
-	mes "So you have a Loki's Scarf 1042 Special Edition. You really have an eye for quality. Can I start working on it right away?";
+	mes "Asi que tienes una Loki's Scarf 1042 Edicion Especial. Realmente tienes ojo para la calidad. Puedo empezar a trabajar en ella de inmediato?";
 	next;
-	switch(select("I don't get it.:Yes, please.")) {
+	switch(select("No entiendo.:Si, por favor.")) {
 	case 1:
 		mes "[Bulberry Westhood]";
-		mes "Like I said, I only handle quality items - not random scarfs from a marketplace.";
+		mes "Como dije, solo trabajo con objetos de calidad - no bufandas aleatorias del mercado.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "This Loki's Scarf you have is awesome. It's a limited edition product with Loki's crest on it!";
+		mes "Esta Loki's Scarf que tienes es increible. Es un producto de edicion limitada con el emblema de Loki!";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "My specialty is bringing out the hidden power at the small cost of... ";
+		mes "Mi especialidad es sacar el poder oculto al pequeno costo de... ";
 		mes "5 Mora Coins.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "Come back if you change your mind.";
+		mes "Vuelve si cambias de opinion.";
 		close;
 	case 2:
 		mes "[Bulberry Westhood]";
-		mes "I'm telling you just in case - ";
-		mes "If I work on a Loki's Scarf that's been upgraded before, it loses its original power.";
+		mes "Te digo por si acaso - ";
+		mes "Si trabajo en una Loki's Scarf que ya ha sido mejorada antes, pierde su poder original.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "And worse, it can lose all its power becoming an ordinary scarf.";
+		mes "Y peor, puede perder todo su poder convirtiendose en una bufanda ordinaria.";
 		next;
 		mes "[Bulberry Westhood]";
-		mes "Of course, the Loki's Scarf is a quality item, so you won't lose the scarf itself in the process.";
+		mes "Por supuesto, la Loki's Scarf es un objeto de calidad, asi que no perderas la bufanda en si durante el proceso.";
 		next;
-		switch(select("Maybe later, sir...:I'd like to own a quality item!")) {
+		switch(select("Quiza despues, senor...:Me gustaria tener un objeto de calidad!")) {
 		case 1:
 			mes "[Bulberry Westhood]";
-			mes "Ha...!";
-			mes "You say 'later' when you can have the best quality item right away? Well, have it your own way.";
+			mes "Ja...!";
+			mes "Dices 'despues' cuando puedes tener el mejor objeto de calidad ahora mismo? Bueno, como quieras.";
 			close;
 		case 2:
 			if (countitem(6380) < 5 || countitem(2568) == 0) {
 				mes "[Bulberry Westhood]";
-				mes "It looks like you don't everything you need.";
+				mes "Parece que no tienes todo lo que necesitas.";
 				next;
 				mes "[Bulberry Westhood]";
-				mes "You must have 5 Mora Coins and a Loki's Scarf with you before you can have the best quality item.";
+				mes "Debes tener 5 Mora Coins y una Loki's Scarf contigo antes de poder tener el mejor objeto de calidad.";
 				close;
 			}
 			if (callfunc("F_Mora_Enchant",2568) == 0) {
 				getitem 2568,1; //Muffler_Of_Roki
 				mes "[Bulberry Westhood]";
-				mes "Aaarrgghh, this is impossible!";
-				mes "My! My Loki's Scarf!....";
+				mes "Aaarrgghh, esto es imposible!";
+				mes "Mi! Mi Loki's Scarf!....";
 				next;
 				mes "[Bulberry Westhood]";
-				mes "Oh, I apologize for my disgraceful behavior. I was too upset.";
+				mes "Oh, me disculpo por mi comportamiento vergonzoso. Estaba muy molesto.";
 				next;
 				mes "[Bulberry Westhood]";
-				mes "Fortunately, it's still in its original state before I started working on it. It's not torn or stretched. It's a quality item after all. Oh ho ho~";
+				mes "Afortunadamente, todavia esta en su estado original antes de que empezara a trabajar en ella. No esta rota ni estirada. Es un objeto de calidad despues de todo. Oh jo jo~";
 				close;
 			}
 			mes "[Bulberry Westhood]";
-			mes "Wow~ mission complete!";
+			mes "Wow~ mision completa!";
 			close;
 		}
 	}

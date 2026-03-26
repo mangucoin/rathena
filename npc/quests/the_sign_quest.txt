@@ -11789,13 +11789,13 @@ OnTouch_:
 		mes "repentino, pero que";
 		mes "piensas de Serin?";
 		next;
-		select("She's good.:She's evil!:She could go either way.");
+		select("Es buena.:Es malvada!:Podria ir de cualquier forma.");
 		mes "[Crayu]";
 		mes "Hm...?";
-		mes "And why do";
-		mes "you think so?";
+		mes "Y por que";
+		mes "piensas eso?";
 		next;
-		switch(select("Just my opinion.:Es la truth!")) {
+		switch(select("Solo mi opinion.:Es la verdad!")) {
 		case 1:
 			if (sign_sq > 1) set sign_sq,0;
 			else set sign_sq,sign_sq+1;
@@ -11803,37 +11803,37 @@ OnTouch_:
 			break;
 		}
 		mes "[Crayu]";
-		mes "Ah, Entiendo.";
-		mes "Now, how may I help you?";
+		mes "Ah, entiendo.";
+		mes "Ahora, en que puedo ayudarte?";
 		next;
-		switch(select("What exactly is Niflheim?:How do I become one of the chosen?")) {
+		switch(select("Que es exactamente Niflheim?:Como me convierto en uno de los elegidos?")) {
 		case 1:
 			mes "[Crayu]";
-			mes "Niflheim is commonly";
-			mes "known as the city of the";
-			mes "dead, but es unalso the";
-			mes "resting place of guerreros";
-			mes "who failed to enter Valhalla.";
+			mes "Niflheim es comunmente";
+			mes "conocido como la ciudad de los";
+			mes "muertos, pero tambien es el";
+			mes "lugar de descanso de guerreros";
+			mes "que no pudieron entrar a Valhalla.";
 			next;
 			mes "[Crayu]";
-			mes "Some heroes may think";
-			mes "of Niflheim as the tragic end,";
-			mes "but it really all depends on";
-			mes "your point of view.";
+			mes "Algunos heroes pueden pensar";
+			mes "en Niflheim como el final tragico,";
+			mes "pero realmente todo depende de";
+			mes "tu punto de vista.";
 			close;
 		case 2:
 			mes "["+strcharinfo(0)+"]";
-			mes "What do Necesito";
-			mes "to do to become one";
-			mes "of the chosen guerreros?";
+			mes "Que necesito";
+			mes "hacer para convertirme en uno";
+			mes "de los guerreros elegidos?";
 			next;
 			mes "[Crayu]";
-			mes "First and foremost,";
-			mes "debes prove your coraje.";
-			mes "It will be up to you to decide";
-			mes "how you will demonstrate your";
-			mes "bravery. The gods will only";
-			mes "be watching and judging.";
+			mes "Primero y ante todo,";
+			mes "debes probar tu coraje.";
+			mes "Dependera de ti decidir";
+			mes "como demostraras tu";
+			mes "valentia. Los dioses solo";
+			mes "estaran observando y juzgando.";
 			next;
 			mes "[Crayu]";
 			mes "Hmm...";
@@ -11847,10 +11847,10 @@ OnTouch_:
 	}
 	else if (sign_q == 86) {
 		mes "Hmm...";
-		mes "Creo it would";
-		mes "be a good idea if";
-		mes "you talk to someone";
-		mes "in Niflheim named ^FF0000Gen^000000.";
+		mes "Creo que seria";
+		mes "buena idea que";
+		mes "hablaras con alguien";
+		mes "en Niflheim llamado ^FF0000Gen^000000.";
 		close;
 	}
 	end;
@@ -11870,26 +11870,26 @@ OnTouch_:
 		}
 		else if (sign_sq == 1) {
 			mes "[Alakina Ann]";
-			mes "W-will you help me get";
-			mes "back home? Por favor? I miss";
-			mes "my mommy and my daddy and";
-			mes "I no se how I got here.";
+			mes "M-me ayudaras a";
+			mes "volver a casa? Por favor? Extrano";
+			mes "a mi mami y a mi papi y";
+			mes "no se como llegue aqui.";
 			mes "^333333*Sniff*^000000";
 			next;
-			switch(select("What can I do?:Puedes't go back...")) {
+			switch(select("Que puedo hacer?:No puedes volver...")) {
 			case 1:
 				mes "[Alakina Ann]";
-				mes "I dunno. I-Creo a";
-				mes "singing man told me to";
-				mes "go meet a witch, but it's";
-				mes "too scary to go outside...";
+				mes "No se. C-creo que un";
+				mes "hombre cantando me dijo que";
+				mes "fuera a ver a una bruja, pero es";
+				mes "demasiado aterrador salir afuera...";
 				set sign_sq,2;
 				close;
 			case 2:
 				mes "[Alakina Ann]";
 				mes "^333333*Sniff*^000000";
 				mes "N-no...";
-				mes "I wanna go home...";
+				mes "Quiero ir a casa...";
 				close2;
 				emotion ET_CRY;
 				end;
@@ -11906,8 +11906,8 @@ OnTouch_:
 		else if ((sign_sq == 3) || (sign_sq == 4)) {
 			if (countitem(7309) > 0) {
 				mes "[Alakina Ann]";
-				mes "I... I can use";
-				mes "this to go back home?";
+				mes "Yo... puedo usar";
+				mes "esto para volver a casa?";
 				mes "Gracias! Muchas gracias!";
 				delitem 7309,countitem(7309); //Wing_Of_Crow
 				set sign_sq,5;
@@ -11915,33 +11915,33 @@ OnTouch_:
 			}
 			else {
 				mes "[Alakina Ann]";
-				mes "How am I gonna";
-				mes "find that witch?";
-				mes "She's the only one";
-				mes "who knows how to";
-				mes "get me back home...";
-				mes "^333333*Cries*^000000";
+				mes "Como voy a";
+				mes "encontrar a esa bruja?";
+				mes "Ella es la unica";
+				mes "que sabe como";
+				mes "llevarme a casa...";
+				mes "^333333*Llora*^000000";
 				emotion ET_CRY;
 				close;
 			}
 		}
 		else if (sign_sq == 5) {
 			mes "[Alakina Ann]";
-			mes "Y-you lied to me!";
-			mes "This wing doesn't do";
-			mes "anything! I-I'm still here";
-			mes "in this scary place! ^333333*Cries*^000000";
+			mes "M-me mentiste!";
+			mes "Esta ala no hace";
+			mes "nada! S-sigo aqui";
+			mes "en este lugar aterrador! ^333333*Llora*^000000";
 			set sign_sq,6;
 			emotion ET_CRY;
 			close;
 		}
 		else {
 			mes "[Alakina Ann]";
-			mes "You said that you";
-			mes "could help me get home,";
-			mes "but you didn't help me";
-			mes "at all. Y-you lied to me!";
-			mes "I... I hate you! ^333333*Wah~!*^000000";
+			mes "Dijiste que podias";
+			mes "ayudarme a llegar a casa,";
+			mes "pero no me ayudaste";
+			mes "para nada. M-me mentiste!";
+			mes "Yo... te odio! ^333333*Buaa~!*^000000";
 			emotion ET_CRY;
 			close;
 		}
@@ -11949,8 +11949,8 @@ OnTouch_:
 	else {
 		mes "[Alakina Ann]";
 		mes "^333333*Cries*^000000";
-		mes "Where am I?";
-		mes "I... I wanna go home~";
+		mes "Donde estoy?";
+		mes "Yo... quiero ir a casa~";
 		emotion ET_CRY;
 		close;
 	}
@@ -11960,9 +11960,9 @@ OnTouch_:
 function	script	F_SignSeal	{
 	function F_SealFail;
 	function F_SealFail {
-		mes "^3355FFYou hit the seal as hard";
-		mes "as puedes with the weapon in your hand. Sin embargo, the seal is merely shaken by the force of your blow. Quizas necesitas something";
-		mes "more poderful to break the seal...^000000";
+		mes "^3355FFGolpeas el sello tan fuerte";
+		mes "como puedes con el arma en tu mano. Sin embargo, el sello solo se estremece por la fuerza de tu golpe. Quizas necesitas algo";
+		mes "mas poderoso para romper el sello...^000000";
 		close;
 	}
 	.@r = getarg(0);
@@ -12003,38 +12003,38 @@ function	script	F_SignSeal	{
 	else if (countitem(1530)) {
 		if (.@r < 500) F_SealFail; }
 	else {
-		mes "^3355FFThe weapon you're holding";
-		mes "ahora mismo no parece like it has any chance of breaking this seal. You'll definitely need something";
-		mes "more poderful...^000000";
+		mes "^3355FFEl arma que sostienes";
+		mes "ahora mismo no parece tener ninguna posibilidad de romper este sello. Definitivamente necesitaras algo";
+		mes "mas poderoso...^000000";
 		close;
 	}
 	if (getarg(1,0)) {
-		mes "^3355FFUpon obtaining the last piece";
-		mes "of Agrboda's soul, all four soul pieces emitted a strange light, rose to the air and combined into";
-		mes "a single transparent jewel.^000000";
+		mes "^3355FFAl obtener el ultimo pedazo";
+		mes "del alma de Agrboda, los cuatro pedazos de alma emitieron una luz extrana, se elevaron al aire y se combinaron en";
+		mes "una sola joya transparente.^000000";
 		next;
-		mes "^3355FFThe jewel floated";
-		mes "down to your waiting";
-		mes "hands, and you hear its";
-		mes "voice speak directly into";
-		mes "the depths of your heart...^000000";
+		mes "^3355FFLa joya floto";
+		mes "hacia abajo a tus manos";
+		mes "expectantes, y escuchas su";
+		mes "voz hablar directamente en";
+		mes "lo profundo de tu corazon...^000000";
 		next;
 		mes "[Agrboda's Soul]";
-		mes "^333333I'm...";
-		mes "I'm leaving my soul";
-		mes "with you. Por favor guide";
-		mes "me to the queen of the dead...^000000";
+		mes "^333333Yo...";
+		mes "Dejo mi alma";
+		mes "contigo. Por favor guiame";
+		mes "hacia la reina de los muertos...^000000";
 		delitem 7306,3; //Fragment_Of_Soul
 		set sign_q,117;
 		getitem 7307,1; //Whisper_Of_Soul
 	}
 	else {
-		mes "^3355FFOnce you strike the seal,";
-		mes "it cracks open and a flash of misterioso light floods out of it. Inside of the seal, you find a very peculiar object...^000000";
+		mes "^3355FFUna vez que golpeas el sello,";
+		mes "se abre con una grieta y un destello de luz misteriosa sale de el. Dentro del sello, encuentras un objeto muy peculiar...^000000";
 		next;
-		mes "^3355FFTienes";
-		mes "obtained a^6E7B8B";
-		mes "Piece of Spirit^3355FF.^000000";
+		mes "^3355FFHas";
+		mes "obtenido un^6E7B8B";
+		mes "Pedazo de Espiritu^3355FF.^000000";
 		getitem 7306,1; //Fragment_Of_Soul
 	}
 	return;
@@ -12049,8 +12049,8 @@ gl_dun02,262,265,0	script	Mysterious Energy#1	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12066,8 +12066,8 @@ gl_dun02,271,100,0	script	Mysterious Energy#2	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12084,8 +12084,8 @@ gl_dun02,268,32,0	script	Mysterious Energy#3	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12100,8 +12100,8 @@ gl_dun02,16,26,0	script	Mysterious Energy#4	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12117,8 +12117,8 @@ gl_dun02,42,251,0	script	Mysterious Energy#5	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12137,8 +12137,8 @@ gl_dun02,123,234,0	script	Mysterious Energy#6	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12158,8 +12158,8 @@ gl_dun02,140,72,0	script	Mysterious Energy#7	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12173,8 +12173,8 @@ gl_dun02,119,182,0	script	Mysterious Energy#8	111,{
 		close;
 	}
 	else {
-		mes "^3355FFYou sense a strange,";
-		mes "misterioso energy emanating from this area. For some reason, this poder strikes you with a faint feeling of sadness.^000000";
+		mes "^3355FFSientes una extrana";
+		mes "energia misteriosa emanando de esta area. Por alguna razon, este poder te golpea con un debil sentimiento de tristeza.^000000";
 		close;
 	}
 }
@@ -12182,11 +12182,11 @@ gl_dun02,119,182,0	script	Mysterious Energy#8	111,{
 que_sign01,46,56,0	script	Fountain#sign	111,{
 	callfunc "F_UpdateSignVars";
 	if (sign_q < 118) {
-		mes "^3355FFThe water in this";
-		mes "fountain looks clean";
-		mes "suficiente to drink...^000000";
+		mes "^3355FFEl agua en esta";
+		mes "fuente se ve lo suficientemente";
+		mes "limpia para beber...^000000";
 		next;
-		switch(select("Drink.:Don't Drink.")) {
+		switch(select("Beber.:No beber.")) {
 		case 1:
 			mes "...";
 			close2;
@@ -12198,17 +12198,17 @@ que_sign01,46,56,0	script	Fountain#sign	111,{
 		}
 	}
 	else {
-		mes "^3355FFThe water in this";
-		mes "fountain looks clean";
-		mes "suficiente to be bottled...^000000";
+		mes "^3355FFEl agua en esta";
+		mes "fuente se ve lo suficientemente";
+		mes "limpia para embotellar...^000000";
 		next;
-		switch(select("Bottle the water.:Don't bottle the water.")) {
+		switch(select("Embotellar el agua.:No embotellar el agua.")) {
 		case 1:
 			if (checkweight(1201,1) == 0) {
-				mes "^3355FFDesafortunadamente, it";
-				mes "looks like you don't";
-				mes "have suficiente inventory";
-				mes "space to carry any more items...^000000";
+				mes "^3355FFDesafortunadamente,";
+				mes "parece que no tienes";
+				mes "suficiente espacio en el inventario";
+				mes "para llevar mas objetos...^000000";
 				close;
 			}
 			else {
