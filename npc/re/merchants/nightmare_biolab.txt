@@ -465,18 +465,18 @@ lighthalzen,319,213,4	script	Veteran Adventurer#JCv2	4_M_MELODY,2,2,{
 		if (countitem(6820) < .@items[.@s+1]) {
 			emotion ET_SORRY;
 			mes "[Veteran Adventurer]";
-			mes "Sorry. I don't have a choice because the guild master ordered it. You need " + .@items[.@s+1] + " items, if he says no, I'm not at liberty to exchange it.";
+			mes "Lo siento. No tengo opcion porque el maestro de guild lo ordeno. Necesitas " + .@items[.@s+1] + " objetos, si el dice que no, no tengo libertad para intercambiarlo.";
 			close;
 		}
 		delitem 6820, .@items[.@s+1];// Energy Pieces
 		getitem .@items[.@s],1;
 		mes "[Veteran Adventurer]";
-		mes "Would you like to continue to exchange it?";
+		mes "Te gustaria continuar intercambiando?";
 		next;
-		if (select( "Continue with the exchange.", "Stop the exchange." ) == 2) {
+		if (select( "Continuar con el intercambio.", "Detener el intercambio." ) == 2) {
 			emotion ET_THANKS;
 			mes "[Veteran Adventurer]";
-			mes "Thank you... I guess I won't be punished by the guild master, thanks to you.";
+			mes "Gracias... Supongo que no sere castigado por el maestro de guild, gracias a ti.";
 			close;
 		}
 	}
@@ -485,14 +485,14 @@ lighthalzen,319,213,4	script	Veteran Adventurer#JCv2	4_M_MELODY,2,2,{
 OnTouch:
 	.@r = rand(4);
 	if (.@r == 0)
-		npctalk "I would like to exchange 1 Will of Warrior for 200 energy pieces.", "", bc_self;
+		npctalk "Me gustaria intercambiar 1 Will of Warrior por 200 piezas de energia.", "", bc_self;
 	else if (.@r == 1)
-		npctalk "I would like to exchange 1 Ghost Chill with 300 energy pieces.", "", bc_self;
+		npctalk "Me gustaria intercambiar 1 Ghost Chill por 300 piezas de energia.", "", bc_self;
 	else if (.@r == 2)
-		npctalk "I would like to exchange 1 Blood Thirst with 200 energy pieces.", "", bc_self;
+		npctalk "Me gustaria intercambiar 1 Blood Thirst por 200 piezas de energia.", "", bc_self;
 	else {
 		emotion ET_OHNO;
-		npctalk "Oh!... Why is it so difficult to find pieces?", "", bc_self;
+		npctalk "Oh!... Por que es tan dificil encontrar piezas?", "", bc_self;
 	}
 	end;
 }
