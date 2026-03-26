@@ -1033,21 +1033,21 @@ pay_fild08,155,358,3	duplicate(HwChicken3)	Chicken#06_hw_pf27	800
 
 prontera,155,285,3	script	Familiar#06_hw01::HWFamiDup	799,{
 	mes "[Familiar]";
-	mes "Hello.";
-	mes "I'm Loli Ruri's faithful and cute Familiar.";
-	mes "Do you have an invitation from Loli Ruri?";
-	mes "That's a kind of^4d4dffa special ticket to Niflheim^000000..";
+	mes "Hola.";
+	mes "Soy el fiel y lindo Familiar de Loli Ruri.";
+	mes "Tienes una invitacion de Loli Ruri?";
+	mes "Es una especie de^4d4dffa boleto especial a Niflheim^000000..";
 	next;
-	if (select( "Yes, I do.:No, I don't.") == 1) {
+	if (select( "Si, lo tengo.:No, no lo tengo.") == 1) {
 		mes "[Familiar]";
-		mes "Do you want to go to Niflheim?";
-		mes "It's available during Halloween.";
+		mes "Quieres ir a Niflheim?";
+		mes "Esta disponible durante Halloween.";
 		next;
-		if (select( "Yes, I do:No, I don't.") == 1) {
+		if (select( "Si, quiero:No, no quiero.") == 1) {
 			if (countitem(7460) > 0) {
 				mes "[Familiar]";
-				mes "I checked your ticket.";
-				mes "You can go there now";
+				mes "Revise tu boleto.";
+				mes "Puedes ir ahora";
 				delitem 7460,1; //Nifl_Express_Ticket
 				close2;
 				warp "nif_in", 18, 20;
@@ -1055,9 +1055,9 @@ prontera,155,285,3	script	Familiar#06_hw01::HWFamiDup	799,{
 			}
 			else {
 				mes "[Familiar]";
-				mes "You're a liar.";
-				mes "You don't have the ticket!";
-				mes "I'll suck up all your blood, you liar!";
+				mes "Eres un mentiroso.";
+				mes "No tienes el boleto!";
+				mes "Te chupare toda la sangre, mentiroso!";
 				percentheal -20,0;
 				emotion ET_HUK, playerattached();
 				close;
@@ -1065,13 +1065,13 @@ prontera,155,285,3	script	Familiar#06_hw01::HWFamiDup	799,{
 		}
 		mes "[Familiar]";
 		mes "Ok.";
-		mes "Actually, it's useless to have a special ticket to Niflheim.";
+		mes "En realidad, es inutil tener un boleto especial a Niflheim.";
 		close;
 	}
 	mes "[Familiar]";
 	mes "Ok.";
-	mes "If you want to ask something, give a piece of pumpkin pie to Loli Ruri.";
-	mes "He likes it.";
+	mes "Si quieres preguntar algo, dale un pedazo de pastel de calabaza a Loli Ruri.";
+	mes "Le gusta.";
 	close;
 }
 payon,156,231,3	duplicate(HWFamiDup)	Familiar#06_hw02	799

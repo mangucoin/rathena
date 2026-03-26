@@ -74,68 +74,68 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 	}
 
 	mes "[Belka]";
-	mes "Welcome to Zonda, where innovation begins. What can I do for you?";
+	mes "Bienvenido a Zonda, donde la innovacion comienza. En que puedo ayudarte?";
 	next;
-	switch( select( "Why are you here?", .@menu_entry$, "Entrar ^6B9900<Wave Mode - Forest>^000000.", "Entrar ^6B9900<Wave Mode - Sky>^000000.", "Cancelar." ) ) {
+	switch( select( "Por que estas aqui?", .@menu_entry$, "Entrar ^6B9900<Wave Mode - Forest>^000000.", "Entrar ^6B9900<Wave Mode - Sky>^000000.", "Cancelar." ) ) {
 	case 1:
 		mes "[Belka]";
-		mes "We now offer a new service. Have you heard about the dimensional rifts?";
+		mes "Ahora ofrecemos un nuevo servicio. Has escuchado sobre las grietas dimensionales?";
 		next;
 		mes "[Belka]";
-		mes "In case you haven't, many organizations and scientists study the rifts formed between dimensions.";
+		mes "En caso de que no, muchas organizaciones y cientificos estudian las grietas formadas entre dimensiones.";
 		next;
 		mes "[Belka]";
-		mes "One of them is my company, Zonda, and after long, painstaking research...";
+		mes "Una de ellas es mi compania, Zonda, y despues de una larga y ardua investigacion...";
 		next;
 		mes "[Belka]";
-		mes "We've developed two different dimensional rifts that we call Wave Modes - Forest and Sky!";
+		mes "Hemos desarrollado dos grietas dimensionales diferentes que llamamos Wave Modes - Forest y Sky!";
 		next;
 		mes "[Belka]";
-		mes "Do you have any questions about Zonda's ambitious new project, Wave Mode?";
+		mes "Tienes alguna pregunta sobre el ambicioso nuevo proyecto de Zonda, Wave Mode?";
 		while(true) {
 			next;
-			switch( select( "About ^6B9900<Wave Mode - Forest>^000000", "About ^6B9900<Wave Mode - Sky>^000000", "No." ) ) {
+			switch( select( "Sobre ^6B9900<Wave Mode - Forest>^000000", "Sobre ^6B9900<Wave Mode - Sky>^000000", "No." ) ) {
 			case 1:
 				mes "[Belka]";
-				mes "The ^6B9900<Wave Mode - Forest>^000000";
-				mes "Introducing the first Wave Mode service, Zonda's objective is to work with your party members to keep monster waves from reaching the other side of the bridge.";
+				mes "El ^6B9900<Wave Mode - Forest>^000000";
+				mes "Presentando el primer servicio Wave Mode, el objetivo de Zonda es trabajar con los miembros de tu grupo para evitar que las oleadas de monstruos lleguen al otro lado del puente.";
 				next;
 				mes "[Belka]";
-				mes "Monsters will advance without fighting, but the party will fail if 20 monsters are let go..";
+				mes "Los monstruos avanzaran sin pelear, pero el grupo fallara si dejan pasar 20 monstruos..";
 				break;
 			case 2:
 				mes "[Belka]";
-				mes "The ^6B9900<Wave Mode - Sky>^000000";
-				mes "Available once a day. Like the other Wave Mode, keep the monsters away from reaching the other side of the map.";
+				mes "El ^6B9900<Wave Mode - Sky>^000000";
+				mes "Disponible una vez al dia. Como el otro Wave Mode, evita que los monstruos lleguen al otro lado del mapa.";
 				next;
 				mes "[Belka]";
-				mes "Feel free to come back with your party.";
+				mes "No dudes en volver con tu grupo.";
 				break;
 			case 3:
 				mes "[Belka]";
-				mes "Thank you for visiting Zonda, where innovation begins.";
+				mes "Gracias por visitar Zonda, donde la innovacion comienza.";
 				close;
 			}
 			next;
 			mes "[Belka]";
-			mes "Any other questions?";
+			mes "Alguna otra pregunta?";
 		}
 	case 2:
 		mes "[Belka]";
-		mes "Which Wave Mode would you like to enter: Forest or Sky?";
+		mes "A cual Wave Mode te gustaria entrar: Forest o Sky?";
 		next;
 		.@s = select( "Entrar ^6B9900<Wave Mode - Forest>^000000.", "Entrar ^6B9900<Wave Mode - Sky>^000000." ) - 1;
 		setarray .@instance_name$[0], "Wave Mode - Forest", "Wave Mode - Sky";
 		mes "[Belka]";
-		mes "" + .@count_online + " party " + (.@count_online == 1 ? "member" : "members") + " found " + .@player_name$ + ", right? To enter the ^6B9900<" + .@instance_name$[.@s] + ">^000000, please sign here.";
+		mes "" + .@count_online + " party " + (.@count_online == 1 ? "miembro" : "miembros") + " encontrado " + .@player_name$ + ", correcto? Para entrar al ^6B9900<" + .@instance_name$[.@s] + ">^000000, por favor firma aqui.";
 		next;
-		select("Sign.");
+		select("Firmar.");
 		mes "[Belka]";
-		mes "" + .@player_name$ + " has requested to enter the ^6B9900<" + .@instance_name$[.@s] + ">^000000. Please come back when it's your turn to enter.";
+		mes "" + .@player_name$ + " ha solicitado entrar al ^6B9900<" + .@instance_name$[.@s] + ">^000000. Por favor vuelve cuando sea tu turno de entrar.";
 		if (instance_create(.@instance_name$[.@s]) < 0) {
-			mes "Party Name: " + getpartyname( getcharid(1) );
-			mes "Party Leader: " + strcharinfo(0);
-			mes "^0000ff" + .@instance_name$[.@s] + " ^000000 - Reservation Failed.";
+			mes "Nombre del Grupo: " + getpartyname( getcharid(1) );
+			mes "Lider del Grupo: " + strcharinfo(0);
+			mes "^0000ff" + .@instance_name$[.@s] + " ^000000 - Reservacion Fallida.";
 			close;
 		}
 		close;
@@ -148,10 +148,10 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 		case IE_NOINSTANCE:
 		case IE_NOMEMBER:
 			mes "[Belka]";
-			mes "Please wait for ^6B9900<Wave Mode - Forest>^000000 stabilization.";
+			mes "Por favor espera la estabilizacion de ^6B9900<Wave Mode - Forest>^000000.";
 			close;
 		case IE_OK:
-			mapannounce .@map_name$, "" + .@player_name$ + " of the party " + getpartyname(getcharid(1)) + " is entering <Wave Mode - Forest>.", bc_map,0xFF99;
+			mapannounce .@map_name$, "" + .@player_name$ + " del grupo " + getpartyname(getcharid(1)) + " esta entrando a <Wave Mode - Forest>.", bc_map,0xFF99;
 			// warp "1@def01",50,21;
 			break;
 		}
@@ -165,17 +165,17 @@ prontera,146,75,1	script	Zonda Rep#pron	4_F_ZONDAGIRL,{
 		case IE_NOINSTANCE:
 		case IE_NOMEMBER:
 			mes "[Belka]";
-			mes "Currently the ^6B9900<Wave Mode - Sky>^000000 is being stabilized for your convenience. Please wait.";
+			mes "Actualmente ^6B9900<Wave Mode - Sky>^000000 esta siendo estabilizado para tu conveniencia. Por favor espera.";
 			close;
 		case IE_OK:
-			mapannounce .@map_name$, "" + .@player_name$ + " of the party " + getpartyname(getcharid(1)) + " is entering <Wave Mode - Sky>.", bc_map,0xFF99;
+			mapannounce .@map_name$, "" + .@player_name$ + " del grupo " + getpartyname(getcharid(1)) + " esta entrando a <Wave Mode - Sky>.", bc_map,0xFF99;
 			// warp "1@def02",29,35;
 			break;
 		}
 		break;
 	case 5:
 		mes "[Belka]";
-		mes "Thank you for visiting Zonda, where innovation begins.";
+		mes "Gracias por visitar Zonda, donde la innovacion comienza.";
 		close;
 	}
 	wave_mode_map$ = .@map_name$;
@@ -196,16 +196,16 @@ OnTouch:
 	initnpctimer;
 	end;
 OnTimer2000:
-	mapannounce 'map_def01$, "We would like to thank all loyal customers of the Cool Event Corporation.", bc_map;
+	mapannounce 'map_def01$, "Agradecemos a todos los clientes leales de la Cool Event Corporation.", bc_map;
 	end;
 OnTimer7000:
-	mapannounce 'map_def01$, "<Wave mode - Forest> prevent monsters from reaching the other side of the bridge.", bc_map;
+	mapannounce 'map_def01$, "<Wave mode - Forest> evita que los monstruos lleguen al otro lado del puente.", bc_map;
 	end;
 OnTimer12000:
-	mapannounce 'map_def01$, "If 20 monsters reach the other side, the game is over.", bc_map;
+	mapannounce 'map_def01$, "Si 20 monstruos llegan al otro lado, el juego termina.", bc_map;
 	end;
 OnTimer17000:
-	mapannounce 'map_def01$, "Ok, here they come.", bc_map;
+	mapannounce 'map_def01$, "Ok, aqui vienen.", bc_map;
 	end;
 OnTimer22000:
 	stopnpctimer;
@@ -230,13 +230,13 @@ OnTimer3000:
 OnTimer4000:
 	'wave++;
 	if ('wave % 5)
-		mapannounce 'map_def01$, "-- Wave " + 'wave + " --", bc_map;
+		mapannounce 'map_def01$, "-- Oleada " + 'wave + " --", bc_map;
 	else
-		mapannounce 'map_def01$, "!! Champions summoned !!", bc_map;
+		mapannounce 'map_def01$, "!! Campeones invocados !!", bc_map;
 	donpcevent 'npc_name$ + "::OnSpawn";
 	end;
 OnTimer24000:
-	mapannounce 'map_def01$, "Next monsters will come out soon. Get ready.", bc_map;
+	mapannounce 'map_def01$, "Los siguientes monstruos saldran pronto. Preparense.", bc_map;
 	initnpctimer;
 	end;
 OnStop:
@@ -517,7 +517,7 @@ S_Idle:
 	callfunc( "F_mobidle", ('npc_name$ + "::OnIdle" + getarg(0)), 'size_coord, 'x_mob, getarg(0), 'y_mob, 'dist_spot_AZ );
 	'mob_escaped++;
 	if ('mob_escaped <= 20)
-		mapannounce 'map_def01$, "" + 'mob_escaped + " " + ('mob_escaped == 1 ? "monster has" : "monsters have") + " escaped.", bc_map;
+		mapannounce 'map_def01$, "" + 'mob_escaped + " " + ('mob_escaped == 1 ? "monstruo ha" : "monstruos han") + " escapado.", bc_map;
 	if ('mob_escaped == 20)
 		donpcevent instance_npcname("#wave_mode_forest_out") + "::OnFail";
 	end;
@@ -542,12 +542,12 @@ OnTouch:
 OnFail:
 	donpcevent instance_npcname("#wave_mode_forest_system") + "::OnStop";
 
-	mapannounce 'map_def01$, "You have failed the <Wave mode - Forest> challenge.", bc_map;
+	mapannounce 'map_def01$, "Has fallado el desafio <Wave mode - Forest>.", bc_map;
 	enablenpc instance_npcname("#wave_mode_forest_warp");
 	initnpctimer;
 	end;
 OnTimer1000:
-	mapannounce 'map_def01$, "<Wave mode - Forest> service has closed. You will be returned to the place you entered if you use the warp at the entrance.", bc_map;
+	mapannounce 'map_def01$, "El servicio <Wave mode - Forest> ha cerrado. Seras devuelto al lugar donde entraste si usas el portal en la entrada.", bc_map;
 	end;
 OnTimer30000:
 	stopnpctimer;
@@ -609,7 +609,7 @@ OnTimer4000:
 	end;
 OnStart:
 	initnpctimer;
-	mapannounce 'map_def02$, "We would like to thank all costumers who always use Zonda Agency.", bc_map;
+	mapannounce 'map_def02$, "Agradecemos a todos los clientes que siempre usan la Agencia Zonda.", bc_map;
 	end;
 OnTimer1000:
 	mapannounce 'map_def02$, "3", bc_map;
@@ -632,7 +632,7 @@ OnTimer4000:
 	}
 	end;
 OnTimer24000:
-	mapannounce 'map_def02$, "Next monster wave will come out soon. Get ready.", bc_map;
+	mapannounce 'map_def02$, "La siguiente oleada de monstruos saldra pronto. Preparense.", bc_map;
 	initnpctimer;
 	end;
 OnStop:
@@ -645,7 +645,7 @@ OnStop:
 OnStart:
 	if ('treasure_num < 5)
 		'treasure_num++;
-	mapannounce 'map_def02$, "!! " + 'treasure_num + " treasure box appeared !!", bc_map;
+	mapannounce 'map_def02$, "!! " + 'treasure_num + " cofre de tesoro aparecio !!", bc_map;
 	for ( .@i = 0; .@i < 'treasure_num; .@i++ ) {
 		monster 'map_def02$,0,0, "Treasure box",3075,1;	// WA_TREASURE
 		'treasure_gid[.@i] = $@mobid[0];
@@ -698,7 +698,7 @@ OnIdle:
 1@def02,1,1,0	script	#wave_mode_sky_mob_spawn	-1,{
 	end;
 OnSpawn:
-	mapannounce 'map_def02$, "-- Wave " + 'wave_num + " --", bc_map;
+	mapannounce 'map_def02$, "-- Oleada " + 'wave_num + " --", bc_map;
 
 	.@i = ('wave_num % 10) - 1;
 	setarray .@mob_list[0],
@@ -749,7 +749,7 @@ OnIdle:
 	callfunc( "F_mobidle", ('npc_name_mob$ + "::OnIdle"), 'size_coord, 'x_mob, 0, 'y_mob, 'dist_spot_AZ );
 	'mob_escaped++;
 	if ('mob_escaped <= 20)
-		mapannounce 'map_def02$, "" + 'mob_escaped + " " + ('mob_escaped == 1 ? "monster has" : "monsters have") + " escaped.", bc_map;
+		mapannounce 'map_def02$, "" + 'mob_escaped + " " + ('mob_escaped == 1 ? "monstruo ha" : "monstruos han") + " escapado.", bc_map;
 	if ('mob_escaped == 20)
 		donpcevent instance_npcname("#wave_mode_sky_out") + "::OnFail";
 	end;
@@ -762,13 +762,13 @@ OnFail:
 	// monsters timers continue
 	donpcevent instance_npcname("#wave_mode_sky_system") + "::OnStop";
 
-	mapannounce 'map_def02$, "You have failed the <Wave mode - Sky> challenge.", bc_map;
+	mapannounce 'map_def02$, "Has fallado el desafio <Wave mode - Sky>.", bc_map;
 	'status_instance = 2;
 	enablenpc instance_npcname("#wave_mode_sky_entrance");
 	initnpctimer;
 	end;
 OnTimer1000:
-	mapannounce 'map_def02$, "<Wave mode - Sky> service has closed. You will be returned to the place you entered if you use the warp at the entrance.", bc_map;
+	mapannounce 'map_def02$, "El servicio <Wave mode - Sky> ha cerrado. Seras devuelto al lugar donde entraste si usas el portal en la entrada.", bc_map;
 	end;
 OnTimer30000:
 	stopnpctimer;
