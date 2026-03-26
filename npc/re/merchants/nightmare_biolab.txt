@@ -500,10 +500,10 @@ OnTouch:
 lighthalzen,312,296,4	script	Bully#JCv2	4_M_LGTPOOR,{
 	disable_items;
 	mes "[Bully]";
-	mes "Hey, buddy. Do you have some remaining Energy pieces? I'll exchange them with something appropriate if you want.";
+	mes "Oye, amigo. Te quedan algunas piezas de Energia? Las intercambiare por algo apropiado si quieres.";
 	next;
 	.@s = select(
-		"Listen to the story.",
+		"Escuchar la historia.",
 		( countitem(25127) < 2000 ? "^777777" : "^000000" ) + "1 Energy Fragment (2000 Silent E Particles)",
 		( countitem(25128) < 1000 ? "^777777" : "^000000" ) + "1 Energy Fragment (1000 Weak E Particles)",
 		( countitem(25129) < 500 ? "^777777" : "^000000" ) + "1 Energy Fragment (500 Unstable E Particles)",
@@ -518,11 +518,11 @@ lighthalzen,312,296,4	script	Bully#JCv2	4_M_LGTPOOR,{
 		mes ". . . . . . .";
 		next;
 		mes "[Bully]";
-		mes "Hmm... this is quite unexpected.";
-		mes "Normally he ignores me and goes on to do his work.";
+		mes "Hmm... esto es bastante inesperado.";
+		mes "Normalmente me ignora y se va a hacer su trabajo.";
 		next;
 		mes "[Bully]";
-		mes "I'm sorry, but I've got nothing to say. I'm just doing this because I can earn lots of money.";
+		mes "Lo siento, pero no tengo nada que decir. Solo hago esto porque puedo ganar mucho dinero.";
 		close;
 	}
 	setarray .@exchange[0],
@@ -537,10 +537,10 @@ lighthalzen,312,296,4	script	Bully#JCv2	4_M_LGTPOOR,{
 	mes "[Bully]";
 	mes "Are you sure you want to exchange ^330066" + .@exchange[.@index+2] + " " + getitemname(.@exchange[.@index+1]) + "^000000 with ^CC33331 " + getitemname(.@exchange[.@index]) + "^000000?";
 	next;
-	if (select( "Exchange.", "Do not exchange." ) == 2) {
+	if (select( "Intercambiar.", "No intercambiar." ) == 2) {
 		emotion ET_HNG;
 		mes "[Bully]";
-		mes "Well... if you don't like it, never mind.";
+		mes "Bueno... si no te gusta, olvidalo.";
 		close;
 	}
 	while(true) {
