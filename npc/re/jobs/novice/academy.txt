@@ -9050,10 +9050,10 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 		} else if (nov_3_swordman == 3) {
 			if (JobLevel < 10) {
 				mes "[Trainer Adric]";
-				mes "You still don't have enough to become a Swordman.";
+				mes "Aun no tienes suficiente para convertirte en Swordman.";
 				next;
 				mes "[Trainer Adric]";
-				mes "If you need some battle training find Subino on the first floor Armory of the Academy.";
+				mes "Si necesitas entrenamiento de batalla busca a Subino en la Armeria del primer piso de la Academia.";
 				cutin "", 255;
 				close;
 			} else {
@@ -9074,27 +9074,27 @@ iz_ac02,60,51,5	script	Swordman Trainer#ac	4_M_SWORDMAN,{
 			}
 		} else if (nov_3_swordman == 4) {
 			mes "[Trainer Adric]";
-			mes "During this period, you must train really hard.";
+			mes "Durante este periodo, debes entrenar muy duro.";
 			next;
 			mes "[Trainer Adric]";
-			mes "Continue to improve your abilities to change to an amazing job!";
+			mes "Continua mejorando tus habilidades para cambiar a un trabajo increible!";
 			cutin "", 255;
 			close;
 		}
 	} else if (Class == Job_Swordman) {
 		mes "[Trainer Adric]";
-		mes "You're already a Swordsman!";
+		mes "Ya eres un Swordsman!";
 		next;
 		mes "[Trainer Adric]";
-		mes "There's nothing else special to teach you.";
+		mes "No hay nada mas especial que ensenarte.";
 		cutin "", 255;
 		close;
 	} else {
 		mes "[Trainer Adric]";
-		mes "Hey! You already have a job!";
+		mes "Oye! Ya tienes un trabajo!";
 		next;
 		mes "[Trainer Adric]";
-		mes "Go away!";
+		mes "Vete!";
 		cutin "", 255;
 		close;
 	}
@@ -9110,28 +9110,28 @@ iz_ac02_d,60,51,5	duplicate(Swordman Trainer#ac)	Swordman Trainer#ac_d	4_M_SWORD
 iz_ac02,53,48,5	script	Swordman Assistant#ac	4_M_KY_KNT,{
 	if (isbegin_quest(4269) != 2) {
 		mes "[Assitant Trainer Neals]";
-		mes "You want to learn about Swordsman?";
-		mes "If you want to take the class you must register and come back here.";
+		mes "Quieres aprender sobre Swordsman?";
+		mes "Si quieres tomar la clase debes registrarte y volver aqui.";
 		close;
 	}
 	if (Class == Job_Novice && JobLevel >= 10) {
 		mes "[Assitant Trainer Neals]";
-		mes "As you are at the enough job level, you don't need any more lecturing.";
+		mes "Como ya tienes suficiente job level, no necesitas mas clases.";
 		next;
-		if (select("Then I will stop.", "Become a swordsman right away!") == 1) {
+		if (select("Entonces parare.", "Convertirme en swordsman ahora!") == 1) {
 			mes "[Assitant Trainer Neals]";
-			mes "Before the training starts, you already raised your level.";
-			mes "Impressive.";
+			mes "Antes de que comenzara el entrenamiento, ya subiste tu nivel.";
+			mes "Impresionante.";
 			close;
 		}
 		mes "[Assitant Trainer Neals]";
-		mes "It seems that you have fully grown.";
-		mes "Head to the Swordsman Guild to become a swordsman!";
+		mes "Parece que has crecido completamente.";
+		mes "Dirigete al Gremio de Swordsman para convertirte en swordsman!";
 		next;
 		mes "[Assitant Trainer Neals]";
-		mes "The Swordsman Guild is located in Izlude square";
-		mes "From the center, go west.";
-		mes "It should be easy to find.";
+		mes "El Gremio de Swordsman esta ubicado en la plaza de Izlude";
+		mes "Desde el centro, ve al oeste.";
+		mes "Deberia ser facil de encontrar.";
 		cutin "", 255;
 		if (isbegin_quest(1230))
 			erasequest 1230;
@@ -9139,21 +9139,21 @@ iz_ac02,53,48,5	script	Swordman Assistant#ac	4_M_KY_KNT,{
 	} else {
 		if (Class == Job_Swordman) {
 			mes "[Assitant Trainer Neals]";
-			mes "You are now a swordsman!";
-			mes "There's nothing else special to teach you.";
+			mes "Ahora eres un swordsman!";
+			mes "No hay nada mas especial que ensenarte.";
 			close;
 		} else if (Class != Job_Novice) {
 			mes "[Assitant Trainer Neals]";
-			mes "You already have another job!";
-			mes "Go away!";
+			mes "Ya tienes otro trabajo!";
+			mes "Vete!";
 			close;
 		} else {
 			if (isbegin_quest(1229) == 2) {
 				mes "[Assitant Trainer Neals]";
-				mes "Let's repeat the prerequisite of Swordsmanhood, this is a review study!";
+				mes "Repitamos los requisitos de ser Swordsman, esto es un repaso!";
 				next;
 				while(1) {
-					switch(select("Swordman key points", "Heightened Attack and defense.", "Related stats","Additional Swordman classes?", "I learned enough already.")) {
+					switch(select("Puntos clave del Swordman", "Ataque y defensa mejorados.", "Stats relacionados", "Clases adicionales de Swordman?", "Ya aprendi suficiente.")) {
 					case 1:
 						mes "[Assitant Trainer Neals]";
 						mes "El Swordsman usa una constitucion fuerte; resiste el dano facilmente de los enemigos y en un party, es lider y protector de los demas.";
@@ -9161,49 +9161,49 @@ iz_ac02,53,48,5	script	Swordman Assistant#ac	4_M_KY_KNT,{
 						break;
 					case 2:
 						mes "[Assitant Trainer Neals]";
-						mes "Swordsman prefer to use spears, two-handed swords or combination sword and shield.";
+						mes "Los Swordsman prefieren usar lanzas, espadas de dos manos o combinacion de espada y escudo.";
 						next;
 						mes "[Assitant Trainer Neals]";
-						mes "Also the swordsman's vitality is normally high making them able to carry massive amounts of weight.";
+						mes "Ademas la vitalidad del swordsman normalmente es alta lo que les permite cargar cantidades masivas de peso.";
 						next;
 						break;
 					case 3:
 						mes "[Assitant Trainer Neals]";
-						mes "Desired stats are usually ^0000FFStr^000000, ^0000FFAgi^000000, ^0000FFVit^000000, ^0000FFDex^000000 Of course this is all up to you";
+						mes "Los stats deseados usualmente son ^0000FFStr^000000, ^0000FFAgi^000000, ^0000FFVit^000000, ^0000FFDex^000000 Por supuesto esto depende de ti";
 						next;
 						mes "[Assitant Trainer Neals]";
-						mes "^0000FFVit^000000 affects^FF0000HP recovery rate^000000.";
-						mes "^0000FFStr^000000 affects ^FF0000strength and attacking power^000000.";
-						mes "^0000FFDex^00000 increases ^FF0000accuracy of your attack^000000.";
+						mes "^0000FFVit^000000 afecta la^FF0000tasa de recuperacion de HP^000000.";
+						mes "^0000FFStr^000000 afecta la ^FF0000fuerza y poder de ataque^000000.";
+						mes "^0000FFDex^00000 aumenta la ^FF0000precision de tu ataque^000000.";
 						next;
 						mes "[Trainer Adric]";
-						mes "^0000FFAgi^000000 increases ^FF0000attacking speed^000000 and ^FF0000evasion rate^000000.";
-						mes "^0000FFLuk^000000 affects ^FF0000probability of critical ^000000.";
+						mes "^0000FFAgi^000000 aumenta la ^FF0000velocidad de ataque^000000 y ^FF0000tasa de evasion^000000.";
+						mes "^0000FFLuk^000000 afecta la ^FF0000probabilidad de critico^000000.";
 						next;
 						break;
 					case 4:
 						mes "[Assitant Trainer Neals]";
-						mes "After changing to a Swordsman you can change to a ^0000FFKnight ^000000or ^0000FFCrusader^000000.";
+						mes "Despues de cambiar a Swordsman puedes cambiar a ^0000FFKnight ^000000o ^0000FFCrusader^000000.";
 						next;
 						mes "[Assitant Trainer Neals]";
-						mes "Go raise your strength while figuring out if you're offensive or defensive.";
-						mes "This is something you should do.";
+						mes "Ve a subir tu fuerza mientras decides si eres ofensivo o defensivo.";
+						mes "Esto es algo que deberias hacer.";
 						break;
 					case 5:
 						mes "[Assitant Trainer Neals]";
-						mes "Ask again anytime.";
-						mes "I'll answer everything!";
+						mes "Pregunta de nuevo cuando quieras.";
+						mes "Respondere todo!";
 						close;
 					}
 					mes "[Assitant Trainer Neals]";
-					mes "Let's repeat the prequisite of swordsmanhood,";
-					mes "this is a review study!";
+					mes "Repitamos los requisitos de ser swordsman,";
+					mes "esto es un repaso!";
 					next;
 				}
 			} else {
 				mes "[Assitant Trainer Neals]";
-				mes "Feeble people like you can become a gallant Swordsman soon.";
-				mes "Yes, you can. Be ambitious.";
+				mes "Personas debiles como tu pueden convertirse en un gallardo Swordsman pronto.";
+				mes "Si, puedes. Se ambicioso.";
 				close;
 			}
 		}
