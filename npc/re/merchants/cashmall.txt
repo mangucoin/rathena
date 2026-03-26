@@ -9,29 +9,29 @@
 
 prontera,137,125,4	script	Cash Sales Guide#prontera::cashmall_warper	4_M_HUMAN_02,{
 	mes "[Guide]";
-	mes "Hello~";
-	mes "This guide wants to be the one to take you to a special place.";
-	mes "What kind of place is that?";
+	mes "Hola~";
+	mes "Este guia quiere ser quien te lleve a un lugar especial.";
+	mes "¿Que tipo de lugar es ese?";
 	next;
 	mes "[Guide]";
-	mes "It's a place full of mysterious items to collect and sell.";
-	mes "To buy stuff there you need special money.";
+	mes "Es un lugar lleno de articulos misteriosos para coleccionar y vender.";
+	mes "Para comprar cosas ahi necesitas dinero especial.";
 	next;
 	mes "[Guide]";
-	mes "So, are you ready to go there?";
+	mes "Entonces, ¿estas listo para ir?";
 	next;
-	if (select( "Yes", "No" ) == 2) {
+	if (select( "Si", "No" ) == 2) {
 		mes "[Guide]";
-		mes "Okay~";
-		mes "But don't get frustrated.";
-		mes "There's always more chances~";
+		mes "Bueno~";
+		mes "Pero no te frustres.";
+		mes "Siempre hay mas oportunidades~";
 		close;
 	}
 	mes "[Guide]";
-	mes "Yeah~ You're really ready.";
-	mes "Well then, get some good stuff~";
-	mes "Oops, I forgot. When you come out be sure to come back here.";
-	mes "Rember this~";
+	mes "Si~ Estas realmente listo.";
+	mes "Bueno, ¡consigue cosas buenas~!";
+	mes "Ups, se me olvido. Cuando salgas asegurate de volver aqui.";
+	mes "¡Recuerda esto~!";
 	close2;
 	setarray .@maparray$[0], "prontera", "morocc", "moc_ruins", "geffen", "payon", "lighthalzen", "rachel";
 	.@return = inarray(.@maparray$[0], strcharinfo(3));
@@ -53,22 +53,22 @@ rachel,128,144,4	duplicate(cashmall_warper)	Cash Sales Guide#rachel	4_M_HUMAN_02
 
 itemmall,21,45,4	script	Exit Guide#cashmall_exit	4_M_HUMAN_02,{
 	mes "[Guide]";
-	mes "Have you had a good time?";
-	mes "Thank you very much for using our item mall.";
-	mes "We will continue to bring you valuable items.";
+	mes "¿La pasaste bien?";
+	mes "Muchas gracias por usar nuestro centro comercial de articulos.";
+	mes "Continuaremos trayendote articulos valiosos.";
 	next;
 	mes "[Guide]";
-	mes "Would you like to return from where you came from?";
+	mes "¿Te gustaria regresar de donde viniste?";
 	next;
-	if (select( "Yes", "No" ) == 2) {
+	if (select( "Si", "No" ) == 2) {
 		mes "[Guide]";
-		mes "There are still more things to see.";
-		mes "Have a good time.";
+		mes "Todavia hay mas cosas que ver.";
+		mes "Que la pases bien.";
 		close;
 	}
 	mes "[Guide]";
-	mes "Thank you for coming.";
-	mes "I'll send you back from where you came from.";
+	mes "Gracias por venir.";
+	mes "Te enviare de vuelta de donde viniste.";
 	close2;
 	switch(cashmall_return) {
 		default:
@@ -108,73 +108,73 @@ itemmall,21,45,4	script	Exit Guide#cashmall_exit	4_M_HUMAN_02,{
 
 itemmall,41,53,3	script	Cat Hand Salesman Macaroon#cashmall	4_M_MERCAT1,{
 	mes "[Macaroon]";
-	mes "Welcome!";
-	mes "Today doesn't come every day!";
-	mes "Things to see today~ Voila!";
-	mes "You can only exchange with " + mesitemlink( 1000274 ) + "!";
-	mes "Feel free to choose!";
+	mes "¡Bienvenido!";
+	mes "¡El dia de hoy no viene todos los dias!";
+	mes "Cosas que ver hoy~ ¡Voila!";
+	mes "¡Solo puedes intercambiar con " + mesitemlink( 1000274 ) + "!";
+	mes "¡Elige libremente!";
 	next;
-	switch( select( "3-1st Job Group Skill Shadow", "3-2nd Job Group Skill Shadow", "Extended Job Group Skill Shadow", "General Shadow by Occupation", "Shadow Cube", "Smelting, Modification, Useful Items", "Drop Box", "Spellbook" ) ){
+	switch( select( "3-1st Job Group Skill Shadow", "3-2nd Job Group Skill Shadow", "Extended Job Group Skill Shadow", "General Shadow by Occupation", "Shadow Cube", "Fundicion, Modificacion, Articulos Utiles", "Drop Box", "Spellbook" ) ){
 		case 1:
 			mes "[Macaroon]";
-			mes "^FF00663-1st Job Group Skill Shadow^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF00663-1st Job Group Skill Shadow^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon01";
 			end;
 
 		case 2:
 			mes "[Macaroon]";
-			mes "^FF00663-2nd Job Group Skill Shadow^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF00663-2nd Job Group Skill Shadow^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon02";
 			end;
 
 		case 3:
 			mes "[Macaroon]";
-			mes "^FF0066Extended Job Group Skill Shadow^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF0066Extended Job Group Skill Shadow^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon03";
 			end;
 
 		case 4:
 			mes "[Macaroon]";
-			mes "^FF0066General Shadow by Occupation^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF0066General Shadow by Occupation^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon04";
 			end;
 
 		case 5:
 			mes "[Macaroon]";
-			mes "^FF0066Shadow Cube^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF0066Shadow Cube^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon05";
 			end;
 
 		case 6:
 			mes "[Macaroon]";
-			mes "^FF0066Smelting, Modification, Useful Items^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF0066Fundicion, Modificacion, Articulos Utiles^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon06";
 			end;
 
 		case 7:
 			mes "[Macaroon]";
-			mes "^FF0066Drop Box^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF0066Drop Box^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon07";
 			end;
 
 		case 8:
 			mes "[Macaroon]";
-			mes "^FF0066Spellbook^000000 you say!";
-			mes "Here they are!";
+			mes "¡^FF0066Spellbook^000000 dices!";
+			mes "¡Aqui estan!";
 			close2;
 			callshop "CachuaCoupon08";
 			end;
@@ -187,7 +187,7 @@ itemmall,24,77,4	script	Blacksmith Basta#pr	4_M_DWARF,{
 	}
 
 	mes "[Blacksmith Basta]";
-	mes "I have taken over the work of Mighty Hammer, Brock and the Shadow Blacksmith. I will be busy from now on.";
+	mes "He tomado el trabajo de Mighty Hammer, Brock y el Herrero de Sombras. Estare ocupado de ahora en adelante.";
 	close2;
 	refineui();
 	end;
@@ -195,25 +195,25 @@ itemmall,24,77,4	script	Blacksmith Basta#pr	4_M_DWARF,{
 
 itemmall,27,77,4	script	Mighty Hammer#im	4_M_DWARF,{
 	mes "[Blacksmith Mighty Hammer]";
-	mes "If it is about refining, ask Basta. I am retired.";
+	mes "Si es sobre refinamiento, preguntale a Basta. Estoy retirado.";
 	close;
 }
 
 itemmall,24,74,5	script	Blacksmith Brock#im	4_M_HUMAN_01,{
 	mes "[Blacksmith Brock]";
-	mes "I am retired now. If it is about refining, make a request to Basta over there.";
+	mes "Estoy retirado ahora. Si es sobre refinamiento, hazle una solicitud a Basta que esta ahi.";
 	close;
 }
 
 itemmall,19,74,5	script	Stylist#cash	91,{
 	if( getbattleflag( "feature.stylist" ) ){
 		mes "[Jeremy]";
-		mes "Hello cutie~";
-		mes "I would like you to call me Head Stylist Jeremy.";
+		mes "Hola, lindo~";
+		mes "Me gustaria que me llamaras Estilista Principal Jeremy.";
 		next;
-		if( select( "Change style:End conversation" ) == 2 ){
+		if( select( "Cambiar estilo:Terminar conversacion" ) == 2 ){
 			mes "[Jeremy]";
-			mes "My shop is always open, so please come back anytime.";
+			mes "Mi tienda siempre esta abierta, asi que por favor vuelve cuando quieras.";
 			close;
 		}
 		close2;
@@ -222,57 +222,57 @@ itemmall,19,74,5	script	Stylist#cash	91,{
 	}
 
 	mes "[Stylist]";
-	mes "Hey, I'm Kaniki.";
-	mes "I'm here to start a new";
-	mes "trend by introducing my";
-	mes "special new hairstyles!";
-	mes "Give me a ^FF0000New Style Coupon^000000,";
-	mes "and I'll change your hair~";
+	mes "Oye, soy Kaniki.";
+	mes "Estoy aqui para iniciar una nueva";
+	mes "tendencia presentando mis";
+	mes "peinados nuevos especiales!";
+	mes "Dame un ^FF0000New Style Coupon^000000,";
+	mes "y te cambiare el pelo~";
 	next;
 	if (Sex == SEX_MALE) {
 		mes "[Kaniki]";
-		mes "I have two special";
-		mes "hairstyles for men, the";
+		mes "Tengo dos peinados";
+		mes "especiales para hombres, el";
 		mes "Emergency Heal Perm";
-		mes "and the Aura Blade Cut.";
-		mes "and aura blade cut.";
+		mes "y el Aura Blade Cut.";
+		mes "y el aura blade cut.";
 		next;
 		cutin "hair_m_24.bmp",4;
 		mes "[Kaniki]";
-		mes "This is the Emergency";
-		mes "Heal Perm. It's a brand";
-		mes "new style I invented recently.";
-		mes "What do you think? Cool, huh?";
+		mes "Este es el Emergency";
+		mes "Heal Perm. Es un estilo";
+		mes "completamente nuevo que invente recientemente.";
+		mes "¿Que opinas? Genial, ¿no?";
 		next;
 		cutin "",255;
 		cutin "hair_m_25.bmp",4;
 		mes "[Kaniki]";
-		mes "Now this is the Aura";
-		mes "Blade Cut. You haven't";
-		mes "seen anything like it";
-		mes "before, haven't you?";
+		mes "Ahora este es el Aura";
+		mes "Blade Cut. No has visto";
+		mes "nada parecido";
+		mes "antes, ¿verdad?";
 		next;
 		cutin "",255;
 	}else{
 		mes "[Kaniki]";
-		mes "I have two new hairstyles for";
-		mes "women, the Assumptio Perm";
-		mes "and the Soul Changer Cut.";
-		mes "Do you want to see how";
-		mes "these styles look?";
+		mes "Tengo dos nuevos peinados para";
+		mes "mujeres, el Assumptio Perm";
+		mes "y el Soul Changer Cut.";
+		mes "¿Quieres ver como";
+		mes "se ven estos estilos?";
 		next;
 		cutin "hair_f_24.bmp",4;
 		mes "[Kaniki]";
-		mes "This is the Assumptio";
-		mes "Perm. It'd really good";
-		mes "on you, wouldn't it?";
+		mes "Este es el Assumptio";
+		mes "Perm. Te quedaria muy";
+		mes "bien, ¿no crees?";
 		next;
 		cutin "",255;
 		cutin "hair_f_25.bmp",4;
 		mes "[Kaniki]";
-		mes "Next is the Soul";
-		mes "Changer Cut. What do";
-		mes "you think? Isn't it nice?";
+		mes "Siguiente es el Soul";
+		mes "Changer Cut. ¿Que";
+		mes "opinas? ¿No es lindo?";
 		next;
 		cutin "",255;
 	}
