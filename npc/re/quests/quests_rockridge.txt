@@ -1654,11 +1654,11 @@ rockmi2,10,86,5	script	Shawn McCurdy#rockmi2	4_M_SEANMCCURDY,{
 			close;
 		}
 		mes "[Shawn McCurdy]";
-		mes "This shows your experience as an aventurero.";
-		mes "Has found a big, good-quality ore, incluso though I no tell you what to look for.";
+		mes "Esto muestra tu experiencia como aventurero.";
+		mes "Has encontrado un mineral grande y de buena calidad, aunque no te dije que buscar.";
 		next;
 		mes "[Shawn McCurdy]";
-		mes "Good job! This should convince Albert.";
+		mes "Buen trabajo! Esto deberia convencer a Albert.";
 		mes "Muy bien, volvamos arriba.";
 		erasequest 7801;
 		setquest 7802;// Hear Me Out 2
@@ -2481,7 +2481,7 @@ rockrdg1,339,134,3	script	Little Lecter#rrrem02	4_M_CACTUSCHILD,{
 	case 1:
 		mes "[Little Lecter]";
 		mes "Wah! WAH! My agave-flavored juice!";
-		mes "*Sniffle* Cuantos days do Tengo que wait to get my agave-flavored juice? Lecter no want to wa... wait... BOOHOO!";
+		mes "*Sollozo* Cuantos dias tengo que esperar para conseguir mi jugo con sabor a agave? Lecter no quiere es... esperar... BUAAAA!";
 		emotion 28, getnpcid(0,"Little Lecter#rrrem02");
 		close;
 	case 2:
@@ -2503,18 +2503,18 @@ rockrdg1,339,134,3	script	Little Lecter#rrrem02	4_M_CACTUSCHILD,{
 
 rockrdg1,182,124,3	script	Suspicious Sand Mound#rremef05	4_ENERGY_RED,15,15,{
 	if (checkweight(1301,3) == 0) {
-		mes "- A tattered fabric pouch is half buried in the mound of sand, but Soy carrying too much to examine it. I'd better lighten my bag first. -";
+		mes "- Una bolsa de tela rasgada esta medio enterrada en el monticulo de arena, pero estoy cargando demasiado para examinarla. Mejor aligero mi equipaje primero. -";
 		close;
 	}
 	if (checkquest(16078,HUNTING) != 0 && checkquest(16078,HUNTING) != 1 || countitem("Juice_Package") > 4 || isbegin_quest(16082) == 2) {
-		mes "- A tattered fabric pouch is half buried in the mound of sand. Creo que's solo trash. -";
+		mes "- Una bolsa de tela rasgada esta medio enterrada en el monticulo de arena. Creo que es solo basura. -";
 		close;
 	}
-	mes "- A tattered fabric pouch is half buried in the mound of sand. Podria ser Mrs. Cacturon's juice mix package. -";
+	mes "- Una bolsa de tela rasgada esta medio enterrada en el monticulo de arena. Podria ser el paquete de mezcla de jugo de Mrs. Cacturon. -";
 	next;
-	mes "- I moved close and picked up the pouch. It has the juice mix brand logo on it. Afortunadamente, es not torn. -";
+	mes "- Me acerque y recogi la bolsa. Tiene el logo de la marca de mezcla de jugo. Afortunadamente, no esta rota. -";
 	next;
-	mes "- I shook the sand off the pouch and put it in my bag. -";
+	mes "- Sacudi la arena de la bolsa y la guarde en mi equipaje. -";
 	getitem 25246,1;	// Juice_Package
 	setquest 16082;
 	completequest 16082;
@@ -2523,12 +2523,12 @@ rockrdg1,182,124,3	script	Suspicious Sand Mound#rremef05	4_ENERGY_RED,15,15,{
 		next;
 		.@name$ = strcharinfo(0);
 		mes "[" + .@name$ + "]";
-		mes "Incluso Mrs. Cacturon no think she could get all sincluso packages back.";
-		mes "This deberia ser suficiente. I'd better end; to the aldea and report to her.";
+		mes "Ni siquiera Mrs. Cacturon penso que podria recuperar todos los paquetes.";
+		mes "Esto deberia ser suficiente. Mejor vuelvo a la aldea y le informo.";
 		if (checkquest(16078,HUNTING) < 2) {
 			next;
 			mes "[" + .@name$ + "]";
-			mes "Oh, right? I tambien need to hunt 30 Coyotes.";
+			mes "Oh, cierto. Tambien necesito cazar 30 Coyotes.";
 		}
 	}
 	close;
@@ -2547,22 +2547,22 @@ rockrdg1,182,124,3	duplicate(Suspicious Sand Mound#rremef05)	Suspicious Sand Mou
 
 rockrdg1,286,247,3	script	Suspicious Sand Mound#rremef06	4_ENERGY_RED,15,15,{
 	if (checkweight(1301,3) == 0) {
-		mes "- Hay algo weird about this mound of sand, but but Soy carrying too much to examine it. I'd better lighten my bag first. -";
+		mes "- Hay algo raro en este monticulo de arena, pero estoy cargando demasiado para examinarlo. Mejor aligero mi equipaje primero. -";
 		close;
 	}
 	.@quest_id = callsub( S_Quest );
 	.@npc_name$ = callsub( S_Name );
 
 	if (checkquest(16078,HUNTING) != 0 && checkquest(16078,HUNTING) != 1 || countitem("Juice_Package") > 4 || isbegin_quest(.@quest_id) == 2) {
-		mes "- Alguien debe haber piled this mound of sand. -";
+		mes "- Alguien debe haber apilado este monticulo de arena. -";
 		close;
 	}
-	mes "- A tattered fabric pouch is half buried in the mound of sand. Podria ser Mrs. Cacturon's juice mix package. -";
+	mes "- Una bolsa de tela rasgada esta medio enterrada en el monticulo de arena. Podria ser el paquete de mezcla de jugo de Mrs. Cacturon. -";
 	next;
 	if (rand(1,2) == 1) {
-		mes "- I moved close and picked up the pouch. It has the juice mix brand logo on it. Afortunadamente, es not torn. -";
+		mes "- Me acerque y recogi la bolsa. Tiene el logo de la marca de mezcla de jugo. Afortunadamente, no esta rota. -";
 		next;
-		mes "- I shook the sand off the pouch and put it in my bag. -";
+		mes "- Sacudi la arena de la bolsa y la guarde en mi equipaje. -";
 		getitem 25246,1;	// Juice_Package
 		setquest .@quest_id;
 		completequest .@quest_id;
@@ -2571,19 +2571,19 @@ rockrdg1,286,247,3	script	Suspicious Sand Mound#rremef06	4_ENERGY_RED,15,15,{
 			next;
 			.@name$ = strcharinfo(0);
 			mes "[" + .@name$ + "]";
-			mes "Incluso Mrs. Cacturon no think she could get all sincluso packages back.";
-			mes "This deberia ser suficiente. I'd better end; to the aldea and report to her.";
+			mes "Ni siquiera Mrs. Cacturon penso que podria recuperar todos los paquetes.";
+			mes "Esto deberia ser suficiente. Mejor vuelvo a la aldea y le informo.";
 			if (checkquest(16078,HUNTING) < 2) {
 				next;
 				mes "[" + .@name$ + "]";
-				mes "Oh, right? I tambien need to hunt 30 Coyotes.";
+				mes "Oh, cierto. Tambien necesito cazar 30 Coyotes.";
 			}
 		}
 		close;
 	}
-	mes "- I picked up the pouch. Sweet-smelling powder started pouring out a traves de the tears at the bottom. -";
+	mes "- Recogi la bolsa. Un polvo con olor dulce empezo a salirse por los agujeros del fondo. -";
 	next;
-	mes "- No es usable. Voy a solo have to leave it and look for another one. -";
+	mes "- No se puede usar. Tendre que dejarla y buscar otra. -";
 	setquest .@quest_id;
 	completequest .@quest_id;
 	cloakonnpcself();
@@ -2642,64 +2642,64 @@ rockrdg1,77,259,3	duplicate(Suspicious Sand Mound#rremef06)	Suspicious Sand Moun
 rockrdg1,146,164,1	script	Wasteland Cactuten#rremef01	4_ENERGY_RED,15,15,{
 	if (checkweight(1301,3) == 0) {
 		mes "[Wasteland Cactuten]";
-		mes "Parece all extranors are greedy, and eres not an exception.";
-		mes "Por que estas carrying tanto?";
+		mes "Parece que todos los forasteros son codiciosos, y tu no eres la excepcion.";
+		mes "Por que estas cargando tanto?";
 		next;
-		mes "- I'd better lighten my bag and talk to him de nuevo. -";
+		mes "- Mejor aligero mi equipaje y hablo con el de nuevo. -";
 		close;
 	}
 	if (isbegin_quest(16078) == 1 && isbegin_quest(16083) == 0 && countitem(25246) < 5) {
 		.@player_name$ = strcharinfo(0);
 		mes "[Wasteland Cactuten]";
-		mes "Por que, no he you seen a Cactus in this wasteland before? Soy busy. Go on your way.";
+		mes "Que, nunca has visto un Cactus en este paramo? Estoy ocupado. Sigue tu camino.";
 		next;
-		select("Ask if el es seen a juice mix package.");
+		select("Preguntar si ha visto un paquete de mezcla de jugo.");
 		mes "[" + .@player_name$ + "]";
-		mes "Has visto some juice mix packages around here?";
+		mes "Has visto algunos paquetes de mezcla de jugo por aqui?";
 		next;
 		mes "[Wasteland Cactuten]";
-		mes "Juice mix package? If eres talking about the package Encontre stuck in entre rocks, then yes, Tengo.";
+		mes "Paquete de mezcla de jugo? Si hablas del paquete que encontre atascado entre las rocas, entonces si, lo tengo.";
 		next;
 		mes "[" + .@player_name$ + "]";
-		mes "Es Mrs. Cacturon's. Dejame bring it back to her.";
+		mes "Es de Mrs. Cacturon. Dejame devolverselo.";
 		next;
 		mes "[Wasteland Cactuten]";
-		mes "No. Por que lo haria give you algo Cacturon has lost?";
+		mes "No. Por que te daria algo que Cacturon ha perdido?";
 		next;
-		if (select( "Threaten him.", "Persuade him." ) == 1) {
+		if (select( "Amenazarlo.", "Persuadirlo." ) == 1) {
 			mes "[" + .@player_name$ + "]";
-			mes "Estoy aqui on her behalf. Si keep being stubborn,";
-			mes "then Voy a have to use force.";
+			mes "Estoy aqui en su nombre. Si sigues siendo terco,";
+			mes "entonces tendre que usar la fuerza.";
 			next;
 			mes "[Wasteland Cactuten]";
-			mes "Blood will have blood, and No quiero that. Puedes have the package, extranor.";
-			mes "Pero Cacturon deberia ser ashamed of herself for trusting thugs like you.";
+			mes "La sangre llama a la sangre, y no quiero eso. Puedes quedarte con el paquete, forastero.";
+			mes "Pero Cacturon deberia avergonzarse de confiar en matones como tu.";
 			next;
-			mes "- Tengo the juice mix package, but Me siento bad that I threatened him to get them. -";
+			mes "- Tengo el paquete de mezcla de jugo, pero me siento mal por haberlo amenazado para conseguirlo. -";
 		}
 		else {
 			mes "[" + .@player_name$ + "]";
-			mes "He estado looking for some juice mix packages porque Se alguien has lost them.";
+			mes "He estado buscando algunos paquetes de mezcla de jugo porque se que alguien los perdio.";
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "Y this one of them, and it no belong to you.";
+			mes "Y este es uno de ellos, y no te pertenece.";
 			next;
 			mes "[Wasteland Cactuten]";
-			mes "Tienes razon. No belong to me.";
+			mes "Tienes razon. No me pertenece.";
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "Entonces why no you let me bring it back to its owner? Mrs. Cacturon's child is upset porque he no puedo have his favorite juice. I solo want him to be happy.";
+			mes "Entonces por que no me dejas devolverselo a su duena? El hijo de Mrs. Cacturon esta triste porque no puede tomar su jugo favorito. Solo quiero que sea feliz.";
 			next;
 			mes "[Wasteland Cactuten]";
-			mes "Mm... Your logic isn't completamente flawless, but al menos it proves that sabes Cacturon and Lecter.";
+			mes "Mm... Tu logica no es completamente impecable, pero al menos demuestra que conoces a Cacturon y a Lecter.";
 			next;
 			mes "[Wasteland Cactuten]";
-			mes "Okay, Voy a give it to you. Pero if I descubrir you lied to me, Voy a see that you pay for betraying a Cactus's trust.";
+			mes "Bueno, te lo dare. Pero si descubro que me mentiste, me asegurare de que pagues por traicionar la confianza de un Cactus.";
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "I swear No soy lying.";
+			mes "Te juro que no estoy mintiendo.";
 			next;
-			mes "- Tengo the juice mix package. -";
+			mes "- Tengo el paquete de mezcla de jugo. -";
 		}
 		getitem 25246,1;// Juice_Package
 		setquest 16083;// Discovered Wasteland Cactuten
@@ -2708,18 +2708,18 @@ rockrdg1,146,164,1	script	Wasteland Cactuten#rremef01	4_ENERGY_RED,15,15,{
 		if (countitem(25246) > 4) {
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "Incluso Mrs. Cacturon no think she could get all sincluso packages back.";
-			mes "This deberia ser suficiente. I'd better return to the aldea and report to her.";
+			mes "Ni siquiera Mrs. Cacturon penso que podria recuperar todos los paquetes.";
+			mes "Esto deberia ser suficiente. Mejor vuelvo a la aldea y le informo.";
 			if (checkquest(16078,HUNTING) < 2) {
 				next;
 				mes "[" + .@player_name$ + "]";
-				mes "Oh, right? I tambien need to hunt 30 Coyotes.";
+				mes "Oh, cierto. Tambien necesito cazar 30 Coyotes.";
 			}
 		}
 		close;
 	}
 	mes "[Wasteland Cactuten]";
-	mes "Por que, no he you seen a Cactus in this wasteland before? Soy busy. Go on your way.";
+	mes "Que, nunca has visto un Cactus en este paramo? Estoy ocupado. Sigue tu camino.";
 	close;
 
 OnTouch:
@@ -2752,14 +2752,14 @@ rockrdg1,195,183,3	script	Curious Coyote#rrem05	COYOTE,4,4,{
 	end;
 OnTouch:
 	if (checkweight(1301,3) == 0) {
-		mes "- A coyote has algo in its mouth and es shaking its head, playing with the thing. Pero Soy carrying too much to check what it has in its mouth. I'd better lighten my bag first. -";
+		mes "- Un coyote tiene algo en la boca y esta sacudiendo la cabeza, jugando con eso. Pero estoy cargando demasiado para revisar que tiene. Mejor aligero mi equipaje primero. -";
 		close;
 	}
 	if (isbegin_quest(16078) == 1 && isbegin_quest(16085) == 0 && countitem(25246) < 5) {
 		.@player_name$ = strcharinfo(0);
-		mes "- A coyote has algo in its mouth and es shaking its head, playing with the thing. Podria ser Mrs. Cacturon's juice mix package. -";
+		mes "- Un coyote tiene algo en la boca y esta sacudiendo la cabeza, jugando con eso. Podria ser el paquete de mezcla de jugo de Mrs. Cacturon. -";
 		next;
-		mes "- Tal vez Deberia yell and scare it away. What should I yell? -";
+		mes "- Tal vez deberia gritar y asustarlo. Que deberia gritar? -";
 		input .@string$;
 		next;
 		mes "[" + .@player_name$ + "]";
@@ -2768,7 +2768,7 @@ OnTouch:
 		mes "[Curious Coyote]";
 		mes "YIP!";
 		next;
-		mes "- Startled, the coyote scuttled backward. I moved close to check what it dropped. Es un juice mix package! -";
+		mes "- Asustado, el coyote retrocedio corriendo. Me acerque a revisar lo que solto. Es un paquete de mezcla de jugo! -";
 		getitem 25246,1;// Juice_Package
 		setquest 16085;// Discovered Coyote
 		completequest 16085;// Discovered Coyote
@@ -2776,12 +2776,12 @@ OnTouch:
 		if (countitem(25246) > 4) {
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "Incluso Mrs. Cacturon no think she could get all sincluso packages back.";
-			mes "This deberia ser suficiente. I'd better return to the aldea and report to her.";
+			mes "Ni siquiera Mrs. Cacturon penso que podria recuperar todos los paquetes.";
+			mes "Esto deberia ser suficiente. Mejor vuelvo a la aldea y le informo.";
 			if (checkquest(16078,HUNTING) < 2) {
 				next;
 				mes "[" + .@player_name$ + "]";
-				mes "Oh, right? I tambien need to hunt 30 Coyotes.";
+				mes "Oh, cierto. Tambien necesito cazar 30 Coyotes.";
 			}
 		}
 		close;
@@ -2794,54 +2794,54 @@ rockrdg1,305,200,3	script	Cactus Girl#rremef02	4_ENERGY_RED,15,15,{
 		mes "Stranger...";
 		next;
 		mes "[Cactus Girl]";
-		mes "Eres obsessed with materials. No sabes they solo weigh you down?";
+		mes "Estas obsesionado con los materiales. No sabes que solo te pesan?";
 		next;
-		mes "- I'd better lighten my bag and talk to him de nuevo. -";
+		mes "- Mejor aligero mi equipaje y hablo con el de nuevo. -";
 		close;
 	}
 	if (isbegin_quest(16078) == 1 && isbegin_quest(16087) == 0 && countitem(25246) < 5) {
 		.@player_name$ = strcharinfo(0);
 		mes "[Cactus Girl]";
 		mes "Stranger...";
-		mes "No vengas near me, or else.";
+		mes "No te acerques a mi, o si no...";
 		emotion ET_ANGER;
 		next;
-		select("Has visto some juice mix packages?");
+		select("Has visto paquetes de mezcla de jugo?");
 		mes "[" + .@player_name$ + "]";
-		mes "Has visto some juice mix packages around here?";
+		mes "Has visto algunos paquetes de mezcla de jugo por aqui?";
 		next;
 		mes "[Cactus Girl]";
 		mes "Juice mix package?";
-		mes "...Estas looking for this? He found it buried in the sand.";
+		mes "...Estas buscando esto? Lo encontre enterrado en la arena.";
 		next;
 		mes "[" + .@player_name$ + "]";
-		mes "Eso es it. Mrs. Cacturon has lost it. Dejame bring it back to her.";
+		mes "Eso es. Mrs. Cacturon lo perdio. Dejame devolverselo.";
 		next;
 		mes "[Cactus Girl]";
 		mes "...";
 		mes "...I see.";
-		mes "You said Mrs. Cacturon has lost it. Quien eres?";
+		mes "Dices que Mrs. Cacturon lo perdio. Quien eres?";
 		next;
 		mes "[" + .@player_name$ + "]";
-		mes "Soy unn aventurero, and Estoy aqui on her behalf.";
-		mes "Si no believe me, then puedes go to the aldea and talk to her.";
+		mes "Soy un aventurero, y estoy aqui en su nombre.";
+		mes "Si no me crees, entonces puedes ir a la aldea y hablar con ella.";
 		next;
 		mes "[Cactus Girl]";
-		mes "*Snort* Crees Soy stupid? If eres a thief, you no be here by the time I regresa from the aldea.";
+		mes "*Bufido* Crees que soy tonta? Si fueras un ladron, no estarias aqui cuando vuelva de la aldea.";
 		mes "Toma, llevalo.";
 		emotion ET_HNG;
 		next;
 		mes "[" + .@player_name$ + "]";
-		mes "Estas solo va a give it to me?";
+		mes "Solo asi me lo vas a dar?";
 		next;
 		mes "[Cactus Girl]";
-		mes "You said Mrs. Cacturon sent you, and I trust her. Por que, do quieres me to give you a hard time?";
+		mes "Dijiste que Mrs. Cacturon te envio, y yo confio en ella. Que, acaso quieres que te ponga las cosas dificiles?";
 		emotion ET_QUESTION;
 		next;
 		mes "[" + .@player_name$ + "]";
-		mes "No. Gracias por giving it to me.";
+		mes "No. Gracias por darmelo.";
 		next;
-		mes "- He received the juice mix package from the Cactus girl. -";
+		mes "- Recibi el paquete de mezcla de jugo de la chica Cactus. -";
 		getitem 25246,1;// Juice_Package
 		setquest 16087;// Discovered Cactus Girl
 		completequest 16087;// Discovered Cactus Girl
@@ -2849,19 +2849,19 @@ rockrdg1,305,200,3	script	Cactus Girl#rremef02	4_ENERGY_RED,15,15,{
 		if (countitem(25246) > 4) {
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "Incluso Mrs. Cacturon no think she could get all sincluso packages back.";
-			mes "This deberia ser suficiente. I'd better return to the aldea and report to her.";
+			mes "Ni siquiera Mrs. Cacturon penso que podria recuperar todos los paquetes.";
+			mes "Esto deberia ser suficiente. Mejor vuelvo a la aldea y le informo.";
 			if (checkquest(16078,HUNTING) < 2) {
 				next;
 				mes "[" + .@player_name$ + "]";
-				mes "Oh, right? I tambien need to hunt 30 Coyotes.";
+				mes "Oh, cierto. Tambien necesito cazar 30 Coyotes.";
 			}
 		}
 		close;
 	}
 	mes "[Cactus Girl]";
-	mes "Stranger...";
-	mes "No vengas near me, or else.";
+	mes "Forastero...";
+	mes "No te acerques a mi, o si no...";
 	emotion ET_ANGER;
 	close;
 
@@ -2896,22 +2896,22 @@ rockrdg1,266,219,3	script	Absorbed Coyote#rrem06	COYOTE,4,4,{
 OnTouch:
 	if (isbegin_quest(16078) == 1 && isbegin_quest(16088) == 0 && countitem(25246) < 5) {
 		if (checkweight(1301,3) == 0) {
-			mes "- A coyote has algo in its mouth and es shaking its head, playing with the thing. Pero Soy carrying too much to check what it has in its mouth. I'd better lighten my bag first. -";
+			mes "- Un coyote tiene algo en la boca y esta sacudiendo la cabeza, jugando con eso. Pero estoy cargando demasiado para revisar que tiene. Mejor aligero mi equipaje primero. -";
 			close;
 		}
 		.@player_name$ = strcharinfo(0);
-		mes "- A coyote is so absorbed in playing with algo in its mouth that it no know Soy near. Tal vez it has Mr. Cacturon's juice mix package. -";
+		mes "- Un coyote esta tan absorto jugando con algo en su boca que no sabe que estoy cerca. Tal vez tiene el paquete de mezcla de jugo de Mrs. Cacturon. -";
 		next;
-		mes "- Tal vez Deberia yell and scare it away. What should I yell? -";
+		mes "- Tal vez deberia gritar y asustarlo. Que deberia gritar? -";
 		input .@string$;
 		next;
 		mes "[" + .@player_name$ + "]";
-		mes "*Inhale deeply* " + .@string$ + "!";
+		mes "*Inhala profundo* " + .@string$ + "!";
 		next;
 		mes "[Absorbed Coyote]";
 		mes "YIP!";
 		next;
-		mes "- Startled, the coyote scuttled backward. I moved close to check what it dropped. Es un juice mix package! -";
+		mes "- Asustado, el coyote retrocedio corriendo. Me acerque a revisar lo que solto. Es un paquete de mezcla de jugo! -";
 		getitem 25246,1;// Juice_Package
 		setquest 16088;// Discovered Coyote
 		completequest 16088;// Discovered Coyote
@@ -2919,12 +2919,12 @@ OnTouch:
 		if (countitem(25246) > 4) {
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "Incluso Mrs. Cacturon no think she could get all sincluso packages back.";
-			mes "This deberia ser suficiente. I'd better return to the aldea and report to her.";
+			mes "Ni siquiera Mrs. Cacturon penso que podria recuperar todos los paquetes.";
+			mes "Esto deberia ser suficiente. Mejor vuelvo a la aldea y le informo.";
 			if (checkquest(16078,HUNTING) < 2) {
 				next;
 				mes "[" + .@player_name$ + "]";
-				mes "Oh, right? I tambien need to hunt 30 Coyotes.";
+				mes "Oh, cierto. Tambien necesito cazar 30 Coyotes.";
 			}
 		}
 		close;
@@ -2936,154 +2936,154 @@ OnTouch:
 rockrdg1,262,90,7	script	Crouched Horse#rr	4_M_CACTUSMAN1,{
 	mes "[Crouched Horse]";
 	mes "Hola.";
-	mes "May the sun and earth";
-	mes "bless you.";
+	mes "Que el sol y la tierra";
+	mes "te bendigan.";
 	next;
 	mes "[Crouched Horse]";
 	if (rock_main_quest < 22) {
-		mes "Eres one of those extranors from a far land.";
+		mes "Eres uno de esos forasteros de una tierra lejana.";
 		mes "Soy Crouched Horse,";
-		mes "a brave guerrero of the Cacti.";
+		mes "un valiente guerrero de los Cacti.";
 		next;
 		mes "[Crouched Horse]";
-		mes "Not todo in your aldea";
-		mes "has settled.";
-		mes "Hay un time for todo.";
-		mes "Go back and";
-		mes "help your aldea get settled first.";
+		mes "No todo en tu aldea";
+		mes "se ha establecido.";
+		mes "Hay un tiempo para todo.";
+		mes "Vuelve y";
+		mes "ayuda a tu aldea a establecerse primero.";
 		close;
 	}
 	switch( checkquest(9461,PLAYTIME) ) {
 	case -1:
 		.@player_name$ = strcharinfo(0);
 		if (isbegin_quest(9460) == 0) {// first time
-			mes "Eres one of those extranors from a far land.";
+			mes "Eres uno de esos forasteros de una tierra lejana.";
 			mes "Soy Crouched Horse,";
-			mes "a brave guerrero of the Cacti.";
+			mes "un valiente guerrero de los Cacti.";
 			next;
 			mes "[Crouched Horse]";
-			mes "Has resolved";
-			mes "one of the greatest challenges your aldea faced.";
-			mes "I applaud you for your bravery and wisdom.";
+			mes "Has resuelto";
+			mes "uno de los mayores desafios que enfrento tu aldea.";
+			mes "Te aplaudo por tu valentia y sabiduria.";
 			next;
 			mes "[Crouched Horse]";
-			mes "If eres not busy,";
-			mes "could you tambien help my aldea?";
+			mes "Si no estas ocupado,";
+			mes "podrias tambien ayudar a mi aldea?";
 			mes "No es dificil.";
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "- What can I do for you?";
+			mes "- Que puedo hacer por ti?";
 			next;
 			mes "[Crouched Horse]";
 			mes "Este lugar";
-			mes "ha estado";
-			mes "our home";
-			mes "for many,";
-			mes "many generations.";
+			mes "ha sido";
+			mes "nuestro hogar";
+			mes "por muchas,";
+			mes "muchas generaciones.";
 			next;
 			mes "[Crouched Horse]";
-			mes "Y for mucho tiempo,";
-			mes "we lived in harmony with nature.";
-			mes "Entonces a few years ago";
-			mes "you came from a far land.";
-			mes "Your way of life";
-			mes "was diferente from ours.";
+			mes "Y por mucho tiempo,";
+			mes "vivimos en armonia con la naturaleza.";
+			mes "Entonces hace unos anos";
+			mes "ustedes vinieron de una tierra lejana.";
+			mes "Su forma de vida";
+			mes "era diferente a la nuestra.";
 			next;
 			mes "[Crouched Horse]";
-			mes "We repay Nature";
-			mes "for her gifts,";
-			mes "and we no take";
-			mes "mas que necesitamos.";
+			mes "Le devolvemos a la Naturaleza";
+			mes "por sus regalos,";
+			mes "y no tomamos";
+			mes "mas de lo que necesitamos.";
 			next;
 			mes "[Crouched Horse]";
-			mes "Pero you do.";
-			mes "You liked to";
-			mes "take more things";
-			mes "than what necesitas.";
+			mes "Pero ustedes si.";
+			mes "Les gustaba";
+			mes "tomar mas cosas";
+			mes "de las que necesitan.";
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "- Porque we're greedy,";
-			mes "- and Soy unshamed of it.";
+			mes "- Porque somos codiciosos,";
+			mes "- y no me avergueenzo de ello.";
 			next;
 			mes "[Crouched Horse]";
-			mes "No soy trying to blame you.";
-			mes "Solo es that";
-			mes "you take tanto";
-			mes "that there's";
-			mes "nada left";
-			mes "for us.";
+			mes "No estoy tratando de culparte.";
+			mes "Solo es que";
+			mes "toman tanto";
+			mes "que no queda";
+			mes "nada";
+			mes "para nosotros.";
 			next;
 			mes "[" + .@player_name$ + "]";
-			mes "- What do necesitas?";
-			mes "- Como puedo help?";
+			mes "- Que necesitas?";
+			mes "- Como puedo ayudar?";
 			next;
 			mes "[Crouched Horse]";
-			mes "Si find purple ore fragments";
-			mes "while exploring this land,";
-			mes "Me gustaria you to";
-			mes "bring them to me.";
+			mes "Si encuentras fragmentos de mineral morado";
+			mes "mientras exploras esta tierra,";
+			mes "me gustaria que";
+			mes "me los trajeras.";
 			next;
 			mes "[Crouched Horse]";
-			mes "Since you opened the mine,";
-			mes "we've been having a hard time";
-			mes "finding the ores.";
-			mes "Say, can you do that?";
+			mes "Desde que abrieron la mina,";
+			mes "hemos tenido dificultades";
+			mes "para encontrar los minerales.";
+			mes "Dime, puedes hacer eso?";
 			next;
-			if (select( "Mm, not now.", "Sure thing. Estare right back." ) == 1) {
+			if (select( "Mm, ahora no.", "Claro. Ya vuelvo." ) == 1) {
 				mes "[Crouched Horse]";
-				mes "Oh, I see.";
+				mes "Oh, ya veo.";
 				mes "Hm... Entiendo.";
-				mes "Puedes regresa when eres not busy.";
+				mes "Puedes volver cuando no estes ocupado.";
 				close;
 			}
 			mes "[Crouched Horse]";
 			mes "Oh, gracias!";
-			mes "Puedes find";
-			mes "purple ore fragments";
-			mes "while hunting in this area.";
-			mes "Solo bring me 10. Eso es all Necesito.";
+			mes "Puedes encontrar";
+			mes "fragmentos de mineral morado";
+			mes "mientras cazas en esta area.";
+			mes "Solo traeme 10. Eso es todo lo que necesito.";
 			next;
 			mes "[Crouched Horse]";
 			mes "Gracias.";
-			mes "May the sun and earth bless you!";
+			mes "Que el sol y la tierra te bendigan!";
 			setquest 9460;// Collecting Ore Fragments
 			close;
 		}
-		mes "Ah, eres back.";
-		mes "Encontraste the ore fragments Pregunte?";
+		mes "Ah, volviste.";
+		mes "Encontraste los fragmentos de mineral que pedi?";
 		next;
 		if (countitem(25260) < 10) {
 			mes "[Crouched Horse]";
-			mes "Hm, you no tengo";
-			mes "all of them.";
-			mes "Puedes find them";
-			mes "from coyotes";
-			mes "and the Bandidos Buffalo.";
+			mes "Hm, no los tienes";
+			mes "todos.";
+			mes "Puedes encontrarlos";
+			mes "de los coyotes";
+			mes "y los Bandidos Buffalo.";
 			close;
 		}
 		mes "[" + .@player_name$ + "]";
-		mes "- Yes, I did.";
+		mes "- Si, asi es.";
 		next;
 		mes "[Crouched Horse]";
-		mes "No feel good about";
-		mes "having to sacrifice";
-		mes "others";
-		mes "for my own sake.";
-		mes "Gracias por doing this for me.";
+		mes "No me siento bien";
+		mes "de tener que sacrificar";
+		mes "a otros";
+		mes "por mi propio bien.";
+		mes "Gracias por hacer esto por mi.";
 		next;
 		mes "[Crouched Horse]";
-		mes "Por favor toma this small token of my appreciation.";
-		mes "He received it from your aldea,";
-		mes "and No necesito it.";
+		mes "Por favor acepta esta pequena muestra de mi agradecimiento.";
+		mes "La recibi de tu aldea,";
+		mes "y no la necesito.";
 		.@count = countitem(25260);
 		if (.@count > 10) {
 			next;
 			mes "[Crouched Horse]";
-			mes "Hm, you've brought";
-			mes "mas que";
-			mes "Pregunte.";
-			mes "Se que tu mean well,";
-			mes "but No necesito tantos.";
+			mes "Hm, has traido";
+			mes "mas de lo que";
+			mes "pedi.";
+			mes "Se que tienes buenas intenciones,";
+			mes "pero no necesito tantos.";
 		}
 		delitem 25260, .@count;// Violet_Stone_Chip
 		erasequest 9460;// Collecting Ore Fragments
@@ -3093,36 +3093,36 @@ rockrdg1,262,90,7	script	Crouched Horse#rr	4_M_CACTUSMAN1,{
 		if (.@count > 10) {
 			next;
 			mes "[Crouched Horse]";
-			mes "Luego time,";
-			mes "por favor solo bring";
-			mes "as many as I ask.";
-			mes "Pero thanks.";
+			mes "La proxima vez,";
+			mes "por favor solo trae";
+			mes "los que te pida.";
+			mes "Pero gracias.";
 		}
 		close;
 	case 0:
 	case 1:
 		mes "Por ahora,";
-		mes "No necesito more ores.";
-		mes "Pero Voy a";
-		mes "when the sun comes up manana.";
+		mes "no necesito mas minerales.";
+		mes "Pero los necesitare";
+		mes "cuando salga el sol manana.";
 		close;
 	case 2:
-		mes "Ah, es you.";
-		mes "Soy running out of";
-		mes "the ores.";
-		mes "Say, could you";
-		mes "help me de nuevo?";
+		mes "Ah, eres tu.";
+		mes "Se me estan acabando";
+		mes "los minerales.";
+		mes "Dime, podrias";
+		mes "ayudarme de nuevo?";
 		next;
-		if (select( "Not this time.", "Sure thing. It'd be my pleasure." ) == 1) {
+		if (select( "Esta vez no.", "Claro. Sera un placer." ) == 1) {
 			mes "[Crouched Horse]";
-			mes "Oh, I see.";
+			mes "Oh, ya veo.";
 			mes "Hm... Entiendo.";
-			mes "Feel free to regresa si change your mind.";
+			mes "Sientete libre de volver si cambias de opinion.";
 			close;
 		}
 		mes "[Crouched Horse]";
 		mes "Oh, gracias!";
-		mes "Eres uns reliable as I thought.";
+		mes "Eres tan confiable como pense.";
 		erasequest 9461;// Enough Ores
 		setquest 9460;// Collecting Ore Fragments
 		close;
@@ -3133,11 +3133,11 @@ rockrdg1,262,90,7	script	Crouched Horse#rr	4_M_CACTUSMAN1,{
 harboro1,231,254,3	script	Exotic Merchant	1_M_MERCHANT,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "Soy carrying too many types of items. Deberia lighten my bag first.";
+		mes "Estoy cargando demasiados tipos de objetos. Deberia aligerar mi equipaje primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "Soy overweight. I'd better lighten my bag first.";
+		mes "Estoy con sobrepeso. Mejor aligero mi equipaje primero.";
 		close;
 	}
 	switch( checkquest(12411,PLAYTIME) ) {
@@ -3146,7 +3146,7 @@ harboro1,231,254,3	script	Exotic Merchant	1_M_MERCHANT,{
 	case 0:
 	case 1:
 		mes "[Exotic Merchant]";
-		mes "Oh, I close hoy. Come back manana.";
+		mes "Oh, hoy cierro. Vuelve manana.";
 		close;
 	case 2:
 		erasequest 12411;// Come Back Tomorrow
@@ -3155,39 +3155,39 @@ harboro1,231,254,3	script	Exotic Merchant	1_M_MERCHANT,{
 	if (isbegin_quest(12410) == 0) {
 		mes "[Exotic Merchant]";
 		mes "Mucho gusto.";
-		mes "Soy Abraham Iven Hudin. Soy originalmente from diferente country.";
+		mes "Soy Abraham Iven Hudin. Soy originalmente de un pais diferente.";
 		next;
 		mes "[Exotic Merchant]";
-		mes "Entonces tienes things that Podria have interest in on buying?";
+		mes "Entonces, tienes cosas que podrian interesarme para comprar?";
 		next;
-		if (select( "What kinds of things?", "No soy selling algo!" ) == 2) {
+		if (select( "Que tipo de cosas?", "No estoy vendiendo nada!" ) == 2) {
 			mes "[Exotic Merchant]";
-			mes "Quiena, whoa! Aventurero is violent. I not do business with barbarians.";
+			mes "Eh, hey! El aventurero es violento. No hago negocios con barbaros.";
 			close;
 		}
 		mes "[Exotic Merchant]";
-		mes "I travels the world and bought valuable things. Esta vez I collecting specialty products of this new continent.";
+		mes "Yo viaja por el mundo y compra cosas valiosas. Esta vez estoy coleccionando productos especiales de este nuevo continente.";
 		next;
-		select("(I can barely understand his English.)");
+		select("(Apenas puedo entender lo que dice.)");
 		mes "[Exotic Merchant]";
-		mes "Mm? What have you said?";
+		mes "Mm? Que has dicho?";
 		next;
-		if (select( "Nada. Continua.", "Dije I no puedo understand what eres saying." ) == 2) {
+		if (select( "Nada. Continua.", "Dije que no puedo entender lo que dices." ) == 2) {
 			mes "[Exotic Merchant]";
-			mes "Adventurer have a cold heart!";
+			mes "Aventurero tener corazon frio!";
 			close;
 		}
 		mes "[Exotic Merchant]";
-		mes "De todos modos, I looking for things that can solo find in this place. Si found them, gimme them.";
+		mes "De todos modos, yo buscar cosas que solo encontrar en este lugar. Si encontrar, darmelas.";
 		next;
 		mes "[Exotic Merchant]";
-		mes "Voy a pay you good. You bienvenidos all the time.";
+		mes "Yo pagar bien. Tu bienvenido siempre.";
 		setquest 12410;
 		completequest 12410;
 		close;
 	}
 	mes "[Exotic Merchant]";
-	mes "What have you brought my hoy?";
+	mes "Que me has traido hoy?";
 	next;
 	setarray .@item_id[0],
 		25276,	// Clean Bones
@@ -3204,20 +3204,20 @@ harboro1,231,254,3	script	Exotic Merchant	1_M_MERCHANT,{
 	for ( .@i = 0; .@i < .@size; .@i++ ) {
 		.@item_name$ = getitemname(.@item_id[.@i]);
 		if (countitem(.@item_id[.@i]) < 5)
-			.@menu$ += "^777777Not enough " + .@item_name$ + "^000000:";
+			.@menu$ += "^777777No suficiente " + .@item_name$ + "^000000:";
 		else
 			.@menu$ += "" + .@item_name$ + ":";
 	}
 
-	.@s = select( "Cancel:" + .@menu$ ) - 2;
+	.@s = select( "Cancelar:" + .@menu$ ) - 2;
 	if (.@s == -1) {
 		mes "[Exotic Merchant]";
-		mes "Mm, do quieres your things back?";
+		mes "Mm, quieres tus cosas de vuelta?";
 		close;
 	}
 	if (countitem(.@item_id[.@s]) < 5) {
 		mes "[Exotic Merchant]";
-		mes "Mm? Donde estan losy? The things you said will dame.";
+		mes "Mm? Donde estan? Las cosas que dijiste que me darias.";
 		close;
 	}
 	delitem .@item_id[.@s],5;
@@ -3225,85 +3225,85 @@ harboro1,231,254,3	script	Exotic Merchant	1_M_MERCHANT,{
 	getexp 20000,18000;
 	setquest 12411;// Come Back Tomorrow
 	mes "[Exotic Merchant]";
-	mes "It good business. These I no vi anywhere else. I like them very much!";
+	mes "Ser buen negocio. Esto yo no ver en ningun otro lugar. Me gustar mucho!";
 	close;
 }
 
 harboro1,357,163,3	script	Food Distributer	4_COOK,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "Soy carrying too many types of items. Deberia lighten my bag first.";
+		mes "Estoy cargando demasiados tipos de objetos. Deberia aligerar mi equipaje primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "Soy overweight. I'd better lighten my bag first.";
+		mes "Estoy con sobrepeso. Mejor aligero mi equipaje primero.";
 		close;
 	}
 	if (BaseLevel < 100) {
 		mes "[Food Distributer]";
-		mes "What? No tengo suficiente food for you!";
+		mes "Que? No tengo suficiente comida para ti!";
 		close;
 	}
 	if (isbegin_quest(12381) == 0) {// first time
 		mes "[Food Distributer]";
-		mes "Hey, no you see the line over there? No me importa who eres? go stand in line if quieres to eat.";
+		mes "Oye, no ves la fila alla? No me importa quien seas, ve a formarte si quieres comer.";
 		next;
-		if (select( "No soy here to eat.", "Voy a stand in line." ) == 2) {
+		if (select( "No estoy aqui para comer.", "Voy a formarme." ) == 2) {
 			mes "[Food Distributer]";
-			mes "*Snort* You'd better.";
+			mes "*Bufido* Mas te vale.";
 			close;
 		}
 		mes "[Food Distributer]";
-		mes "No eres here to eat. Err, is that...? Ah, my apologies.";
+		mes "No estas aqui para comer. Err, eso es...? Ah, mis disculpas.";
 		next;
 		mes "[Food Distributer]";
-		mes "Wait, then why are you bothering me? Can't you see Soy upset debido a the missing shipment?";
+		mes "Espera, entonces por que me molestas? No ves que estoy molesto por el envio perdido?";
 		next;
-		if (select( "What missing shipment?", "Eso es your business." ) == 2) {
+		if (select( "Que envio perdido?", "Ese es tu problema." ) == 2) {
 			mes "[Food Distributer]";
-			mes "Grr, eres a jerk. No tengo time for this. Get out of here!";
+			mes "Grr, eres un idiota. No tengo tiempo para esto. Largate de aqui!";
 			close;
 		}
 		mes "[Food Distributer]";
-		mes "Look at that. Those gente he estado waiting for their food for hours. Como puedo tell them that No tengo suficiente ingredients to cook for them?";
+		mes "Mira eso. Esa gente ha estado esperando su comida por horas. Como les digo que no tengo suficientes ingredientes para cocinarles?";
 		next;
 		mes "[Food Distributer]";
-		mes "The food ingredients that were se supone que come from Midgard no arrive, and I no puedo keep these gente waiting.";
+		mes "Los ingredientes de comida que se suponia que vendrian de Midgard no llegaron, y no puedo tener a esta gente esperando.";
 		next;
-		if (select( "Por que no you procure some ingredients from the afuera?", "Lo siento to hear that. Buena suerte." ) == 2) {
+		if (select( "Por que no consigues ingredientes de afuera?", "Lamento escuchar eso. Buena suerte." ) == 2) {
 			mes "[Food Distributer]";
-			mes "Grr, eres a jerk. No tengo time for this. Get out of here!";
+			mes "Grr, eres un idiota. No tengo tiempo para esto. Largate de aqui!";
 			close;
 		}
 		mes "[Food Distributer]";
-		mes "I thought about it. Estaba desperate suficiente to try algo.";
+		mes "Lo pense. Estaba lo suficientemente desesperado como para intentar algo.";
 		next;
 		mes "[Food Distributer]";
-		mes "Pero hay solo sand and rocks out there, and nada edible. I no puedo creer I thought Podria run a kitchen in a place like this.";
+		mes "Pero solo hay arena y rocas alla afuera, y nada comestible. No puedo creer que pense que podria manejar una cocina en un lugar como este.";
 		next;
 		mes "[Hungry Laborer]";
-		mes "^990000Wait, did you solo say tienes no ingredients? You ran out of them?^000000";
-		npctalk "Hungry Laborer: Wait, did you solo say tienes no ingredients? You ran out of food?", "Hungry Laborer#12";
+		mes "^990000Espera, acabas de decir que no tienes ingredientes? Se te acabaron?^000000";
+		npctalk "Hungry Laborer: Espera, acabas de decir que no tienes ingredientes? Se te acabo la comida?", "Hungry Laborer#12";
 		next;
 		mes "[Food Distributer]";
-		mes "^990000No, I no dije that! Solo es taking un poco longer to cook hoy. Stop panicking!^000000";
-		npctalk "Food Distributer: No, I no dije that! Solo es taking un poco longer to cook hoy. Stop panicking!";
+		mes "^990000No, no dije eso! Solo esta tomando un poco mas de tiempo cocinar hoy. Dejen de entrar en panico!^000000";
+		npctalk "Food Distributer: No, no dije eso! Solo esta tomando un poco mas de tiempo cocinar hoy. Dejen de entrar en panico!";
 		next;
-		if (select( "Puedo help.", "Buena suerte." ) == 2) {
+		if (select( "Puedo ayudar.", "Buena suerte." ) == 2) {
 			mes "[Food Distributer]";
-			mes "Grr, eres a jerk. No tengo time for this. Get out of here!";
+			mes "Grr, eres un idiota. No tengo tiempo para esto. Largate de aqui!";
 			close;
 		}
 		mes "[Food Distributer]";
-		mes "Puedes help. Como?";
+		mes "Puedes ayudar. Como?";
 		next;
-		select( "Necesitas food ingredients, no you?", "That depends on you." );
+		select( "Necesitas ingredientes de comida, no?", "Eso depende de ti." );
 		mes "[Food Distributer]";
-		mes "De acuerdo, then vamos a do this. Voy a jot down todo Necesito. Puedes bring them from Midgard?";
+		mes "De acuerdo, entonces hagamos esto. Voy a anotar todo lo que necesito. Puedes traerlos de Midgard?";
 		next;
-		select( "Sure thing.", "It'd be a waste of my time if I say no now." );
+		select( "Claro que si.", "Seria una perdida de tiempo si digo que no ahora." );
 		mes "[Food Distributer]";
-		mes "Good! Hemos made a deal. Necesito algo de time to take inventory. Talk to me de nuevo later.";
+		mes "Bien! Hemos hecho un trato. Necesito algo de tiempo para hacer inventario. Habla conmigo de nuevo mas tarde.";
 		setquest 12381;// New Continent's Food Supplier
 		completequest 12381;
 		close;
@@ -3314,7 +3314,7 @@ harboro1,357,163,3	script	Food Distributer	4_COOK,{
 	case 0:
 	case 1:
 		mes "[Food Distributer]";
-		mes "This deberia ser suficiente for the day hoy.";
+		mes "Esto deberia ser suficiente por el dia de hoy.";
 		close;
 	case 2:
 		erasequest 12382;
@@ -3333,67 +3333,67 @@ harboro1,357,163,3	script	Food Distributer	4_COOK,{
 		break;
 	}
 	mes "[Food Distributer]";
-	mes "Aww, here's the list of ingredients Necesito. Bring them quickly, will you?";
+	mes "Bien, aqui esta la lista de ingredientes que necesito. Traelos rapido, si?";
 	next;
-	if (select( "Sure thing.", "Perdon, Soy busy." ) == 2) {
+	if (select( "Claro que si.", "Perdon, estoy ocupado." ) == 2) {
 		mes "[Food Distributer]";
-		mes "Oh, come on. Help me out here. People are starving.";
+		mes "Oh, vamos. Ayudame aqui. La gente se muere de hambre.";
 		close;
 	}
 	switch( rand(12383,12388) ) {
 	case 12383:
 		setquest 12383;// Sweet Potato Delivery
 		mes "[Food Distributer]";
-		mes "Sweet potato croquettes are on the menu hoy, and I no puedo make them porque I no get the regular shipment from the mainland.";
+		mes "Las croquetas de camote estan en el menu de hoy, y no puedo hacerlas porque no recibi el envio regular del continente.";
 		next;
 		mes "[Food Distributer]";
-		mes "Bring me 160 " + mesitemlink( 516, false, "Sweet Potatoes" ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme 160 " + mesitemlink( 516, false, "Sweet Potatoes" ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	case 12384:
 		setquest 12384;// Meat Delivery
 		mes "[Food Distributer]";
-		mes "Hay tantos mouths to feed, and yet Tengo no meat? Esto es disaster!";
+		mes "Hay tantas bocas que alimentar, y aun asi no tengo carne? Esto es un desastre!";
 		next;
 		mes "[Food Distributer]";
-		mes "What? Podria siempre feed them veggies, you say? Sure, but all they want is meat.";
+		mes "Que? Siempre podria darles verduras, dices? Claro, pero todo lo que quieren es carne.";
 		next;
 		mes "[Food Distributer]";
-		mes "Bring me 50 " + mesitemlink( 517, false, "Meats" ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme 50 " + mesitemlink( 517, false, "Meats" ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	case 12385:
 		setquest 12385;// Carrot Delivery
 		mes "[Food Distributer]";
-		mes "Has visto the carrots growing in the garden in the back?";
+		mes "Has visto las zanahorias creciendo en el jardin de atras?";
 		next;
 		mes "[Food Distributer]";
-		mes "They're as thin as fingers, and once I almost put my fingers into a stew en lugar de them.";
+		mes "Son tan delgadas como dedos, y una vez casi puse mis dedos en un guiso en lugar de ellas.";
 		next;
 		mes "[Food Distributer]";
-		mes "Bring me 160 " + mesitemlink( 515, false, "Carrots" ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme 160 " + mesitemlink( 515, false, "Carrots" ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	case 12386:
 		setquest 12386;// Banana Delivery
 		mes "[Food Distributer]";
-		mes "I no deberia haber put that banana bread on the menu. Quien knew they no arrive in time?";
+		mes "No deberia haber puesto ese pan de platano en el menu. Quien iba a saber que no llegarian a tiempo?";
 		next;
 		mes "[Food Distributer]";
-		mes "Bring me 160 " + mesitemlink( 513, false, "Bananas" ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme 160 " + mesitemlink( 513, false, "Bananas" ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	case 12387:
 		setquest 12387;// Pumpkin Delivery
 		mes "[Food Distributer]";
-		mes "Tengo que cook a pumpkin stew, but No tengo pumpkins. Esta es la equivalent of making toast sin bread.";
+		mes "Tengo que cocinar un guiso de calabaza, pero no tengo calabazas. Es el equivalente de hacer tostadas sin pan.";
 		next;
 		mes "[Food Distributer]";
-		mes "Bring me 160 " + mesitemlink( 535, false, "Pumpkins" ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme 160 " + mesitemlink( 535, false, "Pumpkins" ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	case 12388:
 		setquest 12388;// Mushroom Delivery
 		mes "[Food Distributer]";
-		mes "The solo thing Puedo cook with the ingredients Tengo is mushroom soup, but No tengo the main ingredient: mushrooms.";
+		mes "Lo unico que puedo cocinar con los ingredientes que tengo es sopa de hongos, pero no tengo el ingrediente principal: los hongos.";
 		next;
 		mes "[Food Distributer]";
-		mes "Bring me 60 " + mesitemlink( 581, false, "Mushrooms" ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme 60 " + mesitemlink( 581, false, "Mushrooms" ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	}
 	end;
@@ -3403,7 +3403,7 @@ S_Food:
 	.@amount = getarg(2);
 	if (countitem(.@item_id) < .@amount) {
 		mes "[Food Distributer]";
-		mes "Bring me " + .@amount + " " + mesitemlink( .@item_id, false ) + " from Midgard. Puedes buy them from comerciantes in big cities.";
+		mes "Traeme " + .@amount + " " + mesitemlink( .@item_id, false ) + " de Midgard. Puedes comprarlos de comerciantes en ciudades grandes.";
 		close;
 	}
 	delitem .@item_id, .@amount;
@@ -3412,7 +3412,7 @@ S_Food:
 	erasequest getarg(0);
 	setquest 12382;// Distributing Food
 	mes "[Food Distributer]";
-	mes "Whew, gracias. This deberia ser suficiente for the day hoy.";
+	mes "Uf, gracias. Esto deberia ser suficiente por el dia de hoy.";
 	close;
 }
 
@@ -3447,87 +3447,87 @@ OnTouch:
 		end;
 	.@r = rand(1,6);
 	if (.@r == 1)
-		npctalk "Enthusiastic Job Seeker: Estoy listo to work de inmediato. Por que no you hire me?", "Enthusiastic Job Seeker#1";
+		npctalk "Enthusiastic Job Seeker: Estoy listo para trabajar de inmediato. Por que no me contratas?", "Enthusiastic Job Seeker#1";
 	else if (.@r == 2)
-		npctalk "Enthusiastic Job Seeker: I no come here, solo so Podria nap. Give me work!", "Enthusiastic Job Seeker#3";
+		npctalk "Enthusiastic Job Seeker: No vine aqui solo para dormir la siesta. Denme trabajo!", "Enthusiastic Job Seeker#3";
 	else if (.@r == 3)
-		npctalk "Hey, eres in my space. Move away, will you?", "Enthusiastic Job Seeker#5";
+		npctalk "Hey, estas en mi espacio. Muevete, quieres?", "Enthusiastic Job Seeker#5";
 	else if (.@r == 4)
-		npctalk "Enthusiastic Job Seeker: Tu solo get here, fresh off the boat? Stop pacing around?eres getting on my nerves.", "Enthusiastic Job Seeker#7";
+		npctalk "Enthusiastic Job Seeker: Acabas de llegar, recien bajado del barco? Deja de dar vueltas, me estas poniendo nervioso.", "Enthusiastic Job Seeker#7";
 	else if (.@r == 5)
-		npctalk "Enthusiastic Job Seeker: Por que no you accept me? Soy strong suficiente to hunt coyotes out there!", "Enthusiastic Job Seeker#9";
+		npctalk "Enthusiastic Job Seeker: Por que no me aceptan? Soy lo suficientemente fuerte para cazar coyotes alla afuera!", "Enthusiastic Job Seeker#9";
 	else
-		npctalk "Enthusiastic Job Seeker: Join a Buffalo Bandit/Coyote subjugation party. Those who can finish them in 5 minutes are bienvenido.", "Enthusiastic Job Seeker#11";
+		npctalk "Enthusiastic Job Seeker: Unanse a un grupo de sometimiento de Bandidos Buffalo/Coyotes. Los que puedan terminarlos en 5 minutos son bienvenidos.", "Enthusiastic Job Seeker#11";
 	end;
 
 OnEnable:
 	.@r = rand(1,4);
 	if (.@r == 1)
-		npctalk "Enthusiastic Job Seeker: Hey, what about us?!", "Enthusiastic Job Seeker#4";
+		npctalk "Enthusiastic Job Seeker: Hey, y que hay de nosotros?!", "Enthusiastic Job Seeker#4";
 	else if (.@r == 2)
-		npctalk "Enthusiastic Job Seeker: Quiero work, too!", "Enthusiastic Job Seeker#7";
+		npctalk "Enthusiastic Job Seeker: Yo tambien quiero trabajar!", "Enthusiastic Job Seeker#7";
 	else if (.@r == 3)
-		npctalk "Enthusiastic Job Seeker: You no puedo show favoritism!", "Enthusiastic Job Seeker#9";
+		npctalk "Enthusiastic Job Seeker: No puedes mostrar favoritismo!", "Enthusiastic Job Seeker#9";
 	else
-		npctalk "Enthusiastic Job Seeker: Esto es unfair!", "Enthusiastic Job Seeker#2";
+		npctalk "Enthusiastic Job Seeker: Esto es injusto!", "Enthusiastic Job Seeker#2";
 	end;
 }
 
 harboro1,357,155,3	script	Steel Vigilante#1	4_M_MASKMAN,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "Soy carrying too many types of items. Deberia lighten my bag first.";
+		mes "Estoy cargando demasiados tipos de objetos. Deberia aligerar mi equipaje primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "Soy overweight. I'd better lighten my bag first.";
+		mes "Estoy con sobrepeso. Mejor aligero mi equipaje primero.";
 		close;
 	}
 	if (BaseLevel < 100) {
 		mes "[Steel Vigilante]";
-		mes "Perdon, but necesitamos alguien stronger than you.";
+		mes "Perdon, pero necesitamos a alguien mas fuerte que tu.";
 		close;
 	}
 	if (isbegin_quest(12389) == 0) {// first time
 		mes "[Steel Vigilante]";
-		mes "Hey, buddy. Pareces pretty strong. Eres here to work, right?";
+		mes "Hey, amigo. Pareces bastante fuerte. Estas aqui para trabajar, verdad?";
 		next;
-		select("No. Solo soy un tourist.");
+		select("No. Solo soy un turista.");
 		mes "[Steel Vigilante]";
-		mes "Come on, no be so heartless. Estoy intentando strike up a conversation here. Tengo a proposition that you podria ser interested. Que say?";
+		mes "Vamos, no seas tan desalmado. Estoy intentando entablar una conversacion aqui. Tengo una propuesta que podria interesarte. Que dices?";
 		next;
-		if (select( "De acuerdo, let me hear it.", "No, thanks." ) == 2) {
+		if (select( "De acuerdo, te escucho.", "No, gracias." ) == 2) {
 			mes "[Steel Vigilante]";
-			mes "Oh, you no. *Smacks his lips* Como disappointing!";
+			mes "Oh, no quieres. *Chasquea los labios* Que decepcionante!";
 			close;
 		}
 		mes "[Steel Vigilante]";
-		mes "Ah, so eres not as snobbish as I thought.";
+		mes "Ah, entonces no eres tan presumido como pense.";
 		next;
 		mes "[Steel Vigilante]";
-		mes "For Rock Ridge to become a transport hub, the monstruos that live around it have got to go, but we no puedo find the right gente for the job.";
+		mes "Para que Rock Ridge se convierta en un centro de transporte, los monstruos que viven alrededor tienen que irse, pero no podemos encontrar a la gente adecuada para el trabajo.";
 		next;
-		select("Que hay de all these gente?");
+		select("Que hay de toda esta gente?");
 		mes "[Steel Vigilante]";
-		mes "*Snort* These? Yeah, pensamos they were good suficiente until we realized how strong the monstruos out there were.";
-		next;
-		mes "[Steel Vigilante]";
-		mes "None of these guys would regresa alive, let alone earn their keep. Y then we'd have to go out there to collect their remains, which is doubly bad for us.";
+		mes "*Bufido* Estos? Si, pensamos que eran lo suficientemente buenos hasta que nos dimos cuenta de lo fuertes que eran los monstruos alla afuera.";
 		next;
 		mes "[Steel Vigilante]";
-		mes "Entonces Te vi, and you stood out like a wolf among sheep. Eso es, you've passed! Congratulations!";
+		mes "Ninguno de estos tipos regresaria vivo, y mucho menos ganaria su sustento. Y luego tendriamos que ir alla a recoger sus restos, lo cual es doblemente malo para nosotros.";
 		next;
-		select("I nunca said Quieroed to work with you.");
 		mes "[Steel Vigilante]";
-		mes "Ah, come on, no be like that. Help this poor man out here.";
+		mes "Entonces te vi, y destacabas como un lobo entre ovejas. Eso es, pasaste! Felicidades!";
 		next;
-		if (select( "De acuerdo.", "Dejame pensar." ) == 2) {
+		select("Nunca dije que quisiera trabajar contigo.");
+		mes "[Steel Vigilante]";
+		mes "Ah, vamos, no seas asi. Ayuda a este pobre hombre.";
+		next;
+		if (select( "De acuerdo.", "Dejame pensarlo." ) == 2) {
 			mes "[Steel Vigilante]";
-			mes "Okay, okay, Entiendo if eres busy. Pero Soy offering you benefits both of us.";
+			mes "Bueno, bueno, entiendo si estas ocupado. Pero lo que te ofrezco nos beneficia a ambos.";
 			next;
 		}
 		mes "[Steel Vigilante]";
-		mes "Que tal I show you the list of things podrias do for us? If eres interested, regresa later. I promise Voy a pay you generously.";
+		mes "Que tal si te muestro la lista de cosas que podrias hacer por nosotros? Si te interesa, vuelve despues. Prometo que te pagare generosamente.";
 		setquest 12389;// Guardian of Rock Ridge
 		completequest 12389;// Guardian of Rock Ridge
 		close;
@@ -3538,7 +3538,7 @@ harboro1,357,155,3	script	Steel Vigilante#1	4_M_MASKMAN,{
 	case 0:
 	case 1:
 		mes "[Steel Vigilante]";
-		mes "The worst is over. Voy a need your help de nuevo. Save your energy until then, de acuerdo?";
+		mes "Lo peor ya paso. Necesitare tu ayuda de nuevo. Guarda tus energias hasta entonces, de acuerdo?";
 		close;
 	case 2:
 		erasequest 12390;
@@ -3552,73 +3552,73 @@ harboro1,357,155,3	script	Steel Vigilante#1	4_M_MASKMAN,{
 	}
 	else {
 		mes "[Steel Vigilante]";
-		mes "Tu forget what tienes to do? Entonces, Le dire you de nuevo.";
+		mes "Olvidaste lo que tienes que hacer? Entonces, te lo dire de nuevo.";
 		next;
 	}
 	if (checkquest(.@quest_id,HUNTING) < 2) {
 		switch(.@quest_id) {
 		case 12391:// Buffaloes with Rifles
 			mes "[Steel Vigilante]";
-			mes "The biggest threat in the fields around here is the Bandidos Buffalo. They're smart and ruthless, and they no voy a listen to reason.";
+			mes "La mayor amenaza en los campos de por aqui son los Bandidos Buffalo. Son inteligentes y despiadados, y no van a escuchar razones.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Y they've been invading this aldea every so often, as if to test how long we could last.";
+			mes "Y han estado invadiendo esta aldea de vez en cuando, como si probaran cuanto podemos aguantar.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Queremos set an example and keep them in check. Get rid of^0000ff15 Bandidos Buffalo with rifles^000000.";
+			mes "Queremos dar un ejemplo y mantenerlos a raya. Elimina a^0000ff15 Bandidos Buffalo con rifles^000000.";
 			break;
 		case 12392:// Punishing the Red Masks
 			mes "[Steel Vigilante]";
-			mes "The biggest threat in the fields around here is the Bandidos Buffalo. They're smart and ruthless, and they no voy a listen to reason.";
+			mes "La mayor amenaza en los campos de por aqui son los Bandidos Buffalo. Son inteligentes y despiadados, y no van a escuchar razones.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Y they've been invading this aldea every so often, as if to test how long we could last.";
+			mes "Y han estado invadiendo esta aldea de vez en cuando, como si probaran cuanto podemos aguantar.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Queremos set an example and keep them in check. Get rid of^0000ff15 Bandidos Buffalo wearing red masks^000000.";
+			mes "Queremos dar un ejemplo y mantenerlos a raya. Elimina a^0000ff15 Bandidos Buffalo con mascaras rojas^000000.";
 			break;
 		case 12393:// Eye Patch Desperadoes
 			mes "[Steel Vigilante]";
-			mes "The biggest threat in the fields around here is the Bandidos Buffalo. They're smart and ruthless, and they no voy a listen to reason.";
+			mes "La mayor amenaza en los campos de por aqui son los Bandidos Buffalo. Son inteligentes y despiadados, y no van a escuchar razones.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Y they've been invading this aldea every so often, as if to test how long we could last.";
+			mes "Y han estado invadiendo esta aldea de vez en cuando, como si probaran cuanto podemos aguantar.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Queremos set an example and keep them in check. Get rid of^0000ff15 Bandidos Buffalo wearing an eye patch^000000.";
+			mes "Queremos dar un ejemplo y mantenerlos a raya. Elimina a^0000ff15 Bandidos Buffalo con parche en el ojo^000000.";
 			break;
 		case 12394:// Exterminate Gray Four-legged Beasts
 			mes "[Steel Vigilante]";
-			mes "Tu forget what tienes to do? Entonces, Le dire you de nuevo.";
+			mes "Olvidaste lo que tienes que hacer? Entonces, te lo dire de nuevo.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "The Cacti and the members of this aldea are on good terms, and recientemente more coyotes he estado seen along the road that leads to their aldea.";
+			mes "Los Cacti y los miembros de esta aldea se llevan bien, y recientemente se han visto mas coyotes a lo largo del camino que lleva a su aldea.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Coyotes aren't aggressive, but they todavia keep the Cacti from coming in and out of their aldea freely.";
+			mes "Los Coyotes no son agresivos, pero aun asi impiden que los Cacti entren y salgan de su aldea libremente.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Por favor hunt^0000ff20 Coyotes^000000and help our amigos.";
+			mes "Por favor caza^0000ff20 Coyotes^000000y ayuda a nuestros amigos.";
 			break;
 		case 12395:// Exterminate Swamp Arclouzes
 			mes "[Steel Vigilante]";
-			mes "The workers who were sent down to the basement of the aldea went missing one after another, so we investigated. We believe they were killed by monstruos.";
+			mes "Los trabajadores que fueron enviados al sotano de la aldea desaparecieron uno tras otro, asi que investigamos. Creemos que fueron asesinados por monstruos.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Swamp Arclouzes are fast, carnivorous insects living down there, and their number ha estado increasing at such an alarming rate that workers now refuse to go in there to work.";
+			mes "Los Swamp Arclouzes son insectos carnivoros rapidos que viven alla abajo, y su numero ha estado aumentando a un ritmo tan alarmante que los trabajadores ahora se niegan a entrar a trabajar.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "If tienes business down there, por favor exterminate 10^0000ffSwamp Arclouzes^000000.";
+			mes "Si tienes asuntos alla abajo, por favor extermina 10^0000ffSwamp Arclouzes^000000.";
 			break;
 		case 12396:// Exterminate Brown Rats
 			mes "[Steel Vigilante]";
-			mes "The bodies of the workers who went missing in the basement he estado found. Estaban mangled so badly that incluso their families had a hard time recognizing them.";
+			mes "Los cuerpos de los trabajadores que desaparecieron en el sotano fueron encontrados. Estaban tan destrozados que incluso sus familias tuvieron dificultades para reconocerlos.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Creo they were killed by brown rats that thrive in the basement. Rumor has it they incluso attack living gente, and if it holds true, that's serious.";
+			mes "Creo que fueron asesinados por ratas marrones que prosperan en el sotano. Se rumorea que incluso atacan a gente viva, y si es verdad, es serio.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "If tienes business in the basement, por favor exterminate 10^0000ffBrown Rats^000000.";
+			mes "Si tienes asuntos en el sotano, por favor extermina 10^0000ffBrown Rats^000000.";
 			break;
 		}
 		close2;
@@ -3655,30 +3655,30 @@ harboro1,357,155,3	script	Steel Vigilante#1	4_M_MASKMAN,{
 	erasequest .@quest_id;
 	setquest 12390;// Relieved for Now
 	mes "[Steel Vigilante]";
-	mes "Eres unmazing? I no sabia podrias de verdad do this! Gracias!";
+	mes "Eres increible! No sabia que de verdad podias hacer esto! Gracias!";
 	close;
 }
 
 harboro1,357,152,3	script	Steel Vigilante#2	4_M_ACROSS,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "Soy carrying too many types of items. Deberia lighten my bag first.";
+		mes "Estoy cargando demasiados tipos de objetos. Deberia aligerar mi equipaje primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "Soy overweight. I'd better lighten my bag first.";
+		mes "Estoy con sobrepeso. Mejor aligero mi equipaje primero.";
 		close;
 	}
 	if (BaseLevel < 140) {
 		mes "[Steel Vigilante]";
-		mes "Hah hah, gracias for your interest, but we're not desperate suficiente to need help from little kids like you.";
+		mes "Ja ja, gracias por tu interes, pero no estamos tan desesperados como para necesitar ayuda de ninos como tu.";
 		next;
-		mes "^0000ffDebes ser Level 140 or above to receive this quest.^000000";
+		mes "^0000ffDebes ser Nivel 140 o superior para recibir esta mision.^000000";
 		close;
 	}
 	if (isbegin_quest(12389) != 2) {
 		mes "[Steel Vigilante]";
-		mes "Mm? No eres one of us. If necesitas a job, then deberias look elsewhere.";
+		mes "Mm? No eres uno de los nuestros. Si necesitas trabajo, entonces deberias buscar en otro lado.";
 		close;
 	}
 	switch( checkquest(12398,PLAYTIME) ) {
@@ -3687,7 +3687,7 @@ harboro1,357,152,3	script	Steel Vigilante#2	4_M_ACROSS,{
 	case 0:
 	case 1:
 		mes "[Steel Vigilante]";
-		mes "Eres good. I'd love to work with you de nuevo.";
+		mes "Eres bueno. Me encantaria trabajar contigo de nuevo.";
 		close;
 	case 2:
 		erasequest 12398;
@@ -3697,11 +3697,11 @@ harboro1,357,152,3	script	Steel Vigilante#2	4_M_ACROSS,{
 		continue;
 	if (.@quest_id > 12402) {
 		mes "[Steel Vigilante]";
-		mes "Eres pretty strong. Puedes handle algo tough?";
+		mes "Eres bastante fuerte. Puedes manejar algo dificil?";
 		next;
-		if (select( "Sure, why not?", "Dejame pensar." ) == 2) {
+		if (select( "Claro, por que no?", "Dejame pensarlo." ) == 2) {
 			mes "[Steel Vigilante]";
-			mes "De acuerdo, take your time.";
+			mes "De acuerdo, tomate tu tiempo.";
 			close;
 		}
 		.@quest_id = rand(12399,12402);
@@ -3710,62 +3710,62 @@ harboro1,357,152,3	script	Steel Vigilante#2	4_M_ACROSS,{
 	else {
 		.@no_npctalk = true;
 		mes "[Steel Vigilante]";
-		mes "Tu forget what tienes to do? Entonces, Le dire you de nuevo.";
+		mes "Olvidaste lo que tienes que hacer? Entonces, te lo dire de nuevo.";
 		next;
 	}
 	if (checkquest(.@quest_id,HUNTING) < 2) {
 		switch(.@quest_id) {
 		case 12399:// Hunt Heinous Criminals
 			mes "[Steel Vigilante]";
-			mes "Elite Bandidos Buffalo are leaders among the Bandidos Buffalo, and esto es about them.";
+			mes "Los Elite Bandidos Buffalo son lideres entre los Bandidos Buffalo, y esto es sobre ellos.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Has dealt with the buffaloes with rifles before, no he you? Entonces debes have seen those with^0000ffglowing blue eyes^000000.";
+			mes "Has lidiado con los bufalos con rifles antes, verdad? Entonces debes haber visto a los de^0000ffojos azules brillantes^000000.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "They're the middle-ranking officers of rifle buffaloes. Quiero que get rid of 10^0000ffrifle Bandidos Buffalo with glowing blue eyes^000000.";
+			mes "Son los oficiales de rango medio de los bufalos con rifles. Quiero que elimines a 10^0000ffBandidos Buffalo con rifles de ojos azules brillantes^000000.";
 			close2;
 			if (!.@no_npctalk)
-				npctalk "Enthusiastic Job Seeker: Hunting rifle buffaloes? Por favor let me join you.", "Enthusiastic Job Seeker#11";
+				npctalk "Enthusiastic Job Seeker: Cazar bufalos con rifles? Por favor dejame unirme.", "Enthusiastic Job Seeker#11";
 			end;
 		case 12400:// Hunt Heinous Criminals
 			mes "[Steel Vigilante]";
-			mes "Elite Bandidos Buffalo are leaders among the Bandidos Buffalo, and esto es about them.";
+			mes "Los Elite Bandidos Buffalo son lideres entre los Bandidos Buffalo, y esto es sobre ellos.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Has dealt with the masked buffaloes before, no he you? Entonces debes have seen those wearing^0000ffgreen masks^000000.";
+			mes "Has lidiado con los bufalos enmascarados antes, verdad? Entonces debes haber visto a los que usan^0000ffmascaras verdes^000000.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "They're the middle-ranking officers of masked buffaloes. Quiero que get rid of 10^0000ffBandidos Buffalo wearing green masks^000000.";
+			mes "Son los oficiales de rango medio de los bufalos enmascarados. Quiero que elimines a 10^0000ffBandidos Buffalo con mascaras verdes^000000.";
 			close2;
 			if (!.@no_npctalk)
-				npctalk "Enthusiastic Job Seeker: Hunting masked buffaloes? Por favor let me join you.", "Enthusiastic Job Seeker#11";
+				npctalk "Enthusiastic Job Seeker: Cazar bufalos enmascarados? Por favor dejame unirme.", "Enthusiastic Job Seeker#11";
 			end;
 		case 12401:// Hunt Heinous Criminals
 			mes "[Steel Vigilante]";
-			mes "Elite Bandidos Buffalo are leaders among the Bandidos Buffalo, and esto es about them.";
+			mes "Los Elite Bandidos Buffalo son lideres entre los Bandidos Buffalo, y esto es sobre ellos.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Has dealt with the buffaloes with an eye patch before, no he you? Entonces debes have seen those wearing^0000ffpale green vests^000000.";
+			mes "Has lidiado con los bufalos con parche en el ojo antes, verdad? Entonces debes haber visto a los que usan^0000ffchalecos verde palido^000000.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "They're the middle-ranking officers of sword buffaloes. Quiero que get rid of 10^0000ffBandidos Buffalo wearing an eye patch and a pale green vest^000000.";
+			mes "Son los oficiales de rango medio de los bufalos espadachines. Quiero que elimines a 10^0000ffBandidos Buffalo con parche en el ojo y chaleco verde palido^000000.";
 			close2;
 			if (!.@no_npctalk)
-				npctalk "Enthusiastic Job Seeker: Hunting eye patch buffaloes? Por favor let me join you.", "Enthusiastic Job Seeker#11";
+				npctalk "Enthusiastic Job Seeker: Cazar bufalos con parche? Por favor dejame unirme.", "Enthusiastic Job Seeker#11";
 			end;
 		case 12402:// Eliminate Dangerous Gas
 			mes "[Steel Vigilante]";
-			mes "Some miners have reported to us about gas-like monstruos that spread a neurotoxin.";
+			mes "Algunos mineros nos han reportado sobre monstruos gaseosos que esparcen una neurotoxina.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "They're purple monstruos named Gasters. Ellos no attack unless they're provoked, but they todavia pose a threat.";
+			mes "Son monstruos morados llamados Gasters. No atacan a menos que los provoquen, pero aun asi representan una amenaza.";
 			next;
 			mes "[Steel Vigilante]";
-			mes "Por favor hunt 10^0000ffGasters^000000in the mine afuera the aldea.";
+			mes "Por favor caza 10^0000ffGasters^000000en la mina afuera de la aldea.";
 			close2;
 			if (!.@no_npctalk)
-				npctalk "Enthusiastic Job Seeker: Hunting Gasters? Por favor let me join you.", "Enthusiastic Job Seeker#11";
+				npctalk "Enthusiastic Job Seeker: Cazar Gasters? Por favor dejame unirme.", "Enthusiastic Job Seeker#11";
 			end;
 		}
 	}
@@ -3816,67 +3816,67 @@ OnTouch:
 		end;
 	.@r = rand(1,6);
 	if (.@r == 1)
-		npctalk "Scared Artificer: The place down here isn't safe to be.", "Scared Artificer#2";
+		npctalk "Scared Artificer: El lugar de abajo no es seguro.", "Scared Artificer#2";
 	else if (.@r == 2)
-		npctalk "Scared Artificer: Unless they promise me worker's compensation, Soy out!", "Scared Artificer#4";
+		npctalk "Scared Artificer: A menos que me prometan compensacion laboral, me voy!", "Scared Artificer#4";
 	else if (.@r == 3)
-		npctalk "Scared Artificer: Nunca he seen bugs so big before. I no puedo work here anymore.", "Scared Artificer#6";
+		npctalk "Scared Artificer: Nunca habia visto bichos tan grandes. Ya no puedo trabajar aqui.", "Scared Artificer#6";
 	else if (.@r == 4)
-		npctalk "Scared Artificer: A swarm of bugs crawled up and over my colleagues on the ground to get at me, and Estaba too scared to do algo. Por que no alguien dime about them?", "Scared Artificer#8";
+		npctalk "Scared Artificer: Un enjambre de bichos trepo sobre mis colegas en el suelo para llegar a mi, y estaba demasiado asustado para hacer algo. Por que nadie me dijo sobre ellos?", "Scared Artificer#8";
 	else if (.@r == 5)
-		npctalk "Scared Artificer: If quieres us to work for you, then make the workplace safe first!", "Scared Artificer#10";
+		npctalk "Scared Artificer: Si quieres que trabajemos para ti, entonces haz que el lugar de trabajo sea seguro primero!", "Scared Artificer#10";
 	else
-		npctalk "Scared Artificer: You no he estado down there, have you? Eres lucky.", "Scared Artificer#12";
+		npctalk "Scared Artificer: No has estado alla abajo, verdad? Tienes suerte.", "Scared Artificer#12";
 	end;
 
 OnEnable:
 	.@r = rand(1,4);
 	if (.@r == 1)
-		npctalk "Scared Artificer: The place down hay beyond saving! No es too late to stop now!", "Scared Artificer#7";
+		npctalk "Scared Artificer: El lugar de abajo no tiene salvacion! No es tarde para detenerse ahora!", "Scared Artificer#7";
 	else if (.@r == 2)
-		npctalk "Scared Artificer: Eres too young to die.", "Scared Artificer#5";
+		npctalk "Scared Artificer: Eres muy joven para morir.", "Scared Artificer#5";
 	else if (.@r == 3)
-		npctalk "Scared Artificer: You'd better think this over. Es peligroso down there.", "Scared Artificer#3";
+		npctalk "Scared Artificer: Mejor piensalo bien. Es peligroso alla abajo.", "Scared Artificer#3";
 	else
-		npctalk "Scared Artificer: Hey, your life is more importante than money.", "Scared Artificer#1";
+		npctalk "Scared Artificer: Hey, tu vida es mas importante que el dinero.", "Scared Artificer#1";
 	end;
 }
 
 harboro1,334,135,6	script	Desalination Facility Manager	4_M_YURI,{
 	disable_items;
 	if (checkweight(1201,1) == 0) {
-		mes "Soy carrying too many types of items. Deberia lighten my bag first.";
+		mes "Estoy cargando demasiados tipos de objetos. Deberia aligerar mi equipaje primero.";
 		close;
 	}
 	if ((MaxWeight - Weight) < 10000) {
-		mes "Soy overweight. I'd better lighten my bag first.";
+		mes "Estoy con sobrepeso. Mejor aligero mi equipaje primero.";
 		close;
 	}
 	if (BaseLevel < 100) {
 		mes "[Desalination Facility Manager]";
-		mes "Que estas haciendo here? No eres good suficiente to earn your keep. Out!";
+		mes "Que haces aqui? No eres lo suficientemente bueno para ganarte el sustento. Fuera!";
 		close;
 	}
 	if (isbegin_quest(12403) == 0) {// first time
 		mes "[Desalination Facility Manager]";
-		mes "My office is filled with thieves. Todos expects to be paid? Without doing their job!";
+		mes "Mi oficina esta llena de ladrones. Todos esperan que se les pague? Sin hacer su trabajo!";
 		next;
 		select("...?");
 		mes "[Desalination Facility Manager]";
-		mes "Y you. Cuanto were you va a ask me for? Solo so sabes, we no allow payroll advances.";
+		mes "Y tu. Cuanto me ibas a pedir? Solo para que sepas, no permitimos adelantos de nomina.";
 		next;
-		if (select( "Solo soy un passersby.", "Quiero 100 million Zeny in advance." ) == 2) {
+		if (select( "Solo soy un transeante.", "Quiero 100 millones de Zeny por adelantado." ) == 2) {
 			mes "[Desalination Facility Manager]";
 			mes "...";
 			next;
 			mes "[Desalination Facility Manager]";
-			mes "Eres out of your mind.";
+			mes "Estas loco.";
 			close;
 		}
 		mes "[Desalination Facility Manager]";
-		mes "Mm? Pero you look too strong to be a simple passersby.";
+		mes "Mm? Pero te ves demasiado fuerte para ser un simple transeante.";
 		next;
-		select("Bueno, No tengo ningun business here. Deberia go.");
+		select("Bueno, no tengo nada que hacer aqui. Deberia irme.");
 		mes "[Desalination Facility Manager]";
 		mes "WAIT!";
 		next;
@@ -3884,71 +3884,71 @@ harboro1,334,135,6	script	Desalination Facility Manager	4_M_YURI,{
 		mes "Espera. Si.";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Hey, Jamie! Cuantos more workers did you say necesitamos in the culvert?";
-		npctalk "Job Agency Owner: Hey, Jamie! Cuantos more workers did you say necesitamos in the culvert?";
+		mes "Hey, Jamie! Cuantos trabajadores mas dijiste que necesitamos en la alcantarilla?";
+		npctalk "Job Agency Owner: Hey, Jamie! Cuantos trabajadores mas dijiste que necesitamos en la alcantarilla?";
 		next;
 		mes "[Jamie]";
-		mes "^000077Since 2 more disappeared ayer, 15. Nadie wants to go down there.^000000";
-		npctalk "Jamie: Since two more disappeared ayer, 15. Nadie wants to go down there.", "Jamie";
+		mes "^000077Como 2 mas desaparecieron ayer, 15. Nadie quiere bajar alli.^000000";
+		npctalk "Jamie: Como dos mas desaparecieron ayer, 15. Nadie quiere bajar alli.", "Jamie";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Hear that? Our office is severely understaffed.";
+		mes "Escuchaste eso? Nuestra oficina tiene una grave falta de personal.";
 		next;
-		if (select( "Pero what about all these gente who are eager to work?", "Not my business." ) == 2) {
+		if (select( "Pero que hay de toda esta gente que quiere trabajar?", "No es mi asunto." ) == 2) {
 			mes "[Desalination Facility Manager]";
-			mes "Hey, come on! No soy finished!";
+			mes "Hey, vamos! No he terminado!";
 			close;
 		}
 		mes "[Desalination Facility Manager]";
-		mes "They're eager, de acuerdo, but none of them is strong suficiente to be useful.";
+		mes "Estan ansiosos, de acuerdo, pero ninguno es lo suficientemente fuerte para ser util.";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Necesitamos muchos gente at a construction site. Es... un poco peligroso down there, but you look like sabes how to deal with danger.";
+		mes "Necesitamos mucha gente en el sitio de construccion. Es... un poco peligroso alla abajo, pero parece que sabes como lidiar con el peligro.";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Say, how'd you like to work for me? Voy a pay you generously.";
+		mes "Dime, te gustaria trabajar para mi? Te pagare generosamente.";
 		next;
-		if (select( "Tell me what this job entails.", "Dejame pensar." ) == 2) {
+		if (select( "Dime en que consiste este trabajo.", "Dejame pensarlo." ) == 2) {
 			mes "[Desalination Facility Manager]";
-			mes "No tienes que think! This benefits both of us!";
+			mes "No tienes que pensar! Esto nos beneficia a ambos!";
 			next;
 			mes "[Desalination Facility Manager]";
-			mes "Dejame tell you un poco about this aldea. Es built above the remains of a city that sank into the sea.";
+			mes "Dejame contarte un poco sobre esta aldea. Esta construida sobre los restos de una ciudad que se hundio en el mar.";
 			next;
 			mes "[Desalination Facility Manager]";
-			mes "We no puedo completamente fill up the basement porque es where our desalination system is.";
+			mes "No podemos llenar completamente el sotano porque ahi esta nuestro sistema de desalinizacion.";
 		}
 		else {
 			mes "[Desalination Facility Manager]";
-			mes "Dejame tell you un poco about this aldea. Es built above the remains of a city that sank into the sea.";
+			mes "Dejame contarte un poco sobre esta aldea. Esta construida sobre los restos de una ciudad que se hundio en el mar.";
 			next;
 			mes "[Desalination Facility Manager]";
-			mes "We no puedo completamente fill up the basement porque es where our desalination system is.";
+			mes "No podemos llenar completamente el sotano porque ahi esta nuestro sistema de desalinizacion.";
 		}
 		next;
-		select("Can't you get water elsewhere?");
+		select("No pueden conseguir agua en otro lugar?");
 		mes "[Desalination Facility Manager]";
-		mes "This area is a desert. Desalinating is cheaper than importing water.";
+		mes "Esta area es un desierto. Desalinizar es mas barato que importar agua.";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "De todos modos, the desalination system itself is in good order, but the cobweb of pipes that forms the system is prone to erosion and breakage. Necesitan constant maintenance.";
+		mes "De todos modos, el sistema de desalinizacion en si esta en buen estado, pero la marana de tuberias que lo forma es propensa a la erosion y roturas. Necesitan mantenimiento constante.";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Entonces some time ago, monstruos started showing up in the basement, and now our workers are too scared to work. Eso es the situation we're in ahora mismo.";
+		mes "Entonces hace un tiempo, los monstruos empezaron a aparecer en el sotano, y ahora nuestros trabajadores tienen demasiado miedo para trabajar. Esa es la situacion en la que estamos ahora mismo.";
 		next;
-		select("What happens if I say no?");
+		select("Que pasa si digo que no?");
 		mes "[Desalination Facility Manager]";
-		mes "This aldea will run out of drinking water. Alguien ha to do this. Believe it or not, Soy doing doing this entirely for profit.";
+		mes "Esta aldea se quedara sin agua potable. Alguien tiene que hacer esto. Lo creas o no, no estoy haciendo esto enteramente por ganancia.";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Say, is that good suficiente motivation for you? Si todavia no quiero to help us, I no voy a force you.";
+		mes "Dime, es esa suficiente motivacion para ti? Si todavia no quieres ayudarnos, no te voy a obligar.";
 		next;
 		mes "[Jamie]";
-		mes "^000077Mr. Chairman, He solo got a call from the basement. Five more workers he estado attacked by monstruos.^000000";
-		npctalk "Jamie: Mr. Chairman, He solo got a call from the basement. Five more workers he estado attacked by monstruos.", "Jamie";
+		mes "^000077Sr. Presidente, acabo de recibir una llamada del sotano. Cinco trabajadores mas fueron atacados por monstruos.^000000";
+		npctalk "Jamie: Sr. Presidente, acabo de recibir una llamada del sotano. Cinco trabajadores mas fueron atacados por monstruos.", "Jamie";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Uh-oh, I'd better go take care of that situation. Come back si change your mind.";
+		mes "Oh no, mejor voy a encargarme de esa situacion. Vuelve si cambias de opinion.";
 		setquest 12403;// Laborers of Rock Ridge
 		completequest 12403;
 		close;
@@ -3959,7 +3959,7 @@ harboro1,334,135,6	script	Desalination Facility Manager	4_M_YURI,{
 	case 0:
 	case 1:
 		mes "[Desalination Facility Manager]";
-		mes "No estas tired? The pipes no necesito cleaning at this moment. Por que no you go take care of whatever else tienes to do?";
+		mes "No estas cansado? Las tuberias no necesitan limpieza en este momento. Por que no vas a encargarte de lo que sea que tengas que hacer?";
 		close;
 	case 2:
 		erasequest 12404;
@@ -3967,30 +3967,30 @@ harboro1,334,135,6	script	Desalination Facility Manager	4_M_YURI,{
 	}
 	if (isbegin_quest(12405) == 0) {
 		mes "[Desalination Facility Manager]";
-		mes "Does this mean eres willing to go downstairs?";
+		mes "Eso significa que estas dispuesto a bajar?";
 		next;
-		if (select( "Si.", "Dejame pensar." ) == 2) {
+		if (select( "Si.", "Dejame pensarlo." ) == 2) {
 			mes "[Desalination Facility Manager]";
-			mes "De acuerdo, take your time.";
+			mes "De acuerdo, tomate tu tiempo.";
 			close;
 		}
 		mes "[Desalination Facility Manager]";
-		mes "Good. Dejame tell you what to do. Take a look at the door at the bottom of the water storage to the left side of me. Es connected to the basement.";
+		mes "Bien. Dejame decirte que hacer. Mira la puerta en el fondo del almacen de agua a mi lado izquierdo. Esta conectada al sotano.";
 		next;
-		select("Tu mean the door that looks like a portal?");
+		select("Te refieres a la puerta que parece un portal?");
 		mes "[Desalination Facility Manager]";
-		mes "Si. Usually es closed, and solo those who have business in the basement can use it,";
-		next;
-		mes "[Desalination Facility Manager]";
-		mes "Sabes, gente who help the Vigilantes, clean the sewer, and maintain the desalination pipes, like you.";
+		mes "Si. Normalmente esta cerrada, y solo quienes tienen asuntos en el sotano pueden usarla,";
 		next;
 		mes "[Desalination Facility Manager]";
-		mes "Your job is to find four diferente types of pipes and fasten their bolts to princlusot leakage.";
+		mes "Ya sabes, gente que ayuda a los Vigilantes, limpia la alcantarilla y mantiene las tuberias de desalinizacion, como tu.";
+		next;
+		mes "[Desalination Facility Manager]";
+		mes "Tu trabajo es encontrar cuatro tipos diferentes de tuberias y ajustar sus pernos para evitar fugas.";
 		donpcevent "#r_q2::OnEnable";
 		next;
 		donpcevent "#r_q2::OnEnable";
 		mes "[Desalination Facility Manager]";
-		mes "The pipes that need maintenance are colored diferentely for easy recognition. Cuando eres ready, enter the door on the left side.";
+		mes "Las tuberias que necesitan mantenimiento estan coloreadas diferente para facil reconocimiento. Cuando estes listo, entra por la puerta del lado izquierdo.";
 		setquest 12405;// Maintain the Red Pipe
 		setquest 12406;// Maintain the Blue Pipe
 		setquest 12407;// Maintain the Yellow Pipe
@@ -3999,7 +3999,7 @@ harboro1,334,135,6	script	Desalination Facility Manager	4_M_YURI,{
 	}
 	if (isbegin_quest(12409) == 0) {
 		mes "[Desalination Facility Manager]";
-		mes "You no he finished cleaning the pipes. Vamos a run out of water soon. Podrias apurate?";
+		mes "No has terminado de limpiar las tuberias. Nos quedaremos sin agua pronto. Podrias apurarte?";
 		close;
 	}
 	getexp 35000,27000;
@@ -4008,25 +4008,25 @@ harboro1,334,135,6	script	Desalination Facility Manager	4_M_YURI,{
 		erasequest .@quest_id;
 	setquest 12404;// Are You Not Tired?
 	mes "[Desalination Facility Manager]";
-	mes "Good job. The aldears can enjoy clean water for the rest of the day, and es all debido a you.";
+	mes "Buen trabajo. Los aldeanos pueden disfrutar de agua limpia por el resto del dia, y es todo gracias a ti.";
 	close;
 }
 
 harboro1,333,138,6	script	Jamie	4_F_KAFRA9,{
 	mes "[Jamie]";
-	mes "Podrias stop hitting on me? Soy the Chairman's personaal secretary.";
+	mes "Podrias dejar de coquetearme? Soy la secretaria personal del Presidente.";
 	close;
 }
 
 harboro1,332,144,6	script	Underground Passage#1	PORTAL,{
 	if (BaseLevel < 100) {
-		mes "^0000ffWarning: Este lugar is not for the weak or faint-hearted.^000000";
+		mes "^0000ffAdvertencia: Este lugar no es para los debiles o pusilánimes.^000000";
 		close;
 	}
-	mes "^0000ffDo quieres to move to the underground aldea?^000000";
+	mes "^0000ffQuieres moverte a la aldea subterranea?^000000";
 	next;
-	if (select( "Move.", "Do it later." ) == 2) {
-		mes "Tienes decided not to use the underground passage.";
+	if (select( "Moverme.", "Hacerlo despues." ) == 2) {
+		mes "Has decidido no usar el pasaje subterraneo.";
 		close;
 	}
 	warp "harboro2",329,187;
@@ -4034,10 +4034,10 @@ harboro1,332,144,6	script	Underground Passage#1	PORTAL,{
 }
 
 harboro2,333,187,6	script	Underground Passage#2	PORTAL,{
-	mes "^0000ffDo quieres to go above ground?^000000";
+	mes "^0000ffQuieres ir a la superficie?^000000";
 	next;
-	if (select( "Move.", "Do it later." ) == 2) {
-		mes "Tienes decided not to use the menu.";// ?
+	if (select( "Moverme.", "Hacerlo despues." ) == 2) {
+		mes "Has decidido no usar el menu.";// ?
 		close;
 	}
 	warp "harboro1",336,144;
@@ -4119,16 +4119,16 @@ harboro1,138,157,5	script	Donovan	4_M_EINMAN2,{
 	next;
 	mes "[Donovan]";
 	if (rock_main_quest < 22) {
-		mes "Eres one of the adventurers from the mainland, right?";
-		mes "My name is Donovan,";
-		mes "sewer system manager.";
+		mes "Eres uno de los aventureros del continente, verdad?";
+		mes "Mi nombre es Donovan,";
+		mes "administrador del sistema de alcantarillado.";
 		next;
 		mes "[Donovan]";
-		mes "Hay tantos problems";
-		mes "the Bandidos Buffalo, the mine, solo to name a couple?";
-		mes "that nadie else cares about their own sewer system ahora mismo.";
-		mes "The Bandidos Buffalo";
-		mes "need to be taken care of first.";
+		mes "Hay tantos problemas";
+		mes "los Bandidos Buffalo, la mina, solo por nombrar un par...";
+		mes "que nadie mas se preocupa por su propio sistema de alcantarillado ahora mismo.";
+		mes "Los Bandidos Buffalo";
+		mes "necesitan ser atendidos primero.";
 		close;
 	}
 	switch( checkquest(9459,PLAYTIME) ) {
@@ -4136,128 +4136,128 @@ harboro1,138,157,5	script	Donovan	4_M_EINMAN2,{
 		break;
 	case 0:
 	case 1:
-		mes "The pipes are";
-		mes "clear of sea anemones at this moment.";
-		mes "Por que no you";
-		mes "regresa later?";
+		mes "Las tuberias estan";
+		mes "libres de anemonas marinas en este momento.";
+		mes "Por que no";
+		mes "vuelves despues?";
 		close;
 	case 2:
-		mes "Ah, welregresa!";
-		mes "He estado thinking";
-		mes "es time to";
-		mes "get rid of sea anemones de nuevo.";
+		mes "Ah, bienvenido de vuelta!";
+		mes "He estado pensando";
+		mes "que es hora de";
+		mes "deshacerse de las anemonas marinas de nuevo.";
 		next;
-		if (select( "Puedo do that.", "Perdon, Soy busy." ) == 2) {
+		if (select( "Puedo hacer eso.", "Perdon, estoy ocupado." ) == 2) {
 			mes "[Donovan]";
-			mes "Oh, I see.";
+			mes "Oh, ya veo.";
 			mes "Entiendo.";
-			mes "Pero regresa si change your mind.";
+			mes "Pero vuelve si cambias de opinion.";
 			close;
 		}
 		mes "[Donovan]";
-		mes "Sabes how to enter the basement, right?";
-		mes "Gracias por your help.";
+		mes "Sabes como entrar al sotano, verdad?";
+		mes "Gracias por tu ayuda.";
 		erasequest 9459;// Too Early for Pipe Cleaning
 		setquest 9458;// Pipe Cleaning
 		close;
 	}
 	switch( checkquest(9458,HUNTING) ) {
 	case -1:
-		mes "Oh, so eres";
-		mes "the aventurero who took care of the Bandidos Buffalo!";
+		mes "Oh, entonces eres";
+		mes "el aventurero que se encargo de los Bandidos Buffalo!";
 		mes "Mucho gusto!";
 		next;
 		mes "[Donovan]";
-		mes "Entonces, eres strong suficiente to";
-		mes "take care of the bandits.";
-		mes "Podrias be so kind";
-		mes "as to help me with algo?";
+		mes "Entonces, eres lo suficientemente fuerte para";
+		mes "encargarte de los bandidos.";
+		mes "Serias tan amable";
+		mes "de ayudarme con algo?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "- De acuerdo, what can I do for you?";
+		mes "- De acuerdo, que puedo hacer por ti?";
 		next;
 		mes "[Donovan]";
-		mes "Oh, where are my manners?";
-		mes "My name is Donovan,";
-		mes "sewer system manager.";
-		mes "I manage the underground water pump";
-		mes "and sewage system.";
+		mes "Oh, donde estan mis modales?";
+		mes "Mi nombre es Donovan,";
+		mes "administrador del sistema de alcantarillado.";
+		mes "Administro la bomba de agua subterranea";
+		mes "y el sistema de drenaje.";
 		next;
 		mes "[Donovan]";
-		mes "Groundwater keeps welling up";
-		mes "from the basement of the aldea,";
-		mes "and it has to be pumped out into the sea";
-		mes "to princlusot flooding.";
+		mes "El agua subterranea sigue brotando";
+		mes "del sotano de la aldea,";
+		mes "y tiene que ser bombeada al mar";
+		mes "para evitar inundaciones.";
 		next;
 		mes "[Donovan]";
-		mes "My job is to make sure";
-		mes "the pumps and sewage system are";
-		mes "in working order";
-		mes "en absoluto times,";
+		mes "Mi trabajo es asegurarme de que";
+		mes "las bombas y el sistema de drenaje esten";
+		mes "en orden de funcionamiento";
+		mes "en todo momento,";
 		next;
 		mes "[Donovan]";
-		mes "and es not a job for solo one man.";
-		mes "Hay tantos things to do";
-		mes "that Necesito help.";
-		mes "The work itself isn't complicated.";
-		mes "Podrias help me?";
+		mes "y no es un trabajo para un solo hombre.";
+		mes "Hay tantas cosas que hacer";
+		mes "que necesito ayuda.";
+		mes "El trabajo en si no es complicado.";
+		mes "Podrias ayudarme?";
 		next;
-		if (select( "Claro.", "Perdon, Soy busy." ) == 2) {
+		if (select( "Claro.", "Perdon, estoy ocupado." ) == 2) {
 			mes "[Donovan]";
-			mes "Oh, I see.";
+			mes "Oh, ya veo.";
 			mes "Entiendo.";
-			mes "Pero regresa si change your mind.";
+			mes "Pero vuelve si cambias de opinion.";
 			close;
 		}
 		mes "[Donovan]";
 		mes "Wow, gracias!";
-		mes "All tienes to do is";
-		mes "go down to the basement";
-		mes "and get rid of sea anemones";
-		mes "on the pipes and water pump.";
+		mes "Todo lo que tienes que hacer es";
+		mes "bajar al sotano";
+		mes "y deshacerte de las anemonas marinas";
+		mes "en las tuberias y la bomba de agua.";
 		next;
 		mes "[Donovan]";
-		mes "Puedes go down to the basement";
-		mes "by talking to";
-		mes "Joe, who's a bit east of here.";
-		mes "He'll let you";
-		mes "go down to the basement.";
+		mes "Puedes bajar al sotano";
+		mes "hablando con";
+		mes "Joe, que esta un poco al este de aqui.";
+		mes "El te dejara";
+		mes "bajar al sotano.";
 		next;
 		mes "[Donovan]";
-		mes "We call him Quiet Joe.";
-		mes "Gracias por your help.";
+		mes "Le decimos Quiet Joe.";
+		mes "Gracias por tu ayuda.";
 		setquest 9458;// Pipe Cleaning
 		close;
 	case 0:
 	case 1:
-		mes "Go east,";
-		mes "and you'll see Joe.";
-		mes "He'll let you";
-		mes "go down to the basement";
-		mes "si tell him I sent you.";
+		mes "Ve al este,";
+		mes "y veras a Joe.";
+		mes "El te dejara";
+		mes "bajar al sotano";
+		mes "si le dices que yo te envie.";
 		close;
 	case 2:
-		mes "Ah, Adventurer, welregresa.";
-		mes "Como was it, getting rid of sea anemones?";
-		mes "It no estaba too dificil, was it?";
+		mes "Ah, Aventurero, bienvenido de vuelta.";
+		mes "Que tal estuvo deshacerse de las anemonas marinas?";
+		mes "No fue muy dificil, verdad?";
 		next;
 		mes "[" + strcharinfo(0) + "]";
-		mes "- No, it no estaba.";
-		mes "- Fue boring, though.";
+		mes "- No, no lo fue.";
+		mes "- Fue aburrido, eso si.";
 		next;
 		mes "[Donovan]";
-		mes "Hah hah, es a boring job, sure.";
-		mes "Pero it must not be boring to those sea anemones";
-		mes "porque they spring up every day,";
-		mes "no matter how hard I try";
-		mes "to keep them in check.";
+		mes "Ja ja, es un trabajo aburrido, claro.";
+		mes "Pero no debe ser aburrido para esas anemonas marinas";
+		mes "porque brotan todos los dias,";
+		mes "sin importar lo mucho que intente";
+		mes "mantenerlas a raya.";
 		next;
 		mes "[Donovan]";
-		mes "Getting rid of them";
-		mes "takes up muchos my time.";
-		mes "Gracias por your help.";
-		mes "Podria siempre use help getting rid of sea anemones.";
-		mes "Por favor ven again.";
+		mes "Deshacerme de ellas";
+		mes "me quita mucho tiempo.";
+		mes "Gracias por tu ayuda.";
+		mes "Siempre podria usar ayuda para deshacerme de las anemonas marinas.";
+		mes "Por favor ven de nuevo.";
 		erasequest 9458;// Pipe Cleaning
 		setquest 9459;// Too Early for Pipe Cleaning
 		getexp 25000,20000;
@@ -4270,28 +4270,28 @@ harboro1,138,157,5	script	Donovan	4_M_EINMAN2,{
 harboro2,167,82,3	script	Midnight#srdg01	4_M_COWRAIDERS2,{
 	if (rock_main_quest < 22) {
 		mes "[Midnight]";
-		mes "Que estas looking at? Scram before I put holes in your face! Git!";
+		mes "Que estas mirando? Largate antes de que te llene la cara de agujeros! Fuera!";
 		close;
 	}
 	if (isbegin_quest(14672) == 1 || isbegin_quest(14673) == 1) {// Demon quest started
 		mes "[Midnight]";
-		mes "Deberia go. El es solo being stubborn.";
+		mes "Deberias ir. El solo esta siendo terco.";
 		next;
 		mes "[Midnight]";
-		mes "Frankly, No entiendo why he would want to do this, but No quiero stop him.";
+		mes "Francamente, no entiendo por que querria hacer esto, pero no quiero detenerlo.";
 		next;
 		mes "[Midnight]";
-		mes "Gracias por helping us.";
+		mes "Gracias por ayudarnos.";
 		close;
 	}
 	mes "[Midnight]";
 	mes "...";
 	next;
 	mes "[Midnight]";
-	mes "Demon, some extrano kid is solo hanging out around us. Do sabes him?";
+	mes "Demon, un nino extrano esta por aqui rondando. Lo conoces?";
 	next;
 	mes "[Demon]";
-	mes "Quien? Donde? No veo him. Send him to me.";
+	mes "Quien? Donde? No lo veo. Mandamelo.";
 	close;
 }
 

@@ -16,71 +16,71 @@
 
 payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 	mes "[Lhimetorra]";
-	mes "Ikaw ay isang adventurer ng mundong ito... " +strcharinfo(0)+ ", tama ba? Kaya, ano ang magagawa ng isang matandang tulad ko para sa iyo?";
+	mes "Eres un aventurero de este mundo... " +strcharinfo(0)+ ", verdad? Entonces, que puede hacer una anciana como yo por ti?";
 	next;
-	if (select("Gusto ko ng tarot card reading.:Ano ang tarot card reading?") == 2) {
+	if (select("Quiero una lectura de cartas tarot.:Que es una lectura de cartas tarot?") == 2) {
 		mes "[Lhimetorra]";
-		mes " Ang monster card reading ay gumagamit ng mga card ng mga pamilyar na monster sa paligid natin upang kumuha ng payo tungkol sa ating kinabukasan, pag-ibig, at marami pang iba. ";
-		mes " Ang isang manghuhula tulad ko ay tumatanggap ng tanong mula sa isang tao at tinatanong ang card. Sumasagot ang card at sinasabi ko sa tao. ";
+		mes " La lectura de cartas de monstruos usa las cartas de monstruos familiares a nuestro alrededor para obtener consejos sobre nuestro futuro, amor, y mucho mas. ";
+		mes " Una adivina como yo recibe una pregunta de una persona y consulta las cartas. Las cartas responden y yo le digo a la persona. ";
 		next;
 		mes "[Lhimetorra]";
-		mes " Hindi ka dapat magpa-card reading nang higit sa isang beses sa isang araw, at huwag mong gawin ito nang madalas dahil maaaring magalit o malito ang card. ";
-		mes " Bukod pa rito, maaari rin itong magkaroon ng masamang impluwensya sa iyong buhay! ";
+		mes " No debes hacerte una lectura de cartas mas de una vez al dia, y no lo hagas muy seguido porque las cartas podrian enojarse o confundirse. ";
+		mes " Ademas de eso, tambien podria tener una mala influencia en tu vida! ";
 		next;
 		mes "[Lhimetorra]";
-		mes " At... isa pang bagay. ";
-		mes " Ang card reading ay card reading lamang... Gaano man ka-extraordinary ang resulta, huwag masyadong maging obsessed dito. Tandaan mo iyon. ";
+		mes " Y... una cosa mas. ";
+		mes " La lectura de cartas es solo eso... Por muy extraordinario que sea el resultado, no te obsesiones demasiado. Recuerda eso. ";
 		close;
 	}
 	mes "[Lhimetorra]";
-	mes "Ganoon ba...?";
-	mes "Kung gusto mo ng monster card reading, kailangan mo munang ipakita sa akin ang iyong pananampalataya. Kung hindi, magagalit ang mga espiritu ng monster at isusumpa ka nila.";
+	mes "Asi que...?";
+	mes "Si quieres una lectura de cartas de monstruos, primero debes mostrarme tu fe. Si no, los espiritus de los monstruos se enojaran y te maldeciran.";
 	next;
 	mes "[Lhimetorra]";
-	mes "Kaya, gusto mo ba ng monster card reading? ";
+	mes "Entonces, quieres una lectura de cartas de monstruos? ";
 	next;
-	if (select("Oo.:Gusto ko munang pag-isipan.") == 2) {
+	if (select("Si.:Quiero pensarlo primero.") == 2) {
 		mes "[Lhimetorra]";
-		mes " Sige. Batang adventurer, nawa'y samahan ka ng suwerte... ";
+		mes " Esta bien. Joven aventurero, que la suerte te acompañe... ";
 		close;
 	}
 	mes "[Lhimetorra]";
-	mes "Kung gayon...";
-	mes "Mangyaring magbayad ng iyong bayad nang may buong katapatan.";
+	mes "Entonces...";
+	mes "Por favor paga tu ofrenda con total sinceridad.";
 	next;
 	input .@input;
 	if (.@input == 0) {
 		mes "[Lhimetorra]";
 		mes "Ah...?!";
-		mes "Ginagalit mo ang mga espiritu ng monster!";
+		mes "Estas enfureciendo a los espiritus de los monstruos!";
 		close;
 	}
 	else if (.@input > zeny) {
 		mes "[Lhimetorra]";
-		mes "Hindi na kailangang labis-labis. Magbigay lang nang buong puso... *Tsk tsk*";
+		mes "No es necesario exagerar. Solo da con todo tu corazon... *Tsk tsk*";
 		close;
 	}
 	else {
 		mes "[Lhimetorra]";
-		mes "Tinatanggap ko ang iyong puso at debosyon nang may pasasalamat. Ang saloobin ay mas mahalaga kaysa sa halaga kapag nagbabayad sa isang manghuhula.";
+		mes "Acepto tu corazon y devocion con gratitud. La actitud es mas importante que la cantidad al pagarle a una adivina.";
 		Zeny = Zeny-.@input;
 	}
 	next;
 	mes "[Lhimetorra]";
-	mes "Kung gayon, sisimulan ko nang basahin ang kapalaran ng iyong nais. Magtuon ka sa iyong sarili...";
+	mes "Entonces, comenzare a leer la fortuna de tu deseo. Concentrate en ti mismo...";
 	next;
 	mes "[Lhimetorra]";
 	mes "...";
-	mes "Linisin mo ang iyong isipan... ";
+	mes "Limpia tu mente... ";
 	next;
 	mes "[Lhimetorra]";
 	mes "...";
-	mes "Kapag walang laman na ang iyong isip, isipin ang bagay na pinakagusto mong malaman.";
+	mes "Cuando tu mente este vacia, piensa en lo que mas deseas saber.";
 	next;
-	switch(select(" (Gusto kong malaman ang aking kapalaran sa pag-ibig.) "," (Gaano kayaman ang magiging akin?) "," (Kailangan ko ng payo tungkol sa aking kinabukasan.) "," (Maaari ba akong makakuha ng babala sa mga panganib na naghihintay?) ")) {
+	switch(select(" (Quiero saber mi destino en el amor.) "," (Que tan rico sere?) "," (Necesito consejos sobre mi futuro.) "," (Puedo obtener una advertencia sobre los peligros que me esperan?) ")) {
 	case 1:
 		mes "[Lhimetorra]";
-		mes " Nakikita ko na... Nakikita ko ang isang palatandaan ng pag-ibig... ";
+		mes " Ya veo... Veo una señal de amor... ";
 		next;
 		.@card_1_love = rand(1,74);
 		if (.@card_1_love < 5) cutin "���̾ƽ�ī��",4;		// Giearth Card
@@ -102,485 +102,485 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 		mes "[Lhimetorra]";
 		switch(.@card_1_love) {
 		case 1:
-			mes " Natatakot kang ipakita ang iyong sariling nagtatrabaho, sa iyong minamahal.. ";
-			mes " Ngunit hindi iyon pag-ibig. Huwag matakot na ipakita ang iba't ibang bahagi ng iyong sarili sa iyong minamahal.. ";
+			mes " Tienes miedo de mostrar tu verdadero yo trabajador a tu ser amado.. ";
+			mes " Pero eso no es amor. No tengas miedo de mostrar las diferentes partes de ti a tu ser amado.. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya huwag mag-alala at magpatuloy. ";
+			mes " Asi que no te preocupes y sigue adelante. ";
 			break;
 		case 2:
-			mes " Baka ginagamit mo ang pag-ibig bilang dahilan upang magtrabaho? Sinasabi ng card na subukan mong tingnan ang pag-ibig mula sa ibang pananaw. ";
+			mes " Tal vez estas usando el amor como excusa para trabajar? La carta dice que intentes ver el amor desde otra perspectiva. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang paghuhukay ay nangangailangan din ng kasanayan. ";
+			mes " Cavar tambien requiere habilidad. ";
 			break;
 		case 3:
-			mes " Paano kung magpahinga muna sa pag-ibig at bigyan ang iyong sarili ng oras na mag-relax.. Sumasang-ayon ako sa sinasabi ng card. ";
+			mes " Que tal si tomas un descanso del amor y te das tiempo para relajarte.. Estoy de acuerdo con lo que dice la carta. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang pag-ibig ay hindi dapat napakahirap. ";
+			mes " El amor no deberia ser tan dificil. ";
 			break;
 		case 4:
-			mes " Isang pala..? ";
+			mes " Una pala..? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kakaiba na lumabas ito tungkol sa pag-ibig.. kakaiba.. Hindi mo ginagamit ang palang ito para maghiganti sa isang tao, di ba?? ";
-			mes " Huwag magkaroon ng masasamang kaisipan. Panatilihin ang isang mabuting puso. ";
+			mes " Es extraño que saliera esto sobre el amor.. extraño.. No estas usando esta pala para vengarte de alguien, verdad?? ";
+			mes " No tengas malos pensamientos. Mantén un buen corazon. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Paano kung magpahinga muna sa pag-ibig at bigyan ang iyong sarili ng oras na mag-relax.. Sumasang-ayon ako sa card na ito. ";
+			mes " Que tal si tomas un descanso del amor y te das tiempo para relajarte.. Estoy de acuerdo con esta carta. ";
 			break;
 		case 5:// Dustiness Card
-			mes " Ang mga dalisay na mata nito ay tumitingin sa minamahal ngunit hindi ito makilala, ang mga pakpak ay pumapagaspas patungo sa minamahal, ngunit walang magawa itong manatili sa isang lugar, ";
-			mes " tinatawag nito ang minamahal, ngunit hindi nila marinig.. ";
+			mes " Sus ojos puros miran al ser amado pero no pueden reconocerlo, sus alas aletean hacia el ser amado, pero no puede quedarse en un lugar, ";
+			mes " llama al ser amado, pero no pueden escucharlo.. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Napakaulila ng kapalaran.. ";
-			mes " Sa totoo lang, malungkot na pag-ibig ito... maaaring mahirap itong malampasan. ";
+			mes " Que destino tan solitario.. ";
+			mes " En verdad, este es un amor triste... puede ser dificil de superar. ";
 			break;
 		case 6:
-			mes " Ang pagnanasa ng pag-ibig na parang nagngangalit na alon... Hindi mo man lang ito maitago. ";
-			mes " Sa ganitong masidhing pag-ibig, wala na bang ibang paraan..? ";
+			mes " El deseo de amor como olas furiosas... Ni siquiera puedes ocultarlo. ";
+			mes " Con un amor tan intenso, no hay otra manera..? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Malapit na ang masidhing pag-ibig. Magandang palatandaan ito. ";
+			mes " Un amor intenso se acerca. Esta es una buena señal. ";
 			break;
 		case 7:
-			mes " Ang mga ngipin ng dustiness ay napakalakas. Ibig sabihin nito.. gamitin ang iyong mga ngipin para sa tagumpay?! ";
+			mes " Los dientes del dustiness son muy fuertes. Eso significa.. usa tus dientes para el exito?! ";
 			break;
 		case 8:
-			mes " Sinasabi sa akin ng card, 'Lumipad ka sa iyong minamahal na parang ikaw ay isang paru-paro at barilin ito na parang ikaw ay isang bituin.' ";
-			mes "..kahit hindi ito parang sasabihin ng isang gamu-gamo. ";
+			mes " La carta me dice, 'Vuela hacia tu ser amado como si fueras una mariposa y disparale como si fueras una estrella.' ";
+			mes "..aunque eso no suena a algo que diria una polilla. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang pagnanasa ng pag-ibig na parang nagngangalit na alon.. Hindi mo man lang ito maitago. ";
+			mes " El deseo de amor como olas furiosas.. Ni siquiera puedes ocultarlo. ";
 			break;
 		case 9:
-			mes " Baka ang taong pinaniniwalaan mong paru-paro ay talagang isang gamu-gamo. Ang kapalaran na ito ay naghihintay ng maingat na pagpapasya. ";
+			mes " Tal vez la persona que crees que es una mariposa en realidad es una polilla. Este destino espera una decision cuidadosa. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang pag-ibig ay talagang isang paksa na kailangang harapin nang may pag-iingat. Tandaan mo iyan kabataan. ";
+			mes " El amor es realmente un tema que debe enfrentarse con cuidado. Recuerda eso, joven. ";
 			break;
 		case 10: // Dracula Card
-			mes " Ang minamahal mo ay bibigyan ka ng halik ng kamatayan. ";
-			mes " Ang di-mapigilang halik.. Nasa iyo na ang desisyon kung iiwasan mo ito o hindi. ";
+			mes " Tu ser amado te dara el beso de la muerte. ";
+			mes " El beso irresistible.. Tu decides si lo evitas o no. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang karisma... ang pinakamatamis na lason. ";
+			mes " El carisma... el veneno mas dulce. ";
 			break;
 		case 11:
-			mes " Nakatingin ka sa isang kahanga-hangang tao, ngunit ang mga mata nila ay nakatuon sa kadiliman. ";
-			mes " Paano kung subukan mong kunin ang kanilang pansin? ";
+			mes " Estas mirando a una persona admirable, pero sus ojos estan fijos en la oscuridad. ";
+			mes " Que tal si intentas captar su atencion? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya, kailangan mong subukan ang ibang paraan bukod sa karisma. ";
+			mes " Entonces, necesitas probar otro metodo ademas del carisma. ";
 			break;
 		case 12:
-			mes " Ang iyong pag-ibig ay nangangailangan ng sariwang dugo. Ang malusog na ehersisyo at tamang pagkain ay kinakailangan! ";
-			mes " Kailangan mo munang baguhin ang iyong paraan ng pamumuhay. ";
+			mes " Tu amor necesita sangre fresca. El ejercicio saludable y la alimentacion adecuada son necesarios! ";
+			mes " Primero necesitas cambiar tu estilo de vida. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang kalusugan ang pinakamainam. ";
+			mes " La salud es lo mas importante. ";
 			break;
 		case 13:
-			mes " Hindi mo ba iniisip na nabighani ka ng panlabas na anyo at nagsusugal sa pag-ibig? Maaaring kailangan mong maging mas maingat ngayon. ";
+			mes " No crees que te dejaste llevar por la apariencia y estas apostando en el amor? Quizas necesitas ser mas cuidadoso ahora. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang kagandahan ay nasa balat lamang. ";
+			mes " La belleza es solo superficial. ";
 			break;
 		case 14:
-			mes " Maging isang pirata ng pag-ibig! Simpleng, ngunit malakas na kapalaran! ";
+			mes " Se un pirata del amor! Un destino simple, pero poderoso! ";
 			break;
 		case 15:
-			mes " Gaano man karomantiko at kaganda ang pag-ibig, kung hindi ito matuwid, hindi ito kanais-nais.. ";
-			mes " iyon ang ibig sabihin ng card na ito. ";
+			mes " Por muy romantico y hermoso que sea el amor, si no es correcto, no es deseable.. ";
+			mes " eso es lo que significa esta carta. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sana hindi ka nadismaya sa aral ng kapalaran na ito. ";
+			mes " Espero que no te decepcione la leccion de este destino. ";
 			break;
 		case 16:
-			mes " Sa maalong dagat na tinatawag na mundo, tanging mga pirata lamang, ang mga labag sa batas ng pag-ibig, ang batas. ";
-			mes " Sinusuportahan ng card na ito ang malakas na pag-ibig. ";
+			mes " En el mar tormentoso llamado mundo, solo los piratas, los forajidos del amor, son la ley. ";
+			mes " Esta carta apoya un amor fuerte. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kailangan mong malampasan ito - gaano man kalakas ang alon. ";
+			mes " Necesitas superar esto - sin importar cuan fuertes sean las olas. ";
 			break;
 		case 17:
-			mes " Ito ay babala na huwag makisali sa huwad na pag-ibig na parang mga pirated edition! ";
-			mes " Maaaring kailangan mong pag-isipan muli ang iyong pag-ibig ngayon. ";
+			mes " Esta es una advertencia de no participar en amor falso como ediciones piratas! ";
+			mes " Quizas necesitas reconsiderar tu amor ahora. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang illegal na pagkopya ay hindi pag-ibig! ";
+			mes " La copia ilegal no es amor! ";
 			break;
 		case 18:// Marina Card
-			mes " Pinupuri nito ang uri ng pag-ibig na palaging nandoon, ngunit bahagya lamang ang anyo dahil wala itong pisikal na porma. ";
-			mes " Kasali ka ba sa ganitong uri ng pag-ibig? ";
+			mes " Esto elogia el tipo de amor que siempre esta ahi, pero apenas tiene forma porque no tiene una forma fisica. ";
+			mes " Estas involucrado en este tipo de amor? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang anyo ng pag-ibig ay malabo. ";
+			mes " La forma del amor es difusa. ";
 			break;
 		case 19:
-			mes " Kailangan mong mag-ingat. Ang pag-ibig ay tahimik na lumalapit at nagkakalat ng lason. Mag-ingat sa lason ng pag-ibig. ";
+			mes " Necesitas tener cuidado. El amor se acerca silenciosamente y esparce veneno. Cuidado con el veneno del amor. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Walang lunas para sa lason na ito! ";
+			mes " No hay cura para este veneno! ";
 			break;
 		case 20:
-			mes " Hindi ka ba nahuli na sa pag-ibig na hindi mo na matakasan? Tumingin ka sa paligid mo. ";
-			mes " Maaaring nabihag ka na sa loob ng hindi nakikitang mga pader. ";
+			mes " No has quedado atrapado en un amor del que no puedes escapar? Mira a tu alrededor. ";
+			mes " Quizas ya estas cautivo dentro de paredes invisibles. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Nabulag ka sa pag-ibig at naging bilanggo! Hindi ba dapat kang tumakas? ";
+			mes " Te cego el amor y te volviste prisionero! No deberias escapar? ";
 			break;
 		case 21:
-			mes " Sinasabi ng kapalaran na ito na ang pag-ibig ay.. lumalapit nang dahan-dahan at malambot~ at pagkatapos bam~ niyayakap ito. ";
-			mes " Napaka-romantiko. Hehe. ";
+			mes " Este destino dice que el amor.. se acerca lenta y suavemente~ y luego bam~ lo abraza. ";
+			mes " Muy romantico. Jeje. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang romantiko ang pinakmagandang bahagi ng pag-ibig~ ";
+			mes " Lo romantico es la mejor parte del amor~ ";
 			break;
 		case 22:
-			mes " Ang card na ito ay nagbababala sa iyo na huwag tratuhin ang iyong minamahal na parang isang puppet. ";
-			mes " Hindi mo naman ginagawa ito, di ba? ";
+			mes " Esta carta te advierte que no trates a tu ser amado como una marioneta. ";
+			mes " No lo estas haciendo, verdad? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang pag-ibig ay hindi dapat tungkol sa pagkontrol at pagpigil~ mm~ ";
+			mes " El amor no deberia ser sobre control y restriccion~ mm~ ";
 			break;
 		case 23:
-			mes " Mas naiintindihan ng mga manika ang puso ng tao kaysa sa isang tao. Subukan mong tratuhin ang iyong minamahal na parang sila ay isang manika. ";
+			mes " Las muñecas entienden el corazon de las personas mejor que una persona. Intenta tratar a tu ser amado como si fuera una muñeca. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang iyong minamahal ay hindi maaaring mas masama kaysa sa isang manika, di ba? ";
+			mes " Tu ser amado no puede ser peor que una muñeca, verdad? ";
 			break;
 		case 24:
-			mes " Natatakot kang tumingin sa mga mata ng manika, iyon ay dahil may madilim na anino na bumabalot sa iyong pag-ibig. ";
-			mes " Alisin ninyo ang aninog iyon. Pagkatapos ay ngingiti rin ang manika. ";
+			mes " Tienes miedo de mirar a los ojos de la muñeca, eso es porque hay una sombra oscura envolviendo tu amor. ";
+			mes " Eliminen esa sombra. Entonces la muñeca tambien sonreira. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Iyon ang pag-ibig. ";
+			mes " Eso es el amor. ";
 			break;
 		case 25:
-			mes " Ang mga manika ay nasasanay sa may-ari kung mas madalas silang hawakan. Bigyan mo ng mas maraming pansin ang iyong manika. ";
-			mes " Ang manika ay sabik sa pansin. Maraming pansin. ";
+			mes " Las muñecas se acostumbran a su dueño cuanto mas las tocan. Dale mas atencion a tu muñeca. ";
+			mes " La muñeca esta ansiosa por atencion. Mucha atencion. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang maselang pag-aalaga at pansin ang pinakamainam sa pag-ibig. ";
+			mes " El cuidado delicado y la atencion son lo mejor en el amor. ";
 			break;
 		case 26:// Medusa Card
-			mes " Natatakot ka ba sa buhok na ahas ng Medusa? Gayunpaman, ang pag-ibig ay hindi makakamit sa takot. ";
-			mes " Kailangan mong sumulong! ";
+			mes " Le tienes miedo al cabello de serpiente de Medusa? Sin embargo, el amor no se puede lograr con miedo. ";
+			mes " Necesitas avanzar! ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang pag-ibig ay kailangang itulak pasulong! ";
+			mes " El amor hay que impulsarlo hacia adelante! ";
 			break;
 		case 27:
-			mes " Ang mga mandirigmang nagmadaling umatake sa Medusa ay nabigo lahat, ngunit ang isang bayani na gumamit ng salamin ay nagtagumpay. ";
-			mes " Hindi ka magtatagumpay sa pag-ibig sa pamamagitan ng brute force. Kailangan mong gumamit ng karunungan. ";
+			mes " Los guerreros que se apresuraron a atacar a Medusa fracasaron todos, pero un heroe que uso un espejo tuvo exito. ";
+			mes " No tendras exito en el amor por la fuerza bruta. Necesitas usar sabiduria. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Naiintindihan mo ba ang ibig kong sabihin kabataan? ";
+			mes " Entiendes lo que quiero decir, joven? ";
 			break;
 		case 28:
-			mes " Kailangan mo ba talagang mahalin ang may buhok na ahas? Pag-isipan muli ang pag-ibig na ito at isipin ito nang mabuti. ";
+			mes " Realmente necesitas amar a alguien con cabello de serpiente? Reconsidera este amor y piensalo bien. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ano sa palagay mo? Hindi ba ito isang magandang pagkakataon upang pag-isipan ang relasyon. ";
+			mes " Que opinas? No es esta una buena oportunidad para pensar en la relacion. ";
 			break;
 		case 29:
-			mes " Ito ay isang pahiwatig na sinasabing ang malakas na hairstyle ang susi sa pagbabago ng sitwasyon. Palitan mo ang iyong hairstyle! ";
+			mes " Esta es una pista que dice que un peinado fuerte es la clave para cambiar la situacion. Cambia tu peinado! ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang fashion ay nasa mga kamay ng mga nangunguna! ";
+			mes " La moda esta en manos de los que lideran! ";
 			break;
 		case 30:// Baphomet Card
-			mes " Ang pag-ibig ay kailangang may dalawang bagay: malaking lakas at kalooban na mabuhay. Naisip mo na ba kung kaya mo bang malampasan ito sa iyong kasalukuyang sarili? ";
+			mes " El amor necesita dos cosas: gran fuerza y voluntad de vivir. Has pensado si puedes superar esto con tu yo actual? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kilalanin ang pag-ibig at kilalanin ang iyong sarili! ";
+			mes " Conoce el amor y conocete a ti mismo! ";
 			break;
 		case 31:
-			mes " Ang isang kalabaw ay maaaring mukhang mabigat ngunit ang malakas na Baphomet ay malayang nagagamit ito. ";
-			mes " Pareho ang konsepto. Kung handa ka, anumang uri ng pag-ibig ay posible. Walang imposible. ";
+			mes " Un cebú puede parecer pesado pero el poderoso Baphomet lo usa libremente. ";
+			mes " El concepto es el mismo. Si estas preparado, cualquier tipo de amor es posible. Nada es imposible. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang pag-ibig ay nangangailangan din ng paghahanda! ";
+			mes " El amor tambien requiere preparacion! ";
 			break;
 		case 32:
-			mes " Ang pag-ibig ay kailangang may dalawang bagay: malaking lakas at kalooban na mabuhay. Naisip mo na ba kung kaya mo bang malampasan ito sa iyong kasalukuyang sarili? ";
+			mes " El amor necesita dos cosas: gran fuerza y voluntad de vivir. Has pensado si puedes superar esto con tu yo actual? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kilalanin ang pag-ibig at kilalanin ang iyong sarili! ";
+			mes " Conoce el amor y conocete a ti mismo! ";
 			break;
 		case 33:
-			mes " May mga ipinanganak na nakatakdang matamaan ng pader na ito, isang balakid. Mukhang naabot na ng iyong pag-ibig ang pader na iyon.. Tiyak na mahirap. ";
+			mes " Algunos nacen destinados a chocar contra este muro, un obstaculo. Parece que tu amor ha llegado a ese muro.. Seguramente es dificil. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Nakakaawa naman. ";
+			mes " Que pena. ";
 			break;
 		case 34:
-			mes " Mukhang nahihirapan ang Baphomet na ito. Tiyak na pagod ang tao kahit hindi mukhang ganoon. ";
+			mes " Este Baphomet parece estar sufriendo. Seguramente la persona esta cansada aunque no lo parezca. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Lapitan mo siya nang may pagmamahal. ";
+			mes " Acercate con amor. ";
 			break;
 		case 35:// Sandman Card
-			mes " Hindi mo ba naririnig ang sigaw ng card? Naghihirap ito. Ganoon ang pag-ibig.. ";
+			mes " No escuchas el grito de la carta? Esta sufriendo. Asi es el amor.. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya huwag mong ikalungkot! ";
+			mes " Asi que no te entristezcas! ";
 			break;
 		case 36:
-			mes " Ang iyong pag-ibig ngayon ay sobrang boring na humihikab na. Paano kung subukan ang isang bagay na sariwa at bago? ";
+			mes " Tu amor ahora es tan aburrido que ya esta bostezando. Que tal si pruebas algo fresco y nuevo? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Subukan mong baguhin ang iyong estilo ng pagde-date. ";
+			mes " Intenta cambiar tu estilo de citas. ";
 			break;
 		case 37:
-			mes " Ang malalim na tulog ay nagdadala ng kaligayahan at panaginip. Sa palagay ko ang kailangan mo ngayon ay tulog. ";
+			mes " El sueño profundo trae felicidad y sueños. Creo que lo que necesitas ahora es dormir. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Matulog ka na. ";
+			mes " Ve a dormir. ";
 			break;
 		case 38:
-			mes " Nararamdaman ko ang isang uri ng kahungkagan.. Baka may puwang sa iyong pag-ibig? ";
+			mes " Siento una especie de vacio.. Sera que hay un espacio en tu amor? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Tingnan mong mabuti. ";
+			mes " Mira bien. ";
 			break;
 		case 39:// Sohee Card
-			mes " Kahit ang isang tradisyonal na kagandahan ay maaaring mukhang malamig sa iba. Subukan mong tingnan ang iyong minamahal mula sa ibang punto de vista. ";
+			mes " Incluso una belleza tradicional puede parecer fria para otros. Intenta ver a tu ser amado desde otro punto de vista. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Tingnan ang pag-ibig mula sa ibang pananaw. Hindi mo alam kung kailan mo matutuklasan ang isang bagay. ";
+			mes " Mira el amor desde otra perspectiva. No sabes cuando descubriras algo. ";
 			break;
 		case 40:
-			mes " Maaaring mukhang malungkot at masamang pangitain ngunit walang dungis ang kanilang kasuotan. Nagpapakita sila ng debosyon sa kapwa. ";
-			mes " Kahit hindi ka nasisiyahan sa iyong pag-ibig ngayon, tingnan mo ang kanilang kasuotan. ";
+			mes " Puede parecer triste y de mal augurio pero su vestimenta no tiene mancha. Muestran devocion al projimo. ";
+			mes " Aunque no estes satisfecho con tu amor ahora, mira su vestimenta. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Maingat itong isinuot, ang kanilang puso para sa iyo ay makikita rin dito.. ";
+			mes " La vistio con cuidado, su corazon por ti tambien se puede ver ahi.. ";
 			break;
 		case 41:
-			mes " May isang tao na hindi mo dapat basta-bastang harapin sa iyong malapit. Huwag magsalita o gumawa ng anumang bagay nang walang ingat. Kailangan mong maging maingat sa tao na ito. ";
+			mes " Hay una persona cerca de ti a la que no debes enfrentar descuidadamente. No hables ni hagas nada sin cuidado. Necesitas ser cauteloso con esta persona. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Tandaan mo iyan. ";
+			mes " Recuerda eso. ";
 			break;
 		case 42:
-			mes " Kahit humihip ang hangin at pumapagaspas ang laylayan ng damit niya, hindi nagbabago ang kanyang postura. Ang pagmamahal sa isang taong may ganyang uri ng puso ay magdadala ng mabuting kalooban at kaligayahan. ";
+			mes " Aunque el viento sopla y agita el borde de su ropa, su postura no cambia. Amar a una persona con ese tipo de corazon traera buena voluntad y felicidad. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Panatilihin ang isang matuwid na puso at isipan. ";
+			mes " Manten un corazon y una mente rectos. ";
 			break;
 		case 43:// Skel Worker Card
-			mes " Iyon ang nagliliwanag at umaatake gamit ang piko! Kailangan mong agresibong sumulong. Ano sa palagay mo? Maganda ang iyong kapalaran. ";
+			mes " Ese que brilla y ataca con el pico! Necesitas avanzar agresivamente. Que opinas? Tu destino es bueno. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Handa na ba ang iyong puso kabataan? ";
+			mes " Esta listo tu corazon, joven? ";
 			break;
 		case 44:
-			mes " Ang card ay nagpapakita lamang ng payat na mga buto, ngunit pansinin kung paano ito may lahat ng kinakailangang kagamitan?";
-			mes " Kahit mukhang walang laman ang iyong pag-ibig ngayon, mayroon itong lahat ng kailangan mo. ";
+			mes " La carta solo muestra huesos delgados, pero nota como tiene todo el equipo necesario?";
+			mes " Aunque tu amor parezca vacio ahora, tiene todo lo que necesitas. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Huwag masyadong maging sakim sa mga bagay. ";
+			mes " No seas demasiado codicioso con las cosas. ";
 			break;
 		case 45:
-			mes " May parol ito sa likod at kahit sa kamay.. naniniwala itong hindi sapat ang isang ilaw. ";
-			mes " Kung isang uri lang ng ilaw ang ipinakikita mo sa iyong minamahal, maaaring makatulong ang pagpapakita ng iba pa. ";
+			mes " Tiene un farol en la espalda e incluso en la mano.. cree que una sola luz no es suficiente. ";
+			mes " Si solo muestras un tipo de luz a tu ser amado, mostrar otras podria ayudar. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Maaaring nararamdaman nilang hindi sapat ang isa. ";
+			mes " Quizas sienten que una no es suficiente. ";
 			break;
 		case 46:
-			mes " Kilala mo ang ngiti ng Mona Lisa.. Baka ang taong tinitingnan mo ay may kaparehong ekspresyon? ";
+			mes " Conoces la sonrisa de la Mona Lisa.. Sera que la persona que miras tiene la misma expresion? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Huwag subukang direktang titigan sila. Magsikap na lapitan sila. ";
+			mes " No intentes mirarlos directamente. Esfuerzate por acercarte a ellos. ";
 			break;
 		case 47:
-			mes " Ang isang kabalyero sa kabayo ay pantasya sa puso ng bawat tao. Gawin mong totoo ang pantasyang ito. ";
+			mes " Un caballero a caballo es una fantasia en el corazon de toda persona. Haz realidad esa fantasia. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Siguradong magkakaroon ng pag-unlad. ";
+			mes " Seguramente habra progreso. ";
 			break;
 		case 48:
-			mes " Naghihintay bang umatake ang sundalong iyon? Nararamdaman ko ang matinding tensyon sa pagitan ng kabayo at kabalyero. ";
-			mes " Huwag sumugod nang walang ingat. Itaas ang iyong espada at hintayin ang tamang pagkakataon. ";
+			mes " Ese soldado esta esperando para atacar? Siento una tension intensa entre el caballo y el caballero. ";
+			mes " No cargues descuidadamente. Levanta tu espada y espera el momento correcto. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ibig sabihin ngayon ay panahon ng paghihintay. Paano, gusto mo bang maghintay sandali? ";
+			mes " Significa que ahora es tiempo de esperar. Que dices, quieres esperar un momento? ";
 			break;
 		case 49:
-			mes " Natutulog siya habang naghihintay ng labanan. Dahil ba relaxed siya, o simpleng kawawa? Depende sa sitwasyon. ";
-			mes " Ngunit kailangan mo siyang bigyan ng credit sa kanyang katapangan. ";
+			mes " Duerme mientras espera la batalla. Es porque esta relajado, o simplemente tiene mala suerte? Depende de la situacion. ";
+			mes " Pero debes darle credito por su valentia. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Paano kung maging isang matapang na mandirigma sa labanan ng pag-ibig? ";
+			mes " Que tal si te conviertes en un guerrero valiente en la batalla del amor? ";
 			break;
 		case 50:
-			mes " Napakaporable. Sa puntong nararamdaman ko ang malakas na enerhiya mula sa card. Ibibigay ko ang ilan sa enerhiyang ito sa iyo. ";
+			mes " Muy favorable. Al punto de que siento una energia fuerte desde la carta. Te dare algo de esta energia. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ilaan mo ang enerhiyang iyon sa pag-ibig..! ";
+			mes " Dedica esa energia al amor..! ";
 			break;
 		case 51:// Anubis Card
-			mes " Ano ang sasabihin ng diyos ng kamatayan tungkol sa pag-ibig? Tiyak na isang masamang pangitain ito. ";
+			mes " Que dira el dios de la muerte sobre el amor? Seguramente es un mal augurio. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sa palagay ko ay nagsusumikap itong magbigay ng babala. Mag-ingat. ";
+			mes " Creo que esta tratando de dar una advertencia. Ten cuidado. ";
 			break;
 		case 52:
-			mes " Hmm. Paano kung magreregalo ng isang cute na tuta? Isang may bilog na ilong. Tiyak na magiging masaya sila. ";
+			mes " Hmm. Que tal si regalas un cachorrito lindo? Uno con nariz redonda. Seguro se pondran felices. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ngunit wala tayong magagawa kung ayaw nila ng tuta. ";
+			mes " Pero no podemos hacer nada si no les gustan los cachorros. ";
 			break;
 		case 53:
-			mes " Masasabi ko kung ano ang ginagawa niya mula sa paraan ng pag-iyak habang may hawak na palakol na may dugo. Malalim na nasugatan siya ng pag-ibig. ";
+			mes " Puedo decir que esta haciendo por la forma en que llora mientras sostiene un hacha ensangrentada. Ha sido profundamente herido por el amor. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kung hindi agad gagamutin ang sugat na iyon, magiging katulad ng gusto ng Anubis. ";
+			mes " Si esa herida no se trata pronto, se convertira en lo que Anubis desea. ";
 			break;
 		case 54:
-			mes " Ang disenyo ng mga damit ay sumisimbolo ng babala. Sinasabi nitong mag-ingat sa pag-ibig. ";
+			mes " El diseño de la ropa simboliza una advertencia. Dice que tengas cuidado con el amor. ";
 			next;
 			mes "[Lhimetorra]";
-			mes "Maging maingat. ";
+			mes "Se cauteloso. ";
 			break;
 		case 55:// Orc Lord Card
-			mes " Binababalaan ka niyang huwag maglaway sa iba. ";
+			mes " Te advierte que no babees por otros. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Masama iyon! Paparusahan ka! ";
+			mes " Eso es malo! Seras castigado! ";
 			break;
 		case 56:
-			mes " Sino ang matindi niyang tinitigan gamit ang malalaking kalamnan na iyon? Tiyak na ibang tao ang tinitingnan niya. ";
+			mes " A quien esta mirando fijamente con esos musculos enormes? Seguro esta mirando a otra persona. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Huwag magpagambala at tumingin sa iba! Susumpain ka! ";
+			mes " No te distraigas mirando a otros! Seras maldecido! ";
 			break;
 		case 57:
-			mes " Palakasin ang iyong katawan at obserbahan ang target. Iyan ang hakbang sa tagumpay. ";
+			mes " Fortalece tu cuerpo y observa al objetivo. Ese es el paso al exito. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kung gusto mo rin ng pag-ibig, bakit hindi mo sundin ang payo ng card at ihanda muna ang iyong sarili? ";
+			mes " Si tu tambien quieres amor, por que no sigues el consejo de la carta y te preparas primero? ";
 			break;
 		case 58:
-			mes " Napakaganda ng kanyang pusod. Kailangan mong makatagpo ng isang tao na may ganyang uri ng pusod para maging masaya. ";
+			mes " Su ombligo es muy hermoso. Necesitas encontrar a una persona con ese tipo de ombligo para ser feliz. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sige? Tandaan mo iyan~ ";
+			mes " De acuerdo? Recuerda eso~ ";
 			break;
 		case 59:// Jakk Card
-			mes " Masasaktan ka kung magpapabaya ka. Nagbibigay ang card na ito ng payo sa iyo. ";
+			mes " Te lastimaran si eres descuidado. Esta carta te da un consejo. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " May nagawa kang mali sa minamahal mo, di ba? Magsikap na makabawi~! ";
+			mes " Hiciste algo mal con tu ser amado, verdad? Esfuerzate por compensarlo~! ";
 			break;
 		case 60:
-			mes " Sa paraan ng pag-masahe niya sa likod dahil sa pamumulikat ng balikat, baka ang minamahal mo ay naghahanap ng magma-masahe sa kanila. Ang pag-ibig ay nagsisimula sa maliliit na kaisipan.";
+			mes " Por la forma en que se masajea la espalda por la tension del hombro, quizas tu ser amado esta buscando a alguien que le de un masaje. El amor comienza con pequeños detalles.";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sa susunod na pagkikita ninyo, bigyan mo sila ng masahe. Magsimula sa maliliit na bagay. ";
+			mes " La proxima vez que se vean, dale un masaje. Empieza con las cosas pequeñas. ";
 			break;
 		case 61:
-			mes " Ang ekspresyon niya ay may pagkamangha. Kapag nakatagpo ng absurdong pangyayari, ang mukha at ekspresyon niya ay nagiging kakaibang baluktot. ";
-			mes " Sa palagay ko ang tinitingnan mo ay may ganyang uri ng ekspresyon. ";
+			mes " Su expresion tiene asombro. Cuando se encuentra con algo absurdo, su cara y expresion se tuercen de forma extraña. ";
+			mes " Creo que la persona que miras tiene ese tipo de expresion. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " May ginawa ka bang absurdo sa taong iyon? Sigurado ka ba? Isipin mo~ ";
+			mes " Hiciste algo absurdo a esa persona? Estas seguro? Piensalo~ ";
 			break;
 		case 62:
-			mes " Kapag nagkamali ang minamahal, tinutusok niya ng karayom. Nakakatakot.. ";
+			mes " Cuando el ser amado comete un error, lo pincha con una aguja. Aterrador.. ";
 			break;
 		case 63:// Joker Card
-			mes " Ang puso ng tao ay tulad ng card na ito. Kapag binaliktad mo, walang makakapagsabi kung ano ang nasa likod. Subukan mong baligtarin ang card ng tao. ";
+			mes " El corazon de las personas es como esta carta. Cuando la volteas, nadie puede decir que hay detras. Intenta voltear la carta de la persona. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kailangan mong lapitan ang kanilang tunay na puso. Naiintindihan? ";
+			mes " Necesitas acercarte a su verdadero corazon. Entiendes? ";
 			break;
 		case 64:
-			mes " Ang mga Joker ay tuso, ngunit iyon ay dahil ugali na nila. ";
-			mes " Ang dahilan kung bakit maaaring mukhang pabagu-bago o tuso ang tao ay bahagyang dahil ipinanganak silang ganoon. ";
+			mes " Los Jokers son astutos, pero eso es porque es su naturaleza. ";
+			mes " La razon por la que una persona puede parecer voluble o astuta es parcialmente porque nacieron asi. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya mo ba silang lapitan kahit ganoon? Para gawin iyon, kailangan mong ihanda ang iyong puso.. mm.. ";
+			mes " Puedes acercarte a ellos aun asi? Para hacer eso, necesitas preparar tu corazon.. mm.. ";
 			break;
 		case 65:
-			mes " Hindi magamit ng joker ang lakas niya dahil nakatali siya sa card. Baka ang tao ay nakatali sa isang bagay at hindi maipakita ang tunay niyang kakayahan? ";
+			mes " El joker no puede usar su fuerza porque esta atado a la carta. Quizas la persona esta atada a algo y no puede mostrar su verdadera capacidad? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kung mahal mo sila, palayain mo sila mula sa mga tanikala na nagtatali sa kanila.. Iyon ang konsiderasyon.. at pag-ibig ";
+			mes " Si los amas, liberalos de las cadenas que los atan.. Eso es consideracion.. y amor ";
 			break;
 		case 66:
-			mes " Huwag kang malinlang ng mga tricks. Sila ay tao rin. Marunong din silang magsinungaling paminsan-minsan. Hanapin ang trick nang kalmado at maingat. ";
+			mes " No te dejes engañar por los trucos. Ellos tambien son personas. Tambien saben mentir de vez en cuando. Busca el truco con calma y cuidado. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " At pagkatapos ay maghanap ng ibang landas. Iyan ang matalinong desisyon. ";
+			mes " Y luego busca otro camino. Esa es la decision inteligente. ";
 			break;
 		case 67:// Hode Card
-			mes " Sinasabi nitong kailangan ng matapang na aksyon, tulad ng Hode na biglang sumasalakay mula sa buhangin. ";
+			mes " Dice que se necesita accion valiente, como el Hode que ataca repentinamente desde la arena. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Baka masyadong nadismaya ka ngayon. Maging matapang at malakas ang loob kabataan. ";
+			mes " Quizas estas demasiado desanimado ahora. Se valiente y ten coraje, joven. ";
 			break;
 		case 68:
-			mes " Sa pagkakita na ang Hode ay dumudura ng buhangin sa mga nang-iistorbo sa kanila, tiyak na may nagawa kang nang-iistorbo sa tao. ";
+			mes " Al ver que el Hode escupe arena a los que lo molestan, seguramente hiciste algo que molesto a la persona. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Baka nagiging makulit ka? Magsikap na mag-relax nang kaunti. ";
+			mes " Sera que estas siendo muy insistente? Esfuerzate por relajarte un poco. ";
 			break;
 		case 69:
-			mes " Ang Hode ay may napakalakas na kalooban na mabuhay. Ito ay upang makaligtas sa kagubatan. Iminumungkahi nito ang pakikipag-date na may ganyang uri ng kalooban.";
+			mes " El Hode tiene una voluntad de vivir muy fuerte. Es para sobrevivir en el desierto. Sugiere tener citas con ese tipo de voluntad.";
 			next;
 			mes "[Lhimetorra]";
-			mes " Hmm, subukan ang pag-ibig nang may mas maraming sigla. Magkakaroon ka ng magandang resulta. ";
+			mes " Hmm, intenta el amor con mas energia. Tendras buenos resultados. ";
 			break;
 		case 70:
-			mes " Ah.. may isang marangal na tao sa hilaga. Hilaga talaga. Hindi magbabago ang direksyong ito. ";
+			mes " Ah.. hay una persona noble en el norte. En el norte de verdad. Esta direccion no cambiara. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Magtiwala ka sa akin at subukan mo. ";
+			mes " Confia en mi e intentalo. ";
 			break;
 		case 71:// Minorous Card
-			mes " Ang naglalakad na toro ay bihira. Ang taong tinitingnan mo ay ganoon kabihira. Huwag mo silang bitiwan. Maaaring hindi mo na sila makita muli.. ";
+			mes " Un toro que camina es raro. La persona que miras es asi de rara. No la dejes ir. Quizas no la veas de nuevo.. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sinasabi ito ng card. ";
+			mes " Eso dice la carta. ";
 			break;
 		case 72:
-			mes " Nakikita mo ba ang malakas na mga kalamnan na kahit mga palaso ay hindi makakatusok? Ganoon din ang tao. ";
+			mes " Ves los musculos fuertes que ni las flechas pueden penetrar? Asi es la persona tambien. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Para umatake gamit ang pag-ibig.. kakailanganin mo ng mas malakas na atake.. Mmm.. ";
+			mes " Para atacar con amor.. necesitaras un ataque mas fuerte.. Mmm.. ";
 			break;
 		case 73:
-			mes " Ang pinakakatakot ay hindi ang martilyo o sungay. Ito ang malalaking binti na sumusuporta sa mabigat nitong timbang. Walang makakaligtas sa tama ng mga binting iyon. Ang tao ay malamang na nagtatago rin ng pinakamapanganib na bahagi. ";
+			mes " Lo mas temible no es el martillo ni los cuernos. Son las grandes piernas que soportan su pesado peso. Nadie puede sobrevivir al golpe de esas piernas. La persona probablemente tambien esconde su parte mas peligrosa. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kailangan mong mahalin ngunit mag-ingat sa parehong oras. Hindi mo alam kung kailan ka tatamaan ng mga likurang binti. ";
+			mes " Necesitas amar pero tener cuidado al mismo tiempo. No sabes cuando te golpearan las patas traseras. ";
 			break;
 		case 74:
-			mes " Gaano man katakot ang toro, may singsing ito sa ilong, natame na ito ng mga tao. Gaano man ka-kamangha-mangha ang tao, ang pag-tame ay responsibilidad mo. ";
+			mes " Por muy temible que sea el toro, tiene un anillo en la nariz, fue domesticado por los humanos. Por muy asombrosa que sea la persona, domesticarla es tu responsabilidad. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Lapitan sila nang may mas maraming katapatan at konsiderasyon. ";
+			mes " Acercate a ellos con mas lealtad y consideracion. ";
 			break;
 		}
 		next;
 		mes "[Lhimetorra]";
-		mes " Humingi ka ng payo tungkol sa pag-ibig. ";
-		mes " Kahit hindi ka nasiyahan dito, isipin ito nang mahinahon at magsikap na hanapin ang tunay na kaligayahan. ";
+		mes " Pediste consejo sobre el amor. ";
+		mes " Aunque no estes satisfecho con esto, piensalo con calma y esfuerzate por encontrar la verdadera felicidad. ";
 		cutin "",255;
 		next;
 		mes "[Lhimetorra]";
-		mes " Kung gayon... ";
+		mes " Entonces... ";
 		close;
 	//=================================================================Assets? ===
 	case 2:
 		mes "[Lhimetorra]";
-		mes " Ooh... may nagsisimulang lumabas tungkol sa iyong kapalaran... ";
+		mes " Ooh... algo empieza a aparecer sobre tu destino... ";
 		next;
 		.@card_1_money = rand(1,73);
 		if (.@card_1_money < 5) cutin "���̾ƽ�ī��",4;			// Giearth Card
@@ -605,235 +605,235 @@ payon_in03,117,128,5	script	Fortune Teller	4_M_BIBI,{
 		mes "[Lhimetorra]";
 		switch(.@card_1_money) {
 		case 1:
-			mes " Kailangan mong magsikap para yumaman. Huwag mag-isip ng ibang bagay.. Magtuon at magsikap sa pagkamit ng iyong mga layunin. ";
+			mes " Necesitas esforzarte para hacerte rico. No pienses en otras cosas.. Concentrate y esfuerzate en lograr tus metas. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sige, good luck at galingan mo. ";
+			mes " Adelante, buena suerte y da lo mejor de ti. ";
 			break;
 		case 2:
-			mes " Maaaring dumating sa iyo ang isang napakabihirang bagay. Ang minahan ng ginto ang pangarap ng marami mula pa noong unang panahon. Mayroon kang minahan ng ginto sa harap mo. ";
+			mes " Algo muy raro podria llegar a ti. La mina de oro es el sueño de muchos desde tiempos antiguos. Tienes una mina de oro frente a ti. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sa kabuuan, isang malaking kayamanan ang nasa harap ng iyong mga mata. Aabangan ko ito. ";
+			mes " En resumen, una gran riqueza esta frente a tus ojos. Estare pendiente de esto. ";
 			break;
 		case 3:
-			mes " Sa bulsa ng tiyan, tiyak na may nakatagong kayamanan. Maaaring mayroon din sa iyong bulsa. ";
+			mes " En el bolsillo del estomago, seguramente hay riquezas escondidas. Quizas tambien en tu bolsillo. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Nagtatago ka ba ng mga bagay sa ibang tao? Dapat mong alisin ang mga iyon. Maaaring magdala ng malas. ";
+			mes " Escondes cosas de otras personas? Deberias deshacerte de esas. Podria traer mala suerte. ";
 			break;
 		case 4:
-			mes " Sinasabi ng card na hindi ka dapat maging masyadong sakim, dahil maaaring humukay ka ng sarili mong libingan. ";
+			mes " La carta dice que no debes ser demasiado codicioso, porque podrias cavar tu propia tumba. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Maaaring hindi maganda ang pakiramdam mo, ngunit dapat mong tanggapin ang payo ng card..! ";
+			mes " Quizas no te sientas bien, pero debes aceptar el consejo de la carta..! ";
 			break;
 		case 5:// Dustiness Card
-			mes " Alam mo ba na ang mga pakpak ng gamu-gamo ay may walang-hanggang pulbos? Ang gamu-gamo ay sumisimbolo ng yaman sa diwa na nakakakalap ito ng kayamanan tulad ng pulbos sa mga pakpak nito. ";
+			mes " Sabias que las alas de la polilla tienen polvo infinito? La polilla simboliza riqueza en el sentido de que acumula riqueza como el polvo en sus alas. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kabataan, makakalap ka ng maraming kayamanan. ";
+			mes " Joven, acumularas mucha riqueza. ";
 			break;
 		case 6:
-			mes " Kailangan mong magsikap para yumaman. Huwag mag-isip ng ibang bagay. Ang simpleng pagtuon sa mga layunin at pagsisikap dito ang makakatulong. ";
+			mes " Necesitas esforzarte para hacerte rico. No pienses en otras cosas. Simplemente concentrarte en las metas y esforzarte es lo que ayudara. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Good luck at galingan mo. ";
+			mes " Buena suerte y da lo mejor de ti. ";
 			break;
 		case 7:
-			mes " May karaniwang kasabihan na kapag kumampay ang gamu-gamo, lilipad din ang kayamanan. Hindi magandang palatandaan ito. ";
+			mes " Hay un dicho comun que cuando la polilla aletea, la riqueza tambien se va volando. Esta no es una buena señal. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Mag-ingat na huwag mawala ang iyong mga ari-arian. Ingatan ang iyong wallet. ";
+			mes " Ten cuidado de no perder tus pertenencias. Cuida tu billetera. ";
 			break;
 		case 8:
-			mes " Ang mga ngipin ng Dustiness ay napakalakas. Ibig sabihin nito.. ";
+			mes " Los dientes del Dustiness son muy fuertes. Eso significa.. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Magiging gintong ngipin ang iyong ngipin?! ";
+			mes " Tus dientes se convertiran en dientes de oro?! ";
 			break;
 		case 9:
-			mes " Kapag lumilipad ang dustiness, may malaking gastusin na darating. Maaaring kailanganin mong gumastos ng pera sa lalong madaling panahon. ";
+			mes " Cuando vuela el dustiness, viene un gran gasto. Quizas necesites gastar dinero pronto. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Baka gusto mong gumawa ng budget upang maghanda para sa gastusin na ito. ";
+			mes " Tal vez quieras hacer un presupuesto para prepararte para este gasto. ";
 			break;
 		case 10:// Dracula Card
-			mes " Nagdadala ng pera ang Dracula. Baka ito ang impluwensyang moral mula noong ito ay isang konde. Mahal maging bampira, ngunit hindi pa ako nakakita ng mahirap. ";
+			mes " Dracula trae dinero. Quizas es la influencia moral de cuando era conde. Es costoso ser vampiro, pero nunca he visto uno pobre. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Hindi mo kailangang mag-alala tungkol sa pera. ";
+			mes " No necesitas preocuparte por el dinero. ";
 			break;
 		case 11:
-			mes " Para kay Dracula, hindi mahalaga ang pera. Mas mahalaga ang dugo. Para sa iyo, tiyak na hindi rin mahalaga ang pera. Hindi mo kailangang mag-alala tungkol sa pera. ";
+			mes " Para Dracula, el dinero no es importante. La sangre es mas importante. Para ti, seguramente el dinero tampoco es importante. No necesitas preocuparte por el dinero. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Paano ito? Subukan mong maging mas relax tungkol sa pera. ";
+			mes " Que tal esto? Intenta ser mas relajado con el dinero. ";
 			break;
 		case 12:
-			mes " Kinukutya ni Dracula ang pera ng tao. Para sa kanya, walang halaga ito. ";
+			mes " Dracula se burla del dinero de los humanos. Para el, no tiene valor. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Hindi ka rin dapat masyadong mag-alala tungkol sa pera at ari-arian. ";
+			mes " Tu tampoco deberias preocuparte demasiado por el dinero y las posesiones. ";
 			break;
 		case 13:// Drake Card
-			mes " Anuman ang mangyari, mali ang magnakaw! Kahit ang Drake ay binabasbasan ka sa pangalan ng mga pirata! Bawal magnakaw! ";
+			mes " Pase lo que pase, robar esta mal! Incluso Drake te bendice en nombre de los piratas! Prohibido robar! ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Huwaaaaaag magnakaw! ";
+			mes " Nooooo robes! ";
 			break;
 		case 14:
-			mes " Makakalap ka ng magandang kayamanan sa palihim at kakaibang paraan.. Bagama't, may mga anino sa ilang bahagi ng iyong buhay. ";
+			mes " Acumularas buena riqueza de maneras secretas y extrañas.. Aunque hay sombras en algunas partes de tu vida. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Hindi komportableng kapalaran. Handa ka na ba? ";
+			mes " Un destino incomodo. Estas listo? ";
 			break;
 		case 15:
-			mes " Ang dahilan kung bakit ang mga pirata ay nagpapakasasa sa ari-arian ng iba sa malawak na maalong karagatan, ay dahil iyon ang tanging paraan upang makilala sila ng mga tao sa lupa. ";
+			mes " La razon por la que los piratas se apoderan de las posesiones de otros en el vasto mar tormentoso, es porque esa es la unica forma en que la gente en tierra los reconoce. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ngunit ang mga nakatira sa lupa ay hindi kailangang gawin iyon. Huwag tingnan ang mga ari-arian ng ibang tao. Payo ito ng pirata. ";
+			mes " Pero los que viven en tierra no necesitan hacer eso. No mires las posesiones de otros. Este es el consejo del pirata. ";
 			break;
 		case 16:// Marina Card
-			mes " Mas gusto ng Marina ang malinis na pondo. Ayaw nito ng kahina-hinalang pera. Dapat malinis din ang iyong mga ari-arian. ";
+			mes " Marina prefiere fondos limpios. No le gusta el dinero sospechoso. Tus posesiones tambien deben ser limpias. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Bakit? Maaaring alisin ng Marina ang lahat. ";
+			mes " Por que? Porque Marina puede quitarlo todo. ";
 			break;
 		case 17:
-			mes " Ang Marina ay tahimik na nagkakalap ng pera, unti-unti, habang malayang gumagala. Iyan ang tunay na paraan ng pagkita ng pera. Iminumungkahi sa iyo ng Marina ang paraang ito. ";
+			mes " Marina acumula dinero silenciosamente, poco a poco, mientras vaga libremente. Esa es la verdadera forma de ganar dinero. Marina te sugiere este metodo. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Dapat mong subukan. Wala kang mawawala. ";
+			mes " Deberias intentarlo. No tienes nada que perder. ";
 			break;
 		case 18:
-			mes " Hindi interesado ang Marina sa pera. Iminumungkahi ng card na magiging katulad mo rin ang mga katangiang ito. Mag-e-enjoy ka sa buhay nang hiwalay sa pera. ";
+			mes " Marina no esta interesada en el dinero. La carta sugiere que tu tambien tendras estas caracteristicas. Disfrutaras la vida separado del dinero. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Iyan ang kapalaran mula sa Marina card. ";
+			mes " Ese es el destino de la carta Marina. ";
 			break;
 		case 19:
-			mes " Makakalap ka ng pera nang mabilis at tahimik, tapos boom~ gastusin lahat nang sabay-sabay. ";
+			mes " Acumularas dinero rapida y silenciosamente, luego boom~ gastaras todo de una vez. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Napakatalino, hoho. ";
+			mes " Muy inteligente, jojo. ";
 			break;
 		case 20:// Marionette Card
-			mes " Ang Marionette ay mas pinahahalagahan ang sining kaysa sa yaman. Tandaan mo iyon. Karangalan kaysa ari-arian. ";
+			mes " La Marionette valora mas el arte que la riqueza. Recuerda eso. Honor antes que posesiones. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Napakahalagang aral.. Mmm... ";
+			mes " Una leccion muy importante.. Mmm... ";
 			break;
 		case 21:
-			mes " Gusto ng Marionette ang makintab na pera. Hindi ang mapurol na pera, kundi ang makintab na uri. ";
+			mes " A la Marionette le gusta el dinero brillante. No el dinero opaco, sino el tipo brillante. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Anyway, hanapin mo ang ganyang uri ng pera. ";
+			mes " De todos modos, busca ese tipo de dinero. ";
 			break;
 		case 22:
-			mes " Ang Marionette ay nangangailangan ng maraming pera. Napakalaki ng mga gastusin nito. Tiyak na maraming gastusin ang naghihintay sa iyo. ";
+			mes " La Marionette necesita mucho dinero. Sus gastos son enormes. Seguramente muchos gastos te esperan. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Malungkot na kapalaran. Paano kung maging maingat? ";
+			mes " Un destino triste. Que tal si eres cuidadoso? ";
 			break;
 		case 23:
-			mes " Gumagastos ng maraming pera ang Marionette. May isang tao sa paligid mo na ganoon din. ";
+			mes " La Marionette gasta mucho dinero. Hay una persona a tu alrededor que es igual. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Tiyak na may ganyang tao. Dapat kang mag-ingat. ";
+			mes " Seguramente hay una persona asi. Debes tener cuidado. ";
 			break;
 		case 24:// Medusa Card
-			mes " Ang buhok ng Medusa ay sumisimbolo ng dami ng kayamanan. Mukhang may magandang bagay na mangyayari sa iyo, kabataan. ";
+			mes " El cabello de Medusa simboliza la cantidad de riqueza. Parece que algo bueno te sucedera, joven. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Maaari mong abangan. ";
+			mes " Puedes esperarlo con ansias. ";
 			break;
 		case 25:
-			mes " Ang buhok ng Medusa ay puro ahas. Ang mga ahas ay sumisimbolo ng kasakiman at katusuhan. Kapag nangongolekta ng mga bagay, mukhang may tusong puwersa na sasama sa iyo. Hindi eksaktong maliwanag na palatandaan.. ";
+			mes " El cabello de Medusa es puro serpientes. Las serpientes simbolizan codicia y astucia. Al acumular cosas, parece que una fuerza astuta te acompañara. No es exactamente una señal clara.. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ngunit tiyak na makakakuha ka ng pera. Hmm.. ";
+			mes " Pero seguramente obtendras dinero. Hmm.. ";
 			break;
 		case 26:
-			mes " Ang Medusa ay masidhing nagrerekomenda ng pag-iipon. Sinasabi ng card na ito na mag-ipon. Sinasabi nitong maglagay ng maraming savings account sa buhok mo at gawin ang iyong ulo na kamukha ng kanyang ulo. ";
+			mes " Medusa recomienda encarecidamente el ahorro. Esta carta dice que ahorres. Dice que pongas muchas cuentas de ahorro en tu cabello y hagas que tu cabeza se parezca a la suya. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Iyon ang pinaniniwalaan nitong kayamanan. Ooh! ";
+			mes " Eso es lo que ella cree que es riqueza. Ooh! ";
 			break;
 		case 28:
-			mes " Hindi nasisiyahan ang Medusa sa paglalaro ng pera. Kung sumusubok kang gumamit ng pera maliban sa tamang paraan, dapat kang huminto. Bakit? ";
+			mes " Medusa no esta contenta con jugar con el dinero. Si estas intentando usar el dinero de manera incorrecta, deberias parar. Por que? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Dahil maaaring masumpa ka ng Medusa. ";
+			mes " Porque Medusa podria maldecirte. ";
 			break;
 		case 29:// Baphomet Card
-			mes " Ang malaking lakas ng Baphomet ay nagdadala ng kayamanan. Mukhang makakalap ka ng maraming kayamanan sa tulong ng puwersa ng Baphomet! ";
+			mes " La gran fuerza de Baphomet trae riqueza. Parece que acumularas mucha riqueza con la ayuda de la fuerza de Baphomet! ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Magandang palatandaan! Binabati kita! ";
+			mes " Buena señal! Te felicito! ";
 			break;
 		case 30:
-			mes " Ang kalabaw ng Baphomet ay nangangahulugan ng malakas na kagamitan upang mangolekta ng kayamanan. Kung mayroon kang malakas na kagamitan tulad niya, madali lang ang mangolekta ng kayamanan. ";
+			mes " El cebu de Baphomet significa equipo fuerte para recolectar riqueza. Si tienes equipo fuerte como el, recolectar riqueza es facil. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang sinusubukang sabihin ng Baphomet ay, maghanap ng paraan na makakatulong sa iyo tulad ng kanyang kagamitan. ";
+			mes " Lo que Baphomet intenta decir es, busca una forma que te ayude como su equipo. ";
 			break;
 		case 31:
-			mes " Paano kung makisali sa pag-aalaga ng baka? Mukhang makakalap ka ng maraming kayamanan dito. ";
+			mes " Que tal si te dedicas a la ganaderia? Parece que acumularas mucha riqueza con esto. ";
 			break;
 		case 32:
-			mes " Gustong tributuhan ng Baphomet. Sinasabi niyang kung gagawin mo, magbabalik siya ng malalaking benepisyo. ";
+			mes " Baphomet quiere que le rindan tributo. Dice que si lo haces, el devolvera grandes beneficios. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya subukan mong mag-alay ng bahagi ng iyong ari-arian sa Baphomet. ";
+			mes " Asi que intenta ofrecer parte de tus posesiones a Baphomet. ";
 			break;
 		case 33:// Sandman Card
-			mes " Umiiyak ng kalungkutan ang Sandman kapag pera ang pinag-uusapan. Malungkot ito dahil walang pag-ibig o pagmamahal ang pera. ";
+			mes " El Sandman llora de tristeza cuando se habla de dinero. Esta triste porque el dinero no tiene amor ni cariño. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Iniisip ko na dahan-dahang mawawala rin ang kahulugan ng pera sa iyong buhay. ";
+			mes " Pienso que poco a poco el significado del dinero tambien desaparecera de tu vida. ";
 			break;
 		case 34:
-			mes " Sumisigaw ang Sandman dahil nakakita ng napakaraming pera. Nakita nito ang pera sa mga kamay ng iyong kinabukasan. Ano kaya ang lahat ng perang iyon? ";
+			mes " El Sandman grita porque vio muchisimo dinero. Vio el dinero en las manos de tu futuro. Que sera todo ese dinero? ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Iniisip ko.. Hindi ka ba curious? ";
+			mes " Me pregunto.. No tienes curiosidad? ";
 			break;
 		case 35:
-			mes " Walang laman sa loob ang katawan ng Sandman. Mukhang walang laman din ang iyong wallet. Dapat kang mag-ipon ng pera. ";
+			mes " El cuerpo del Sandman esta vacio por dentro. Parece que tu billetera tambien esta vacia. Deberias ahorrar dinero. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Gusto ring mag-ipon ng Sandman. Kahit ang isang monster ay gustong mag-ipon, pero kapag ang tao ay hindi... ";
+			mes " El Sandman tambien quiere ahorrar. Incluso un monstruo quiere ahorrar, pero cuando una persona no... ";
 			break;
 		case 36:
-			mes " Ang pera ay parang buhangin. Kahit mag-ipon ka, kapag umihip ang hangin, nawawala. Ipinakikita ng card na ito ang kahungkagan ng pera. ";
+			mes " El dinero es como arena. Aunque lo acumules, cuando sopla el viento, desaparece. Esta carta muestra la vanidad del dinero. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Sa totoo lang, walang kabuluhan ang pera. ";
+			mes " En verdad, el dinero no tiene sentido. ";
 			break;
 		case 37:// Sohee Card
-			mes " Si Sohee ay nakasuot ng magandang kasuotan. Para makasuot ng ganoon, kakailanganin mo ng maraming pera. Alam mo ba kung ano ang sekreto? Si Sohee ay nagtipid nang husto noong nabubuhay pa siya. ";
+			mes " Sohee viste ropa hermosa. Para vestir asi, necesitaras mucho dinero. Sabes cual es el secreto? Sohee ahorro mucho cuando estaba viva. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya dapat magsimula ka ring mag-ipon. ";
+			mes " Asi que deberias empezar a ahorrar tambien. ";
 			break;
 		case 38:
-			mes " Ayaw ni Sohee sa mga kuripot. Naniniwala siyang naging ganoon siya dahil sa isang kuripot. Huwag maging kuripot sa harap ni Sohee! ";
+			mes " A Sohee no le gustan los tacaños. Ella cree que se volvio asi por culpa de un tacaño. No seas tacaño frente a Sohee! ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Ang ganyang uri ng kakunitan ay magpapagalit sa ibang tao. Gumastos ng pera kapag kinakailangan. ";
+			mes " Ese tipo de tacañeria enojara a otras personas. Gasta dinero cuando sea necesario. ";
 			break;
 		case 39:
-			mes " Ayaw ni Sohee sa mayayaman. Sinusubukan nilang mangolekta ng pera, ngunit hindi kailanman ginagamit para sa iba. Kung ayaw mong masumpa ni Sohee, kailangan mong matutong maging mapagbigay sa pera. ";
+			mes " A Sohee no le gustan los ricos. Intentan acumular dinero, pero nunca lo usan para los demas. Si no quieres ser maldecido por Sohee, necesitas aprender a ser generoso con el dinero. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Kaya kung mayroon kang masasamang hangarin, kalimutan mo ang mga iyon. Ang masamang puso ay madaling nakakakuha ng kamalasan. ";
+			mes " Asi que si tienes malas intenciones, olvidalas. Un corazon malo atrae facilmente la mala suerte. ";
 			break;
 		case 40:
-			mes " Gusto ni Sohee ang dayuhang pera. Cute at maganda ang mga ito. Kung mayroon kang dayuhang pera, mamahalin ka ni Sohee. ";
+			mes " A Sohee le gusta el dinero extranjero. Son lindos y bonitos. Si tienes dinero extranjero, Sohee te querra. ";
 			next;
 			mes "[Lhimetorra]";
-			mes " Bantayan ang dayuhang pera. Magdala ito ng suwerte sa iyo. ";
+			mes " Vigila el dinero extranjero. Te traera suerte. ";
 			break;
 		case 41:// Skel Worker Card
 			mes " Ang mga masipag na nagtatrabaho ay makakalap ng malaking kayamanan. Sinasabi ng Skeleton na ang masipag na pagtrabaho ay malaking tulong sa pagkalap ng yaman. ";

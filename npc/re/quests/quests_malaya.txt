@@ -1468,20 +1468,20 @@ malaya,62,274,0	script	Sand Trap#malaya	557,{
 		close;
 	}
 	if (countitem(6501) >= 6) {
-		mes "There's enough salt.";
+		mes "Hay suficiente sal.";
 		close;
 	}
-	mes "A device to evaporate sea water is installed in the Sand Trap.";
+	mes "Un dispositivo para evaporar agua de mar esta instalado en la Trampa de Arena.";
 	next;
-	mes "Salt can be scraped off the dried leaves";
-	mes "someone scattered on the sea water.";
+	mes "Se puede raspar sal de las hojas secas";
+	mes "que alguien esparcion sobre el agua de mar.";
 	close2;
 	progressbar "0xffff00", 5;
 	disablenpc();
 	initnpctimer;
 	getitem 6501, 1; // Salt_Bag
 	mes "[" + strcharinfo(0) + "]";
-	mes "This should be enough.";
+	mes "Esto deberia ser suficiente.";
 	close;
 
 OnTimer30000:
@@ -1498,22 +1498,22 @@ ma_fild01,178,206,0	script	Black Bamboo#malaya	844,4,4,{
 		close;
 	}
 	if ((checkquest(7366) == -1) && (checkquest(7380) == -1)) {
-		mes "There's a short and black bamboo tree.";
+		mes "Hay un arbol de bambu corto y negro.";
 		close;
 	}
 	if (countitem(6500) >= 6) {
-		mes "There's enough Sharpened Bamboos...";
+		mes "Hay suficientes Bambues Afilados...";
 		close;
 	}
-	mes "There's bamboo here with black cane and leaves.";
-	mes "If some of it is cut off and sharpened, I think it will suffice for the Sharpened Bamboo Imelda wanted.";
+	mes "Hay bambu aqui con cana y hojas negras.";
+	mes "Si se corta un poco y se afila, creo que sera suficiente para el Bambu Afilado que Imelda queria.";
 	close2;
 	progressbar "0xffff00", 3;
 	disablenpc();
 	initnpctimer;
 	getitem 6500, 1; //Sharp_Bamboo
 	mes "[" + strcharinfo(0) + "]";
-	mes "I knew I could do this!";
+	mes "Sabia que podia hacerlo!";
 	close;
 OnTouch_:
 	if ((checkquest(7366) != -1) || (checkquest(7380) != -1)) {
@@ -2453,25 +2453,25 @@ malaya,326,68,2	script	Pedro the Sailor	100,{
 
 L_SetQuest:
 	mes "[Pedro the Sailor]";
-	mes "Ah, the thing is...";
-	mes "We can't go right now..";
-	mes "You see, the ghosts are back...";
-	mes "I'm fed up with nuisance.";
+	mes "Ah, la cosa es...";
+	mes "No podemos ir ahora mismo..";
+	mes "Veras, los fantasmas han vuelto...";
+	mes "Estoy harto de las molestias.";
 	next;
 	mes "[Pedro the Sailor]";
-	mes "I mean... Miss Diwata... Isn't feeling very well and, even with the Spiritual Protection";
-	mes "a normal person can't stand it.";
+	mes "Quiero decir... la Srta. Diwata... No se siente muy bien y, incluso con la Proteccion Espiritual";
+	mes "una persona normal no lo soporta.";
 	next;
-	if (select("I see. Take care then.:How about a Floral Tribute?") == 1) {
+	if (select("Ya veo. Cuidate entonces.:Que tal un Tributo Floral?") == 1) {
 		mes "[Pedro the Sailor]";
-		mes "I'm glad you understand.";
-		mes "Sigh...";
+		mes "Me alegra que entiendas.";
+		mes "Suspiro...";
 		close;
 	}
 	mes "[Pedro the Sailor]";
-	mes "Hmmm. That would be nice.";
-	mes "If she can be soothed with flowers...!";
-	mes "Good luck.";
+	mes "Hmmm. Eso estaria bien.";
+	mes "Si ella puede calmarse con flores...!";
+	mes "Buena suerte.";
 	setquest 7402;
 	close;
 }
@@ -2481,49 +2481,49 @@ ma_in01,125,107,3	script	Ghost Diwata	1761,4,4,{
 OnTouch:
 	if (malaya_diwata == 0) {
 		cutin "malaya_diwata01", 2;
-		mes "- A creepy Little Girl is standing.";
-		mes "As our eyes meet, a chill runs down my spine with goose bumps all over. -";
+		mes "- Una nina espeluznante esta de pie.";
+		mes "Al cruzar miradas, un escalofrio recorre mi espalda con piel de gallina. -";
 		next;
 		mes "[Diwata]";
-		mes "Are you here to bully Diwata too?";
-		mes "I won't have it!";
+		mes "Estas aqui para molestar a Diwata tambien?";
+		mes "No lo permitire!";
 		next;
 		cutin "", 255;
-		mes "-I was thrown out after the Little Girl's low creepy voice and flash from her eyes.-";
+		mes "-Fui expulsado tras la voz baja espeluznante de la nina y el destello de sus ojos.-";
 		close;
 		warp "malaya", 324, 66;
 		end;
 	} else if (malaya_diwata == 1) {
 		cutin "malaya_diwata01", 2;
-		mes "- A creepy Little Girl is standing.";
-		mes "As our eyes meet, a chill runs down my spine with goose bumps all over. -";
+		mes "- Una nina espeluznante esta de pie.";
+		mes "Al cruzar miradas, un escalofrio recorre mi espalda con piel de gallina. -";
 		next;
 		mes "[Diwata]";
-		mes "Are you here to bully Diwata too?";
-		mes "I won't have it!";
+		mes "Estas aqui para molestar a Diwata tambien?";
+		mes "No lo permitire!";
 		next;
-		select ("Wait! I just want to talk!");
+		select ("Espera! Solo quiero hablar!");
 		mes "[Diwata]";
-		mes "Then who are they behind you?";
-		mes "You're one of them!";
+		mes "Entonces quienes son los que estan detras de ti?";
+		mes "Eres uno de ellos!";
 		next;
 		cutin "malaya_ghost01", 4;
-		mes "- Familiar souls are approaching Diwata. -";
+		mes "- Almas familiares se acercan a Diwata. -";
 		next;
-		if (select("It's a misunderstanding!:You're from that..!") == 2) {
+		if (select("Es un malentendido!:Tu eres de esos..!") == 2) {
 			cutin "malaya_ghost02", 4;
 			mes "[" + strcharinfo(0) + "]";
-			mes "Just as I thought! You're afraid of me?!";
-			mes "Stand aside!";
-			mes "I need to talk to her.";
+			mes "Justo como pense! Me tienen miedo?!";
+			mes "Haganse a un lado!";
+			mes "Necesito hablar con ella.";
 			next;
 			cutin "malaya_diwata01", 2;
 			mes "[Diwata]";
-			mes "I don't know why they're backing away...";
-			mes "You get out of my sight too!";
+			mes "No se por que se estan alejando...";
+			mes "Tu tambien sal de mi vista!";
 			next;
 			cutin "", 255;
-			mes "-I was thrown out after the Little Girl's annoyed cry and flash from her eyes.-";
+			mes "-Fui expulsado tras el grito molesto de la nina y el destello de sus ojos.-";
 			set malaya_diwata, 2;
 			setquest 7396;
 			erasequest 7395;
@@ -2533,10 +2533,10 @@ OnTouch:
 		}
 		cutin "malaya_diwata01",2;
 		mes "[Diwata]";
-		mes "Enough!";
+		mes "Basta!";
 		next;
 		cutin "", 255;
-		mes "-I was thrown out after the Little Girl's resolute cry and flash from her eyes.-";
+		mes "-Fui expulsado tras el grito decidido de la nina y el destello de sus ojos.-";
 		set malaya_diwata, 2;
 		setquest 7396;
 		erasequest 7395;
@@ -2546,40 +2546,40 @@ OnTouch:
 	} else if ((malaya_diwata == 2) || (malaya_diwata == 3)) {
 		cutin "malaya_diwata01", 2;
 		mes "[Diwata]";
-		mes "You crawled back in?";
-		mes "Get out-!!!!!";
+		mes "Volviste a entrar?";
+		mes "Fuera-!!!!!";
 		next;
 		cutin "", 255;
-		mes "-I was thrown out after the Little Girl's screeching cry and flash from her eyes.-";
+		mes "-Fui expulsado tras el grito chirriante de la nina y el destello de sus ojos.-";
 		close;
 		warp "malaya", 324, 66;
 		end;
 	} else if (malaya_diwata == 4) {
 		if (!countitem(6506)) {
 			cutin "malaya_diwata01", 2;
-			mes "- The soul of Little Girl Diwata is looking at me fiercely.";
-			mes "No Offering Bouquet...!!!";
+			mes "- El alma de la nina Diwata me mira ferozmente.";
+			mes "No tengo Ramo de Ofrenda...!!!";
 			next;
 			cutin "", 255;
-			mes "-I was thrown out with a remote look from her.-";
+			mes "-Fui expulsado con una mirada distante de ella.-";
 			close;
 			warp "malaya", 324, 66;
 			end;
 		}
-		mes "- The soul of Little Girl Diwata is looking at me fiercely. -";
-		mes "- The Offering Bouquet... -";
+		mes "- El alma de la nina Diwata me mira ferozmente. -";
+		mes "- El Ramo de Ofrenda... -";
 		cutin "malaya_diwata01", 2;
 		next;
-		if (select("Throw it to the Little Girl.:Slide it across on the floor.") == 1) {
-			mes "- I threw the bouquet before she could toss me out, and she catches in surprise...";
-			mes "She won't toss me... far, now that she has the flower.-";
+		if (select("Lanzarselo a la nina.:Deslizarlo por el suelo.") == 1) {
+			mes "- Lance el ramo antes de que pudiera expulsarme, y ella lo atrapa sorprendida...";
+			mes "No me lanzara... lejos, ahora que tiene la flor.-";
 		} else {
-			mes "- I slid the flower across the floor to her. She looks puzzled. -";
+			mes "- Deslice la flor por el suelo hacia ella. Se ve confundida. -";
 		}
 		next;
 		mes "[Diwata]";
-		mes "What is the meaning of this?";
-		mes "You're not an enemy?";
+		mes "Que significa esto?";
+		mes "No eres un enemigo?";
 		next;
 		mes "[Diwata]";
 		mes "What? You're an outsider too?";
@@ -2730,52 +2730,52 @@ ma_fild01,261,208,2	script	Kiko in Mumbaki	580,{
 		close;
 	}
 	mes "[Kiko in Mumbaki]";
-	mes "Welcome to Baryo, stranger.";
-	mes "I am the soul guidance, protector of people and souls here at Baryo.";
-	mes "So, I'm a good leader Kiko in Mumbaki.";
+	mes "Bienvenido a Baryo, extranjero.";
+	mes "Soy el guia de almas, protector de personas y almas aqui en Baryo.";
+	mes "Asi que, soy un buen lider Kiko in Mumbaki.";
 	next;
-	switch (select("Give Cast-Iron Caldron.:Request Purification Ritual.:Exchange Jellopy for gold.")) {
+	switch (select("Dar Caldero de Hierro Fundido.:Solicitar Ritual de Purificacion.:Intercambiar Jellopy por oro.")) {
 		case 1:
 			if (checkquest(7376) == -1) {
 				if (checkquest(7377) == -1) {
 					mes "[Kiko in Mumbaki]";
-					mes "What cauldron?";
-					mes "As far as I know, you're not the one bringing it.";
+					mes "Que caldero?";
+					mes "Hasta donde se, no eres tu quien lo trae.";
 					next;
 					mes "[Kiko in Mumbaki]";
-					mes "Poor thing.";
-					mes "do not live a life of lies.";
+					mes "Pobre de ti.";
+					mes "No vivas una vida de mentiras.";
 					close;
 				}
 				mes "[Kiko in Mumbaki]";
-				mes "Baryo is not a great place for smithy work.";
-				mes "So we always ask a favor to the forge of Malaya.";
+				mes "Baryo no es un gran lugar para herreria.";
+				mes "Asi que siempre le pedimos el favor a la forja de Malaya.";
 				next;
 				mes "[Kiko in Mumbaki]";
-				mes "Bakonawa does not like loud noises.";
-				mes "That's why we beat the sturdy Cast Iron Cauldrons.";
+				mes "A Bakonawa no le gustan los ruidos fuertes.";
+				mes "Por eso golpeamos los resistentes Calderos de Hierro Fundido.";
 				next;
 				mes "[Kiko in Mumbaki]";
-				mes "The Spiritual Protection is proof that I've got my cauldron,";
-				mes "so deliver it well. Okay? Good.";
+				mes "La Proteccion Espiritual es prueba de que recibi mi caldero,";
+				mes "asi que entregalos bien. De acuerdo? Bien.";
 				close;
 			}
 			if (countitem(6504) < 5) {
 				mes "[Kiko in Mumbaki]";
-				mes "Oh, must be the cauldron I ordered.";
-				mes "But, where is it?";
-				mes "Are you mocking me?!";
+				mes "Oh, debe ser el caldero que ordene.";
+				mes "Pero, donde esta?";
+				mes "Te estas burlando de mi?!";
 				close;
 			}
 			mes "[Kiko in Mumbaki]";
-			mes "Yes, excellent!";
-			mes "Very Good.";
-			mes "We can aggravate the Bakonawa more with this.";
+			mes "Si, excelente!";
+			mes "Muy bien.";
+			mes "Podemos irritar mas a Bakonawa con esto.";
 			next;
 			mes "[Kiko in Mumbaki]";
-			mes "I'll give you this for the cauldron.";
-			mes "I hear you're having some trouble with souls?";
-			mes "Take this. It will help you.";
+			mes "Te dare esto por el caldero.";
+			mes "Escuche que tienes problemas con almas?";
+			mes "Toma esto. Te ayudara.";
 			delitem 6504, 5; // Cast_Iron_Caldron
 			getitem 6503, 5; // Soul_Protection
 			setquest 7377;
@@ -2785,41 +2785,41 @@ ma_fild01,261,208,2	script	Kiko in Mumbaki	580,{
 			if (checkquest(7406) == -1) {
 				if (checkquest(7407) == -1) {
 					mes "[Kiko in Mumbaki]";
-					mes "The only purification needed in this village is Vantai's food.";
-					mes "There are no rituals where an outsider, like yourself, can take part in.";
+					mes "La unica purificacion necesaria en esta aldea es la comida de Vantai.";
+					mes "No hay rituales en los que un forastero, como tu, pueda participar.";
 					close;
 				}
 				mes "[Kiko in Mumbaki]";
-				mes "Vantai must be hungry.";
-				mes "Go give it to him.";
-				mes "Quickly now.";
+				mes "Vantai debe tener hambre.";
+				mes "Ve a darselo.";
+				mes "Rapido.";
 				close;
 			}
 			if ((countitem(523) < 10) || (countitem(6507) < 10)) {
 				mes "[Kiko in Mumbaki]";
-				mes "Purification of the bones the Guard Dog Vantai needs to gnaw on?";
-				mes "My work here just gets better and better.";
+				mes "Purificacion de los huesos que el Perro Guardian Vantai necesita roer?";
+				mes "Mi trabajo aqui solo mejora mas y mas.";
 				next;
 				mes "[Kiko in Mumbaki]";
-				mes "Go into the forest and fetch me ^4d4dff10 Evil Spirit Bones^000000 and ^4d4dff10 Holy Waters^000000 for the purification ritual.";
-				mes "I'll do the ritual myself.";
+				mes "Ve al bosque y traeme ^4d4dff10 Huesos de Espiritus Malignos^000000 y ^4d4dff10 Aguas Benditas^000000 para el ritual de purificacion.";
+				mes "Yo hare el ritual.";
 				close;
 			}
 			mes "[Kiko in Mumbaki]";
-			mes "Bones from the animals of this forest all have bad spirits within.";
-			mes "Of course it cannot be helped due to the malignant spirits flailing about...";
+			mes "Los huesos de los animales de este bosque tienen espiritus malignos dentro.";
+			mes "Por supuesto no se puede evitar debido a los espiritus malignos desbocados...";
 			next;
 			mes "[Kiko in Mumbaki]";
-			mes "You do this and do this here and there and...";
-			mes "There. The evil spirit has left and the bone is so pure that you can just chew on it.";
+			mes "Haces esto y aquello por aqui y por alla y...";
+			mes "Listo. El espiritu maligno se fue y el hueso es tan puro que puedes roerlo.";
 			next;
 			mes "[Kiko in Mumbaki]";
-			mes "Now, take this back to Dong the Guard.";
-			mes "Vantai will become stronger after eating this purified Evil Spirit Bone.";
+			mes "Ahora, lleva esto de vuelta a Dong el Guardia.";
+			mes "Vantai se hara mas fuerte despues de comer este Hueso de Espiritu Maligno purificado.";
 			next;
 			mes "[Kiko in Mumbaki]";
-			mes "Moreover, holding on to Evil Spirit Bones will only do you harm,";
-			mes "so I'll take them all to purify.";
+			mes "Ademas, quedarte con Huesos de Espiritus Malignos solo te hara dano,";
+			mes "asi que me los llevare todos para purificar.";
 			delitem 6507, countitem(6507); // Evil_Bone
 			delitem 523, 10; //Holy_Water
 			getitem 6505, 10; //Purified_Bone
@@ -2828,8 +2828,8 @@ ma_fild01,261,208,2	script	Kiko in Mumbaki	580,{
 			close;
 		case 3:
 			mes "[Kiko in Mumbaki]";
-			mes "Oh no you don't!";
-			mes "Don't you dare!";
+			mes "Oh no, ni lo pienses!";
+			mes "No te atrevas!";
 			close;
 	}
 	end;
@@ -2841,91 +2841,91 @@ ma_fild01,239,253,3	script	Dhong the Guard	570,{
 		close;
 	}
 	mes "[Dhong the Guard]";
-	mes "Hi there!";
-	mes "Welcome to Baryo.";
+	mes "Hola!";
+	mes "Bienvenido a Baryo.";
 	next;
-	if (select("You're job seems so hard~:Guard Dog Vantai") == 1) {
+	if (select("Tu trabajo parece tan dificil~:Perro Guardian Vantai") == 1) {
 		mes "[Dhong the Guard]";
-		mes "Not at all. I just watch who comes and goes from here.";
-		mes "Travelers are the ones who go through more hardship.";
+		mes "Para nada. Solo vigilo quien viene y va de aqui.";
+		mes "Los viajeros son los que pasan por mas dificultades.";
 		close;
 	}
 	if (BaseLevel < 100) {
 		mes "[Dhong the Guard]";
-		mes "Vantai is a nice dog.";
-		mes "He's probably stronger than you.";
+		mes "Vantai es un buen perro.";
+		mes "Probablemente es mas fuerte que tu.";
 		next;
 		mes "[Dhong the Guard]";
-		mes "No offense, but";
-		mes "you look weaker than the original owners of the bones Vantai chews on.";
+		mes "Sin ofender, pero";
+		mes "te ves mas debil que los duenos originales de los huesos que Vantai mastica.";
 		next;
 		mes "[Dhong the Guard]";
-		mes "That means just about as strong as me!";
-		mes "Ha ha ha ha ha ha ha!";
+		mes "Eso significa casi tan fuerte como yo!";
+		mes "Ja ja ja ja ja ja!";
 		close;
 	}
 	.@playtime = checkquest(7408, PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
 		mes "[Dhong the Guard]";
-		mes "The bones you brought Vantai gave him a feast.";
-		mes "He'll be full and merry for a while now.";
-		mes "Nobody can beat Vantai in recon around here.";
+		mes "Los huesos que le trajiste a Vantai le dieron un festin.";
+		mes "Estara lleno y contento por un rato.";
+		mes "Nadie puede superar a Vantai en reconocimiento por aqui.";
 		next;
 		mes "[Dhong the Guard]";
-		mes "Though it is not nice to say a person is lesser than a dog,";
-		mes "but there are some who are lesser.";
+		mes "Aunque no es bonito decir que una persona es inferior a un perro,";
+		mes "pero hay algunos que lo son.";
 		close;
 	} else if (.@playtime == 2) {
 		erasequest 7408;
 		mes "[Dhong the Guard]";
 		mes "Vantai?";
-		mes "Always the same.";
-		mes "Now that you mention it, it's almost time for him to get hungry.";
+		mes "Siempre lo mismo.";
+		mes "Ahora que lo mencionas, ya casi es hora de que le de hambre.";
 		next;
 		mes "[Dhong the Guard]";
-		mes "Of course, he eats normal dog food, but he can't go without those.";
-		mes "You know what I mean, right?";
-		mes "Smirk...";
+		mes "Por supuesto, come comida normal de perro, pero no puede estar sin esos.";
+		mes "Sabes a que me refiero, verdad?";
+		mes "Sonrisa...";
 		next;
 		mes "[Dhong the Guard]";
-		mes "Me and Vantai are always waiting";
-		mes "for the hero to get us some Evil Spirit Bones from the forest.";
+		mes "Vantai y yo siempre estamos esperando";
+		mes "al heroe que nos traiga Huesos de Espiritus Malignos del bosque.";
 		close;
 	} else {
 		if (checkquest(7406) != -1) {
 			mes "[Dhong the Guard]";
-			mes "What I'm saying is that, to be a good guard dog, he must be able to stand ground against evil spirits.";
-			mes "For that he needs to eat Evil Spirit Bones, but it must be purified before he can eat them.";
+			mes "Lo que digo es que, para ser un buen perro guardian, debe poder resistir a los espiritus malignos.";
+			mes "Para eso necesita comer Huesos de Espiritus Malignos, pero deben ser purificados antes.";
 			next;
 			mes "[Dhong the Guard]";
-			mes "You can get Evil Spirit Bones from monsters or animals in the forest.";
-			mes "Kiko in Mumbaki will purify them for you.";
+			mes "Puedes obtener Huesos de Espiritus Malignos de monstruos o animales del bosque.";
+			mes "Kiko in Mumbaki los purificara por ti.";
 			close;
 		} else {
 			if (checkquest(7407) == 1) {
 				if (countitem(6505) < 10) {
 					mes "[Dhong the Guard]";
-					mes "Kiko in Mumbaki asked for 10 Purified Spirit Bones.";
-					mes "He needs to have at least 10 at a time. Which of course does not last a day...";
+					mes "Kiko in Mumbaki pidio 10 Huesos de Espiritu Purificados.";
+					mes "Necesita tener al menos 10 a la vez. Lo cual por supuesto no dura un dia...";
 					close;
 				}
 				mes "[Dhong the Guard]";
-				mes "Hey, Vantai will love these!";
-				mes "It's all in good condition...";
-				mes "An evil bone purified through holy ritual...";
+				mes "Oye, a Vantai le encantaran!";
+				mes "Todo esta en buena condicion...";
+				mes "Un hueso maligno purificado a traves de un ritual sagrado...";
 				next;
 				mes "[Dhong the Guard]";
-				mes "This is the perfect dog food!!";
-				mes "Now he can sense and detect evil spirits,";
-				mes "and since he ate purified ones, he'll get the ability to eradicate them.";
+				mes "Esta es la comida perfecta para perros!!";
+				mes "Ahora puede sentir y detectar espiritus malignos,";
+				mes "y como comio los purificados, obtendra la habilidad de erradicarlos.";
 				next;
 				mes "[Dhong the Guard]";
-				mes "I bet he's the strongest living thing in the village now.";
-				mes "Of course not me. I mean Vantai.";
+				mes "Apuesto a que es el ser vivo mas fuerte de la aldea ahora.";
+				mes "Por supuesto no soy yo. Me refiero a Vantai.";
 				next;
 				mes "[Dhong the Guard]";
-				mes "This is your reward.";
-				mes "It would be very nice if you could help us again tomorrow.";
+				mes "Esta es tu recompensa.";
+				mes "Seria muy bueno si pudieras ayudarnos de nuevo manana.";
 				delitem 6505, 10; // Purified_Bone
 				setquest 7408;
 				erasequest 7407;
@@ -2939,33 +2939,33 @@ ma_fild01,239,253,3	script	Dhong the Guard	570,{
 				close;
 			} else {
 				mes "[Dhong the Guard]";
-				mes "Vantai is not only a guard dog, but he's also a great detector and recon scout.";
-				mes "But for him to do so, he needs to eat Purified Spirit Bones.";
+				mes "Vantai no solo es un perro guardian, sino tambien un gran detector y explorador.";
+				mes "Pero para eso, necesita comer Huesos de Espiritu Purificados.";
 				next;
 				mes "[Dhong the Guard]";
-				mes "As you can see, I can't move from here,";
-				mes "so I was wondering if you can get the bones for Vantai...";
+				mes "Como puedes ver, no puedo moverme de aqui,";
+				mes "asi que me preguntaba si puedes conseguir los huesos para Vantai...";
 				next;
-				if (select("Alright.:Sorry.") == 2) {
+				if (select("De acuerdo.:Lo siento.") == 2) {
 					mes "[Dhong the Guard]";
-					mes "I see.";
+					mes "Ya veo.";
 					mes "Vantai!";
-					mes "No treat for you today..!!";
+					mes "No hay golosina para ti hoy..!!";
 					next;
-					mes "- It seems like Vantai's eyes are more moist today. -";
+					mes "- Parece que los ojos de Vantai estan mas humedos hoy. -";
 					close;
 				}
 				mes "[Dhong the Guard]";
-				mes "Bones can be acquired from animals or monsters around here.";
-				mes "Take them to Kiko in Mumbaki for purification, which, in turn, can be given to Vantai to eat.";
+				mes "Los huesos se pueden obtener de animales o monstruos por aqui.";
+				mes "Llevalos a Kiko in Mumbaki para purificarlos, y luego se los puedes dar a Vantai.";
 				next;
 				mes "[Dhong the Guard]";
-				mes "Bring us 10 Purified Spirit Bones.";
-				mes "That reminds me. You'll need Holy Water for the purification ritual.";
+				mes "Traenos 10 Huesos de Espiritu Purificados.";
+				mes "Eso me recuerda. Necesitaras Agua Bendita para el ritual de purificacion.";
 				next;
 				mes "[Dhong the Guard]";
-				mes "Take your time.";
-				mes "Look here. Vantai likes it too.";
+				mes "Tomate tu tiempo.";
+				mes "Mira aqui. A Vantai tambien le gusta.";
 				setquest 7406;
 				close;
 			}
@@ -2978,7 +2978,7 @@ ma_fild01,238,257,2	script	Guard Dog Vantai	972,{
 	mes "[Vantai]";
 	mes "Grrrrrrr...";
 	mes " ";
-	mes "(He is intimidated by you.)";
+	mes "(Esta intimidado por ti.)";
 	close;
 }
 
@@ -2989,40 +2989,40 @@ ma_fild01,200,190,3	script	Maries#malaya	579,{
 	}
 	if (BaseLevel < 100) {
 		mes "[Maries]";
-		mes "Umm... Hey...";
-		mes "Oh, no, sorry. You don't look so strong or bold.";
-		mes "I'm sorry. I'm just not quite myself...";
+		mes "Umm... Oye...";
+		mes "Oh, no, lo siento. No te ves tan fuerte o valiente.";
+		mes "Disculpa. Es que no estoy siendo yo misma...";
 		close;
 	}
 	if (malaya_hi < 20) {
-		mes "An anxious looking woman is stands.";
+		mes "Una mujer de aspecto ansioso esta de pie.";
 		close;
 	}
 	.@playtime = checkquest(7390, PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
 		mes "[Maries]";
-		mes "Now that the children know that they can get back home with an Inside-out Shirt,";
-		mes "they play out in the forest recklessly and timelessly.";
+		mes "Ahora que los ninos saben que pueden volver a casa con una Camisa al Reves,";
+		mes "juegan en el bosque sin cuidado y sin nocion del tiempo.";
 		next;
 		mes "[Maries]";
-		mes "The children will surely get lost again in these conditions.";
-		mes "If it happens again, I'll seek your help again.";
+		mes "Los ninos seguramente se perderan de nuevo en estas condiciones.";
+		mes "Si sucede otra vez, buscare tu ayuda de nuevo.";
 		close;
 	} else if (.@playtime == 2) {
 		mes "[Maries]";
-		mes "I'm missing a child... again.";
-		mes "Oh my goodness...";
+		mes "Me falta un nino... otra vez.";
+		mes "Dios mio...";
 		erasequest 7390;
 		close;
 	} else {
 		if (checkquest(7389) != -1) {
 			mes "[Maries]";
-			mes "You came back.";
-			mes "Thanks to you, the child has returned home safely.";
+			mes "Volviste.";
+			mes "Gracias a ti, el nino ha regresado a casa a salvo.";
 			next;
 			mes "[Maries]";
-			mes "Although the shirt is inside-out, it miraculously brings them back to where they should be.";
-			mes "Thank you for delivering those precious shirts to my children.";
+			mes "Aunque la camisa esta al reves, milagrosamente los trae de vuelta a donde deben estar.";
+			mes "Gracias por entregar esas preciadas camisas a mis hijos.";
 			setquest 7390;
 			erasequest 7389;
 			if (!VIP_SCRIPT || vip_status(VIP_STATUS_ACTIVE))
@@ -3092,12 +3092,12 @@ ma_fild01,200,190,3	script	Maries#malaya	579,{
 
 ma_fild01,203,189,3	script	Little Girl#malaya	576,{
 	mes "[Little Girl]";
-	mes "He he, the forest is scary, but it's so much fun so I go there often to play~";
-	mes "Strange, how we always get lost.";
+	mes "Je je, el bosque da miedo, pero es muy divertido asi que voy a menudo a jugar~";
+	mes "Raro, como siempre nos perdemos.";
 	next;
 	mes "[Little Girl]";
-	mes "But it's okay because I'm not the only one getting lost~";
-	mes "We're triplets~ And we're missing the other two~ Giggle~";
+	mes "Pero esta bien porque no soy la unica que se pierde~";
+	mes "Somos trillizos~ Y nos faltan los otros dos~ Risita~";
 	close;
 }
 
@@ -3105,34 +3105,34 @@ ma_fild01,251,93,3	script	Lost Child#malaya01	576,{
 	if (checkquest(7388) > -1) {
 		if (!countitem(12700)) {
 			mes "[Little Kid]";
-			mes "Sigh. Are you lost too?";
-			mes "They are so naughty.";
+			mes "Suspiro. Tu tambien te perdiste?";
+			mes "Son tan traviesos.";
 			next;
 			mes "[Little Kid]";
-			mes "An Inside-out Shirt is just what I need.";
-			mes "*Chuckle*...";
+			mes "Una Camisa al Reves es justo lo que necesito.";
+			mes "*Risita*...";
 			close;
 		}
 		mes "[Little Kid]";
-		mes "Oh, darn them.";
-		mes "They must have tricked me into getting lost again!";
+		mes "Oh, malditos.";
+		mes "Deben haberme enganado para perderme otra vez!";
 		next;
-		select ("Do you want to go home?");
+		select ("Quieres ir a casa?");
 		mes "[Little Kid]";
-		mes "If I don't get back soon, my mom will be worried sick.";
-		mes "Sigh... I wish I had an Inside-out Shirt to go back.";
+		mes "Si no regreso pronto, mi mama estara muy preocupada.";
+		mes "Suspiro... Ojala tuviera una Camisa al Reves para volver.";
 		next;
-		select ("Here you are.");
+		select ("Aqui tienes.");
 		mes "[Little Kid]";
-		mes "Really?";
-		mes "It really is the shirt!";
-		mes "This will take me straight home!";
+		mes "En serio?";
+		mes "De verdad es la camisa!";
+		mes "Esto me llevara directo a casa!";
 		next;
 		mes "[Little Kid]";
-		mes "Did mom send you?";
-		mes "She must be worried..!";
-		mes "I'll go home now!";
-		mes "Thanks' a lot!";
+		mes "Mama te envio?";
+		mes "Debe estar preocupada..!";
+		mes "Me ire a casa ahora!";
+		mes "Muchas gracias!";
 		delitem 12700, 1; // Insideout_Shirt
 		setquest 7389;
 		erasequest 7388;
@@ -3149,21 +3149,21 @@ ma_fild01,251,93,3	script	Lost Child#malaya01	576,{
 	} else {
 		if (checkquest(7389) != -1) {
 			mes "[Little Kid]";
-			mes "I want to play some more.";
-			mes "I can always go back with this shirt.";
-			mes "Mom won't be concerned.";
+			mes "Quiero jugar un poco mas.";
+			mes "Siempre puedo volver con esta camisa.";
+			mes "Mama no se preocupara.";
 			close;
 		} else {
 			mes "[Little Kid]";
-			mes "Hmmm. Am I lost again?";
-			mes "Where am I...";
-			mes "I'm sure I have to head in the direction of sunrise from the third tree to get home... Huh?";
+			mes "Hmmm. Me perdi otra vez?";
+			mes "Donde estoy...";
+			mes "Estoy seguro de que tengo que ir en la direccion del amanecer desde el tercer arbol para llegar a casa... Eh?";
 			next;
 			mes "[Little Kid]";
-			mes "Why~ Do I always go in circles here?";
-			mes "Do you why, " + ((Sex == SEX_MALE) ? "mister" : "ma'am") + "?";
-			mes "What's with this road?";
-			mes "Is somebody trying to trick me?";
+			mes "Por que~ Siempre doy vueltas en circulos aqui?";
+			mes "Sabes por que, " + ((Sex == SEX_MALE) ? "senor" : "senora") + "?";
+			mes "Que tiene este camino?";
+			mes "Alguien esta tratando de enganarme?";
 			close;
 		}
 	}
@@ -3179,89 +3179,89 @@ ma_fild01,130,314,3	duplicate(Lost Child#malaya01)	Lost Child#malaya03	576
 ma_fild02,241,39,5	script	Good Capre Budidai	572,{
 	mes "[Budidai]";
 	mes "Hey hey hey~";
-	mes "I am such a nice Capre~ Hey!";
-	mes "I am going to a fine cafe~YO!";
-	mes "I am better than yesterday~Hey!";
-	mes "I'm a fine rhyming Capre~Oh?";
+	mes "Soy un Capre tan agradable~ Hey!";
+	mes "Voy a un buen cafe~YO!";
+	mes "Soy mejor que ayer~Hey!";
+	mes "Soy un Capre que rima bien~Oh?";
 	next;
 	mes "[Budidai]";
-	mes "Hey buddy, You here to hear Budidai singing?";
+	mes "Oye amigo, viniste a escuchar a Budidai cantar?";
 	next;
-	switch (select("You like songs?:A profound study of one eyed monsters.:See ya!")) {
+	switch (select("Te gustan las canciones?:Un estudio profundo de monstruos de un ojo.:Nos vemos!")) {
 	case 1:
 		mes "[Budidai]";
-		mes "Yup, Budidai loves singing.";
-		mes "Cows, horses, goats, roosters, boars all love my songs.";
-		mes "They're all friends.";
+		mes "Sep, Budidai ama cantar.";
+		mes "Vacas, caballos, cabras, gallos, jabalies todos aman mis canciones.";
+		mes "Todos son amigos.";
 		next;
 		mes "[Budidai]";
-		mes "Except for that one eyed Bongisungisu.";
-		mes "He picks on my friends.";
-		mes "I am annoyed, but Budidai is weak.";
+		mes "Excepto ese Bongisungisu de un ojo.";
+		mes "El molesta a mis amigos.";
+		mes "Estoy molesto, pero Budidai es debil.";
 		next;
 		mes "[Budidai]";
-		mes "I fear it's single gaze, but I fear more the club he flails.";
-		mes "I have to sing my friends some songs, but they don't come because of him.";
+		mes "Le temo a su unica mirada, pero le temo mas al garrote que agita.";
+		mes "Tengo que cantarles canciones a mis amigos, pero no vienen por su culpa.";
 		next;
 		mes "[Budidai]";
-		mes "So Budidai, sings here.";
-		mes "Lots of travelers pass by.";
-		mes "Capre is a wanderer's buddy.";
-		mes "You're a buddy too.";
+		mes "Asi que Budidai, canta aqui.";
+		mes "Muchos viajeros pasan por aqui.";
+		mes "Capre es amigo de los viajeros.";
+		mes "Tu tambien eres amigo.";
 		close;
 	case 2:
 		if (BaseLevel < 100) {
 			mes "[Budidai]";
-			mes "You interested in that fiend, my friend?";
-			mes "It's just a bully of the forest!";
-			mes "It picks on my animal friends!";
+			mes "Te interesa ese monstruo, amigo?";
+			mes "Es solo un bravucon del bosque!";
+			mes "Molesta a mis amigos animales!";
 			next;
 			mes "[Budidai]";
-			mes "Sadly, singing is all that Budidai is skilled at.";
-			mes "I can't do anything about the scary gaze and the flailing club.";
+			mes "Tristemente, cantar es lo unico en lo que Budidai es bueno.";
+			mes "No puedo hacer nada contra esa mirada aterradora y el garrote que agita.";
 			next;
 			mes "[Budidai]";
-			mes "Bongisungisu! I get the chills just by being in the same forest with it...";
-			mes "But Budidai is weak.";
+			mes "Bongisungisu! Me dan escalofrios solo de estar en el mismo bosque...";
+			mes "Pero Budidai es debil.";
 			next;
 			mes "[Budidai]";
-			mes "You and me, wanderer.";
-			mes "We'll never make it.";
+			mes "Tu y yo, viajero.";
+			mes "Nunca lo lograremos.";
 			close;
 		}
 		.@playtime = checkquest(7410, PLAYTIME);
 		if (.@playtime == 0 || .@playtime == 1) {
 			mes "[Budidai]";
-			mes "Traveler, my friend!";
-			mes "Bongisungisu ran far far away.";
-			mes "Dogs, cows, horse, goat and rooster will come back to me, won't they?";
+			mes "Viajero, amigo mio!";
+			mes "Bongisungisu huyo muy muy lejos.";
+			mes "Perros, vacas, caballos, cabras y gallos volveran a mi, no?";
 			next;
 			mes "[Budidai]";
-			mes "But Budidai is worried.";
-			mes "The one eyed bully will return eventually.";
-			mes "Will you help me out again?";
+			mes "Pero Budidai esta preocupado.";
+			mes "El bravucon de un ojo volvera eventualmente.";
+			mes "Me ayudaras otra vez?";
 			next;
 			mes "[Budidai]";
-			mes "You, friend of Budidai";
-			mes "You won't turn you're back on a good Capre?";
+			mes "Tu, amigo de Budidai";
+			mes "No le daras la espalda a un buen Capre?";
 			close;
 		} else {
 			if (checkquest(7409) != -1) {
 				if (checkquest(7409, HUNTING) == 2) {
 					mes "[Budidai]";
-					mes "Astonishing, wanderer!";
-					mes "I could hear the pitiful wails of Bongisungisu all the way from here!";
-					mes "Budidai can sing again for his friends, yes?";
+					mes "Asombroso, viajero!";
+					mes "Pude escuchar los lastimeros lamentos de Bongisungisu desde aqui!";
+					mes "Budidai puede cantar de nuevo para sus amigos, si?";
 					next;
 					mes "[Budidai]";
-					mes "Now, what can Budidai do for the kind wanderer, slayer of the one eyed monster?";
-					mes "Aha! Here's a talisman.";
-					mes "It will be good for you travelers.";
+					mes "Ahora, que puede hacer Budidai por el amable viajero, asesino del monstruo de un ojo?";
+					mes "Aja! Aqui tienes un taliman.";
+					mes "Sera bueno para ustedes los viajeros.";
 					next;
 					mes "[Budidai]";
-					mes "Kind Capre is a friend of travelers.";
-					mes "I hope to see you again, wanderer.";
-					mes "This is a blessing for friends. Hey hey hey~";
+					mes "El buen Capre es amigo de los viajeros.";
+					mes "Espero verte de nuevo, viajero.";
+					mes "Esta es una bendicion para los amigos. Hey hey hey~";
 					setquest 7410;
 					erasequest 7409;
 					if (!VIP_SCRIPT || vip_status(VIP_STATUS_ACTIVE))
@@ -3344,22 +3344,22 @@ ma_fild02,241,39,5	script	Good Capre Budidai	572,{
 //============================================================
 ma_fild01,166,214,6	script	Old Man in Dilemma#GA	575,{
 	if (MaxWeight - Weight < 600 || checkweight(1201,1) == 0) {
-		mes "Cannot proceed because you have too many items in your possession.";
+		mes "No puedes continuar porque tienes demasiados objetos en tu posesion.";
 		close;
 	}
 	mes "[Old Man in Dilemma]";
-	mes "Oh! Demons are gaining more and more power in this world.";
+	mes "Oh! Los demonios estan ganando mas y mas poder en este mundo.";
 	next;
-	switch(select("We need to gather items to fight them off.:Ignore.")) {
+	switch(select("Necesitamos recolectar objetos para combatirlos.:Ignorar.")) {
 	case 1:
 		if (countitem(6497) >= 3 && Zeny >= 1000) {
 			mes "[Old Man in Dilemma]";
-			mes "You don't seem to be strong enough to fight off demons.";
+			mes "No pareces ser lo suficientemente fuerte para combatir demonios.";
 			next;
 			mes "[Old Man in Dilemma]";
-			mes "Will you create a Greater Agimat of Ancient Spirit with 3 Lesser Agimats and 1,000 Zeny?";
+			mes "Crearas un Greater Agimat of Ancient Spirit con 3 Lesser Agimats y 1,000 Zeny?";
 			next;
-			if(select("Create.:No, thank you.") == 1) {
+			if(select("Crear.:No, gracias.") == 1) {
 				if (countitem(6497) >= 3 && Zeny >= 1000) {
 					specialeffect2 EF_CONE;
 					specialeffect EF_FORESTLIGHT2;
@@ -3368,74 +3368,74 @@ ma_fild01,166,214,6	script	Old Man in Dilemma#GA	575,{
 					getitem 12775,1; //Ancient_Spirit_Agimat
 				} else {
 					mes "[Old Man in Dilemma]";
-					mes "Short on materials.";
+					mes "Faltan materiales.";
 					close;
 				}
 			}
 			mes "[Old Man in Dilemma]";
-			mes "Hope you win the fight with the demon.";
+			mes "Espero que ganes la pelea contra el demonio.";
 			close;
 		}
 		mes "[Old Man in Dilemma]";
-		mes "Can't make it now but there is an old way of making it handed down by generations.";
+		mes "No puedo hacerlo ahora pero hay una forma antigua transmitida por generaciones.";
 		next;
 		mes "[Old Man in Dilemma]";
-		mes "You need to call upon the power of Ancient Spirits. But you'll need several important materials first.";
+		mes "Necesitas invocar el poder de los Espiritus Antiguos. Pero primero necesitaras varios materiales importantes.";
 		next;
-		select("What are they?");
+		select("Cuales son?");
 		mes "[Old Man in Dilemma]";
-		mes "3 Lesser Agimats to hold the power of Ancient Spirits here and another special material handed down for generations.";
-		next;
-		mes "[Old Man in Dilemma]";
-		mes "But nobody can get this special item anymore.";
-		next;
-		select("Something money cannot buy?");
-		mes "[Old Man in Dilemma]";
-		mes "No, no... It's this round little thing, you see?";
-		next;
-		select("Are you talking about Zeny?");
-		mes "[Old Man in Dilemma]";
-		mes "Looks similar to the special items handed down from generations.";
+		mes "3 Lesser Agimats para contener el poder de los Espiritus Antiguos aqui y otro material especial transmitido por generaciones.";
 		next;
 		mes "[Old Man in Dilemma]";
-		mes "As long as we have enough of that, we could make the Greater Agimat of Ancient Spirit to fight against the demons.";
+		mes "Pero ya nadie puede conseguir este objeto especial.";
 		next;
-		select("Sounds good.");
+		select("Algo que el dinero no puede comprar?");
 		mes "[Old Man in Dilemma]";
-		mes "In case you are too weary to take on the demons...";
+		mes "No, no... Es esta cosita redonda, ves?";
+		next;
+		select("Te refieres a Zeny?");
+		mes "[Old Man in Dilemma]";
+		mes "Se parece a los objetos especiales transmitidos por generaciones.";
 		next;
 		mes "[Old Man in Dilemma]";
-		mes "Come by with 3 Lesser Agimats and 1,000 of those so-called Zeny.";
+		mes "Mientras tengamos suficiente de eso, podriamos hacer el Greater Agimat of Ancient Spirit para luchar contra los demonios.";
+		next;
+		select("Suena bien.");
+		mes "[Old Man in Dilemma]";
+		mes "En caso de que estes muy cansado para enfrentar a los demonios...";
 		next;
 		mes "[Old Man in Dilemma]";
-		mes "I will make a Greater Agimat of Ancient Spirit that will increase your attacks against demons by 10% for 20 min.";
+		mes "Ven con 3 Lesser Agimats y 1,000 de esos llamados Zeny.";
+		next;
+		mes "[Old Man in Dilemma]";
+		mes "Hare un Greater Agimat of Ancient Spirit que aumentara tus ataques contra demonios en un 10% por 20 min.";
 		close;
 	case 2:
 		mes "[Old Man in Dilemma]";
-		mes "Hope you win the fight with the demon.";
+		mes "Espero que ganes la pelea contra el demonio.";
 		close;
 	}
 }
 
 ma_fild01,238,198,4	script	Tikbalang Expert#malaya	582,{
 	if (MaxWeight - Weight < 50 || checkweight(1201,1) == 0) {
-		mes "Cannot proceed because you have too many items in your possession.";
+		mes "No puedes continuar porque tienes demasiados objetos en tu posesion.";
 		close;
 	}
 	mes "[Tikbalang Expert]";
-	mes "I spent 90% of my life studying Tikbalang.";
+	mes "Pase el 90% de mi vida estudiando Tikbalang.";
 	next;
-	switch(select("But you look young?:What is Tikbalang?:Teach me how to catch a Tikbalang.")) {
+	switch(select("Pero te ves joven?:Que es Tikbalang?:Ensename a atrapar un Tikbalang.")) {
 	case 1:
 		mes "[Tikbalang Expert]";
-		mes "What! I might be imagining things.";
+		mes "Que! Podria estar imaginando cosas.";
 		next;
 		mes "[Tikbalang Expert]";
-		mes "I look younger than I am because of my baby face. Ha ha ha~";
+		mes "Me veo mas joven de lo que soy por mi cara de bebe. Ja ja ja~";
 		next;
 		select("... ... ...");
 		mes "[Tikbalang Expert]";
-		mes "Trust!! They say faith will bring you luck.";
+		mes "Confianza!! Dicen que la fe te traera suerte.";
 		close;
 	case 2:
 		mes "[Tikbalang Expert]";
@@ -3608,53 +3608,53 @@ ma_fild01,238,198,4	script	Tikbalang Expert#malaya	582,{
 ma_fild01,158,243,6	script	Tribe Blacksmith#malaya	582,{
 	disable_items;
 	mes "[Bayani]";
-	mes "I will upgrade your armor if you bring one that holds enormous power.";
+	mes "Mejorare tu armadura si traes una que contenga un poder enorme.";
 	next;
-	switch (select("What kind of equipment do upgrade?:What are the required materials?:What will it become after an upgrade?:Please upgrade this.")) {
+	switch (select("Que tipo de equipo mejoras?:Cuales son los materiales requeridos?:En que se convertira despues de mejorar?:Por favor mejora esto.")) {
 	case 1:
 		mes "[Bayani]";
-		mes "Your questions are too simple, but!";
+		mes "Tus preguntas son muy simples, pero!";
 		next;
 		mes "[Bayani]";
-		mes "Are also important.";
+		mes "Tambien son importantes.";
 		next;
 		mes "[Bayani]";
-		mes "^7B4772Bakonawa Scale Armor^000000 made from the scales of the Bakonawa monster known to swallow the moon.";
+		mes "^7B4772Bakonawa Scale Armor^000000 hecha de las escamas del monstruo Bakonawa conocido por tragarse la luna.";
 		next;
 		mes "[Bayani]";
-		mes "Light but sturdy ^7B4772Kalasag^000000 made from rattan that grows wild around Port Malaya.";
+		mes "Ligero pero resistente ^7B4772Kalasag^000000 hecho de ratan que crece silvestre alrededor de Port Malaya.";
 		next;
 		mes "[Bayani]";
-		mes "^7B4772Buwaya Sack Cloth^000000 made from the sack of the man-eating alligator Buwaya.";
+		mes "^7B4772Buwaya Sack Cloth^000000 hecho del saco del cocodrilo come-hombres Buwaya.";
 		next;
 		mes "[Bayani]";
-		mes "^7B4772Bangungot Boots of Nightmare^000000 imbued with the hatred and vengeance of the monster Bangungot.";
+		mes "^7B4772Bangungot Boots of Nightmare^000000 imbuidas con el odio y venganza del monstruo Bangungot.";
 		next;
 		mes "[Bayani]";
-		mes "As just mentioned.";
+		mes "Como acabo de mencionar.";
 		next;
 		mes "[Bayani]";
-		mes "I will make powerful armor out of ONLY the strongest armor dropped from fearful monsters.";
+		mes "Hare armaduras poderosas SOLO de las armaduras mas fuertes que sueltan monstruos temibles.";
 		close;
 	case 2:
 		mes "[Bayani]";
-		mes "Learned well.";
-		mes "Seems you learned that there is no such thing as free in life.";
+		mes "Bien aprendido.";
+		mes "Parece que aprendiste que nada en la vida es gratis.";
 		next;
 		mes "[Bayani]";
-		mes "First thing to remember is that the object to upgrade must be strong itself. At least strong enough to endure ^FF0000+9 Refinement^000000.";
+		mes "Lo primero que debes recordar es que el objeto a mejorar debe ser fuerte en si. Al menos lo suficiente para soportar ^FF0000+9 de Refinamiento^000000.";
 		next;
 		mes "[Bayani]";
-		mes "Next is true strength that only comes out of power obtained naturally. I need ^FF000020 Ancient Grudges^000000 for protection from evil while Im refining.";
+		mes "Lo siguiente es la verdadera fuerza que solo sale del poder obtenido naturalmente. Necesito ^FF000020 Ancient Grudges^000000 para proteccion contra el mal mientras refino.";
 		next;
 		mes "[Bayani]";
-		mes "When a ^FF0000+9 Refined Strong armor^000000 is combined with ^FF000020 Ancient Grudges^000000 for protection!!";
+		mes "Cuando una ^FF0000armadura fuerte refinada +9^000000 se combina con ^FF000020 Ancient Grudges^000000 para proteccion!!";
 		next;
 		mes "[Bayani]";
-		mes "You get a completely new and improved armor from old scraps.";
+		mes "Obtienes una armadura completamente nueva y mejorada de chatarra vieja.";
 		next;
 		mes "[Bayani]";
-		mes "Always look forward to this.";
+		mes "Siempre espero esto con ansias.";
 		close;
 	case 3:
 		mes "[Bayani]";
@@ -3737,22 +3737,22 @@ ma_fild01,158,243,6	script	Tribe Blacksmith#malaya	582,{
 		}
 	}
 	mes "[Bayani]";
-	mes "Ha ha ha ha ha ha ha! Good!";
-	mes "You've brought the materials, right?";
+	mes "Ja ja ja ja ja ja! Bien!";
+	mes "Trajiste los materiales, verdad?";
 	next;
-	if (select("Oh... sorry...:Preparations are complete!!") == 1) {
+	if (select("Oh... lo siento...:Los preparativos estan completos!!") == 1) {
 		mes "[Bayani]";
 		mes "Oh no!!";
-		mes "I will need an light but sturdy armor with an refinement of +9 or greater and 20 Ancient Grudges!!";
+		mes "Necesitare una armadura ligera pero resistente con un refinamiento de +9 o mayor y 20 Ancient Grudges!!";
 		close;
 	}
 	if (countitem(6499) < 20) {
 		mes "[Bayani]";
-		mes "You said all preparations are done and you give me this?! I need at least 20 Ancient Grudges to refine your item.";
+		mes "Dijiste que todos los preparativos estaban listos y me das esto?! Necesito al menos 20 Ancient Grudges para refinar tu objeto.";
 		close;
 	}
 	mes "[Bayani]";
-	mes "So what armor will it be?";
+	mes "Entonces que armadura sera?";
 	next;
 	switch (select("Bakonawa Scale Armor:Kalasag:Buwaya Sack Cloth:Bangungot Boots of Nightmare")) {
 	case 1:
@@ -3779,11 +3779,11 @@ ma_fild01,158,243,6	script	Tribe Blacksmith#malaya	582,{
 	
 	if (!getequipisequiped(.@part)) {
 		mes "[Bayani]";
-		mes "You should wear the equipment to upgrade and not come without it on you.";
+		mes "Deberias ponerte el equipo a mejorar y no venir sin el puesto.";
 		close;
 	} else if (getequipid(.@part) != .@item) {
 		mes "[Bayani]";
-		mes "What is this! You said you wanted to upgrade " + getitemname(.@item) + " but why are you giving me this? You should be wearing " + getitemname(.@item) + ".";
+		mes "Que es esto! Dijiste que querias mejorar " + getitemname(.@item) + " pero por que me das esto? Deberias tener puesto " + getitemname(.@item) + ".";
 		close;
 	}
 	.@equip_refine = getequiprefinerycnt(.@part);
@@ -8385,7 +8385,7 @@ OnDisableNPC:
 
 ma_fild01,179,260,2	script	Festival Helper Boy#pin	577,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "Cannot proceed because you have too many items in your possession.";
+		mes "No puedes continuar porque tienes demasiados objetos en tu posesion.";
 		close;
 	}
 	if ($malaya_pintados_00 == 0) {
@@ -8607,7 +8607,7 @@ ma_fild01,179,260,2	script	Festival Helper Boy#pin	577,{
 
 ma_fild01,172,223,6	script	Tattooist#pin	574,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1000) {
-		mes "Cannot proceed because you have too many items in your possession.";
+		mes "No puedes continuar porque tienes demasiados objetos en tu posesion.";
 		close;
 	}
 	emotion ET_QUESTION;

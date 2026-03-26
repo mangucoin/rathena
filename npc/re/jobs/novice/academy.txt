@@ -432,7 +432,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 					mes "Sabias esto?";
 					mes "Izlude tiene un nuevo Instituto para aventureros novatos como tu!";
 					next;
-					select("You mean the Academy?");
+					select("Te refieres a la Academia?");
 					mes "[Carocc]";
 					mes "Si! Se llama la ^4d4dffRoyal Criatura Academy^000000.";
 					mes "Fundada por el linaje de Rune-Midgarts para ayudar a nuevos aventureros.";
@@ -484,7 +484,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 						mes "Espero que te ayude para tu futuro.";
 						close;
 					} else {
-						select("I know who you're talking about.");
+						select("Se de quien hablas.");
 						mes "[Carocc]";
 						mes "Entonces no hay de que preocuparse.";
 						mes "El te presentara en la academia.";
@@ -569,7 +569,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 					mes "Hola?";
 					mes "Es tu primera vez en Izlude?";
 					next;
-					switch(select("Hola?", "Let me get on the ship!", "I don't know what to do.")) {
+					switch(select("Hola?", "Dejame subir al barco!", "No se que hacer.")) {
 					case 1:
 						mes "[Carocc]";
 						mes "Te ves fuerte y capaz!";
@@ -635,7 +635,7 @@ izlude,198,213,3	script	Captain Carocc#iz	4_M_REINDEER,5,5,{
 							mes "Espero que te ayude en tu viaje";
 							close;
 						} else {
-							select("I know who you're talking about.");
+							select("Se de quien hablas.");
 							mes "[Carocc]";
 							mes "Entonces no hay de que preocuparse.";
 							mes "El te presentara en la academia.";
@@ -1187,7 +1187,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 			switch(select("[ Main facilities ]", "[ Guide & Helper ]", "Remover marcas del mini mapa", "Terminar conversacion")) {
 			case 1:
 				while (1) {
-					switch(select("[ Criatura Academy ]", "[ Wharf ]", "[ Airship (International) ]", "[ Arena ]", "[ Shop ]", "[ Swordman Guild ]", "[ Enchant Association ]", "[ Blacksmith's Workshop ]", "Go back to the previous menu")) {
+					switch(select("[ Criatura Academy ]", "[ Wharf ]", "[ Airship (International) ]", "[ Arena ]", "[ Shop ]", "[ Swordman Guild ]", "[ Enchant Association ]", "[ Blacksmith's Workshop ]", "Volver al menu anterior")) {
 					case 1:
 						mes "[Information Staff]";
 						mes "Si eres un aventurero primerizo,";
@@ -1271,7 +1271,7 @@ izlude,120,207,4	script	Information Staff#0	8W_SOLDIER,{
 				break;
 			case 2:
 				while (1) {
-					switch(select("[ Eden Group Teleporter ]", "[ Kafra Employee ]", "[ Mesmerizer ]", "[ Wedding Secretary ]", "[ Mercenary Guild Official ]", "[ Taming Merchant ]", "Go back to the previous menu")) {
+					switch(select("[ Eden Group Teleporter ]", "[ Kafra Employee ]", "[ Mesmerizer ]", "[ Wedding Secretary ]", "[ Mercenary Guild Official ]", "[ Taming Merchant ]", "Volver al menu anterior")) {
 					case 1:
 						mes "[Information Staff]";
 						mes "Por ahora, marcare la ubicacion de";
@@ -2595,7 +2595,7 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 
 	if (isbegin_quest(4269) == 2) {
 		mes "[Receptionist]";
-		mes "Hello, ' + strcharinfo(0) +'.";
+		mes "Hola, ' + strcharinfo(0) +'.";
 		mes "Como estas hoy?";
 		mes "Estoy a cargo de guiarte aqui en la Academia.";
 	} else {
@@ -2702,13 +2702,13 @@ iz_ac01,100,39,5	script	Academy Receptionist#1	4_F_01,{
 					mes "[Receptionist]";
 					mes "Haz clic izquierdo con el mouse en el nombre del entrenador que buscas y te guiare hacia ellos.";
 					next;
-					mes "<NAVI>[Therapist]<INFO>iz_ac01,59,43</INFO></NAVI>, status recovery trainer";
-					mes "<NAVI>[Subino]<INFO>iz_ac01,59,83</INFO></NAVI>, battle trainer";
-					mes "<NAVI>[Mainz]<INFO>iz_ac01,134,47</INFO></NAVI>, abnormal stats trainer";
-					mes "<NAVI>[Dakuwazu]<INFO>iz_ac01,147,47</INFO></NAVI>, Cooking Trainer.";
-					mes "<NAVI>[Han]<INFO>izlude,153,126</INFO></NAVI>, Refining Trainer.";
-					mes "<NAVI>[Mounds]<INFO>izlude,96,125</INFO></NAVI> Enchanting Trainer.";
-					mes "<NAVI>[Cream Puff]<INFO>iz_ac02,143,55</INFO></NAVI>, Class Aptitude Test.";
+					mes "<NAVI>[Therapist]<INFO>iz_ac01,59,43</INFO></NAVI>, entrenador de recuperacion de estado";
+					mes "<NAVI>[Subino]<INFO>iz_ac01,59,83</INFO></NAVI>, entrenador de batalla";
+					mes "<NAVI>[Mainz]<INFO>iz_ac01,134,47</INFO></NAVI>, entrenador de estados anormales";
+					mes "<NAVI>[Dakuwazu]<INFO>iz_ac01,147,47</INFO></NAVI>, Entrenador de Cocina.";
+					mes "<NAVI>[Han]<INFO>izlude,153,126</INFO></NAVI>, Entrenador de Refinamiento.";
+					mes "<NAVI>[Mounds]<INFO>izlude,96,125</INFO></NAVI> Entrenador de Encantamiento.";
+					mes "<NAVI>[Cream Puff]<INFO>iz_ac02,143,55</INFO></NAVI>, Test de Aptitud de Clase.";
 					next;
 					mes "[Receptionist]";
 					mes "Eso fue util?";
@@ -3082,7 +3082,7 @@ iz_ac01,134,47,5	script	Trainer Mainz#ac	4_M_KY_KNT,4,4,{
 		mes "Estas aqui para una explicacion sobre los estados anormales? Que te preocupa?";
 		next;
 		while(1) {
-			switch(select("<^FF0000Poison^000000>", "<^FF0000Stun^000000>", "<^FF0000Sleep^000000>", "<^FF0000Silence ^000000>", "I have no questions.")) {
+			switch(select("<^FF0000Poison^000000>", "<^FF0000Stun^000000>", "<^FF0000Sleep^000000>", "<^FF0000Silence ^000000>", "No tengo preguntas.")) {
 			case 1:
 				mes "[Mainz]";
 				mes "Te hablare sobre <^FF0000Poison^000000>.";
@@ -3549,7 +3549,7 @@ izlude,115,181,5	script	Shop Helper#iz	4_F_KHELLISIA,{
 		mes "[Shop Helper Leonie]";
 		mes "Algo mas?";
 		next;
-		if (select("No", "Yes, there are lot.") == 1) {
+		if (select("No", "Si, hay muchas.") == 1) {
 			mes "[Shop Helper Leonie]";
 			mes "Adios.";
 			mes "Lo que no te dije, lo aprenderas a lo largo de tus viajes.";
@@ -4533,7 +4533,7 @@ iz_ac01,59,83,3	script	Battle Instructor#08	4_M_NOV_HUNT,{
 			next;
 			switch(select("Ver solicitudes", "Teletransportame al Campo", "Terminar conversacion")) {
 				case 1:
-					switch(select("The most delicious in the world (1~3):Carrots are delicious (1~3):Fabre rolling clothes (4~6):Barrier!! (4~6):"+(BaseLevel<7?"":"Buzzing~ (7~10)")+":Stop.")) {
+					switch(select("Lo mas delicioso del mundo (1~3):Las zanahorias son deliciosas (1~3):Fabre enrollando ropa (4~6):Barrera!! (4~6):"+(BaseLevel<7?"":"Zumbido~ (7~10)")+":Detener.")) {
 						case 1:
 							if (!isbegin_quest(11338)) {
 								setquest 11338;
@@ -4689,7 +4689,7 @@ L_Quest:
 	} else {
 		if (countitem(getarg(3)) < getarg(4)) {
 			mes "[Battle Instructor Subino]";
-			mes "You don't have enough ^ff0000'+getarg(8)+'^000000.";
+			mes "No tienes suficientes ^ff0000'+getarg(8)+'^000000.";
 			mes "Hazlo mejor!";
 			next;
 			if (select("Terminar conversacion", "Rendirse en la quest.") == 2) {
@@ -4734,7 +4734,7 @@ iz_ac01,45,80,5	script	Adept Adventurer#ac	4_M_JOB_BLACKSMITH,{
 		mes "Alguna pregunta sobre como hacer que un monstruo sea mascota?";
 		next;
 		while(1) {
-			switch(select("Taming a monster", "Hatching the egg", "Monitoring pet's status", "Feeding", "Performances", "Removing the accessory", "Transforming back to egg", "End Conversation")) {
+			switch(select("Domar un monstruo", "Eclosionar el huevo", "Monitorear estado de mascota", "Alimentar", "Actuaciones", "Quitar el accesorio", "Transformar de vuelta a huevo", "Terminar conversacion")) {
 			case 1:
 				mes "[Adept Adventurer]";
 				mes "Solo algunos monstruos pueden ser mascotas y todos tienen diferentes cosas para domarlos.";
@@ -4893,16 +4893,16 @@ iz_ac01,43,80,7	script	Adventurer's Pet#ac	4_DEVIRUCHI,{
 OnTimer60000:
 	switch(rand(1,4)) {
 	case 1:
-		npctalk "Adventurer's Pet : Yawn~ I am so bored!";
+		npctalk "Mascota del Aventurero : Bostezo~ Estoy tan aburrido!";
 		break;
 	case 2:
-		npctalk "Adventurer's Pet : Red Potion.. Is it delicious? Herb does not look delicious.. I bet that is bitter.";
+		npctalk "Mascota del Aventurero : Red Potion.. Es deliciosa? Herb no se ve delicioso.. Apuesto a que es amargo.";
 		break;
 	case 3:
-		npctalk "Adventurer's Pet : Ha. You are lucky to have this Devi.";
+		npctalk "Mascota del Aventurero : Ja. Tienes suerte de tener a este Devi.";
 		break;
 	case 4:
-		npctalk "Adventurer's Pet : Isn't the floor cold? Well.. For me, Undead is more familiar.";
+		npctalk "Mascota del Aventurero : No esta frio el piso? Bueno.. Para mi, Undead es mas familiar.";
 		break;
 	}
 
@@ -4929,7 +4929,7 @@ new_1-3,92,169,5	script	Adept Adventurer#new_1-3	4_M_JOB_BLACKSMITH,{
 		mes "Alguna pregunta sobre las mascotas?";
 		next;
 		while(1) {
-			switch(select("Taming a monster", "Hatching the egg", "Monitoring pet's status", "Feeding", "Performances", "Removing the accessory", "Transforming back to egg", "End Conversation")) {
+			switch(select("Domar un monstruo", "Eclosionar el huevo", "Monitorear estado de mascota", "Alimentar", "Actuaciones", "Quitar el accesorio", "Transformar de vuelta a huevo", "Terminar conversacion")) {
 			case 1:
 				mes "[Adept Adventurer]";
 				mes "Solo algunos monstruos pueden ser mascotas y todos tienen diferentes cosas para domarlos.";
@@ -5888,27 +5888,27 @@ izlude_d,148,122,5	duplicate(Refining Maniac#iz)	Refining Maniac#iz_d	4_M_SITDOW
 iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 	mes "[Otter Samssoon]";
 	mes "Bienvenido~";
-	mes "I am Samssoon~! I am a royal hair designer otter sent to academy.";
+	mes "Soy Samssoon~! Soy una nutria disenadora de cabello real enviada a la academia.";
 	next;
 	mes "[Otter Samssoon]";
-	mes "If you take ^ff0000Criatura Hair Coupon^000000, they change your hairstyle for free! So do not miss this ^ff0000once in a lifetime^000000 chance~";
+	mes "Si tienes un ^ff0000Criatura Hair Coupon^000000, te cambian el peinado gratis! Asi que no te pierdas esta oportunidad ^ff0000unica en la vida^000000~";
 	next;
-	switch(select("Read style book.", "Change hair style.", "How to get a coupon", "Detener.")) {
+	switch(select("Leer libro de estilos.", "Cambiar peinado.", "Como obtener un cupon", "Detener.")) {
 		case 1:
 			mes "[Otter Samssoon]";
-			mes "Oh my~ I am sure any hair style will suit you! You really have a good style~";
-			mes "There are many styles so pick ^ff0000from page 1 to 19^000000.";
-			mes "If you want to stop, say 0.";
+			mes "Oh my~ Estoy segura de que cualquier peinado te quedara bien! Realmente tienes buen estilo~";
+			mes "Hay muchos estilos asi que elige ^ff0000de la pagina 1 a la 19^000000.";
+			mes "Si quieres parar, di 0.";
 			next;
 			input .@style;
 			if (.@style > 19) {
 				mes "[Otter Samssoon]";
-				mes "Oh my!!? Honey~ You can use a coupon for the hair style in here~";
+				mes "Oh my!!? Cielito~ Puedes usar un cupon para el peinado aqui~";
 				close;
 			} else if (!.@style) {
 				mes "[Otter Samssoon]";
-				mes "Did you decide? Which style??";
-				mes "I want to touch your hair with my hands~ Honey~";
+				mes "Ya decidiste? Que estilo??";
+				mes "Quiero tocar tu cabello con mis manos~ Cielito~";
 				close;
 			} else {
 				callsub L_cutin, .@style;
@@ -5917,176 +5917,176 @@ iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 				case 1:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Play Dead' cut?";
-						mes "This looks neat and relaxed.. So popular style.";
+						mes "Se ve limpio y relajado.. Un estilo muy popular.";
 					} else {
-						mes "Oh my!!? 'First Aid' cut?";
-						mes "This is and adorable style.";
-						mes "I guess it looks good on you too!!";
+						mes "Oh my!!? Corte 'First Aid'?";
+						mes "Es un estilo adorable.";
+						mes "Creo que a ti tambien te queda bien!!";
 					}
 					break;
 				case 2:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Two Handed Sword Mastery' cut?";
-						mes "You... You know the famous D..? He has exactly the same style!";
+						mes "Tu... Conoces al famoso D..? Tiene exactamente el mismo estilo!";
 					} else {
-						mes "Oh my!!? 'Bash' cut?";
-						mes "This style gives strong curls on both side hair.";
+						mes "Oh my!!? Corte 'Bash'?";
+						mes "Este estilo da rizos fuertes en ambos lados del cabello.";
 					}
 					break;
 				case 3:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Napalm Beat' cut?";
-						mes "It has well arranges hair line that makes feel charisma.";
+						mes "Tiene una linea de cabello bien arreglada que transmite carisma.";
 					} else {
-						mes "Oh my!!? 'Frost Diver' cut?";
-						mes "It is mysterious style that gives cold and warm feeling at the same time.";
+						mes "Oh my!!? Corte 'Frost Diver'?";
+						mes "Es un estilo misterioso que da una sensacion fria y calida al mismo tiempo.";
 					}
 					break;
 				case 4:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Double Strafe' cut?";
-						mes "Natural hair is shaking by wind.. Clean and good feeling.";
+						mes "El cabello natural se mece con el viento.. Limpio y agradable.";
 					} else {
-						mes "Oh my!!? 'Arrow Shower' cut?";
-						mes "Cool and nice shaggy cut makes good style.";
+						mes "Oh my!!? Corte 'Arrow Shower'?";
+						mes "Un corte despeinado fresco y bonito que da buen estilo.";
 					}
 					break;
 				case 5:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Angelus' cut?";
-						mes "Calm and piety feeling.. Not boring style.";
+						mes "Sensacion de calma y piedad.. Un estilo nada aburrido.";
 					} else {
-						mes "Oh my!!? 'Heal' cut?";
-						mes "Feminine style give healing feeling.";
+						mes "Oh my!!? Corte 'Heal'?";
+						mes "Un estilo femenino que da una sensacion sanadora.";
 					}
 					break;
 				case 6:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Push Cart' cut?";
-						mes "Big Kar is motivated for this style with a romance of a man.";
+						mes "Big Kar esta motivado por este estilo con el romance de un hombre.";
 					} else {
-						mes "Oh my!!? 'Vending' cut?";
-						mes "Royal ladies like this style. Make good money style.";
+						mes "Oh my!!? Corte 'Vending'?";
+						mes "A las damas de la realeza les gusta este estilo. Estilo de buena fortuna.";
 					}
 					break;
 				case 7:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Envenom' cut?";
-						mes "Tough style makes addicted.";
+						mes "Un estilo rudo que engancha.";
 					} else {
-						mes "Oh my!!? 'Double Attack' cut?";
-						mes "Whoever will dash twice for this style.";
-						mes "Ponytail is important.";
+						mes "Oh my!!? Corte 'Double Attack'?";
+						mes "Cualquiera correria dos veces por este estilo.";
+						mes "La cola de caballo es importante.";
 					}
 					break;
 				case 8:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Bowling Bash' cut?";
-						mes "This style makes a nice guy to challenge.";
-						mes "Just a giving a glance can steal the heart.";
+						mes "Este estilo hace que un buen chico se vea desafiante.";
+						mes "Con solo dar una mirada puede robar el corazon.";
 					} else {
-						mes "Oh my!!? 'Gloria' cut?";
-						mes "This style is ultimately gorgeous and graceful.";
+						mes "Oh my!!? Corte 'Gloria'?";
+						mes "Este estilo es absolutamente hermoso y elegante.";
 					}
 					break;
 				case 9:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Venom Dust' cut?";
-						mes "This style has special ending line that looks fatal.";
+						mes "Este estilo tiene una linea final especial que se ve fatal.";
 					} else {
-						mes "Oh my!!? 'SP Recovery' cut?";
-						mes "This style has neat cutting that inspires.";
+						mes "Oh my!!? Corte 'SP Recovery'?";
+						mes "Este estilo tiene un corte limpio que inspira.";
 					}
 					break;
 				case 10:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Turn Undead' cut?";
-						mes "This style is like a cold city man who is strong enough to kill a monster.";
+						mes "Este estilo es como un hombre frio de ciudad lo suficientemente fuerte para matar un monstruo.";
 					} else {
-						mes "Oh my!!? 'Prepare Potion' cut?";
-						mes "This style has a liquid medicine motive so it makes feel cure.";
+						mes "Oh my!!? Corte 'Prepare Potion'?";
+						mes "Este estilo tiene un motivo de medicina liquida asi que da sensacion de cura.";
 					}
 					break;
 				case 11:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Dragonology' cut?";
-						mes "This style is intelligent style of mysterious dragon.";
+						mes "Este estilo es un estilo inteligente de dragon misterioso.";
 					} else {
-						mes "Oh my!!? 'Grand Cross' cut?";
-						mes "Well trimmed hair cut line gives trust.";
+						mes "Oh my!!? Corte 'Grand Cross'?";
+						mes "Una linea de corte bien recortada que transmite confianza.";
 					}
 					break;
 				case 12:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Mace Mastery' cut?";
-						mes "Look fresh and look neat with wax treatment.";
+						mes "Se ve fresco y limpio con tratamiento de cera.";
 					} else {
-						mes "Oh my!!? 'Intimidate' cut?";
-						mes "This style is very familiar.";
+						mes "Oh my!!? Corte 'Intimidate'?";
+						mes "Este estilo es muy familiar.";
 					}
 					break;
 				case 13:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Thunder Storm' cut?";
-						mes "This style has natural attractive perm which is like hitting by thunder storm.";
+						mes "Este estilo tiene una permanente atractiva natural que es como ser golpeado por una tormenta electrica.";
 					} else {
 						mes "Oh my!!? 'Spiritual Sphere";
-						mes "Calm and a little bit looks like a boy cut draw attention.";
+						mes "Calmado y un poco parecido a un corte de chico que llama la atencion.";
 					}
 					break;
 				case 14:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Encore' cut?";
-						mes "Rocker's favorite style.. Even the name itself..";
+						mes "El estilo favorito de Rocker.. Hasta el nombre mismo..";
 					} else {
-						mes "Oh my!!? 'Gypsy's Kiss' cut?";
-						mes "The hair.. Kind to everyone.. Neat and round hair line is very soft and charming.";
+						mes "Oh my!!? Corte 'Gypsy's Kiss'?";
+						mes "El cabello.. Amable con todos.. La linea de cabello limpia y redonda es muy suave y encantadora.";
 					}
 					break;
 				case 15:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Grimtooth' cut?";
-						mes "The style with edge.";
+						mes "El estilo con filo.";
 					} else {
-						mes "Oh my!!? 'Counter Attack' cut?";
-						mes "It is the style that looks cold and arrogant. Hard to talk to..";
-						mes "But might be nice to boyfriend..?";
+						mes "Oh my!!? Corte 'Counter Attack'?";
+						mes "Es el estilo que se ve frio y arrogante. Dificil de hablarle..";
+						mes "Pero podria ser linda con el novio..?";
 					}
 					break;
 				case 16:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Blitz Beat' cut?";
-						mes "It is the style my senior invented after he broke up with his girlfriends 5 times.";
+						mes "Es el estilo que mi maestro invento despues de que rompio con sus novias 5 veces.";
 					} else {
-						mes "Oh my!!? 'Anke Snare' cut?";
-						mes "It is killing style.. No one can take eyes off!";
+						mes "Oh my!!? Corte 'Anke Snare'?";
+						mes "Es un estilo matador.. Nadie puede quitar los ojos de encima!";
 					}
 					break;
 				case 17:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Find Ore' cut?";
-						mes "This style seems to bring encounter or find unexpected things while walking on the street.";
+						mes "Este estilo parece traer encuentros o encontrar cosas inesperadas mientras caminas por la calle.";
 					} else {
-						mes "Oh my!!? 'Hammer Fall' cut?";
-						mes "Stunning hair with attraction.";
+						mes "Oh my!!? Corte 'Hammer Fall'?";
+						mes "Cabello impresionante con atraccion.";
 					}
 					break;
 				case 18:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Fire Pillar' cut?";
-						mes "Everyone used to have this hair style.. Which means that was a trend of an era.";
+						mes "Todos solian tener este peinado.. Lo que significa que fue una tendencia de una era.";
 					} else {
 						mes "Oh my!!? 'Jupitel Thunder'";
-						mes "Fresh style by giving light waves on both side hairs.";
+						mes "Estilo fresco dando ondas ligeras en ambos lados del cabello.";
 					}
 					break;
 				case 19:
 					if (Sex == SEX_MALE) {
 						mes "Oh my!!? 'Guillotine Fist'";
-						mes "It is like one-shot style.. Like a real man. Right?";
+						mes "Es como un estilo de un solo golpe.. Como un hombre de verdad. Verdad?";
 					} else {
-						mes "Oh my!!? 'Whirlwind' cut?";
-						mes "It is cool style which flows with wind. Lah, lah, lah, lah ~";
+						mes "Oh my!!? Corte 'Whirlwind'?";
+						mes "Es un estilo genial que fluye con el viento. Lah, lah, lah, lah ~";
 					}
 					break;
 				}
@@ -6098,41 +6098,41 @@ iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 		case 2:
 			if (!countitem(6593)) {
 				mes "[Otter Samssoon]";
-				mes "Come on.. Honey~";
-				mes "You should bring ^ff0000'Criatura Hair Coupon'^000000 for changing hair...";
+				mes "Vamos.. Cielito~";
+				mes "Debes traer un ^ff0000'Criatura Hair Coupon'^000000 para cambiar de peinado...";
 				close;
 			}
 			mes "[Otter Samssoon]";
-			mes "Honey~ What style do you want?";
-			mes "You are totally my style. So I am very excited~~";
-			mes "Pick the style from page 1 to 19.";
+			mes "Cielito~ Que estilo quieres?";
+			mes "Eres totalmente mi tipo. Asi que estoy muy emocionada~~";
+			mes "Elige el estilo de la pagina 1 a la 19.";
 			next;
 			input .@style;
 			if (.@style > 19) {
 				mes "[Otter Samssoon]";
-				mes "Come on.. Honey~ You can use a coupon for the hair style in here~";
+				mes "Vamos.. Cielito~ Puedes usar un cupon para el peinado aqui~";
 				close;
 			} else if (!.@style) {
 				mes "[Otter Samssoon]";
-				mes "Oh my!!? You do not want to?";
+				mes "Oh my!!? No quieres?";
 				close;
 			} else if (getlook(1) == .@style) {
 				mes "[Otter Samssoon]";
-				mes "Come on.. Honey~ That is the same style you have.";
-				mes "Do you want to try something new?";
+				mes "Vamos.. Cielito~ Ese es el mismo estilo que tienes.";
+				mes "Quieres probar algo nuevo?";
 				close;
 			}
 			callsub L_cutin, .@style;
 			mes "[Otter Samssoon]";
 			mes "Style ('+.@style+')?";
-			mes "It feels like this.. How is it?";
+			mes "Se siente asi.. Que tal?";
 			next;
-			if (select("Good.", "No.") == 1) {
+			if (select("Bien.", "No.") == 1) {
 				if (!getlook(6)) {
 					mes "[Otter Samssoon]";
-					mes "Right!";
-					mes "Honey! What about dying hair as well?";
-					mes "Dying hair also included in this service.";
+					mes "Genial!";
+					mes "Cielito! Que tal tambien tenir el cabello?";
+					mes "Tenir el cabello tambien esta incluido en este servicio.";
 					next;
 					switch(select("Passionate Red:Sweet Yellow:Fatal Purple:Glamourous Orange:Comfortable Green:Clear Blue:Transparent White:Dark Black:Detener.")) {
 						case 1:
@@ -6162,7 +6162,7 @@ iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 						case 9:
 							mes "[Otter Samssoon]";
 							mes "No?";
-							mes "Do you need more time? If you want to keep the same color, then select the same one.";
+							mes "Necesitas mas tiempo? Si quieres mantener el mismo color, entonces selecciona el mismo.";
 							close2;
 							cutin "", 255;
 							end;
@@ -6170,7 +6170,7 @@ iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 				}
 				nude;
 				mes "[Otter Samssoon]";
-				mes "Relax, it is almost done~";
+				mes "Relajate, ya casi esta listo~";
 				next;
 				mes "[Otter Samssoon]";
 				mes "- Sha sha shak shak shak -";
@@ -6181,41 +6181,41 @@ iz_ac01,69,36,3	script	Otter Samssoon#ac	4W_SAILOR,{
 				cutin "", 255;
 				mes "[Otter Samssoon]";
 				mes "Oh my! Oh my! Oh my!";
-				mes "This hair style no.('+.@style+') suits to you looks good~";
-				mes "What do you think?";
+				mes "Este peinado no.('+.@style+') te queda muy bien~";
+				mes "Que te parece?";
 				setlook 1, .@style;
 				setlook 6, .@pallete;
 				next;
 				mes "[Otter Samssoon]";
-				mes "I want to take care of your style..";
-				mes "But I have no choice to select customers because I belong to here.";
+				mes "Quisiera seguir cuidando tu estilo..";
+				mes "Pero no puedo elegir clientes porque pertenezco aqui.";
 				next;
 				mes "[Otter Samssoon]";
-				mes "For changing to new style, ^ff0000Alberta or Lighthalzen^000000.";
-				mes "For dying hair, ^ff0000Prontera or Lighthalzen^000000.";
+				mes "Para cambiar a un nuevo estilo, ^ff0000Alberta o Lighthalzen^000000.";
+				mes "Para tenir el cabello, ^ff0000Prontera o Lighthalzen^000000.";
 				close;
 			}
 			mes "[Otter Samssoon]";
-			mes "Honey~ You don't like it?";
-			mes "Ahem.. Do you want to read style book again?";
-			mes "Take your time and tell me when you decide~ Okay?~";
+			mes "Cielito~ No te gusta?";
+			mes "Ejem.. Quieres leer el libro de estilos de nuevo?";
+			mes "Tomate tu tiempo y dime cuando decidas~ Ok?~";
 			close;
 		case 3:
 			mes "[Otter Samssoon]";
-			mes "You can receive ^ff0000criatura hair coupon^000000 from ^ff0000academy receptionist for novice at academy front desk or eden group^000000";
+			mes "Puedes recibir un ^ff0000criatura hair coupon^000000 de la ^ff0000recepcionista de la academia para novatos en el mostrador de la academia o eden group^000000";
 			next;
 			mes "[Otter Samssoon]";
-			mes "They don't give you for free.. Well..";
-			mes "The equipment you had received when you arrived at academy?";
-			mes "They change ^ff0000egg shell for novice^000000 to coupon?";
+			mes "No te lo dan gratis.. Bueno..";
+			mes "El equipo que recibiste cuando llegaste a la academia?";
+			mes "Cambian ^ff0000egg shell for novice^000000 por un cupon?";
 			next;
 			mes "[Otter Samssoon]";
-			mes "This service has started since I came here. So.. No free service if you have no coupon~";
+			mes "Este servicio empezo desde que llegue aqui. Asi que.. No hay servicio gratis si no tienes cupon~";
 			close;
 		case 4:
 			mes "[Otter Samssoon]";
-			mes "Oh my!!? Honey, you are not going to change hair?";
-			mes "You look nice now rough style.";
+			mes "Oh my!!? Cielito, no vas a cambiar de peinado?";
+			mes "Te ves bien ahora con ese estilo rudo.";
 			close;
 	}
 
@@ -6344,7 +6344,7 @@ iz_ac01_d,159,32,3	duplicate(Hungry Trainee#ac)	Hungry Trainee#ac_d	4_M_SIT_NOVI
 // -----------------------------------------------------------------------------
 iz_ac01,164,36,3	script	Scholarship Trainee#ac	1_F_PUBGIRL,{
 	mes "[Scholarship Trainee]";
-	mes "I've worked at many different places, but this place is the strangest.";
+	mes "He trabajado en muchos lugares diferentes, pero este lugar es el mas extrano.";
 	close;
 }
 
@@ -6357,15 +6357,15 @@ iz_ac01_d,164,36,3	duplicate(Scholarship Trainee#ac)	Scholarship Trainee#ac_d	1_
 // -----------------------------------------------------------------------------
 iz_ac01,133,34,5	script	Broke Trainee#ac	4_M_SITDOWN,{
 	mes "[Broke Trainee]";
-	mes "Since the prices have risen I try to get my belly full at every chance I get.";
+	mes "Como los precios han subido, trato de llenarme la panza en cada oportunidad que tengo.";
 	next;
 	mes "[Broke Trainee]";
-	mes "It's been 21 hours since I've been here.";
-	mes "It's a buffet so you can eat without time limit.";
+	mes "Llevo 21 horas aqui.";
+	mes "Es un buffet asi que puedes comer sin limite de tiempo.";
 	next;
 	mes "[Broke Trainee]";
-	mes "Eat and digest, eat and digest, heh.";
-	mes "Do you want to join?";
+	mes "Comer y digerir, comer y digerir, jeh.";
+	mes "Quieres unirte?";
 	close;
 }
 
@@ -6379,33 +6379,33 @@ iz_ac01_d,133,34,5	duplicate(Broke Trainee#ac)	Broke Trainee#ac_d	4_M_SITDOWN
 iz_ac02,152,79,3	script	Noisy Trainee#ac	4_M_HUBOY,{
 	if (Class == Job_Novice) {
 		mes "[Noisy Trainee]";
-		mes "Hey, do you know about the gunslinger's own weapon?";
+		mes "Hey, sabes sobre el arma propia del gunslinger?";
 		next;
-		if (select("Don't know", "Know") == 2) {
+		if (select("No se", "Si se") == 2) {
 			mes "[Noisy Trainee]";
-			mes "Cha, yeah right!";
+			mes "Cha, si claro!";
 			close;
 		}
 		mes "[Noisy Trainee]";
-		mes "I guessed you were.";
+		mes "Me lo imaginaba.";
 		next;
 		mes "[Noisy Trainee]";
-		mes "Gunslinger handles 5 kinds of guns and each gun has its own character.";
+		mes "El Gunslinger maneja 5 tipos de armas y cada arma tiene su propio caracter.";
 		next;
-		select("What character?");
+		select("Que caracter?");
 		mes "[Noisy Trainee]";
-		mes "Hahahaha~ I am also taking the lesson, but I don't know the details as I haven't become a gunslinger.";
+		mes "Jajajaja~ Yo tambien estoy tomando la leccion, pero no se los detalles porque aun no me he vuelto gunslinger.";
 		next;
 		mes "[Noisy Trainee]";
-		mes "I heard that as it was a dangerous weapon they don't let us use them yet!";
+		mes "Escuche que como era un arma peligrosa no nos dejan usarlas todavia!";
 		close;
 	} else if (Class == Job_Gunslinger) {
 		mes "[Noisy Trainee]";
-		mes "Oh Mr. gunslinger!! Nice.";
+		mes "Oh Sr. gunslinger!! Genial.";
 		close;
 	} else {
 		mes "[Noisy Trainee]";
-		mes "What? Why did you take the other job rather than being a nice gunslinger?";
+		mes "Que? Por que elegiste otro trabajo en lugar de ser un buen gunslinger?";
 		close;
 	}
 }
@@ -6422,19 +6422,19 @@ iz_ac02,143,77,3	script	Quite Trainee#ac	4_F_KID2,{
 		mes "[Quiet Trainee]";
 		switch(rand(1,5)) {
 		case 1:
-			mes "Are you coming to take the lesson for gunslinger?";
+			mes "Vienes a tomar la leccion de gunslinger?";
 			break;
 		case 2:
-			mes "Ms. Lusa really looks pretty.";
+			mes "La Srta. Lusa realmente se ve bonita.";
 			break;
 		case 3:
-			mes "I wish to be a gunslinger, like her.";
+			mes "Deseo ser un gunslinger, como ella.";
 			break;
 		case 4:
-			mes "I hope I finish my lessons soon!";
+			mes "Espero terminar mis lecciones pronto!";
 			break;
 		case 5:
-			mes "Learning is too difficult...";
+			mes "Aprender es demasiado dificil...";
 			break;
 		}
 		close;
@@ -6714,27 +6714,27 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	if (Class == Job_Novice) {
 		emotion ET_QUESTION;
 		mes "[Cream Puff]";
-		mes "You are a novice? right?";
+		mes "Eres un novato? verdad?";
 		next;
 	} else {
 		emotion ET_OHNO;
 		mes "[Cream Puff]";
-		mes "Class aptitude test is nonsense for those who already have a job.";
+		mes "El test de aptitud de clase no tiene sentido para quienes ya tienen un trabajo.";
 		close2;
 		cutin "", 255;
 		end;
 	}
 	mes "[Cream Puff]";
-	mes "You haven't decided your job yet?";
+	mes "Aun no has decidido tu trabajo?";
 	next;
-	if (select("No... how did you know?", "I decided.") == 2) {
+	if (select("No... como lo supiste?", "Ya decidi.") == 2) {
 		cutin "choucream_d.bmp",2;
 		emotion ET_OHNO;
 		mes "[Cream Puff]";
-		mes "Have you already decided? Ok then.";
+		mes "Ya decidiste? Ok entonces.";
 		next;
 		mes "[Cream Puff]";
-		mes "I wanted you to take the Class aptitude test for fun...";
+		mes "Queria que hicieras el test de aptitud de clase por diversion...";
 		close2;
 		cutin "", 255;
 		end;
@@ -6742,23 +6742,23 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	cutin "choucream_e.bmp",2;
 	emotion ET_SPARK;
 	mes "[Cream Puff]";
-	mes "Oh, that is good.";
-	mes "What is the ^0000FFClass aptitude test^000000.";
-	mes "I have one book left. Do you want to try? I won't say it will be help for sure but it will be fun.";
+	mes "Oh, que bien.";
+	mes "Que es el ^0000FFtest de aptitud de clase^000000.";
+	mes "Me queda un libro. Quieres intentarlo? No dire que sera de ayuda seguro pero sera divertido.";
 	next;
 	while(1) {
-		switch(select("Class aptitude test?", "Take the Class aptitude test.", "stop.")) {
+		switch(select("Test de aptitud de clase?", "Hacer el test de aptitud de clase.", "Detener.")) {
 		case 1:
 			cutin "choucream_n.bmp",2;
 			mes "[Cream Puff]";
-			mes "The Class aptitude test is a test for recommending jobs by reviewing your personality and capability with the answers.";
+			mes "El test de aptitud de clase es un test para recomendar trabajos revisando tu personalidad y capacidad con las respuestas.";
 			next;
 			mes "[Cream Puff]";
-			mes "It has 3 types of test and each one give 30 minutes to finish.";
+			mes "Tiene 3 tipos de test y cada uno da 30 minutos para terminar.";
 			next;
 			emotion ET_QUESTION;
 			mes "[Cream Puff]";
-			mes "If you have free time and have not decided your job... how about taking this test?";
+			mes "Si tienes tiempo libre y no has decidido tu trabajo... que tal hacer este test?";
 			next;
 			continue;
 		case 2:
@@ -6767,7 +6767,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 			cutin "choucream_d.bmp",2;
 			emotion ET_HNG;
 			mes "[Cream Puff]";
-			mes "All right. Good bye.";
+			mes "Esta bien. Adios.";
 			close2;
 			cutin "", 255;
 			end;
@@ -6776,59 +6776,59 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	}
 	cutin "choucream_e.bmp",2;
 	mes "[Cream Puff]";
-	mes "Shall we start?";
+	mes "Empezamos?";
 	next;
 	mes "[Cream Puff]";
-	mes "The first type of question is about taking an action for a given situation.";
+	mes "El primer tipo de pregunta es sobre tomar accion ante una situacion dada.";
 	next;
-	mes "In the middle of the dark, you're walking on the street of Prontera when suddenly you hear someone scream.";
+	mes "En medio de la oscuridad, caminas por las calles de Prontera cuando de repente escuchas a alguien gritar.";
 	next;
-	mes "'Aaaahh!! Don't hurt me ~'";
+	mes "'Aaaahh!! No me lastimes~'";
 	next;
-	mes "You run to the place and see someone surrounded by punks. Because of your sudden appearace, the punks are surprised.";
+	mes "Corres hacia el lugar y ves a alguien rodeado por matones. Por tu aparicion repentina, los matones se sorprenden.";
 	next;
-	mes "What would be your reaction to this situation?";
+	mes "Cual seria tu reaccion ante esta situacion?";
 	next;
-	switch(select("Fight against the punks", "Cast Magic.", "Call for Guards.", "Throw rocks at them.")) {
+	switch(select("Pelear contra los matones", "Lanzar magia.", "Llamar a los guardias.", "Lanzarles piedras.")) {
 	case 1:
-		.@question_01$ = "You subdue them easily.";
+		.@question_01$ = "Los sometes facilmente.";
 		.@swordman_p = .@swordman_p + 1;
 		.@taekwon_p = .@taekwon_p + 1;
 		.@ninja_p = .@ninja_p + 1;
 		break;
 	case 2:
-		.@question_01$ = "You cast a spell on them.";
+		.@question_01$ = "Les lanzas un hechizo.";
 		.@magician_p = .@magician_p + 1;
 		break;
 	case 3:
-		.@question_01$ = "You call for help and Guards come to your aid.";
+		.@question_01$ = "Pides ayuda y los guardias vienen en tu auxilio.";
 		.@acolyte_p = .@acolyte_p + 1;
 		break;
 	case 4:
-		.@question_01$ = "You skillfully throw rocks at the punks.";
+		.@question_01$ = "Les lanzas piedras habilmente a los matones.";
 		.@archer_p = .@archer_p + 1;
 		.@gunslinger_p = .@gunslinger_p + 1;
 		break;
 	}
 	mes "'+.@question_01$+'";
 	next;
-	mes "After clear up the mess, you approach the person who was being attacked.";
-	mes "Do you think the person who was surrounded by punks is a man or a woman?";
+	mes "Despues de resolver el problema, te acercas a la persona que estaba siendo atacada.";
+	mes "Crees que la persona rodeada por los matones es hombre o mujer?";
 	next;
-	if (select("Man", "Woman") == 1) {
-		.@question_02_01$ = "he";
-		.@question_02_02$ = "son";
+	if (select("Hombre", "Mujer") == 1) {
+		.@question_02_01$ = "el";
+		.@question_02_02$ = "hijo";
 	} else {
-		.@question_02_01$ = "she";
-		.@question_02_02$ = "daughter";
+		.@question_02_01$ = "ella";
+		.@question_02_02$ = "hija";
 	}
-	mes "The situation of encountering the gangs were like this";
+	mes "La situacion del encuentro con los matones fue asi";
 	next;
-	mes "You find out that '+.@question_02_01$+' is the '+.@question_02_02$+' of very rich family in Alberta and Punks attacked while '+.@question_02_01$+' was on an errand for the family";
+	mes "Descubres que '+.@question_02_01$+' es '+.@question_02_02$+' de una familia muy rica de Alberta y los matones atacaron mientras '+.@question_02_01$+' hacia un encargo para la familia";
 	next;
-	mes "What kind of errand was he doing?";
+	mes "Que tipo de encargo estaba haciendo?";
 	next;
-	switch(select("Delivering an important object", "Deliver a small souvenir", "Deliver a message")) {
+	switch(select("Entregar un objeto importante", "Entregar un pequeno recuerdo", "Entregar un mensaje")) {
 	case 1:
 		.@swordman_p = .@swordman_p + 1;
 		.@archer_p = .@archer_p + 1;
@@ -6842,10 +6842,10 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@acolyte_p = .@acolyte_p + 1;
 		break;
 	}
-	mes "For your bravery, '+.@question_02_01+' becomes your friend and decides to go on a trip.";
-	mes "Where is '+.@question_02_01+' going?";
+	mes "Por tu valentia, '+.@question_02_01+' se vuelve tu amigo y decide ir de viaje.";
+	mes "A donde va '+.@question_02_01+'?";
 	next;
-	switch(select("Capital city, Prontera", "Mountain city, Payon", "Port city, Alberta", "Magic city, Geffen", "Satelite city, Izlude", "Desert city, Morocc", "Industrial city, Einbroch", "World of natural life, Amatsu", "Garden city, Hugel")) {
+	switch(select("Ciudad capital, Prontera", "Ciudad de montana, Payon", "Ciudad portuaria, Alberta", "Ciudad magica, Geffen", "Ciudad satelite, Izlude", "Ciudad del desierto, Morocc", "Ciudad industrial, Einbroch", "Mundo de vida natural, Amatsu", "Ciudad jardin, Hugel")) {
 	case 1:
 		.@acolyte_p = .@acolyte_p + 1;
 		break;
@@ -6874,9 +6874,9 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@archer_p = .@archer_p + 1;
 		break;
 	}
-	mes "You're having a great time. Do you feel like something will be happening or not?";
+	mes "La estan pasando genial. Sientes que algo va a pasar o no?";
 	next;
-	if (select("Happening:Not happening.") == 1) {
+	if (select("Va a pasar:No va a pasar.") == 1) {
 		.@thief_p = .@thief_p + 1;
 		.@swordman_p = .@swordman_p + 1;
 		.@ninja_p = .@ninja_p + 1;
@@ -6889,12 +6889,12 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@gunslinger_p = .@gunslinger_p + 1;
 	}
 	mes "[Cream Puff]";
-	mes "Now for the second test. Choose the best answer in your own opinion.";
+	mes "Ahora el segundo test. Elige la mejor respuesta en tu propia opinion.";
 	next;
 	mes "[Cream Puff]";
-	mes "2nd type of question is to select a word or sentence which is closest to yourself.";
+	mes "El 2do tipo de pregunta es seleccionar una palabra o frase que sea mas cercana a ti.";
 	next;
-	switch(select("Study", "Exercise", "Service", "Violence")) {
+	switch(select("Estudio", "Ejercicio", "Servicio", "Violencia")) {
 	case 1:
 		.@magician_p = .@magician_p + 1;
 		break;
@@ -6911,12 +6911,12 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@ninja_p = .@ninja_p + 1;
 		break;
 	}
-	if (select("Change", "Preservation") == 1) {
+	if (select("Cambio", "Preservacion") == 1) {
 		.@magician_p = .@magician_p + 1;
 	} else {
 		.@acolyte_p = .@acolyte_p + 1;
 	}
-	switch(select("Consumer", "Seller", "Producer")) {
+	switch(select("Consumidor", "Vendedor", "Productor")) {
 	case 1:
 		.@swordman_p = .@swordman_p + 1;
 		.@thief_p = .@thief_p + 1;
@@ -6931,26 +6931,26 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@magician_p = .@magician_p + 1;
 		break;
 	}
-	if (select("Speedy", "Cautious") == 1) {
+	if (select("Rapido", "Cauteloso") == 1) {
 		.@thief_p = .@thief_p + 1;
 		.@ninja_p = .@ninja_p + 1;
 	} else {
 		.@archer_p = .@archer_p + 1;
 		.@gunslinger_p = .@gunslinger_p + 1;
 	}
-	if (select("Theory", "Experience") == 1) {
+	if (select("Teoria", "Experiencia") == 1) {
 		.@magician_p = .@magician_p + 1;
 	} else {
 		.@swordman_p = .@swordman_p + 1;
 		.@taekwon_p = .@taekwon_p + 1;
 	}
 	mes "[Cream Puff]";
-	mes "2nd type of question is done. It was simple. Right ? Let's move to next.";
+	mes "El 2do tipo de pregunta termino. Fue simple. Verdad? Pasemos al siguiente.";
 	next;
 	mes "[Cream Puff]";
-	mes "Now for the third test. Please choose (Yes) or (No) to each question.";
+	mes "Ahora el tercer test. Por favor elige (Si) o (No) a cada pregunta.";
 	next;
-	mes "Do you always pick up money that you find on the ground?";
+	mes "Siempre recoges dinero que encuentras en el suelo?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@merchant_p = .@merchant_p + 1;
@@ -6958,7 +6958,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	} else {
 		.@acolyte_p = .@acolyte_p + 1;
 	}
-	mes "If you had the same name as someone of the opposite sex, would that make you less attracted to them?";
+	mes "Si tuvieras el mismo nombre que alguien del sexo opuesto, eso te haria sentir menos atraido por esa persona?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@ninja_p = .@ninja_p + 1;
@@ -6967,7 +6967,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@acolyte_p = .@acolyte_p + 1;
 		.@gunslinger_p = .@gunslinger_p + 1;
 	}
-	mes "Do you like to be able to carry a lot of items at once?";
+	mes "Te gusta poder llevar muchos items a la vez?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@swordman_p = .@swordman_p + 1;
@@ -6976,7 +6976,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@magician_p = .@magician_p + 1;
 		.@taekwon_p = .@taekwon_p + 1;
 	}
-	mes "Do you like to read books?";
+	mes "Te gusta leer libros?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@taekwon_p = .@taekwon_p + 1;
@@ -6985,7 +6985,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@ninja_p = ninja_p + 1;
 		.@merchant_p = .@merchant_p + 1;
 	}
-	mes "You read everything in a magazine?";
+	mes "Lees todo en una revista?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@magician_p = .@magician_p + 1;
@@ -6993,7 +6993,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@archer_p = archer_p + 1;
 		.@gunslinger_p = .@gunslinger_p + 1;
 	}
-	mes "Do you take the time to worry about what you are wearing?";
+	mes "Te tomas el tiempo de preocuparte por lo que llevas puesto?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@merchant_p = .@merchant_p + 1;
@@ -7002,7 +7002,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@swordman_p = .@swordman_p + 1;
 		.@thief_p = .@thief_p + 1;
 	}
-	mes "Do you tell others what kind of fancy foods you've eaten recently?";
+	mes "Le cuentas a otros que tipo de comidas elegantes has comido recientemente?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@thief_p = .@thief_p + 1;
@@ -7011,7 +7011,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@acolyte_p = .@acolyte_p + 1;
 		.@taekwon_p = .@taekwon_p + 1;
 	}
-	mes "Do you write things down in a notebook often?";
+	mes "Escribes cosas en un cuaderno a menudo?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@magician_p = .@magician_p + 1;
@@ -7020,7 +7020,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@thief_p = .@thief_p + 1;
 		.@archer_p = .@archer_p + 1;
 	}
-	mes "Do you consider yourself attractive?";
+	mes "Te consideras atractivo?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@ninja_p = .@ninja_p + 1;
@@ -7029,7 +7029,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@acolyte_p = .@acolyte_p + 1;
 		.@swordman_p = .@swordman_p + 1;
 	}
-	mes "Do you like to be in areas where a lot of people gather?";
+	mes "Te gusta estar en areas donde mucha gente se reune?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@acolyte_p = .@acolyte_p + 1;
@@ -7038,7 +7038,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@archer_p = .@archer_p + 1;
 		.@ninja_p = .@ninja_p + 1;
 	}
-	mes "Do you like the idea of living a single life?";
+	mes "Te gusta la idea de vivir una vida solitaria?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@thief_p = .@thief_p + 1;
@@ -7046,7 +7046,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	} else {
 		.@acolyte_p = .@acolyte_p + 1;
 	}
-	mes "Do you like to keep your distance from others?";
+	mes "Te gusta mantener tu distancia de los demas?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@gunslinger_p = .@gunslinger_p + 1;
@@ -7054,7 +7054,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	} else {
 		.@taekwon_p = .@taekwon_p + 1;
 	}
-	mes "Do you think that having a good hiding space is important in battle?";
+	mes "Crees que tener un buen escondite es importante en batalla?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@magician_p = .@magician_p + 1;
@@ -7064,7 +7064,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@taekwon_p = .@taekwon_p + 1;
 		.@magician_p = .@magician_p + 1;
 	}
-	mes "Would you defend your friend even if you knew they were wrong?";
+	mes "Defenderias a tu amigo aunque supieras que esta equivocado?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@swordman_p = .@swordman_p + 1;
@@ -7072,7 +7072,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@thief_p = .@thief_p + 1;
 		.@ninja_p = .@ninja_p + 1;
 	}
-	mes "Would you try to convince an enemy not to fight you with logic?";
+	mes "Intentarias convencer a un enemigo de no pelear contigo usando logica?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@archer_p = .@archer_p + 1;
@@ -7081,7 +7081,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@acolyte_p = .@acolyte_p + 1;
 		.@archer_p = .@archer_p + 1;
 	}
-	mes "Can you sit still in the same place for a long time?";
+	mes "Puedes quedarte quieto en el mismo lugar por mucho tiempo?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@taekwon_p = .@taekwon_p + 1;
@@ -7090,7 +7090,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@archer_p = .@archer_p + 1;
 		.@gunslinger_p = .@gunslinger_p + 1;
 	}
-	mes "Do you think that you can take a punch straight to the gut from an Orc?";
+	mes "Crees que puedes recibir un golpe directo en el estomago de un Orc?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@swordman_p = .@swordman_p + 1;
@@ -7099,7 +7099,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@magician_p = .@magician_p + 1;
 		.@thief_p = .@thief_p + 1;
 	}
-	mes "Do you make up nicknames for your friends?";
+	mes "Inventas apodos para tus amigos?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@gunslinger_p = .@gunslinger_p + 1;
@@ -7108,7 +7108,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@acolyte_p = .@acolyte_p + 1;
 		.@gunslinger_p = .@gunslinger_p + 1;
 	}
-	mes "Do you always have a plan B for various situations?";
+	mes "Siempre tienes un plan B para diversas situaciones?";
 	next;
 	if (select("Si", "No") == 1) {
 		.@thief_p = .@thief_p + 1;
@@ -7117,7 +7117,7 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@gunslinger_p = .@gunslinger_p + 1;
 		.@merchant_p = .@merchant_p + 1;
 	}
-	mes "I think about something else while talking to others.";
+	mes "Pienso en otra cosa mientras hablo con otros.";
 	next;
 	if (select("Si", "No") == 1) {
 		.@magician_p = .@agician_p + 1;
@@ -7126,11 +7126,11 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 		.@archer_p = .@archer_p + 1;
 	}
 	mes "[Cream Puff]";
-	mes "Class aptitude test is finished with 1,2 and 3rd test. Please wait for a moment.";
+	mes "El test de aptitud de clase termino con el 1er, 2do y 3er test. Por favor espera un momento.";
 	next;
 	cutin "choucream_d.bmp",2;
 	mes "[Cream Puff]";
-	mes "It requires to manually calculate as you know.";
+	mes "Requiere calcular manualmente como sabes.";
 	next;
 	setarray .@points[0],.@swordman_p,.@magician_p,.@archer_p,.@merchant_p,.@thief_p,.@acolyte_p,.@taekwon_p,.@gunslinger_p,.@ninja_p;
 	.@max = .@points[0];
@@ -7142,72 +7142,72 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	}
 	set .@who_job, .@ele + 1;
 	mes "[Cream Puff]";
-	mes "All right!!!! It's done!!!!!!!!";
+	mes "Muy bien!!!! Esta listo!!!!!!!!";
 	next;
 	cutin "choucream_e.bmp", 2;
 	mes "[Cream Puff]";
-	mes "Finished calculating. Math is always difficult.";
+	mes "Termine de calcular. Las matematicas siempre son dificiles.";
 	next;
 	mes "[Cream Puff]";
-	mes "According to the Class aptitude test!";
+	mes "Segun el test de aptitud de clase!";
 	next;
 	mes "[Cream Puff]";
 	if (.@who_job == 1) {
 		.@job_name$ = "Swordman";
-		mes "The one who wants to be a hero with stong belief and wants to influence on the world.";
+		mes "Aquel que quiere ser un heroe con firme conviccion y quiere influir en el mundo.";
 		next;
 		mes "[Cream Puff]";
-		mes "The one who wants to protect the weak.";
+		mes "Aquel que quiere proteger a los debiles.";
 	} else if (.@who_job == 2) {
 		.@job_name$ = "Mage";
-		mes "The one who is curious about knowing everything and independently work alone.";
+		mes "Aquel que tiene curiosidad por saberlo todo y trabaja de forma independiente.";
 		next;
 		mes "[Cream Puff]";
-		mes "the one who has good judgement, not out-going, analyzing and insightful and likes to observe...";
+		mes "Aquel que tiene buen juicio, no es extrovertido, es analitico y perspicaz y le gusta observar...";
 	} else if (.@who_job == 3) {
 		.@job_name$ = "Archer";
-		mes "The one who is romantic and understands the feeling of others and tries to be understood by others as well.";
+		mes "Aquel que es romantico y entiende los sentimientos de otros y trata de ser comprendido tambien.";
 		next;
 		mes "[Cream Puff]";
-		mes "The one who wants to spend time finding out who they are.";
+		mes "Aquel que quiere pasar tiempo descubriendo quien es.";
 	} else if (.@who_job == 4) {
 		.@job_name$ = "Merchant";
-		mes "the one who is good at reading the mind of others and is decisive.";
+		mes "Aquel que es bueno leyendo la mente de otros y es decisivo.";
 		next;
 		mes "[Cream Puff]";
-		mes "the one who is strongly interested in achieving and target-driving and responsible.";
+		mes "Aquel que esta fuertemente interesado en lograr metas y es responsable.";
 	} else if (.@who_job == 5) {
 		.@job_name$ = "Thief";
-		mes "The one who wants to have fun is optimistic who loves adventure.";
+		mes "Aquel que quiere divertirse, es optimista y ama la aventura.";
 		next;
 		mes "[Cream Puff]";
-		mes "The one who wants to find out something exciting and wants to donate to the world in his own way.";
+		mes "Aquel que quiere descubrir algo emocionante y quiere contribuir al mundo a su manera.";
 	} else if (.@who_job == 6) {
 		.@job_name$ = "Acolyte";
-		mes "The one who has a great heart to help others and understand.";
+		mes "Aquel que tiene un gran corazon para ayudar a otros y comprender.";
 		next;
 		mes "[Cream Puff]";
-		mes "The one who wants to be loved and wants to care for others.";
+		mes "Aquel que quiere ser amado y quiere cuidar a los demas.";
 	} else if (.@who_job == 7) {
 		.@job_name$ = "Taekwon boy/girl";
-		mes "the one who has sound mind from right training.";
+		mes "Aquel que tiene una mente sana gracias al entrenamiento correcto.";
 		next;
 		mes "[Cream Puff]";
-		mes "The one who tries hard everyday with certain belief and tries to make people understand.";
+		mes "Aquel que se esfuerza todos los dias con cierta conviccion y trata de hacerse entender.";
 	} else if (.@who_job == 8) {
 		.@job_name$ = "Gunslinger";
-		mes "The one who is called as a justice giver but also gives chaos and fear.";
+		mes "Aquel que es llamado portador de justicia pero tambien trae caos y miedo.";
 		next;
 		mes "[Cream Puff]";
-		mes "The one who tries to balance between justice and chaos.";
+		mes "Aquel que trata de equilibrar entre la justicia y el caos.";
 	} else if (.@who_job == 9) {
 		.@job_name$ = "Ninja";
-		mes "The one who does not want to get attention.";
+		mes "Aquel que no quiere llamar la atencion.";
 		next;
 		mes "[Cream Puff]";
-		mes "and who is persistant without giving up until reaching the target.";
+		mes "Y que es persistente sin rendirse hasta alcanzar su objetivo.";
 	} else {
-		mes "An error occurred.";
+		mes "Ocurrio un error.";
 		close2;
 		cutin "", 255;
 		end;
@@ -7215,28 +7215,28 @@ iz_ac02,143,55,3	script	Cream Puff#ac	4_M_KID1,{
 	next;
 	emotion ET_BEST;
 	mes "[Cream Puff]";
-	mes "^8014EB'+.@job_name$+'^000000 is a good matching job for you.";
+	mes "^8014EB'+.@job_name$+'^000000 es un buen trabajo para ti.";
 	next;
 	cutin "choucream_n.bmp", 2;
 	mes "[Cream Puff]";
-	mes "Hmm, it says.";
+	mes "Hmm, eso dice.";
 	next;
 	mes "[Cream Puff]";
-	mes "You do not have to choose the job from Class aptitude test. That is only just for fun.";
+	mes "No tienes que elegir el trabajo del test de aptitud de clase. Eso es solo por diversion.";
 	next;
 	emotion ET_QUESTION;
 	mes "[Cream Puff]";
-	mes "If you want, I will send it to the class that was recommended by the aptitude result.";
+	mes "Si quieres, te enviare a la clase que fue recomendada por el resultado de la aptitud.";
 	next;
-	if (select("Send me now.", "It's okay, I'm still deciding.") == 2) {
+	if (select("Enviame ahora.", "Esta bien, aun estoy decidiendo.") == 2) {
 		mes "[Cream Puff]";
-		mes "Ok, you know what you want I guess.";
+		mes "Ok, supongo que sabes lo que quieres.";
 		close2;
 		cutin "", 255;
 		end;
 	}
 	mes "[Cream Puff]";
-	mes "Your recommended job is '+.@job_name$+'. I will send you to where you can talk to that job professional.";
+	mes "Tu trabajo recomendado es '+.@job_name$+'. Te enviare a donde puedes hablar con el profesional de ese trabajo.";
 	close2;
 	switch(.@who_job) {
 	case 1:
@@ -7287,14 +7287,14 @@ iz_ac02_d,143,55,3	duplicate(Cream Puff#ac)	Cream Puff#ac_d	4_M_KID1
 // -----------------------------------------------------------------------------
 iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 	if (!checkweight(1301,1)) {
-		mes "- Quest can't be continued as your overloaded items. -";
+		mes "- La quest no puede continuar porque tienes demasiados items. -";
 		close;
 	}
 	cutin "aca_gung_01.bmp", 2;
 	if (Class == Job_Novice) {
 		if (isbegin_quest(4269) != 2) {
 			mes "[Lusa]";
-			mes "Oh! I am sorry but in order to take the class, y'all have to register first. Ya come back here after registration at that there counter on the 1st floor, ya hear?";
+			mes "Oh! Lo siento pero para tomar la clase, tienes que registrarte primero. Vuelve aqui despues de registrarte en ese mostrador del 1er piso, entendido?";
 			close2;
 			// ConsumeSpecialItem Inspector_Certificate_
 			cutin "", 255;
@@ -7307,62 +7307,62 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 		}
 		emotion ET_COOL;
 		mes "[Lusa]";
-		mes "Gosh Darnit! You are cuter then a piglet! Are ya trying ta learn to be a ^ff0000Gunslinger^000000?";
+		mes "Caray! Eres mas lindo que un cerdito! Estas intentando aprender a ser ^ff0000Gunslinger^000000?";
 		next;
 		if (.@has_manual == 1) {
-			.@menu$ = "What is a Gunslinger?:Can I try out the skills?:Becoming a Gunslinger?:How can I try out the skills?:Cancel";
+			.@menu$ = "Que es un Gunslinger?:Puedo probar las skills?:Convertirme en Gunslinger?:Como puedo probar las skills?:Cancelar";
 		} else {
-			.@menu$ = "What is a Gunslinger?:Can I try out the skills?:Becoming a Gunslinger?::Cancel";
+			.@menu$ = "Que es un Gunslinger?:Puedo probar las skills?:Convertirme en Gunslinger?::Cancelar";
 		}
 		switch(select(.@menu$)) {
 		case 1:
 			emotion ET_THROB;
 			mes "[Lusa]";
-			mes "You're so cute! A ^ff0000Gunslinger^000000 who has true grit wield his weapons bringing justice in these wild times.";
+			mes "Que lindo eres! Un ^ff0000Gunslinger^000000 con verdadero coraje empuna sus armas trayendo justicia en estos tiempos salvajes.";
 			next;
 			mes "[Lusa]";
 			if (Sex == SEX_MALE)
-				mes "Ya, know you remind me of my little brother, that varmint couldn't shoot the broadside of a barn.. at least not until I taught him.";
+				mes "Sabes, me recuerdas a mi hermanito, ese briboncito no podia darle ni a un granero.. al menos no hasta que le ensene.";
 			else
-				mes "Ya, know you remind me of my little sister, that scamp couldn't shoot the broadside of barn.. At least not until I taught her.";
+				mes "Sabes, me recuerdas a mi hermanita, esa picara no podia darle ni a un granero.. Al menos no hasta que le ensene.";
 			next;
 			mes "[Lusa]";
-			mes "Now y'all need to understand, guns aren't some little thing that you just swing at an animal, you don't wiggle those there fingers and shock them to death.";
+			mes "Ahora tienes que entender, las armas no son algo pequeno que solo agitas contra un animal, no mueves esos deditos y los electrocutas hasta morir.";
 			next;
 			mes "[Lusa]";
-			mes "No! You shoot things, which means ya need to aim straight. This takes a lot of ^ff0000dexterity^000000 on the part of the gunslinger.";
+			mes "No! Disparas cosas, lo que significa que necesitas apuntar derecho. Esto requiere mucha ^ff0000destreza^000000 de parte del gunslinger.";
 			next;
 			mes "[Lusa]";
-			mes "Now before ya go running off shooting dem guns in the air, all high fallootin and dancing around. Ya need to understand that this isn't an easy job!";
+			mes "Ahora antes de que salgas corriendo disparando esas armas al aire, todo presumido y bailando. Tienes que entender que este no es un trabajo facil!";
 			next;
 			mes "[Lusa]";
-			mes "Bullets cost zeny so you need to be sure that everything you shoot is worth the price! We attack at range so that nasty cur with the pig sticker doesn't rustle your jimmies!";
+			mes "Las balas cuestan zeny asi que necesitas estar seguro de que todo lo que dispares valga el precio! Atacamos a distancia para que ese rufian con la espada no te moleste!";
 			next;
 			mes "[Lusa]";
-			mes "Y'all understand?";
+			mes "Entiendes?";
 			next;
 			while(1) {
-				switch(select("Ranged attack?", "Why is ammo expensive?", "Job Change Test?", "Yes~!!")) {
+				switch(select("Ataque a distancia?", "Por que la municion es cara?", "Test de cambio de trabajo?", "Si~!!")) {
 				case 1:
 					mes "[Lusa]";
-					mes "Those low tech barbarians need both Strength and Dexterity in order to fight properly. This isn't true for gunslingers.";
+					mes "Esos barbaros de baja tecnologia necesitan tanto Fuerza como Destreza para pelear correctamente. Eso no es asi para los gunslingers.";
 					next;
 					mes "[Lusa]";
-					mes "Why our dexterity influences both attack power and accuracy! Remember, Talk slowly but think quickly!";
+					mes "Nuestra destreza influye tanto en el poder de ataque como en la precision! Recuerda, habla despacio pero piensa rapido!";
 					next;
 					break;
 				case 2:
 					cutin "aca_gung_02.bmp", 2;
 					mes "[Lusa]";
-					mes "Do y'all see lots of factories around here? Mines? Alchemical labs? All these things take zeny to run and thats how they fund it!";
+					mes "Ves muchas fabricas por aqui? Minas? Laboratorios alquimicos? Todas estas cosas cuestan zeny para funcionar y asi es como lo financian!";
 					next;
 					break;
 				case 3:
 					mes "[Lusa]";
-					mes "Some other jobs may think it is safe enough to hand any yonkle the strength to seriously hurt someone.";
+					mes "Algunos otros trabajos creen que es seguro darle a cualquiera la fuerza para herir seriamente a alguien.";
 					next;
 					mes "[Lusa]";
-					mes "But we have to see that you have grit! Remember, fast is good but accurate is better.";
+					mes "Pero nosotros tenemos que ver que tengas agallas! Recuerda, rapido es bueno pero preciso es mejor.";
 					next;
 					break;
 				case 4:
@@ -7372,24 +7372,24 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				break;
 			}
 			mes "[Lusa]";
-			mes "Y'all can come back now if you gets any more questions.";
+			mes "Puedes volver si tienes mas preguntas.";
 			close2;
 			//ConsumeSpecialItem Inspector_Certificate_
 			cutin "", 255;
 			end;
 		case 2:
 			mes "[Lusa]";
-			mes "They tell me Criatura Academy is for the novices not yet decided what job to take.";
+			mes "Me dicen que Criatura Academy es para los novatos que aun no han decidido que trabajo tomar.";
 			next;
 			mes "[Lusa]";
-			mes "They hired me, gun and all, to show you how to be a gunslinger!";
+			mes "Me contrataron, arma y todo, para mostrarte como ser un gunslinger!";
 			next;
 			mes "[Lusa]";
-			mes "Would you like me to show you how?";
+			mes "Te gustaria que te muestre como?";
 			next;
-			if (select("Yes mam!", "No, thanks.") == 2) {
+			if (select("Si senora!", "No, gracias.") == 2) {
 				mes "[Lusa]";
-				mes "Hrmm, you didn't look like you had the grit any how.";
+				mes "Hmm, no parecias tener las agallas de todos modos.";
 				close2;
 				//ConsumeSpecialItem Inspector_Certificate_
 				cutin "", 255;
@@ -7397,14 +7397,14 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 			}
 			mes "[Lusa]";
 			if (isequippedcnt(2941) || countitem(2941)) {
-				mes "Hey! What kind of con is this?! You already had a manual!";
+				mes "Hey! Que tipo de estafa es esta?! Ya tenias un manual!";
 			} else {
 				getitem 2941,1;// Gunslinger_Manual
-				mes "Here take this manual, I ain't too good at that there book learnin' but I can answer your questions.";
+				mes "Toma este manual, no soy muy buena con eso de aprender de libros pero puedo responder tus preguntas.";
 			}
 			next;
 			mes "[Lusa]";
-			mes "If you need the battle training, visit <NAVI>[Subino]<INFO>iz_ac01,59,83</INFO></NAVI>.";
+			mes "Si necesitas entrenamiento de batalla, visita a <NAVI>[Subino]<INFO>iz_ac01,59,83</INFO></NAVI>.";
 			close2;
 			//ConsumeSpecialItem Inspector_Certificate_
 			cutin "", 255;
@@ -7413,90 +7413,90 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 			if (Upper == 2) {
 				emotion ET_SEXY;
 				mes "[Lusa]";
-				mes "Oh, sorry! Children cannot become Gunslingers!";
+				mes "Oh, lo siento! Los ninos no pueden convertirse en Gunslingers!";
 				next;
 				mes "[Lusa]";
-				mes "Perhaps you should talk to your parents about other professions.";
+				mes "Tal vez deberias hablar con tus padres sobre otras profesiones.";
 				close2;
 				// ConsumeSpecialItem Inspector_Certificate_
 				cutin "", 255;
 				end;
 			}
 			mes "[Lusa]";
-			mes "Are you going to learn to shoot as a gunslinger?";
+			mes "Vas a aprender a disparar como gunslinger?";
 			next;
 			if (JobLevel < 10) {
 				mes "[Lusa]";
-				mes "Wooo doggy! You aren't ready for the big city yet!";
+				mes "Uy! Aun no estas listo para la gran ciudad!";
 				next;
 				mes "[Lusa]";
-				mes "Get to ^ff0000Job Level: ^0000ff10^000000 and come back here and I will help ya!";
+				mes "Llega a ^ff0000Job Level: ^0000ff10^000000 y vuelve aqui y te ayudare!";
 				close2;
 				//ConsumeSpecialItem Inspector_Certificate_
 				cutin "", 255;
 				end;
 			} else {
 				mes "[Lusa]";
-				mes "Y'all ready to take the test to become a gunslinger?";
+				mes "Estas listo para tomar el test para convertirte en gunslinger?";
 				next;
 			}
-			if (select("Wait a moment.", "Send me.") == 1) {
+			if (select("Espera un momento.", "Enviame.") == 1) {
 				cutin "aca_gung_02.bmp", 2;
 				mes "[Lusa]";
-				mes "When ya are ready, come to me!";
+				mes "Cuando estes listo, ven a verme!";
 				close2;
 				cutin "", 255;
 				end;
 			}
 			mes "[Lusa]";
-			mes "Okay then, you should find a^ff0000 Mr. Master Miller^000000 and ask him about the test.";
+			mes "Muy bien entonces, deberias encontrar al^ff0000 Sr. Master Miller^000000 y preguntarle sobre el test.";
 			next;
 			mes "[Lusa]";
-			mes "Remember, if you find yourself in a hole, the first thing to do is stop digging!";
+			mes "Recuerda, si te encuentras en un hoyo, lo primero que debes hacer es dejar de cavar!";
 			close2;
 			warp "que_ng", 150, 167;
 			end;
 		case 4:
 			mes "[Lusa]";
-			mes "Y'all need help with that book?";
+			mes "Necesitas ayuda con ese libro?";
 			while(1) {
 				next;
-				switch(select("How do I use this book?", "I can't find the skill.", "I don't have a gun....", "No more questions now.")) {
+				switch(select("Como uso este libro?", "No puedo encontrar la skill.", "No tengo un arma....", "No mas preguntas por ahora.")) {
 				case 1:
 					mes "[Lusa]";
-					mes "Oh.. I think I know what the problem is,";
+					mes "Oh.. creo que se cual es el problema,";
 					next;
 					mes "[Lusa]";
-					mes "Ta use the guide, first ya need to equip it. ^ff0000To open the equipment window the Shortcut key is Alt + E.^000000";
+					mes "Para usar la guia, primero necesitas equiparla. ^ff0000Para abrir la ventana de equipo el atajo es Alt + E.^000000";
 					next;
 					mes "[Lusa]";
-					mes "Sometimes I forget ta do that too! ^ff0000Drag the item from your inventory to the appropriate slot in the equipment window. Alternatively you can double click the item in inventory.^000000";
+					mes "A veces yo tambien olvido hacer eso! ^ff0000Arrastra el item de tu inventario al slot apropiado en la ventana de equipo. Alternativamente puedes hacer doble clic en el item del inventario.^000000";
 					next;
 					mes "[Lusa]";
-					mes "Do ya have any other questions?";
+					mes "Tienes alguna otra pregunta?";
 					continue;
 				case 2:
 					mes "[Lusa]";
-					mes "Y'all need ta learn how to use the skill?";
+					mes "Necesitas aprender como usar la skill?";
 					next;
 					mes "[Lusa]";
-					mes "^ff0000To open the skill window use the short cut Alt + S. The skill will be located in the ETC tab.^000000";
+					mes "^ff0000Para abrir la ventana de skills usa el atajo Alt + S. La skill estara ubicada en la pestana ETC.^000000";
 					next;
 					mes "[Lusa]";
-					mes "^ff0000You can then drag the skill to your hot bar for easy use!.^000000";
+					mes "^ff0000Luego puedes arrastrar la skill a tu barra rapida para usarla facilmente!^000000";
 					next;
 					mes "[Lusa]";
-					mes "... and thats how I learned that When in doubt, let your peco do the thinkin'.";
+					mes "... y asi es como aprendi que cuando tengas duda, deja que tu peco piense por ti.";
 					next;
 					mes "[Lusa]";
-					mes "Do ya have any other questions?";
+					mes "Tienes alguna otra pregunta?";
 					continue;
 				case 3:
 					mes "[Lusa]";
-					mes "Well, I don't think that you are quite ready to get a shootin iron. So the training book only shows ya skills that don't need guns.";
+					mes "Bueno, no creo que estes listo para tener un arma de fuego. Asi que el libro de entrenamiento solo te muestra skills que no necesitan armas.";
 					next;
 					mes "[Lusa]";
-					mes "Do ya have any other questions?";
+					mes "Tienes alguna otra pregunta?";
 					continue;
 				case 4:
 					break;
@@ -7504,7 +7504,7 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				break;
 			}
 			mes "[Lusa]";
-			mes "If ya need more questions you can always come back ta me.";
+			mes "Si necesitas mas preguntas siempre puedes volver a verme.";
 			close2;
 			cutin "", 255;
 			end;
@@ -7516,100 +7516,100 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 	} else if (Class == Job_Gunslinger) {
 		if (!nov_3_guns && BaseLevel < 21) {
 			mes "[Lusa]";
-			mes "Oh! Are you just darling, a newly minted gunslinger!";
+			mes "Oh! Que precioso, un gunslinger recien hecho!";
 			next;
 			mes "[Lusa]";
-			mes "Why your shootin iron looks shinier then a silver zeny! Do ya need anything?";
+			mes "Tu arma brilla mas que un zeny de plata! Necesitas algo?";
 			next;
-			if (select("Can you help me get to Einbroch?", "No, thanks.") == 1) {
+			if (select("Puedes ayudarme a llegar a Einbroch?", "No, gracias.") == 1) {
 				mes "[Lusa]";
-				mes "Sure, why not? Make sure to spend some time trainin!";
+				mes "Claro, por que no? Asegurate de pasar tiempo entrenando!";
 				next;
 				mes "[Lusa]";
-				mes "Get over there ya scamp!";
+				mes "Ve para alla, briboncito!";
 				close2;
 				warp "que_ng", 150, 167;
 				end;
 			}
 			mes "[Lusa]";
-			mes "Oh, I am glad to hear that you are so strong!";
+			mes "Oh, me alegra saber que eres tan fuerte!";
 			close2;
 			cutin "", 255;
 			end;
 		} else if (nov_3_guns > 0 && nov_3_guns < 7) {
 			mes "[Lusa]";
-			mes "Ah, still in basic training eh? You're not carelessly using Butterfly Wings, right?";
+			mes "Ah, aun en entrenamiento basico eh? No estas usando Butterfly Wings descuidadamente, verdad?";
 			next;
 			mes "[Lusa]";
-			mes "Are you going to Einbroch to complete basic training?";
+			mes "Vas a ir a Einbroch para completar el entrenamiento basico?";
 			next;
-			if (select("Can you help me get to Einbroch?", "No, I have other things to do.") == 1) {
+			if (select("Puedes ayudarme a llegar a Einbroch?", "No, tengo otras cosas que hacer.") == 1) {
 				mes "[Lusa]";
-				mes "Sure, why not? Make sure to spend some time trainin!";
+				mes "Claro, por que no? Asegurate de pasar tiempo entrenando!";
 				next;
 				mes "[Lusa]";
-				mes "Get over there ya scamp!";
+				mes "Ve para alla, briboncito!";
 				close2;
 				warp "que_ng", 150, 167;
 				end;
 			}
 			mes "[Lusa]";
-			mes "Oh, is that so? If you wish to go to Einbroch but not take the Airship, come speak to me.";
-			mes "Because you're still training, I will send you there for free.";
+			mes "Oh, es asi? Si deseas ir a Einbroch pero no tomar el Airship, ven a hablarme.";
+			mes "Como aun estas entrenando, te enviare alli gratis.";
 			close2;
 			cutin "", 255;
 			end;
 		} else if (nov_3_guns == 7) {
 			emotion ET_OK;
 			mes "[Lusa]";
-			mes "Ah you're back, and now wearing lovely Gunslinger clothing! It suits you well, congratulations!";
+			mes "Ah volviste, y ahora vistiendo encantadora ropa de Gunslinger! Te queda bien, felicidades!";
 			next;
 			mes "[Lusa]";
-			mes "I just received the news from my brother regarding your achievement of completing basic training.";
+			mes "Acabo de recibir noticias de mi hermano sobre tu logro de completar el entrenamiento basico.";
 			next;
-			select("Brother?");
+			select("Hermano?");
 			cutin "aca_gung_02.bmp", 2;
 			mes "[Lusa]";
-			mes "Huh? My brother did not tell you? My brother is the one in charge of Basic Training.";
+			mes "Eh? Mi hermano no te lo dijo? Mi hermano es el encargado del Entrenamiento Basico.";
 			next;
 			mes "[Lusa]";
-			mes "Louie and Lusa are very similar names, right?";
+			mes "Louie y Lusa son nombres muy similares, verdad?";
 			next;
-			select("I guess so...");
+			select("Supongo que si...");
 			cutin "aca_gung_01.bmp", 2;
 			mes "[Lusa]";
-			mes "Ha ha~ Well, our relationship is not really that important.";
+			mes "Ja ja~ Bueno, nuestra relacion no es realmente tan importante.";
 			next;
 			mes "[Lusa]";
-			mes "I have been assigned to conduct Combat Training for the Gunslinger guild.";
+			mes "Me han asignado para realizar Entrenamiento de Combate para el gremio de Gunslinger.";
 			next;
-			select("Why you?");
+			select("Por que tu?");
 			mes "[Lusa]";
-			mes "Gunslingers are very fond of freedom, so the Guild had limited choices to choose from.";
+			mes "Los Gunslingers son muy amantes de la libertad, asi que el Gremio tenia opciones limitadas.";
 			next;
 			cutin "aca_gung_02.bmp", 2;
 			mes "[Lusa]";
-			mes "They suddenly called me to do this. Frankly I think it's a bit absurd.";
+			mes "De repente me llamaron para hacer esto. Francamente creo que es un poco absurdo.";
 			next;
 			mes "[Lusa]";
-			mes "But on the basis of there being no previous Combat Training before, I have agreed to help.";
+			mes "Pero como no habia Entrenamiento de Combate previo, he aceptado ayudar.";
 			next;
 			mes "[Lusa]";
-			mes "So it was decided that we would use this opporunity to help get rid of some of the monsters near Prontera and Izlude.";
+			mes "Asi que se decidio que usariamos esta oportunidad para ayudar a eliminar algunos monstruos cerca de Prontera e Izlude.";
 			next;
 			mes "[Lusa]";
-			mes "It should help the people of those areas that are plagued by the same monsters every day.";
+			mes "Deberia ayudar a la gente de esas areas que esta plagada por los mismos monstruos todos los dias.";
 			next;
 			mes "[Lusa]";
-			mes "In accordance with the principles of guilds, the Combat Training is not mandatory.";
+			mes "De acuerdo con los principios de los gremios, el Entrenamiento de Combate no es obligatorio.";
 			next;
 			mes "[Lusa]";
-			mes "Once you complete a task, talk to me again to complete to process.";
+			mes "Una vez que completes una tarea, hablame de nuevo para completar el proceso.";
 			next;
 			nov_3_guns = 8;
 			erasequest 5148;
 			mes "[Lusa]";
-			mes "Well that's all! If a task proves to be too difficult you can cancel at any time, so please don't worry.";
+			mes "Bueno, eso es todo! Si una tarea resulta ser muy dificil puedes cancelar en cualquier momento, asi que no te preocupes.";
 			close2;
 			cutin "", 255;
 			end;
@@ -7621,37 +7621,37 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 
 			if (.@gun_quest_01 == -1 && .@gun_quest_02 == -1 && .@gun_quest_03 == -1 && .@gun_quest_04 == -1) {
 				mes "[Lusa]";
-				mes "Haven't started your basic combat training yet have you? What do you want to know about training?";
+				mes "Aun no has comenzado tu entrenamiento basico de combate, verdad? Que quieres saber sobre el entrenamiento?";
 				next;
-				switch(select("How long can I train for?", "Where do I receive tasks for training?", "Why do combat training?", "Cancel")) {
+				switch(select("Cuanto tiempo puedo entrenar?", "Donde recibo tareas de entrenamiento?", "Por que hacer entrenamiento de combate?", "Cancelar")) {
 				case 1:
 					mes "[Lusa]";
-					mes "Basic combat training can be performed until Base Level 20.";
+					mes "El entrenamiento basico de combate se puede realizar hasta Base Level 20.";
 					next;
 					mes "[Lusa]";
-					mes "You must've thought that the training would be pretty low because this is still the beginning.";
+					mes "Debes haber pensado que el entrenamiento seria bastante bajo porque esto es solo el comienzo.";
 					close2;
 					cutin "", 255;
 					end;
 				case 2:
 					mes "[Lusa]";
-					mes "Sorry! Did I not mention this?";
+					mes "Lo siento! No mencione esto?";
 					next;
 					mes "[Lusa]";
-					mes "You can choose any task you wish from the requests on my desk near the entrance.";
+					mes "Puedes elegir cualquier tarea que desees de las solicitudes en mi escritorio cerca de la entrada.";
 					close2;
 					cutin "", 255;
 					end;
 				case 3:
 					cutin "aca_gung_02.bmp", 2;
 					mes "[Lusa]";
-					mes "Right, ah, why? Well, The Gunslinger guild didn't have any combat training in the beginning.";
+					mes "Cierto, ah, por que? Bueno, el gremio de Gunslinger no tenia entrenamiento de combate al principio.";
 					next;
 					mes "[Lusa]";
-					mes "So they suddenly asked me to perform combat training for new recruits.";
+					mes "Asi que de repente me pidieron que realizara entrenamiento de combate para nuevos reclutas.";
 					next;
 					mes "[Lusa]";
-					mes "This training is not mandatory if you do not want to do it.";
+					mes "Este entrenamiento no es obligatorio si no quieres hacerlo.";
 					close2;
 					cutin "", 255;
 					end;
@@ -7665,74 +7665,74 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 			if (.@gun_quest_01 == 2 || .@gun_quest_02 == 2 || .@gun_quest_03 == 2 || .@gun_quest_04 == 2) {
 				if (.@gun_quest_01 == 2) {
 					mes "[Lusa]";
-					mes "You finished <Assignment A>?";
+					mes "Terminaste la <Asignacion A>?";
 					next;
 					mes "[Lusa]";
-					mes "Wow! You did perfectly! I have confirmed the 10 Hornets. Kids will be happy.";
+					mes "Wow! Lo hiciste perfecto! He confirmado los 10 Hornets. Los ninos estaran felices.";
 					next;
 					erasequest 5149;
 					getexp 700,450;
 					getitem 7059,1;// Cargo_Free_Ticket
-					mes "After looking over the report, you receive experience and a Kafra Storage Coupon.";
+					mes "Despues de revisar el reporte, recibes experiencia y un Cupon de Almacenamiento Kafra.";
 					next;
 					.@gun_tok = 1;
 				}
 				if (.@gun_quest_02 == 2) {
 					mes "[Lusa]";
 					if (.@gun_tok == 0)
-						mes "You finished <Assignment B>?";
+						mes "Terminaste la <Asignacion B>?";
 					else
-						mes "You finished <Assignment B> too?";
+						mes "Terminaste la <Asignacion B> tambien?";
 					next;
 					mes "[Lusa]";
-					mes "Wow! You did perfect! I have confirmed the 10 Roda Frogs. Tonight I should get a good sleep.";
+					mes "Wow! Lo hiciste perfecto! He confirmado las 10 Roda Frogs. Esta noche deberia dormir bien.";
 					next;
 					erasequest 5150;
 					getexp 950,590;
 					getitem 7059,1;// Cargo_Free_Ticket
-					mes "After looking over the report, you receive experience and a Kafra Storage Coupon.";
+					mes "Despues de revisar el reporte, recibes experiencia y un Cupon de Almacenamiento Kafra.";
 					next;
 					.@gun_tok = 1;
 				}
 				if (.@gun_quest_03 == 2) {
 					mes "[Lusa]";
 					if (.@gun_tok == 0)
-						mes "You finished <Assignment C>?";
+						mes "Terminaste la <Asignacion C>?";
 					else
-						mes "You finished <Assignment C> too?";
+						mes "Terminaste la <Asignacion C> tambien?";
 					next;
 					mes "[Lusa]";
-					mes "Wow! You did perfect! I have confirm the 10 Savage Babes. Students who want to develop specialist pets must be very happy.";
+					mes "Wow! Lo hiciste perfecto! He confirmado los 10 Savage Babes. Los estudiantes que quieren desarrollar mascotas especializadas deben estar muy felices.";
 					next;
 					erasequest 5151;
 					getexp 850,540;
 					getitem 7059,1;// Cargo_Free_Ticket
-					mes "After looking over the report, you receive experience and a Kafra Storage Coupon.";
+					mes "Despues de revisar el reporte, recibes experiencia y un Cupon de Almacenamiento Kafra.";
 					next;
 					.@gun_tok = 1;
 				}
 				if (.@gun_quest_04 == 2) {
 					mes "[Lusa]";
 					if (.@gun_tok == 0)
-						mes "You finished <Assignment D>?";
+						mes "Terminaste la <Asignacion D>?";
 					else
-						mes "You finished <Assignment D> too?";
+						mes "Terminaste la <Asignacion D> tambien?";
 					next;
 					mes "[Lusa]";
-					mes "Wow! You did perfect! I have confirmed the 10 Rockers. Were they hard to catch?";
+					mes "Wow! Lo hiciste perfecto! He confirmado los 10 Rockers. Fueron dificiles de atrapar?";
 					next;
 					erasequest 5152;
 					getexp 690,470;
 					getitem 7059,1;// Cargo_Free_Ticket
-					mes "After looking over the report, you receive experience and a Kafra Storage Coupon.";
+					mes "Despues de revisar el reporte, recibes experiencia y un Cupon de Almacenamiento Kafra.";
 					next;
 				}
 				mes "[Lusa]";
-				mes "I have finished processing your completed tasks. Would you like to cancel any existing tasks?";
+				mes "He terminado de procesar tus tareas completadas. Te gustaria cancelar alguna tarea existente?";
 				next;
 				if (select("Si", "No") == 2) {
 					mes "[Lusa]";
-					mes "Okay, good luck continuing your training!";
+					mes "Ok, buena suerte continuando tu entrenamiento!";
 					close2;
 					cutin "", 255;
 					end;
@@ -7743,7 +7743,7 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				.@gun_quest_04 = checkquest(5152,HUNTING);
 				if (.@gun_quest_01 == -1 || .@gun_quest_02 == -1 || .@gun_quest_03 == -1 || .@gun_quest_04 == -1) {
 					mes "[Lusa]";
-					mes "Huh? You do not have any assignments to cancel. Are you sure you have them?";
+					mes "Eh? No tienes ninguna asignacion para cancelar. Estas seguro de que las tienes?";
 					close2;
 					cutin "", 255;
 					end;
@@ -7751,11 +7751,11 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 			}
 			if (.@gun_quest_01 == 1 || .@gun_quest_02 == 1 || .@gun_quest_03 == 1 || .@gun_quest_04 == 1) {
 				mes "[Lusa]";
-				mes "You still have some assignments, are they too difficult? Do you want to cancel them?";
+				mes "Aun tienes algunas asignaciones, son muy dificiles? Quieres cancelarlas?";
 				next;
-				if (select("Cancel Assignment", "Nevermind") == 2) {
+				if (select("Cancelar asignacion", "No importa") == 2) {
 					mes "[Lusa]";
-					mes "Well then, continue to impress!";
+					mes "Bueno entonces, sigue impresionando!";
 					close;
 					cutin "", 255;
 					end;
@@ -7763,21 +7763,21 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				.@gun_tok = 0;
 				if (.@gun_quest_01 == 1) {
 					mes "[Lusa]";
-					mes "You are currently doing <Assignment A>.";
+					mes "Actualmente estas haciendo la <Asignacion A>.";
 					next;
 					mes "[Lusa]";
-					mes "Hornets are not easy to deal with, huh? Do you want to cancel the assignment?";
+					mes "Los Hornets no son faciles de enfrentar, eh? Quieres cancelar la asignacion?";
 					next;
 					mes "[Lusa]";
-					mes "If you do cancel the assignment, you will be unable to receive the reward you know?";
+					mes "Si cancelas la asignacion, no podras recibir la recompensa, lo sabes?";
 					next;
-					if (select("Cancel Assignment", "Nevermind") == 1) {
+					if (select("Cancelar asignacion", "No importa") == 1) {
 						erasequest 5149;
 						mes "[Lusa]";
-						mes "Oh... Hornets are too tough?";
+						mes "Oh... Los Hornets son muy duros?";
 						next;
 						mes "[Lusa]";
-						mes "I have cancelled <Assignment A>. Now you don't have to worry about it.";
+						mes "He cancelado la <Asignacion A>. Ahora no tienes que preocuparte por eso.";
 						next;
 					}
 					.@gun_tok = 1;
@@ -7785,23 +7785,23 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				if (.@gun_quest_02 == 1) {
 					mes "[Lusa]";
 					if (.@gun_tok == 0)
-						mes "You are currently doing <Assignment B>.";
+						mes "Actualmente estas haciendo la <Asignacion B>.";
 					else
-						mes "You are also currently doing <Assignment B>.";
+						mes "Tambien estas haciendo la <Asignacion B>.";
 					next;
 					mes "[Lusa]";
-					mes "Roda Frogs are not easy to deal with, huh? Do you want to cancel the assignment?";
+					mes "Las Roda Frogs no son faciles de enfrentar, eh? Quieres cancelar la asignacion?";
 					next;
 					mes "[Lusa]";
-					mes "If you do cancel the assignment, you will be unable to receive the reward you know?";
+					mes "Si cancelas la asignacion, no podras recibir la recompensa, lo sabes?";
 					next;
-					if (select("Cancel Assignment", "Nevermind") == 1) {
+					if (select("Cancelar asignacion", "No importa") == 1) {
 						erasequest 5150;
 						mes "[Lusa]";
-						mes "Oh... Roda Frogs are too tough?";
+						mes "Oh... Las Roda Frogs son muy duras?";
 						next;
 						mes "[Lusa]";
-						mes "I have cancelled <Assignment B>. Now you don't have to worry about it.";
+						mes "He cancelado la <Asignacion B>. Ahora no tienes que preocuparte por eso.";
 						next;
 					}
 					.@gun_tok = 1;
@@ -7809,23 +7809,23 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				if (.@gun_quest_03 == 1) {
 					mes "[Lusa]";
 					if (.@gun_tok == 0)
-						mes "You are currently doing <Assignment C>.";
+						mes "Actualmente estas haciendo la <Asignacion C>.";
 					else
-						mes "You are also currently doing <Assignment C>.";
+						mes "Tambien estas haciendo la <Asignacion C>.";
 					next;
 					mes "[Lusa]";
-					mes "Savage Babe are not easy to deal with, huh? Do you want to cancel the assignment?";
+					mes "Los Savage Babe no son faciles de enfrentar, eh? Quieres cancelar la asignacion?";
 					next;
 					mes "[Lusa]";
-					mes "If you do cancel the assignment, you will be unable to receive the reward you know?";
+					mes "Si cancelas la asignacion, no podras recibir la recompensa, lo sabes?";
 					next;
-					if (select("Cancel Assignment", "Nevermind") == 1) {
+					if (select("Cancelar asignacion", "No importa") == 1) {
 						erasequest 5151;
 						mes "[Lusa]";
-						mes "Oh... Savage Babe are too tough?";
+						mes "Oh... Los Savage Babe son muy duros?";
 						next;
 						mes "[Lusa]";
-						mes "I have cancelled <Assignment C>. Now you don't have to worry about it.";
+						mes "He cancelado la <Asignacion C>. Ahora no tienes que preocuparte por eso.";
 						next;
 					}
 					.@gun_tok = 1;
@@ -7833,27 +7833,27 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 				if (.@gun_quest_04 == 1) {
 					mes "[Lusa]";
 					if (.@gun_tok == 0)
-						mes "You are currently doing <Assignment D>.";
+						mes "Actualmente estas haciendo la <Asignacion D>.";
 					else
-						mes "You are also currently doing <Assignment D>.";
+						mes "Tambien estas haciendo la <Asignacion D>.";
 					mes "[Lusa]";
-					mes "Rockers are not easy to deal with, huh? Do you want to cancel the assignment?";
+					mes "Los Rockers no son faciles de enfrentar, eh? Quieres cancelar la asignacion?";
 					next;
 					mes "[Lusa]";
-					mes "If you do cancel the assignment, you will be unable to receive the reward you know?";
+					mes "Si cancelas la asignacion, no podras recibir la recompensa, lo sabes?";
 					next;
-					if (select("Cancel Assignment", "Nevermind") == 1) {
+					if (select("Cancelar asignacion", "No importa") == 1) {
 						erasequest 5152;
 						mes "[Lusa]";
-						mes "Oh... Rockers are too tough?";
+						mes "Oh... Los Rockers son muy duros?";
 						next;
 						mes "[Lusa]";
-						mes "I have cancelled <Assignment D>. Now you don't have to worry about it.";
+						mes "He cancelado la <Asignacion D>. Ahora no tienes que preocuparte por eso.";
 						next;
 					}
 				}
 				mes "[Lusa]";
-				mes "I have cancelled all the assignments you wished to cancel. If you have a hard time with any others, please come see me.";
+				mes "He cancelado todas las asignaciones que deseabas cancelar. Si tienes dificultades con alguna otra, por favor ven a verme.";
 				close2;
 				cutin "", 255;
 				end;
@@ -7865,21 +7865,21 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 			.@gun_quest_04 = checkquest(5152,HUNTING);
 			.@gun_quest_all = .@gun_quest_01 + .@gun_quest_02 + .@gun_quest_03 + .@gun_quest_04;
 			mes "[Lusa]";
-			mes "Times flies, your basic training is coming to an end!";
+			mes "El tiempo vuela, tu entrenamiento basico esta llegando a su fin!";
 			next;
 			mes "[Lusa]";
-			mes "You have worked hard during this period! You have become a good marksman.";
+			mes "Has trabajado duro durante este periodo! Te has convertido en un buen tirador.";
 			next;
 			if (.@gun_quest_all > -4) {
 				mes "[Lusa]";
-				mes "However, you have still not completed your tasks.";
+				mes "Sin embargo, aun no has completado tus tareas.";
 				next;
 				mes "[Lusa]";
-				mes "You cannot receive any rewards if you do not complete the tasks assigned to you.";
+				mes "No puedes recibir recompensas si no completas las tareas asignadas.";
 				next;
-				if (select("What?! I'll go complete them!", "I'm done with training!") == 1) {
+				if (select("Que?! Ire a completarlas!", "Ya termine con el entrenamiento!") == 1) {
 					mes "[Lusa]";
-					mes "Take care!";
+					mes "Cuidate!";
 					close2;
 					cutin "", 255;
 					end;
@@ -7903,122 +7903,122 @@ iz_ac02,142,85,6	script	Lusa#ac	4_F_GUNSLINGER,{
 					erasequest 5152;
 				if (.@gun_quest_01 == 2 || .@gun_quest_02 == 2 || .@gun_quest_03 == 2 || .@gun_quest_04 == 2) {
 					getitem 7059,1;// Cargo_Free_Ticket
-					mes "After looking over the report, you receive experience and a Kafra Storage Coupon.";
+					mes "Despues de revisar el reporte, recibes experiencia y un Cupon de Almacenamiento Kafra.";
 				}
 				next;
 			}
 			nov_3_guns = 9;
 			mes "[Lusa]";
-			mes "Your Gunslinger basic training is now over.";
+			mes "Tu entrenamiento basico de Gunslinger ha terminado.";
 			close2;
 			cutin "", 255;
 			end;
 		} else if (nov_3_guns == 9) {
 			mes "[Lusa]";
-			mes "Oh my god! It's you again!";
+			mes "Dios mio! Eres tu otra vez!";
 			next;
-			select("How are you?");
+			select("Como estas?");
 			mes "[Lusa]";
-			mes "Same old, same old. Every day teaching newbies about Gunslingers. But I love it.";
+			mes "Lo mismo de siempre. Todos los dias ensenando a novatos sobre Gunslingers. Pero me encanta.";
 			next;
 			mes "[Lusa]";
-			mes "Oh yeah! My brother said he hasn't seen you for a long time. Be sure to take some time to visit him.";
+			mes "Ah si! Mi hermano dijo que no te ha visto en mucho tiempo. Asegurate de tomarte un tiempo para visitarlo.";
 			close2;
 			cutin "", 255;
 			end;
 		} else {
 			mes "[Lusa]";
-			mes "Howdy! It's nice to see you again.";
+			mes "Hola! Es bueno verte de nuevo.";
 			close2;
 			cutin "", 255;
 			end;
 		}
 	} else {
 		mes "[Lusa]";
-		mes "Howdy!";
-		mes "Huh! You seem to have transferred into a different class, why have you come here?";
+		mes "Hola!";
+		mes "Eh! Parece que cambiaste a una clase diferente, por que has venido aqui?";
 		next;
-		if (select("To become a Gunslinger", "Leave") == 2) {
+		if (select("Para ser Gunslinger", "Irme") == 2) {
 			cutin "aca_gung_02.bmp", 2;
 			mes "[Lusa]";
-			mes "Huh? Huh? Where are you going?";
+			mes "Eh? Eh? A donde vas?";
 			close2;
 			cutin "", 255;
 			end;
 		}
 		mes "[Lusa]";
-		mes "You cannot have more than one job. But you seem really serious to learn.";
+		mes "No puedes tener mas de un trabajo. Pero pareces realmente serio en aprender.";
 		next;
 		mes "[Lusa]";
-		mes "Since this is my job, and because it's no trouble, I will give you a simple explaination!";
+		mes "Ya que este es mi trabajo, y porque no es molestia, te dare una explicacion simple!";
 		next;
 		mes "[Lusa]";
-		mes "Gunslingers is a class with long-range attacks. However, unlike arrows, bullets are expensive. This tends to give beginners some reason for concern.";
+		mes "Gunslinger es una clase con ataques de largo alcance. Sin embargo, a diferencia de las flechas, las balas son caras. Esto tiende a preocupar a los principiantes.";
 		next;
 		mes "[Lusa]";
-		mes "Is that enough?";
+		mes "Es suficiente?";
 		next;
-		select("Isn't that a little too simple?");
+		select("No es eso un poco muy simple?");
 		mes "[Lusa]";
-		mes "Huh, is it? What else do you want to know?";
+		mes "Eh, lo es? Que mas quieres saber?";
 		next;
 		while(1) {
-			switch(select("Stats", "Skills", "Weapons", "Nevermind.")) {
+			switch(select("Stats", "Skills", "Armas", "No importa.")) {
 			case 1:
 				mes "[Lusa]";
-				mes "Gunslingers is a long-range attack class, so hand agility (DEX) will be very important.";
+				mes "Gunslinger es una clase de ataque de largo alcance, asi que la agilidad de manos (DEX) sera muy importante.";
 				next;
 				mes "[Lusa]";
-				mes "If you want to increase your attack power, then you must strengthen your hands.";
+				mes "Si quieres aumentar tu poder de ataque, entonces debes fortalecer tus manos.";
 				next;
 				break;
 			case 2:
 				mes "[Lusa]";
-				mes "Gunslinger skills are not like other classes. Each weapon type has skills that can be specifically used with them.";
+				mes "Las skills de Gunslinger no son como otras clases. Cada tipo de arma tiene skills que se pueden usar especificamente con ellas.";
 				next;
 				mes "[Lusa]";
-				mes "Like with other classes, there is no standard toward which skills you should learn.";
+				mes "Como con otras clases, no hay un estandar sobre que skills deberias aprender.";
 				next;
 				break;
 			case 3:
 				mes "[Lusa]";
-				mes "Gunslingers have five different kinds of guns.";
+				mes "Los Gunslingers tienen cinco tipos diferentes de armas.";
 				next;
 				mes "[Lusa]";
-				mes "Revolvers have low hit rates, but the attack speed is fast.";
+				mes "Los Revolvers tienen baja tasa de acierto, pero la velocidad de ataque es rapida.";
 				next;
 				mes "[Lusa]";
-				mes "Rifles are average in their performance, and is typically the weapon of choice for new Gunslingers.";
+				mes "Los Rifles son promedio en su rendimiento, y son tipicamente el arma preferida de los nuevos Gunslingers.";
 				next;
 				mes "[Lusa]";
-				mes "Shotguns have strong attack power, but pretty low attack speeds.";
+				mes "Las Shotguns tienen fuerte poder de ataque, pero velocidad de ataque bastante baja.";
 				next;
 				mes "[Lusa]";
-				mes "Gatling guns have quite a fast attack speed, but the attack power is low.";
+				mes "Las Gatling guns tienen velocidad de ataque bastante rapida, pero el poder de ataque es bajo.";
 				next;
 				mes "[Lusa]";
-				mes "Gernade Launchers can be used for strong ground attacks, but the bullets will be consumed quickly.";
+				mes "Los Grenade Launchers pueden usarse para fuertes ataques de area, pero las balas se consumen rapidamente.";
 				next;
 				break;
 			case 4:
 				mes "[Lusa]";
-				mes "Phew~ I hope I answered all your questions. This is the first time I've seen someone want to study other classes.";
+				mes "Uff~ espero haber respondido todas tus preguntas. Es la primera vez que veo a alguien querer estudiar otras clases.";
 				next;
 				mes "[Lusa]";
-				mes "Take care!";
+				mes "Cuidate!";
 				close2;
 				cutin "", 255;
 				end;
 			}
 			mes "[Lusa]";
-			mes "Do you have any other questions?";
+			mes "Tienes alguna otra pregunta?";
 			next;
 		}
 		mes "[Lusa]";
-		mes "Phew~ I hope I answered all your questions. This is the first time I've seen someone want to study other classes.";
+		mes "Uff~ espero haber respondido todas tus preguntas. Es la primera vez que veo a alguien querer estudiar otras clases.";
 		next;
 		mes "[Lusa]";
-		mes "Take care!";
+		mes "Cuidate!";
 		close2;
 		cutin "", 255;
 		end;
@@ -8037,11 +8037,11 @@ iz_ac02_d,142,85,6	duplicate(Lusa#ac)	Lusa#ac_d	4_F_GUNSLINGER
 iz_ac02,131,82,4	script	Lusa's Desk#ac	CLEAR_NPC,{
 	if (nov_3_guns == 8) {
 		mes "[Lusa's Desk]";
-		mes "There are lots of files on the desk, they seem to be tasks from Prontera and Izlude residents.";
+		mes "Hay muchos archivos en el escritorio, parecen ser tareas de residentes de Prontera e Izlude.";
 		next;
 	} else {
 		mes "[Lusa's Desk]";
-		mes "There is a stack of papers on the desk.";
+		mes "Hay una pila de papeles en el escritorio.";
 		close;
 	}
 	while(1) {
@@ -8086,88 +8086,88 @@ iz_ac02,131,82,4	script	Lusa's Desk#ac	CLEAR_NPC,{
 		else
 			.@gque_04$ = "^FF0000Error^000000";
 
-		switch(select("Assignment A ("+.@gque_01$+")", "Assignment B ("+.@gque_02$+")", "Assignment C ("+.@gque_03$+")", "Assignment D ("+.@gque_04$+")", "Cancel")) {
+		switch(select("Asignacion A ("+.@gque_01$+")", "Asignacion B ("+.@gque_02$+")", "Asignacion C ("+.@gque_03$+")", "Asignacion D ("+.@gque_04$+")", "Cancelar")) {
 		case 1:
 			if (!.@gun_quest_01) {
-				mes "This is the <Assignment A> information.";
-				mes "Client: Children";
-				mes "On the outskirts of the village is a very bad Hornet, because of this, the children cannot play outside. Please get rid of 10 Hornets.";
+				mes "Esta es la informacion de la <Asignacion A>.";
+				mes "Cliente: Ninos";
+				mes "En las afueras del pueblo hay un Hornet muy malo, por esto los ninos no pueden jugar afuera. Por favor elimina 10 Hornets.";
 				next;
-				if (select("Take Assignment", "Look at Other Assignments", "Cancel") == 1) {
+				if (select("Tomar asignacion", "Ver otras asignaciones", "Cancelar") == 1) {
 					setquest 5149;
-					mes "You have received ^A2563E<Assignment A>^000000 details. Please press ALT + U to check them.";
+					mes "Has recibido los detalles de la ^A2563E<Asignacion A>^000000. Por favor presiona ALT + U para revisarlos.";
 					next;
 				}
 			} else if (.@gun_quest_01 == 1) {
 				mes "['+strcharinfo(0)+']";
-				mes "I am already doing this task currently. Lusa said if I ever wanted to abondon the assignment that I should talk to her.";
+				mes "Ya estoy haciendo esta tarea actualmente. Lusa dijo que si alguna vez queria abandonar la asignacion que deberia hablar con ella.";
 				next;
 			} else if (.@gun_quest_01 == 2) {
 				mes "['+strcharinfo(0)+']";
-				mes "I have already completed this assignment. I should talk to Lusa for my reward.";
+				mes "Ya complete esta asignacion. Deberia hablar con Lusa por mi recompensa.";
 				next;
 			}
 			break;
 		case 2:
 			if (!.@gun_quest_02) {
-				mes "This is the <Assignment B> information.";
-				mes "Client: Resident H";
-				mes "Recently, Roda Frogs have been keeping me awake at night. Get rid of 10 Roda Frogs so I can get a good nights rest.";
+				mes "Esta es la informacion de la <Asignacion B>.";
+				mes "Cliente: Residente H";
+				mes "Recientemente, las Roda Frogs me han mantenido despierto por la noche. Elimina 10 Roda Frogs para que pueda descansar bien.";
 				next;
-				if (select("Take Assignment", "Look at Other Assignments", "Cancel") == 1) {
+				if (select("Tomar asignacion", "Ver otras asignaciones", "Cancelar") == 1) {
 					setquest 5150;
-					mes "You have received ^A2563E<Assignment B>^000000 details. Please press ALT + U to check them.";
+					mes "Has recibido los detalles de la ^A2563E<Asignacion B>^000000. Por favor presiona ALT + U para revisarlos.";
 					next;
 				}
 			} else if (.@gun_quest_02 == 1) {
 				mes "['+strcharinfo(0)+']";
-				mes "I am already doing this task currently. Lusa said if I ever wanted to abondon the assignment that I should talk to her.";
+				mes "Ya estoy haciendo esta tarea actualmente. Lusa dijo que si alguna vez queria abandonar la asignacion que deberia hablar con ella.";
 				next;
 			} else if (.@gun_quest_02 == 2) {
 				mes "['+strcharinfo(0)+']";
-				mes "I have already completed this assignment. I should talk to Lusa for my reward.";
+				mes "Ya complete esta asignacion. Deberia hablar con Lusa por mi recompensa.";
 				next;
 			}
 			break;
 		case 3:
 			if (!.@gun_quest_03) {
-				mes "This is the <Assignment C> information.";
-				mes "Client: Cute Pet Research Student";
-				mes "I want a cute pet of my own to walk around with. Can you help me catch 10 Savage Babes?";
+				mes "Esta es la informacion de la <Asignacion C>.";
+				mes "Cliente: Estudiante de Investigacion de Mascotas";
+				mes "Quiero una mascota linda propia para pasear. Puedes ayudarme a atrapar 10 Savage Babes?";
 				next;
-				if (select("Take Assignment", "Look at Other Assignments", "Cancel") == 1) {
+				if (select("Tomar asignacion", "Ver otras asignaciones", "Cancelar") == 1) {
 					setquest 5151;
-					mes "You have received ^A2563E<Assignment C>^000000 details. Please press ALT + U to check them.";
+					mes "Has recibido los detalles de la ^A2563E<Asignacion C>^000000. Por favor presiona ALT + U para revisarlos.";
 					next;
 				}
 			} else if (.@gun_quest_03 == 1) {
 				mes "['+strcharinfo(0)+']";
-				mes "I am already doing this task currently. Lusa said if I ever wanted to abondon the assignment that I should talk to her.";
+				mes "Ya estoy haciendo esta tarea actualmente. Lusa dijo que si alguna vez queria abandonar la asignacion que deberia hablar con ella.";
 				next;
 			} else if (.@gun_quest_03 == 2) {
 				mes "['+strcharinfo(0)+']";
-				mes "I have already completed this assignment. I should talk to Lusa for my reward.";
+				mes "Ya complete esta asignacion. Deberia hablar con Lusa por mi recompensa.";
 				next;
 			}
 			break;
 		case 4:
 			if (!.@gun_quest_04) {
-				mes "This is the <Assignment D> information.";
-				mes "Client: Volunteer Bards";
-				mes "I heard some Rockers were having a singing contest, but I got lost, can you help me catch 10 Rockers? One day Rockers will disappear from the world!";
+				mes "Esta es la informacion de la <Asignacion D>.";
+				mes "Cliente: Bardos Voluntarios";
+				mes "Escuche que algunos Rockers estaban teniendo un concurso de canto, pero me perdi, puedes ayudarme a atrapar 10 Rockers? Algun dia los Rockers desapareceran del mundo!";
 				next;
-				if (select("Take Assignment", "Look at Other Assignments", "Cancel") == 1) {
+				if (select("Tomar asignacion", "Ver otras asignaciones", "Cancelar") == 1) {
 					setquest 5152;
-					mes "You have received ^A2563E<Assignment D>^000000 details. Please press ALT + U to check them.";
+					mes "Has recibido los detalles de la ^A2563E<Asignacion D>^000000. Por favor presiona ALT + U para revisarlos.";
 					next;
 				}
 			} else if (.@gun_quest_04 == 1) {
 				mes "['+strcharinfo(0)+']";
-				mes "I am already doing this task currently. Lusa said if I ever wanted to abondon the assignment that I should talk to her.";
+				mes "Ya estoy haciendo esta tarea actualmente. Lusa dijo que si alguna vez queria abandonar la asignacion que deberia hablar con ella.";
 				next;
 			} else if (.@gun_quest_04 == 2) {
 				mes "['+strcharinfo(0)+']";
-				mes "I have already completed this assignment. I should talk to Lusa for my reward.";
+				mes "Ya complete esta asignacion. Deberia hablar con Lusa por mi recompensa.";
 				next;
 			}
 			break;
@@ -8175,7 +8175,7 @@ iz_ac02,131,82,4	script	Lusa's Desk#ac	CLEAR_NPC,{
 			break;
 		}
 		mes "[Lusa's desk]";
-		mes "There are lots of files on the desk, they seem to be tasks from Prontera and Izlude residents.";
+		mes "Hay muchos archivos en el escritorio, parecen ser tareas de residentes de Prontera e Izlude.";
 		next;
 	}
 }
@@ -8199,71 +8199,71 @@ iz_ac02,162,86,4	script	Guild Staff#ac	4W_M_02,{
 	}
 	disable_items;
 	mes "[Sharp Snake's Fang]";
-	mes "I am ^A2563ESharp Snake's Fang^000000 from the Gunslinger Guild. What do you need?";
+	mes "Soy ^A2563ESharp Snake's Fang^000000 del Gremio de Gunslingers. Que necesitas?";
 	next;
-	if (select("Exchange Guns", "Just Saying Hello") == 2) {
+	if (select("Intercambiar armas", "Solo saludar") == 2) {
 		mes "[Sharp Snake's Fang]";
-		mes "You seem to be that guy our brother mentioned.";
+		mes "Pareces ser ese tipo que nuestro hermano menciono.";
 		next;
 		mes "[Sharp Snake's Fang]";
-		mes "You don't need to worry, he said you're doing great!";
+		mes "No necesitas preocuparte, dijo que lo estas haciendo genial!";
 		close;
 	}
 	mes "[Sharp Snake's Fang]";
-	mes "Do you wish to exchange your guild issued weapon?";
+	mes "Deseas intercambiar tu arma del gremio?";
 	next;
 	mes "[Sharp Snake's Fang]";
-	mes "Let's first check your gun's condition.";
+	mes "Primero revisemos la condicion de tu arma.";
 	next;
 	.@gun = getequipid(EQI_HAND_R);
 	.@equip_refine = getequiprefinerycnt(.@part);
 	setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
 	if (.@gun == -1) {
 		mes "[Sharp Snake's Fang]";
-		mes "If you want to proceed, you need to have your weapon equipped.";
+		mes "Si quieres proceder, necesitas tener tu arma equipada.";
 		close;
 	}
 	mes "[Sharp Snake's Fang]";
-	mes "Let's see...";
+	mes "Veamos...";
 	next;
 	mes "[Sharp Snake's Fang]";
 	if (.@gun == 13116) {// Novice_Revolver
 		.@gun_code$ = "RV";
 		.@now_gun$ = "Revolver";
-		mes "You want to exchange your Guild issued Revolver?";
+		mes "Quieres intercambiar tu Revolver del gremio?";
 	} else if (.@gun == 13180) {// Novice_Rifle
 		.@gun_code$ = "RF";
 		.@now_gun$ = "Rifle";
-		mes "You want to exchange your Guild issued Rifle?";
+		mes "Quieres intercambiar tu Rifle del gremio?";
 	} else if (.@gun == 13181) {// Novice_Shotgun
 		.@gun_code$ = "SG";
 		.@now_gun$ = "Shotgun";
-		mes "You want to exchange your Guild issued Shotgun?";
+		mes "Quieres intercambiar tu Shotgun del gremio?";
 	} else if (.@gun == 13182) {// Novice_Gatling
 		.@gun_code$ = "GT";
 		.@now_gun$ = "Gatling";
-		mes "You want to exchange your Guild issued Gatling Gun?";
+		mes "Quieres intercambiar tu Gatling Gun del gremio?";
 	} else if (.@gun == 13183) {// Novice_Grenade_Launcher
 		.@gun_code$ = "GL";
 		.@now_gun$ = "Grenade Launcher";
-		mes "You want to exchange your Guild issued Grenade Launcher?";
+		mes "Quieres intercambiar tu Grenade Launcher del gremio?";
 	} else {
-		mes "The gun you are using is was not provided by the guild.";
+		mes "El arma que estas usando no fue proporcionada por el gremio.";
 		close;
 	}
 	next;
 	mes "[Sharp Snake's Fang]";
-	mes "The gun looks to be in good condition.";
+	mes "El arma parece estar en buena condicion.";
 	next;
 	mes "[Sharp Snake's Fang]";
-	mes "Please select the novice weapon you wish to exchange for your '+.@now_gun$+'!";
+	mes "Por favor selecciona el arma de novato que deseas intercambiar por tu '+.@now_gun$+'!";
 	next;
 	setarray .@selection_item_id[0], 13116, 13180, 13181, 13182, 13183;
-	.@s = select("Exchange for Revolver", "Exchange for Rifle", "Exchange for Shotgun", "Exchange for Gatling Gun", "Exchange for Grenade Launcher", "Cancel") - 1;
+	.@s = select("Cambiar por Revolver", "Cambiar por Rifle", "Cambiar por Shotgun", "Cambiar por Gatling Gun", "Cambiar por Grenade Launcher", "Cancelar") - 1;
 	if (.@s != 5) {
 		if (.@gun == .@selection_item_id[.@s]) {
 			mes "[Sharp Snake's Fang]";
-			mes "You already have that gun, just use it!";
+			mes "Ya tienes esa arma, solo usala!";
 			close;
 		}
 		// anti-hack
@@ -8277,11 +8277,11 @@ iz_ac02,162,86,4	script	Guild Staff#ac	4W_M_02,{
 	mes "Gun control management number ^FF0000'+.@gun_code$+''+rand(9)+''+rand(9)+''+rand(9)+''+rand(9)+''+rand(9)+''+rand(9)+'^000000.";
 	next;
 	mes "[Sharp Snake's Fang]";
-	mes "Are there any issues?";
+	mes "Hay algun problema?";
 	next;
-	select("No issues.");
+	select("Ningun problema.");
 	mes "[Sharp Snake's Fang]";
-	mes "Cherish your gun!";
+	mes "Cuida bien tu arma!";
 	close;
 }
 
@@ -8298,7 +8298,7 @@ iz_ac02_d,162,86,4	duplicate(Guild Staff#ac)	Guild Staff#ac_d	4W_M_02
 // -----------------------------------------------------------------------------
 iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 	mes "[Arang]";
-	mes "Hi, Good morning!";
+	mes "Hola, Buenos dias!";
 	emotion ET_DELIGHT;
 	cutin "arang03.bmp", 0;
 	next;
@@ -8308,71 +8308,71 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 				if (JobLevel >= 10) {
 					cutin "arang01.bmp", 0;
 					mes "[Arang]";
-					mes "It's time to choose your job? How about Taekwon '+(Sex == SEX_MALE ? 'boy' : 'girl')+'? You may be a nice adult like me.";
+					mes "Es hora de elegir tu trabajo? Que tal Taekwon '+(Sex == SEX_MALE ? 'boy' : 'girl')+'? Podrias ser un buen adulto como yo.";
 					next;
 				}
 				while (1) {
-					switch(select("People following the Taekwon way", "I want to follow the Taekwon way!!!", "Good morning! Now it is...", "Terminar conversacion")) {
+					switch(select("Personas que siguen el camino Taekwon", "Quiero seguir el camino Taekwon!!!", "Buenos dias! Ahora es...", "Terminar conversacion")) {
 					case 1:
 						mes "[Arang]";
-						mes "Do you want to know about taekwon boy/girl? You want to be a cool guy like me right?";
+						mes "Quieres saber sobre taekwon boy/girl? Quieres ser alguien genial como yo verdad?";
 						next;
 						mes "[Arang]";
-						mes "Make the world wonderful by making a strong body with the right spirit. That's the Taekwondo motto!";
+						mes "Hacer el mundo maravilloso haciendo un cuerpo fuerte con el espiritu correcto. Ese es el lema del Taekwondo!";
 						next;
 						mes "[Arang]";
-						mes "Later if you are trained to be a stronger body, you can change your job to ^FF0000Taekwon Master^000000 or a ^FF0000Soul Linker ^000000.";
+						mes "Despues si entrenas para tener un cuerpo mas fuerte, puedes cambiar tu trabajo a ^FF0000Taekwon Master^000000 o a ^FF0000Soul Linker^000000.";
 						next;
 						mes "[Arang]";
-						mes "It is not an easy way. So I don't like to recommend it to you if you aren't fully prepared. But it is definitely a nice and great way to follow!!";
+						mes "No es un camino facil. Asi que no me gusta recomendartelo si no estas totalmente preparado. Pero definitivamente es un camino bueno y genial para seguir!!";
 						next;
 						if (isequipped(2942) > 0 || countitem(2942) > 0) {
 							mes "[Arang]";
-							mes "Introduction to the class may let you know about what Taekwon in more detail.";
+							mes "La introduccion a la clase puede dejarte saber mas en detalle sobre que es Taekwon.";
 							next;
 						} else {
 							mes "[Arang]";
-							mes "If you are really anxious about Taekown, I would like to recommend you a brief introduction. Will you use it?";
+							mes "Si realmente te interesa Taekwon, me gustaria recomendarte una breve introduccion. La usaras?";
 							next;
-							if (select("After I look around more.", "Yes, let's do this!") == 1) {
+							if (select("Despues de mirar mas.", "Si, hagamoslo!") == 1) {
 								mes "[Arang]";
-								mes "Every adventurer may have their own job! Hope you can find what you want!";
+								mes "Cada aventurero puede tener su propio trabajo! Espero que encuentres lo que quieres!";
 								next;
 							} else {
 								getitem 2942,1;// Taekwon_Manual
 								mes "[Arang]";
-								mes "Go to the [Misc] tab on Skill Window after equipping the Manual and there you will see some skills.";
+								mes "Ve a la pestana [Misc] en la Ventana de Skills despues de equipar el Manual y alli veras algunas skills.";
 								next;
 								mes "[Arang]";
-								mes "^FF0000Flying Kick^000000 is the skill to approach rapidly and attack the enemy! It fully contains the typical feature of Taekwon!";
+								mes "^FF0000Flying Kick^000000 es la skill para acercarte rapidamente y atacar al enemigo! Contiene completamente la caracteristica tipica de Taekwon!";
 								next;
 								mes "[Arang]";
-								mes "^FF0000Warm Wind^000000 is the skill to change the feature of attacks. This is the essential skill for ^FF0000Taekwon unable to use weapons^000000.";
+								mes "^FF0000Warm Wind^000000 es la skill para cambiar la caracteristica de los ataques. Esta es la skill esencial para ^FF0000Taekwon que no puede usar armas^000000.";
 								next;
 								mes "[Arang]";
-								mes "While taking the Quest, experience the skills of a Taekwon! You could meet an adept trainer on the 1st floor.";
+								mes "Mientras haces la Quest, experimenta las skills de un Taekwon! Podrias conocer a un entrenador experto en el 1er piso.";
 								next;
 							}
 						}
 						break;
 					case 2:
 						mes "[Arang]";
-						mes "Want to follow the Taekwon way? Let me see....";
+						mes "Quieres seguir el camino Taekwon? Dejame ver....";
 						next;
 						if (JobLevel >= 10) {
 							mes "[Arang]";
-							mes "Taekwon is the tough way training himself rather than learning from somebody. However, if you want to follow, I will recommend you to a trainer.";
+							mes "Taekwon es el camino dificil de entrenar a uno mismo en lugar de aprender de alguien. Sin embargo, si quieres seguir, te recomendare un entrenador.";
 							next;
 							mes "[Arang]";
-							mes "Training is on you, but he will give you the direction for training. I can take you about there. Want to go now?";
+							mes "El entrenamiento depende de ti, pero el te dara la direccion del entrenamiento. Puedo llevarte ahi. Quieres ir ahora?";
 							next;
-							if (select("Let me think a little more.", "Let's go!!") == 1) {
+							if (select("Dejame pensar un poco mas.", "Vamos!!") == 1) {
 								mes "[Arang]";
-								mes "Choose it with discretion. It is a matter of your future adventure.";
+								mes "Eligelo con discrecion. Es un asunto de tu futura aventura.";
 								next;
 							} else {
 								mes "[Arang]";
-								mes "You can find a boy with the same appearance as me, when you get in the town through ^FF0000the west entrance^000000, and continue follow the way ^FF0000to the north^000000 after passing the pub house but just before the archer town.";
+								mes "Puedes encontrar a un chico con la misma apariencia que yo, cuando entres al pueblo por ^FF0000la entrada oeste^000000, y continues siguiendo el camino ^FF0000hacia el norte^000000 despues de pasar la taberna pero justo antes del pueblo de arqueros.";
 								next;
 								setquest 13101;
 								cutin "", 255;
@@ -8381,21 +8381,21 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 							}
 						} else {
 							mes "[Arang]";
-							mes "To follow the Taekwon way, you have to get to job level 10. To be a Taekwon, train yourself until you get to job level 10!";
+							mes "Para seguir el camino Taekwon, tienes que llegar a job level 10. Para ser Taekwon, entrenate hasta que llegues a job level 10!";
 							next;
 							mes "[Arang]";
-							mes "If you feel difficult in training alone, make a visit to the trainer on the 1st floor.";
+							mes "Si sientes dificultad entrenando solo, visita al entrenador en el 1er piso.";
 							next;
 						}
 						break;
 					case 3:
 						mes "[Arang]";
-						mes "Ahahaha.. It is already time? While I am inside... Don't worry.";
+						mes "Ahahaha.. Ya es hora? Mientras estoy adentro... No te preocupes.";
 						next;
 						break;
 					case 4:
 						mes "[Arang]";
-						mes "Have a good day!";
+						mes "Que tengas un buen dia!";
 						close2;
 						cutin "", 255;
 						end;
@@ -8404,15 +8404,15 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 			} else {
 				cutin "arang01.bmp", 0;
 				mes "[Arang]";
-				mes "If you are interested in being a Taekwon making a healthy body with strong sprit, you can learn a lot here.";
+				mes "Si te interesa ser un Taekwon haciendo un cuerpo saludable con espiritu fuerte, puedes aprender mucho aqui.";
 				next;
 				mes "[Arang]";
-				mes "What do you think? Are you interested in being a Taekwon? I don't push you to do! But if you do, I may become your trainer.. So..";
+				mes "Que piensas? Te interesa ser Taekwon? No te presiono! Pero si lo haces, podria convertirme en tu entrenadora.. Asi que..";
 				cutin "arang02.bmp", 0;
 				next;
-				if (select("I have interest!", "I have interest in you!") == 1) {
+				if (select("Me interesa!", "Me interesas tu!") == 1) {
 					mes "[Arang]";
-					mes "Is that so!? You are!? Yaho! Now I am a teacher! Now, ask me whatever!";
+					mes "En serio!? Lo estas!? Yaho! Ahora soy maestra! Ahora, preguntame lo que sea!";
 					nov_3_taekwon = 1;
 					emotion ET_SMILE;
 					close2;
@@ -8420,11 +8420,11 @@ iz_ac02,70,85,5	script	Arang#ac	4_F_TAEKWON,{
 					end;
 				}
 				mes "[Arang]";
-				mes "Hahaha.. You are interested in me?";
+				mes "Jajaja.. Te intereso yo?";
 				emotion ET_FRET;
 				cutin "arang03.bmp", 0;
 				next;
-				mes "Suddenly, you see Arang's foot flying towards you.";
+				mes "De repente, ves el pie de Arang volando hacia ti.";
 				specialeffect2 EF_TRIPLEATTACK;
 				emotion ET_KEK, playerattached();
 				next;

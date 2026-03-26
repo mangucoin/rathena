@@ -20,15 +20,15 @@
 //============================================================
 malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
+		mes "Tienes demasiados tipos de objetos. Intentemos continuar despues de reducirlos.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Let's try to continue after reducing the weight.";
+		mes "No puedes continuar porque tienes objetos muy pesados. Intentemos continuar despues de reducir el peso.";
 		close;
 	}
 	mes "[Coin Exchanger CX-1]";
-	mes "Welcome to CX-1. If you have coins, you can exchange them to high or low grade coins.";
+	mes "Bienvenido a CX-1. Si tienes monedas, puedes intercambiarlas por monedas de mayor o menor grado.";
 	next;
 	setarray .@coins[1],
 		6417, //Silvervine
@@ -37,7 +37,7 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 		6420, //Cgrade_Coin
 		6421, //Dgrade_Coin
 		6422; //Egrade_Coin
-	.@menu$ = "Stop:";
+	.@menu$ = "Detener:";
 	for(.@i = 1; .@i<=6; .@i++) {
 		if (countitem(.@coins[.@i]))
 			.@menu$ = .@menu$ + getitemname(.@coins[.@i]) + ":";
@@ -48,7 +48,7 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	switch(.@i) {
 	case 1:
 		mes "[Coin Exchanger CX-1]";
-		mes "Thank you for coming.";
+		mes "Gracias por venir.";
 		close;
 	default:
 		.@coin = .@coins[.@i-1];
@@ -57,69 +57,69 @@ malangdo,220,167,5	script	Coin Exchanger CX-1	564,{
 	}
 	if (countitem(.@coin) == 0) {
 		mes "[Coin Exchanger CX-1]";
-		mes "You chose a coin that you don't have.";
-		mes "Thank you for coming.";
+		mes "Elegiste una moneda que no tienes.";
+		mes "Gracias por venir.";
 		close;
 	}
 	mes "[Coin Exchanger CX-1]";
-	mes "----Rate of exchange----";
-	mes "Higher exchange - 30 to 10";
-	mes "Lower exchange - 10 to 30";
+	mes "----Tasa de cambio----";
+	mes "Cambio superior - 30 a 10";
+	mes "Cambio inferior - 10 a 30";
 	mes "------------------------";
-	mes "^ff3333When you exchange, we charge a fee according to the current market price.^000000";
+	mes "^ff3333Al intercambiar, cobramos una tarifa segun el precio actual del mercado.^000000";
 	next;
 	setarray .@exchange_name$[0],"higher","lower";
 	setarray .@exchange_rate[0],30,10;
 	setarray .@exchange_loss[0],rand(1,4),rand(1,2); // Amount deducted per exchange.
 	setarray .@exchange_id[0],.@coins[.@coin_select-1],.@coins[.@coin_select+1];
 	if (.@exchange_id[0] == .@coins[1]) .@exchange_id[0] = 0; // Cannot exchange for Silvervine.
-	.@menu$ = "Stop:";
+	.@menu$ = "Detener:";
 	for(.@i = 0; .@i<2; .@i++) {
 		if (.@exchange_id[.@i] == 0)
-			.@menu$ = .@menu$ + "^ff3333Unavailable exchange to "+.@exchange_name$[.@i]+" coin^000000:";
+			.@menu$ = .@menu$ + "^ff3333Intercambio no disponible a moneda "+.@exchange_name$[.@i]+"^000000:";
 		else if (countitem(.@coin) < .@exchange_rate[.@i])
-			.@menu$ = .@menu$ + "^aaaaaaExchange to "+.@exchange_name$[.@i]+" coin (null)^000000:";
+			.@menu$ = .@menu$ + "^aaaaaaCambiar a moneda "+.@exchange_name$[.@i]+" (nulo)^000000:";
 		else
-			.@menu$ = .@menu$ + "Exchange to "+.@exchange_name$[.@i]+" coin - "+getitemname(.@coin)+" ("+.@exchange_rate[.@i]+" needed):";
+			.@menu$ = .@menu$ + "Cambiar a moneda "+.@exchange_name$[.@i]+" - "+getitemname(.@coin)+" ("+.@exchange_rate[.@i]+" necesarias):";
 	}
 	.@i = select(.@menu$)-2;
 	if (.@i == -1) {
 		mes "[Coin Exchanger CX-1]";
-		mes "Thank you for coming.";
+		mes "Gracias por venir.";
 		close;
 	}
 	if (.@exchange_id[.@i] == 0) {
 		mes "[Coin Exchanger CX-1]";
-		mes "This coin is not available to exchange to "+.@exchange_name$[.@i]+" coin.";
-		mes "Thank you for coming.";
+		mes "Esta moneda no esta disponible para cambiar a moneda "+.@exchange_name$[.@i]+".";
+		mes "Gracias por venir.";
 		close;
 	}
 	if (countitem(.@coin) < .@exchange_rate[.@i]) {
 		mes "[Coin Exchanger CX-1]";
-		mes "You don't have enough coins to exchange to "+.@exchange_name$[.@i]+" coin.";
-		mes "Thank you for coming.";
+		mes "No tienes suficientes monedas para cambiar a moneda "+.@exchange_name$[.@i]+".";
+		mes "Gracias por venir.";
 		close;
 	}
 	.@exchange_total = .@exchange_rate[(!.@i)] - .@exchange_loss[(!.@i)];
 	delitem .@coin, .@exchange_rate[.@i];
 	getitem .@exchange_id[.@i], .@exchange_total;
 	mes "[Coin Exchanger CX-1]";
-	mes "^003399"+.@exchange_rate[.@i]+"^000000 unit(s) of ^003399 "+getitemname(.@coin)+"^000000 taken.";
-	mes "I exchanged them for ^003399"+.@exchange_name$[.@i]+" coins^000000, after deducting ^003399"+.@exchange_loss[(!.@i)]+"^000000 unit(s), ^003399"+.@exchange_total+"^000000 unit(s) remaining.";
+	mes "^003399"+.@exchange_rate[.@i]+"^000000 unidad(es) de ^003399 "+getitemname(.@coin)+"^000000 tomadas.";
+	mes "Las intercambie por ^003399monedas "+.@exchange_name$[.@i]+"^000000, despues de deducir ^003399"+.@exchange_loss[(!.@i)]+"^000000 unidad(es), ^003399"+.@exchange_total+"^000000 unidad(es) restantes.";
 	close;
 }
 
 malangdo,218,165,5	script	Special Vending Machine	562,{
 	if (checkweight(1201,1) == 0) {
-		mes "You have too many kinds of objects. Let's try to continue after reducing those objects.";
+		mes "Tienes demasiados tipos de objetos. Intentemos continuar despues de reducirlos.";
 		close;
 	}
 	if (MaxWeight - Weight < 10000) {
-		mes "Can't continue because you have too many heavy objects. Let's try to continue after reducing the weight.";
+		mes "No puedes continuar porque tienes objetos muy pesados. Intentemos continuar despues de reducir el peso.";
 		close;
 	}
 	mes "[Special Vending Machine]";
-	mes "Welcome to CX-82. You have a Silvervine Fruit, so you can purchase the Malangdo Specialty that has special ability.";
+	mes "Bienvenido a CX-82. Tienes Silvervine Fruit, asi que puedes comprar la Especialidad de Malangdo que tiene habilidades especiales.";
 	next;
 	callsub L_AddItem, //DisplayName,ItemID,Cost
 		"Seagod's Protection [23 hours]",16740,4,
@@ -132,47 +132,47 @@ malangdo,218,165,5	script	Special Vending Machine	562,{
 		"Ordinary Lubricant",6440,36,
 		"Sillit Pong",6443,192;
 L_AddItem:
-	.@menu$ = "Explanation:";
+	.@menu$ = "Explicacion:";
 	for(.@i = 0; .@i<getargcount(); .@i += 3)
 		.@menu$ = .@menu$ + getarg(.@i)+":";
 	.@i = select(.@menu$)-2;
 	if (.@i == -1) {
 		mes "[Special Vending Machine]";
-		mes "Seagod's Protection is an item used for entering the Culvert memorial dungeon during a certain period.";
+		mes "Seagod's Protection es un objeto usado para entrar a la mazmorra memorial Culvert durante un periodo determinado.";
 		next;
 		mes "[Special Vending Machine]";
-		mes "Octopus Hunting Stick is an item used for entering the Culvert memorial dungeon during a certain period.";
+		mes "Octopus Hunting Stick es un objeto usado para entrar a la mazmorra memorial Culvert durante un periodo determinado.";
 		next;
 		mes "[Special Vending Machine]";
-		mes "Premium and Ordinary Lubricant are items used for separation of equipment and cards. If you visit the specialist Jeremy with either item, he will explain more details of the effects.";
+		mes "Premium y Ordinary Lubricant son objetos usados para la separacion de equipamiento y cartas. Si visitas al especialista Jeremy con cualquiera de ellos, te explicara mas detalles de los efectos.";
 		next;
 		mes "[Special Vending Machine]";
-		mes "Sillit Pong is special item that separates sockets with MVP cards. Unable to separate MVP card by Premium and Ordinary Lubricant.";
+		mes "Sillit Pong es un objeto especial que separa ranuras con cartas MVP. No es posible separar cartas MVP con Premium y Ordinary Lubricant.";
 		close;
 	}
 	.@cost = getarg(.@i*3+2);
 	mes "[Special Vending Machine]";
-	mes "You choose ^005500"+getarg(.@i*3)+"^000000. For purchasing, you need ^005500"+.@cost+"^000000 unit(s) of Silvervine Fruit.";
+	mes "Elegiste ^005500"+getarg(.@i*3)+"^000000. Para comprarlo, necesitas ^005500"+.@cost+"^000000 unidad(es) de Silvervine Fruit.";
 	next;
 	if (countitem(6417) < .@cost)
-		.@ven_menu$ = "^999999Silvervine Fruit (missing "+(.@cost - countitem(6417))+")^000000";
+		.@ven_menu$ = "^999999Silvervine Fruit (faltan "+(.@cost - countitem(6417))+")^000000";
 	else
-		.@ven_menu$ = "Purchase - Silvervine Fruit (have "+countitem(6417)+")";
-	switch(select("Stop:"+.@ven_menu$)) {
+		.@ven_menu$ = "Comprar - Silvervine Fruit (tienes "+countitem(6417)+")";
+	switch(select("Detener:"+.@ven_menu$)) {
 	case 1:
 		mes "[Special Vending Machine]";
-		mes "Thank you for coming.";
+		mes "Gracias por venir.";
 		close;
 	case 2:
 		if (countitem(6417) < .@cost) {
 			mes "[Special Vending Machine]";
-			mes "Not enough Silvervine Fruit.";
-			mes "Closing the transaction.";
-			mes "Thank you for coming.";
+			mes "No tienes suficiente Silvervine Fruit.";
+			mes "Cerrando la transaccion.";
+			mes "Gracias por venir.";
 			close;
 		}
 		mes "[Special Vending Machine]";
-		mes "The transaction is completed. Thank you for coming.";
+		mes "La transaccion se ha completado. Gracias por venir.";
 		delitem 6417,.@cost; //Silvervine
 		getitem getarg(.@i*3+1),1;
 		close;
@@ -181,16 +181,16 @@ L_AddItem:
 
 malangdo,236,179,5	script	Dark Merchant K	554,{
 	if (checkweight(1201,1) == 0) {
-		mes "It seems you have too much in your inventory. Let's try again after getting rid of some of your belongings.";
+		mes "Parece que tienes demasiado en tu inventario. Intentalo de nuevo despues de deshacerte de algunas pertenencias.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "Your inventory is too heavy now. Please come back after getting rid of some of your belongings.";
+		mes "Tu inventario esta muy pesado ahora. Por favor vuelve despues de deshacerte de algunas pertenencias.";
 		close;
 	}
 	mes "[Merchant K]";
-	mes "Thank you for the trade.";
-	mes "We exchange ^ff000010 C Grade Coin^000000 to ^3333ff1 Mora Coin^000000. Shall we begin then?";
+	mes "Gracias por el intercambio.";
+	mes "Cambiamos ^ff000010 C Grade Coin^000000 por ^3333ff1 Mora Coin^000000. Comenzamos entonces?";
 	next;
 	setarray .@coin_amount[0],10,100,500,1000;
 	while(1) {
@@ -201,43 +201,43 @@ malangdo,236,179,5	script	Dark Merchant K	554,{
 			else
 				.@menu$ = .@menu$ + "^aaaaaaExchange "+(.@coin_amount[.@i]/10)+" Mora Coin (Not Enough)^000000:";
 		}
-		.@i = select(.@menu$+"Quit")-1;
+		.@i = select(.@menu$+"Salir")-1;
 		if (.@i == getarraysize(.@coin_amount)) {
 			mes "[Merchant K]";
-			mes "Let's exchange some other time.";
+			mes "Intercambiemos en otra ocasion.";
 			close;
 		}
 		if (countitem(6420) < .@coin_amount[.@i]) {
 			mes "[Merchant K]";
-			mes "You need ^ff0000"+.@coin_amount[.@i]+"^000000 C Grade Coin to perform the exchange. But you don't seem to have enough now.";
+			mes "Necesitas ^ff0000"+.@coin_amount[.@i]+"^000000 C Grade Coin para realizar el intercambio. Pero parece que no tienes suficientes ahora.";
 			close;
 		}
 		delitem 6420,.@coin_amount[.@i]; //Cgrade_Coin
 		getitem 6380,.@coin_amount[.@i]/10; //Mora_Coin
 		mes "[Merchant K]";
-		mes "C Grade Coin ^003399"+.@coin_amount[.@i]+"^000000 well received."; //FIXME: Dialogue.
-		mes "Exchanged to ^003399"+(.@coin_amount[.@i]/10)+"^000000 Mora Coin.";
+		mes "C Grade Coin ^003399"+.@coin_amount[.@i]+"^000000 recibidas correctamente."; //FIXME: Dialogue.
+		mes "Intercambiadas por ^003399"+(.@coin_amount[.@i]/10)+"^000000 Mora Coin.";
 		next;
 		mes "[Merchant K]";
-		mes "Would you like to continue?";
+		mes "Deseas continuar?";
 		next;
 	}
 }
 
 malangdo,233,180,3	script	Dark MachineTX100	564,{
 	if (checkweight(1201,1) == 0) {
-		mes "It seems you have too much in your inventory. Let's try again after getting rid of some of your belongings.";
+		mes "Parece que tienes demasiado en tu inventario. Intentalo de nuevo despues de deshacerte de algunas pertenencias.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "Your inventory is too heavy now. Please come back after getting rid of some of your belongings.";
+		mes "Tu inventario esta muy pesado ahora. Por favor vuelve despues de deshacerte de algunas pertenencias.";
 		close;
 	}
 	mes "[Dark Machine TX100]";
-	mes "Thank you for visiting TX100. You can exchange coins into higher or lower level coins.";
+	mes "Gracias por visitar TX100. Puedes intercambiar monedas por monedas de mayor o menor nivel.";
 	next;
 	mes "[Dark Machine TX100]";
-	mes "For a lower level coin exchange you can do 500 as a 1 time maximum, and for higher level coin exchange you can do 99 as a 1 time maximum.";
+	mes "Para intercambio de monedas de menor nivel puedes hacer 500 como maximo por vez, y para intercambio de monedas de mayor nivel puedes hacer 99 como maximo por vez.";
 	next;
 	setarray .@coins[1],
 		6417, //Silvervine
@@ -246,17 +246,17 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 		6420, //Cgrade_Coin
 		6421, //Dgrade_Coin
 		6422; //Egrade_Coin
-	.@menu$ = "Quit:";
+	.@menu$ = "Salir:";
 	for(.@i = 1; .@i<=6; .@i++) {
 		if (countitem(.@coins[.@i]))
-			.@menu$ = .@menu$ + getitemname(.@coins[.@i])+" (have "+countitem(.@coins[.@i])+"):";
+			.@menu$ = .@menu$ + getitemname(.@coins[.@i])+" (tienes "+countitem(.@coins[.@i])+"):";
 		else
-			.@menu$ = .@menu$ + "^aaaaaa"+getitemname(.@coins[.@i])+" (None)^000000:";
+			.@menu$ = .@menu$ + "^aaaaaa"+getitemname(.@coins[.@i])+" (Ninguna)^000000:";
 	}
 	.@i = select(.@menu$)-1;
 	if (.@i == 0) {
 		mes "[Dark Machine TX100]";
-		mes "Thank you for coming.";
+		mes "Gracias por venir.";
 		close;
 	}
 	.@coin = .@coins[.@i];
@@ -265,63 +265,63 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 	if (.@exchange_id[0] == .@coins[1]) .@exchange_id[0] = 0; // Cannot exchange for Silvervine.
 	if (.@i > getarraysize(.@coins)) {
 		mes "[Dark Machine TX100]";
-		mes "You've chosen abnormal menu.";
-		mes "Aborting process. Thank you for coming.";
+		mes "Has elegido un menu anormal.";
+		mes "Abortando proceso. Gracias por venir.";
 		close;
 	}
 	if (countitem(.@coin) == 0) {
 		mes "[Dark Machine TX100]";
-		mes "You chose a coin that you don't have.";
-		mes "Aborting process. Thank you for coming.";
+		mes "Elegiste una moneda que no tienes.";
+		mes "Abortando proceso. Gracias por venir.";
 		close;
 	}
 	mes "[Dark Machine TX100]";
-	mes "----Exchange Rate----";
-	mes "Higher Coin - 3 to 1";
-	mes "Lower Coin - 1 to 3";
+	mes "----Tasa de Cambio----";
+	mes "Moneda Superior - 3 a 1";
+	mes "Moneda Inferior - 1 a 3";
 	mes "---------------------";
-	mes "^ff3333We take a small vendor fee from your exchanged coins.^000000";
+	mes "^ff3333Cobramos una pequena tarifa de vendedor de tus monedas intercambiadas.^000000";
 	next;
-	.@menu$ = "Quit:";
+	.@menu$ = "Salir:";
 	if (.@exchange_id[0] == 0)
-		.@menu$ = .@menu$ + "^ff3333Cannot exchange to higher level coin^000000:";
+		.@menu$ = .@menu$ + "^ff3333No se puede cambiar a moneda de mayor nivel^000000:";
 	else {
 		if (countitem(.@coin) >= 99)
-			.@menu$ = .@menu$ + "Exchange 99 "+getitemname(.@coin)+" into higher level coin:";
+			.@menu$ = .@menu$ + "Cambiar 99 "+getitemname(.@coin)+" a moneda de mayor nivel:";
 		else
-			.@menu$ = .@menu$ + "^aaaaaaExchange to higher level coin (Not enough)^000000:";
+			.@menu$ = .@menu$ + "^aaaaaaCambiar a moneda de mayor nivel (Insuficiente)^000000:";
 	}
 	if (.@exchange_id[1] == 0)
-		.@menu$ = .@menu$ + "^ff3333Cannot exchange to lower level coin^000000:";
+		.@menu$ = .@menu$ + "^ff3333No se puede cambiar a moneda de menor nivel^000000:";
 	else {
 		if (countitem(.@coin) > 500)
-			.@menu$ = .@menu$ + "Exchange 500 "+getitemname(.@coin)+" into lower level coin:";
+			.@menu$ = .@menu$ + "Cambiar 500 "+getitemname(.@coin)+" a moneda de menor nivel:";
 		else if (countitem(.@coin))
-			.@menu$ = .@menu$ + "Exchange "+countitem(.@coin)+" "+getitemname(.@coin)+" into lower level coin:";
+			.@menu$ = .@menu$ + "Cambiar "+countitem(.@coin)+" "+getitemname(.@coin)+" a moneda de menor nivel:";
 		else
-			.@menu$ = .@menu$ + "^aaaaaaExchange to lower level coin (Not enough)^000000:";
+			.@menu$ = .@menu$ + "^aaaaaaCambiar a moneda de menor nivel (Insuficiente)^000000:";
 	}
 	.@i = select(.@menu$)-2;
 	if (.@i == -1) {
 		mes "[Dark Machine TX100]";
-		mes "Thank you for coming.";
+		mes "Gracias por venir.";
 		close;
 	}
 	if (.@exchange_id[.@i] == 0) {
 		mes "[Dark Machine TX100]";
-		mes "This coin cannot be exchanged to a "+.@exchange_name$[.@i]+" level coin.";
-		mes "Aborting process. Thank you for coming.";
+		mes "Esta moneda no puede ser cambiada a una moneda de nivel "+.@exchange_name$[.@i]+".";
+		mes "Abortando proceso. Gracias por venir.";
 		close;
 	}
 	if ((.@i == 0 && countitem(.@coin) < 100) || (.@i == 1 && countitem(.@coin) == 0)) {
 		mes "[Dark Machine TX100]";
-		mes "You have not enough coins for a "+.@exchange_name$[.@i]+" level coin exchange.";
-		mes "Aborting process. Thank you for coming.";
+		mes "No tienes suficientes monedas para un cambio de moneda de nivel "+.@exchange_name$[.@i]+".";
+		mes "Abortando proceso. Gracias por venir.";
 		close;
 	}
 	if (countitem(.@exchange_id[.@i]) > 28000) {
 		mes "[Dark Machine TX100]";
-		mes "You have too many "+.@exchange_name$[.@i]+" level coins already. Please come back with less coins.";
+		mes "Ya tienes demasiadas monedas de nivel "+.@exchange_name$[.@i]+". Por favor vuelve con menos monedas.";
 		close;
 	}
 	switch(.@i) {
@@ -340,56 +340,56 @@ malangdo,233,180,3	script	Dark MachineTX100	564,{
 	delitem .@coin, .@payment_amount;
 	getitem .@exchange_id[.@i], .@reward_amount - .@fee;
 	mes "[Dark Machine TX100]";
-	mes "Received ^003399"+getitemname(.@coin)+"^000000 for ^003399"+.@payment_amount+"^000000 unit(s).";
-	mes "We have exchanged your coin to ^003399"+(.@reward_amount-.@fee)+"^000000 unit(s) of ^003399"+.@coin_text$+" Level Coin^000000, deducted ^003399"+.@fee+"^000000 unit(s) as exchanging fee.";
+	mes "Recibidas ^003399"+getitemname(.@coin)+"^000000 por ^003399"+.@payment_amount+"^000000 unidad(es).";
+	mes "Hemos intercambiado tus monedas por ^003399"+(.@reward_amount-.@fee)+"^000000 unidad(es) de ^003399"+.@coin_text$+" Level Coin^000000, deducidas ^003399"+.@fee+"^000000 unidad(es) como tarifa de cambio.";
 	close;
 }
 
 malangdo,175,145,4	script	Can Agency Guard	549,{
 	if (checkweight(1201,1) == 0) {
-		mes "You seem to have too many items. Give it a try after sorting out the item kinds.";
+		mes "Parece que tienes demasiados objetos. Intentalo despues de ordenar los tipos de objetos.";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "You're not likely to be able to go on due to the heavy items you've got. Give it a try after lightening the weight.";
+		mes "No podras continuar debido a los objetos pesados que llevas. Intentalo despues de aligerar el peso.";
 		close;
 	}
 	mes "[Can Agency Guard]";
-	mes "Hey, you there... Have you seen any ^0000ffMalangdo Cat Can^000000s around here?";
+	mes "Oye, tu... Has visto alguna ^0000ffMalangdo Cat Can^000000 por aqui?";
 	next;
-	switch(select("Why are you asking?:Oh, you mean these?")) {
+	switch(select("Por que preguntas?:Ah, te refieres a estas?")) {
 	case 1:
 		mes "[Can Agency Guard]";
-		mes "Umm.";
-		mes "We at the Can Agency recently got some suspicious intelligence about them...";
+		mes "Mmm.";
+		mes "Nosotros en la Agencia de Latas recientemente obtuvimos informacion sospechosa sobre ellas...";
 		next;
 		mes "[Can Agency Guard]";
-		mes "There were faulty products in bulk on the can production line for Malangdo specialty. These products, to be discarded, seem to have fallen into a retail dealer's hands.";
+		mes "Hubo productos defectuosos en grandes cantidades en la linea de produccion de latas de la especialidad de Malangdo. Estos productos, que debian ser descartados, parece que cayeron en manos de un distribuidor.";
 		next;
 		mes "[Can Agency Guard]";
-		mes "Actually they were hard to distinguish from normal products. But it obviously says ^0000ffMalangdo Cat Can^000000 outside.";
+		mes "En realidad eran dificiles de distinguir de los productos normales. Pero claramente dice ^0000ffMalangdo Cat Can^000000 en el exterior.";
 		next;
 		mes "[Can Agency Guard]";
-		mes "As faulty products are moving around on the market, we've been collecting them as is our duty. Have you ever seen anyone who has things like what I'm describing?";
+		mes "Como los productos defectuosos estan circulando en el mercado, los hemos estado recolectando como es nuestro deber. Alguna vez has visto a alguien que tenga cosas como las que describo?";
 		next;
 		mes "[Can Agency Guard]";
-		mes "If you find anyone selling these products, please come and tell me.";
+		mes "Si encuentras a alguien vendiendo estos productos, por favor ven y dimelo.";
 		close;
 	case 2:
 		if (countitem(12633) == 0) {
 			mes "[Can Agency Guard]";
-			mes "Umm? I cannot see the ^0000ffMalangdo Cat Can^000000 from you. Don't forget to bring it to me if you've found out...";
+			mes "Mmm? No puedo ver la ^0000ffMalangdo Cat Can^000000 contigo. No olvides traermela si la encuentras...";
 			close;
 		}
 		break;
 	}
 	mes "[Can Agency Guard]";
-	mes "The Malangdo Cat Can is a faulty product. Let me exchange it to 3 E Grade Coins. How about that?";
+	mes "La Malangdo Cat Can es un producto defectuoso. Dejame intercambiarla por 3 E Grade Coins. Que te parece?";
 	next;
-	switch(select("I won't exchange:^0000ff1^000000 Can -> ^0000ff3^000000 E Grade Coin:^0000ff10^000000 Can -> ^0000ff30^000000 E Grade Coin:^0000ff100^000000 Can -> ^0000ff300^000000 E Grade Coin:Exchange all I've got")) {
+	switch(select("No intercambiare:^0000ff1^000000 Lata -> ^0000ff3^000000 E Grade Coin:^0000ff10^000000 Latas -> ^0000ff30^000000 E Grade Coin:^0000ff100^000000 Latas -> ^0000ff300^000000 E Grade Coin:Intercambiar todas las que tengo")) {
 	case 1:
 		mes "[Can Agency Guard]";
-		mes "Umm, I'm not here forever, so come to me if you'd like to exchange while I still am.";
+		mes "Mmm, no estare aqui para siempre, asi que ven a mi si quieres intercambiar mientras aun estoy.";
 		close;
 	case 2:
 		.@check = 1;
@@ -411,18 +411,18 @@ malangdo,175,145,4	script	Can Agency Guard	549,{
 	if (countitem(12633) < .@check) {
 		if (.@check == 1) {
 			mes "[Can Agency Guard]";
-			mes "Umm? I cannot see the ^0000ffMalangdo Cat Can^000000 from you. Don't forget to bring it to me if you've found out...";
+			mes "Mmm? No puedo ver la ^0000ffMalangdo Cat Can^000000 contigo. No olvides traermela si la encuentras...";
 			close;
 		} else {
 			mes "[Can Agency Guard]";
-			mes "Umm? I don't think you have enough to exchange... Come to me again when the amount is exactly decided.";
+			mes "Mmm? No creo que tengas suficientes para intercambiar... Vuelve cuando la cantidad este decidida.";
 			close;
 		}
 	}
 	delitem 12633,.@count; //Malang_Cat_Can
 	getitem 6422,.@count*3; //Egrade_Coin
 	mes "[Can Agency Guard]";
-	mes "Exchanged "+.@count+" Malangdo Cat Can to "+(.@count*3)+" E Class Coin. Check it out.";
+	mes "Intercambiadas "+.@count+" Malangdo Cat Can por "+(.@count*3)+" E Class Coin. Revisalo.";
 	close;
 }
 
@@ -435,65 +435,65 @@ function	script	F_mal_coin	{
 		if (getarg(2) != 2 && BaseLevel < 50) {
 			mes .@npc_name$;
 			mes "Ahaaa~";
-			mes "If you want to buy this stuff,";
-			mes "you can talk to me";
-			mes "when you grow up a little more.";
-			mes "This stuff is too expensive";
-			mes "for a child~";
+			mes "Si quieres comprar estas cosas,";
+			mes "puedes hablar conmigo";
+			mes "cuando crezcas un poco mas.";
+			mes "Estas cosas son muy caras";
+			mes "para un nino~";
 			close;
 		}
 		mes .@npc_name$;
-		mes "Nice to meet you~~";
-		mes "I am! YES~~ That's right!";
-		mes "I'm selling special stuff";
-		mes "which you can see only here on Meow Meow Island!";
+		mes "Gusto en conocerte~~";
+		mes "Yo soy! SI~~ Asi es!";
+		mes "Vendo cosas especiales";
+		mes "que solo puedes ver aqui en la Isla Meow Meow!";
 		next;
 		mes .@npc_name$;
-		mes "How about it? What are you waiting for?";
-		mes "Why don't you take a look at";
-		mes "what kinds of stuff I have?";
+		mes "Que te parece? Que estas esperando?";
+		mes "Por que no echas un vistazo";
+		mes "a las cosas que tengo?";
 		next;
 		switch(getarg(2)) {
 		case 1:
 			mes "[Wandering Merchant]";
 			mes "Oh~";
-			mes "These are rental items, so make sure you know if you have the ^0000FF1 hour^000000 or ^0000FF7 day^000000 version.";
+			mes "Estos son objetos de alquiler, asi que asegurate de saber si tienes la version de ^0000FF1 hora^000000 o ^0000FF7 dias^000000.";
 			next;
 			break;
 		case 2:
 			break;
 		case 3:
 			mes "[Roving Merchant]";
-			mes "Just for your information,";
-			mes "Sow Bug, Starfish, Dried Squid, and Flying Fish are the items which you can use for 1 hour.";
+			mes "Solo para tu informacion,";
+			mes "Sow Bug, Starfish, Dried Squid y Flying Fish son los objetos que puedes usar por 1 hora.";
 			next;
 			break;
 		}
 		mes .@npc_name$;
-		mes "Well then, do you want to take a look at what I have now?";
+		mes "Bueno entonces, quieres echar un vistazo a lo que tengo ahora?";
 		next;
-		switch(select("Yes:No")) {
+		switch(select("Si:No")) {
 		case 1:
 			if (checkweight(1201,1) == 0) {
 				mes .@npc_name$;
-				mes "It seems that there are too many items in your inventory.";
-				mes "Please make space and come back again~";
+				mes "Parece que tienes demasiados objetos en tu inventario.";
+				mes "Por favor haz espacio y vuelve de nuevo~";
 				close;
 			}
 			if (MaxWeight - Weight < 2500) {
 				mes .@npc_name$;
-				mes "It seems that you're overweight.";
-				mes "Please reduce your weight and come back again~";
+				mes "Parece que tienes sobrepeso.";
+				mes "Por favor reduce tu peso y vuelve de nuevo~";
 				close;
 			}
 			mes .@npc_name$;
-			mes "Well, take a good look at them~~~";
+			mes "Bueno, echalos un buen vistazo~~~";
 			next;
 			return;
 		case 2:
 			mes .@npc_name$;
-			mes "Well, then. I'll see you next time.";
-			mes "Goodbye.";
+			mes "Bueno, entonces. Te veo la proxima vez.";
+			mes "Adios.";
 			close;
 		}
 	}
@@ -502,28 +502,28 @@ function	script	F_mal_coin	{
 // -- callfunc "F_mal_coin",1,"[<NPC Name>]","<Display Name>",<Item ID>,<Egrade_Coin>,<Malang_Sp_Can>,<Silvervine>
 	if (getarg(0) == 1) {
 		mes .@npc_name$;
-		mes "The price of ^0000FF["+getarg(2)+"]^000000 is";
+		mes "El precio de ^0000FF["+getarg(2)+"]^000000 es";
 		if (getarg(4) && getarg(5)) { // Type 1: Egrade_Coin or Malang_Sp_Can
 			mes getarg(4)+" E Grade Coin or "+getarg(5)+" Malangdo Canned Specialties.";
 			.@type = 1;
-			.@menu$ = "Yes.:No, I'll purchase with cans.:I don't want to purchase any.";
+			.@menu$ = "Si.:No, comprare con latas.:No quiero comprar nada.";
 		} else if (getarg(5)) { // Type 2: Malang_Sp_Can only
 			mes getarg(5)+" Malangdo Canned Specialties.";
 			.@type = 2;
-			.@menu$ = "Yes.::No.";
+			.@menu$ = "Si.::No.";
 		} else { // Type 3: Silvervine only
 			mes getarg(6)+" Silvervine Fruit.";
 			.@type = 3;
-			.@menu$ = "Yes.::I don't want to purchase any.";
+			.@menu$ = "Si.::No quiero comprar nada.";
 		}
 		next;
 		mes .@npc_name$;
 		if (.@type == 1) {
-			mes "Would you like to purchase";
-			mes "^0000FF["+getarg(2)+"]^000000 with E Grade Coins?";
+			mes "Te gustaria comprar";
+			mes "^0000FF["+getarg(2)+"]^000000 con E Grade Coins?";
 		} else {
-			mes "Would you like to";
-			mes "purchase ^0000FF["+getarg(2)+"]^000000?";
+			mes "Te gustaria";
+			mes "comprar ^0000FF["+getarg(2)+"]^000000?";
 		}
 		next;
 		switch(select(.@menu$)) {
@@ -549,24 +549,24 @@ function	script	F_mal_coin	{
 			}
 			if (countitem(.@item) < .@amount) {
 				mes .@npc_name$;
-				mes "I'm sorry, you need more "+.@str$+".";
+				mes "Lo siento, necesitas mas "+.@str$+".";
 				close;
 			}
 			if (MaxWeight - Weight < getiteminfo(getarg(3), ITEMINFO_WEIGHT)) {
 				mes .@npc_name$;
-				mes "Sorry, you've purchased too many.";
-				mes "You need to make more space in your inventory. Please come back later.";
+				mes "Lo siento, has comprado demasiado.";
+				mes "Necesitas hacer mas espacio en tu inventario. Por favor vuelve despues.";
 				close;
 			}
 			mes .@npc_name$;
-			mes "Thank you.";
+			mes "Gracias.";
 			delitem .@item,.@amount;
 			getitem getarg(3),1;
 			return;
 		case 3:
 			mes .@npc_name$;
-			mes "Always be careful";
-			mes "when you purchase items.";
+			mes "Siempre ten cuidado";
+			mes "cuando compres objetos.";
 			close;
 		}
 	}
@@ -593,103 +593,103 @@ malangdo,162,146,5	script	Wandering Merchant#mal	495,{
 			"[Tuna(7Days)] 10 Silvervine Fruit",
 			"[Brindle Eel(7Days)] 10 Silvervine Fruit",
 			"[Malang Snow Crab(7Days)] 10 Silvervine Fruit",
-			"End purchasing."
+			"Terminar compra."
 		);
 		if (.@i == 13) {
 			mes "[Wandering Merchant]";
-			mes "Well, then. I'll see you next time.";
-			mes "Goodbye.";
+			mes "Bueno, entonces. Te veo la proxima vez.";
+			mes "Adios.";
 			close;
 		}
 		mes "[Wandering Merchant]";
-		mes "Are you interested in ^0000FF["+.@names$[.@i]+"]^000000?";
+		mes "Te interesa ^0000FF["+.@names$[.@i]+"]^000000?";
 		switch(.@i) {
 		case 1: //Spearfish_Box1
 		case 8: //Spearfish_Box2
-			mes "This is... a fish that moves according to the season, very tasty!";
-			mes "But this is only a food that I'm talking about, yummy~";
+			mes "Este es... un pez que se mueve segun la temporada, muy sabroso!";
+			mes "Pero esto es solo un alimento del que estoy hablando, delicioso~";
 			next;
 			mes "[Wandering Merchant]";
-			mes "Of course, this is ^DC143CTwo-Handed Spear^000000.";
-			mes "It gives a high chance of";
-			mes "causing the Bleeding status";
-			mes "when you're using Pierce or Clashing Spiral~";
+			mes "Por supuesto, esta es una ^DC143CLanza a Dos Manos^000000.";
+			mes "Da una alta probabilidad de";
+			mes "causar el estado Sangrado";
+			mes "cuando usas Pierce o Clashing Spiral~";
 			next;
 			mes "[Wandering Merchant]";
-			mes "More details are...";
-			mes "Increase 100% of Clashing Spiral ATK and 50% of Inspiration ATK,";
-			mes "additional ATK + 30 when Base Lv. is over 100.";
-			mes "Base ATK is 220.";
+			mes "Mas detalles...";
+			mes "Aumenta 100% del ATK de Clashing Spiral y 50% del ATK de Inspiration,";
+			mes "ATK adicional + 30 cuando el Base Lv. es mayor a 100.";
+			mes "ATK base es 220.";
 			next;
 			break;
 		case 2: //Tuna_Box1
 		case 10: //Tuna_Box2
-			mes "This is a very popular fish";
-			mes "which is used in various dishes.";
-			mes "Swordman, Merchant, and Acolyte classes can use it";
-			mes "as a ^DC143CMace^000000.";
+			mes "Este es un pez muy popular";
+			mes "que se usa en varios platos.";
+			mes "Las clases Swordman, Merchant y Acolyte pueden usarlo";
+			mes "como una ^DC143CMaza^000000.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "It gives a high chance of executing the Stun or Auto-Spell Bash";
-			mes "when using close-range physical attacks.";
-			mes "Base ATK is 180.";
+			mes "Da una alta probabilidad de ejecutar Stun o Auto-Spell Bash";
+			mes "al usar ataques fisicos de corto alcance.";
+			mes "ATK base es 180.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "More details are...";
-			mes "additional ATK + 20 when Base Lv. is over 100,";
-			mes "freeze self with low rate.";
+			mes "Mas detalles...";
+			mes "ATK adicional + 20 cuando el Base Lv. es mayor a 100,";
+			mes "se congela a si mismo con baja probabilidad.";
 			next;
 			break;
 		case 3: //Hairtail_Box1
 		case 7: //Hairtail_Box2
-			mes "This fish looks like a long belt.";
+			mes "Este pez parece un cinturon largo.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "This is a ^DC143CTwo-Handed Sword^000000";
-			mes "which most swordmen can use.";
-			mes "It increases 50% of critical damage when attacking and CRI + 20.";
-			mes "Base ATK is 220.";
+			mes "Esta es una ^DC143CEspada a Dos Manos^000000";
+			mes "que la mayoria de espadachines pueden usar.";
+			mes "Aumenta 50% del dano critico al atacar y CRI + 20.";
+			mes "ATK base es 220.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "More details are...";
-			mes "additional ATK + 50 when Base Lv. is over 100.";
+			mes "Mas detalles...";
+			mes "ATK adicional + 50 cuando el Base Lv. es mayor a 100.";
 			next;
 			break;
 		case 4: //Saurel_Box1
 		case 9: //Saurel_Box2
-			mes "This is a ^DC143CDagger^000000 which gives MATK + 100";
-			mes "and ATK + 30 for 7sec at a certain rate with physical attacks.";
+			mes "Esta es una ^DC143CDaga^000000 que da MATK + 100";
+			mes "y ATK + 30 por 7seg con cierta probabilidad en ataques fisicos.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "More details are...";
-			mes "gives MATK + 20 for 7sec at a certain rate with magical attacks";
-			mes "and additional MATK + 10, ATK + 10 when Base Lv. is over 100.";
-			mes "Base ATK is 160.";
+			mes "Mas detalles...";
+			mes "da MATK + 20 por 7seg con cierta probabilidad en ataques magicos";
+			mes "y MATK adicional + 10, ATK + 10 cuando el Base Lv. es mayor a 100.";
+			mes "ATK base es 160.";
 			next;
 			break;
 		case 5: //Malang_Crab_Box1
 		case 12: //Malang_Crab_Box2
-			mes "This is a ^DC143CBow^000000 which increases LUK + 3 and 50% of critical damage,";
-			mes "and increases 20% of long rage physical ATK when Base Lv. is over 100.";
-			mes "Base ATK is 120.";
+			mes "Este es un ^DC143CArco^000000 que aumenta LUK + 3 y 50% de dano critico,";
+			mes "y aumenta 20% del ATK fisico de largo alcance cuando el Base Lv. es mayor a 100.";
+			mes "ATK base es 120.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "More details are...";
-			mes "can be used by Archer, Thief, and Rogue classes.";
+			mes "Mas detalles...";
+			mes "puede ser usado por clases Archer, Thief y Rogue.";
 			next;
 			break;
 		case 6: //Brindle_Eel_Box1
 		case 11: //Brindle_Eel_Box2
-			mes "This is a ^DC143CBow^000000.";
-			mes "Because it has elastic force,";
-			mes "we started to use it as a Bow.";
-			mes "Base ATK is 180.";
+			mes "Este es un ^DC143CArco^000000.";
+			mes "Como tiene fuerza elastica,";
+			mes "empezamos a usarlo como Arco.";
+			mes "ATK base es 180.";
 			next;
 			mes "[Wandering Merchant]";
-			mes "More details are...";
-			mes "AGI + 3, and ASPD + 2 for 5sec at a certain rate with long range physical attacks.";
-			mes "Also gives additional 20% of long range physical ATK when Base Lv. is over 100.";
-			mes "Hunter, Bard, and Dancer classes can use it.";
+			mes "Mas detalles...";
+			mes "AGI + 3, y ASPD + 2 por 5seg con cierta probabilidad en ataques fisicos de largo alcance.";
+			mes "Tambien da 20% adicional de ATK fisico de largo alcance cuando el Base Lv. es mayor a 100.";
+			mes "Las clases Hunter, Bard y Dancer pueden usarlo.";
 			next;
 			break;
 		}
@@ -710,41 +710,41 @@ malangdo,173,145,4	script	Stinky Merchant	496,{
 		.@i = select(
 			"[Cat Paw Glove] 32 E-Coins/200 Cans",
 			"[Cat Club] 32 E-Coins/200 Cans",
-			"End purchasing."
+			"Terminar compra."
 		);
 		if (.@i == 3) {
 			mes "[Stinky Merchant]";
-			mes "Well, then. I'll see you next time.";
-			mes "Goodbye.";
+			mes "Bueno, entonces. Te veo la proxima vez.";
+			mes "Adios.";
 			close;
 		}
 		mes "[Stinky Merchant]";
-		mes "Are you interested in ^0000FF["+.@names$[.@i]+"]^000000?";
+		mes "Te interesa ^0000FF["+.@names$[.@i]+"]^000000?";
 		switch(.@i) {
 		case 1: //Cat_Hand_Glove
-			mes "This is a glove which can give happiness";
-			mes "just by wearing it.";
+			mes "Este es un guante que puede dar felicidad";
+			mes "solo con llevarlo puesto.";
 			next;
 			mes "[Stinky Merchant]";
-			mes "This is an ^DC143CAccessory^000000";
-			mes "and its defense is 5.";
-			mes "It also gives";
+			mes "Este es un ^DC143CAccesorio^000000";
+			mes "y su defensa es 5.";
+			mes "Tambien da";
 			mes "VIT + 1, AGI + 1, DEX + 1, LUK + 1.";
 			next;
 			mes "[Stinky Merchant]";
-			mes "More details are...";
-			mes "SLOT : 1 / Refine : Unable / Destruction : Unable";
+			mes "Mas detalles...";
+			mes "SLOT : 1 / Refinamiento : No / Destruccion : No";
 			next;
 			break;
 		case 2: //Cat_Club
-			mes "It looks like it wouldn't hurt, don't you think so?";
-			mes "But I'm telling you, it can hurt someone.";
+			mes "Parece que no doleria, no crees?";
+			mes "Pero te digo, puede lastimar a alguien.";
 			next;
 			mes "[Stinky Merchant]";
-			mes "This is a ^DC143CMace^000000 that increases 15% of damage to the animal type of monster.";
-			mes "Base ATK is 88.";
-			mes "The other details are";
-			mes "Weapon Lv : 1 / SLOT : 3 / Refine : Able / Destruction : Unable";
+			mes "Esta es una ^DC143CMaza^000000 que aumenta 15% del dano a monstruos tipo animal.";
+			mes "ATK base es 88.";
+			mes "Los otros detalles son";
+			mes "Nivel Arma : 1 / SLOT : 3 / Refinamiento : Si / Destruccion : No";
 			next;
 			break;
 		}
@@ -763,66 +763,66 @@ malangdo,150,135,5	script	Roving Merchant	495,{
 			"[Sow Bug] 200 Cans",
 			"[Dried Squid] 200 Cans",
 			"[Starfish] 200 Cans",
-			"End purchasing."
+			"Terminar compra."
 		);
 		if (.@i == 5) {
 			mes "[Roving Merchant]";
-			mes "Well, then. I'll see you next time.";
-			mes "Goodbye.";
+			mes "Bueno, entonces. Te veo la proxima vez.";
+			mes "Adios.";
 			close;
 		}
 		mes "[Roving Merchant]";
-		mes "Are you interested in ^0000FF["+.@names$[.@i]+"]^000000?";
+		mes "Te interesa ^0000FF["+.@names$[.@i]+"]^000000?";
 		switch(.@i) {
 		case 1: //Flying_Fish_Box
-			mes "This is the one that flies";
-			mes "with a big pectoral.";
+			mes "Este es el que vuela";
+			mes "con una gran pectoral.";
 			next;
 			mes "[Roving Merchant]";
-			mes "This is a ^DC143CThrowing Weapon^000000.";
-			mes "Of course, it can give fatal wounds to the enemy";
-			mes "at a certain rate when attacking.";
+			mes "Esta es un ^DC143CArma Arrojadiza^000000.";
+			mes "Por supuesto, puede causar heridas fatales al enemigo";
+			mes "con cierta probabilidad al atacar.";
 			next;
 			mes "[Roving Merchant]";
-			mes "Its property is neutral and ATK is 50.";
+			mes "Su propiedad es neutral y el ATK es 50.";
 			next;
 			break;
 		case 2: //Gong_Bug_Pocket
-			mes "In that case, I'll explain for you.";
-			mes "This is a ^DC143CBullet^000000 which stuns the enemy at a certain rate when attacking.";
+			mes "En ese caso, te lo explicare.";
+			mes "Esta es una ^DC143CBala^000000 que aturde al enemigo con cierta probabilidad al atacar.";
 			next;
 			mes "[Roving Merchant]";
-			mes "I feel somthing bad";
-			mes "is moving in my pocket but...";
-			mes "it is neutral property and its ATK is 50.";
+			mes "Siento que algo malo";
+			mes "se mueve en mi bolsillo pero...";
+			mes "es propiedad neutral y su ATK es 50.";
 			next;
 			break;
 		case 3: //Dried_Squid_Box
-			mes "I'll explain about this item.";
-			mes "This is a ^DC143CThrowing Weapon^000000 which causes darkness at a certain rate.";
-			mes "It's neutral property and its ATK is 50.";
+			mes "Te explicare sobre este objeto.";
+			mes "Esta es un ^DC143CArma Arrojadiza^000000 que causa oscuridad con cierta probabilidad.";
+			mes "Es propiedad neutral y su ATK es 50.";
 			next;
 			mes "[Roving Merchant]";
-			mes "It is compressed";
-			mes "and put into a very small box,";
-			mes "so be careful when you open it.";
+			mes "Esta comprimido";
+			mes "y metido en una caja muy pequena,";
+			mes "asi que ten cuidado al abrirlo.";
 			next;
 			break;
 		case 4: //Starfish_Box
-			mes "I'll explain about this item.";
-			mes "This is a ^DC143CThrowing Weapon^000000 which stuns the enemy at a certain rate.";
+			mes "Te explicare sobre este objeto.";
+			mes "Esta es un ^DC143CArma Arrojadiza^000000 que aturde al enemigo con cierta probabilidad.";
 			next;
 			mes "[Roving Merchant]";
-			mes "It is perfectly organized and packed";
-			mes "so you can't even see inside.";
-			mes "It is neutral property and its ATK is 110.";
+			mes "Esta perfectamente organizado y empaquetado";
+			mes "asi que ni siquiera puedes ver adentro.";
+			mes "Es propiedad neutral y su ATK es 110.";
 			next;
 			break;
 		}
 		mes "[Roving Merchant]";
-		mes "For your information,";
-		mes "one box contains";
-		mes "200 units.";
+		mes "Para tu informacion,";
+		mes "una caja contiene";
+		mes "200 unidades.";
 		next;
 		callfunc "F_mal_coin",1,"[Roving Merchant]",.@names$[.@i],.@items[.@i],0,200,0;
 		next;
@@ -833,16 +833,16 @@ malangdo,150,135,5	script	Roving Merchant	495,{
 //============================================================
 ecl_in01,66,95,3	script	Armor Merchant Naphara#e::glove	436,{
 	if (!checkweight(1301,3)) {
-		mes "- Stop Here!! -";
-		mes "- You have too many items. -";
-		mes "- You cannot carry any more items. -";
-		mes "- Lighten your load and -";
-		mes "- try again. -";
+		mes "- Alto Aqui!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- No puedes cargar mas objetos. -";
+		mes "- Aligera tu carga y -";
+		mes "- intentalo de nuevo. -";
 		close;
 	}
 	mes "[Armor Merchant]";
-	mes "Hello, this is Naphara's store, a place of high class goods.";
-	mes "What would you need?";
+	mes "Hola, esta es la tienda de Naphara, un lugar de productos de alta clase.";
+	mes "Que necesitas?";
 	next;
 	.@choice = select("Str Glove:Int Glove:Agi Glove:Vit Glove:Dex Glove:Luk Glove") -1;
 	mes "[Armor Merchant]";
@@ -887,22 +887,22 @@ ecl_in01,66,95,3	script	Armor Merchant Naphara#e::glove	436,{
 	mes "^3131FFRequired Level: 100^000000";
 	mes "^3131FFSlot: 0^000000";
 	mes "^3131FFWeight: 10^000000";
-	mes "are the characteristic options.";
+	mes "son las opciones caracteristicas.";
 	next;
 	mes "[Armor Merchant]";
-	mes "It costs 10 Splendide Coins.";
-	mes "Would you like to buy it?";
+	mes "Cuesta 10 Splendide Coins.";
+	mes "Te gustaria comprarlo?";
 	next;
-	if (select("Buy it.:Don't buy it.")==1) {
+	if (select("Comprarlo.:No comprarlo.")==1) {
 		if (countitem(6081) < 10) {
 			mes "[Armor Merchant]";
-			mes "It seems like you don't have enough coins.";
+			mes "Parece que no tienes suficientes monedas.";
 			close;
 		}
 		delitem 6081,10; //Splendide_Coin
 		getitem (.@choice+2917),1;
 		mes "[Armor Merchant]";
-		mes "Great, it's yours. Thank you.";
+		mes "Genial, es tuyo. Gracias.";
 	}
 	close;
 }
@@ -910,42 +910,42 @@ ecl_in01,66,95,3	script	Armor Merchant Naphara#e::glove	436,{
 ecl_in01,64,97,5	script	Slot Expert Nattuer#ecl	436,{
 	disable_items;
 	mes "[Slot Expert]";
-	mes "I am Slot Expert Nattuer.";
-	mes "If you bring me an item from my little brother Naphara along with 5 Splendide Coins, I will open up one Slot for you.";
+	mes "Soy el Experto en Slots Nattuer.";
+	mes "Si me traes un objeto de mi hermano menor Naphara junto con 5 Splendide Coins, te abrire un Slot.";
 	next;
-	if (select("Activate a Slot.:Forget it.") == 2){
+	if (select("Activar un Slot.:Olvidalo.") == 2){
 		close;
 	}
 	mes "[Slot Expert]";
-	mes "Slot activation is an extremely difficult procedure that can fail even with heightened care and the use of a magnifying lens.";
+	mes "La activacion de Slot es un procedimiento extremadamente dificil que puede fallar incluso con el mayor cuidado y el uso de una lupa.";
 	next;
 	mes "[Slot Expert]";
-	mes "Of course, if your heart were as big as that flower-filled land, you wouldn't mind. Right? Should I go for it?";
+	mes "Por supuesto, si tu corazon fuera tan grande como esa tierra llena de flores, no te importaria. Verdad? Lo intento?";
 	next;
-	if (select("Continue.:Forget it.") == 2) {
+	if (select("Continuar.:Olvidalo.") == 2) {
 		close;
 	}
 	mes "[Slot Expert]";
-	mes "Which item would you like to activate with a Slot?";
+	mes "A que objeto te gustaria activarle un Slot?";
 	next;
 	.@choice = select("Str Glove:Int Glove:Ag Glove:Vit Glove:Dex Glove:Luk Glove");
 	.@choice += 2916;
 	mes "[Slot Expert]";
-	mes "Let's confirm for the last time. Is the one you want " + getitemname(.@choice) + "?";
+	mes "Confirmemos por ultima vez. El que quieres es " + getitemname(.@choice) + "?";
 	next;
-	if (select("Yes:No")==2) {
+	if (select("Si:No")==2) {
 		mes "[Slot Expert]";
-		mes "Why don't you talk to me when you know for sure.";
+		mes "Habla conmigo cuando estes seguro.";
 		close;
 	}
 	if (countitem(.@choice) < 1) {
 		mes "[Slot Expert]";
-		mes "You don't have that item. Why don't you talk to me when you know for sure.";
+		mes "No tienes ese objeto. Habla conmigo cuando estes seguro.";
 		close;
 	}
 	if (countitem(6081) < 5) {
 		mes "[Slot Expert]";
-		mes "You don't have enough coins. Why don't you talk to me when you know for sure.";
+		mes "No tienes suficientes monedas. Habla conmigo cuando estes seguro.";
 		close;
 	}
 	progressbar "0xFFFF00",3;
@@ -955,55 +955,55 @@ ecl_in01,64,97,5	script	Slot Expert Nattuer#ecl	436,{
 	if (.@luckyday % 20){
 		emotion ET_THINK;
 		delitem .@choice,1;
-		mes "Shoot, I'm sorry. It failed.";
-		mes "But I'm sure it will work next time. I have a feeling.";
+		mes "Rayos, lo siento. Fallo.";
+		mes "Pero estoy seguro de que funcionara la proxima vez. Tengo un presentimiento.";
 		close;
 	}
 	emotion ET_BEST;
 	delitem .@choice,1;
 	getitem (.@choice+6),1;
-	mes "My eyes feel like they're gonna pop out.";
-	mes "Nonetheless, congratulations. Slot activation was successful.";
+	mes "Siento que mis ojos van a explotar.";
+	mes "De todas formas, felicidades. La activacion de Slot fue exitosa.";
 	close;
 }
 
 ecl_in01,33,98,5	script	Herb Merchant Plafina#a	443,{
 	if (checkweight(1301,1)==0) {
-		mes "- Stop Here!! -";
-		mes "- You have too many items. -";
-		mes "- You cannot carry any more items. -";
-		mes "- Lighten your load and -";
-		mes "- try again. -";
+		mes "- Alto Aqui!! -";
+		mes "- Tienes demasiados objetos. -";
+		mes "- No puedes cargar mas objetos. -";
+		mes "- Aligera tu carga y -";
+		mes "- intentalo de nuevo. -";
 		close;
 	}
 	mes "[Herb Merchant]";
-	mes "Welcome, this is Plafina's Herb Store where only the freshest herbs are provided~!";
+	mes "Bienvenido, esta es la Tienda de Hierbas de Plafina donde solo se proporcionan las hierbas mas frescas~!";
 	next;
-	.@item = select("Snow Flip:Peony Mommy:Slapping Herb:Yggdrasil Dust:End conversation")-1;
+	.@item = select("Snow Flip:Peony Mommy:Slapping Herb:Yggdrasil Dust:Terminar conversacion")-1;
 	if (.@item == 4){
 		mes "[Herb Merchant]";
-		mes "Come back anytime.";
+		mes "Vuelve cuando quieras.";
 		close;
 	}
 	mes "[Herb Merchant]";
 	switch (.@item){
 	case 0:
-		mes "Snow Flip has special effects on ^3131FFBurning, Bleeding, Deep Sleep, Sleep^000000.";
+		mes "Snow Flip tiene efectos especiales contra ^3131FFBurning, Bleeding, Deep Sleep, Sleep^000000.";
 		break;
 	case 1:
-		mes "Peony Mamy has special effects on ^3131FFFrost, Frozen, Freezing^000000";
+		mes "Peony Mamy tiene efectos especiales contra ^3131FFFrost, Frozen, Freezing^000000";
 		break;
 	case 2:
-		mes "Slapping Herb has special effects on ^3131FFStun, Fear, Chaos, Hallucination^000000";
+		mes "Slapping Herb tiene efectos especiales contra ^3131FFStun, Fear, Chaos, Hallucination^000000";
 		break;
 	case 3:
-		mes "Yggdrasil Dust has special effects on ^3131FFBlind, Curse, Decrease Agility, Reverse Orcish^000000.";
+		mes "Yggdrasil Dust tiene efectos especiales contra ^3131FFBlind, Curse, Decrease Agility, Reverse Orcish^000000.";
 		break;
 	}
-	mes "Requires 5 seconds between uses.";
-	mes "It costs "+ .cost[.@item] +" Splendide Coins for each.";
+	mes "Requiere 5 segundos entre usos.";
+	mes "Cuesta "+ .cost[.@item] +" Splendide Coins cada una.";
 	next;
-	.@buy = select("Buy 1.:Buy 10.:Don't buy.");
+	.@buy = select("Comprar 1.:Comprar 10.:No comprar.");
 	if (.@buy == 3){
 		close;
 	}
@@ -1011,18 +1011,18 @@ ecl_in01,33,98,5	script	Herb Merchant Plafina#a	443,{
 		.@buy = 10;
 	}
 	mes "[Herb Merchant]";
-	mes "Would you like to buy "+ .@buy +" "+ getitemname(.items[.@item]) +"?";
+	mes "Te gustaria comprar "+ .@buy +" "+ getitemname(.items[.@item]) +"?";
 	next;
-	if (select("Buy.:Don't buy.") == 2){
+	if (select("Comprar.:No comprar.") == 2){
 		close;
 	}
 	if (countitem(6081) < (.cost[.@item]*.@buy) ) {
 		mes "[Herb Merchant]";
-		mes "You don't have enough coins.";
+		mes "No tienes suficientes monedas.";
 		close;
 	}
 	mes "[Herb Merchant]";
-	mes "Thank you for your business.";
+	mes "Gracias por tu compra.";
 	delitem 6081,.cost[.@item]*.@buy; //Splendide_Coin
 	getitem .items[.@item],.@buy;
 	close;
@@ -1035,76 +1035,76 @@ OnInit:
 
 ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	if (checkweight(1301,3) == 0) {
-		mes "You have too many items to continue.";
+		mes "Tienes demasiados objetos para continuar.";
 		close;
 	}
 	emotion ET_THROB;
 	mes "[Paltu]";
-	mes "Woohoo- Greetings. What are you looking for? Lots of goods here.";
+	mes "Woohoo- Saludos. Que buscas? Muchos productos aqui.";
 	next;
-	switch (select("No thanks.:Replication?:I know you got lots up your sleeve!")) {
+	switch (select("No gracias.:Replicacion?:Se que tienes mucho bajo la manga!")) {
 	case 1:
 		emotion ET_FRET;
 		mes "[Paltu]";
-		mes "Really? Hmm?";
+		mes "En serio? Hmm?";
 		close;
 	case 2:
 		mes "[Paltu]";
-		mes "One can say that there's no one better in Eclage than I at utilizing magic resistance.";
+		mes "Se puede decir que no hay nadie mejor en Eclage que yo utilizando la resistencia magica.";
 		next;
 		mes "[Paltu]";
-		mes "I'll give you a good price whatever it is. Just trust me.";
+		mes "Te dare un buen precio sea lo que sea. Solo confia en mi.";
 		next;
-		select("Could you do something for me?");
+		select("Podrias hacer algo por mi?");
 		emotion ET_BEST;
 		mes "[Paltu]";
-		mes "Hey, I like your attitude.";
+		mes "Oye, me gusta tu actitud.";
 		next;
 		mes "[Paltu]";
-		mes "Ah- you know the hat you're wearing?";
+		mes "Ah- conoces el sombrero que llevas puesto?";
 		next;
 		emotion ET_QUESTION;
 		mes "[Paltu]";
-		mes "Don't you have any of those hats lying around in storage that are solid but too ugly to wear? You do, right?";
+		mes "No tienes alguno de esos sombreros guardados en el almacen que son solidos pero muy feos para usar? Si, verdad?";
 		next;
 		select(".........");
 		emotion ET_THINK, playerattached();
 		emotion ET_SMILE;
 		mes "[Paltu]";
-		mes "See! I knew it. I knew it from the first minute.";
+		mes "Ves! Lo sabia. Lo supe desde el primer minuto.";
 		next;
 		mes "[Paltu]";
-		mes "If you bring me ^ff0000 50 Splendide Coins and the ingredients^000000, I'll make you a new hat in the same shape but worn as a ^ff0000Costume^000000.";
+		mes "Si me traes ^ff0000 50 Splendide Coins y los ingredientes^000000, te hare un nuevo sombrero con la misma forma pero como ^ff0000Costume^000000.";
 		next;
 		mes "[Paltu]";
-		mes "Hmm, what was it...?";
-		mes "I think you adventurers call them ^0571B0Costumes^000000? right?";
+		mes "Hmm, como era...?";
+		mes "Creo que ustedes los aventureros los llaman ^0571B0Costumes^000000? verdad?";
 		next;
-		select("Yes~ What do you need?");
+		select("Si~ Que necesitas?");
 		mes "[Paltu]";
-		mes "I need 1 ^0571B0hat to replicate^000000 and";
-		mes "I need ^E1281E 4 Crystal Mirrors^000000 for magic resistance, ^E1281E 1 Fairy Magic Powder^000000 as the catalyst, and ^E1281E Emerald, Ruby, Sapphire, Topaz, and Zircon, 10 of each^000000, to be used for amplifying the magic power.";
+		mes "Necesito 1 ^0571B0sombrero para replicar^000000 y";
+		mes "necesito ^E1281E 4 Crystal Mirrors^000000 para resistencia magica, ^E1281E 1 Fairy Magic Powder^000000 como catalizador, y ^E1281E Emerald, Ruby, Sapphire, Topaz y Zircon, 10 de cada uno^000000, para amplificar el poder magico.";
 		next;
 		emotion ET_STARE_ABOUT;
 		mes "[Paltu]";
-		mes "There's quite a lot of ingredients, right? Well, I can't do anything about that. Dealing with magic power is not a joke.";
+		mes "Hay bastantes ingredientes, verdad? Bueno, no puedo hacer nada al respecto. Tratar con poder magico no es una broma.";
 		next;
-		select("Which hats can be replicated?");
+		select("Que sombreros se pueden replicar?");
 		mes "[Paltu]";
-		mes "Oh! You're pretty sharp!";
-		mes "Almost forgot the most important thing.";
-		next;
-		mes "[Paltu]";
-		mes "Hats that I can replicate are:";
-		mes "^0571B0Frog Hat, Romantic Flower, Magestic Goat, Blush, Valkyrie Helm, Deviruchi Hat, Assassin Mask, Elven Ears, Hahoe Mask, and Boys Cap^000000 a total of 10 types.";
+		mes "Oh! Eres bastante astuto!";
+		mes "Casi olvido lo mas importante.";
 		next;
 		mes "[Paltu]";
-		mes "What do you think? I'll make it happen as long as I have the ingredients and the compensation.";
+		mes "Los sombreros que puedo replicar son:";
+		mes "^0571B0Frog Hat, Romantic Flower, Magestic Goat, Blush, Valkyrie Helm, Deviruchi Hat, Assassin Mask, Elven Ears, Hahoe Mask y Boys Cap^000000 un total de 10 tipos.";
 		next;
-		if (select("I'll do it later.:Show me what you got!") == 1) {
+		mes "[Paltu]";
+		mes "Que te parece? Lo hare realidad siempre que tenga los ingredientes y la compensacion.";
+		next;
+		if (select("Lo hare despues.:Muestrame lo que tienes!") == 1) {
 			emotion ET_THINK;
 			mes "[Paltu]";
-			mes "What? Are you kidding me? Please tell me you are!";
+			mes "Que? Estas bromeando? Por favor dime que si!";
 			close;
 		}
 		break;
@@ -1113,13 +1113,13 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	emotion ET_BIGTHROB;
 	mes "[Paltu]";
 	mes "Oh wow.";
-	mes "You made the right call. I thought I was going to starve to death because the Laphines have no interest in pretty hats.";
+	mes "Tomaste la decision correcta. Pense que iba a morir de hambre porque los Laphines no tienen interes en sombreros bonitos.";
 	next;
 	mes "[Paltu]";
-	mes "I'll make it a great deal for you. You really should know I'm giving you a good deal here.";
+	mes "Te hare un gran trato. Realmente deberias saber que te estoy dando un buen precio aqui.";
 	next;
 	mes "[Paltu]";
-	mes "Is there something you had in mind? Why don't you take a look?";
+	mes "Tienes algo en mente? Por que no echas un vistazo?";
 	next;
 	setarray .@items[0], 5447, 2269, 2256, 5040, 5171, 5038, 5096, 2286, 5176, 5016;
 	setarray .@costumes[0], 19548, 19552, 19549, 19550, 19546, 19547, 19553, 19551, 19554, 19545;
@@ -1127,63 +1127,63 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 		.@item_check =1;
 	for(.@i = 0; .@i<getarraysize(.@items); .@i++) {
 		if (.@item_check && countitem(.@items[.@i]))
-			.@menu$ = .@menu$+getitemname(.@items[.@i])+" (^2502FDAble to Replicate^000000):";
+			.@menu$ = .@menu$+getitemname(.@items[.@i])+" (^2502FDSe puede Replicar^000000):";
 		else
-			.@menu$ = .@menu$+getitemname(.@items[.@i])+" (^777777Insufficient ingredients^000000):";
+			.@menu$ = .@menu$+getitemname(.@items[.@i])+" (^777777Ingredientes insuficientes^000000):";
 	}
 	.@i = select(.@menu$)-1;
 	mes "[Paltu]";
-	mes "Is ^0571B0"+getitemname(.@items[.@i])+"^000000 what you wanted?";
+	mes "Es ^0571B0"+getitemname(.@items[.@i])+"^000000 lo que querias?";
 	next;
 	if (.@item_check == 0 || countitem(.@items[.@i]) == 0) {
 		emotion ET_CRY;
 		mes "[Paltu]";
-		mes "Ay... Credit purchases are difficult for me.";
+		mes "Ay... Las compras a credito son dificiles para mi.";
 		next;
 		mes "[Paltu]";
 		mes "^0571B0"+getitemname(.@items[.@i])+"^000000 and";
 		mes "^E1281E50 Splendide Coins, 4 Crystal Mirrors, 1 Fairy Magic Powder, 10 of each Emerald, Ruby, Sapphire, Topaz, and Zircon^000000 are necessary.";
 		next;
 		mes "[Paltu]";
-		mes "I'm in a tight spot myself. Please consider my situation also.";
+		mes "Yo tambien estoy en una situacion dificil. Por favor considera mi situacion tambien.";
 		close;
 	}
 	emotion ET_QUESTION;
 	mes "[Paltu]";
-	mes "Yes, this is more than enough. Should I make it now?";
+	mes "Si, esto es mas que suficiente. Lo hago ahora?";
 	next;
-	if (select("Please make it now.:Oops, I have to take care of something...") == 2) {
+	if (select("Por favor hazlo ahora.:Ups, tengo que atender algo...") == 2) {
 		emotion ET_HUK;
 		mes "[Paltu]";
-		mes "Hey.. Hey! Hey! Where you going?";
+		mes "Oye.. Oye! Oye! A donde vas?";
 		close;
 	}
 	emotion ET_HUK;
 	mes "[Paltu]";
-	mes "I got it. Oh right! Almost forgot again.";
+	mes "Entendido. Ah cierto! Casi lo olvido de nuevo.";
 	next;
 	mes "[Paltu]";
-	mes "^FF0000In the process of replication, magic intervention phenomenon causes the hat to lose all of its refinements, cards, and hidden enchantments.^000000";
+	mes "^FF0000En el proceso de replicacion, el fenomeno de intervencion magica causa que el sombrero pierda todos sus refinamientos, cartas y encantamientos ocultos.^000000";
 	next;
 	mes "[Paltu]";
-	mes "^FF0000And if you possess multiple hats of the same type, the one you don't want can undergo the replication process, so please check to make sure.^000000";
+	mes "^FF0000Y si posees multiples sombreros del mismo tipo, el que no quieres puede pasar por el proceso de replicacion, asi que por favor verifica bien.^000000";
 	next;
 	mes "[Paltu]";
-	mes "So any problems with that?";
+	mes "Algun problema con eso?";
 	next;
-	if (select("Let me go check.:Start the replication process.") == 1) {
+	if (select("Dejame ir a verificar.:Iniciar el proceso de replicacion.") == 1) {
 		mes "[Paltu]";
-		mes "Yeah, please make sure!";
+		mes "Si, por favor asegurate!";
 		close;
 	}
 	emotion ET_KIK;
 	mes "[Paltu]";
-	mes "Woohoo- Got it.";
-	mes "It's finally time for me to use my skills again.";
+	mes "Woohoo- Entendido.";
+	mes "Finalmente es hora de usar mis habilidades de nuevo.";
 	next;
 	emotion ET_PROFUSELY_SWEAT;
 	mes "[Paltu]";
-	mes "Do this thing here, and do that thing there, and then do this thing here again...";
+	mes "Hago esto aqui, y eso alla, y luego esto aqui de nuevo...";
 	next;
 	emotion ET_THINK;
 	emotion ET_PROFUSELY_SWEAT;
@@ -1210,7 +1210,7 @@ ecl_in01,67,39,4	script	Replication Expert Paltu	445,{
 	delitem .@items[.@i],1;
 	getitem .@costumes[.@i],1;
 	mes "[Paltu]";
-	mes "Good. This is a satisfying result.";
-	mes "I'll do even a better job next time. Please tell others about my work. Have a good day~";
+	mes "Bien. Este es un resultado satisfactorio.";
+	mes "Hare un trabajo aun mejor la proxima vez. Por favor cuentales a otros sobre mi trabajo. Que tengas un buen dia~";
 	close;
 }

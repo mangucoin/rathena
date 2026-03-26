@@ -9,7 +9,7 @@
 
 dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 	if (BaseLevel < 145) {
-		mes "- You may proceed after reaching level 145 or over -";
+		mes "- Podras continuar despues de alcanzar el nivel 145 o superior -";
 		close;
 	}
 	switch( checkquest(9336,PLAYTIME) ) {
@@ -17,75 +17,75 @@ dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 		switch( isbegin_quest(9335) ) {
 		case 0:// First time doing instance
 			mes "[Professor Bernhard]";
-			mes "I would say I am Professor Bernhard, the best weapons researcher in Schwarzwald.";
+			mes "Diria que soy el Profesor Bernhard, el mejor investigador de armas en Schwarzwald.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "After endless research I have created various weapons, but I felt something was missing so I found the ancient texts.";
-			mes "I found out about the Dimensional Device during my research.";
+			mes "Despues de una investigacion interminable he creado varias armas, pero sentia que faltaba algo asi que encontre los textos antiguos.";
+			mes "Descubri el Dispositivo Dimensional durante mi investigacion.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "I also realized that relics from the glorious past were also needed to create more powerful and superior weapons.";
-			mes "That is why..I need you..";
+			mes "Tambien me di cuenta de que reliquias del glorioso pasado eran necesarias para crear armas mas poderosas y superiores.";
+			mes "Por eso...te necesito...";
 			next;
 			mes "[Professor Bernhard]";
 			if (is_party_leader() == false) {
-				mes "A longing for accomplishing a powerful weapon as a genuine professor!";
-				mes "In order to accomplish that, we need shards of Gigantes that once appeared in the past battle of Fenrir and Sarah.";
+				mes "Un anhelo por lograr un arma poderosa como un verdadero profesor!";
+				mes "Para lograr eso, necesitamos fragmentos de Gigantes que aparecieron en la pasada batalla de Fenrir y Sarah.";
 				next;
 				mes "[Professor Bernhard]";
-				mes "I cannot leave my post.";
-				mes "I need a warrior who can bring me the shards instead..";
-				mes "You seem capable.";
+				mes "No puedo dejar mi puesto.";
+				mes "Necesito un guerrero que pueda traerme los fragmentos...";
+				mes "Pareces capaz.";
 				next;
 				mes "[Professor Bernhard]";
-				mes "I will continue discussing this further with your party leader rather than with you.";
+				mes "Continuare discutiendo esto con tu lider de grupo en lugar de contigo.";
 				close;
 			}
-			mes "I need a warrior who can bring me the shard of Gigantes instead..";
-			mes "You seem capable.";
+			mes "Necesito un guerrero que pueda traerme los fragmentos de Gigantes...";
+			mes "Pareces capaz.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "What do you think?";
-			mes "Would you go to the past and bring me back the shards of Gigantes?";
-			mes "I will make sure to compensate you sufficiently.";
+			mes "Que piensas?";
+			mes "Irias al pasado y me traerias los fragmentos de Gigantes?";
+			mes "Me asegurare de compensarte suficientemente.";
 			next;
-			if (select( "No", "Yes" ) == 1) {
+			if (select( "No", "Si" ) == 1) {
 				mes "[Professor Bernhard]";
-				mes "Visit me again if you change your mind.";
+				mes "Visitame de nuevo si cambias de opinion.";
 				close;
 			}
 			mes "[Professor Bernhard]";
-			mes "I set the Dimensional Device to Glast Heim of the past, where Fenrir and Sarah once fought.";
-			mes "The operating time isn't long so hurry up and come back.";
+			mes "Configure el Dispositivo Dimensional a Glast Heim del pasado, donde Fenrir y Sarah pelearon alguna vez.";
+			mes "El tiempo de operacion no es largo asi que apurate y regresa.";
 			instance_create("Fenrir and Sarah");
 			close;
 		case 1:
 			mes "[Professor Bernhard]";
-			mes "Did you successfully bring back the shards of Gigantes?";
-			mes "You probably faced a lot of danger so thank you for the effort.";
+			mes "Trajiste exitosamente los fragmentos de Gigantes?";
+			mes "Probablemente enfrentaste muchos peligros asi que gracias por el esfuerzo.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "I don't expect to receive the shards for nothing when you have risked your life for them!";
+			mes "No espero recibir los fragmentos a cambio de nada cuando has arriesgado tu vida por ellos!";
 			if (sarah_fenrir == 0) {
-				mes "I will give you a useful looking earring from the relics I have happened to have obtained during my previous research.";
+				mes "Te dare un arete util de las reliquias que obtuve durante mi investigacion anterior.";
 				next;
-				mes "- The left earring of Sarah -";
-				mes "Usable for Heal 1Lv";
-				mes "- The right earring of Sarah -";
-				mes "Usable for Teleport 1Lv";
+				mes "- El arete izquierdo de Sarah -";
+				mes "Utilizable para Heal 1Lv";
+				mes "- El arete derecho de Sarah -";
+				mes "Utilizable para Teleport 1Lv";
 				next;
-				.@s = select( "The left earring of Sarah", "The right earring of Sarah" ) - 1;
+				.@s = select( "El arete izquierdo de Sarah", "El arete derecho de Sarah" ) - 1;
 			}
 			mes "[Professor Bernhard]";
-			mes "If you hand the shards of Gigantes to my chief assistant, I will make sure the earrings will be correspondingly great through an enchantment.";
+			mes "Si le entregas los fragmentos de Gigantes a mi asistente principal, me asegurare de que los aretes sean increibles a traves de un encantamiento.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "The more shards of Gigantes are collected, the better.";
-			mes "However, there isn't a stable supply of energy needed to work the Dimensional Device.";
+			mes "Cuantos mas fragmentos de Gigantes se recolecten, mejor.";
+			mes "Sin embargo, no hay un suministro estable de energia necesaria para operar el Dispositivo Dimensional.";
 			next;
 			mes "[Professor Bernhard]";
-			mes "Come back and find me after one week has passed for the supply of Dimensional Device energy.";
-			mes "I need you to find shards of Gigantes again.";
+			mes "Vuelve y buscame despues de que pase una semana para el suministro de energia del Dispositivo Dimensional.";
+			mes "Necesito que encuentres fragmentos de Gigantes de nuevo.";
 			erasequest 9335;// Search for shards of Gigantes
 			setquest 9336;// Go back to Professor Bernhard
 			if (isbegin_quest(9337) > 0)
@@ -101,35 +101,35 @@ dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 	case 0:
 	case 1:
 		mes "[Professor Bernhard]";
-		mes "We lack the shards of Gigantes in order to make powerful weapons.";
-		mes "Because a lot of energy is needed to open a dimension device, come back and find me when the energy has accumulated.";
+		mes "Nos faltan fragmentos de Gigantes para hacer armas poderosas.";
+		mes "Como se necesita mucha energia para abrir un dispositivo dimensional, vuelve y buscame cuando la energia se haya acumulado.";
 		close;
 	case 2:
 		mes "[Professor Bernhard]";
-		mes "I have been waiting.";
-		mes "How is everything going?";
-		mes "While you were gone I have succeeded in accumulating dimensional energy.";
-		mes "We can open the dimension device again.";
+		mes "Te he estado esperando.";
+		mes "Como va todo?";
+		mes "Mientras no estabas logre acumular energia dimensional.";
+		mes "Podemos abrir el dispositivo dimensional de nuevo.";
 		next;
 		mes "[Professor Bernhard]";
-		mes "A longing for accomplishing a powerful weapon as a genuine professor!";
-		mes "In order to accomplish that, we need shards of Gigantes that once appeared in the past battle of Fenrir and Sarah.";
+		mes "Un anhelo por lograr un arma poderosa como un verdadero profesor!";
+		mes "Para lograr eso, necesitamos fragmentos de Gigantes que aparecieron en la pasada batalla de Fenrir y Sarah.";
 		next;
 		mes "[Professor Bernhard]";
-		mes "Because I cannot leave my post, ";
-		mes "I need a warrior who can bring me the shards instead.";
-		mes "I think you can assist me once again..";
+		mes "Como no puedo dejar mi puesto, ";
+		mes "necesito un guerrero que pueda traerme los fragmentos.";
+		mes "Creo que puedes asistirme una vez mas..";
 		next;
 		mes "[Professor Bernhard]";
-		mes "There, all the preparations are finished.";
-		mes "Can you go back in time again and bring me the shards of Gigantes?";
-		mes "I will make sure to compensate you sufficiently.";
+		mes "Listo, todos los preparativos estan terminados.";
+		mes "Puedes volver en el tiempo de nuevo y traerme los fragmentos de Gigantes?";
+		mes "Me asegurare de compensarte suficientemente.";
 		if (is_party_leader() == true) {
 			next;
-			if (select( "No", "Yes" ) == 1) {
+			if (select( "No", "Si" ) == 1) {
 				mes "[Professor Bernhard]";
-				mes "I set the Dimensional Device to Glast Heim of the past, where Fenrir and Sarah once were.";
-				mes "It won't last long so hurry up and come back.";
+				mes "Configure el Dispositivo Dimensional a Glast Heim del pasado, donde Fenrir y Sarah estuvieron.";
+				mes "No durara mucho asi que apurate y regresa.";
 				close;
 			}
 			instance_create("Fenrir and Sarah");
@@ -140,8 +140,8 @@ dali02,97,142,3	script	Professor Bernhard#a1	4_LGTSCIENCE,{
 
 dali02,99,148,3	script	Dimensional Device#XX1	PORTAL,{
 	if (BaseLevel < 145) {
-		mes "- You must be level 145 or over";
-		mes "It seems entry is possible. -";
+		mes "- Debes ser nivel 145 o superior";
+		mes "Parece que la entrada es posible. -";
 		close;
 	}
 	switch( checkquest(9336,PLAYTIME) ) {
@@ -149,40 +149,40 @@ dali02,99,148,3	script	Dimensional Device#XX1	PORTAL,{
 		break;
 	case 0:
 	case 1:
-		mes "- The Dimensional Device has closed.";
-		mes "It seems entry is not possible. -";
+		mes "- El Dispositivo Dimensional se ha cerrado.";
+		mes "Parece que no es posible entrar. -";
 		close;
 	case 2:
 		break;
 	}
 	if (isbegin_quest(9335) > 0) {
-		mes "- The Dimensional Device has closed.";
-		mes "It seems entry is not possible. -";
+		mes "- El Dispositivo Dimensional se ha cerrado.";
+		mes "Parece que no es posible entrar. -";
 		close;
 	}
-	if (select( "Do not enter the device.", "Enter the time device" ) == 1) {
+	if (select( "No entrar al dispositivo.", "Entrar al dispositivo temporal" ) == 1) {
 		if (getcharid(1) > 0) {
-			mes "- It seems the Dimensional Device ";
-			mes "will contort space time -";
+			mes "- Parece que el Dispositivo Dimensional ";
+			mes "distorsionara el espacio tiempo -";
 			close;
 		}
-		mes "- There is a damp presence. -";
+		mes "- Hay una presencia humeda. -";
 		close;
 	}
 	.@md_name$ = "Fenrir and Sarah";
 	switch( instance_enter(.@md_name$) ) {
 	case IE_OTHER:
-		mes "An unknown error occurred.";
+		mes "Ocurrio un error desconocido.";
 		close;
 	case IE_NOINSTANCE:
-		mes "Memorial Dungeon " + .@md_name$ + " does not exist.";
-		mes "The party leader has not created the Memorial Dungeon.";
+		mes "La Mazmorra Memorial " + .@md_name$ + " no existe.";
+		mes "El lider del grupo no ha creado la Mazmorra Memorial.";
 		close;
 	case IE_NOMEMBER:
-		mes "Only party members can enter the Memorial Dungeon.";
+		mes "Solo los miembros del grupo pueden entrar a la Mazmorra Memorial.";
 		close;
 	case IE_OK:
-		mapannounce "dali02", "Party member " + strcharinfo(0) + " of party's " + getpartyname( getcharid(1) ) + " enters Room " + .@md_name$ + "", bc_map,0xFF99,FW_NORMAL,12;
+		mapannounce "dali02", "Miembro " + strcharinfo(0) + " del grupo " + getpartyname( getcharid(1) ) + " entra a la Sala " + .@md_name$ + "", bc_map,0xFF99,FW_NORMAL,12;
 		setquest 9335;// Search for shards of Gigantes
 		if (isbegin_quest(9336) > 0)
 			erasequest 9336;
@@ -196,21 +196,21 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 		end;
 	disable_items;
 	mes "[Chief Assistant]";
-	mes "I've heard about you from the professor.";
-	mes "The professor has told me to sufficiently compensate you for risking your life and bringing the shards of Gigantes.";
+	mes "He oido de ti por el profesor.";
+	mes "El profesor me dijo que te compensara suficientemente por arriesgar tu vida y traer los fragmentos de Gigantes.";
 	next;
-	switch( select( "Enchant earring.", "Purchase earring", "Exit conversation" ) ) {
+	switch( select( "Encantar arete.", "Comprar arete", "Salir de la conversacion" ) ) {
 	case 1:
 		mes "[Chief Assistant]";
-		mes "Sarah's earrings we have discovered at the archaeological site must certainly have great potential.";
+		mes "Los aretes de Sarah que descubrimos en el sitio arqueologico deben tener un gran potencial.";
 		next;
-		switch( select( "Enchant Sarah's earrings", "Initialize enchantment on Sarah's earrings", "Exit conversation" ) ) {
+		switch( select( "Encantar aretes de Sarah", "Inicializar encantamiento de aretes de Sarah", "Salir de la conversacion" ) ) {
 		case 1:
 			mes "[Chief Assistant]";
-			mes "2 enchantments are possible on one earring.";
-			mes "Which earring do you wish to enchant?";
+			mes "2 encantamientos son posibles en un arete.";
+			mes "Que arete deseas encantar?";
 			next;
-			switch( select( "The left earring of Sarah", "The right earring of Sarah", "Quit" ) ) {
+			switch( select( "El arete izquierdo de Sarah", "El arete derecho de Sarah", "Salir" ) ) {
 			case 1:
 				.@sarah_item_id = 28310;
 				.@sarah_earring$ = "left";
@@ -221,16 +221,16 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 				break;
 			case 3:
 				mes "[Chief Assistant]";
-				mes "If you want an enchantment ";
-				mes "on Sarah's earrings, ";
-				mes "come and find me again.";
+				mes "Si quieres un encantamiento ";
+				mes "en los aretes de Sarah, ";
+				mes "ven a buscarme de nuevo.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "You must equip the item to make enchantment possible.";
-			mes "Which column do you wish to enchant?";
+			mes "Debes equipar el objeto para hacer posible el encantamiento.";
+			mes "Que columna deseas encantar?";
 			next;
-			if (select( "Left column", "Right column" ) == 1) {
+			if (select( "Columna izquierda", "Columna derecha" ) == 1) {
 				.@part = EQI_ACC_L;
 				.@column$ = "left";
 				.@bonus_size = 4;		// 4 possibilities
@@ -245,30 +245,30 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			.@equip_id = getequipid(.@part);
 			if (.@equip_id != .@sarah_item_id) {
 				mes "[Chief Assistant]";
-				mes "If you wish to enchant, you must equip Sarah's " + .@sarah_earring$ + " earring.";
+				mes "Si deseas encantar, debes equipar el arete " + .@sarah_earring$ + " de Sarah.";
 				close;
 			}
 			setarray .@card[0], getequipcardid(.@part,0), getequipcardid(.@part,1), getequipcardid(.@part,2), getequipcardid(.@part,3);
 			if (.@card[2] > 0) {// 2 enchants
 				mes "[Chief Assistant]";
-				mes "A fully enchanted earring of Sarah cannot be enchanted any further.";
+				mes "Un arete de Sarah completamente encantado no puede ser encantado mas.";
 				close;
 			}
 			if (.@card[3] > 0) {// 1 enchant
 				mes "[Chief Assistant]";
-				mes "Sarah's Earring is currently in a state of enchantment in slot 4.";
+				mes "El Arete de Sarah actualmente tiene un encantamiento en la ranura 4.";
 				.@slot = 3;
 			}
 			else {// none enchant
 				mes "[Chief Assistant]";
-				mes "Sarah's Earring is currently in a state without enchantment.";
+				mes "El Arete de Sarah actualmente no tiene encantamiento.";
 				.@slot = 4;
 			}
 			next;
 			mes "[Chief Assistant]";
-			mes "Which ability do you want as an enchantment on slot " + .@slot + "?";
+			mes "Que habilidad quieres como encantamiento en la ranura " + .@slot + "?";
 			next;
-			switch( select( "CRI or Critical", "Expert archer or Bleed", "Conservation or MATK", "Delay Attack or Delay Skill" ) ) {
+			switch( select( "CRI o Critical", "Expert Archer o Bleed", "Conservation o MATK", "Delay Attack o Delay Skill" ) ) {
 			case 1:
 				setarray .@bonus[0],
 					4863,	// Fatal1
@@ -278,7 +278,7 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 					4941,	// Critical4
 					4865;	// Fatal3
 				mes "[Chief Assistant]";
-				mes "Selected for CRI or Critical Enchantment slot " + .@slot + ".";
+				mes "Seleccionado para encantamiento CRI o Critical en ranura " + .@slot + ".";
 				break;
 			case 2:
 				setarray .@bonus[0],
@@ -289,7 +289,7 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 					4944,	// Dodge3
 					4834;	// Expert_Archer3
 				mes "[Chief Assistant]";
-				mes "Selected for Expert Archer or Bleed Enchantment slot " + .@slot + ".";
+				mes "Seleccionado para encantamiento Expert Archer o Bleed en ranura " + .@slot + ".";
 				break;
 			case 3:
 				setarray .@bonus[0],
@@ -300,7 +300,7 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 					4947,	// Thrift3
 					4899;	// Matk5p
 				mes "[Chief Assistant]";
-				mes "Selected for Conservation or MATK Enchantment slot " + .@slot + ".";
+				mes "Seleccionado para encantamiento Conservation o MATK en ranura " + .@slot + ".";
 				break;
 			case 4:
 				setarray .@bonus[0],
@@ -311,31 +311,31 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 					4950,	// Skill_Delay3
 					4873;	// Attack_Delay_3
 				mes "[Chief Assistant]";
-				mes "Selected for Delay Attack or Delay Skill Enchantment slot " + .@slot + ".";
+				mes "Seleccionado para encantamiento Delay Attack o Delay Skill en ranura " + .@slot + ".";
 				break;
 			}
 			next;
 			mes "[Chief Assistant]";
-			mes "4 shards of Gigantes is required for one enchantment.";
+			mes "4 fragmentos de Gigantes son necesarios para un encantamiento.";
 			next;
 			mes "[Chief Assistant]";
-			mes "Because enchantment is a high risk process, there is risk of Sarah's earring being destroyed.";
-			mes "Do you still want to do it?";
+			mes "Como el encantamiento es un proceso de alto riesgo, existe el riesgo de que el arete de Sarah sea destruido.";
+			mes "Aun quieres hacerlo?";
 			next;
-			if (select( "No", "Yes" ) == 1) {
+			if (select( "No", "Si" ) == 1) {
 				mes "[Chief Assistant]";
-				mes "Please speak to me again after making a clear decision!";
+				mes "Habla conmigo de nuevo despues de tomar una decision clara!";
 				close;
 			}
 			if (countitem(6803) < 4) {
 				mes "[Chief Assistant]";
-				mes "There are not enough shards of Gigantes.";
+				mes "No hay suficientes fragmentos de Gigantes.";
 				mes "4 shards of Gigantes is required to do one enchantment.";
 				close;
 			}
 			mes "[Chief Assistant]";
-			mes "Good. I will start the enchantment!";
-			mes "I wish you luck~!";
+			mes "Bien. Comenzare el encantamiento!";
+			mes "Te deseo suerte~!";
 			next;
 			mes "[Chief Assistant]";
 			mes "Aahhhh!!";
@@ -356,23 +356,23 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 				specialeffect2 EF_CRASHEARTH;
 				specialeffect2 EF_MAXPOWER;
 				mes "[Chief Assistant]";
-				mes "Sadly... it is..";
-				mes "destroyed...";
-				mes "Whew.. ";
-				mes "enchantment is not an easy task..";
+				mes "Lamentablemente... ha sido..";
+				mes "destruido...";
+				mes "Uf.. ";
+				mes "el encantamiento no es tarea facil..";
 				close;
 			}
 			.@card[.@slot-1] = .@bonus[.@i];
 			specialeffect2 EF_ANGEL2;
 			getitem2 .@sarah_item_id,1,1,0,0,.@card[0],.@card[1],.@card[2],.@card[3];
 			mes "[Chief Assistant]";
-			mes "Enchantment completed!";
+			mes "Encantamiento completado!";
 			close;
 		case 2:
 			mes "[Chief Assistant]";
 			mes "Which earring do you wish to initialize?";
 			next;
-			switch( select( "The left earring of Sarah", "The right earring of Sarah", "Quit" ) ) {
+			switch( select( "El arete izquierdo de Sarah", "El arete derecho de Sarah", "Salir" ) ) {
 			case 1:
 				.@sarah_item_id = 28310;
 				.@sarah_earring$ = "left";
@@ -391,7 +391,7 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			next;
 			if (countitem(6803) < 1) {
 				mes "[Chief Assistant]";
-				mes "There are not enough shards of Gigantes.";
+				mes "No hay suficientes fragmentos de Gigantes.";
 				mes "You will need them in order for initialization to take place.";
 				close;
 			}
@@ -399,7 +399,7 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 			mes "You must equip the item to make initialization possible.";
 			mes "Which column's earring do you wish to initialize?";
 			next;
-			if (select( "Left column", "Right column" ) == 1) {
+			if (select( "Columna izquierda", "Columna derecha" ) == 1) {
 				.@part = EQI_ACC_L;
 				.@column$ = "left";
 			}
@@ -477,7 +477,7 @@ dali02,93,146,6	script	Assistant Professor#a1	4_M_REPAIR,{
 		if (.@s < 2) {
 			if (countitem(6803) < 1) {
 				mes "[Chief Assistant]";
-				mes "There are not enough shards of Gigantes.";
+				mes "No hay suficientes fragmentos de Gigantes.";
 				mes "You will need them for me to trade with you.";
 				close;
 			}

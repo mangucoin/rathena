@@ -28,7 +28,7 @@ verus01,153,155,5	script	Temporary Dimension-mov#pa0829_01	PORTAL,{
 			mes "Error desconocido.";
 			close;
 		case IE_OK:
-			mapannounce "verus01", "" + strcharinfo(0) + " of the party, " + getpartyname(.@party_id) + ", is entering Central Laboratory.",bc_map,"0x00FF99";
+			mapannounce "verus01", "" + strcharinfo(0) + " del grupo " + getpartyname(.@party_id) + " esta entrando al Laboratorio Central.",bc_map,"0x00FF99";
 			setquest 12347;// Trace of Laboratory Access
 			end;
 		}
@@ -54,7 +54,7 @@ verus01,149,155,5	script	Civilization Explorer#pa0829_01	4_LGTSCIENCE,{
 		mes "Cuando te hagas mas fuerte, vuelve conmigo. Deberias ser al menos nivel 135!";
 		close;
 	}
-	mes "^ff0000Taming monsters will impede progress in this dungeon. Por favor ten esto en cuenta.^000000";
+	mes "^ff0000Domesticar monstruos impedira el progreso en esta mazmorra. Por favor ten esto en cuenta.^000000";
 	next;
 	mes "[Civilization Explorer]";
 	switch( isbegin_quest(12346) ) {
@@ -178,7 +178,7 @@ verus01,149,155,5	script	Civilization Explorer#pa0829_01	4_LGTSCIENCE,{
 	sleep 3000;
 	npctalk "Investigador en periodo de prueba : El codigo de acceso coincide. Abrire la puerta.";
 	sleep 6000;
-	npctalk "Probationary researcher : Ya puedes entrar. Please note that you cannot open the door from the other side.";
+	npctalk "Investigador en periodo de prueba : Ya puedes entrar. Ten en cuenta que no puedes abrir la puerta desde el otro lado.";
 	if ('switch_enabled == 0) {
 		'switch_enabled = 1;
 		enablenpc instance_npcname("lab_warp#1");
@@ -290,7 +290,7 @@ OnInstanceInit:
 	mes "Parece que estan aqui para participar en el experimento de aceleracion de particulas.";
 	next;
 	mes "[Senior Researcher]";
-	mes "Codigo de acceso de hoy is ^0000ff" + .@code + "^000000.";
+	mes "El codigo de acceso de hoy es ^0000ff" + .@code + "^000000.";
 	mes "El codigo debe ingresarse como numero binario. Usen los interruptores detras de mi para ingresarlo.";
 	next;
 	mes "[Senior Researcher]";
@@ -409,11 +409,11 @@ OnStart:
 	sleep 2500;
 	mapannounce 'map_name$, "?????: Directora en jefe Lona Fresa del proyecto acelerador de particulas.", bc_map,0x00ff77;
 	sleep 5000;
-	mapannounce 'map_name$, "Lona Fresa : Current time " + gettime(DT_MONTH) + " Month " + gettime(DT_DAYOFMONTH) + " Day 25 minutes after 10.", bc_map,0x00ff77;
+	mapannounce 'map_name$, "Lona Fresa : Hora actual " + gettime(DT_MONTH) + " Mes " + gettime(DT_DAYOFMONTH) + " Dia 25 minutos pasadas las 10.", bc_map,0x00ff77;
 	sleep 5000;
 	mapannounce 'map_name$, "Lona Fresa : Probando los efectos de la aceleracion de particulas en sus alrededores en un espacio abierto.", bc_map,0x00ff77;
 	sleep 5000;
-	npctalk "Artemia : Aah... I really don't like this experiment.", 'artemia$;
+	npctalk "Artemia : Aah... Realmente no me gusta este experimento.", 'artemia$;
 	sleep 3000;
 	mapannounce 'map_name$, "Lona Fresa : Iniciando el experimento. Investigador jefe Dr. Federico, Artemia, Silvia, Vincent e investigadores asistentes.", bc_map,0x00ff77;
 	sleep 5000;
@@ -668,9 +668,9 @@ OnStart:
 	sleep 5000;
 	'bool_event = true;
 	donpcevent instance_npcname("#npc_con03") + "::OnStart";
-	mapannounce 'map_name$, "Lona Fresa: " + gettime(DT_MONTH) + " Month " + gettime(DT_DAYOFMONTH) + " Day. Current time 38 minutes past 11 temporarily terminating particle accelerator project.", bc_map, 0x00ff77;
+	mapannounce 'map_name$, "Lona Fresa: " + gettime(DT_MONTH) + " Mes " + gettime(DT_DAYOFMONTH) + " Dia. Hora actual 38 minutos pasadas las 11, terminando temporalmente el proyecto del acelerador de particulas.", bc_map, 0x00ff77;
 	sleep 6000;
-	mapannounce 'map_name$, "Lona Fresa: Ending record with reasons of Mother Computer malfunction and overheating of accelerator.", bc_map, 0x00ff77;
+	mapannounce 'map_name$, "Lona Fresa: Terminando registro por razones de mal funcionamiento de la Computadora Madre y sobrecalentamiento del acelerador.", bc_map, 0x00ff77;
 	sleep 5000;
 	npctalk "Silvia : Muy bien! Ahora la Dra. Fresa solo tiene que apagar la energia.", 'silvia$;
 	sleep 6000;

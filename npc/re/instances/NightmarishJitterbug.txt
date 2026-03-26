@@ -12,7 +12,7 @@ moc_para01,26,95,5	script	Roel#sara	4_M_ROEL,{
 	cutin "roel01",0;
 	if (BaseLevel < 120) {
 		mes "[Roel]";
-		mes "We're looking for adventurers that can join us for a brand new adventure. If you're at the Level to accept IGU's quests, then you're qualified.";
+		mes "Estamos buscando aventureros que se unan a una nueva aventura. Si tienes el Nivel para aceptar las misiones de IGU, entonces calificas.";
 		close3;
 	}
 	switch( isbegin_quest(13183) ) {// Nightmarish Jitterbug: Completed
@@ -20,45 +20,45 @@ moc_para01,26,95,5	script	Roel#sara	4_M_ROEL,{
 		switch( isbegin_quest(13181) ) {// Nightmarish Jitterbug
 		case 0:
 			mes "[Roel]";
-			mes "I'm Roel, new member of the White Wings Guild. Roter had me search everywhere for Newoz, and I've found some clues as to his whereabouts.";
+			mes "Soy Roel, nuevo miembro del Gremio White Wings. Roter me hizo buscar a Newoz por todas partes, y encontre algunas pistas sobre su paradero.";
 			next;
 			mes "[Roel]";
-			mes "Recruiting guild prospects! Join us in our search for our former master Newoz! Are you interested?";
+			mes "Reclutando prospectos para el gremio! Unete a nuestra busqueda de nuestro antiguo maestro Newoz! Te interesa?";
 			next;
-			if (select( "Yes.", "No." ) == 1) {
+			if (select( "Si.", "No." ) == 1) {
 				cutin "roel02",0;
 				mes "[Roel]";
-				mes "What a difficult task. I searched from this end to that end of the world, and could find neither hide nor hair of him.";
+				mes "Que tarea tan dificil. Busque de un extremo al otro del mundo, y no pude encontrar ni rastro de el.";
 				next;
 				cutin "roel01",0;
 				mes "[Roel]";
-				mes "I tried to some trace of him, but to no avail.";
+				mes "Intente encontrar alguna pista de el, pero fue en vano.";
 				next;
 				mes "[Roel]";
-				mes "Newoz is an avid adventurer who never stays in one place long enough; a lot of people claimed they saw him, yet none of them remembered where he went.";
+				mes "Newoz es un aventurero que nunca se queda en un lugar lo suficiente; mucha gente dijo haberlo visto, pero nadie recordaba a donde fue.";
 				next;
 				mes "[Roel]";
-				mes "After a while, I had to give up on tracing him. I was just wasting time.";
+				mes "Despues de un rato, tuve que dejar de rastrearlo. Solo estaba perdiendo el tiempo.";
 				next;
 				mes "[Roel]";
-				mes "I turned my eyes to the Other World, and there I met some eyewitnesses. They led me to the last place Newoz had been seen.";
+				mes "Dirigi mi mirada al Otro Mundo, y alli encontre algunos testigos. Me llevaron al ultimo lugar donde Newoz fue visto.";
 				next;
 				mes "[Roel]";
-				mes "The whole process was painful. If it weren't for Runane, we couldn't have Memorized his last location or gotten out of it.";
+				mes "Todo el proceso fue doloroso. Si no fuera por Runane, no podriamos haber Memorizado su ultima ubicacion ni haber salido de ahi.";
 				next;
 				mes "[Roel]";
-				mes "If you're interested in joining us, please talk to Runane. We have an exciting adventure ahead of us.";
+				mes "Si te interesa unirte, por favor habla con Runane. Tenemos una emocionante aventura por delante.";
 				setquest 13181;// Nightmarish Jitterbug
 			}
 			close3;
 		case 1:
 			mes "[Roel]";
-			mes "If you're interested in joining us, please talk to Runane.";
+			mes "Si te interesa unirte, por favor habla con Runane.";
 			close3;
 		case 2:
 			cutin "roel03",0;
 			mes "[Roel]";
-			mes "It was my first adventure as a member of White Wings. I can't wait for the next one!";
+			mes "Fue mi primera aventura como miembro de White Wings. No puedo esperar a la siguiente!";
 			erasequest 13181;
 			setquest 13183;// Nightmarish Jitterbug: Completed
 			completequest 13183;
@@ -71,33 +71,33 @@ moc_para01,26,95,5	script	Roel#sara	4_M_ROEL,{
 		switch( isbegin_quest(13181) ) {
 		case 0:
 			mes "[Roel]";
-			mes "Where do you think Shaloshi is by now? The space where we met Shaloshi is caught in a time loop, repeating the same events again and again.";
+			mes "Donde crees que estara Shaloshi ahora? El espacio donde conocimos a Shaloshi esta atrapado en un bucle temporal, repitiendo los mismos eventos una y otra vez.";
 			next;
 			mes "[Roel]";
-			mes "Mingmin thinks the phenomenon has something to do with the Dimensional Crack and Shaloshi's ability.";
+			mes "Mingmin cree que el fenomeno tiene algo que ver con la Grieta Dimensional y la habilidad de Shaloshi.";
 			next;
 			mes "[Roel]";
-			mes "I didn't quite understand her, but Runane said the portal to the place she Memorized is based on time instead of space.";
+			mes "No la entendi del todo, pero Runane dijo que el portal al lugar que ella Memorizo esta basado en el tiempo en vez del espacio.";
 			next;
 			mes "[Roel]";
-			mes "If you want, you can go back in time and experience the same events. Do you want to embark on an adventure again?";
+			mes "Si quieres, puedes volver en el tiempo y vivir los mismos eventos. Quieres embarcarte en una aventura de nuevo?";
 			next;
-			if (select( "Yes.", "No." ) == 1) {
+			if (select( "Si.", "No." ) == 1) {
 				mes "[Roel]";
-				mes "You might have a different experience this time in this place full of unfathomable mysteries. Please ask Runane to open the portal for you.";
+				mes "Puede que tengas una experiencia diferente esta vez en este lugar lleno de misterios insondables. Por favor pidele a Runane que abra el portal.";
 				next;
 				mes "[Roel]";
-				mes "This time, maybe you don't have to leave Shaloshi.";
+				mes "Esta vez, tal vez no tengas que dejar a Shaloshi.";
 				setquest 13181;// Nightmarish Jitterbug
 			}
 			close3;
 		case 1:
 			mes "[Roel]";
-			mes "Are you ready yet? You can give up if you're not confident.";
+			mes "Ya estas listo? Puedes rendirte si no te sientes seguro.";
 			next;
-			if (select( "No.", "Give up." ) == 1) {
+			if (select( "No.", "Rendirse." ) == 1) {
 				mes "[Roel]";
-				mes "That's the spirit!";
+				mes "Asi se habla!";
 				close3;
 			}
 			erasequest 13181;
@@ -105,7 +105,7 @@ moc_para01,26,95,5	script	Roel#sara	4_M_ROEL,{
 		case 2:
 			cutin "roel03",0;
 			mes "[Roel]";
-			mes "Adventuring is always fun. Be a great adventurer, okay?";
+			mes "Aventurarse siempre es divertido. Se un gran aventurero, si?";
 			erasequest 13181;
 			getexp 1500000,500000;
 			close3;
@@ -117,19 +117,19 @@ moc_para01,29,95,5	script	Runane#sara	4_F_RUNAIN,{
 	cutin "lunain01",0;
 	if (BaseLevel < 120) {
 		mes "[Runane]";
-		mes "^ff0000You must be Level 120.^000000";
+		mes "^ff0000Debes ser Nivel 120.^000000";
 		close3;
 	}
 	if (isbegin_quest(13181) != 1) {
 		mes "[Runane]";
-		mes "^ff0000If you want to use my dimensional portal, then you first have to talk to Roel. The portal is not open for everyone.^000000";
+		mes "^ff0000Si quieres usar mi portal dimensional, primero tienes que hablar con Roel. El portal no esta abierto para todos.^000000";
 		close3;
 	}
 	.@party_id = getcharid(1);
 	.@md_name$ = "Nightmarish Jitterbug";
 	if (.@party_id < 1) {
 		mes "[Runane]";
-		mes "^ff0000You first must form/join a party of at least 1 person to enter this dungeon.^000000";
+		mes "^ff0000Primero debes formar/unirte a un grupo de al menos 1 persona para entrar a esta mazmorra.^000000";
 		close3;
 	}
 	switch( checkquest(13182,PLAYTIME) ) {
@@ -138,17 +138,17 @@ moc_para01,29,95,5	script	Runane#sara	4_F_RUNAIN,{
 	case 0:
 	case 1:
 		mes "[Runane]";
-		mes "^ff0000This dimensional portal cannot be accessed for 20 hours after your last access.^000000";
+		mes "^ff0000Este portal dimensional no puede ser accedido por 20 horas despues de tu ultimo acceso.^000000";
 		close3;
 	case 2:
 		mes "[Runane]";
-		mes "The portal is now available for use.";
+		mes "El portal ya esta disponible para usar.";
 		erasequest 13182;// Nightmarish Jitterbug: Waiting
 		close3;
 	}
 	if (is_party_leader() == true)
-		.@menu$ = "Open the dimensional portal.";
-	switch( select( .@menu$, "Enter " + .@md_name$ + ".", "Cancel." ) ) {
+		.@menu$ = "Abrir el portal dimensional.";
+	switch( select( .@menu$, "Entrar a " + .@md_name$ + ".", "Cancelar." ) ) {
 	case 1:
 		if (instance_create(.@md_name$) < 0) {
 			mes "Party Name: " + getpartyname( getcharid(1) );
@@ -157,8 +157,8 @@ moc_para01,29,95,5	script	Runane#sara	4_F_RUNAIN,{
 			close3;
 		}
 		mes "[Runane]";
-		mes "^ff0000Preparing the dimensional portal...^000000";
-		mes "^ff0000Please wait.^000000";
+		mes "^ff0000Preparando el portal dimensional...^000000";
+		mes "^ff0000Por favor espera.^000000";
 		close3;
 	case 2:
 		switch( instance_enter(.@md_name$) ) {
@@ -167,21 +167,21 @@ moc_para01,29,95,5	script	Runane#sara	4_F_RUNAIN,{
 		case IE_NOINSTANCE:
 			if (is_party_leader() == false) {
 				mes "[Runane]";
-				mes "Teleporting...";
+				mes "Teletransportando...";
 				next;
 				mes "[Runane]";
-				mes "^ff0000Please note that this portal cannot be accessed for 23 hours after your last access.^000000";
+				mes "^ff0000Ten en cuenta que este portal no puede ser accedido por 23 horas despues de tu ultimo acceso.^000000";
 				next;
 			}
 			mes "[Runane]";
-			mes "^ff0000Your party leader has not yet created a Time Crack.^000000";
+			mes "^ff0000Tu lider de grupo aun no ha creado una Grieta Temporal.^000000";
 			close3;
 		case IE_OTHER:
-			mes "An unknown error has occurred.";
+			mes "Ha ocurrido un error desconocido.";
 			close3;
 		case IE_OK:
 			setquest 13182;// Nightmarish Jitterbug: Waiting
-			mapannounce "moc_para01", "" + strcharinfo(0) + " of the party, " + getpartyname( getcharid(1) ) + ", is entering the " + .@md_name$ + ".", bc_map, 0xFF99;
+			mapannounce "moc_para01", "" + strcharinfo(0) + " del grupo, " + getpartyname( getcharid(1) ) + ", esta entrando a " + .@md_name$ + ".", bc_map, 0xFF99;
 			specialeffect2 EF_READYPORTAL2;
 			specialeffect2 EF_PORTAL2;
 			// warp "1@jtb",16,17;
@@ -233,11 +233,11 @@ OnTouch_:
 	if ('room != 1 || is_party_leader() == false) {
 		cutin "nines02",0;
 		mes "[Newoz]";
-		mes "Our adventure hasn't started yet, and I'm already hungry.";
+		mes "Nuestra aventura aun no ha comenzado, y ya tengo hambre.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 1 && is_party_leader() == true) {
 			if ('additionnal_option) {// officially not disabled when choose hurry
 				disablenpc instance_npcname("Roel#01");
@@ -267,95 +267,95 @@ OnTouch_:
 
 	cutin "nines02",0;
 	mes "[Newoz]";
-	mes "It seems everyone's here.";
-	npctalk "Newoz: It seems everyone's here.";
+	mes "Parece que ya estan todos.";
+	npctalk "Newoz: Parece que ya estan todos.";
 	emotion ET_DELIGHT;
 	next;
 	cutin "rote03",0;
 	mes "[Roter]";
-	mes "I told you, Newoz. We can't just let this go.";
-	npctalk "Roter: I told you, Newoz. We can't just let this go.", .@roter$;
+	mes "Te lo dije, Newoz. No podemos dejar pasar esto.";
+	npctalk "Roter: Te lo dije, Newoz. No podemos dejar pasar esto.", .@roter$;
 	emotion ET_FRET, getnpcid(0,.@roter$);
 	next;
 	if ('room == 1 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs2";
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Considering the time and money we wasted on you, you deserve to be fed a basket full of poisonous mushrooms.";
-	npctalk "Mingmin: Considering the time and money we wasted on you, you deserve to be fed a basket full of poisonous mushrooms.", .@mingmin$;
+	mes "Considerando el tiempo y dinero que gastamos en ti, mereces que te den una canasta llena de hongos venenosos.";
+	npctalk "Mingmin: Considerando el tiempo y dinero que gastamos en ti, mereces que te den una canasta llena de hongos venenosos.", .@mingmin$;
 	next;
 	cutin "nines04",0;
 	emotion ET_DELIGHT;
 	mes "[Newoz]";
-	mes "I'll explain everything. And enough with the poisonous mushrooms. I can't eat mushrooms at all.";
-	npctalk "Newoz: I'll explain everything. And enough with the poisonous mushrooms. I can't eat mushrooms at all.";
+	mes "Les explicare todo. Y basta con los hongos venenosos. No puedo comer hongos para nada.";
+	npctalk "Newoz: Les explicare todo. Y basta con los hongos venenosos. No puedo comer hongos para nada.";
 	next;
 	cutin "igu05",2;
 	mes "[Aigu]";
-	mes "Newoz, you can't eat anything but meat. Sigh, I'm glad you're safe.";
-	npctalk "Aigu: Newoz, you can't eat anything but meat. Sigh, I'm glad you're safe.", .@aigu$;
+	mes "Newoz, no puedes comer nada mas que carne. Ay, me alegra que estes a salvo.";
+	npctalk "Aigu: Newoz, no puedes comer nada mas que carne. Ay, me alegra que estes a salvo.", .@aigu$;
 	next;
 	cutin "gelca03",0;
 	mes "[Gelka]";
-	mes "You're the famous Newoz! Nice to meet you. My master told me many great things...";
-	npctalk "Gelka: You're the famous Newoz! Nice to meet you. My master told me many great things...", .@gelka$;
+	mes "Tu eres el famoso Newoz! Mucho gusto. Mi maestro me conto muchas cosas grandiosas...";
+	npctalk "Gelka: Tu eres el famoso Newoz! Mucho gusto. Mi maestro me conto muchas cosas grandiosas...", .@gelka$;
 	next;
 	cutin "rote03",0;
 	mes "[Roter]";
-	mes "Enough. He's just an idiot with no sense of direction.";
-	npctalk "Roter: Enough. He's just an idiot with no sense of direction.", .@roter$;
+	mes "Suficiente. Solo es un idiota sin sentido de orientacion.";
+	npctalk "Roter: Suficiente. Solo es un idiota sin sentido de orientacion.", .@roter$;
 	next;
 	cutin "arang02",2;
 	mes "[Arang]";
-	mes "Wow, Newoz! Your eyes look puffier than ever.";
-	npctalk "Arang: Wow, Newoz! Your eyes look puffier than ever.", .@arang$;
+	mes "Wow, Newoz! Tus ojos se ven mas hinchados que nunca.";
+	npctalk "Arang: Wow, Newoz! Tus ojos se ven mas hinchados que nunca.", .@arang$;
 	next;
 	cutin "nines02",0;
 	mes "[Newoz]";
-	mes "Hello, Arang. How's Arirang? Heh. What brings you here?";
-	npctalk "Newoz: Hello, Arang. How's Arirang? Heh. What brings you here?";
+	mes "Hola, Arang. Como esta Arirang? Je. Que te trae por aqui?";
+	npctalk "Newoz: Hola, Arang. Como esta Arirang? Je. Que te trae por aqui?";
 	next;
 	cutin "rote03",0;
 	mes "[Roter]";
-	mes "Newoz, do you know how long you've been missing? We even recruited new guildsmen to find you, and...";
-	npctalk "Roter: Newoz, do you know how long you've been missing? We even recruited new guildsmen to find you, and...", .@roter$;
+	mes "Newoz, sabes cuanto tiempo has estado desaparecido? Incluso reclutamos nuevos miembros para encontrarte, y...";
+	npctalk "Roter: Newoz, sabes cuanto tiempo has estado desaparecido? Incluso reclutamos nuevos miembros para encontrarte, y...", .@roter$;
 	next;
 	cutin "lunain01",0;
 	mes "[Runane]";
-	mes "Hi, nice to meet you. I'm honored to meet the famous Newoz in person.";
-	npctalk "Runane: Hi, nice to meet you. I'm honored to meet the famous Newoz in person.", .@runane$;
+	mes "Hola, mucho gusto. Es un honor conocer al famoso Newoz en persona.";
+	npctalk "Runane: Hola, mucho gusto. Es un honor conocer al famoso Newoz en persona.", .@runane$;
 	next;
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "H-hello, my name is Roel. Runane and I've joined the guild together. Nice to meet you.";
-	npctalk "Roel: H-hello, my name is Roel. Runane and I've joined the guild together. Nice to meet you.", .@roel$;
+	mes "H-hola, mi nombre es Roel. Runane y yo nos unimos al gremio juntos. Mucho gusto.";
+	npctalk "Roel: H-hola, mi nombre es Roel. Runane y yo nos unimos al gremio juntos. Mucho gusto.", .@roel$;
 	next;
 	cutin "rote02",0;
 	mes "[Roter]";
-	mes "In accordance with the Guild Policy, Article 8, I'm now the master of this guild, and you're just a member.";
-	npctalk "Roter: In accordance with the Guild Policy, Article 8, I'm now the master of this guild, and you're just a member.", .@roter$;
+	mes "De acuerdo con la Politica del Gremio, Articulo 8, ahora soy el maestro de este gremio, y tu solo eres un miembro.";
+	npctalk "Roter: De acuerdo con la Politica del Gremio, Articulo 8, ahora soy el maestro de este gremio, y tu solo eres un miembro.", .@roter$;
 	next;
 	cutin "nines02",0;
 	mes "[Newoz]";
-	mes "Oh, congratulations, Master.";
-	npctalk "Newoz: Oh, congratulations, Master.";
+	mes "Oh, felicidades, Maestro.";
+	npctalk "Newoz: Oh, felicidades, Maestro.";
 	next;
 	cutin "rote01",0;
 	emotion ET_THINK, getnpcid(0,.@roter$);
 	mes "[Roter]";
-	mes "...That wasn't what I expected. Aren't you upset at all?";
-	npctalk "Roter: ...That wasn't what I expected. Aren't you upset at all?", .@roter$;
+	mes "...Eso no era lo que esperaba. No estas molesto para nada?";
+	npctalk "Roter: ...Eso no era lo que esperaba. No estas molesto para nada?", .@roter$;
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "What did you expect? All he thinks about is adventure, monsters, and treasure.";
-	npctalk "Melody-Jack: What did you expect? All he thinks about is adventure, monsters, and treasure.", .@melody$;
+	mes "Que esperabas? Lo unico en lo que piensa es en aventuras, monstruos y tesoros.";
+	npctalk "Melody-Jack: Que esperabas? Lo unico en lo que piensa es en aventuras, monstruos y tesoros.", .@melody$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Argh, is there a ghost? Or am I hearing things?";
-	npctalk "Newoz: Argh, is there a ghost? Or am I hearing things?";
+	mes "Argh, hay un fantasma? O estoy escuchando cosas?";
+	npctalk "Newoz: Argh, hay un fantasma? O estoy escuchando cosas?";
 	next;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	cutin "",255;
@@ -365,44 +365,44 @@ OnTouch_:
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Whew, it's you Jack. Long time, no see, everyone.";
-	npctalk "Newoz: Whew, it's you Jack. Long time, no see, everyone.";
+	mes "Uff, eres tu Jack. Cuanto tiempo sin vernos, a todos.";
+	npctalk "Newoz: Uff, eres tu Jack. Cuanto tiempo sin vernos, a todos.";
 	next;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "This isn't a good time for chit-chat. I'm sensing something from the very floor where you're standing and where I'm hiding.";
-	npctalk "Melody-Jack: This isn't a good time for chit-chat. I'm sensing something from the very floor where you're standing and where I'm hiding.", .@melody$;
+	mes "Este no es un buen momento para charlar. Estoy sintiendo algo del mismo piso donde estan parados y donde estoy escondido.";
+	npctalk "Melody-Jack: Este no es un buen momento para charlar. Estoy sintiendo algo del mismo piso donde estan parados y donde estoy escondido.", .@melody$;
 	next;
 	cutin "arang03",2;
 	mes "[Arang]";
-	mes "Jack, is that why you're hiding like a coward?";
-	npctalk "Arang: Jack, is that why you're hiding like a coward?", .@arang$;
+	mes "Jack, es por eso que te escondes como un cobarde?";
+	npctalk "Arang: Jack, es por eso que te escondes como un cobarde?", .@arang$;
 	next;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "It comes natural for veteran thieves like me to hide themselves in potential enemy territories.";
-	npctalk "Melody-Jack: It comes natural for veteran thieves like me to hide themselves in potential enemy territories.", .@melody$;
+	mes "Es natural para ladrones veteranos como yo esconderse en territorios potencialmente enemigos.";
+	npctalk "Melody-Jack: Es natural para ladrones veteranos como yo esconderse en territorios potencialmente enemigos.", .@melody$;
 	next;
 	mes "[Melody-Jack]";
-	mes "I'm not hiding because my sprite is not yet ready!";
-	npctalk "Melody-Jack: I'm not hiding because my sprite is not yet ready!", .@melody$;
+	mes "No me escondo porque mi sprite aun no esta listo!";
+	npctalk "Melody-Jack: No me escondo porque mi sprite aun no esta listo!", .@melody$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "I agree with Jack. Everything about this place--from the air to the soil--screams unnatural.";
-	npctalk "Mingmin: I agree with Jack. Everything about this place--from the air to the soil--screams unnatural.", .@mingmin$;
+	mes "Estoy de acuerdo con Jack. Todo en este lugar--desde el aire hasta el suelo--grita antinatural.";
+	npctalk "Mingmin: Estoy de acuerdo con Jack. Todo en este lugar--desde el aire hasta el suelo--grita antinatural.", .@mingmin$;
 	next;
 	cutin "ragi01",2;
 	mes "[Lagi]";
-	mes "Could it be supernatural?";
-	npctalk "Lagi: Could it be supernatural?", .@lagi$;
+	mes "Podria ser sobrenatural?";
+	npctalk "Lagi: Podria ser sobrenatural?", .@lagi$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Or otherworldly.";
-	npctalk "Newoz: Or otherworldly.";
+	mes "O de otro mundo.";
+	npctalk "Newoz: O de otro mundo.";
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
@@ -411,164 +411,164 @@ OnTouch_:
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "You're Lagi, right? I like the way you think. I'd love to work with you sometime.";
-	npctalk "Newoz: You're Lagi, right? I like the way you think. I'd love to work with you sometime.";
+	mes "Tu eres Lagi, verdad? Me gusta como piensas. Me encantaria trabajar contigo algun dia.";
+	npctalk "Newoz: Tu eres Lagi, verdad? Me gusta como piensas. Me encantaria trabajar contigo algun dia.";
 	next;
 	cutin "lunain02",0;
 	mes "[Runane]";
-	mes "I've joined this guild to meet you, Newoz. Do you have a girlfriend?";
-	npctalk "Runane: I've joined this guild to meet you, Newoz. Do you have a girlfriend?", .@runane$;
+	mes "Me uni a este gremio para conocerte, Newoz. Tienes novia?";
+	npctalk "Runane: Me uni a este gremio para conocerte, Newoz. Tienes novia?", .@runane$;
 	next;
 	cutin "igu05",2;
 	mes "[Aigu]";
-	mes "Don't you dare--I called dibs on him first!";
-	npctalk "Aigu: Don't you dare--I called dibs on him first!", .@aigu$;
+	mes "Ni se te ocurra--yo lo pedi primero!";
+	npctalk "Aigu: Ni se te ocurra--yo lo pedi primero!", .@aigu$;
 	next;
 	cutin "lunain03",0;
 	mes "[Runane]";
-	mes "I don't think he knows that. Do you, Newoz?";
-	npctalk "Runane: I don't think he knows that. Do you, Newoz?", .@runane$;
+	mes "No creo que el lo sepa. O si, Newoz?";
+	npctalk "Runane: No creo que el lo sepa. O si, Newoz?", .@runane$;
 	next;
 	cutin "igu04",2;
 	mes "[Aigu]";
-	mes "Well, I didn't...";
-	npctalk "Aigu: Well, I didn't...", .@aigu$;
+	mes "Bueno, yo no...";
+	npctalk "Aigu: Bueno, yo no...", .@aigu$;
 	next;
 	cutin "lunain01",0;
 	mes "[Runane]";
-	mes "*Snort* Then he's fair game!";
-	npctalk "Runane: *Snort* Then he's fair game!", .@runane$;
+	mes "*Bufido* Entonces esta disponible!";
+	npctalk "Runane: *Bufido* Entonces esta disponible!", .@runane$;
 	next;
 	cutin "gelca02",0;
 	mes "[Gelka]";
-	mes "Um, the conversation seems to have gone...";
-	npctalk "Gelka: Um, the conversation seems to have gone...", .@gelka$;
+	mes "Um, la conversacion parece haberse ido...";
+	npctalk "Gelka: Um, la conversacion parece haberse ido...", .@gelka$;
 	next;
 	cutin "ragi03",2;
 	mes "[Lagi]";
-	mes "She can change subjects more quickly than an Arclouse can cast Increase AGI.";
-	npctalk "Lagi: She can change subjects more quickly than an Arclouse can cast Increase AGI.", .@lagi$;
+	mes "Puede cambiar de tema mas rapido de lo que un Arclouse puede lanzar Increase AGI.";
+	npctalk "Lagi: Puede cambiar de tema mas rapido de lo que un Arclouse puede lanzar Increase AGI.", .@lagi$;
 	next;
 	cutin "arang02",0;
 	mes "[Arang]";
-	mes "Are they competing over Newoz? I want in, too!";
-	npctalk "Arang: Are they competing over Newoz? I want in, too!", .@arang$;
+	mes "Estan compitiendo por Newoz? Yo tambien quiero!";
+	npctalk "Arang: Estan compitiendo por Newoz? Yo tambien quiero!", .@arang$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "...Sorry to bother you guys, but I think something's over there.";
-	npctalk "Mingmin: ...Sorry to bother you guys, but I think something's over there.", .@mingmin$;
+	mes "...Perdon por molestar, pero creo que hay algo por alla.";
+	npctalk "Mingmin: ...Perdon por molestar, pero creo que hay algo por alla.", .@mingmin$;
 	next;
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "Perhaps it's monsters. Do you want me to go check?";
-	npctalk "Roel: Perhaps it's monsters. Do you want me to go check?", .@roel$;
+	mes "Tal vez sean monstruos. Quieres que vaya a ver?";
+	npctalk "Roel: Tal vez sean monstruos. Quieres que vaya a ver?", .@roel$;
 	next;
 	cutin "lunain04",0;
 	mes "[Runane]";
-	mes "You stay here, kiddo. I'll go.";
-	npctalk "Runane: You stay here, kiddo. I'll go.", .@runane$;
+	mes "Tu quedate aqui, chico. Yo ire.";
+	npctalk "Runane: Tu quedate aqui, chico. Yo ire.", .@runane$;
 	next;
 	cutin "igu05",2;
 	mes "[Aigu]";
-	mes "Wait, we're not finished here!";
-	npctalk "Aigu: Wait, we're not finished here!", .@aigu$;
+	mes "Espera, no hemos terminado aqui!";
+	npctalk "Aigu: Espera, no hemos terminado aqui!", .@aigu$;
 	next;
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "Oh, both of them left.";
-	npctalk "Lagi: Oh, both of them left.", .@lagi$;
+	mes "Oh, ambos se fueron.";
+	npctalk "Lagi: Oh, ambos se fueron.", .@lagi$;
 	next;
 	disablenpc .@aigu$;
 	disablenpc .@runane$;
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "Newoz, you're like a magnet for crazy.";
-	npctalk "Roter: Newoz, you're like a magnet for crazy.", .@roter$;
+	mes "Newoz, eres como un iman para la locura.";
+	npctalk "Roter: Newoz, eres como un iman para la locura.", .@roter$;
 	next;
 	cutin "gelca02",0;
 	mes "[Gelka]";
-	mes "I can see what has made you become so irritable, Master.";
-	npctalk "Gelka: I can see what has made you become so irritable, Master.", .@gelka$;
+	mes "Puedo ver lo que te ha hecho tan irritable, Maestro.";
+	npctalk "Gelka: Puedo ver lo que te ha hecho tan irritable, Maestro.", .@gelka$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "He's born irritable.";
-	npctalk "Mingmin: He's born irritable.", .@mingmin$;
+	mes "Nacio irritable.";
+	npctalk "Mingmin: Nacio irritable.", .@mingmin$;
 	next;
 	cutin "arang01",0;
 	mes "[Arang]";
-	mes "Agreed. He's violent, dirty...";
-	npctalk "Arang: Agreed. He's violent, dirty...", .@arang$;
+	mes "De acuerdo. Es violento, sucio...";
+	npctalk "Arang: De acuerdo. Es violento, sucio...", .@arang$;
 	next;
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "Oh, shut it, both of you!";
-	npctalk "Roter: Oh, shut it, both of you!", .@roter$;
+	mes "Oh, callense los dos!";
+	npctalk "Roter: Oh, callense los dos!", .@roter$;
 	next;
 	cutin "nines03",0;
 	mes "[Newoz]";
-	mes "That reminds me, when Rot was younger...";
-	npctalk "Newoz: That reminds me, when Rot was younger...";
+	mes "Eso me recuerda, cuando Rot era mas joven...";
+	npctalk "Newoz: Eso me recuerda, cuando Rot era mas joven...";
 	next;
 	cutin "gelca04",0;
 	mes "[Gelka]";
-	mes "Rot? Is that your pet name, Master? Are you two friends?";
-	npctalk "Gelka: Rot? Is that your pet name, Master? Are you two friends?", .@gelka$;
+	mes "Rot? Ese es tu apodo, Maestro? Son amigos?";
+	npctalk "Gelka: Rot? Ese es tu apodo, Maestro? Son amigos?", .@gelka$;
 	next;
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "That does it! I'm leaving!";
-	npctalk "Roter: That does it! I'm leaving!", .@roter$;
+	mes "Ya basta! Me voy!";
+	npctalk "Roter: Ya basta! Me voy!", .@roter$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "That Crack thing, or the entrance as you might call it, has vanished. If you really want to leave, then follow Aigu.";
-	npctalk "Mingmin: That Crack thing, or the entrance as you might call it, has vanished. If you really want to leave, then follow Aigu.", .@mingmin$;
+	mes "Esa cosa de la Grieta, o la entrada como la llaman, ha desaparecido. Si de verdad quieres irte, entonces sigue a Aigu.";
+	npctalk "Mingmin: Esa cosa de la Grieta, o la entrada como la llaman, ha desaparecido. Si de verdad quieres irte, entonces sigue a Aigu.", .@mingmin$;
 	next;
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "Stop pretending you care about me! I can take care of myself!";
-	npctalk "Roter: Stop pretending you care about me! I can take care of myself!", .@roter$;
+	mes "Deja de fingir que te importo! Puedo cuidarme solo!";
+	npctalk "Roter: Deja de fingir que te importo! Puedo cuidarme solo!", .@roter$;
 	next;
 	cutin "gelca04",0;
 	mes "[Gelka]";
-	mes "Master, come with me!";
-	npctalk "Gelka: Master, come with me!", .@gelka$;
+	mes "Maestro, ven conmigo!";
+	npctalk "Gelka: Maestro, ven conmigo!", .@gelka$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Oh, we've got new members, huh? Great, I have a few mushrooms that I've wanted to sample...";
-	npctalk "Mingmin: Oh, we've got new members, huh? Great, I have a few mushrooms that I've wanted to sample...", .@mingmin$;
+	mes "Oh, tenemos nuevos miembros, eh? Genial, tengo unos hongos que queria probar...";
+	npctalk "Mingmin: Oh, tenemos nuevos miembros, eh? Genial, tengo unos hongos que queria probar...", .@mingmin$;
 	next;
 	disablenpc .@roter$;
 	disablenpc .@gelka$;
 	cutin "ragi02",2;
 	mes "[Lagi]";
-	mes "Roel, I think we should move too.";
-	npctalk "Lagi: Roel, I think we should move too.", .@lagi$;
+	mes "Roel, creo que nosotros tambien deberiamos movernos.";
+	npctalk "Lagi: Roel, creo que nosotros tambien deberiamos movernos.", .@lagi$;
 	next;
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "Let's go.";
-	npctalk "Roel: Let's go.", .@roel$;
+	mes "Vamonos.";
+	npctalk "Roel: Vamonos.", .@roel$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Arang, let's go. It's time for an adventure!";
-	npctalk "Newoz: Arang, let's go. It's time for an adventure!";
+	mes "Arang, vamonos. Es hora de una aventura!";
+	npctalk "Newoz: Arang, vamonos. Es hora de una aventura!";
 	next;
 	disablenpc .@lagi$;
 	disablenpc .@roel$;
 	cutin "arang02",0;
 	mes "[Arang]";
-	mes "All righty!";
-	npctalk "Arang: All righty!", .@arang$;
+	mes "Dale!";
+	npctalk "Arang: Dale!", .@arang$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "I hope there are lots of things to study.";
-	npctalk "Mingmin: I hope there are lots of things to study.", .@mingmin$;
+	mes "Espero que haya muchas cosas para estudiar.";
+	npctalk "Mingmin: Espero que haya muchas cosas para estudiar.", .@mingmin$;
 	next;
 	cutin "",255;
 	disablenpc instance_npcname("Newoz#01");
@@ -591,69 +591,69 @@ OnTouch_:
 	npctalk "Melody-Jack: ...", .@melody$;
 	next;
 	mes "[Melody-Jack]";
-	mes "Let's move before they forget about us.";
-	npctalk "Melody-Jack: Let's move before they forget about us.", .@melody$;
+	mes "Vamonos antes de que se olviden de nosotros.";
+	npctalk "Melody-Jack: Vamonos antes de que se olviden de nosotros.", .@melody$;
 	close3;
 }
 
 1@jtb,34,22,4	script	Roel#01	4_M_ROEL,{
 	cutin "roel01",0;
 	mes "[Roel]";
-	mes "I'm Roel, new guildsman. Nice to meet you.";
+	mes "Soy Roel, nuevo miembro del gremio. Mucho gusto.";
 	close3;
 }
 
 1@jtb,28,21,5	script	Melody-Jack#01	CLEAR_NPC,{
 	mes "[Melody-Jack]";
-	mes "Stop bothering me. Can't you see I'm hiding?!";
+	mes "Deja de molestarme. No ves que estoy escondido?!";
 	close;
 }
 
 1@jtb,31,24,4	script	Arang#01	4_F_TAEKWON,{
 	cutin "arang01",2;
 	mes "[Arang]";
-	mes "Heya!";
+	mes "Hola!";
 	close3;
 }
 
 1@jtb,33,26,4	script	Lagi#01	4_M_RAGI,{
 	cutin "ragi01",2;
 	mes "[Lagi]";
-	mes "I've followed Aigu all the way here.";
+	mes "Segui a Aigu hasta aqui.";
 	close3;
 }
 
 1@jtb,31,28,4	script	Aigu#01	4_F_IU,{
 	cutin "igu04",2;
 	mes "[Aigu]";
-	mes "You look new around here. Nice to meet ya!";
+	mes "Te ves nuevo por aqui. Mucho gusto!";
 	close3;
 }
 
 1@jtb,25,24,5	script	Mingmin#01	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "He's bad news. Trouble follows him wherever he goes.";
+	mes "Es mala noticia. Los problemas lo siguen a donde sea que vaya.";
 	close3;
 }
 
 1@jtb,23,22,5	script	Runane#01	4_F_RUNAIN,{
 	mes "[Runane]";
-	mes "Oh, is he the famous Newoz?";
+	mes "Oh, el es el famoso Newoz?";
 	close;
 }
 
 1@jtb,23,26,5	script	Gelka#01	4_F_GELKA,{
 	cutin "gelca01",0;
 	mes "[Gelka]";
-	mes "This place gives me the heebie-jeebies.";
+	mes "Este lugar me da escalofrios.";
 	close3;
 }
 
 1@jtb,25,28,5	script	Roter#01	4_M_ROTERT,{
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "...We finally meet, Newoz!";
+	mes "...Por fin nos conocemos, Newoz!";
 	close3;
 }
 
@@ -663,11 +663,11 @@ OnTouch_:
 	if ('room != 2 || is_party_leader() == false) {
 		cutin "lunain01",2;
 		mes "[Runane]";
-		mes "Please, let there be no more surprises.";
+		mes "Por favor, que no haya mas sorpresas.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 2 && is_party_leader() == true) {
 			if ('additionnal_option) {
 				disablenpc instance_npcname("Runane#02");
@@ -682,100 +682,100 @@ OnTouch_:
 
 	cutin "lunain01",2;
 	mes "[Runane]";
-	mes "Um, I have a feeling something might spring out of nowhere to attack us.";
-	npctalk "Runane: Um, I have a feeling something might spring out of nowhere to attack us.";
+	mes "Um, tengo la sensacion de que algo podria saltar de la nada para atacarnos.";
+	npctalk "Runane: Um, tengo la sensacion de que algo podria saltar de la nada para atacarnos.";
 	next;
 	if ('room == 2 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs3";
 	cutin "shaloshi01",0;
 	mes "[???]";
-	mes "What is it?";
-	npctalk "???: What is it?", .@shaloshi$;
+	mes "Que pasa?";
+	npctalk "???: Que pasa?", .@shaloshi$;
 	next;
 	enablenpc .@shaloshi$;
 	cutin "lunain04",2;
 	mes "[Runane]";
-	mes "*Shriek*";
-	npctalk "Runane: *Shriek*";
+	mes "*Grito*";
+	npctalk "Runane: *Grito*";
 	emotion ET_HUK;
 	next;
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "MONSTER-! ...Um, it's just a woman.";
-	npctalk "Aigu: MONSTER-! ...Um, it's just a woman.", .@aigu$;
+	mes "MONSTRUO-! ...Um, solo es una mujer.";
+	npctalk "Aigu: MONSTRUO-! ...Um, solo es una mujer.", .@aigu$;
 	emotion ET_HUK, getnpcid(0,.@aigu$);
 	next;
 	cutin "lunain04",0;
 	mes "[Runane]";
-	mes "There's something! SOMETHING!";
-	npctalk "Runane: There's something! SOMETHING!";
+	mes "Hay algo! ALGO!";
+	npctalk "Runane: Hay algo! ALGO!";
 	next;
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "Calm down. It's just a woman.";
-	npctalk "Aigu: Calm down. It's just a woman.", .@aigu$;
+	mes "Calmate. Solo es una mujer.";
+	npctalk "Aigu: Calmate. Solo es una mujer.", .@aigu$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[???]";
-	mes "Voice of a woman...";
+	mes "Voz de mujer...";
 	npctalk "???: Voice of a man...", .@shaloshi$;
 	emotion ET_QUESTION, getnpcid(0,.@shaloshi$);
 	next;
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "How did we get in, you asked?";
-	npctalk "Aigu: How did we get in, you asked?", .@aigu$;
+	mes "Preguntaste como entramos?";
+	npctalk "Aigu: Preguntaste como entramos?", .@aigu$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[???]";
-	mes "No idea. How did you get in?";
-	npctalk "???: No idea. How did you get in?", .@shaloshi$;
+	mes "Ni idea. Como entraron?";
+	npctalk "???: Ni idea. Como entraron?", .@shaloshi$;
 	next;
 	cutin "lunain03",2;
 	mes "[Runane]";
-	mes "We got lost and now we're in a rift in spacetime. How did this happen?";
-	npctalk "Runane: We got lost and now we're in a rift in spacetime. How did this happen?";
+	mes "Nos perdimos y ahora estamos en una grieta en el espacio-tiempo. Como paso esto?";
+	npctalk "Runane: Nos perdimos y ahora estamos en una grieta en el espacio-tiempo. Como paso esto?";
 	next;
 	cutin "igu04",0;
 	mes "[Aigu]";
-	mes "We didn't have to be here if it weren't for someone.";
-	npctalk "Aigu: We didn't have to be here if it weren't for someone.", .@aigu$;
+	mes "No tendriamos que estar aqui si no fuera por alguien.";
+	npctalk "Aigu: No tendriamos que estar aqui si no fuera por alguien.", .@aigu$;
 	emotion ET_PROFUSELY_SWAT, getnpcid(0,.@aigu$);
 	next;
 	cutin "shaloshi01",0;
 	mes "[???]";
-	mes "The one who sings.";
-	npctalk "???: The one who sings.", .@shaloshi$;
+	mes "El que canta.";
+	npctalk "???: El que canta.", .@shaloshi$;
 	next;
 	cutin "lunain01",2;
 	mes "[Runane]";
-	mes "Do you know Newoz? Let's take him out of here.";
-	npctalk "Runane: Do you know Newoz? Let's take him out of here.";
+	mes "Conoces a Newoz? Saquemoslo de aqui.";
+	npctalk "Runane: Conoces a Newoz? Saquemoslo de aqui.";
 	next;
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "Okay. Take my hand.";
-	npctalk "Aigu: Okay. Take my hand.", .@aigu$;
+	mes "Esta bien. Toma mi mano.";
+	npctalk "Aigu: Esta bien. Toma mi mano.", .@aigu$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[???]";
-	mes "Your hand is ... warm.";
+	mes "Tu mano es... calida.";
 	npctalk "???: Your hand is... warm.", .@shaloshi$;
 	next;
 	cutin "igu02",0;
 	mes "[Aigu]";
-	mes "It's calloused because I dance. Heh heh.";
-	npctalk "Aigu: It's calloused because I dance. Heh heh.", .@aigu$;
+	mes "Tiene callos porque bailo. Je je.";
+	npctalk "Aigu: Tiene callos porque bailo. Je je.", .@aigu$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[???]";
-	mes "Dance...";
-	npctalk "???: Dance...", .@shaloshi$;
+	mes "Baile...";
+	npctalk "???: Baile...", .@shaloshi$;
 	next;
 	cutin "lunain01",2;
 	mes "[Runane]";
-	mes "Where's everyone? Have they gone somewhere else? Let's go in that direction.";
-	npctalk "Runane: Where's everyone? Have they gone somewhere else? Let's go in that direction.";
+	mes "Donde estan todos? Se fueron a otro lado? Vamos en esa direccion.";
+	npctalk "Runane: Donde estan todos? Se fueron a otro lado? Vamos en esa direccion.";
 	close2;
 	cutin "",255;
 	disablenpc instance_npcname("Runane#02");
@@ -789,7 +789,7 @@ OnTouch_:
 1@jtb,118,45,5	script	Aigu#02	4_F_IU,{
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "A place full of mysteries.";
+	mes "Un lugar lleno de misterios.";
 	close3;
 }
 
@@ -799,44 +799,44 @@ OnTouch_:
 	if ('room != 3 || is_party_leader() == false) {
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "These monsters are boring.";
+		mes "Estos monstruos son aburridos.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@gelka$ = instance_npcname("Gelka#03");
 		cutin "gelca01",2;
 		mes "[Gelka]";
-		mes "I'm detecting electromagnetic waves up ahead. At least Grade E monsters.";
-		npctalk "Gelka: I'm detecting electromagnetic waves up ahead. At least Grade E monsters.", .@gelka$;
+		mes "Detecto ondas electromagneticas mas adelante. Al menos monstruos de Grado E.";
+		npctalk "Gelka: Detecto ondas electromagneticas mas adelante. Al menos monstruos de Grado E.", .@gelka$;
 		next;
 		emotion ET_SWEAT;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "Hey, what have you been reading these days?";
-		npctalk "Roter: Hey, what have you been reading these days?";
+		mes "Oye, que has estado leyendo ultimamente?";
+		npctalk "Roter: Oye, que has estado leyendo ultimamente?";
 		next;
 		cutin "gelca03",2;
 		mes "[Gelka]";
-		mes "Heh, Sci-Fi. There's a mechanical tool that works...";
-		npctalk "Gelka: Heh, Sci-Fi. There's a mechanical tool that works...", .@gelka$;
+		mes "Je, Ciencia Ficcion. Hay una herramienta mecanica que funciona...";
+		npctalk "Gelka: Je, Ciencia Ficcion. Hay una herramienta mecanica que funciona...", .@gelka$;
 		next;
 		emotion ET_OHNO;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "Stop talking and get ready to practice your special skills.";
-		npctalk "Roter: Stop talking and get ready to practice your special skills.";
+		mes "Deja de hablar y preparate para practicar tus habilidades especiales.";
+		npctalk "Roter: Deja de hablar y preparate para practicar tus habilidades especiales.";
 		next;
 		cutin "gelca03",2;
 		mes "[Gelka]";
-		mes "Ooh, this will be like reenacting a scene from the book, where monsters are rampaging.";
-		npctalk "Gelka: Ooh, this will be like reenacting a scene from the book, where monsters are rampaging.", .@gelka$;
+		mes "Ooh, esto sera como recrear una escena del libro, donde los monstruos causan estragos.";
+		npctalk "Gelka: Ooh, esto sera como recrear una escena del libro, donde los monstruos causan estragos.", .@gelka$;
 		next;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "Gelka, Ultra Special Skill No. 8: Wild Dance!";
-		npctalk "Roter: Gelka, Ultra Special Skill No. 8: Wild Dance!";
+		mes "Gelka, Habilidad Ultra Especial No. 8: Danza Salvaje!";
+		npctalk "Roter: Gelka, Habilidad Ultra Especial No. 8: Danza Salvaje!";
 		next;
 		emotion ET_SURPRISE, getnpcid(0,.@gelka$);
 		cutin "gelca01",2;
@@ -845,21 +845,21 @@ OnTouch_:
 		npctalk "Gelka: !!", .@gelka$;
 		next;
 		mes "[Gelka]";
-		mes "Here we go!";
-		npctalk "Gelka: Here we go!", .@gelka$;
+		mes "Alla vamos!";
+		npctalk "Gelka: Alla vamos!", .@gelka$;
 		next;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "Delicate Flashlight, Lumiere Dupleix!";
-		npctalk "Roter: Delicate Flashlight, Lumiere Dupleix!";
+		mes "Linterna Delicada, Lumiere Dupleix!";
+		npctalk "Roter: Linterna Delicada, Lumiere Dupleix!";
 		specialeffect EF_LEXAETERNA;
 		specialeffect EF_POTION_BERSERK;
 		specialeffect EF_SIGNUM;
 		next;
 		cutin "gelca01",2;
 		mes "[Gelka]";
-		mes "Ruinous Twelve Heaven's Nets!";
-		npctalk "Gelka: Ruinous Twelve Heaven's Nets!";
+		mes "Redes Ruinosas de los Doce Cielos!";
+		npctalk "Gelka: Redes Ruinosas de los Doce Cielos!";
 		specialeffect EF_HITLINE,AREA, .@gelka$;
 		specialeffect EF_BASH3D2,AREA, .@gelka$;
 		specialeffect EF_GUMGANG,AREA, .@gelka$;
@@ -875,9 +875,9 @@ OnTouch_:
 		next;
 		cutin "rote01",0;
 		mes "[Gelka/Roter]";
-		mes "Scatter--Thousand Flashlights!";
-		npctalk "Gelka: Scatter--Thousand Flashlights!", .@gelka$;
-		npctalk "Roter: Scatter--Thousand Flashlights!";
+		mes "Dispersion--Mil Linternas!";
+		npctalk "Gelka: Dispersion--Mil Linternas!", .@gelka$;
+		npctalk "Roter: Dispersion--Mil Linternas!";
 		specialeffect EF_LEXAETERNA;
 		specialeffect EF_LEXAETERNA,AREA, .@gelka$;
 		sleep2 300;
@@ -893,23 +893,23 @@ OnTouch_:
 		next;
 		cutin "gelca01",2;
 		mes "[Gelka]";
-		mes "...Whew.";
-		npctalk "Gelka: ...Whew.", .@gelka$;
+		mes "...Uff.";
+		npctalk "Gelka: ...Uff.", .@gelka$;
 		next;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "Hm, not good enough, Gelka. Don't let the guild business distract you from practice.";
-		npctalk "Roter: Hm, not good enough, Gelka. Don't let the guild business distract you from practice.";
+		mes "Hm, no es suficiente, Gelka. No dejes que los asuntos del gremio te distraigan de la practica.";
+		npctalk "Roter: Hm, no es suficiente, Gelka. No dejes que los asuntos del gremio te distraigan de la practica.";
 		next;
 		cutin "gelca03",2;
 		mes "[Gelka]";
-		mes "Yes, Master!";
-		npctalk "Gelka: Yes, Master!", .@gelka$;
+		mes "Si, Maestro!";
+		npctalk "Gelka: Si, Maestro!", .@gelka$;
 		next;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "Where are the others? This is definitely not a run-of-the-mill cave.";
-		npctalk "Roter: Where are the others? This is definitely not a run-of-the-mill cave.";
+		mes "Donde estan los demas? Esta definitivamente no es una cueva comun y corriente.";
+		npctalk "Roter: Donde estan los demas? Esta definitivamente no es una cueva comun y corriente.";
 	}
 	if ('room == 3 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs4";
@@ -919,7 +919,7 @@ OnTouch_:
 1@jtb,205,31,4	script	Gelka#03	4_F_GELKA,{
 	cutin "gelca04",2;
 	mes "[Gelka]";
-	mes "Something might jump us!";
+	mes "Algo podria atacarnos!";
 	close3;
 }
 
@@ -932,48 +932,48 @@ OnTouch_:
 		mes "...";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		cutin "shaloshi01",2;
 		mes "[???]";
 		mes "...";
 		npctalk "???: ......";
 		next;
-		select("Did you get lost by yourself again?");
+		select("Te volviste a perder solo?");
 		mes "[???]";
-		mes "I'm not alone.";
-		npctalk "???: I'm not alone.";
+		mes "No estoy solo.";
+		npctalk "???: No estoy solo.";
 		next;
 		mes "[???]";
-		mes "Aigu and Runane are good.";
-		npctalk "???: Aigu and Runane are good.";
+		mes "Aigu y Runane son buenas.";
+		npctalk "???: Aigu y Runane son buenas.";
 		next;
 		mes "[???]";
-		mes "Ask many questions.";
-		npctalk "???: Ask many questions.";
+		mes "Hacen muchas preguntas.";
+		npctalk "???: Hacen muchas preguntas.";
 		next;
 		mes "[???]";
-		mes "Can't answer.";
-		npctalk "???: Can't answer.";
+		mes "No puedo responder.";
+		npctalk "???: No puedo responder.";
 		next;
 		mes "[???]";
-		mes "Can't remember a thing.";
-		npctalk "???: Can't remember a thing.";
+		mes "No puedo recordar nada.";
+		npctalk "???: No puedo recordar nada.";
 		next;
 		mes "[???]";
-		mes "But I'm not alone.";
-		npctalk "???: But I'm not alone.";
+		mes "But No estoy solo.";
+		npctalk "???: But No estoy solo.";
 		next;
-		if (select( "Leave him.", "It's too dangerous, so take him with you." ) == 1) {
+		if (select( "Dejarlo.", "Es muy peligroso, llevalo contigo." ) == 1) {
 			mes "[???]";
-			mes "I'm okay. Not the first time.";
-			npctalk "???: I'm okay. Not the first time.";
+			mes "Estoy bien. No es la primera vez.";
+			npctalk "???: Estoy bien. No es la primera vez.";
 		}
 		else {
 			mes "[???]";
-			mes "Kind.";
-			npctalk "???: Kind.";
+			mes "Amable.";
+			npctalk "???: Amable.";
 		}
 		cutin "shaloshi03",2;
 		next;
@@ -993,11 +993,11 @@ OnTouch_:
 	if ('room != 6 || is_party_leader() == false) {
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "I'll sing again later.";
+		mes "Cantare de nuevo mas tarde.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@aigu$ = instance_npcname("Aigu#06");
 		.@arang$ = instance_npcname("Arang#06");
@@ -1005,79 +1005,79 @@ OnTouch_:
 
 		cutin "igu05",2;
 		mes "[Aigu]";
-		mes "Newoz! Where did you go this time?";
-		npctalk "Aigu: Newoz! Where did you go this time?", .@aigu$;
+		mes "Newoz! A donde fuiste esta vez?";
+		npctalk "Aigu: Newoz! A donde fuiste esta vez?", .@aigu$;
 		next;
 		cutin "nines04",0;
 		mes "[Newoz]";
 		mes "Sorry.";
-		mes "This place is like a maze. There are so many offshoots and clearings that I've lost count.";
-		npctalk "Newoz: Sorry. This place is like a maze. There are so many offshoots and clearings that I've lost count.";
+		mes "Este lugar es como un laberinto. Hay tantas ramificaciones y claros que perdi la cuenta.";
+		npctalk "Newoz: Sorry. Este lugar es como un laberinto. Hay tantas ramificaciones y claros que perdi la cuenta.";
 		next;
 		cutin "arang01",2;
 		mes "[Arang]";
-		mes "*Snort* You said the same thing about the Prontera Culvert.";
-		npctalk "Arang: *Snort* You said the same thing about the Prontera Culvert.", .@arang$;
+		mes "*Bufido* Dijiste lo mismo sobre las Alcantarillas de Prontera.";
+		npctalk "Arang: *Bufido* Dijiste lo mismo sobre las Alcantarillas de Prontera.", .@arang$;
 		next;
 		cutin "igu04",2;
 		mes "[Aigu]";
-		mes "What are you talking about? Why can't you just follow us? Where's Runane? I saw her next to me a moment ago.";
-		npctalk "Aigu: What are you talking about? Why can't you just follow us? Where's Runane? I saw her next to me a moment ago.", .@aigu$;
+		mes "De que hablas? Por que no puedes simplemente seguirnos? Donde esta Runane? La vi a mi lado hace un momento.";
+		npctalk "Aigu: De que hablas? Por que no puedes simplemente seguirnos? Donde esta Runane? La vi a mi lado hace un momento.", .@aigu$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[???]";
-		mes "Man with the singing voice.";
-		npctalk "???: Man with the singing voice.", .@shaloshi$;
+		mes "Hombre con la voz que canta.";
+		npctalk "???: Hombre con la voz que canta.", .@shaloshi$;
 		next;
 		cutin "nines02",0;
 		mes "[Newoz]";
-		mes "Oh, hello. May I ask who you are, little lady?";
-		npctalk "Newoz: Oh, hello. May I ask who you are, little lady?";
+		mes "Oh, hola. Puedo preguntar quien eres, jovencita?";
+		npctalk "Newoz: Oh, hola. Puedo preguntar quien eres, jovencita?";
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "I'm Shaloshi. Sing for me.";
-		npctalk "Shaloshi: I'm Shaloshi. Sing for me.", .@shaloshi$;
+		mes "Soy Shaloshi. Canta para mi.";
+		npctalk "Shaloshi: Soy Shaloshi. Canta para mi.", .@shaloshi$;
 		next;
 		cutin "nines03",0;
 		mes "[Newoz]";
-		mes "Hah hah, you're cute. I'll sing for you later.";
-		npctalk "Newoz: Hah hah, you're cute. I'll sing for you later.";
+		mes "Ja ja, eres tierna. Cantare para ti mas tarde.";
+		npctalk "Newoz: Ja ja, eres tierna. Cantare para ti mas tarde.";
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "You promised. You're kind.";
-		npctalk "Shaloshi: You promised. You're kind.", .@shaloshi$;
+		mes "Lo prometiste. Eres amable.";
+		npctalk "Shaloshi: Lo prometiste. Eres amable.", .@shaloshi$;
 		next;
 		cutin "igu03",2;
 		mes "[Aigu]";
-		mes "Monsters started appearing, and their number is growing quickly.";
-		npctalk "Aigu: Monsters started appearing, and their number is growing quickly.", .@aigu$;
+		mes "Los monstruos empezaron a aparecer, y su numero crece rapidamente.";
+		npctalk "Aigu: Los monstruos empezaron a aparecer, y su numero crece rapidamente.", .@aigu$;
 		next;
 		cutin "arang02",2;
 		mes "[Arang]";
-		mes "You'll be okay, Aigu, so long as you stick with us... Um, where's everyone?";
-		npctalk "Arang: You'll be okay, Aigu, so long as you stick with us... Um, where's everyone?", .@arang$;
+		mes "Estaras bien, Aigu, mientras te quedes con nosotros... Um, donde estan todos?";
+		npctalk "Arang: Estaras bien, Aigu, mientras te quedes con nosotros... Um, donde estan todos?", .@arang$;
 		next;
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "Hah hah, don't worry, little ladies. I'll protect you.";
-		npctalk "Newoz: Hah hah, don't worry, little ladies. I'll protect you.";
+		mes "Ja ja, no se preocupen, senoritas. Yo las protegere.";
+		npctalk "Newoz: Ja ja, no se preocupen, senoritas. Yo las protegere.";
 		next;
 		cutin "arang03",2;
 		mes "[Arang]";
-		mes "Newoz, I love you!";
-		npctalk "Arang: Newoz, I love you!", .@arang$;
+		mes "Newoz, te amo!";
+		npctalk "Arang: Newoz, te amo!", .@arang$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "You protect me. You're kind.";
-		npctalk "Shaloshi: You protect me. You're kind.", .@shaloshi$;
+		mes "Tu me proteges. Eres amable.";
+		npctalk "Shaloshi: Tu me proteges. Eres amable.", .@shaloshi$;
 		next;
 		cutin "igu05",2;
 		mes "[Aigu]";
-		mes "You'd run before everyone else in here. Well, we can't stay here. Let's move on.";
-		npctalk "Aigu: You'd run before everyone else in here. Well, we can't stay here. Let's move on.", .@aigu$;
+		mes "Tu saldrias corriendo antes que todos aqui. Bueno, no podemos quedarnos aqui. Sigamos.";
+		npctalk "Aigu: Tu saldrias corriendo antes que todos aqui. Bueno, no podemos quedarnos aqui. Sigamos.", .@aigu$;
 	}
 	if ('room == 6 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs7";
@@ -1087,7 +1087,7 @@ OnTouch_:
 1@jtb,25,110,4	script	Aigu#06	4_F_IU,{
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "Monsters started appearing, and their number is growing quickly.";
+	mes "Los monstruos empezaron a aparecer, y su numero crece rapidamente.";
 	close3;
 }
 
@@ -1101,7 +1101,7 @@ OnTouch_:
 1@jtb,25,104,4	script	Arang#06	4_F_TAEKWON,{
 	cutin "arang03",0;
 	mes "[Arang]";
-	mes "I'm not scared!";
+	mes "No tengo miedo!";
 	close3;
 }
 
@@ -1111,59 +1111,59 @@ OnTouch_:
 	if ('room != 7 || is_party_leader() == false) {
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "What's wrong with me? My heart won't stop pounding.";
+		mes "Que me pasa? Mi corazon no deja de latir.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@aigu$ = instance_npcname("Aigu#07");
 		.@runane$ = instance_npcname("Runane#07");
 
 		cutin "lunain01",2;
 		mes "[Runane]";
-		mes "The fog cleared up.";
-		npctalk "Runane: The fog cleared up.", .@runane$;
+		mes "La niebla se disipo.";
+		npctalk "Runane: La niebla se disipo.", .@runane$;
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "But it stayed long enough for us to lose each other.";
-		npctalk "Roel: But it stayed long enough for us to lose each other.";
+		mes "Pero duro lo suficiente como para que nos perdieramos.";
+		npctalk "Roel: Pero duro lo suficiente como para que nos perdieramos.";
 		next;
 		cutin "igu05",2;
 		mes "[Aigu]";
-		mes "One moment, I had Shaloshi's hand in my hand, and the next, she's gone.";
-		npctalk "Aigu: One moment, I had Shaloshi's hand in my hand, and the next, she's gone.", .@aigu$;
+		mes "Un momento tenia la mano de Shaloshi en mi mano, y al siguiente, desaparecio.";
+		npctalk "Aigu: Un momento tenia la mano de Shaloshi en mi mano, y al siguiente, desaparecio.", .@aigu$;
 		next;
 		cutin "lunain01",2;
 		mes "[Runane]";
-		mes "Her name is Shaloshi? I asked her several times, and she didn't tell me.";
-		npctalk "Runane: Her name is Shaloshi? I asked her several times, and she didn't tell me.", .@runane$;
+		mes "Se llama Shaloshi? Le pregunte varias veces, y no me dijo.";
+		npctalk "Runane: Se llama Shaloshi? Le pregunte varias veces, y no me dijo.", .@runane$;
 		next;
 		cutin "igu01",2;
 		mes "[Aigu]";
-		mes "That's strange. She told Newoz straight from the start.";
-		npctalk "Aigu: That's strange. She told Newoz straight from the start.", .@aigu$;
+		mes "Que extrano. Se lo dijo a Newoz desde el principio.";
+		npctalk "Aigu: Que extrano. Se lo dijo a Newoz desde el principio.", .@aigu$;
 		next;
 		cutin "lunain04",2;
 		mes "[Runane]";
-		mes "Hmpf, I hate girls. I get the feeling we'll be seeing even more monsters.";
-		npctalk "Runane: Hmpf, I hate girls. I get the feeling we'll be seeing even more monsters.", .@runane$;
+		mes "Hmpf, odio a las chicas. Tengo la sensacion de que veremos aun mas monstruos.";
+		npctalk "Runane: Hmpf, odio a las chicas. Tengo la sensacion de que veremos aun mas monstruos.", .@runane$;
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "Worry not--I'll protect you!";
-		npctalk "Roel: Worry not--I'll protect you!";
+		mes "No se preocupen--yo las protegere!";
+		npctalk "Roel: No se preocupen--yo las protegere!";
 		next;
 		cutin "igu04",2;
 		mes "[Aigu]";
-		mes "You'd better be more reliable than someone I know.";
-		npctalk "Aigu: You'd better be more reliable than someone I know.", .@aigu$;
+		mes "Mas te vale ser mas confiable que alguien que conozco.";
+		npctalk "Aigu: Mas te vale ser mas confiable que alguien que conozco.", .@aigu$;
 		next;
 		cutin "lunain03",2;
 		mes "[Runane]";
-		mes "Don't put too much faith in this kid. I'd better go look for Newoz.";
-		npctalk "Runane: Don't put too much faith in this kid. I'd better go look for Newoz.", .@runane$;
+		mes "No confies demasiado en este chico. Mejor voy a buscar a Newoz.";
+		npctalk "Runane: No confies demasiado en este chico. Mejor voy a buscar a Newoz.", .@runane$;
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
@@ -1172,8 +1172,8 @@ OnTouch_:
 		next;
 		cutin "roel03",0;
 		mes "[Roel]";
-		mes "(She's just my type!)";
-		npctalk "Roel: (She's just my type!)";
+		mes "(Es justo mi tipo!)";
+		npctalk "Roel: (Es justo mi tipo!)";
 	}
 	if ('room == 7 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs8";
@@ -1183,14 +1183,14 @@ OnTouch_:
 1@jtb,116,117,4	script	Runane#07	4_F_RUNAIN,{
 	cutin "lunain01",2;
 	mes "[Runane]";
-	mes "Where do you think Newoz is this time?";
+	mes "Donde crees que este Newoz esta vez?";
 	close3;
 }
 
 1@jtb,115,113,4	script	Aigu#07	4_F_IU,{
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "I feel great--this is my first adventure in a long time since I was charged with caring for other adventurers. Plus I've met my hero Newoz!";
+	mes "Me siento genial--esta es mi primera aventura en mucho tiempo desde que me encargaron cuidar a otros aventureros. Ademas conoci a mi heroe Newoz!";
 	close3;
 }
 
@@ -1199,11 +1199,11 @@ OnTouch_:
 1@jtb,206,107,5	script	Mingmin#08	4_F_GENETIC,{
 	if ('room != 8 || is_party_leader() == false) {
 		mes "[Mingmin]";
-		mes "Everything about her screams suspicious.";
+		mes "Todo en ella grita sospechoso.";
 		close;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 8 && is_party_leader() == true) {
 			if ('additionnal_option) {
 				disablenpc instance_npcname("Newoz#08");
@@ -1224,55 +1224,55 @@ OnTouch_:
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Yeah, what's up?";
-	npctalk "Newoz: Yeah, what's up?", .@newoz$;
+	mes "Si, que pasa?";
+	npctalk "Newoz: Si, que pasa?", .@newoz$;
 	next;
 	if ('room == 8 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs9";
 	cutin "min03",2;
 	emotion ET_HUK;
 	mes "[Mingmin]";
-	mes "Do you really have to ask? Who's that girl? Is she yours?";
-	npctalk "Mingmin: Do you really have to ask? Who's that girl? Is she yours?";
+	mes "De verdad tienes que preguntar? Quien es esa chica? Es tuya?";
+	npctalk "Mingmin: De verdad tienes que preguntar? Quien es esa chica? Es tuya?";
 	next;
 	cutin "nines04",0;
 	emotion ET_HUK, getnpcid(0,.@newoz$);
 	mes "[Newoz]";
-	mes "W-whazza...?! Don't be ridiculous. I just found her now.";
-	npctalk "Newoz: W-whazza...?! Don't be ridiculous. I just found her now.", .@newoz$;
+	mes "Q-quee...?! No seas ridicula. La acabo de encontrar.";
+	npctalk "Newoz: Q-quee...?! No seas ridicula. La acabo de encontrar.", .@newoz$;
 	next;
 	cutin "min02",2;
 	mes "[Mingmin]";
-	mes "A little girl in this strange place, by herself? Hm, doesn't it sound strange to you?";
-	npctalk "Mingmin: A little girl in this strange place, by herself? Hm, doesn't it sound strange to you?";
+	mes "Una nina en este lugar extrano, sola? Hm, no te parece raro?";
+	npctalk "Mingmin: Una nina en este lugar extrano, sola? Hm, no te parece raro?";
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "You're strange.";
-	npctalk "Shaloshi: You're strange.", .@shaloshi$;
+	mes "Tu eres extrana.";
+	npctalk "Shaloshi: Tu eres extrana.", .@shaloshi$;
 	next;
 	emotion ET_STARE;
 	cutin "min01",2;
 	mes "[Mingmin]";
-	mes "No, I'm not! You don't want me to get angry at you, girl.";
-	npctalk "Mingmin: No, I'm not! You don't want me to get angry at you, girl.";
+	mes "No lo soy! No quieres que me enoje contigo, nina.";
+	npctalk "Mingmin: No lo soy! No quieres que me enoje contigo, nina.";
 	emotion ET_FRET;
 	next;
 	emotion ET_THINK, getnpcid(0,.@shaloshi$);
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "Here they come...";
-	npctalk "Shaloshi: Here they come...", .@shaloshi$;
+	mes "Aqui vienen...";
+	npctalk "Shaloshi: Aqui vienen...", .@shaloshi$;
 	next;
 	cutin "nines04",0;
 	mes "[Newoz]";
-	mes "These monsters don't stop coming. But where are all the big, rare, beautiful ones?";
-	npctalk "Newoz: These monsters don't stop coming. But where are all the big, rare, beautiful ones?", .@newoz$;
+	mes "Estos monstruos no dejan de venir. Pero donde estan los grandes, raros y hermosos?";
+	npctalk "Newoz: Estos monstruos no dejan de venir. Pero donde estan los grandes, raros y hermosos?", .@newoz$;
 	next;
 	cutin "min02",2;
 	mes "[Mingmin]";
-	mes "I'll have to study you later, girl.";
-	npctalk "Mingmin: I'll have to study you later, girl.";
+	mes "Tendre que estudiarte despues, nina.";
+	npctalk "Mingmin: Tendre que estudiarte despues, nina.";
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
@@ -1289,14 +1289,14 @@ OnTouch_:
 1@jtb,206,114,5	script	Shaloshi#08	4_F_SHALOSH,{
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "Newoz's hand... hot.";
+	mes "La mano de Newoz... caliente.";
 	close3;
 }
 
 1@jtb,203,112,5	script	Newoz#08	4_M_NEWOZ,{
 	cutin "nines03",0;
 	mes "[Newoz]";
-	mes "I wonder what might wait for us at the end of this passage. The anticipation is killing me!";
+	mes "Me pregunto que nos esperara al final de este pasaje. La anticipacion me esta matando!";
 	close3;
 }
 
@@ -1306,11 +1306,11 @@ OnTouch_:
 	if ('room != 9 || is_party_leader() == false) {
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "I always love singing.";
+		mes "Siempre me encanta cantar.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 9 && is_party_leader() == true) {
 			donpcevent 'jitterbug_main$ + "::OnNextIs10";
 			if (jitterbug_options & 1)
@@ -1326,83 +1326,83 @@ OnTouch_:
 
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "I keep losing the others. They were right in front of me.";
-	npctalk "Newoz: I keep losing the others. They were right in front of me.";
+	mes "Sigo perdiendo a los demas. Estaban justo frente a mi.";
+	npctalk "Newoz: Sigo perdiendo a los demas. Estaban justo frente a mi.";
 	next;
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "We've met again.";
-	npctalk "Lagi: We've met again.", .@lagi$;
+	mes "Nos encontramos de nuevo.";
+	npctalk "Lagi: Nos encontramos de nuevo.", .@lagi$;
 	next;
 	cutin "nines03",0;
 	mes "[Newoz]";
-	mes "You have good taste. This just came to my mind. Listen.";
-	npctalk "Newoz: You have good taste. This just came to my mind. Listen.";
+	mes "Tienes buen gusto. Esto se me acaba de ocurrir. Escucha.";
+	npctalk "Newoz: Tienes buen gusto. Esto se me acaba de ocurrir. Escucha.";
 	next;
 	if ('room == 9 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs10";
 	cutin "nines02",0;
 	emotion ET_DELIGHT;
 	mes "[Newoz]";
-	mes "The seasons are changing once again~ yet I haven't had a chance to dye my nails with garden balsam~";
-	npctalk "Newoz: The seasons are changing once again~ yet I haven't had a chance to dye my nails with garden balsam~";
+	mes "Las estaciones estan cambiando una vez mas~ pero no he tenido la oportunidad de pintar mis unas con balsamo de jardin~";
+	npctalk "Newoz: Las estaciones estan cambiando una vez mas~ pero no he tenido la oportunidad de pintar mis unas con balsamo de jardin~";
 	next;
 	cutin "ragi02",0;
 	emotion ET_DELIGHT, getnpcid(0,.@lagi$);
 	mes "[Lagi]";
-	mes "Waiting for snow~";
-	npctalk "Lagi: Waiting for snow~", .@lagi$;
+	mes "Esperando la nieve~";
+	npctalk "Lagi: Esperando la nieve~", .@lagi$;
 	next;
 	cutin "nines01",0;
 	emotion ET_BEST;
 	mes "[Newoz]";
-	mes "You're good. You'll make great a Gypsy and Minstrel.";
-	npctalk "Newoz: You're good. You'll make great a Gypsy and Minstrel.";
+	mes "Eres bueno. Seras un gran Gitano y Trovador.";
+	npctalk "Newoz: Eres bueno. Seras un gran Gitano y Trovador.";
 	next;
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "I want to stay as a Bard for a while.";
-	npctalk "Lagi: I want to stay as a Bard for a while.", .@lagi$;
+	mes "Quiero quedarme como Bardo por un rato.";
+	npctalk "Lagi: Quiero quedarme como Bardo por un rato.", .@lagi$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "I guess jobs don't matter so long as you can sing and play, huh?";
-	npctalk "Newoz: I guess jobs don't matter so long as you can sing and play, huh?";
+	mes "Supongo que las clases no importan mientras puedas cantar y tocar, no?";
+	npctalk "Newoz: Supongo que las clases no importan mientras puedas cantar y tocar, no?";
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "Love your song.";
-	npctalk "Shaloshi: Love your song.", .@shaloshi$;
+	mes "Amo tu cancion.";
+	npctalk "Shaloshi: Amo tu cancion.", .@shaloshi$;
 	next;
 	cutin "nines02",0;
 	mes "[Newoz]";
-	mes "Shaloshi, do you have a favorite song?";
-	npctalk "Newoz: Shaloshi, do you have a favorite song?";
+	mes "Shaloshi, tienes una cancion favorita?";
+	npctalk "Newoz: Shaloshi, tienes una cancion favorita?";
 	next;
 	cutin "shaloshi01",0;
 	emotion ET_DELIGHT, getnpcid(0,.@shaloshi$);
 	mes "[Shaloshi]";
-	mes "Runane sings even whistles good, too.";
-	npctalk "Shaloshi: Runane sings even whistles good, too.", .@shaloshi$;
+	mes "Runane canta e incluso silba bien, tambien.";
+	npctalk "Shaloshi: Runane canta e incluso silba bien, tambien.", .@shaloshi$;
 	next;
 	cutin "",255;
-	mes "- Shaloshi puckers her lips to whistle, but fails. -";
+	mes "- Shaloshi frunce sus labios para silbar, pero falla. -";
 	next;
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "Um, are you trying to whistle?";
-	npctalk "Lagi: Um, are you trying to whistle?", .@lagi$;
+	mes "Um, estas intentando silbar?";
+	npctalk "Lagi: Um, estas intentando silbar?", .@lagi$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Hah hah, I'll teach you how to do it later, Shaloshi.";
-	npctalk "Newoz: Hah hah, I'll teach you how to do it later, Shaloshi.";
+	mes "Ja ja, te ensenare como hacerlo despues, Shaloshi.";
+	npctalk "Newoz: Ja ja, te ensenare como hacerlo despues, Shaloshi.";
 	next;
 	mes "[Newoz]";
 	mes "" + strcharinfo(0) + ", do you have a favorite song?";
 	npctalk "Newoz: " + strcharinfo(0) + ", do you have a favorite song?";
 	next;
-	switch( select("Aigu's debut song- Lost Poring", "Aigu's single- Only I Didn't Know about the Card Album", "Newoz's Red Potion (feat. Muka)", "Laggi's Self-composed song- Accidental Moonlight" ) ) {
+	switch( select("Cancion debut de Aigu- Lost Poring", "Sencillo de Aigu- Solo Yo No Sabia del Card Album", "Red Potion de Newoz (feat. Muka)", "Cancion de Laggi- Accidental Moonlight" ) ) {
 	case 1:
 		jitterbug_options &= ~1;
 		unittalk getcharid(3), "" + strcharinfo(0) + " : I like Aigu's debut song, Lost Poring.";
@@ -1436,19 +1436,19 @@ OnTouch_:
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Hm, to each his own.";
-	npctalk "Newoz: Hm, to each his own.";
+	mes "Hm, cada quien sus gustos.";
+	npctalk "Newoz: Hm, cada quien sus gustos.";
 	next;
 	cutin "ragi01",0;
 	emotion ET_SURPRISE, getnpcid(0,.@lagi$);
 	mes "[Lagi]";
-	mes "Something else is showing up.";
-	npctalk "Lagi: Something else is showing up.", .@lagi$;
+	mes "Algo mas esta apareciendo.";
+	npctalk "Lagi: Algo mas esta apareciendo.", .@lagi$;
 	next;
 	cutin "nines04",0;
 	mes "[Newoz]";
-	mes "Ah, I'm getting hungry. The monsters can screw themselves. Shaloshi, let's go!";
-	npctalk "Newoz: Ah, I'm getting hungry. The monsters can screw themselves. Shaloshi, let's go!";
+	mes "Ah, me esta dando hambre. Los monstruos que se vayan al diablo. Shaloshi, vamonos!";
+	npctalk "Newoz: Ah, me esta dando hambre. Los monstruos que se vayan al diablo. Shaloshi, vamonos!";
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
@@ -1457,8 +1457,8 @@ OnTouch_:
 	next;
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "Hey, come with me!";
-	npctalk "Lagi: Hey, come with me!", .@lagi$;
+	mes "Oye, ven conmigo!";
+	npctalk "Lagi: Oye, ven conmigo!", .@lagi$;
 	sleep2 1000;
 	disablenpc instance_npcname("Newoz#09");
 	disablenpc .@shaloshi$;
@@ -1469,14 +1469,14 @@ OnTouch_:
 1@jtb,290,114,4	script	Lagi#09	4_M_RAGI,{
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "I'm not experienced in adventuring, but it's quite fun.";
+	mes "No tengo experiencia en aventuras, pero es bastante divertido.";
 	close3;
 }
 
 1@jtb,286,117,5	script	Shaloshi#09	4_F_SHALOSH,{
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "(Trying to whistle) I can't.";
+	mes "(Intentando silbar) No puedo.";
 	close3;
 }
 
@@ -1488,8 +1488,8 @@ OnTouch_:
 		mes "These guys are different. They seem to understand music... or maybe not.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@runane$ = instance_npcname("Runane#10");
 		.@shaloshi$ = instance_npcname("Shaloshi#10");
@@ -1498,23 +1498,23 @@ OnTouch_:
 		emotion ET_DELIGHT;
 		cutin "nines01",2;
 		mes "[Newoz]";
-		mes "Did you take care of them already? I wanted to take part in it!";
-		npctalk "Newoz: Did you take care of them already? I wanted to take part in it!";
+		mes "Ya se encargaron de ellos? Queria participar!";
+		npctalk "Newoz: Ya se encargaron de ellos? Queria participar!";
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "They look cute, but they're ferocious.";
-		npctalk "Roel: They look cute, but they're ferocious.", .@roel$;
+		mes "Se ven tiernos, pero son feroces.";
+		npctalk "Roel: Se ven tiernos, pero son feroces.", .@roel$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "Small friends follow us. Not cute.";
-		npctalk "Shaloshi: Small friends follow us. Not cute.", .@shaloshi$;
+		mes "Pequenos amigos nos siguen. No tiernos.";
+		npctalk "Shaloshi: Pequenos amigos nos siguen. No tiernos.", .@shaloshi$;
 		next;
 		cutin "lunain01",0;
 		mes "[Runane]";
-		mes "They're monsters, not your friends. Be careful.";
-		npctalk "Runane: They're monsters, not your friends. Be careful.", .@runane$;
+		mes "Son monstruos, no tus amigos. Ten cuidado.";
+		npctalk "Runane: Son monstruos, no tus amigos. Ten cuidado.", .@runane$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
@@ -1523,18 +1523,18 @@ OnTouch_:
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "Could she have lost her memory? It seems she doesn't understand danger, it seems.";
-		npctalk "Roel: Could she have lost her memory? It seems she doesn't understand danger, it seems.", .@roel$;
+		mes "Habra perdido la memoria? Parece que no entiende el peligro.";
+		npctalk "Roel: Habra perdido la memoria? Parece que no entiende el peligro.", .@roel$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "Danger, no.";
-		npctalk "Shaloshi: Danger, no.", .@shaloshi$;
+		mes "Peligro, no.";
+		npctalk "Shaloshi: Peligro, no.", .@shaloshi$;
 		next;
 		cutin "lunain02",0;
 		mes "[Runane]";
-		mes "I think she has.";
-		npctalk "Runane: I think she has.", .@runane$;
+		mes "Creo que si.";
+		npctalk "Runane: Creo que si.", .@runane$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
@@ -1549,21 +1549,21 @@ OnTouch_:
 1@jtb,374,110,4	script	Shaloshi#10	4_F_SHALOSH,{
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "It's not dangerous. Don't worry.";
+	mes "No es peligroso. No te preocupes.";
 	close3;
 }
 
 1@jtb,369,117,5	script	Roel#10	4_M_ROEL,{
 	cutin "roel01",0;
 	mes "[Roel]";
-	mes "I've trained enough. I can be useful.";
+	mes "He entrenado suficiente. Puedo ser util.";
 	close3;
 }
 
 1@jtb,368,111,5	script	Runane#10	4_F_RUNAIN,{
 	cutin "lunain01",0;
 	mes "[Runane]";
-	mes "Never let your guard down while exploring, or you can get hurt.";
+	mes "Nunca bajes la guardia mientras exploras, o puedes salir herido.";
 	close3;
 }
 
@@ -1573,11 +1573,11 @@ OnTouch_:
 	if ('room != 11 || is_party_leader() == false) {
 		cutin "lunain04",0;
 		mes "[Runane]";
-		mes "Arang, why aren't you drinking it?";
+		mes "Arang, por que no te lo tomas?";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 11 && 'additionnal_option && is_party_leader() == true)
 			disablenpc instance_npcname("Roel#11");
 	}
@@ -1590,20 +1590,20 @@ OnTouch_:
 		cutin "lunain01",0;
 		emotion ET_DELIGHT;
 		mes "[Runane]";
-		mes "Push, push~";
-		npctalk "Runane: Push, push~";
+		mes "Dale, dale~";
+		npctalk "Runane: Dale, dale~";
 		next;
 		cutin "min01",0;
 		emotion ET_DELIGHT, getnpcid(0,.@mingmin$);
 		mes "[Mingmin]";
-		mes "Push, push~";
-		npctalk "Mingmin: Push, push~", .@mingmin$;
+		mes "Dale, dale~";
+		npctalk "Mingmin: Dale, dale~", .@mingmin$;
 		next;
 		cutin "igu02",0;
 		emotion ET_DELIGHT, getnpcid(0,.@aigu$);
 		mes "[Aigu]";
-		mes "How long do I have to shimmy my shoulders~";
-		npctalk "Aigu: How long do I have to shimmy my shoulders~", .@aigu$;
+		mes "Cuanto tiempo tengo que mover mis hombros~";
+		npctalk "Aigu: Cuanto tiempo tengo que mover mis hombros~", .@aigu$;
 		next;
 		cutin "lunain01",0;
 		mes "[Runane]";
@@ -1622,24 +1622,24 @@ OnTouch_:
 		next;
 		cutin "lunain01",0;
 		mes "[Runane]";
-		mes "*Blow*";
-		npctalk "Runane: *Blow*";
+		mes "*Soplo*";
+		npctalk "Runane: *Soplo*";
 		next;
 		cutin "arang01",2;
 		mes "[Arang]";
-		mes "Ugh, I don't want to drink this!";
-		npctalk "Arang: Ugh, I don't want to drink this!", .@arang$;
+		mes "Ugh, no quiero tomar esto!";
+		npctalk "Arang: Ugh, no quiero tomar esto!", .@arang$;
 		next;
 		cutin "min03",0;
 		mes "[Mingmin]";
-		mes "Just trust me and drink it!";
-		npctalk "Mingmin: Just trust me and drink it!", .@mingmin$;
+		mes "Solo confia en mi y tomatelo!";
+		npctalk "Mingmin: Solo confia en mi y tomatelo!", .@mingmin$;
 		next;
 		cutin "roel01",2;
 		emotion ET_SURPRISE, getnpcid(0,.@roel$);
 		mes "[Roel]";
-		mes "What are you trying to feed this child? What's in this green bottle? ...No...";
-		npctalk "Roel: What are you trying to feed this child? What's in this green bottle? ...No...", .@roel$;
+		mes "Que le estas intentando dar a esta nina? Que hay en esta botella verde? ...No...";
+		npctalk "Roel: Que le estas intentando dar a esta nina? Que hay en esta botella verde? ...No...", .@roel$;
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
@@ -1648,8 +1648,8 @@ OnTouch_:
 		next;
 		cutin "roel01",2;
 		mes "[Roel]";
-		mes "Green Potion is such a bitter... Um, Green Potion you said?";
-		npctalk "Roel: Green Potion is such a bitter... Um, Green Potion you said?", .@roel$;
+		mes "Green Potion es tan amarga... Um, dijiste Green Potion?";
+		npctalk "Roel: Green Potion es tan amarga... Um, dijiste Green Potion?", .@roel$;
 		next;
 		cutin "igu03",0;
 		mes "[Aigu]";
@@ -1663,53 +1663,53 @@ OnTouch_:
 		next;
 		cutin "lunain04",0;
 		mes "[Runane]";
-		mes "I said Green Potion!";
-		npctalk "Runane: I said Green Potion!";
+		mes "Dije Green Potion!";
+		npctalk "Runane: Dije Green Potion!";
 		next;
 		cutin "roel01",2;
 		mes "[Roel]";
-		mes "But you're singing a strange song, and... Green Potion?";
-		npctalk "Roel: But you're singing a strange song, and... Green Potion?", .@roel$;
+		mes "Pero estas cantando una cancion extrana, y... Green Potion?";
+		npctalk "Roel: Pero estas cantando una cancion extrana, y... Green Potion?", .@roel$;
 		next;
 		cutin "igu03",0;
 		mes "[Aigu]";
-		mes "I had an almost expired Green Potion, so we decided to play Rock-paper-scissors and feed it to the loser.";
-		npctalk "Aigu: I had an almost expired Green Potion, so we decided to play Rock-paper-scissors and feed it to the loser.", .@aigu$;
+		mes "Tenia una Green Potion casi vencida, asi que decidimos jugar Piedra-papel-tijeras y darsela al perdedor.";
+		npctalk "Aigu: Tenia una Green Potion casi vencida, asi que decidimos jugar Piedra-papel-tijeras y darsela al perdedor.", .@aigu$;
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "It doesn't do anything when you're not poisoned. We just didn't want to waste a good potion.";
-		npctalk "Mingmin: It doesn't do anything when you're not poisoned. We just didn't want to waste a good potion.", .@mingmin$;
+		mes "No hace nada cuando no estas envenenado. Solo no queriamos desperdiciar una buena pocion.";
+		npctalk "Mingmin: No hace nada cuando no estas envenenado. Solo no queriamos desperdiciar una buena pocion.", .@mingmin$;
 		next;
 		cutin "arang01",0;
 		mes "[Arang]";
-		mes "But it's awfully bitter.";
-		npctalk "Arang: But it's awfully bitter.", .@arang$;
+		mes "Pero es terriblemente amarga.";
+		npctalk "Arang: Pero es terriblemente amarga.", .@arang$;
 		next;
 		cutin "lunain04",0;
 		mes "[Runane]";
-		mes "Are you drinking it yet?";
-		npctalk "Runane: Are you drinking it yet?";
+		mes "Ya te la estas tomando?";
+		npctalk "Runane: Ya te la estas tomando?";
 		next;
 		cutin "igu02",0;
 		mes "[Aigu]";
-		mes "DRINK! DRINK!";
-		npctalk "Aigu: DRINK! DRINK!", .@aigu$;
+		mes "TOMA! TOMA!";
+		npctalk "Aigu: TOMA! TOMA!", .@aigu$;
 		next;
 		cutin "min01",0;
 		mes "[Mingmin]";
-		mes "DRINK! DRINK!";
-		npctalk "Mingmin: DRINK! DRINK!", .@mingmin$;
+		mes "TOMA! TOMA!";
+		npctalk "Mingmin: TOMA! TOMA!", .@mingmin$;
 		next;
 		cutin "arang02",2;
 		mes "[Arang]";
-		mes "Roel, can't you drink it for your sister?";
-		npctalk "Arang: Roel, can't you drink it for your sister?", .@arang$;
+		mes "Roel, no puedes tomartela por tu hermana?";
+		npctalk "Arang: Roel, no puedes tomartela por tu hermana?", .@arang$;
 		next;
 		cutin "roel01",2;
 		mes "[Roel]";
-		mes "Let me go look for possible threats.";
-		npctalk "Roel: Let me go look for possible threats.", .@roel$;
+		mes "Dejame ir a buscar posibles amenazas.";
+		npctalk "Roel: Dejame ir a buscar posibles amenazas.", .@roel$;
 		disablenpc instance_npcname("Roel#11");
 	}
 	if ('room == 11 && is_party_leader() == true)
@@ -1720,28 +1720,28 @@ OnTouch_:
 1@jtb,32,198,4	script	Roel#11	4_M_ROEL,{
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "A stream of water has started flowing.";
+	mes "Un arroyo de agua ha empezado a fluir.";
 	close3;
 }
 
 1@jtb,28,197,4	script	Arang#11	4_F_TAEKWON,{
 	cutin "arang01",2;
 	mes "[Arang]";
-	mes "Hate Green Potions~";
+	mes "Odio las Green Potions~";
 	close3;
 }
 
 1@jtb,25,196,5	script	Aigu#11	4_F_IU,{
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "How long do I have to shimmy my shoulders~";
+	mes "Cuanto tiempo tengo que mover mis hombros~";
 	close3;
 }
 
 1@jtb,23,200,5	script	Mingmin#11	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Hm, getting pretty awkward here.";
+	mes "Hm, esto se esta poniendo bastante incomodo.";
 	close3;
 }
 
@@ -1750,43 +1750,43 @@ OnTouch_:
 1@jtb,106,198,5	script	Mingmin#12	4_F_GENETIC,{
 	if (is_party_leader() == false) {
 		mes "[Mingmin]";
-		mes "Some scholars have proved the drop of rate of Poring card is.. percent.";
+		mes "Algunos eruditos probaron que la tasa de drop de la carta Poring es.. por ciento.";
 		close;
 	}
 	if ('room != 12) {
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "I'm glad the mushroom is not poisonous.";
+		mes "Me alegra que el hongo no sea venenoso.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "Its interior looked like that of a forest, then changed to that of a cave. How strange.";
-		npctalk "Mingmin: Its interior looked like that of a forest, then changed to that of a cave. How strange.";
+		mes "Su interior parecia el de un bosque, y luego cambio al de una cueva. Que extrano.";
+		npctalk "Mingmin: Su interior parecia el de un bosque, y luego cambio al de una cueva. Que extrano.";
 		next;
 		mes "[Mingmin]";
-		mes "Strange plants growing on stranger terrains. Everything looks out of place.";
-		npctalk "Mingmin: Strange plants growing on stranger terrains. Everything looks out of place.";
+		mes "Plantas extranas creciendo en terrenos mas extranos. Todo se ve fuera de lugar.";
+		npctalk "Mingmin: Plantas extranas creciendo en terrenos mas extranos. Todo se ve fuera de lugar.";
 		next;
 		mes "[Mingmin]";
-		mes "I've harvested a few mushrooms to taste.";
-		npctalk "Mingmin: I've harvested a few mushrooms to taste.";
+		mes "Recolecte algunos hongos para probar.";
+		npctalk "Mingmin: Recolecte algunos hongos para probar.";
 		next;
 		cutin "min01",0;
 		mes "[Mingmin]";
-		mes "This mushroom is poisonous, but not life threatening. Do you want to have a bite?";
-		npctalk "Mingmin: This mushroom is poisonous, but not life threatening. Do you want to have a bite?";
+		mes "Este hongo es venenoso, pero no mortal. Quieres darle una mordida?";
+		npctalk "Mingmin: Este hongo es venenoso, pero no mortal. Quieres darle una mordida?";
 		next;
-		if (select( "Decline.", "Have a bite." ) == 1) {
+		if (select( "Rechazar.", "Darle una mordida." ) == 1) {
 			cutin "min03",0;
 			mes "[Mingmin]";
-			mes "I won't take no for an answer!";
-			npctalk "Mingmin: I won't take no for an answer!";
+			mes "No acepto un no por respuesta!";
+			npctalk "Mingmin: No acepto un no por respuesta!";
 			next;
-			mes "- Mingmin shoves a mushroom into your mouth. -";
+			mes "- Mingmin te mete un hongo en la boca. -";
 			next;
 			cutin "min02",0;
 			mes "[Mingmin]";
@@ -1794,43 +1794,43 @@ OnTouch_:
 			npctalk "Mingmin: Hm?";
 			next;
 			mes "[Mingmin]";
-			mes "You're not reacting. Maybe the mushroom is not poisonous after all. Maybe I should try one...";
-			npctalk "Mingmin: You're not reacting. Maybe the mushroom is not poisonous after all. Maybe I should try one...";
+			mes "No estas reaccionando. Tal vez el hongo no es venenoso despues de todo. Tal vez deberia probar uno...";
+			npctalk "Mingmin: No estas reaccionando. Tal vez el hongo no es venenoso despues de todo. Tal vez deberia probar uno...";
 			next;
 			mes "[Mingmin]";
 			mes "Hm...";
 			npctalk "Mingmin: Hm...";
 			next;
 			mes "[Mingmin]";
-			mes "It has almost no taste.";
-			npctalk "Mingmin: It has almost no taste.";
+			mes "Casi no tiene sabor.";
+			npctalk "Mingmin: Casi no tiene sabor.";
 			next;
 			mes "[Mingmin]";
-			mes "Sheesh, this was a waste of time. You should go first. There's one more thing I want to look at.";
-			npctalk "Mingmin: Sheesh, this was a waste of time. You should go first. There's one more thing I want to look at.";
+			mes "Rayos, fue una perdida de tiempo. Ve tu primero. Hay una cosa mas que quiero revisar.";
+			npctalk "Mingmin: Rayos, fue una perdida de tiempo. Ve tu primero. Hay una cosa mas que quiero revisar.";
 		}
 		else {
 			mes "[Mingmin]";
-			mes "You're braver than I thought.";
-			npctalk "Mingmin: You're braver than I thought.";
+			mes "Eres mas valiente de lo que pense.";
+			npctalk "Mingmin: Eres mas valiente de lo que pense.";
 			next;
-			mes "- You feel good, possibly a side effect of eating the mushroom. -";
+			mes "- Te sientes bien, posiblemente un efecto secundario de comer el hongo. -";
 			next;
 			mes "[Mingmin]";
-			mes "I should try one.";
-			npctalk "Mingmin: I should try one.";
+			mes "Deberia probar uno.";
+			npctalk "Mingmin: Deberia probar uno.";
 			next;
 			mes "[Mingmin]";
 			mes "Hm...";
 			npctalk "Mingmin: Hm...";
 			next;
 			mes "[Mingmin]";
-			mes "It has almost no taste.";
-			npctalk "Mingmin: It has almost no taste.";
+			mes "Casi no tiene sabor.";
+			npctalk "Mingmin: Casi no tiene sabor.";
 			next;
 			mes "[Mingmin]";
-			mes "Sheesh, this was a waste of time. You should go first. There's one more thing I want to look at.";
-			npctalk "Mingmin: Sheesh, this was a waste of time. You should go first. There's one more thing I want to look at.";
+			mes "Rayos, fue una perdida de tiempo. Ve tu primero. Hay una cosa mas que quiero revisar.";
+			npctalk "Mingmin: Rayos, fue una perdida de tiempo. Ve tu primero. Hay una cosa mas que quiero revisar.";
 		}
 	}
 	if ('room == 12 && is_party_leader() == true)
@@ -1843,17 +1843,17 @@ OnTouch_:
 	if (is_party_leader() == false) {
 		cutin "nines01",2;
 		mes "[Newoz]";
-		mes "Suddenly I crave meat. I should have brought a container full of it!";
+		mes "De repente se me antoja carne. Deberia haber traido un contenedor lleno!";
 		close3;
 	}
 	if ('room != 13) {
 		cutin "nines01",2;
 		mes "[Newoz]";
-		mes "You made it sound so difficult, when you could just say, 'give and take.'";
+		mes "Lo hiciste sonar tan dificil, cuando podias simplemente decir 'dar y recibir'.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 13 && is_party_leader() == true)
 			donpcevent 'jitterbug_main$ + "::OnNextIs14";
 		close3;
@@ -1861,8 +1861,8 @@ OnTouch_:
 	.@melody$ = instance_npcname("Melody-Jack#13");
 	cutin "nines04",2;
 	mes "[Newoz]";
-	mes "Um, how did I manage to lose the others again?";
-	npctalk "Newoz: Um, how did I manage to lose the others again?";
+	mes "Um, como logre perder a los demas otra vez?";
+	npctalk "Newoz: Um, como logre perder a los demas otra vez?";
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
@@ -1872,73 +1872,73 @@ OnTouch_:
 	next;
 	cutin "nines01",2;
 	mes "[Newoz]";
-	mes "Wah! Jeez!";
-	npctalk "Newoz: Wah! Jeez!";
+	mes "Wah! Cielos!";
+	npctalk "Newoz: Wah! Cielos!";
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "And I thought you'd have gotten used to having me around invisible.";
-	npctalk "Melody-Jack: And I thought you'd have gotten used to having me around invisible.", .@melody$;
+	mes "Y yo que pensaba que ya te habias acostumbrado a tenerme cerca invisible.";
+	npctalk "Melody-Jack: Y yo que pensaba que ya te habias acostumbrado a tenerme cerca invisible.", .@melody$;
 	next;
 	cutin "nines01",2;
 	mes "[Newoz]";
-	mes "Are we still in danger?";
-	npctalk "Newoz: Are we still in danger?";
+	mes "Todavia estamos en peligro?";
+	npctalk "Newoz: Todavia estamos en peligro?";
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "Guess so. We've been circling around the same place, by the way.";
-	npctalk "Melody-Jack: Guess so. We've been circling around the same place, by the way.", .@melody$;
+	mes "Supongo que si. Hemos estado dando vueltas en el mismo lugar, por cierto.";
+	npctalk "Melody-Jack: Supongo que si. Hemos estado dando vueltas en el mismo lugar, por cierto.", .@melody$;
 	next;
 	cutin "nines04",2;
 	mes "[Newoz]";
-	mes "So I was right about this place being maze-like. Ugh, I'm getting hungry again.";
-	npctalk "Newoz: So I was right about this place being maze-like. Ugh, I'm getting hungry again.";
+	mes "Entonces tenia razon sobre que este lugar es como un laberinto. Ugh, me esta dando hambre otra vez.";
+	npctalk "Newoz: Entonces tenia razon sobre que este lugar es como un laberinto. Ugh, me esta dando hambre otra vez.";
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "I've waited for you because I wanted to talk.";
-	npctalk "Melody-Jack: I've waited for you because I wanted to talk.", .@melody$;
+	mes "Te espere porque queria hablar.";
+	npctalk "Melody-Jack: Te espere porque queria hablar.", .@melody$;
 	next;
 	mes "[Melody-Jack]";
-	mes "Newoz, your contract has expired at the time you returned to the guild.";
-	npctalk "Melody-Jack: Newoz, your contract has expired at the time you returned to the guild.", .@melody$;
+	mes "Newoz, tu contrato expiro en el momento en que volviste al gremio.";
+	npctalk "Melody-Jack: Newoz, tu contrato expiro en el momento en que volviste al gremio.", .@melody$;
 	next;
 	cutin "nines01",2;
 	mes "[Newoz]";
-	mes "Oh, that's right. Since I'm no longer the master, my contract has expired naturally.";
-	npctalk "Newoz: Oh, that's right. Since I'm no longer the master, my contract has expired naturally.";
+	mes "Oh, es cierto. Como ya no soy el maestro, mi contrato expiro naturalmente.";
+	npctalk "Newoz: Oh, es cierto. Como ya no soy el maestro, mi contrato expiro naturalmente.";
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "But given the situation, my promise to you still stands.";
-	npctalk "Melody-Jack: But given the situation, my promise to you still stands.", .@melody$;
+	mes "Pero dada la situacion, mi promesa hacia ti sigue en pie.";
+	npctalk "Melody-Jack: Pero dada la situacion, mi promesa hacia ti sigue en pie.", .@melody$;
 	next;
 	cutin "nines01",2;
 	mes "[Newoz]";
-	mes "Thanks. I'm glad my contingency plan is still in place.";
-	npctalk "Newoz: Thanks. I'm glad my contingency plan is still in place.";
+	mes "Gracias. Me alegra que mi plan de contingencia siga vigente.";
+	npctalk "Newoz: Gracias. Me alegra que mi plan de contingencia siga vigente.";
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "Hmpf, just know I'm keeping my promise to you only because you've got what I want.";
-	npctalk "Melody-Jack: Hmpf, just know I'm keeping my promise to you only because you've got what I want.", .@melody$;
+	mes "Hmpf, solo debes saber que mantengo mi promesa solo porque tienes lo que quiero.";
+	npctalk "Melody-Jack: Hmpf, solo debes saber que mantengo mi promesa solo porque tienes lo que quiero.", .@melody$;
 	next;
 	cutin "nines02",2;
 	mes "[Newoz]";
-	mes "Oh, do you mean this ukulele?";
-	npctalk "Newoz: Oh, do you mean this ukulele?";
+	mes "Oh, te refieres a este ukulele?";
+	npctalk "Newoz: Oh, te refieres a este ukulele?";
 	next;
 	cutin "",255;
 	emotion ET_MERONG, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "You moron, that's worth nothing. Your contract has expired, but a promise is a promise and I intend to keep it.";
-	npctalk "Melody-Jack: You moron, that's worth nothing. Your contract has expired, but a promise is a promise and I intend to keep it.", .@melody$;
+	mes "Idiota, eso no vale nada. Tu contrato expiro, pero una promesa es una promesa y pienso cumplirla.";
+	npctalk "Melody-Jack: Idiota, eso no vale nada. Tu contrato expiro, pero una promesa es una promesa y pienso cumplirla.", .@melody$;
 	next;
 	cutin "nines01",2;
 	mes "[Newoz]";
@@ -1953,7 +1953,7 @@ OnTouch_:
 
 1@jtb,191,206,5	script	Melody-Jack#13	CLEAR_NPC,{
 	mes "[Melody-Jack]";
-	mes "Please don't talk to me--I'm hiding for a reason.";
+	mes "Por favor no me hables--me escondo por una razon.";
 	close;
 }
 
@@ -1963,11 +1963,11 @@ OnTouch_:
 	if ('room != 14 || is_party_leader() == false) {
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "It's possible someone else might be in here.";
+		mes "Es posible que alguien mas este aqui.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 14 && is_party_leader() == true) {
 			donpcevent 'jitterbug_main$ + "::OnNextIs15";
 			if (jitterbug_options & 2)
@@ -1983,25 +1983,25 @@ OnTouch_:
 
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "I remembered a few things.";
-	npctalk "Shaloshi: I remembered a few things.", .@shaloshi$;
+	mes "Recorde algunas cosas.";
+	npctalk "Shaloshi: Recorde algunas cosas.", .@shaloshi$;
 	next;
 	cutin "igu04",2;
 	mes "[Aigu]";
-	mes "Did you?";
-	npctalk "Aigu: Did you?", .@aigu$;
+	mes "En serio?";
+	npctalk "Aigu: En serio?", .@aigu$;
 	next;
 	cutin "ragi03",2;
 	emotion ET_DELIGHT, getnpcid(0,.@lagi$);
 	mes "[Lagi]";
-	mes "She said she did.";
-	npctalk "Lagi: She said she did.", .@lagi$;
+	mes "Dijo que si.";
+	npctalk "Lagi: Dijo que si.", .@lagi$;
 	next;
 	cutin "nines03",0;
 	emotion ET_DELIGHT;
 	mes "[Newoz]";
-	mes "Right, that's what she said.";
-	npctalk "Newoz: Right, that's what she said.";
+	mes "Cierto, eso dijo.";
+	npctalk "Newoz: Cierto, eso dijo.";
 	next;
 	cutin "ragi01",2;
 	emotion ET_SURPRISE;
@@ -2013,9 +2013,9 @@ OnTouch_:
 	next;
 	cutin "nines01",0;
 	mes "[Lagi & Newoz]";
-	mes "Gimmie five!";
-	npctalk "Newoz: Gimmie five!";
-	npctalk "Lagi: Gimmie five!", .@lagi$;
+	mes "Choca esos cinco!";
+	npctalk "Newoz: Choca esos cinco!";
+	npctalk "Lagi: Choca esos cinco!", .@lagi$;
 	next;
 	cutin "",255;
 	mes "- *Slap* -";
@@ -2026,50 +2026,50 @@ OnTouch_:
 	emotion ET_HNG, getnpcid(0,.@mingmin$);
 	specialeffect EF_HIT5;
 	specialeffect EF_HIT5,AREA, .@lagi$;
-	mes "- Before the two give each other a high five, Aigu and Mingmin slap them on their backs. -";
+	mes "- Antes de que los dos choquen los cinco, Aigu y Mingmin les dan una palmada en la espalda. -";
 	next;
 	cutin "igu03",2;
 	mes "[Aigu]";
-	mes "Stop goofing around. Shaloshi, talk to us.";
-	npctalk "Aigu: Stop goofing around. Shaloshi, talk to us.", .@aigu$;
+	mes "Dejen de payasear. Shaloshi, hablanos.";
+	npctalk "Aigu: Dejen de payasear. Shaloshi, hablanos.", .@aigu$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "In the pitch darkness, I heard a voice. It was low, but it was ringing for a while.";
-	npctalk "Shaloshi: In the pitch darkness, I heard a voice. It was low, but it was ringing for a while.", .@shaloshi$;
+	mes "En la oscuridad total, escuche una voz. Era baja, pero resonaba por un rato.";
+	npctalk "Shaloshi: En la oscuridad total, escuche una voz. Era baja, pero resonaba por un rato.", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "Later I heard Newoz singing while waiting for his friends. His voice warmed me.";
-	npctalk "Shaloshi: Later I heard Newoz singing while waiting for his friends. His voice warmed me.", .@shaloshi$;
+	mes "Despues escuche a Newoz cantando mientras esperaba a sus amigos. Su voz me reconforto.";
+	npctalk "Shaloshi: Despues escuche a Newoz cantando mientras esperaba a sus amigos. Su voz me reconforto.", .@shaloshi$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "You speak like a grown-up now, all smooth and clear.";
-	npctalk "Mingmin: You speak like a grown-up now, all smooth and clear.", .@mingmin$;
+	mes "Ahora hablas como una adulta, todo suave y claro.";
+	npctalk "Mingmin: Ahora hablas como una adulta, todo suave y claro.", .@mingmin$;
 	next;
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "She could have been terrified.";
-	npctalk "Roel: She could have been terrified.", .@roel$;
+	mes "Podria haber estado aterrorizada.";
+	npctalk "Roel: Podria haber estado aterrorizada.", .@roel$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "I didn't know what friends meant, but it sounded good. I wanted it.";
-	npctalk "Shaloshi: I didn't know what friends meant, but it sounded good. I wanted it.", .@shaloshi$;
+	mes "No sabia lo que significaban los amigos, pero sonaba bien. Lo queria.";
+	npctalk "Shaloshi: No sabia lo que significaban los amigos, pero sonaba bien. Lo queria.", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "Aigu and Runane showed up.";
-	npctalk "Shaloshi: Aigu and Runane showed up.", .@shaloshi$;
+	mes "Aigu y Runane aparecieron.";
+	npctalk "Shaloshi: Aigu y Runane aparecieron.", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "I thought someone made my wish come true.";
-	npctalk "Shaloshi: I thought someone made my wish come true.", .@shaloshi$;
+	mes "Pense que alguien hizo mi deseo realidad.";
+	npctalk "Shaloshi: Pense que alguien hizo mi deseo realidad.", .@shaloshi$;
 	next;
 	cutin "nines01",0;
 	emotion ET_QUESTION;
 	mes "[Newoz]";
-	mes "The pitch darkness... Don't you remember anything else?";
-	npctalk "Newoz: The pitch darkness... Don't you remember anything else?";
+	mes "La oscuridad total... No recuerdas nada mas?";
+	npctalk "Newoz: La oscuridad total... No recuerdas nada mas?";
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
@@ -2078,22 +2078,22 @@ OnTouch_:
 	next;
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "She could have had her eyes closed. Perhaps she's sleeping.";
-	npctalk "Roel: She could have had her eyes closed. Perhaps she's sleeping.", .@roel$;
+	mes "Podria haber tenido los ojos cerrados. Tal vez estaba dormida.";
+	npctalk "Roel: Podria haber tenido los ojos cerrados. Tal vez estaba dormida.", .@roel$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "The pitch darkness... The cave is bright throughout, aside from the fog.";
-	npctalk "Newoz: The pitch darkness... The cave is bright throughout, aside from the fog.";
+	mes "La oscuridad total... La cueva esta iluminada en todas partes, aparte de la niebla.";
+	npctalk "Newoz: La oscuridad total... La cueva esta iluminada en todas partes, aparte de la niebla.";
 	next;
 	if ('room == 14 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs15";
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "A dream. A low voice in a dream. What kind of dream?";
-	npctalk "Mingmin: A dream. A low voice in a dream. What kind of dream?", .@mingmin$;
+	mes "Un sueno. Una voz baja en un sueno. Que tipo de sueno?";
+	npctalk "Mingmin: Un sueno. Una voz baja en un sueno. Que tipo de sueno?", .@mingmin$;
 	next;
-	if (select( "She heard her own thoughts.", "She was talking with someone." ) == 1) {
+	if (select( "Escucho sus propios pensamientos.", "Estaba hablando con alguien." ) == 1) {
 		jitterbug_options &= ~2;
 		unittalk getcharid(3), "" + strcharinfo(0) + " : Maybe she heard her own thoughts.";
 	}
@@ -2109,53 +2109,53 @@ OnTouch_:
 	next;
 	cutin "igu04",0;
 	mes "[Aigu]";
-	mes "She may have not remembered everything, but this is an improvement. Let's wait until she's ready to talk more.";
-	npctalk "Aigu: She may have not remembered everything, but this is an improvement. Let's wait until she's ready to talk more.", .@aigu$;
+	mes "Puede que no haya recordado todo, pero es una mejora. Esperemos hasta que este lista para hablar mas.";
+	npctalk "Aigu: Puede que no haya recordado todo, pero es una mejora. Esperemos hasta que este lista para hablar mas.", .@aigu$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "A voice before my singing. It's possible someone else might be in here.";
-	npctalk "Newoz: A voice before my singing. It's possible someone else might be in here.";
+	mes "A voice before my singing. Es posible que alguien mas este aqui.";
+	npctalk "Newoz: A voice before my singing. Es posible que alguien mas este aqui.";
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "We'll know soon enough.";
-	npctalk "Mingmin: We'll know soon enough.", .@mingmin$;
+	mes "Lo sabremos pronto.";
+	npctalk "Mingmin: Lo sabremos pronto.", .@mingmin$;
 	close3;
 }
 
 1@jtb,285,191,1	script	Shaloshi#14	4_F_SHALOSH,{
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "I think someone made my wish come true.";
+	mes "Creo que alguien hizo mi deseo realidad.";
 	close3;
 }
 
 1@jtb,285,195,4	script	Lagi#14	4_M_RAGI,{
 	cutin "ragi02",0;
 	mes "[Lagi]";
-	mes "If you find my joke funny, don't try to hide it. Just laugh.";
+	mes "Si te parece gracioso mi chiste, no intentes ocultarlo. Solo rie.";
 	close3;
 }
 
 1@jtb,287,194,4	script	Aigu#14	4_F_IU,{
 	cutin "igu04",0;
 	mes "[Aigu]";
-	mes "Don't listen to him. He doesn't need encouragement for his bad jokes.";
+	mes "No lo escuches. No necesita animo para sus malos chistes.";
 	close3;
 }
 
 1@jtb,289,191,4	script	Roel#14	4_M_ROEL,{
 	cutin "roel01",2;
 	mes "[Roel]";
-	mes "I hope Shaloshi will recover her memory soon.";
+	mes "Espero que Shaloshi recupere su memoria pronto.";
 	close3;
 }
 
 1@jtb,280,191,8	script	Mingmin#14	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Ugh, I'm tired. Looking out for these new members all day is work in itself.";
+	mes "Ugh, estoy cansada. Cuidar a estos nuevos miembros todo el dia es un trabajo en si.";
 	close3;
 }
 
@@ -2165,17 +2165,17 @@ OnTouch_:
 	if (is_party_leader() == false) {
 		cutin "nines02",0;
 		mes "[Newoz]";
-		mes "I miss the delectable combination of beef and acorns called Bifrost Roast Beef.";
+		mes "Extrano la deliciosa combinacion de carne y bellotas llamada Bifrost Roast Beef.";
 		close3;
 	}
 	if ('room != 15) {
 		cutin "nines02",0;
 		mes "[Newoz]";
-		mes "Don't worry. Children grow by fighting.";
+		mes "No te preocupes. Los ninos crecen peleando.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@roel$ = instance_npcname("Roel#15");
 		.@runane$ = instance_npcname("Runane#15");
@@ -2192,83 +2192,83 @@ OnTouch_:
 		next;
 		cutin "arang01",2;
 		mes "[Arang]";
-		mes "What?";
-		npctalk "Arang: What?", .@arang$;
+		mes "Que?";
+		npctalk "Arang: Que?", .@arang$;
 		next;
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "Weren't you in danger?";
-		npctalk "Newoz: Weren't you in danger?";
+		mes "No estaban en peligro?";
+		npctalk "Newoz: No estaban en peligro?";
 		next;
 		cutin "arang02",2;
 		mes "[Arang]";
-		mes "Where have you been? We just had an awesome monster here!";
-		npctalk "Arang: Where have you been? We just had an awesome monster here!", .@arang$;
+		mes "Donde estabas? Acabamos de tener un monstruo increible aqui!";
+		npctalk "Arang: Donde estabas? Acabamos de tener un monstruo increible aqui!", .@arang$;
 		next;
 		cutin "nines02",0;
 		mes "[Newoz]";
-		mes "Heh, my instincts told me to slow down because danger was ahead.";
-		npctalk "Newoz: Heh, my instincts told me to slow down because danger was ahead.";
+		mes "Je, mis instintos me dijeron que fuera mas lento porque habia peligro adelante.";
+		npctalk "Newoz: Je, mis instintos me dijeron que fuera mas lento porque habia peligro adelante.";
 		next;
 		cutin "gelca01",0;
 		mes "[Gelka]";
-		mes "Oh, the instincts of a great adventurer!";
-		npctalk "Gelka: Oh, the instincts of a great adventurer!", .@gelka$;
+		mes "Oh, los instintos de un gran aventurero!";
+		npctalk "Gelka: Oh, los instintos de un gran aventurero!", .@gelka$;
 		next;
 		cutin "arang01",2;
 		mes "[Arang]";
-		mes "No, his adventurer instincts have gotten rusty.";
-		npctalk "Arang: No, his adventurer instincts have gotten rusty.", .@arang$;
+		mes "No, sus instintos de aventurero se oxidaron.";
+		npctalk "Arang: No, sus instintos de aventurero se oxidaron.", .@arang$;
 		next;
 		cutin "rote01",0;
 		mes "[Roter]";
-		mes "He's just being lazy. He's not so weak.";
-		npctalk "Roter: He's just being lazy. He's not so weak.", .@roter$;
+		mes "Solo esta siendo flojo. No es tan debil.";
+		npctalk "Roter: Solo esta siendo flojo. No es tan debil.", .@roter$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "My instincts just told me Newoz is not strong.";
-		npctalk "Shaloshi: My instincts just told me Newoz is not strong.", .@shaloshi$;
+		mes "Mis instintos me dicen que Newoz no es fuerte.";
+		npctalk "Shaloshi: Mis instintos me dicen que Newoz no es fuerte.", .@shaloshi$;
 		next;
 		mes "[Shaloshi]";
-		mes "Newoz, did you just think everyone except Rot is mediocre?";
-		npctalk "Shaloshi: Newoz, did you just think everyone except Rot is mediocre?", .@shaloshi$;
+		mes "Newoz, acabas de pensar que todos excepto Rot son mediocres?";
+		npctalk "Shaloshi: Newoz, acabas de pensar que todos excepto Rot son mediocres?", .@shaloshi$;
 		next;
 		cutin "min02",2;
 		mes "[Mingmin]";
-		mes "You can talk and you can hear other people's thoughts. Brilliant.";
-		npctalk "Mingmin: You can talk and you can hear other people's thoughts. Brilliant.", .@mingmin$;
+		mes "Puedes hablar y escuchar los pensamientos de otros. Brillante.";
+		npctalk "Mingmin: Puedes hablar y escuchar los pensamientos de otros. Brillante.", .@mingmin$;
 		next;
 		cutin "lunain04",2;
 		mes "[Runane]";
-		mes "Enough! Stop being disrespectful to Newoz!";
-		npctalk "Runane: Enough! Stop being disrespectful to Newoz!", .@runane$;
+		mes "Basta! Dejen de ser irrespetuosos con Newoz!";
+		npctalk "Runane: Basta! Dejen de ser irrespetuosos con Newoz!", .@runane$;
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "Comrades should not fight with each other.";
-		npctalk "Roel: Comrades should not fight with each other.", .@roel$;
+		mes "Los camaradas no deben pelear entre si.";
+		npctalk "Roel: Los camaradas no deben pelear entre si.", .@roel$;
 		next;
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "Comrades should not fight with each other. Got it.";
-		npctalk "Shaloshi: Comrades should not fight with each other. Got it.", .@shaloshi$;
+		mes "Los camaradas no deben pelear entre si. Got it.";
+		npctalk "Shaloshi: Los camaradas no deben pelear entre si. Got it.", .@shaloshi$;
 		next;
 		cutin "lunain03",2;
 		mes "[Runane]";
-		mes "Comrades, who? We're just a bunch of strangers hell-bent on saving a lost girl!";
-		npctalk "Runane: Comrades, who? We're just a bunch of strangers hell-bent on saving a lost girl!", .@runane$;
+		mes "Camaradas, quienes? Solo somos un monton de extranos empenados en salvar a una chica perdida!";
+		npctalk "Runane: Camaradas, quienes? Solo somos un monton de extranos empenados en salvar a una chica perdida!", .@runane$;
 		next;
 		cutin "roel03",0;
 		mes "[Roel]";
-		mes "(She's hawt when she's angry!)";
-		npctalk "Roel: (She's hawt when she's angry!)", .@roel$;
+		mes "(Esta guapisima cuando se enoja!)";
+		npctalk "Roel: (Esta guapisima cuando se enoja!)", .@roel$;
 		next;
 		emotion ET_FRET, getnpcid(0,.@mingmin$);
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "We'll talk again the moment we're out of here.";
-		npctalk "Mingmin: We'll talk again the moment we're out of here.", .@mingmin$;
+		mes "Hablaremos de nuevo en cuanto salgamos de aqui.";
+		npctalk "Mingmin: Hablaremos de nuevo en cuanto salgamos de aqui.", .@mingmin$;
 	}
 	if ('room == 15 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs16";
@@ -2278,21 +2278,21 @@ OnTouch_:
 1@jtb,382,211,4	script	Mingmin#15	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Don't care.";
+	mes "No me importa.";
 	close3;
 }
 
 1@jtb,378,211,5	script	Gelka#15	4_F_GELKA,{
 	cutin "gelca01",0;
 	mes "[Gelka]";
-	mes "I never slack on my training.";
+	mes "Nunca descuido mi entrenamiento.";
 	close3;
 }
 
 1@jtb,385,214,4	script	Shaloshi#15	4_F_SHALOSH,{
 	cutin "shaloshi02",2;
 	mes "[Shaloshi]";
-	mes "Can't you hear what others think?";
+	mes "No puedes escuchar lo que otros piensan?";
 	close3;
 }
 
@@ -2306,21 +2306,21 @@ OnTouch_:
 1@jtb,384,218,4	script	Runane#15	4_F_RUNAIN,{
 	cutin "lunain02",2;
 	mes "[Runane]";
-	mes "I bake and knit in my spare time. I'm very domestic. Ho ho ho!";
+	mes "Horneo y tejo en mi tiempo libre. Soy muy hogarenya. Jo jo jo!";
 	close3;
 }
 
 1@jtb,375,214,5	script	Roter#15	4_M_ROTERT,{
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "It's true that I'm the strongest.";
+	mes "Es verdad que soy el mas fuerte.";
 	close3;
 }
 
 1@jtb,376,218,5	script	Roel#15	4_M_ROEL,{
 	cutin "roel01",0;
 	mes "[Roel]";
-	mes "Comrades should be best friends!";
+	mes "Los camaradas deben ser los mejores amigos!";
 	close3;
 }
 
@@ -2330,11 +2330,11 @@ OnTouch_:
 	if ('room != 16 || is_party_leader() == false) {
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "Wait, I've collected some Autumn Leaves and Blue Cards to give to other friends as souvenirs. Where are they?";
+		mes "Espera, recolecte algunas Hojas de Otono y Blue Cards para dar a otros amigos como recuerdos. Donde estan?";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@mingmin$ = instance_npcname("Mingmin#16");
 		.@roter$ = instance_npcname("Roter#16");
@@ -2342,60 +2342,60 @@ OnTouch_:
 		cutin "nines02",0;
 		emotion ET_DELIGHT;
 		mes "[Newoz]";
-		mes "Having you two with me brings back a lot of memories.";
-		npctalk "Newoz: Having you two with me brings back a lot of memories.";
+		mes "Tenerlos a ustedes dos conmigo me trae muchos recuerdos.";
+		npctalk "Newoz: Tenerlos a ustedes dos conmigo me trae muchos recuerdos.";
 		next;
 		cutin "rote01",2;
 		mes "[Roter]";
-		mes "I was as stubborn as a mule and busy pretending like I knew what I was doing.";
-		npctalk "Roter: I was as stubborn as a mule and busy pretending like I knew what I was doing.", .@roter$;
+		mes "Era tan terco como una mula y ocupado fingiendo que sabia lo que hacia.";
+		npctalk "Roter: Era tan terco como una mula y ocupado fingiendo que sabia lo que hacia.", .@roter$;
 		next;
 		cutin "min01",0;
 		emotion ET_QUESTION, getnpcid(0,.@mingmin$);
 		mes "[Mingmin]";
-		mes "Do you remember when you two fought over that florist girl at the southern gate of Prontera? Or when the doll merchant at the eastern gate whupped you for bickering and driving his customers away?";
-		npctalk "Mingmin: Do you remember when you two fought over that florist girl at the southern gate of Prontera? Or when the doll merchant at the eastern gate whupped you for bickering and driving his customers away?", .@mingmin$;
+		mes "Recuerdan cuando ustedes dos pelearon por esa florista en la puerta sur de Prontera? O cuando el comerciante de munecas en la puerta este les dio una paliza por discutir y espantar a sus clientes?";
+		npctalk "Mingmin: Recuerdan cuando ustedes dos pelearon por esa florista en la puerta sur de Prontera? O cuando el comerciante de munecas en la puerta este les dio una paliza por discutir y espantar a sus clientes?", .@mingmin$;
 		next;
 		cutin "rote01",2;
 		mes "[Roter]";
-		mes "Do you not have any good memories of us?";
-		npctalk "Roter: Do you not have any good memories of us?", .@roter$;
+		mes "No tienes ningun buen recuerdo de nosotros?";
+		npctalk "Roter: No tienes ningun buen recuerdo de nosotros?", .@roter$;
 		next;
 		cutin "nines03",0;
 		emotion ET_DELIGHT;
 		mes "[Newoz]";
-		mes "Oh, I remember! Ah, good times!";
-		npctalk "Newoz: Oh, I remember! Ah, good times!";
+		mes "Oh, lo recuerdo! Ah, buenos tiempos!";
+		npctalk "Newoz: Oh, lo recuerdo! Ah, buenos tiempos!";
 		next;
 		cutin "rote01",0;
 		emotion ET_THINK, getnpcid(0,.@roter$);
 		mes "[Roter]";
-		mes "Am I the only one not happy about this conversation?";
-		npctalk "Roter: Am I the only one not happy about this conversation?", .@roter$;
+		mes "Soy el unico que no esta contento con esta conversacion?";
+		npctalk "Roter: Soy el unico que no esta contento con esta conversacion?", .@roter$;
 		next;
 		cutin "min03",2;
 		emotion ET_MERONG, getnpcid(0,.@mingmin$);
 		mes "[Mingmin]";
-		mes "How about when you played with Dead Branch to death? Or when you and your Sorcerer buddies killed yourselves playing Hocus Pocus?";
-		npctalk "Mingmin: How about when you played with Dead Branch to death? Or when you and your Sorcerer buddies killed yourselves playing Hocus Pocus?", .@mingmin$;
+		mes "Que tal cuando jugaron con Dead Branch hasta morir? O cuando tu y tus amigos Sorcerer se mataron jugando Hocus Pocus?";
+		npctalk "Mingmin: Que tal cuando jugaron con Dead Branch hasta morir? O cuando tu y tus amigos Sorcerer se mataron jugando Hocus Pocus?", .@mingmin$;
 		next;
 		cutin "rote01",0;
 		emotion ET_OHNO, getnpcid(0,.@roter$);
 		mes "[Roter]";
-		mes "Can't you think of a nice memory?";
-		npctalk "Roter: Can't you think of a nice memory?", .@roter$;
+		mes "No puedes pensar en un buen recuerdo?";
+		npctalk "Roter: No puedes pensar en un buen recuerdo?", .@roter$;
 		next;
 		cutin "nines02",2;
 		emotion ET_OK;
 		mes "[Newoz]";
-		mes "I can! Mingmin drank the Poison Bottle I found on the street and died; I told you it was expensive, and I didn't say anything about it being good for your health.";
-		npctalk "Newoz: I can! Mingmin drank the Poison Bottle I found on the street and died; I told you it was expensive, and I didn't say anything about it being good for your health.";
+		mes "Yo si! Mingmin se tomo la Poison Bottle que encontre en la calle y murio; te dije que era cara, y nunca dije nada sobre que fuera buena para tu salud.";
+		npctalk "Newoz: Yo si! Mingmin se tomo la Poison Bottle que encontre en la calle y murio; te dije que era cara, y nunca dije nada sobre que fuera buena para tu salud.";
 		next;
 		cutin "min03",0;
 		emotion ET_SMILE, getnpcid(0,.@mingmin$);
 		mes "[Mingmin]";
-		mes "Oh, I remember! That was funny!";
-		npctalk "Mingmin: Oh, I remember! That was funny!", .@mingmin$;
+		mes "Oh, lo recuerdo! Eso fue gracioso!";
+		npctalk "Mingmin: Oh, lo recuerdo! Eso fue gracioso!", .@mingmin$;
 		next;
 		emotion ET_KEK, getnpcid(0,.@roter$);
 		cutin "rote01",2;
@@ -2411,14 +2411,14 @@ OnTouch_:
 1@jtb,30,279,4	script	Mingmin#16	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Tsk, tsk. I practically raised everyone here, and now they're at each other's throughts over the guild master position.";
+	mes "Tsk, tsk. Practicamente crie a todos aqui, y ahora se pelean por la posicion de maestro del gremio.";
 	close3;
 }
 
 1@jtb,30,284,4	script	Roter#16	4_M_ROTERT,{
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "Don't let yourself be deluded by rumors! I'm the Stag of the Southern Gate, the most powerful Bishop in exorcist history!";
+	mes "No te dejes enganar por los rumores! Soy el Ciervo de la Puerta Sur, el Bishop mas poderoso en la historia del exorcismo!";
 	close3;
 }
 
@@ -2428,11 +2428,11 @@ OnTouch_:
 	if ('room != 17 || is_party_leader() == false) {
 		cutin "shaloshi01",2;
 		mes "[Shaloshi]";
-		mes "Friends... Rivalry... Comrades...";
+		mes "Amigos... Rivalidad... Camaradas...";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 17 && is_party_leader() == true) {
 			donpcevent 'jitterbug_main$ + "::OnNextIs18";
 			if (jitterbug_options & 4)
@@ -2445,116 +2445,116 @@ OnTouch_:
 
 	cutin "lunain02",2;
 	mes "[Runane]";
-	mes "Maybe Newoz is not interested in dating.";
-	npctalk "Runane: Maybe Newoz is not interested in dating.", .@runane$;
+	mes "Tal vez a Newoz no le interesa tener citas.";
+	npctalk "Runane: Tal vez a Newoz no le interesa tener citas.", .@runane$;
 	next;
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "Tell me something I don't know.";
-	npctalk "Aigu: Tell me something I don't know.", .@aigu$;
+	mes "Dime algo que no sepa.";
+	npctalk "Aigu: Dime algo que no sepa.", .@aigu$;
 	next;
 	cutin "lunain01",2;
 	mes "[Runane]";
-	mes "But you haven't tried to talk to him. I mean seriously, have you?";
-	npctalk "Runane: But you haven't tried to talk to him. I mean seriously, have you?", .@runane$;
+	mes "Pero no has intentado hablar con el. En serio, lo has hecho?";
+	npctalk "Runane: Pero no has intentado hablar con el. En serio, lo has hecho?", .@runane$;
 	next;
 	cutin "igu04",0;
 	mes "[Aigu]";
-	mes "You've met him today, but you should know unless you're stupid.";
-	npctalk "Aigu: You've met him today, but you should know unless you're stupid.", .@aigu$;
+	mes "Lo conociste hoy, pero deberias saberlo a menos que seas tonta.";
+	npctalk "Aigu: Lo conociste hoy, pero deberias saberlo a menos que seas tonta.", .@aigu$;
 	next;
 	cutin "lunain02",2;
 	mes "[Runane]";
-	mes "I know--he'll say no if I ask him out.";
-	npctalk "Runane: I know--he'll say no if I ask him out.", .@runane$;
+	mes "Lo se--dira que no si lo invito a salir.";
+	npctalk "Runane: Lo se--dira que no si lo invito a salir.", .@runane$;
 	next;
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "That dimwit is only interested in adventuring.";
-	npctalk "Aigu: That dimwit is only interested in adventuring.", .@aigu$;
+	mes "Ese tonto solo esta interesado en aventurarse.";
+	npctalk "Aigu: Ese tonto solo esta interesado en aventurarse.", .@aigu$;
 	next;
 	cutin "lunain04",2;
 	mes "[Runane]";
-	mes "Don't call my hero that! ...But I agree with you.";
-	npctalk "Runane: Don't call my hero that! ...But I agree with you.", .@runane$;
+	mes "No llames asi a mi heroe! ...Pero estoy de acuerdo contigo.";
+	npctalk "Runane: No llames asi a mi heroe! ...Pero estoy de acuerdo contigo.", .@runane$;
 	next;
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "You seem to be fond of Roel.";
-	npctalk "Aigu: You seem to be fond of Roel.", .@aigu$;
+	mes "Parece que te agrada Roel.";
+	npctalk "Aigu: Parece que te agrada Roel.", .@aigu$;
 	next;
 	cutin "lunain03",2;
 	mes "[Runane]";
-	mes "I'm not interested in that kid.";
-	npctalk "Runane: I'm not interested in that kid.", .@runane$;
+	mes "No me interesa ese chico.";
+	npctalk "Runane: No me interesa ese chico.", .@runane$;
 	next;
 	if ('room == 17 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs18";
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "How about you, Adventurer? How are things with your significant other?";
-	npctalk "Aigu: How about you, Adventurer? How are things with your significant other?", .@aigu$;
+	mes "Y tu, Aventurero? Como van las cosas con tu pareja?";
+	npctalk "Aigu: Y tu, Aventurero? Como van las cosas con tu pareja?", .@aigu$;
 	next;
-	switch( select( "You don't even know if I have one.", "My love is unrequited.", "We're happy." ) ) {
+	switch( select( "Ni siquiera sabes si tengo una.", "Mi amor no es correspondido.", "Somos felices." ) ) {
 	case 1:
 		jitterbug_options &= ~4;
 		unittalk getcharid(3), "" + strcharinfo(0) + " : You don't even know if I have one.";
 		cutin "igu05",0;
 		mes "[Aigu]";
-		mes "Oh, I'm sorry, but I'm on the verge of bursting into tears.";
-		npctalk "Aigu: Oh, I'm sorry, but I'm on the verge of bursting into tears.", .@aigu$;
+		mes "Oh, lo siento, pero estoy a punto de explotar en llanto.";
+		npctalk "Aigu: Oh, lo siento, pero estoy a punto de explotar en llanto.", .@aigu$;
 		break;
 	case 2:
 		jitterbug_options &= ~4;
 		unittalk getcharid(3), "" + strcharinfo(0) + " : My love is unrequited.";
 		cutin "igu01",0;
 		mes "[Aigu]";
-		mes "Unrequited love is painful. You'd better let it go before it breaks you.";
-		npctalk "Aigu: Unrequited love is painful. You'd better let it go before it breaks you.", .@aigu$;
+		mes "El amor no correspondido es doloroso. Mejor dejalo ir antes de que te destruya.";
+		npctalk "Aigu: El amor no correspondido es doloroso. Mejor dejalo ir antes de que te destruya.", .@aigu$;
 		break;
 	case 3:
 		jitterbug_options |= 4;
 		areamonster 'map_jtb$,183,301,220,272, "--ja--", 3108,1;	// no label
 		unittalk getcharid(3), "" + strcharinfo(0) + " : We're happy.";
 		mes "[Aigu]";
-		mes "Are you serious? Even people like you have found their love. What about me?!";
-		npctalk "Aigu: Are you serious? Even people like you have found their love. What about me?!", .@aigu$;
+		mes "Hablas en serio? Incluso gente como tu ha encontrado su amor. Y yo que?!";
+		npctalk "Aigu: Hablas en serio? Incluso gente como tu ha encontrado su amor. Y yo que?!", .@aigu$;
 		break;
 	}
 	next;
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "I don't mind healthy rivalry, but I prefer friendship, however long it lasts.";
-	npctalk "Aigu: I don't mind healthy rivalry, but I prefer friendship, however long it lasts.", .@aigu$;
+	mes "No me molesta la rivalidad sana, pero prefiero la amistad, sin importar cuanto dure.";
+	npctalk "Aigu: No me molesta la rivalidad sana, pero prefiero la amistad, sin importar cuanto dure.", .@aigu$;
 	next;
 	cutin "",255;
 	mes "[Runane]";
-	mes "Let's make a truce for now. But make no mistake--Newoz is mine the moment I find him vulnerable.";
-	npctalk "Runane: Let's make a truce for now. But make no mistake--Newoz is mine the moment I find him vulnerable.", .@runane$;
+	mes "Hagamos una tregua por ahora. Pero no te equivoques--Newoz sera mio en cuanto lo encuentre vulnerable.";
+	npctalk "Runane: Hagamos una tregua por ahora. Pero no te equivoques--Newoz sera mio en cuanto lo encuentre vulnerable.", .@runane$;
 	next;
 	cutin "shaloshi03",0;
 	mes "[Shaloshi]";
-	mes "(Friends... Rivalry...)";
-	npctalk "Shaloshi: (Friends... Rivalry...)";
+	mes "(Amigos... Rivalidad...)";
+	npctalk "Shaloshi: (Amigos... Rivalidad...)";
 	next;
 	cutin "igu01",0;
 	mes "[Aigu]";
-	mes "Over my dead body!";
-	npctalk "Aigu: Over my dead body!", .@aigu$;
+	mes "Sobre mi cadaver!";
+	npctalk "Aigu: Sobre mi cadaver!", .@aigu$;
 	close3;
 }
 
 1@jtb,113,285,4	script	Runane#17	4_F_RUNAIN,{
 	cutin "lunain01",2;
 	mes "[Runane]";
-	mes "Let's make a truce for now. But make no mistake--Newoz is mine the moment I find him vulnerable.";
+	mes "Hagamos una tregua por ahora. Pero no te equivoques--Newoz sera mio en cuanto lo encuentre vulnerable.";
 	close3;
 }
 
 1@jtb,108,285,5	script	Aigu#17	4_F_IU,{
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "I don't mind healthy rivalry, but I prefer friendship, however long it lasts.";
+	mes "No me molesta la rivalidad sana, pero prefiero la amistad, sin importar cuanto dure.";
 	close3;
 }
 
@@ -2564,11 +2564,11 @@ OnTouch_:
 	if ('room != 18 || is_party_leader() == false) {
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "Ferres don't bite me.";
+		mes "Los Ferres no me muerden.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@runane$ = instance_npcname("Runane#18");
 		.@roel$ = instance_npcname("Roel#18");
@@ -2576,55 +2576,55 @@ OnTouch_:
 		emotion ET_THINK;
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "Roel and Runane are hurt.";
-		npctalk "Shaloshi: Roel and Runane are hurt.";
+		mes "Roel y Runane estan heridos.";
+		npctalk "Shaloshi: Roel y Runane estan heridos.";
 		next;
 		cutin "lunain04",2;
 		mes "[Runane]";
-		mes "I'm fine. I told you to be careful, kiddo!";
-		npctalk "Runane: I'm fine. I told you to be careful, kiddo!", .@runane$;
+		mes "Estoy bien. Te dije que tuvieras cuidado, chico!";
+		npctalk "Runane: Estoy bien. Te dije que tuvieras cuidado, chico!", .@runane$;
 		next;
 		cutin "roel04",0;
 		emotion ET_SORRY, getnpcid(0,.@roel$);
 		mes "[Roel]";
-		mes "Sorry. I won't disappoint you again.";
-		npctalk "Roel: Sorry. I won't disappoint you again.", .@roel$;
+		mes "Perdon. No te decepcionare de nuevo.";
+		npctalk "Roel: Perdon. No te decepcionare de nuevo.", .@roel$;
 		next;
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "She's not happy with him, but she still treats him really well.";
-		npctalk "Shaloshi: She's not happy with him, but she still treats him really well.";
+		mes "No esta contenta con el, pero aun asi lo trata muy bien.";
+		npctalk "Shaloshi: No esta contenta con el, pero aun asi lo trata muy bien.";
 		next;
 		emotion ET_THROB, getnpcid(0,.@roel$);
 		cutin "roel03",0;
 		mes "[Roel]";
-		mes "(She's kind!)";
-		npctalk "Roel: (She's kind!)", .@roel$;
+		mes "(Es amable!)";
+		npctalk "Roel: (Es amable!)", .@roel$;
 		next;
 		cutin "lunain02",2;
 		mes "[Runane]";
-		mes "Don't mistake this for anything more than what it is--babysitting!";
-		npctalk "Runane: Don't mistake this for anything more than what it is--babysitting!", .@runane$;
+		mes "No confundas esto con algo mas de lo que es--cuidar ninos!";
+		npctalk "Runane: No confundas esto con algo mas de lo que es--cuidar ninos!", .@runane$;
 		next;
 		emotion ET_THINK;
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "She's blushing.";
-		npctalk "Shaloshi: She's blushing.";
+		mes "Se esta sonrojando.";
+		npctalk "Shaloshi: Se esta sonrojando.";
 		next;
 		cutin "lunain01",2;
 		mes "[Runane]";
-		mes "There's nothing about you I like.";
-		npctalk "Runane: There's nothing about you I like.", .@runane$;
+		mes "No hay nada de ti que me guste.";
+		npctalk "Runane: No hay nada de ti que me guste.", .@runane$;
 		next;
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "Before Aigu and Runane,";
-		npctalk "Shaloshi: Before Aigu and Runane,";
+		mes "Antes de Aigu y Runane,";
+		npctalk "Shaloshi: Antes de Aigu y Runane,";
 		next;
 		mes "[Shaloshi]";
-		mes "The Ferres showed up first.";
-		npctalk "Shaloshi: The Ferres showed up first.";
+		mes "Los Ferres aparecieron primero.";
+		npctalk "Shaloshi: Los Ferres aparecieron primero.";
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
@@ -2633,53 +2633,53 @@ OnTouch_:
 		next;
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "They emit 'ferre, ferre,' so I call them Ferres.";
-		npctalk "Shaloshi: They emit 'ferre, ferre,' so I call them Ferres.";
+		mes "Emiten 'ferre, ferre', asi que los llamo Ferres.";
+		npctalk "Shaloshi: Emiten 'ferre, ferre', asi que los llamo Ferres.";
 		next;
 		mes "[Shaloshi]";
-		mes "They did nothing but croaked.";
-		npctalk "Shaloshi: They did nothing but croaked.";
+		mes "No hicieron nada mas que croar.";
+		npctalk "Shaloshi: No hicieron nada mas que croar.";
 		next;
 		mes "[Shaloshi]";
-		mes "They're my friends. They don't bite or hurt me.";
-		npctalk "Shaloshi: They're my friends. They don't bite or hurt me.";
+		mes "Son mis amigos. No me muerden ni lastiman.";
+		npctalk "Shaloshi: Son mis amigos. No me muerden ni lastiman.";
 		next;
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "But now...";
-		npctalk "Roel: But now...", .@roel$;
+		mes "Pero ahora...";
+		npctalk "Roel: Pero ahora...", .@roel$;
 		next;
 		cutin "lunain04",2;
 		emotion ET_HNG, getnpcid(0,.@runane$);
 		mes "[Runane]";
-		mes "Listen, humans and monsters can't be friends. At least that's what I think.";
-		npctalk "Runane: Listen, humans and monsters can't be friends. At least that's what I think.", .@runane$;
+		mes "Escucha, los humanos y los monstruos no pueden ser amigos. Al menos eso es lo que creo.";
+		npctalk "Runane: Escucha, los humanos y los monstruos no pueden ser amigos. Al menos eso es lo que creo.", .@runane$;
 		next;
 		cutin "shaloshi01",0;
 		mes "[Shaloshi]";
-		mes "Can't be friends.";
-		npctalk "Shaloshi: Can't be friends.";
+		mes "No pueden ser amigos.";
+		npctalk "Shaloshi: No pueden ser amigos.";
 		next;
 		cutin "lunain03",2;
 		mes "[Runane]";
-		mes "That's right. I like you better when you listen to me.";
-		npctalk "Runane: That's right. I like you better when you listen to me.", .@runane$;
+		mes "Asi es. Me agradas mas cuando me escuchas.";
+		npctalk "Runane: Asi es. Me agradas mas cuando me escuchas.", .@runane$;
 		next;
 		cutin "roel03",0;
 		mes "[Roel]";
-		mes "How about I be your friend?";
-		npctalk "Roel: How about I be your friend?", .@roel$;
+		mes "Que tal si yo soy tu amigo?";
+		npctalk "Roel: Que tal si yo soy tu amigo?", .@roel$;
 		next;
 		emotion ET_SCRATCH, getnpcid(0,.@runane$);
 		cutin "lunain02",2;
 		mes "[Runane]";
-		mes "Stop making things awkward! We're about the same age, so we're friends already.";
-		npctalk "Runane: Stop making things awkward! We're about the same age, so we're friends already.", .@runane$;
+		mes "Deja de hacer las cosas incomodas! Tenemos casi la misma edad, asi que ya somos amigos.";
+		npctalk "Runane: Deja de hacer las cosas incomodas! Tenemos casi la misma edad, asi que ya somos amigos.", .@runane$;
 		next;
 		cutin "shaloshi03",0;
 		mes "[Shaloshi]";
-		mes "(Can't be friends.)";
-		npctalk "Shaloshi: (Can't be friends.)";
+		mes "(No pueden ser amigos.)";
+		npctalk "Shaloshi: (No pueden ser amigos.)";
 	}
 	if ('room == 18 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs19";
@@ -2689,14 +2689,14 @@ OnTouch_:
 1@jtb,203,281,4	script	Runane#18	4_F_RUNAIN,{
 	cutin "lunain02",2;
 	mes "[Runane]";
-	mes "True friends don't need to declare their friendship; they just become friends without knowing.";
+	mes "Los verdaderos amigos no necesitan declarar su amistad; simplemente se hacen amigos sin saberlo.";
 	close3;
 }
 
 1@jtb,199,278,8	script	Roel#18	4_M_ROEL,{
 	cutin "roel03",0;
 	mes "[Roel]";
-	mes "I'm okay. At least I can protect Shaloshi. Feeling protective of someone is nice.";
+	mes "Estoy bien. Al menos puedo proteger a Shaloshi. Sentirse protector de alguien es agradable.";
 	close3;
 }
 
@@ -2706,11 +2706,11 @@ OnTouch_:
 	if ('room != 19 || is_party_leader() == false) {
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "We should find her.";
+		mes "Deberiamos encontrarla.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2)
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2)
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 	else {
 		.@aigu$ = instance_npcname("Aigu#19");
 		.@mingmin$ = instance_npcname("Mingmin#19");
@@ -2721,95 +2721,95 @@ OnTouch_:
 		cutin "nines01",0;
 		emotion ET_THINK;
 		mes "[Newoz]";
-		mes "Strange... The atmosphere has changed.";
-		npctalk "Newoz: Strange... The atmosphere has changed.";
+		mes "Extrano... La atmosfera ha cambiado.";
+		npctalk "Newoz: Extrano... La atmosfera ha cambiado.";
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "The air smells different, and things look less... perceptible.";
+		mes "El aire huele diferente, y las cosas se ven menos... perceptibles.";
 		npctalk "Mingmin: The air smells different, and things look less perceptible.", .@mingmin$;
 		next;
 		cutin "rote01",2;
 		mes "[Roter]";
-		mes "It seems as though we're underwater, yet I don't feel it.";
-		npctalk "Roter: It seems as though we're underwater, yet I don't feel it.", .@roter$;
+		mes "Parece como si estuvieramos bajo el agua, pero no lo siento.";
+		npctalk "Roter: Parece como si estuvieramos bajo el agua, pero no lo siento.", .@roter$;
 		next;
 		emotion ET_HUM, getnpcid(0,.@melody$);
 		cutin "",255;
 		mes "[Melody-Jack]";
-		mes "I'm telling you, we've been circling around the same place.";
-		npctalk "Melody-Jack: I'm telling you, we've been circling around the same place.", .@melody$;
+		mes "Te digo, hemos estado dando vueltas en el mismo lugar.";
+		npctalk "Melody-Jack: Te digo, hemos estado dando vueltas en el mismo lugar.", .@melody$;
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "I agree. And this clearing is neither compact nor spacious.";
-		npctalk "Mingmin: I agree. And this clearing is neither compact nor spacious.", .@mingmin$;
+		mes "Estoy de acuerdo. Y este claro no es ni compacto ni espacioso.";
+		npctalk "Mingmin: Estoy de acuerdo. Y este claro no es ni compacto ni espacioso.", .@mingmin$;
 		next;
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "Do you think it's meaningless for us to go deeper?";
-		npctalk "Newoz: Do you think it's meaningless for us to go deeper?";
+		mes "Crees que no tiene sentido que vayamos mas profundo?";
+		npctalk "Newoz: Crees que no tiene sentido que vayamos mas profundo?";
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "No. I'm just saying the environmental changes are too drastic, almost like the mood swings of a bipolar person.";
-		npctalk "Mingmin: No. I'm just saying the environmental changes are too drastic, almost like the mood swings of a bipolar person.", .@mingmin$;
+		mes "No. Solo digo que los cambios ambientales son muy drasticos, casi como los cambios de humor de una persona bipolar.";
+		npctalk "Mingmin: No. Solo digo que los cambios ambientales son muy drasticos, casi como los cambios de humor de una persona bipolar.", .@mingmin$;
 		next;
 		mes "[Mingmin]";
-		mes "I don't know why, but things are losing their shape as if they're fading away.";
-		npctalk "Mingmin: I don't know why, but things are losing their shape as if they're fading away.", .@mingmin$;
+		mes "No se por que, pero las cosas estan perdiendo su forma como si se desvanecieran.";
+		npctalk "Mingmin: No se por que, pero las cosas estan perdiendo su forma como si se desvanecieran.", .@mingmin$;
 		next;
 		emotion ET_THINK, getnpcid(0,.@melody$);
 		cutin "",255;
 		mes "[Melody-Jack]";
-		mes "All the while, the foreign energy I've been sensing is growing stronger. This is bad.";
-		npctalk "Melody-Jack: All the while, the foreign energy I've been sensing is growing stronger. This is bad.", .@melody$;
+		mes "Mientras tanto, la energia extrana que he estado sintiendo se hace mas fuerte. Esto es malo.";
+		npctalk "Melody-Jack: Mientras tanto, la energia extrana que he estado sintiendo se hace mas fuerte. Esto es malo.", .@melody$;
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
-		mes "I feel like something's going to appear in front of our eyes with a loud pop.";
-		npctalk "Mingmin: I feel like something's going to appear in front of our eyes with a loud pop.", .@mingmin$;
+		mes "Siento que algo va a aparecer frente a nuestros ojos con un fuerte estallido.";
+		npctalk "Mingmin: Siento que algo va a aparecer frente a nuestros ojos con un fuerte estallido.", .@mingmin$;
 		next;
 		cutin "arang02",0;
 		mes "[Arang]";
-		mes "I hope it's a formidable monster!";
-		npctalk "Arang: I hope it's a formidable monster!", .@arang$;
+		mes "Espero que sea un monstruo formidable!";
+		npctalk "Arang: Espero que sea un monstruo formidable!", .@arang$;
 		next;
 		emotion ET_X, getnpcid(0,.@aigu$);
 		cutin "igu01",0;
 		mes "[Aigu]";
-		mes "I hope you're wrong.";
-		npctalk "Aigu: I hope you're wrong.", .@aigu$;
+		mes "Espero que te equivoques.";
+		npctalk "Aigu: Espero que te equivoques.", .@aigu$;
 		next;
 		cutin "ragi02",2;
 		mes "[Lagi]";
-		mes "I'm just going to leave you guys to...";
-		npctalk "Lagi: I'm just going to leave you guys to...", instance_npcname("Lagi#19");
+		mes "Yo solo voy a dejarlos a ustedes para...";
+		npctalk "Lagi: Yo solo voy a dejarlos a ustedes para...", instance_npcname("Lagi#19");
 		next;
 		cutin "nines02",0;
 		mes "[Newoz]";
-		mes "The monster?";
-		npctalk "Newoz: The monster?";
+		mes "El monstruo?";
+		npctalk "Newoz: El monstruo?";
 		next;
 		cutin "rote01",2;
 		mes "[Roter]";
-		mes "I'll kill you both before the monster.";
-		npctalk "Roter: I'll kill you both before the monster.", .@roter$;
+		mes "Los matare a ambos antes que el monstruo.";
+		npctalk "Roter: Los matare a ambos antes que el monstruo.", .@roter$;
 		next;
 		cutin "gelca04",2;
 		mes "[Gelka]";
-		mes "Master, please!";
-		npctalk "Gelka: Master, please!", instance_npcname("Gelka#19");
+		mes "Maestro, por favor!";
+		npctalk "Gelka: Maestro, por favor!", instance_npcname("Gelka#19");
 		next;
 		cutin "arang02",0;
 		mes "[Arang]";
-		mes "Have you seen Shaloshi? Where is she?";
-		npctalk "Arang: Have you seen Shaloshi? Where is she?", .@arang$;
+		mes "Han visto a Shaloshi? Donde esta?";
+		npctalk "Arang: Han visto a Shaloshi? Donde esta?", .@arang$;
 		next;
 		cutin "igu04",0;
 		mes "[Aigu]";
-		mes "Oh, you're right!";
-		npctalk "Aigu: Oh, you're right!", .@aigu$;
+		mes "Oh, tienes razon!";
+		npctalk "Aigu: Oh, tienes razon!", .@aigu$;
 		next;
 		cutin "min02",0;
 		mes "[Mingmin]";
@@ -2824,8 +2824,8 @@ OnTouch_:
 		next;
 		cutin "nines03",0;
 		mes "[Newoz]";
-		mes "We should find her.";
-		npctalk "Newoz: We should find her.";
+		mes "Deberiamos encontrarla.";
+		npctalk "Newoz: Deberiamos encontrarla.";
 	}
 	if ('room == 19 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs20";
@@ -2834,49 +2834,49 @@ OnTouch_:
 
 1@jtb,30,377,5	script	Melody-Jack#19	CLEAR_NPC,{
 	mes "[Melody-Jack]";
-	mes "Newoz is never tactful.";
+	mes "Newoz nunca es diplomatico.";
 	close;
 }
 
 1@jtb,30,373,4	script	Roter#19	4_M_ROTERT,{
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "I have a feeling Newoz is up to no good.";
+	mes "Tengo la sensacion de que Newoz esta tramando algo.";
 	close3;
 }
 
 1@jtb,25,373,5	script	Mingmin#19	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "We'd better look for an exit before things get too crazy.";
+	mes "Mejor busquemos una salida antes de que las cosas se pongan muy locas.";
 	close3;
 }
 
 1@jtb,24,376,5	script	Aigu#19	4_F_IU,{
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "Newoz's enthusiasm for adventure went overboard. Again. I can't say I hate that about him, though.";
+	mes "El entusiasmo de Newoz por las aventuras se paso de la raya. De nuevo. Aunque no puedo decir que lo odio por eso.";
 	close3;
 }
 
 1@jtb,26,380,5	script	Arang#19	4_F_TAEKWON,{
 	cutin "arang03",0;
 	mes "[Arang]";
-	mes "I wish these monsters were as cute and helpless as those Porings for the Taekwon mission.";
+	mes "Ojala estos monstruos fueran tan lindos e indefensos como esos Porings de la mision Taekwon.";
 	close3;
 }
 
 1@jtb,31,380,4	script	Lagi#19	4_M_RAGI,{
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "They're bickering all the time, but look like good friends. Don't they?";
+	mes "Se la pasan discutiendo todo el tiempo, pero parecen buenos amigos. No crees?";
 	close3;
 }
 
 1@jtb,33,376,4	script	Gelka#19	4_F_GELKA,{
 	cutin "gelca01",0;
 	mes "[Gelka]";
-	mes "I practice hard, so I can shine in times of danger.";
+	mes "Practico duro, para poder brillar en momentos de peligro.";
 	close3;
 }
 
@@ -2886,18 +2886,18 @@ OnTouch_:
 	if ('room != 20 || is_party_leader() == false) {
 		cutin "roel01",0;
 		mes "[Roel]";
-		mes "One of my friends once set me up on a blind date in Izlude.";
+		mes "Uno de mis amigos me organizo una cita a ciegas en Izlude.";
 		next;
 		mes "[Roel]";
-		mes "She and I exchanged a couple of letters, first to introduce each other, and then the second to set up a date.";
+		mes "Ella y yo intercambiamos un par de cartas, primero para presentarnos, y luego la segunda para organizar una cita.";
 		next;
 		cutin "roel04",0;
 		mes "[Roel]";
-		mes "She didn't reply to my second letter. I can't fAigure out why.";
+		mes "No respondio a mi segunda carta. No puedo entender por que.";
 		close3;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 20 && is_party_leader() == true) {
 			donpcevent 'jitterbug_main$ + "::OnNextIs21";
 			if (jitterbug_options & 8)
@@ -2908,27 +2908,27 @@ OnTouch_:
 	.@gelka$ = instance_npcname("Gelka#20");
 	cutin "gelca01",2;
 	mes "[Gelka]";
-	mes "Scene 8: Heroes are surrounded by a horde of enemies. Roel, let's choreograph what we've practiced today, shall we?";
-	npctalk "Gelka: Scene 8: Heroes are surrounded by a horde of enemies. Roel, let's choreograph what we've practiced today, shall we?", .@gelka$;
+	mes "Escena 8: Los heroes estan rodeados por una horda de enemigos. Roel, coreografiemos lo que practicamos hoy, si?";
+	npctalk "Gelka: Escena 8: Los heroes estan rodeados por una horda de enemigos. Roel, coreografiemos lo que practicamos hoy, si?", .@gelka$;
 	next;
 	cutin "roel01",0;
 	emotion ET_SURPRISE;
 	mes "[Roel]";
-	mes "Gelka, get ready!";
-	npctalk "Roel: Gelka, get ready!";
+	mes "Gelka, preparate!";
+	npctalk "Roel: Gelka, preparate!";
 	next;
 	emotion ET_COMEON, getnpcid(0,.@gelka$);
 	cutin "gelca01",2;
 	mes "[Gelka]";
-	mes "Gelka-style Mental Strength! Iron Physique!";
-	npctalk "Gelka: Gelka-style Mental Strength! Iron Physique!", .@gelka$;
+	mes "Fuerza Mental estilo Gelka! Fisico de Hierro!";
+	npctalk "Gelka: Fuerza Mental estilo Gelka! Fisico de Hierro!", .@gelka$;
 	specialeffect EF_GUMGANG,AREA, .@gelka$;
 	next;
 	emotion ET_COMEON;
 	cutin "roel02",0;
 	mes "[Roel]";
-	mes "Impenetrable defense! Roel-style Guard!";
-	npctalk "Roel: Impenetrable defense! Roel-style Guard!";
+	mes "Defensa impenetrable! Guardia estilo Roel!";
+	npctalk "Roel: Defensa impenetrable! Guardia estilo Roel!";
 	specialeffect EF_KEEPING;
 	next;
 	cutin "gelca01",2;
@@ -2941,9 +2941,9 @@ OnTouch_:
 	next;
 	cutin "roel03",0;
 	mes "[Roel & Gelka]";
-	mes "Last bastion!";
-	npctalk "Roel: Last bastion!";
-	npctalk "Gelka: Last bastion!", .@gelka$;
+	mes "Ultimo bastion!";
+	npctalk "Roel: Ultimo bastion!";
+	npctalk "Gelka: Ultimo bastion!", .@gelka$;
 	specialeffect EF_SHIELDBOOMERANG;
 	specialeffect EF_BOTTOM_BASILICA,AREA, .@gelka$;
 	specialeffect EF_SHIELDCHARGE;
@@ -2955,29 +2955,29 @@ OnTouch_:
 	next;
 	cutin "roel03",0;
 	mes "[Roel]";
-	mes "By the gods, Gelka, you're awesome!";
-	npctalk "Roel: By the gods, Gelka, you're awesome!";
+	mes "Por los dioses, Gelka, eres increible!";
+	npctalk "Roel: Por los dioses, Gelka, eres increible!";
 	if ('room == 20 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs21";
 	next;
 	cutin "gelca01",2;
-	if (select( "Awesome, indeed!", "You just made up those words to look cool!" ) == 1) {
+	if (select( "Increible, de verdad!", "Solo inventaste esas palabras para verte genial!" ) == 1) {
 		jitterbug_options &= ~8;
 		unittalk getcharid(3), "" + strcharinfo(0) + " : Awesome, indeed!";
 		cutin "gelca03",2;
 		mes "[Gelka]";
-		mes "I've learned from the best.";
-		npctalk "Gelka: I've learned from the best.", .@gelka$;
+		mes "Aprendi del mejor.";
+		npctalk "Gelka: Aprendi del mejor.", .@gelka$;
 		next;
 		cutin "roel02",0;
 		mes "[Roel]";
-		mes "I hope you'll teach me too, Roter.";
-		npctalk "Roel: I hope you'll teach me too, Roter.";
+		mes "Espero que me ensenes a mi tambien, Roter.";
+		npctalk "Roel: Espero que me ensenes a mi tambien, Roter.";
 		next;
 		cutin "gelca01",2;
 		mes "[Gelka]";
-		mes "Special skills are all about their names. Shouting impressive names is enough to intimidate your enemies.";
-		npctalk "Gelka: Special skills are all about their names. Shouting impressive names is enough to intimidate your enemies.", .@gelka$;
+		mes "Las habilidades especiales se tratan de sus nombres. Gritar nombres impresionantes es suficiente para intimidar a tus enemigos.";
+		npctalk "Gelka: Las habilidades especiales se tratan de sus nombres. Gritar nombres impresionantes es suficiente para intimidar a tus enemigos.", .@gelka$;
 	}
 	else {
 		jitterbug_options |= 8;
@@ -2985,25 +2985,25 @@ OnTouch_:
 		unittalk getcharid(3), "" + strcharinfo(0) + " : You just made up those words to look cool!";
 		cutin "gelca02",2;
 		mes "[Gelka]";
-		mes "You're a spoilsport, you know that?";
-		npctalk "Gelka: You're a spoilsport, you know that?", .@gelka$;
+		mes "Eres un aguafiestas, lo sabias?";
+		npctalk "Gelka: Eres un aguafiestas, lo sabias?", .@gelka$;
 		next;
 		cutin "roel04",0;
 		mes "[Roel]";
-		mes "We've practiced hard.";
-		npctalk "Roel: We've practiced hard.";
+		mes "Hemos practicado duro.";
+		npctalk "Roel: Hemos practicado duro.";
 		next;
 	}
 	next;
 	cutin "",255;
-	mes "- They're absorbed in talking about their new special skills. -";
+	mes "- Estan absortos hablando sobre sus nuevas habilidades especiales. -";
 	close3;
 }
 
 1@jtb,110,377,4	script	Gelka#20	4_F_GELKA,{
 	cutin "gelca01",0;
 	mes "[Gelka]";
-	mes "Fighting is essential to adventurer training. Divide and conquer!";
+	mes "Pelear es esencial para el entrenamiento de aventurero. Divide y conquista!";
 	close3;
 }
 
@@ -3015,8 +3015,8 @@ OnTouch_:
 		mes "Shaloshi...";
 		close;
 	}
-	if (select( "Talk.", "Hurry." ) == 2 && isbegin_quest(13183) == 2) {
-		mes "Try to jog your memory while hurrying.";
+	if (select( "Hablar.", "Apurarse." ) == 2 && isbegin_quest(13183) == 2) {
+		mes "Intenta refrescar tu memoria mientras te apuras.";
 		if ('room == 21 && is_party_leader() == true) {
 			disablenpc instance_npcname("Shaloshi#21");
 			disablenpc instance_npcname("Aigu#21");
@@ -3039,45 +3039,45 @@ OnTouch_:
 	next;
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "I'm afraid this place is falling down around us.";
-	npctalk "Melody-Jack: I'm afraid this place is falling down around us.", .@melody$;
+	mes "Me temo que este lugar se esta derrumbando a nuestro alrededor.";
+	npctalk "Melody-Jack: Me temo que este lugar se esta derrumbando a nuestro alrededor.", .@melody$;
 	next;
 	cutin "shaloshi03",0;
 	mes "[Shaloshi]";
-	mes "The Ferres are angry.";
-	npctalk "Shaloshi: The Ferres are angry.", .@shaloshi$;
+	mes "Los Ferres estan enojados.";
+	npctalk "Shaloshi: Los Ferres estan enojados.", .@shaloshi$;
 	next;
 	cutin "min02",2;
 	mes "[Mingmin]";
-	mes "Wow, you can even hear what monsters think?";
-	npctalk "Mingmin: Wow, you can even hear what monsters think?", .@mingmin$;
+	mes "Wow, incluso puedes escuchar lo que piensan los monstruos?";
+	npctalk "Mingmin: Wow, incluso puedes escuchar lo que piensan los monstruos?", .@mingmin$;
 	next;
 	if ('room == 21 && is_party_leader() == true)
 		donpcevent 'jitterbug_main$ + "::OnNextIs22";
 	cutin "shaloshi03",0;
 	mes "[Shaloshi]";
-	mes "They're my friends.";
-	npctalk "Shaloshi: They're my friends.", .@shaloshi$;
+	mes "Son mis amigos.";
+	npctalk "Shaloshi: Son mis amigos.", .@shaloshi$;
 	next;
 	cutin "lunain04",0;
 	mes "[Runane]";
-	mes "No, they're not. Friends don't attack each other!";
-	npctalk "Runane: No, they're not. Friends don't attack each other!", .@runane$;
+	mes "No lo son. Los amigos no se atacan entre si!";
+	npctalk "Runane: No lo son. Los amigos no se atacan entre si!", .@runane$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "They're just trying to protect me.";
-	npctalk "Shaloshi: They're just trying to protect me.", .@shaloshi$;
+	mes "Solo estan tratando de protegerme.";
+	npctalk "Shaloshi: Solo estan tratando de protegerme.", .@shaloshi$;
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "Protect you from what?";
-	npctalk "Roter: Protect you from what?", .@roter$;
+	mes "Protegerte de que?";
+	npctalk "Roter: Protegerte de que?", .@roter$;
 	next;
 	cutin "shaloshi01",0;
 	mes "[Shaloshi]";
-	mes "From what Rot is thinking.";
-	npctalk "Shaloshi: From what Rot is thinking.", .@shaloshi$;
+	mes "De lo que Rot esta pensando.";
+	npctalk "Shaloshi: De lo que Rot esta pensando.", .@shaloshi$;
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
@@ -3115,34 +3115,34 @@ OnTouch_:
 	disablenpc instance_npcname("Ferre#22");
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "We're going to be buried in here. Let's find an exit.";
-	npctalk "Roter: We're going to be buried in here. Let's find an exit.", .@roter$;
+	mes "Vamos a quedar enterrados aqui. Busquemos una salida.";
+	npctalk "Roter: Vamos a quedar enterrados aqui. Busquemos una salida.", .@roter$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "We have to find Shaloshi!";
-	npctalk "Newoz: We have to find Shaloshi!";
+	mes "Tenemos que encontrar a Shaloshi!";
+	npctalk "Newoz: Tenemos que encontrar a Shaloshi!";
 	next;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "Newoz, I've known you're weird in the head, but she's...";
-	npctalk "Melody-Jack: Newoz, I've known you're weird in the head, but she's...", .@melody$;
+	mes "Newoz, se que eres raro de la cabeza, pero ella...";
+	npctalk "Melody-Jack: Newoz, se que eres raro de la cabeza, pero ella...", .@melody$;
 	next;
 	cutin "nines04",0;
 	mes "[Newoz]";
-	mes "I know. You don't have to remind me.";
-	npctalk "Newoz: I know. You don't have to remind me.";
+	mes "Lo se. No tienes que recordarmelo.";
+	npctalk "Newoz: Lo se. No tienes que recordarmelo.";
 	next;
 	cutin "min02",2;
 	mes "[Mingmin]";
-	mes "Then let's get out of here. We're in serious danger right now.";
-	npctalk "Mingmin: Then let's get out of here. We're in serious danger right now.", .@mingmin$;
+	mes "Entonces salgamos de aqui. Estamos en serio peligro ahora.";
+	npctalk "Mingmin: Entonces salgamos de aqui. Estamos en serio peligro ahora.", .@mingmin$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "I have to find her. I have to talk to her.";
-	npctalk "Newoz: I have to find her. I have to talk to her.";
+	mes "Tengo que encontrarla. Tengo que hablar con ella.";
+	npctalk "Newoz: Tengo que encontrarla. Tengo que hablar con ella.";
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
@@ -3151,8 +3151,8 @@ OnTouch_:
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "I'm not your master anymore. You don't have to follow me.";
-	npctalk "Newoz: I'm not your master anymore. You don't have to follow me.";
+	mes "Ya no soy tu maestro. No tienes que seguirme.";
+	npctalk "Newoz: Ya no soy tu maestro. No tienes que seguirme.";
 	next;
 	cutin "lunain01",0;
 	mes "[Runane]";
@@ -3162,13 +3162,13 @@ OnTouch_:
 	disablenpc instance_npcname("Newoz#21");
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "Newoz, I'm coming with you!";
-	npctalk "Aigu: Newoz, I'm coming with you!", .@aigu$;
+	mes "Newoz, voy contigo!";
+	npctalk "Aigu: Newoz, voy contigo!", .@aigu$;
 	next;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "It's your call, new master.";
-	npctalk "Mingmin: It's your call, new master.", .@mingmin$;
+	mes "Tu decides, nuevo maestro.";
+	npctalk "Mingmin: Tu decides, nuevo maestro.", .@mingmin$;
 	next;
 	disablenpc .@aigu$;
 	cutin "gelca04",2;
@@ -3183,44 +3183,44 @@ OnTouch_:
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "We'll find Newoz and Shaloshi. And when we do, I'm going to kill both of them.";
-	npctalk "Roter: We'll find Newoz and Shaloshi. And when we do, I'm going to kill both of them.", .@roter$;
+	mes "Encontraremos a Newoz y Shaloshi. Y cuando lo hagamos, voy a matarlos a ambos.";
+	npctalk "Roter: Encontraremos a Newoz y Shaloshi. Y cuando lo hagamos, voy a matarlos a ambos.", .@roter$;
 	next;
 	cutin "roel04",0;
 	mes "[Roel]";
-	mes "Newoz, did you know this would happen? You're lucky to have such good friends.";
-	npctalk "Roel: Newoz, did you know this would happen? You're lucky to have such good friends.", instance_npcname("Roel#21");
+	mes "Newoz, sabias que esto pasaria? Tienes suerte de tener tan buenos amigos.";
+	npctalk "Roel: Newoz, sabias que esto pasaria? Tienes suerte de tener tan buenos amigos.", instance_npcname("Roel#21");
 	next;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "He didn't know because he doesn't think, ever.";
-	npctalk "Melody-Jack: He didn't know because he doesn't think, ever.", .@melody$;
+	mes "No lo sabia porque no piensa, jamas.";
+	npctalk "Melody-Jack: No lo sabia porque no piensa, jamas.", .@melody$;
 	next;
 	cutin "arang01",2;
 	mes "[Arang]";
-	mes "Yippee! Let's go!";
-	npctalk "Arang: Yippee! Let's go!", instance_npcname("Arang#21");
+	mes "Yupi! Vamonos!";
+	npctalk "Arang: Yupi! Vamonos!", instance_npcname("Arang#21");
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "We'll split into two teams. Be careful not to lose your way in the maze-like offshoots.";
-	npctalk "Roter: We'll split into two teams. Be careful not to lose your way in the maze-like offshoots.", .@roter$;
+	mes "Nos dividiremos en dos equipos. Tengan cuidado de no perderse en las ramificaciones del laberinto.";
+	npctalk "Roter: Nos dividiremos en dos equipos. Tengan cuidado de no perderse en las ramificaciones del laberinto.", .@roter$;
 	next;
-	if (select( "Follow Roter and Gelka.", "Search alone." ) == 1)
+	if (select( "Seguir a Roter y Gelka.", "Buscar solo." ) == 1)
 		jitterbug_options &= ~16;
 	else
 		jitterbug_options |= 16;
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Are we ready? Let's go!";
-	npctalk "Mingmin: Are we ready? Let's go!", .@mingmin$;
+	mes "Estamos listos? Vamonos!";
+	npctalk "Mingmin: Estamos listos? Vamonos!", .@mingmin$;
 	close3;
 }
 
 1@jtb,202,367,5	script	Melody-Jack#21	CLEAR_NPC,{
 	mes "[Melody-Jack]";
-	mes "I knew this would happen, and Aigu didn't listen to me!";
+	mes "Sabia que esto pasaria, y Aigu no me escucho!";
 	close;
 }
 
@@ -3234,49 +3234,49 @@ OnTouch_:
 1@jtb,201,365,4	script	Gelka#21	4_F_GELKA,{
 	cutin "gelca04",2;
 	mes "[Gelka]";
-	mes "I believe in you, Master!";
+	mes "Creo en ti, Maestro!";
 	close3;
 }
 
 1@jtb,202,363,4	script	Mingmin#21	4_F_GENETIC,{
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "*Grunt* Why did I get myself into this mess?";
+	mes "*Grunido* Por que me meti en este lio?";
 	close3;
 }
 
 1@jtb,195,365,5	script	Runane#21	4_F_RUNAIN,{
 	cutin "lunain01",0;
 	mes "[Runane]";
-	mes "We should find Newoz and Shaloshi first.";
+	mes "Deberiamos encontrar a Newoz y Shaloshi primero.";
 	close3;
 }
 
 1@jtb,194,363,5	script	Roel#21	4_M_ROEL,{
 	cutin "roel01",0;
 	mes "[Roel]";
-	mes "I'll follow you guys to the ends of the world.";
+	mes "Los seguire hasta el fin del mundo.";
 	close3;
 }
 
 1@jtb,194,367,5	script	Lagi#21	4_M_RAGI,{
 	cutin "ragi02",0;
 	mes "[Lagi]";
-	mes "I hope today won't be the last day I play my instrument...";
+	mes "Espero que hoy no sea el ultimo dia que toque mi instrumento...";
 	close3;
 }
 
 1@jtb,195,368,5	script	Aigu#21	4_F_IU,{
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "I'm following Newoz.";
+	mes "Estoy siguiendo a Newoz.";
 	close3;
 }
 
 1@jtb,201,369,4	script	Roter#21	4_M_ROTERT,{
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "I'll show you my charismatic leadership as the guild master!";
+	mes "Les mostrare mi liderazgo carismatico como maestro del gremio!";
 	close3;
 }
 
@@ -3294,7 +3294,7 @@ OnTouch_:
 	if ('room != 23 || is_party_leader() == false) {
 		cutin "nines01",0;
 		mes "[Newoz]";
-		mes "*Pant Pant* I'm glad you didn't make it too far.";
+		mes "*Jadeo Jadeo* Me alegra que no hayas llegado muy lejos.";
 		close3;
 	}
 	.@shaloshi$ = instance_npcname("Shaloshi#23");
@@ -3302,8 +3302,8 @@ OnTouch_:
 	.@ferre_24$ = instance_npcname("Ferre#24");
 	cutin "nines04",0;
 	mes "[Newoz]";
-	mes "*Pant Pant* I've found you, Shaloshi.";
-	npctalk "Newoz: *Pant Pant* I've found you, Shaloshi.";
+	mes "*Jadeo Jadeo* Te encontre, Shaloshi.";
+	npctalk "Newoz: *Jadeo Jadeo* Te encontre, Shaloshi.";
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
@@ -3312,8 +3312,8 @@ OnTouch_:
 	next;
 	cutin "nines04",0;
 	mes "[Newoz]";
-	mes "*Pant Pant* I'm glad you didn't make it too far.";
-	npctalk "Newoz: *Pant Pant* I'm glad you didn't make it too far.";
+	mes "*Jadeo Jadeo* Me alegra que no hayas llegado muy lejos.";
+	npctalk "Newoz: *Jadeo Jadeo* Me alegra que no hayas llegado muy lejos.";
 	next;
 	cutin "",255;
 	mes "[Ferre]";
@@ -3322,13 +3322,13 @@ OnTouch_:
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "Ferre is angry.";
-	npctalk "Shaloshi: Ferre is angry.", .@shaloshi$;
+	mes "Ferre esta enojado.";
+	npctalk "Shaloshi: Ferre esta enojado.", .@shaloshi$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "You don't have to get upset. I'm not here to take your friend away. I just want...";
-	npctalk "Newoz: You don't have to get upset. I'm not here to take your friend away. I just want...";
+	mes "No tienes que enojarte. No vine a llevarte a tu amigo. Solo quiero...";
+	npctalk "Newoz: No tienes que enojarte. No vine a llevarte a tu amigo. Solo quiero...";
 	next;
 	cutin "",255;
 	mes "[Ferre]";
@@ -3337,18 +3337,18 @@ OnTouch_:
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "Ferre is really angry.";
-	npctalk "Shaloshi: Ferre is really angry.", .@shaloshi$;
+	mes "Ferre esta muy enojado.";
+	npctalk "Shaloshi: Ferre esta muy enojado.", .@shaloshi$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Yeah, you don't have to tell me that.";
-	npctalk "Newoz: Yeah, you don't have to tell me that.";
+	mes "Si, no tienes que decirmelo.";
+	npctalk "Newoz: Si, no tienes que decirmelo.";
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "This is not good. Ferre...";
-	npctalk "Shaloshi: This is not good. Ferre...", .@shaloshi$;
+	mes "Esto no es bueno. Ferre...";
+	npctalk "Shaloshi: Esto no es bueno. Ferre...", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
 	mes "No, no!";
@@ -3380,11 +3380,11 @@ OnTouch_:
 	specialeffect EF_SUI_EXPLOSION,AREA, .@ferre_24$;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "Ferre has transformed into its true form!";
-	npctalk "Shaloshi: Ferre has transformed into its true form!", .@shaloshi$;
+	mes "Ferre se ha transformado en su verdadera forma!";
+	npctalk "Shaloshi: Ferre se ha transformado en su verdadera forma!", .@shaloshi$;
 	next;
 	cutin "",255;
-	mes "^FF0000A formidable enemy has appeared!^000000";
+	mes "^FF0000Un enemigo formidable ha aparecido!^000000";
 	next;
 	mes "[Ferre]";
 	mes "FERRE- FERRE- FERRE- FERRE-!!";
@@ -3392,17 +3392,17 @@ OnTouch_:
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "Ferre, you don't have to do this!";
-	npctalk "Shaloshi: Ferre, you don't have to do this!", .@shaloshi$;
+	mes "Ferre, no tienes que hacer esto!";
+	npctalk "Shaloshi: Ferre, no tienes que hacer esto!", .@shaloshi$;
 	next;
 	cutin "nines03",0;
 	mes "[Newoz]";
-	mes "Well, if I can't talk him out of this, then we'll have to duke it out.";
-	npctalk "Newoz: Well, if I can't talk him out of this, then we'll have to duke it out.";
+	mes "Bueno, si no puedo convencerlo, entonces tendremos que pelear.";
+	npctalk "Newoz: Bueno, si no puedo convencerlo, entonces tendremos que pelear.";
 	next;
 	mes "[Newoz]";
-	mes "Where are the others? Hey new guys, help me out here. That Ferre looks like he can pack a punch.";
-	npctalk "Newoz: Where are the others? Hey new guys, help me out here. That Ferre looks like he can pack a punch.";
+	mes "Donde estan los demas? Oigan nuevos, ayudenme aqui. Ese Ferre parece que puede dar un buen golpe.";
+	npctalk "Newoz: Donde estan los demas? Oigan nuevos, ayudenme aqui. Ese Ferre parece que puede dar un buen golpe.";
 	next;
 	cutin "",255;
 	mes "[Ferre]";
@@ -3411,8 +3411,8 @@ OnTouch_:
 	next;
 	cutin "nines02",0;
 	mes "[Newoz]";
-	mes "Let's begin!";
-	npctalk "Newoz: Let's begin!";
+	mes "Comencemos!";
+	npctalk "Newoz: Comencemos!";
 	close2;
 	cutin "",255;
 	if ('room == 23 && is_party_leader() == true) {
@@ -3434,21 +3434,21 @@ OnTouch_:
 	end;
 OnStart:
 	enablenpc instance_npcname("Newoz#boss");
-	npctalk "Newoz: Don't worry. I'll help you!";
+	npctalk "Newoz: No se preocupen. Los ayudare!";
 	initnpctimer;
 	end;
 OnTimer30000:
 	.@r = rand(5);
 	if (.@r == 0)
-		npctalk "Newoz: What does a nosy pepper do? Gets jalapeno business!";
+		npctalk "Newoz: Que hace un chile metiche? Se mete en asuntos jalapenos!";
 	else if (.@r == 1)
-		npctalk "Newoz: Why do bananas wear suntan lotion? Because they peel!";
+		npctalk "Newoz: Por que los platanos usan bloqueador? Porque se pelan!";
 	else if (.@r == 2)
-		npctalk "What do you call a fish musician? A piano tuna.";
+		npctalk "Como llamas a un pez musico? Un atunador de pianos.";
 	else if (.@r == 3)
-		npctalk "Um, hold on. One of the ukulele strings snapped. How about I sing instead?";
+		npctalk "Um, espera. Se rompio una cuerda del ukulele. Que tal si mejor canto?";
 	else
-		npctalk "Newoz: What did the farmer say to the green pumpkin? Why orange you orange?";
+		npctalk "Newoz: Que le dijo el granjero a la calabaza verde? Por que no eres naranja?";
 	emotion ET_DELIGHT;
 	initnpctimer;
 	if ('boss_id) {
@@ -3493,8 +3493,8 @@ OnStop:
 
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "I like his spirit, though I can see he's getting exhausted.";
-	npctalk "Newoz: I like his spirit, though I can see he's getting exhausted.";
+	mes "Me gusta su espiritu, aunque veo que se esta agotando.";
+	npctalk "Newoz: Me gusta su espiritu, aunque veo que se esta agotando.";
 	next;
 	cutin "",255;
 	mes "[Ferre]";
@@ -3505,20 +3505,20 @@ OnStop:
 	enablenpc instance_npcname("Gelka#24");
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "Newoz, you're alive! Good, because I'm going to kill...";
-	npctalk "Roter: Newoz, you're alive! Good, because I'm going to kill...", .@roter$;
+	mes "Newoz, estas vivo! Bien, porque voy a matar...";
+	npctalk "Roter: Newoz, estas vivo! Bien, porque voy a matar...", .@roter$;
 	next;
 	enablenpc .@aigu$;
 	enablenpc instance_npcname("Lagi#24");
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "Newoz, are you all right?";
-	npctalk "Aigu: Newoz, are you all right?", .@aigu$;
+	mes "Newoz, estas bien?";
+	npctalk "Aigu: Newoz, estas bien?", .@aigu$;
 	next;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "I'm all right. Rot, were you worried about me?";
-	npctalk "Newoz: I'm all right. Rot, were you worried about me?";
+	mes "Estoy bien. Rot, estabas preocupado por mi?";
+	npctalk "Newoz: Estoy bien. Rot, estabas preocupado por mi?";
 	next;
 	enablenpc .@melody$;
 	enablenpc .@mingmin$;
@@ -3530,8 +3530,8 @@ OnStop:
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "Wow, this place is not going to last long--look how violently the ground is shaking! We really need to get out like yesterday, Newoz.";
-	npctalk "Melody-Jack: Wow, this place is not going to last long--look how violently the ground is shaking! We really need to get out like yesterday, Newoz.", .@melody$;
+	mes "Wow, este lugar no va a durar mucho--mira como tiembla el suelo! Necesitamos salir de aqui ya, Newoz.";
+	npctalk "Melody-Jack: Wow, este lugar no va a durar mucho--mira como tiembla el suelo! Necesitamos salir de aqui ya, Newoz.", .@melody$;
 	next;
 	mes "[Ferre]";
 	mes "Ferre...";
@@ -3539,31 +3539,31 @@ OnStop:
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "He's not dead. Guys, I understand you're new, but you can't make mistakes like this.";
-	npctalk "Roter: He's not dead. Guys, I understand you're new, but you can't make mistakes like this.", .@roter$;
+	mes "No esta muerto. Chicos, entiendo que son nuevos, pero no pueden cometer errores asi.";
+	npctalk "Roter: No esta muerto. Chicos, entiendo que son nuevos, pero no pueden cometer errores asi.", .@roter$;
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "Better get rid of him quickly.";
-	npctalk "Melody-Jack: Better get rid of him quickly.", .@melody$;
+	mes "Mejor deshaganmonos de el rapido.";
+	npctalk "Melody-Jack: Mejor deshaganmonos de el rapido.", .@melody$;
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "NO! He's my friend!";
-	npctalk "Shaloshi: NO! He's my friend!", .@shaloshi$;
+	mes "NO! El es mi amigo!";
+	npctalk "Shaloshi: NO! El es mi amigo!", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "Ferre created this space in the Crack for me. If he loses his mind or perishes, this space will disappear with everything in it.";
-	npctalk "Shaloshi: Ferre created this space in the Crack for me. If he loses his mind or perishes, this space will disappear with everything in it.", .@shaloshi$;
+	mes "Ferre creo este espacio en la Grieta para mi. Si pierde la razon o perece, este espacio desaparecera con todo lo que hay en el.";
+	npctalk "Shaloshi: Ferre creo este espacio en la Grieta para mi. Si pierde la razon o perece, este espacio desaparecera con todo lo que hay en el.", .@shaloshi$;
 	next;
 	cutin "min02",2;
 	mes "[Mingmin]";
-	mes "Except you, you mean.";
-	npctalk "Mingmin: Except you, you mean.", .@mingmin$;
+	mes "Excepto tu, quieres decir.";
+	npctalk "Mingmin: Excepto tu, quieres decir.", .@mingmin$;
 	next;
 	emotion ET_DELIGHT, getnpcid(0,instance_npcname("Newoz#24"));
-	npctalk "Newoz: What did the farmer say to the green pumpkin? Why orange you orange?", instance_npcname("Newoz#24");
+	npctalk "Newoz: Que le dijo el granjero a la calabaza verde? Por que no eres naranja?", instance_npcname("Newoz#24");
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
 	mes "...";
@@ -3571,42 +3571,42 @@ OnStop:
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "I should have plenty of time before that to get rid of you. I'll show you why I'm called the Bad Boy of the Exorcist World.";
-	npctalk "Roter: I should have plenty of time before that to get rid of you. I'll show you why I'm called the Bad Boy of the Exorcist World.", .@roter$;
+	mes "Deberia tener tiempo suficiente antes de eso para deshacerme de ti. Te mostrare por que me llaman el Chico Malo del Mundo Exorcista.";
+	npctalk "Roter: Deberia tener tiempo suficiente antes de eso para deshacerme de ti. Te mostrare por que me llaman el Chico Malo del Mundo Exorcista.", .@roter$;
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "If I take Ferre with me to a different space, then a number of exits will appear in the loosened rift in spacetime.";
-	npctalk "Shaloshi: If I take Ferre with me to a different space, then a number of exits will appear in the loosened rift in spacetime.", .@shaloshi$;
+	mes "Si me llevo a Ferre a un espacio diferente, entonces varias salidas apareceran en la grieta debilitada del espacio-tiempo.";
+	npctalk "Shaloshi: Si me llevo a Ferre a un espacio diferente, entonces varias salidas apareceran en la grieta debilitada del espacio-tiempo.", .@shaloshi$;
 	next;
 	cutin "",255;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	mes "[Melody-Jack]";
-	mes "You're smart and capable of teleportation. Roter, we can't let her go.";
-	npctalk "Melody-Jack: You're smart and capable of teleportation. Roter, we can't let her go.", .@melody$;
+	mes "Eres inteligente y capaz de teletransportarte. Roter, no podemos dejarla ir.";
+	npctalk "Melody-Jack: Eres inteligente y capaz de teletransportarte. Roter, no podemos dejarla ir.", .@melody$;
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "I shouldn't have led you here, but I really wanted some friends.";
-	npctalk "Shaloshi: I shouldn't have led you here, but I really wanted some friends.", .@shaloshi$;
+	mes "No deberia haberlos traido aqui, pero de verdad queria tener amigos.";
+	npctalk "Shaloshi: No deberia haberlos traido aqui, pero de verdad queria tener amigos.", .@shaloshi$;
 	next;
 	cutin "nines03",0;
 	mes "[Newoz]";
-	mes "And you have them. Us.";
-	npctalk "Newoz: And you have them. Us.";
+	mes "Y los tienes. A nosotros.";
+	npctalk "Newoz: Y los tienes. A nosotros.";
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "...Thank you.";
-	npctalk "Shaloshi: ...Thank you.", .@shaloshi$;
+	mes "...Gracias.";
+	npctalk "Shaloshi: ...Gracias.", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "Now I should be honest with you. I remember everything now. Let me introduce myself again.";
-	npctalk "Shaloshi: Now I should be honest with you. I remember everything now. Let me introduce myself again.", .@shaloshi$;
+	mes "Ahora debo ser honesta con ustedes. Ya recuerdo todo. Permitanme presentarme de nuevo.";
+	npctalk "Shaloshi: Ahora debo ser honesta con ustedes. Ya recuerdo todo. Permitanme presentarme de nuevo.", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "I'm Shaloshi, a demon mind reader and the third agent of Morocc's.";
-	npctalk "Shaloshi: I'm Shaloshi, a demon mind reader and the third agent of Morocc's.", .@shaloshi$;
+	mes "Soy Shaloshi, una demonio lectora de mentes y la tercera agente de Morocc.";
+	npctalk "Shaloshi: Soy Shaloshi, una demonio lectora de mentes y la tercera agente de Morocc.", .@shaloshi$;
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
@@ -3615,71 +3615,71 @@ OnStop:
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "...I'm free now, but that doesn't change who I am: a demon.";
-	npctalk "Shaloshi: ...I'm free now, but that doesn't change who I am: a demon.", .@shaloshi$;
+	mes "...Soy libre ahora, pero eso no cambia lo que soy: una demonio.";
+	npctalk "Shaloshi: ...Soy libre ahora, pero eso no cambia lo que soy: una demonio.", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "I enjoyed your company. If we meet again... Will we be enemies?";
-	npctalk "Shaloshi: I enjoyed your company. If we meet again... Will we be enemies?", .@shaloshi$;
+	mes "Disfrute su compania. Si nos vemos de nuevo... Seremos enemigos?";
+	npctalk "Shaloshi: Disfrute su compania. Si nos vemos de nuevo... Seremos enemigos?", .@shaloshi$;
 	next;
 	cutin "nines03",0;
 	mes "[Newoz]";
-	mes "No, Shaloshi. As of today, you're a new member of Newoz's White Wings Guild.";
-	npctalk "Newoz: No, Shaloshi. As of today, you're a new member of Newoz's White Wings Guild.";
+	mes "No, Shaloshi. A partir de hoy, eres una nueva miembro del Gremio White Wings de Newoz.";
+	npctalk "Newoz: No, Shaloshi. A partir de hoy, eres una nueva miembro del Gremio White Wings de Newoz.";
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "Who says you can invite her? I'm not taking in a demon!";
-	npctalk "Roter: Who says you can invite her? I'm not taking in a demon!", .@roter$;
+	mes "Quien dice que puedes invitarla? No voy a aceptar a una demonio!";
+	npctalk "Roter: Quien dice que puedes invitarla? No voy a aceptar a una demonio!", .@roter$;
 	next;
 	cutin "arang02",2;
 	mes "[Arang]";
-	mes "Guildsmen can bicker with each other, but they're still family.";
-	npctalk "Arang: Guildsmen can bicker with each other, but they're still family.", .@arang$;
+	mes "Los miembros del gremio pueden discutir entre si, pero siguen siendo familia.";
+	npctalk "Arang: Los miembros del gremio pueden discutir entre si, pero siguen siendo familia.", .@arang$;
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "...Thank you, Adventurer Newoz. If I find some interesting place, can I invite you over?";
-	npctalk "Shaloshi: ...Thank you, Adventurer Newoz. If I find some interesting place, can I invite you over?", .@shaloshi$;
+	mes "...Gracias, Aventurero Newoz. Si encuentro algun lugar interesante, puedo invitarlos?";
+	npctalk "Shaloshi: ...Gracias, Aventurero Newoz. Si encuentro algun lugar interesante, puedo invitarlos?", .@shaloshi$;
 	next;
 	mes "[Shaloshi]";
-	mes "I think I have the ability to take people with me, wherever I go. Or you wouldn't have followed me this far.";
-	npctalk "Shaloshi: I think I have the ability to take people with me, wherever I go. Or you wouldn't have followed me this far.", .@shaloshi$;
+	mes "Creo que tengo la habilidad de llevar gente conmigo, a donde sea que vaya. O no me habrian seguido hasta aqui.";
+	npctalk "Shaloshi: Creo que tengo la habilidad de llevar gente conmigo, a donde sea que vaya. O no me habrian seguido hasta aqui.", .@shaloshi$;
 	next;
 	cutin "lunain04",0;
 	mes "[Runane]";
-	mes "Don't you dare take away my Newoz!";
-	npctalk "Runane: Don't you dare take away my Newoz!", .@runane$;
+	mes "No te atrevas a llevarte a mi Newoz!";
+	npctalk "Runane: No te atrevas a llevarte a mi Newoz!", .@runane$;
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "You just thought, 'take me, too!'";
-	npctalk "Shaloshi: You just thought, 'take me, too!'", .@shaloshi$;
+	mes "Acabas de pensar 'llevame a mi tambien!'";
+	npctalk "Shaloshi: Acabas de pensar 'llevame a mi tambien!'", .@shaloshi$;
 	next;
 	cutin "igu03",0;
 	mes "[Aigu]";
-	mes "Aww, Runane. You're cute!";
-	npctalk "Aigu: Aww, Runane. You're cute!", .@aigu$;
+	mes "Aww, Runane. Eres tierna!";
+	npctalk "Aigu: Aww, Runane. Eres tierna!", .@aigu$;
 	next;
 	cutin "roel04",2;
 	mes "[Roel]";
-	mes "Shaloshi, I don't care who you are. You're my friend, and I'm yours.";
-	npctalk "Roel: Shaloshi, I don't care who you are. You're my friend, and I'm yours.", .@roel$;
+	mes "Shaloshi, no me importa quien eres. Eres mi amiga, y yo soy tuyo.";
+	npctalk "Roel: Shaloshi, no me importa quien eres. Eres mi amiga, y yo soy tuyo.", .@roel$;
 	next;
 	cutin "shaloshi01",2;
 	mes "[Shaloshi]";
-	mes "Thank you. If only I knew how to express my feelings...";
-	npctalk "Shaloshi: Thank you. If only I knew how to express my feelings...", .@shaloshi$;
+	mes "Gracias. Si tan solo supiera como expresar mis sentimientos...";
+	npctalk "Shaloshi: Gracias. Si tan solo supiera como expresar mis sentimientos...", .@shaloshi$;
 	next;
 	cutin "igu05",0;
 	mes "[Aigu]";
-	mes "It's easy. Just smile.";
-	npctalk "Aigu: It's easy. Just smile.", .@aigu$;
+	mes "Es facil. Solo sonrie.";
+	npctalk "Aigu: Es facil. Solo sonrie.", .@aigu$;
 	next;
 	cutin "shaloshi04",2;
 	mes "[Shaloshi]";
-	mes "Bye, friends. I hope we'll meet again soon.";
-	npctalk "Shaloshi: Bye, friends. I hope we'll meet again soon.", .@shaloshi$;
+	mes "Adios, amigos. Espero que nos veamos pronto.";
+	npctalk "Shaloshi: Adios, amigos. Espero que nos veamos pronto.", .@shaloshi$;
 	next;
 	specialeffect EF_PORTAL2,AREA, .@shaloshi$;
 	specialeffect EF_PORTAL2,AREA, .@ferre$;
@@ -3687,13 +3687,13 @@ OnStop:
 	disablenpc .@ferre$;
 	cutin "nines01",0;
 	mes "[Newoz]";
-	mes "Bye.";
-	npctalk "Newoz: Bye.";
+	mes "Adios.";
+	npctalk "Newoz: Adios.";
 	next;
 	cutin "rote01",2;
 	mes "[Roter]";
-	mes "Don't look at me. Is that an exit?";
-	npctalk "Roter: Don't look at me. Is that an exit?", .@roter$;
+	mes "No me mires. Eso es una salida?";
+	npctalk "Roter: No me mires. Eso es una salida?", .@roter$;
 	close2;
 	cutin "",255;
 	if ('room == 24 && is_party_leader() == true)
@@ -3720,7 +3720,7 @@ OnStop:
 	if ('room != 25 || is_party_leader() == false) {
 		cutin "nines01",2;
 		mes "[Newoz]";
-		mes "It's been a while since I had so much fun.";
+		mes "Hace tiempo que no me divertia tanto.";
 		if ('room >= 25 && isbegin_quest(13181) == 1)	// officially, complete the quest for members
 			completequest 13181;
 		close3;
@@ -3734,38 +3734,38 @@ OnStop:
 	cutin "nines02",2;
 	emotion ET_DELIGHT;
 	mes "[Newoz]";
-	mes "This was my first adventure with my old friends in a long time. I hope we can do this again soon.";
-	npctalk "Newoz: This was my first adventure with my old friends in a long time. I hope we can do this again soon.";
+	mes "Esta fue mi primera aventura con mis viejos amigos en mucho tiempo. Espero que podamos hacer esto de nuevo pronto.";
+	npctalk "Newoz: Esta fue mi primera aventura con mis viejos amigos en mucho tiempo. Espero que podamos hacer esto de nuevo pronto.";
 	next;
 	cutin "rote01",0;
 	emotion ET_STARE, getnpcid(0,.@roter$);
 	mes "[Roter]";
-	mes "Newoz. Need I remind you this guild is no longer called Newoz's White Wings?";
-	npctalk "Roter: Newoz. Need I remind you this guild is no longer called Newoz's White Wings?", .@roter$;
+	mes "Newoz. Necesito recordarte que este gremio ya no se llama White Wings de Newoz?";
+	npctalk "Roter: Newoz. Necesito recordarte que este gremio ya no se llama White Wings de Newoz?", .@roter$;
 	next;
 	cutin "nines04",2;
 	mes "[Newoz]";
-	mes "What? Did you change the guild name?";
-	npctalk "Newoz: What? Did you change the guild name?";
+	mes "Que? Did you change the guild name?";
+	npctalk "Newoz: Que? Did you change the guild name?";
 	next;
 	cutin "rote01",0;
 	emotion ET_HNG, getnpcid(0,.@roter$);
 	mes "[Roter]";
-	mes "Of course! Now it's called... Um...";
-	npctalk "Roter: Of course! Now it's called... Um...", .@roter$;
+	mes "Por supuesto! Ahora se llama... Um...";
+	npctalk "Roter: Por supuesto! Ahora se llama... Um...", .@roter$;
 	next;
 	emotion ET_OHNO, getnpcid(0,.@mingmin$);
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Stop thinking and just keep the old name.";
-	npctalk "Mingmin: Stop thinking and just keep the old name.", .@mingmin$;
+	mes "Deja de pensar y solo queda con el nombre viejo.";
+	npctalk "Mingmin: Deja de pensar y solo queda con el nombre viejo.", .@mingmin$;
 	emotion ET_SCRATCH, getnpcid(0,.@mingmin$);
 	next;
 	emotion ET_SPARK, getnpcid(0,.@roter$);
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "Nope, I'm going to call it Roter's Super Critical Guild!";
-	npctalk "Roter: Nope, I'm going to call it Roter's Super Critical Guild!", .@roter$;
+	mes "No, lo voy a llamar Gremio Super Critico de Roter!";
+	npctalk "Roter: No, lo voy a llamar Gremio Super Critico de Roter!", .@roter$;
 	emotion ET_SHY, getnpcid(0,.@roter$);
 	next;
 	emotion ET_OTL, getnpcid(0,.@aigu$);
@@ -3775,68 +3775,68 @@ OnStop:
 	npctalk "Aigu: ...", .@aigu$;
 	next;
 	mes "[Aigu]";
-	mes "That sounds lame.";
-	npctalk "Aigu: That sounds lame.", .@aigu$;
+	mes "Eso suena patetico.";
+	npctalk "Aigu: Eso suena patetico.", .@aigu$;
 	next;
 	cutin "roel04",2;
 	mes "[Roel]";
-	mes "I'm not a fan of it.";
-	npctalk "Roel: I'm not a fan of it.", instance_npcname("Roel#05");
+	mes "No me gusta.";
+	npctalk "Roel: No me gusta.", instance_npcname("Roel#05");
 	next;
 	cutin "lunain04",0;
 	mes "[Runane]";
-	mes "Dorky.";
-	npctalk "Runane: Dorky.", .@runane$;
+	mes "Tonto.";
+	npctalk "Runane: Tonto.", .@runane$;
 	next;
 	cutin "rote01",0;
 	emotion ET_STARE, getnpcid(0,.@roter$);
 	mes "[Roter]";
-	mes "I'm the guild master! I name it whatever I want!";
-	npctalk "Roter: I'm the guild master! I name it whatever I want!", .@roter$;
+	mes "Soy el maestro del gremio! Lo llamo como yo quiera!";
+	npctalk "Roter: Soy el maestro del gremio! Lo llamo como yo quiera!", .@roter$;
 	next;
 	cutin "arang01",2;
 	mes "[Arang]";
-	mes "Not cool.";
-	npctalk "Arang: Not cool.", instance_npcname("Arang#05");
+	mes "Nada genial.";
+	npctalk "Arang: Nada genial.", instance_npcname("Arang#05");
 	next;
 	emotion ET_KIK, getnpcid(0,.@mingmin$);
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "Keep the name. I'm out.";
-	npctalk "Mingmin: Keep the name. I'm out.", .@mingmin$;
+	mes "Queda con el nombre. Me voy.";
+	npctalk "Mingmin: Queda con el nombre. Me voy.", .@mingmin$;
 	next;
 	emotion ET_HUK, getnpcid(0,.@roter$);
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "You can't do that!";
-	npctalk "Roter: You can't do that!", .@roter$;
+	mes "No puedes hacer eso!";
+	npctalk "Roter: No puedes hacer eso!", .@roter$;
 	next;
 	cutin "",255;
 	mes "[Melody-Jack]";
-	mes "I'm not a member, but if you ask me, that name...";
-	npctalk "Melody-Jack: I'm not a member, but if you ask me, that name...", .@melody$;
+	mes "No soy miembro, pero si me preguntas, ese nombre...";
+	npctalk "Melody-Jack: No soy miembro, pero si me preguntas, ese nombre...", .@melody$;
 	emotion ET_THINK, getnpcid(0,.@melody$);
 	next;
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "I'll never be able to speak that name. Aigu, are you sure you want to stick with these guys?";
-	npctalk "Lagi: I'll never be able to speak that name. Aigu, are you sure you want to stick with these guys?", instance_npcname("Lagi#05");
+	mes "Nunca podre decir ese nombre. Aigu, estas segura de que quieres quedarte con estos tipos?";
+	npctalk "Lagi: Nunca podre decir ese nombre. Aigu, estas segura de que quieres quedarte con estos tipos?", instance_npcname("Lagi#05");
 	next;
 	cutin "igu02",2;
 	mes "[Aigu]";
-	mes "I don't care. I'm staying with Newoz.";
-	npctalk "Aigu: I don't care. I'm staying with Newoz.", .@aigu$;
+	mes "No me importa. Me quedo con Newoz.";
+	npctalk "Aigu: No me importa. Me quedo con Newoz.", .@aigu$;
 	emotion ET_BIGTHROB, getnpcid(0,.@aigu$);
 	next;
 	cutin "lunain04",0;
 	mes "[Runane]";
-	mes "I just don't like the name.";
-	npctalk "Runane: I just don't like the name.", .@runane$;
+	mes "Simplemente no me gusta el nombre.";
+	npctalk "Runane: Simplemente no me gusta el nombre.", .@runane$;
 	next;
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "Shush! We've had enough for a day. You all are dismissed! This concludes the adventure of Roter's Super Critical Guild!";
-	npctalk "Roter: Shush! We've had enough for a day. You all are dismissed! This concludes the adventure of Roter's Super Critical Guild!", .@roter$;
+	mes "Shh! Ya tuvimos suficiente por un dia. Todos estan despedidos! Esto concluye la aventura del Gremio Super Critico de Roter!";
+	npctalk "Roter: Shh! Ya tuvimos suficiente por un dia. Todos estan despedidos! Esto concluye la aventura del Gremio Super Critico de Roter!", .@roter$;
 	completequest 13181;
 	if ('room == 25) {
 		'room = 26;
@@ -3847,56 +3847,56 @@ OnStop:
 
 1@jtb,363,11,5	script	Melody-Jack#05	CLEAR_NPC,{
 	mes "[Melody-Jack]";
-	mes "Our deal is done. Let me think about what I want in return...";
+	mes "Nuestro trato esta hecho. Dejame pensar en lo que quiero a cambio...";
 	close;
 }
 
 1@jtb,358,25,5	script	Gelka#05	4_F_GELKA,{
 	cutin "gelca01",0;
 	mes "[Gelka]";
-	mes "I will! I'll practice harder, too!";
+	mes "Lo hare! Practicare mas duro tambien!";
 	close3;
 }
 
 1@jtb,385,20,5	script	Runane#05	4_F_RUNAIN,{
 	cutin "lunain03",0;
 	mes "[Runane]";
-	mes "I want to go home. I really want to take a shower and eat some bread.";
+	mes "Quiero ir a casa. De verdad quiero ducharme y comer algo de pan.";
 	close3;
 }
 
 1@jtb,375,31,5	script	Roter#05	4_M_ROTERT,{
 	cutin "rote01",0;
 	mes "[Roter]";
-	mes "You're a prospect for now. Work hard for the guild, and I might promote you one day.";
+	mes "Eres un prospecto por ahora. Trabaja duro para el gremio, y tal vez te ascienda algun dia.";
 	close3;
 }
 
 1@jtb,380,28,4	script	Aigu#05	4_F_IU,{
 	cutin "igu03",2;
 	mes "[Aigu]";
-	mes "I'll never again let you go, Newoz!";
+	mes "Nunca mas te dejare ir, Newoz!";
 	close3;
 }
 
 1@jtb,359,43,5	script	Lagi#05	4_M_RAGI,{
 	cutin "ragi01",0;
 	mes "[Lagi]";
-	mes "I've found so much inspiration through this adventure. I'm hopeful I can write some good songs.";
+	mes "Encontre tanta inspiracion en esta aventura. Tengo esperanza de poder escribir buenas canciones.";
 	close3;
 }
 
 1@jtb,378,47,5	script	Arang#05	4_F_TAEKWON,{
 	cutin "arang03",0;
 	mes "[Arang]";
-	mes "Roel and I are friends now. Heh.";
+	mes "Roel y yo somos amigos ahora. Je.";
 	close3;
 }
 
 1@jtb,381,47,4	script	Roel#05	4_M_ROEL,{
 	cutin "roel03",2;
 	mes "[Roel]";
-	mes "I want to dance as well as Aigu.";
+	mes "Quiero bailar tan bien como Aigu.";
 	close3;
 }
 
@@ -3904,82 +3904,82 @@ OnStop:
 1@jtb,375,28,5	script	Mingmin#05	4_F_GENETIC,{
 	disable_items;
 	if (!checkweight(18122,1) || (MaxWeight - Weight) < 1000) {// custom - officially no check of the weight
-		mes "- Wait a minute !! -";
-		mes "- Currently you're carrying -";
-		mes "- too many items with you. -";
-		mes "- Please try again -";
-		mes "- after you lose some weight. -";
+		mes "- Espera un momento !! -";
+		mes "- Actualmente estas cargando -";
+		mes "- demasiados objetos contigo. -";
+		mes "- Por favor intenta de nuevo -";
+		mes "- despues de aligerar tu carga. -";
 		close;
 	}
 	cutin "min02",0;
 	mes "[Mingmin]";
-	mes "I've stolen a few strands of hair from Shaloshi, thinking it'd come in handy someday. I want to analyze them, though I already know the results.";
+	mes "Le robe algunos mechones de cabello a Shaloshi, pensando que serian utiles algun dia. Quiero analizarlos, aunque ya se los resultados.";
 	next;
-	switch( select( "Strange Pendant", "Jitterbug Tooth", "Quit." ) ) {
+	switch( select( "Pendiente Extrano", "Diente de Jitterbug", "Salir." ) ) {
 	case 1:
 		mes "[Mingmin]";
-		mes "Have you seen this pendant?";
+		mes "Has visto este pendiente?";
 		next;
 		mes "[Mingmin]";
-		mes "I think I can fit Pendant of Harmony and Pendant of Chaos together.";
+		mes "Creo que puedo unir el Pendant of Harmony y el Pendant of Chaos.";
 		next;
 		mes "[Mingmin]";
-		mes "And if I do, the results will be incredible!";
+		mes "Y si lo hago, los resultados seran increibles!";
 		next;
 		mes "[Mingmin]";
 		mes "ATK +6%. MATK +6%. All stats +1.";
-		mes "Magic attacks from enemies cast Level 1 Auto Spell Maelstrom.";
+		mes "Los ataques magicos de enemigos lanzan Auto Spell Maelstrom Nivel 1.";
 		mes "DEF: 0 Weight: 10 Required Level: 130";
 		mes "Slot: 1";
 		next;
 		mes "[Mingmin]";
-		mes "If my description of the combination results is strangely familiar to you, I wouldn't know. But that's how I picture the results. If you find both the pendants, bring them to me, yeah?";
+		mes "Si mi descripcion de los resultados de la combinacion te resulta extranyamente familiar, no lo se. Pero asi me imagino los resultados. Si encuentras ambos pendientes, traemelos, si?";
 		next;
 		if ((countitem(2990) - isequippedcnt(2990)) > 0 && (countitem(2991) - isequippedcnt(2991)) > 0) {
 			mes "[Mingmin]";
-			mes "Oooh, you've got some nice pendants. Do you want to combine them? It's failproof, I guarantee.";
+			mes "Oooh, tienes unos buenos pendientes. Quieres combinarlos? Es a prueba de fallos, lo garantizo.";
 			next;
-			if (select( "Quit.", "Combine." ) == 2) {
+			if (select( "Salir.", "Combinar." ) == 2) {
 				mes "[Mingmin]";
-				mes "The combining process is really simple. I just place the Pendant of Harmony on the ground, then throw the Pendant of Chaos at it... like this!";
+				mes "El proceso de combinacion es muy simple. Solo pongo el Pendant of Harmony en el suelo, y luego lanzo el Pendant of Chaos hacia el... asi!";
 				next;
 				specialeffect EF_PHARMACY_FAIL;
 				mes "[Mingmin]";
-				mes "Oh, did I fail?";
+				mes "Oh, falle?";
 				next;
 				mes "[Mingmin]";
-				mes "*Chuckle* I was messing with you--it worked!";
+				mes "*Risita* Te estaba molestando--funciono!";
 				delitem	2990,1;// Pendant_Of_Harmony
 				delitem	2991,1;// Pendant_Of_Chaos
 				getitem 2992,1;// Pendant_Of_Maelstorm
 				next;
 				mes "[Mingmin]";
-				mes "Ah, combining items is fun.";
+				mes "Ah, combinar objetos es divertido.";
 				next;
 			}
 		}
 		break;
 	case 2:
 		mes "[Mingmin]";
-		mes "Do you have Jitterbug Teeth?";
+		mes "Tienes Dientes de Jitterbug?";
 		next;
 		mes "[Mingmin]";
-		mes "I can't tell you just yet, but they're useful to me. Bring them to me, and I'll give you some booty Newoz has hoarded in return.";
+		mes "No puedo decirte aun, pero me son utiles. Traemelos, y te dare algo del botin que Newoz ha acumulado a cambio.";
 		next;
 		mes "[Mingmin]";
-		mes "What exactly am I offering? Gigantic Bow, Storm Bow, and ^FF0000other valuable things found in this space.^000000 If you want them, bring me at least 50 Jitterbug Teeth.";
+		mes "Que exactamente estoy ofreciendo? Gigantic Bow, Storm Bow, y ^FF0000otras cosas valiosas encontradas en este espacio.^000000 Si las quieres, traeme al menos 50 Dientes de Jitterbug.";
 		next;
 		mes "[Mingmin]";
-		mes "I'll exchange 50 Jitterbug Teeth with ^FF0000a random item.^000000";
+		mes "Intercambiare 50 Dientes de Jitterbug por ^FF0000un objeto aleatorio.^000000";
 		next;
-		if (select( "Quit.", "Exchange 50." ) == 2) {
+		if (select( "Salir.", "Intercambiar 50." ) == 2) {
 			if (countitem(6719) < 50) {// Tooth_Of_Jitterbug
 				mes "[Mingmin]";
-				mes "I won't accept anything less than 50 Jitterbug Teeth.";
+				mes "No aceptare nada menos que 50 Dientes de Jitterbug.";
 			}
 			else {
 				mes "[Mingmin]";
-				mes "All right! Let me think about what I want to give you...";
+				mes "Esta bien! Dejame pensar en que quiero darte...";
 				next;
 				delitem 6719,50;// Tooth_Of_Jitterbug
 				.@item_id = F_Rand(
@@ -3998,7 +3998,7 @@ OnStop:
 				 );
 				getitem .@item_id,1;
 				mes "[Mingmin]";
-				mes "Enjoy your item. Bring more Jitterbug Teeth if you want more items.";
+				mes "Disfruta tu objeto. Trae mas Dientes de Jitterbug si quieres mas objetos.";
 			}
 			next;
 		}
@@ -4007,7 +4007,7 @@ OnStop:
 		break;
 	}
 	mes "[Mingmin]";
-	mes "This place is still full of things to study.";
+	mes "Este lugar todavia esta lleno de cosas para estudiar.";
 	close3;
 }
 
