@@ -18,7 +18,7 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	mes "Maestro del refinamiento, Holink~";
 	mes "Soy el gato especial Holink que aprendio de Morocc~";
 	mes "Mi hija esta muy orgullosa de mi, Holink~";
-	mes "Que deberia refinar Holink~ hoy?";
+	mes "¿Que deberia refinar Holink~ hoy?";
 	next;
 
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -34,27 +34,27 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 			mes "No hay cura para la estupidez...";
 			break;
 		case EQI_ARMOR:
-			mes "No hay nada que ver aqui, miau!";
+			mes "¡No hay nada que ver aqui, miau!";
 			break;
 		case EQI_HAND_L:
-			mes "Miau? Que quieres que haga con esta mano izquierda...?";
+			mes "¿Miau? ¿Que quieres que haga con esta mano izquierda...?";
 			break;
 		case EQI_HAND_R:
-			mes "Miau? Que quieres que haga con esta mano derecha...?";
+			mes "¿Miau? ¿Que quieres que haga con esta mano derecha...?";
 			break;
 		case EQI_GARMENT:
-			mes "Miau? No llevas nada puesto.";
+			mes "¿Miau? No llevas nada puesto.";
 			break;
 		case EQI_SHOES:
-			mes "Kyang~! No molestes mi sensible olfato, miau~.";
+			mes "¡Kyang~! No molestes mi sensible olfato, miau~.";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "Miau? Donde esta el accesorio?";
+			mes "¿Miau? ¿Donde esta el accesorio?";
 			break;
 		case EQI_HEAD_MID:
 		case EQI_HEAD_LOW:
-			mes "Miau? Hablas de las otras partes de la cabeza, miau?~";
+			mes "¿Miau? ¿Hablas de las otras partes de la cabeza, miau?~";
 			break;
 		}
 		close;
@@ -66,7 +66,7 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	}
 	if (getequiprefinerycnt(.@part) >= 10) {
 		mes "[Holink]";
-		mes "Miau~ Refinamiento perfecto. Esto lo hizo Aragam, miau?~";
+		mes "Miau~ Refinamiento perfecto. ¿Esto lo hizo Aragam, miau?~";
 		close;
 	}
 	mes "[Holink]";
@@ -98,11 +98,11 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		switch( .@equip_lv ){
 			case 1: // Level 1 Weapon
 				.@price = 500;
-				mes "Un arma de nivel 1...?";
+				mes "¿Un arma de nivel 1...?";
 				break;
 			case 2: // Level 2 Weapon
 				.@price = 2000;
-				mes "Miau, un arma de nivel 2...?";
+				mes "Miau, ¿un arma de nivel 2...?";
 				break;
 			case 3: // Level 3 Weapon
 				.@price = 20000;
@@ -110,9 +110,9 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 				break;
 			case 4: // Level 4 Weapon
 				.@price = 50000;
-				mes "Mi-Miau!... Un arma de nivel 4...!";
+				mes "¡Mi-Miau!... ¡Un arma de nivel 4...!";
 				mes "Solo lo he visto dos veces mientras";
-				mes "aprendia de Aragam... Mi-Miau!!";
+				mes "aprendia de Aragam... ¡Mi-Miau!!";
 				break;
 			default:
 				// TODO:
@@ -124,17 +124,17 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 	}
 
 	mes "Necesitas ^ff9999"+getitemname(.@material)+"^000000 y ^ff9999"+.@price+"^000000 Zeny para este refinamiento, miau~";
-	mes "Quieres continuar, miau?~";
+	mes "¿Quieres continuar, miau?~";
 	next;
-	if(select("Si!!:No!!") == 2) {
+	if(select("¡¡Si!!:¡¡No!!") == 2) {
 		mes "[Holink]";
-		mes "Kyack!!";
-		mes "No confias en el maestro refinador Holink, miau?~";
+		mes "¡¡Kyack!!";
+		mes "¿No confias en el maestro refinador Holink, miau?~";
 		close;
 	}
 	if (getequippercentrefinery(.@part, true) < 100) {
 		mes "[Holink]";
-		mes "Miau!!";
+		mes "¡¡Miau!!";
 		if (.@type$ == "armor")
 			mes "Esta armadura ya fue refinada muchas veces, miau.";
 		else {
@@ -150,12 +150,12 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		mes "Una vez que el "+.@type$+" se rompa, no podras";
 		mes "usarlo nunca mas, miau. Sin mencionar... todas las";
 		mes "^ff0000cartas y encantamientos actuales desapareceran seguro^000000.";
-		mes "Aun quieres intentarlo, miau~?";
+		mes "¿Aun quieres intentarlo, miau~?";
 		next;
-		if(select("Si, quiero!!:Olvidalo!!") == 2) {
+		if(select("¡¡Si, quiero!!:¡¡Olvidalo!!") == 2) {
 			mes "[Holink]";
-			mes "Miau! Sabia decision, miau.";
-			mes "Pero!!";
+			mes "¡Miau! Sabia decision, miau.";
+			mes "¡¡Pero!!";
 			mes "No estoy contento de verte dudando del maestro refinador Holink, miau~";
 			close;
 		}
@@ -176,27 +176,27 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		mes "[Holink]";
 		emotion ET_FRET;
 		mes "Espera un segundo...";
-		mes "Crees que soy tonto?!";
-		mes "Cambiaste el objeto mientras no miraba! Fuera de aqui!";
+		mes "¡¿Crees que soy tonto?!";
+		mes "¡Cambiaste el objeto mientras no miraba! ¡Fuera de aqui!";
 		close;
 	}
 
 	if (getequippercentrefinery(.@part, true) > rand(100)) {
 		successrefitem .@part;
 		mes "[Holink]";
-		mes "Mi~ Mi~ Miau! Divertido divertido refinar~";
+		mes "Mi~ Mi~ ¡Miau! Divertido divertido refinar~";
 		next;
 		emotion ET_CHUP;
 		mes "[Holink]";
-		mes "Perfecto!! Perfecto, miau!!";
+		mes "¡¡Perfecto!! ¡¡Perfecto, miau!!";
 		mes "Soy el discipulo del mago del refinamiento Aragam~";
-		mes "Holink!!";
-		mes "Otro dia de refinamiento exitoso, miau!!";
+		mes "¡¡Holink!!";
+		mes "¡¡Otro dia de refinamiento exitoso, miau!!";
 		close;
 	}
 	failedrefitem .@part;
 	mes "[Holink]";
-	mes "Miau~ Miau~ Kyaaak!!";
+	mes "¡Miau~ Miau~ Kyaaak!!";
 	next;
 	switch(rand(1,5)) {
 		case 1: emotion ET_CRY; break;
@@ -206,8 +206,8 @@ malangdo,221,174,6	script	Holink#mal_cash	559,{
 		case 5: emotion ET_BIGTHROB; break;
 	}
 	mes "[Holink]";
-	mes "Miau!! Aaaaakk~~!!!!";
-	mes "Kyaaak!! He fallado, miau!!";
+	mes "¡¡Miau!! ¡¡Aaaaakk~~!!!!";
+	mes "¡¡Kyaaak!! ¡¡He fallado, miau!!";
 	next;
 	mes "[Holink]";
 	mes "......";

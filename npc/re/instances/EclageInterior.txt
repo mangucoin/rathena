@@ -34,7 +34,7 @@ ecl_hub01,132,12,3	script	Chief of Staff#tl02	435,{
 			if (instance_create(.@md_name$) < 0) {
 				mes "[Shenime]";
 				mes "Hay algunos soldados enviados por el Alcalde no hace mucho.";
-				mes "Espero que no seas la perturbacion que estan buscando, verdad?";
+				mes "Espero que no seas la perturbacion que estan buscando, ¿verdad?";
 				close;
 			}
 			ecl_interior_time = gettimetick(2) + 20 * 60;
@@ -49,7 +49,7 @@ ecl_hub01,132,12,3	script	Chief of Staff#tl02	435,{
 		}
 	}
 	mes "[Laphine de Alto Rango]";
-	mes "Hmm? Esta habitacion?";
+	mes "¿Hmm? ¿Esta habitacion?";
 	mes "No importa. No te preocupes por eso.";
 	close;
 }
@@ -97,19 +97,19 @@ ecl_hub01,130,15,0	script	It is closed shut.	844,{
 
 1@ecl,58,69,3	script	Shenime#ecl01	435,{
 	mes "[Shenime]";
-	mes "Oh, que esta pasando aqui?";
-	mes "Destruyeron las tropas adicionales que envio el Alcalde?";
+	mes "Oh, ¿que esta pasando aqui?";
+	mes "¿Destruyeron las tropas adicionales que envio el Alcalde?";
 	next;
-	select("Que...?:Luche contra los monstruos!");
+	select("¿Que...?:¡Luche contra los monstruos!");
 	mes "[Shenime]";
 	mes "No importa.";
 	mes "Tu trabajo termina aqui.";
 	mes "Ahora te has convertido en un traidor.";
-	mes "Adios, entonces!";
+	mes "¡Adios, entonces!";
 	specialeffect EF_BEGINSPELL3;
 	next;
 	mes "[" + strcharinfo(0) + "]";
-	mes "No...puede ser!!!";
+	mes "¡No...puede ser!!!";
 	specialeffect2 EF_LORD;
 	percentheal -99,0;
 	soundeffect "wander_man_move.wav",1;
@@ -174,21 +174,21 @@ OnMyMobDead:
 
 OnTouch:
 	if ('mob_summoned > 1) end;
-    mes "Al eliminar a los intrusos cerca del Orbe, aparecieron otras criaturas de aspecto extrano.";
+    mes "Al eliminar a los intrusos cerca del Orbe, aparecieron otras criaturas de aspecto extraño.";
     next;
-    mes "Tampoco pudimos comunicarnos con ellas, y una de ellas parecia furiosa despues de mirar alrededor y descubrir que sus companeros fueron derrotados.";
+    mes "Tampoco pudimos comunicarnos con ellas, y una de ellas parecia furiosa despues de mirar alrededor y descubrir que sus compañeros fueron derrotados.";
     next;
     mes "[" + strcharinfo(0) + "]";
     mes "Parecen como si fueran una encarnacion de Morocc.";
-    mes "El Rey de los Demonios esta detras del Orbe?";
-    mes "O es solo una coincidencia?";
+    mes "¿El Rey de los Demonios esta detras del Orbe?";
+    mes "¿O es solo una coincidencia?";
     next;
     mes "[Subordinado del Rey de los Demonios]";
     mes "Kyaarr...Keraahhh!!!";
     mes "Kkwaaa!";
     next;
-    mes "No se puede evitar una batalla!";
-    mes "Van a matarme!";
+    mes "¡No se puede evitar una batalla!";
+    mes "¡Van a matarme!";
 	close2;
 	hideonnpc instance_npcname("Suspicious Creature#5");
 	hideonnpc instance_npcname("Suspicious Creature#6");
@@ -231,7 +231,7 @@ OnTouch:
 	mes "Kyaarr...Ke...Keryarya!!";
 	next;
 	mes "Parece que van a empezar a atacar en cualquier momento.";
-	mes "No podemos evitar luchar contra ellas!";
+	mes "¡No podemos evitar luchar contra ellas!";
 	close2;
 	hideonnpc instance_npcname("Suspicious Creature#1");
 	hideonnpc instance_npcname("Suspicious Creature#2");
@@ -258,33 +258,33 @@ OnMyMobDead:
 
 1@ecl,148,97,3	script	Avant#	618,{
 	mes "[Avant]";
-	mes "Oye, mira quien esta aqui!";
-	mes "Eres amigo de mi hijo, verdad?";
-	mes "Que extrana casualidad nos ha reunido aqui!";
+	mes "¡Oye, mira quien esta aqui!";
+	mes "Eres amigo de mi hijo, ¿verdad?";
+	mes "¡Que extraña casualidad nos ha reunido aqui!";
 	cutin "avant01",1;
 	next;
 	mes "[Avant]";
-	mes "Te paso algo?";
+	mes "¿Te paso algo?";
 	mes "Hubo un eco sutil y magico.";
 	mes "Inmediatamente despues de eso, fuiste lanzado aqui.";
 	next;
-	if (select("Todo es por tu culpa!:Shenime dijo...") == 1) {
+	if (select("¡Todo es por tu culpa!:Shenime dijo...") == 1) {
 		mes "[Avant]";
 		mes "No entiendo ni una palabra de lo que dices.";
-		mes "No puedes organizar tu historia? No conoces la regla de las 'cinco W y una H'?";
+		mes "¿No puedes organizar tu historia? ¿No conoces la regla de las 'cinco W y una H'?";
 		next;
 	}
 	mes "[Avant]";
 	mes "Ooh...asi que eso fue lo que paso.";
-	mes "Entonces dices que Shenime estaba detras del Orbe?";
+	mes "¿Entonces dices que Shenime estaba detras del Orbe?";
 	next;
 	mes "[Avant]";
 	mes "jejeje...jajajjaja ajajajajja";
-	mes "Vaya, vaya...me engano a mi tambien?";
-	mes "A mi, Avant, entre toda la gente?! Jajajaja!";
+	mes "Vaya, vaya...¿me engaño a mi tambien?";
+	mes "¿A mi, Avant, entre toda la gente?! ¡Jajajaja!";
 	cutin "avant02",1;
 	next;
-	select("Que quieres decir?");
+	select("¿Que quieres decir?");
 	mes "[Avant]";
 	mes "Estaba investigando el poder del Orbe por mi cuenta.";
 	mes "Pero Shenime me insistio persistentemente.";
@@ -299,8 +299,8 @@ OnMyMobDead:
 	mes "Exacto...Shenime. El desperto mi curiosidad a proposito.";
 	next;
 	mes "[Avant]";
-	mes "Estimular a una persona que no era consciente del aire y el agua, y hacer que lo reconozca y siga investigando!";
-	mes "Vaya, vaya...no es interesante?!";
+	mes "¡Estimular a una persona que no era consciente del aire y el agua, y hacer que lo reconozca y siga investigando!";
+	mes "Vaya, vaya...¡¿no es interesante?!";
 	cutin "avant02",1;
 	next;
 	mes "[Avant]";
@@ -308,10 +308,10 @@ OnMyMobDead:
 	mes "...Estoy tan enojado por el hecho de que acabo de darme cuenta de como me uso, pero lo que es aun peor es que le hice algo horrible a nuestro pueblo.";
 	mes "Creo que estoy bastante irritado ahora.";
 	next;
-	select("Tenias conciencia?");
+	select("¿Tenias conciencia?");
 	mes "[Avant]";
-	mes "Que clase de persona crees que soy, en serio?!";
-	mes "Es por mis hijos?";
+	mes "¡¿Que clase de persona crees que soy, en serio?!";
+	mes "¿Es por mis hijos?";
 	mes "Bueno, entonces no puedo culparte demasiado.";
 	cutin "avant01",1;
 	next;
@@ -348,7 +348,7 @@ OnMyMobDead:
 1@ecl,148,29,3	script	Loki#ecl01	512,{
 	mes "[Loki]";
 	mes "Parece que este tipo a mi lado tiene mucho mas que decir que yo.";
-	mes "Por que no le explicas a el primero?";
+	mes "¿Por que no le explicas a el primero?";
 	close;
 }
 
@@ -361,14 +361,14 @@ OnMyMobDead:
 1@ecl,144,27,5	script	Hisie#ecl01	623,{
 	cutin "hisie01",0;
 	mes "[Hisie]";
-	mes "Puedes decirme exactamente que paso?";
+	mes "¿Puedes decirme exactamente que paso?";
 	next;
 	select("Luche con monstruos.");
 	cutin "hisie03",0;
 	mes "[Hisie]";
-	mes "Monstruos? Subordinados de Morocc?";
-	mes "A los que intentabas matar eran nuestros soldados, los Laphines!!";
-	mes "Que demonios paso alli?";
+	mes "¿Monstruos? ¿Subordinados de Morocc?";
+	mes "¡A los que intentabas matar eran nuestros soldados, los Laphines!!";
+	mes "¿Que demonios paso alli?";
 	npcskill "AL_HEAL",9,99,80;
 	next;
 	cutin "",255;
@@ -377,12 +377,12 @@ OnMyMobDead:
 	mes "" + strcharinfo(0) + " Estaba dentro del cuerpo de -";
 	mes "Asi de poderoso es Shenime.";
 	next;
-	mes "En la palma de Loki, descansaba una pequena, delgada y seca espina.";
+	mes "En la palma de Loki, descansaba una pequeña, delgada y seca espina.";
 	next;
 	cutin "hisie03",0;
 	mes "[Hisie]";
-	mes "Shenime, el Jefe de Estado Mayor?";
-	mes "Por que esta relacionado con esto?";
+	mes "¿Shenime, el Jefe de Estado Mayor?";
+	mes "¿Por que esta relacionado con esto?";
 	npcskill "AL_HEAL",9,99,80;
 	next;
 	cutin "",255;
@@ -402,8 +402,8 @@ OnMyMobDead:
 	next;
 	cutin "hisie03",0;
 	mes "[Hisie]";
-	mes "Entonces dices que nos engano a todos?";
-	mes "El Jefe de Estado Mayor es un Laphine que estuvo con nosotros por mucho tiempo! No puede ser...";
+	mes "¿Entonces dices que nos engaño a todos?";
+	mes "¡El Jefe de Estado Mayor es un Laphine que estuvo con nosotros por mucho tiempo! No puede ser...";
 	npcskill "AL_HEAL",9,99,80;
 	next;
 	cutin "",255;
@@ -422,7 +422,7 @@ OnMyMobDead:
 	mes "Pero las cosas se salieron de control.";
 	mes "No esperaba esto.";
 	next;
-	select("Que le paso al Orbe?");
+	select("¿Que le paso al Orbe?");
 	mes "[Hisie]";
 	mes "El nucleo interno fue robado.";
 	mes "Nadie sabe que el nucleo interno del Orbe desaparecio,";
@@ -450,7 +450,7 @@ OnMyMobDead:
 	mes "[Hisie]";
 	mes "Parece que ya descansaste suficiente. Vamonos.";
 	mes "Karr te esta esperando.";
-	mes "Que haran ustedes dos?";
+	mes "¿Que haran ustedes dos?";
 	next;
 	cutin "",255;
 	mes "[Loki]";

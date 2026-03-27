@@ -26,7 +26,7 @@
 -	shop	Herb_Seller	HIDDEN_NPC,no,7932:4000,7933:4000,7934:4000,7935:4000,7936:4000,7937:4000,7931:5000
 
 -	script	::phs	HIDDEN_NPC,{
-	npctalk "Necesitas veneno?", "", bc_self;
+	npctalk "¿Necesitas veneno?", "", bc_self;
 	callshop "Herb_Seller",1;
 	end;
 }
@@ -52,7 +52,7 @@ prontera,168,228,3	duplicate(runesale)	Rune Merchant#prt	4W_M_01
 //============================================================
 job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 2000) {
-		mes "- Espera un momento! -";
+		mes "- ¡Espera un momento! -";
 		mes "- Actualmente estas cargando -";
 		mes "- demasiados objetos contigo. -";
 		mes "- Por favor intenta de nuevo -";
@@ -63,13 +63,13 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 		mes "[Rare Poison Herb Collector]";
 		mes "Viajo por el mundo recolectando hierbas venenosas raras. Recientemente, empece a comerciar con la hierba llamada Izidor. Si te interesa, puedes comprarlas.";
 		next;
-		.@i = select("Como puedo comprarlas?:Cambiar por Animal Blood:Cambiar por Bitter Herb:Cambiar por Deadly Noxious Herb:Cambiar por Frozen Rose:Cambiar por Ment:Cambiar por Hinalle")-2;
+		.@i = select("¿Como puedo comprarlas?:Cambiar por Animal Blood:Cambiar por Bitter Herb:Cambiar por Deadly Noxious Herb:Cambiar por Frozen Rose:Cambiar por Ment:Cambiar por Hinalle")-2;
 		if (.@i == -1) {
 			mes "[Rare Poison Herb Collector]";
 			mes "Puedes comprarlas por 10,000 zeny y uno de estos objetos raros: Animal Blood, Bitter Herb, Deadly Noxious Herb, Frozen Rose, Ment o Hinalle.";
 			next;
 			mes "[Rare Poison Herb Collector]";
-			mes "Por que pido dinero? Es solo para mostrar un poco de respeto a un coleccionista como yo. Ja ja ja...";
+			mes "¿Por que pido dinero? Es solo para mostrar un poco de respeto a un coleccionista como yo. Ja ja ja...";
 			close;
 		} else {
 			setarray .@exchange[0],702,621,631,749,605,703;
@@ -77,7 +77,7 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 			.@price = 10000;
 
 			mes "[Rare Poison Herb Collector]";
-			mes "Cuantas quieres?";
+			mes "¿Cuantas quieres?";
 			mes "Solo puedes comprar un maximo de '2000' unidades.";
 			mes "Ingresa '0' si quieres cancelar.";
 			next;
@@ -89,7 +89,7 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 			}
 			if (.@amount > 2000) {
 				mes "[Rare Poison Herb Collector]";
-				mes "La cantidad debe ser menor a 2,000!";
+				mes "¡La cantidad debe ser menor a 2,000!";
 				close;
 			}
 			.@total = .@amount * .@price;
@@ -116,7 +116,7 @@ job3_guil01,91,93,3	script	Rare Herb Collector	1_M_03,{
 -	shop	Shard_Seller	HIDDEN_NPC,no,6360:200,6363:200,6361:200,6362:200,1000291:-1,1000292:-1,1000293:-1,1000294:-1,1000295:-1
 
 -	script	::pss	HIDDEN_NPC,{
-	npctalk "Tienes un elemento de cada propiedad?", "", bc_self;
+	npctalk "¿Tienes un elemento de cada propiedad?", "", bc_self;
 	callshop "Shard_Seller",1;
 	end;
 }

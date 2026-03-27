@@ -36,7 +36,7 @@ alde_alche,31,186,3	script	Craft Book Merchant#alde	883,{
 	mes "^FF0000no vendo otros objetos^000000.";
 	next;
 	mes "[Craft Book Merchant]";
-	mes "Te gustaria echar un vistazo a mis libros de fabricacion?";
+	mes "¿Te gustaria echar un vistazo a mis libros de fabricacion?";
 	next;
 	if(select("Claro.:No.") == 2) {
 		mes "[Craft Book Merchant]";
@@ -78,12 +78,12 @@ alde_alche,31,186,3	script	Craft Book Merchant#alde	883,{
 	mes "[Craft Book Merchant]";
 	mes "^0000FF["+getitemname(.@item)+"] cuesta";
 	mes "100,000 zeny.";
-	mes "Cuantos te gustaria comprar?";
+	mes "¿Cuantos te gustaria comprar?";
 	next;
 	input .@amount;
 	if (.@amount == 0) {
 		mes "[Craft Book Merchant]";
-		mes "Te gustaria ver otros libros diferentes?";
+		mes "¿Te gustaria ver otros libros diferentes?";
 		close;
 	}
 	if (.@amount < 1 || .@amount > 99 ){
@@ -93,7 +93,7 @@ alde_alche,31,186,3	script	Craft Book Merchant#alde	883,{
 	}
 	mes "[Craft Book Merchant]";
 	mes "Has ingresado "+.@amount+"x ^0000FF["+getitemname(.@item)+"]^000000 para comprar.";
-	mes "Te gustaria continuar?";
+	mes "¿Te gustaria continuar?";
 	next;
 	if (select("Si:No") == 1) {
 		set .@total, .@amount * 100000;

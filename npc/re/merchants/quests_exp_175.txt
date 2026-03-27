@@ -18,7 +18,7 @@ einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 	next;
 	switch( select( "Refinamiento de Dynite", "Tienda de Dynite", "Intercambio de Equipo Dynite" ) ) {
 	case 1:
-		npctalk "Elmen: Puedes refinar hasta 100 Dynite a la vez. La maquina es pequena.", "", bc_self;
+		npctalk "Elmen: Puedes refinar hasta 100 Dynite a la vez. La maquina es pequeña.", "", bc_self;
 		mes "[Elmen]";
 		mes "" + mesitemlink(25814) + " Mineral Refinado.";
 		mes "" + mesitemlink(25809) + " ^777777(actualmente " + countitem(25809) + ")^000000";
@@ -32,18 +32,18 @@ einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 		if (.@val > 100) {
 			mes "[Elmen]";
 			mes "Lo siento. Aventurero.";
-			mes "El Refinamiento de Dynite solo puede refinar hasta 100 a la vez. La maquina es pequena, asi que no se puede hacer nada. Por favor entiende.";
+			mes "El Refinamiento de Dynite solo puede refinar hasta 100 a la vez. La maquina es pequeña, asi que no se puede hacer nada. Por favor entiende.";
 			close;
 		}
 		if (.@val == 0) {
 			mes "[Elmen]";
-			mes "Cancelar?";
+			mes "¿Cancelar?";
 			mes "Si necesitas refinamiento de Dynite, buscame cuando quieras. No hay nadie que pueda hacerlo sin mi.";
 			close;
 		}
 		if (countitem(25809) < .@val || countitem(25810) < .@val || countitem(25811) < .@val || countitem(25812) < .@val || countitem(25813) < .@val) {
 			mes "[Elmen]";
-			mes "Oye! Esto nos lo pone dificil a ambos, no te quedaste sin materiales necesarios para el refinamiento? Los materiales!";
+			mes "¡Oye! Esto nos lo pone dificil a ambos, ¿no te quedaste sin materiales necesarios para el refinamiento? ¡Los materiales!";
 			close;
 		}
 		specialeffect EF_REPAIRWEAPON;
@@ -55,7 +55,7 @@ einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 		delitem 25813,.@val;	// Ein_WHIDIUM
 		getitem 25814,.@val;	// Ein_DYNITE
 		mes "[Elmen]";
-		mes "" + .@val + " Dynite han sido refinados. Hoy quedo perfecto!";
+		mes "" + .@val + " Dynite han sido refinados. ¡Hoy quedo perfecto!";
 		close;
 	case 2:
 		mes "[Elmen]";
@@ -69,7 +69,7 @@ einbech,149,257,4	script	Site manager Elmen#extdq0	4_TOWER_16,{
 		mes "Dame 50 ^4d4dffDynites^000000 y abrire una ^4d4dffcaja de armas^000000 para ti.";
 		next;
 		mes "[Elmen]";
-		mes "No se que saldra, pero la calidad es buena. Te gustaria abrirla?";
+		mes "No se que saldra, pero la calidad es buena. ¿Te gustaria abrirla?";
 		next;
 		if (select( "Cerrar los ojos e intercambiar.", "No intercambiar." ) == 2) {
 			mes "[Elmen]";

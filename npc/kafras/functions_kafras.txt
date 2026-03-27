@@ -85,7 +85,7 @@ function	script	F_Kafra	{
 		mes "Corporacion Kafra.";
 		mes "Los servicios Kafra";
 		mes "siempre estan de tu lado.";
-		mes "En que puedo ayudarte?";
+		mes "¿En que puedo ayudarte?";
 		break;
 	case 1:// Niflheim specific message
 		mes "[Kafra Employee]";
@@ -100,8 +100,8 @@ function	script	F_Kafra	{
 		break;
 	case 3:// Amatsu specific message (obsolete)
 		mes "[Kafra Employee]";
-		mes "Vienes de una tierra lejana a estudiar nuestra cultura, o solo estas de paseo?";
-		mes "En cualquier caso, por que no te quedas un rato?";
+		mes "¿Vienes de una tierra lejana a estudiar nuestra cultura, o solo estas de paseo?";
+		mes "En cualquier caso, ¿por que no te quedas un rato?";
 		mes "El aire esta eternamente cargado con el";
 		mes "aroma de agradables flores silvestres.";
 		break;
@@ -373,7 +373,7 @@ function	script	F_KafCart	{
 		.@rental_fee = getarg(1);
 		mes "[Kafra Employee]";
 		mes "La tarifa de renta de";
-		mes "Carreta es de " + .@rental_fee + " zeny. Te";
+		mes "Carreta es de " + .@rental_fee + " zeny. ¿Te";
 		mes "gustaria rentar una Carreta?";
 		next;
 		if (select("Rentar una Carreta.:Cancelar") == 2)
@@ -404,7 +404,7 @@ function	script	F_KafInfo	{
 	else if (.@block)
 		setarray .@menu$[0], "Ver Puntos de Reserva Especial.", "", "Ubicaciones de Empleadas Kafra", "Cancelar";
 	else
-		setarray .@menu$[0], "Ver Puntos de Reserva Especial.", "Servicio de Contrasena de Almacen", "Ubicaciones de Empleadas Kafra", "Cancelar";
+		setarray .@menu$[0], "Ver Puntos de Reserva Especial.", "Servicio de Contraseña de Almacen", "Ubicaciones de Empleadas Kafra", "Cancelar";
 	.@menu_list$ = implode(.@menu$,":");
 	while (true) {
 		.@j = select(.@menu_list$) - 1;
@@ -475,10 +475,10 @@ function	script	F_KafEnd	{
 function	script	F_CheckKafCode	{
 	if (!#kafra_code)
 		return;
-	mes "Ingresa tu contrasena de almacen:";
+	mes "Ingresa tu contraseña de almacen:";
 	input .@code_;
 	if (.@code_ != #kafra_code) {
-		dispbottom "Contrasena de almacen incorrecta.";
+		dispbottom "Contraseña de almacen incorrecta.";
 		close3;
 	}
 	@kafcode_try = 0;
@@ -496,21 +496,21 @@ function	script	F_SetKafCode	{
 	mes .@npc_name$;
 	if (#kafra_code == 0) {
 		mes "" + .@comp_name$ + " te presenta con orgullo un nuevo servicio:";
-		mes "Proteccion adicional de almacen con contrasena.";
+		mes "Proteccion adicional de almacen con contraseña.";
 		next;
-		if (select( "Establecer nueva contrasena -> 5000z", "Cancelar" ) == 1)
+		if (select( "Establecer nueva contraseña -> 5000z", "Cancelar" ) == 1)
 			callsub( S_SET, .@npc_name$, .@comp_name$ );
 		close3;
 	}
-	mes "Tu almacen esta protegido con contrasena. Que deseas hacer ahora?";
+	mes "Tu almacen esta protegido con contraseña. ¿Que deseas hacer ahora?";
 	next;
-	switch( select( "Cambiar contrasena anterior -> 5000z", "Eliminar contrasena de almacen -> 1000z", "Cancelar" ) ) {
+	switch( select( "Cambiar contraseña anterior -> 5000z", "Eliminar contraseña de almacen -> 1000z", "Cancelar" ) ) {
 	case 1:
 		mes .@npc_name$;
-		mes "Primero, por favor ingresa tu ^0000FFcontrasena anterior^000000.";
+		mes "Primero, por favor ingresa tu ^0000FFcontraseña anterior^000000.";
 		.@code = callfunc("F_EntKafCode");
 		if (!.@code || .@code != #kafra_code) {
-			mes "Contrasena incorrecta. No puedes establecer una nueva contrasena.";
+			mes "Contraseña incorrecta. No puedes establecer una nueva contraseña.";
 			emotion ET_SCRATCH;
 			break;
 		}
@@ -519,10 +519,10 @@ function	script	F_SetKafCode	{
 		break;
 	case 2:
 		mes .@npc_name$;
-		mes "Por favor, ingresa tu contrasena antes de eliminarla.";
+		mes "Por favor, ingresa tu contraseña antes de eliminarla.";
 		.@code = callfunc("F_EntKafCode");
 		if (!.@code) {
-			mes "La contrasena no ha sido eliminada.";
+			mes "La contraseña no ha sido eliminada.";
 			emotion ET_SCRATCH;
 			break;
 		}
@@ -536,12 +536,12 @@ function	script	F_SetKafCode	{
 		Zeny -= 1000;
 		if (.@code == #kafra_code) {
 			#kafra_code = 0;
-			mes "Has eliminado exitosamente tu contrasena de almacen.";
+			mes "Has eliminado exitosamente tu contraseña de almacen.";
 			mes "Gracias por usar " + .@comp_name$ + ".";
 			emotion ET_THANKS;
 		} else {
-			mes "Contrasena incorrecta. No te devolveremos los 1000z.";
-			mes "Por favor, la proxima vez ingresa la contrasena correcta.";
+			mes "Contraseña incorrecta. No te devolveremos los 1000z.";
+			mes "Por favor, la proxima vez ingresa la contraseña correcta.";
 			emotion ET_SORRY;
 		}
 		break;
@@ -555,10 +555,10 @@ S_SET:
 	.@comp_name$ = getarg(1);
 
 	mes .@npc_name$;
-	mes "Ahora ingresa tu ^FF0000nueva contrasena^000000 para proteger tu almacen de ladrones.";
+	mes "Ahora ingresa tu ^FF0000nueva contraseña^000000 para proteger tu almacen de ladrones.";
 	.@code = callfunc("F_EntKafCode");
 	if (!.@code) {
-		mes "La contrasena no ha sido cambiada.";
+		mes "La contraseña no ha sido cambiada.";
 		emotion ET_SCRATCH;
 		return;
 	}
@@ -571,7 +571,7 @@ S_SET:
 	}
 	Zeny -= 5000;
 	#kafra_code = .@code;
-	mes "Has protegido tu almacen con una contrasena secreta.";
+	mes "Has protegido tu almacen con una contraseña secreta.";
 	mes "Gracias por usar " + .@comp_name$ + ".";
 	emotion ET_THANKS;
 	return;
@@ -589,11 +589,11 @@ function	script	F_EntKafCode	{
 		return 0;
 	}
 	if (input(.@code_) == 1) {
-		mes "No puedes usar una contrasena tan grande.";
+		mes "No puedes usar una contraseña tan grande.";
 		return 0;
 	}
 	if (.@code_ < 1000) {
-		mes "No deberias usar una contrasena tan corta.";
+		mes "No deberias usar una contraseña tan corta.";
 		return 0;
 	}
 	return .@code_;

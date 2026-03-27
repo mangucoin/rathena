@@ -23,7 +23,7 @@ cmd_fild07,63,268,1	script	Emergency Food Merchant#pa0829_01	4_M_BIBI,{
 // Warp Scroll Seller
 cmd_fild07,375,167,1	script	Ruins Black Trader#pa0829_01	4_F_JOB_HUNTER,{
 	mes "[Ruins Black Trader]";
-	mes "Oye, no es dificil caminar dentro y fuera de aqui cada vez? Por solo ^0000ff20,000^000000 Zeny, puedes tener un pergamino que te llevara directo a la entrada de las ruinas, que opinas?";
+	mes "Oye, ¿no es dificil caminar dentro y fuera de aqui cada vez? Por solo ^0000ff20,000^000000 Zeny, puedes tener un pergamino que te llevara directo a la entrada de las ruinas, ¿que opinas?";
 Purchase:
 	next;
 	switch( select( "Dame uno", "No lo creo" )) {
@@ -41,7 +41,7 @@ Purchase:
 			Zeny -= 20000;
 			getitem 22980,1;
 			mes "[Ruins Black Trader]";
-			mes "Fue un buen trato. Necesitas mas?";
+			mes "Fue un buen trato. ¿Necesitas mas?";
 			goto Purchase;
 		case 2:
 			mes "[Ruins Black Trader]";
@@ -122,9 +122,9 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 	function equip_check;
 	mes "[ Artifact Enhancer ]";
 	mes "Si buscas fortalecer el equipo que obtuviste en el Infinite Space, has venido al lugar correcto.";
-	mes "Tienes algun " + getitemname(.@stone_id) + "?";
+	mes "¿Tienes algun " + getitemname(.@stone_id) + "?";
 	next;
-	switch (select("Como encanto mi equipo?:Encantar equipo.:Inicializar encantamiento del equipo.")) {
+	switch (select("¿Como encanto mi equipo?:Encantar equipo.:Inicializar encantamiento del equipo.")) {
 		case 1:
 			mes "[ Artifact Enhancer ]";
 			mes "Podras obtener " + getitemname(.@stone_id) + ", si exploras el espacio bajo el Faro de Paros.";
@@ -290,7 +290,7 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 				close;
 			}
 			mes "[ Artifact Enhancer ]";
-			mes "Existe la posibilidad de que tu equipo de infinite space se destruya en el proceso de inicializacion. Aun estas dispuesto a proceder?";
+			mes "Existe la posibilidad de que tu equipo de infinite space se destruya en el proceso de inicializacion. ¿Aun estas dispuesto a proceder?";
 			next;
 			if (select("Salir:Proceder") == 1) {
 				mes "[ Artifact Enhancer ]";
@@ -314,7 +314,7 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 			} else {
 				specialeffect2 EF_REFINEFAIL;
 				mes "[ Artifact Enhancer ]";
-				mes "Bueno, te lo adverti. No tienes suerte, eh?";
+				mes "Bueno, te lo adverti. No tienes suerte, ¿eh?";
 			}
 			break;
 	}
@@ -324,7 +324,7 @@ cmd_fild07,60,275,3	script	Artifact Enhancer#pa0829_01	4_F_JOB_BLACKSMITH,{
 		setarray .@equip_id,1994,1938,13323,13126,28703,2024,16038,21014,28105,18128,15141,22075,20779,19033;
 		if (!getarg(0)) {
 			mes "[ Artifact Enhancer ]";
-			mes "Te quitaste el equipo?";
+			mes "¿Te quitaste el equipo?";
 			close;
 		}
 		if (inarray(.@equip_id,getarg(0)) == -1) {

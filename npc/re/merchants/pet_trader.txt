@@ -17,8 +17,8 @@ prontera,210,209,5	script	Pet Trader#1	4_M_JPNOJI,{
 	mes "Fue una experiencia horrible. Gracias a eso, no me siento muy bien. Ughh...";
 	next;
 	mes "[Pet Trader]";
-	mes "De todas formas, viniste aqui buscando una Mascota Cute?";
-	mes "Trajiste un boleto contigo, verdad?";
+	mes "De todas formas, ¿viniste aqui buscando una Mascota Cute?";
+	mes "Trajiste un boleto contigo, ¿verdad?";
 	next;
 	switch (select("Examinar tus boletos:Cancelar")) {
 	case 1:
@@ -136,18 +136,18 @@ prontera,210,209,5	script	Pet Trader#1	4_M_JPNOJI,{
 		}
 
 		mes "[Pet Trader]";
-		mes "Que boleto quieres intercambiar?";
+		mes "¿Que boleto quieres intercambiar?";
 		next;
 		.@index = .@ticketIndices[select(.@menu$) - 1];
 
 		mes "[Pet Trader]";
-		mes "Genial!";
+		mes "¡Genial!";
 		mes "^0000FF"+ getitemname(.@eggs[.@index]) +"^000000";
-		mes "Estas seguro de que quieres esta mascota?";
+		mes "¿Estas seguro de que quieres esta mascota?";
 		next;
 		if (select("Si:No") == 2) close;
 		if (!checkweight(.@eggs[.@index], 1)) {
-			mes "Estas cargando demasiadas cosas!";
+			mes "¡Estas cargando demasiadas cosas!";
 			mes "Vuelve cuando hayas hecho algo de espacio.";
 			close;
 		}
