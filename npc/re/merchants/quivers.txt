@@ -37,12 +37,12 @@ mora,106,117,3	script	Quiver Maker#mora	4_M_RAFLE_GR,{
 	}
 	mes "[Quiver Maker]";
 	mes "Los aldeanos de Mora preguntan para que sirven los carcajes. Simplemente no saben como funciona el mundo.";
-	mes "No es de extrañar que no sepan nada de carcajes - untando mermelada sobre hojas todo el dia.";
+	mes "No es de extranar que no sepan nada de carcajes - untando mermelada sobre hojas todo el dia.";
 	next;
 	if (getbattleflag("feature.barter")) {
 		.@menu$ = "Quiero flechas";
 	}
-	switch( select("Por favor hazme un carcaj.", .@menu$, "¿Que es un carcaj?") ) {
+	switch( select("Por favor hazme un carcaj.", .@menu$, "Que es un carcaj?") ) {
 	case 1:
 		if (getbattleflag("feature.barter")) {
 			mes "[Quiver Maker]";
@@ -52,9 +52,9 @@ mora,106,117,3	script	Quiver Maker#mora	4_M_RAFLE_GR,{
 			end;
 		}
 		mes "[Quiver Maker]";
-		mes "¡Por fin alguien aprecia un carcaj!";
+		mes "Por fin alguien aprecia un carcaj!";
 		mes "Puedo hacer Elven Quivers y Hunting Quivers.";
-		mes "¿Cual necesitas?";
+		mes "Cual necesitas?";
 		next;
 		switch(select("Un Elven Quiver:Un Hunting Quiver:No necesito un carcaj.")) {
 		case 1: callsub S_BuyQuiver,1773,500,500,12575; //Arrow_Of_Elf_Cntr
@@ -68,7 +68,7 @@ mora,106,117,3	script	Quiver Maker#mora	4_M_RAFLE_GR,{
 	case 2:
 		if (getbattleflag("feature.barter")) {
 			mes "[Quiver Maker]";
-			mes "Yo no vendo flechas comunes. Estas son flechas artesanales que solo se pueden comprar aqui. Reconocerias su valor, ¿verdad?";
+			mes "Yo no vendo flechas comunes. Estas son flechas artesanales que solo se pueden comprar aqui. Reconocerias su valor, verdad?";
 			close2;
 			callshop "Catch_Arrows", 1;
 		}
@@ -93,8 +93,8 @@ S_BuyQuiver:
 		close;
 	}
 	mes "[Quiver Maker]";
-	mes "Oh, ¡veo que tienes "+ getitemname(.@item_req) +" en tu mano!";
-	mes "¿Te interesa usar un carcaj? ¡Es realmente conveniente!";
+	mes "Oh, veo que tienes "+ getitemname(.@item_req) +" en tu mano!";
+	mes "Te interesa usar un carcaj? Es realmente conveniente!";
 	mes "Si te interesa, puedo intercambiar "+ .@req_amount +" de esas flechas por uno de estos carcajes por ^FF3131"+getarg(2)+" zeny^000000.";
 	next;
 	switch(select("Intercambiar todas las flechas que tengas:Obtener solo un carcaj:No intercambiar")) {
@@ -107,11 +107,11 @@ S_BuyQuiver:
 		mes "La cantidad de carcajes disponibles : ^3131FF"+.@quiver+"^000000";
 		mes "Zeny necesarios para el intercambio : ^3131FF"+.@arrow_zeny01+" zeny^000000";
 		next;
-		mes "¿Intercambiar?";
+		mes "Intercambiar?";
 		next;
 		if(select("Intercambiar:No intercambiar") == 2) {
 			mes "[Quiver Maker]";
-			mes "Oye, ¿no dudaras de mis habilidades, verdad?";
+			mes "Oye, no dudaras de mis habilidades, verdad?";
 			close;
 		}
 		break;
@@ -123,15 +123,15 @@ S_BuyQuiver:
 		break;
 	case 3:
 		mes "[Quiver Maker]";
-		mes "Oye, ¿no dudaras de mis habilidades, verdad?";
+		mes "Oye, no dudaras de mis habilidades, verdad?";
 		close;
 	}
 	if (Zeny < .@arrow_zeny01) {
 		mes "[Quiver Maker]";
 		if (.@zeny_mes == 1)
-			mes "Dije que aceptaria monedas humanas solo por ti, ¿y aun asi no quieres gastar el dinero?";
+			mes "Dije que aceptaria monedas humanas solo por ti, y aun asi no quieres gastar el dinero?";
 		else
-			mes "Realmente no esperas conseguir una obra maestra gratis, ¿verdad?";
+			mes "Realmente no esperas conseguir una obra maestra gratis, verdad?";
 		close;
 	}
 	mes "[Quiver Maker]";

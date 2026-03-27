@@ -17,7 +17,7 @@
 -	script	::BlacksmithDister	-1,{
 	disable_items;
 	mes "[Blacksmith Dister]";
-	mes "¡En esta sociedad tan competitiva, debemos ser diferentes para sobrevivir!";
+	mes "En esta sociedad tan competitiva, debemos ser diferentes para sobrevivir!";
 	mes "Solo refino equipo en los niveles +6 ~ 12.";
 	next;
 	mes "[Blacksmith Dister]";
@@ -25,7 +25,7 @@
 	mes "Los refinamientos fallidos ^FF0000no romperan ni reduciran el nivel de refinamiento^000000.";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "¿Que dices? ¿Quieres refinar?";
+	mes "Que dices? Quieres refinar?";
 	next;
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
 	for(set .@i,1; .@i<=10; set .@i,.@i+1)
@@ -45,20 +45,20 @@
 			mes "Hacer manos artificiales no es mi especialidad.";
 			break;
 		case EQI_GARMENT:
-			mes "¡Saca el objeto para que pueda refinarlo!";
+			mes "Saca el objeto para que pueda refinarlo!";
 			break;
 		case EQI_SHOES:
-			mes "¿De donde viene este olor tan raro?";
+			mes "De donde viene este olor tan raro?";
 			break;
 		case EQI_ACC_L:
 		case EQI_ACC_R:
-			mes "¿Donde esta el accesorio?";
+			mes "Donde esta el accesorio?";
 			break;
 		case EQI_HEAD_MID:
-			mes "¿Que quieres que refine?";
+			mes "Que quieres que refine?";
 			break;
 		case EQI_HEAD_LOW:
-			mes "¿Eh? ¿Que quieres que haga?";
+			mes "Eh? Que quieres que haga?";
 			break;
 		}
 		close;
@@ -75,7 +75,7 @@
 
 	if (.@equip_refine < 6 || .@equip_refine > 12) {
 		mes "[Blacksmith Dister]";
-		mes "Este equipo esta refinado a "+.@equip_refine+". ¡Solo trabajo con objetos de nivel de refinamiento +6 a +12!";
+		mes "Este equipo esta refinado a "+.@equip_refine+". Solo trabajo con objetos de nivel de refinamiento +6 a +12!";
 		close;
 	}
 	if( .@itemtype == IT_ARMOR ){
@@ -123,19 +123,19 @@
 	set .@ore$,"^ff9999Blessed "+.@type$+" Ore^000000";
 	mes "[Blacksmith Dister]";
 	mes "Este "+.@type$+" ha sido refinado a "+.@equip_refine+". Para refinarlo, necesito "+.@ore$+" y una tarifa de refinamiento de "+callfunc("F_InsertComma",.@price)+" zeny.";
-	mes "¿Quieres continuar?";
+	mes "Quieres continuar?";
 	next;
 	if(select("Si:No") == 2) {
 		mes "[Blacksmith Dister]";
-		mes "¡Estoy ocupado, no bromees conmigo!";
+		mes "Estoy ocupado, no bromees conmigo!";
 		close;
 	}
 	if (getequippercentrefinery(.@part) < 100) {
 		mes "[Blacksmith Dister]";
-		mes "Este "+.@type$+" ha sido refinado muchas veces. Aunque no desaparecera si falla, ¡el "+.@ore$+" si desaparecera!";
+		mes "Este "+.@type$+" ha sido refinado muchas veces. Aunque no desaparecera si falla, el "+.@ore$+" si desaparecera!";
 		next;
 		mes "[Blacksmith Dister]";
-		mes "Por supuesto, ¡la tarifa de refinamiento no sera devuelta! ¿Quieres continuar?";
+		mes "Por supuesto, la tarifa de refinamiento no sera devuelta! Quieres continuar?";
 		next;
 		if(select("Si:No") == 2) {
 			mes "[Blacksmith Dister]";
@@ -157,16 +157,16 @@
 		close;
 
 	mes "[Blacksmith Dister]";
-	mes "¡Tac! ¡Tac! ¡Tac!";
+	mes "Tac! Tac! Tac!";
 	if (getequippercentrefinery(.@part, true) > rand(100)) {
 		specialeffect EF_BLESSING;
 		successrefitem .@part;
 		next;
 		mes "[Blacksmith Dister]";
-		mes "¡¡¡Jajajajajaja!!!";
+		mes "Jajajajajaja!!!";
 		next;
 		mes "[Blacksmith Dister]";
-		mes "¡El refinamiento fue un gran exito~ Jajaja!";
+		mes "El refinamiento fue un gran exito~ Jajaja!";
 		close;
 	}
 	specialeffect EF_CURSEATTACK;
@@ -174,13 +174,13 @@
 	next;
 	emotion (!rand(5))?ET_ANGER:ET_HUK;
 	mes "[Blacksmith Dister]";
-	mes "¡¡¡Dios mio!!!!";
+	mes "Dios mio!!!!";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "¡Oh! Aunque fue bendecido por "+.@ore$+" para conservar el equipo...";
+	mes "Oh! Aunque fue bendecido por "+.@ore$+" para conservar el equipo...";
 	next;
 	mes "[Blacksmith Dister]";
-	mes "¡¡Mi humor empeora cuando fallo!!";
+	mes "Mi humor empeora cuando fallo!!";
 	close;
 }
 prt_in,52,56,3	duplicate(BlacksmithDister)	Blacksmith Dister#prt	826

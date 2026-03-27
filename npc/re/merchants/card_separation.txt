@@ -31,8 +31,8 @@
 		setarray .@equip_slot[0], EQI_ARMOR,EQI_SHOES,EQI_GARMENT,EQI_HEAD_TOP;
 
 		mes .@n$;
-		mes "¡Cuanto tiempo sin verte~!";
-		mes "He aprendido una nueva habilidad que separa cartas de Armadura, Zapatos, Capa y Sombrero. ¿Quieres probarla?";
+		mes "Cuanto tiempo sin verte~!";
+		mes "He aprendido una nueva habilidad que separa cartas de Armadura, Zapatos, Capa y Sombrero. Quieres probarla?";
 	} else {
 		set .@Jeremy,0;
 		set .@n$, "[Richard]";
@@ -40,14 +40,14 @@
 		setarray .@equip_slot[0],   EQI_HAND_L,   EQI_HAND_R;
 
 		mes .@n$;
-		mes "El tonto de Jeremy no quiere tocar armas y escudos porque ha dañado varias cartas. Por eso yo prepare una habilidad de separacion de cartas para armas y escudos...";
+		mes "El tonto de Jeremy no quiere tocar armas y escudos porque ha danado varias cartas. Por eso yo prepare una habilidad de separacion de cartas para armas y escudos...";
 	}
 	next;
 	mes .@n$;
 	mes "Generalmente la tarifa es 1,000,000 Zeny. Durante la separacion de cartas, puedes usar ^990000objetos especiales que reducen la probabilidad de destruir el equipo o las cartas^000000. No cobramos zeny adicional por esto.";
 	next;
 	mes .@n$;
-	mes "Existe la posibilidad de destruirlos incluso usando un objeto especial. Ademas, ^ff0000el nivel de refinamiento podria perderse^000000. ¿Tienes algun equipo para separar?";
+	mes "Existe la posibilidad de destruirlos incluso usando un objeto especial. Ademas, ^ff0000el nivel de refinamiento podria perderse^000000. Tienes algun equipo para separar?";
 	next;
 
 	for(set .@i,0; .@i<getarraysize(.@equip_slot); set .@i,.@i+1) {
@@ -57,7 +57,7 @@
 			set .@menu$, .@menu$+"^999999"+.@equip_name$[.@i]+" (vacio)^000000:";
 	}
 
-	set .@i, select("Detener el trabajo:"+((.@Jeremy)?"¿Como es posible?":"")+":"+.@menu$);
+	set .@i, select("Detener el trabajo:"+((.@Jeremy)?"Como es posible?":"")+":"+.@menu$);
 	switch(.@i) {
 	case 1:
 		mes .@n$;
@@ -70,13 +70,13 @@
 		mes "^000099Jeremy esta estirando sus hombros y manos. Tal vez esta esperando a alguien con quien hablar.^000000";
 		next;
 		mes .@n$;
-		mes "¿Sabias que la especialidad de Malangdo es la comida enlatada?";
+		mes "Sabias que la especialidad de Malangdo es la comida enlatada?";
 		next;
-		select("Lo sabia bien. ¿Es tan limitado?");
+		select("Lo sabia bien. Es tan limitado?");
 		mes .@n$;
 		mes "Jeje... A todos les encanta. Pero hubo algunos problemas antes.";
 		next;
-		select("¿Problemas? ¿Hay algun pescado defectuoso?");
+		select("Problemas? Hay algun pescado defectuoso?");
 		mes .@n$;
 		mes "No, el pescado no tiene ningun problema. El problema es la gran cantidad de aceite de pescado producido despues del procesamiento. Es un residuo industrial.";
 		next;
@@ -90,16 +90,16 @@
 		mes "Bueno, no te preocupes por el dinero. Sin duda el Premium Lubricant es caro. Si pagas algo de zeny, puedo darte un lubricante mas barato.";
 		next;
 		mes .@n$;
-		mes "No estoy seguro de la calidad del exito. De todas formas, es muy barato, ¿no?";
+		mes "No estoy seguro de la calidad del exito. De todas formas, es muy barato, no?";
 		close;
 	default:
 		set .@equip_num, .@equip_slot[.@i-3];
 		if (!getequipisequiped(.@equip_num)) {
 			mes .@n$;
 			if (.@Jeremy)
-				mes "¿En esta parte no hay nada?";
+				mes "En esta parte no hay nada?";
 			else
-				mes "¿No hay nada en esa parte?";
+				mes "No hay nada en esa parte?";
 			close;
 		}
 		break;
@@ -125,7 +125,7 @@
 		}
 		if (!getarraysize(.@equip_card)) {
 			mes .@n$;
-			mes "La carta no esta equipada. ¿Quieres verificar de nuevo?";
+			mes "La carta no esta equipada. Quieres verificar de nuevo?";
 			close;
 		}
 		if ((.@equip_card[0] && compare(.@mvp_list$,"|"+.@equip_card[0]+"|")) ||
@@ -142,7 +142,7 @@
 		//}
 
 		mes "[Richard]";
-		mes "¿De que numero de ranura quieres separar la carta? Desde la ranura izquierda, estan ordenadas 1,2,3,4.";
+		mes "De que numero de ranura quieres separar la carta? Desde la ranura izquierda, estan ordenadas 1,2,3,4.";
 		next;
 		set .@menu$,"";
 		for ( .@i = 0; .@i < MAX_SLOTS; .@i++ ) {
@@ -162,7 +162,7 @@
 			set .@slot, .@i-2;
 			if (.@equip_card[.@slot] == 0 || getiteminfo(.@equip_card[.@slot], ITEMINFO_SUBTYPE) == CARD_ENCHANT) {
 				mes .@n$;
-				mes "Esta ranura no tiene ninguna carta equipada. ¿Por que no verificas de nuevo?";
+				mes "Esta ranura no tiene ninguna carta equipada. Por que no verificas de nuevo?";
 				close;
 			}
 			break;
@@ -194,7 +194,7 @@
 				close;
 			}
 			mes .@n$;
-			mes "Este es un equipo bastante viejo. Hay una alta probabilidad de destruir las cartas o el equipo durante el trabajo. ¿Estas seguro de que quieres continuar?";
+			mes "Este es un equipo bastante viejo. Hay una alta probabilidad de destruir las cartas o el equipo durante el trabajo. Estas seguro de que quieres continuar?";
 			next;
 			if(select("La proxima vez...:Continuar") == 1) {
 				mes .@n$;
@@ -213,7 +213,7 @@
 				close;
 			}
 			mes .@n$;
-			mes "Si usas el Premium Lubricant, la probabilidad de destruccion se reducira bastante, pero no puedo darte una garantia del 100%. ¿Estas seguro de que quieres continuar?";
+			mes "Si usas el Premium Lubricant, la probabilidad de destruccion se reducira bastante, pero no puedo darte una garantia del 100%. Estas seguro de que quieres continuar?";
 			next;
 			if(select("La proxima vez...:Continuar") == 1) {
 				mes .@n$;
@@ -232,7 +232,7 @@
 				close;
 			}
 			mes .@n$;
-			mes "Si usas el Ordinary Lubricant, la probabilidad de destruccion se reducira bastante, pero no puedo darte una garantia del 100%. ¿Estas seguro de que quieres continuar?";
+			mes "Si usas el Ordinary Lubricant, la probabilidad de destruccion se reducira bastante, pero no puedo darte una garantia del 100%. Estas seguro de que quieres continuar?";
 			next;
 			if(select("La proxima vez...:Continuar") == 1) {
 				mes .@n$;
@@ -265,10 +265,10 @@
 		mes .@n$;
 		if (.@Jeremy) {
 			mes "Excepto las cartas, ^ff0000todos los efectos encantados desapareceran.^000000 Si estas de acuerdo con esto, por favor elige el tipo de trabajo:";
-			set .@menu$,"¡De acuerdo, hagamoslo!";
+			set .@menu$,"De acuerdo, hagamoslo!";
 		} else {
-			mes "¿Puedo continuar?";
-			set .@menu$,"¡Entendido. Solo hazlo rapido!";
+			mes "Puedo continuar?";
+			set .@menu$,"Entendido. Solo hazlo rapido!";
 		}
 		next;
 		switch(select("La proxima vez...:"+.@menu$)) {
@@ -348,7 +348,7 @@
 		mes "^0000FFLa separacion del equipo es normal.^000000";
 	} else {
 		mes "Se produjeron grietas durante el proceso de separacion de cartas.";
-		mes "El equipo ha sido dañado. ^ff0000Irrecuperable.^000000";
+		mes "El equipo ha sido danado. ^ff0000Irrecuperable.^000000";
 	}
 	mes "-------------------";
 	if (!.@card_break) {
@@ -356,7 +356,7 @@
 		mes "^0000ffLa separacion de la carta fue exitosa.^000000";
 	} else {
 		mes "Se produjo erosion de superficie durante el proceso de separacion de cartas.";
-		mes "La carta ha sido dañada. ^ff0000Irrecuperable.^000000";
+		mes "La carta ha sido danada. ^ff0000Irrecuperable.^000000";
 	}
 	next;
 	mes .@n$;

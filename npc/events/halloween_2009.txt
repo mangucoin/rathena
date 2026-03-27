@@ -25,20 +25,20 @@
 prontera,152,192,5	script	Pumpkin Hat Researcher	712,{
 	if(BaseLevel < 45) {
 		mes "[Investigador de Pumpkin Hat]";
-		mes "Fuera, no necesito a un niño. ¡Fuera! No hablo con novatos.";
+		mes "Fuera, no necesito a un nino. Fuera! No hablo con novatos.";
 		next;
 		mes "[Investigador de Pumpkin Hat]";
-		mes "Ve a subir de nivel para poder pelear con monstruos más fuertes y vuelve.";
+		mes "Ve a subir de nivel para poder pelear con monstruos mas fuertes y vuelve.";
 		close;
 	}
 	mes "[Investigador de Pumpkin Hat]";
-	mes "Oye, ¿te gustan los Pumpkin Pies?";
+	mes "Oye, te gustan los Pumpkin Pies?";
 	next;
 	mes "[Investigador de Pumpkin Hat]";
-	mes "Soy un investigador de Pumpkin Hat, ¿por qué no escuchas mi historia?";
+	mes "Soy un investigador de Pumpkin Hat, por que no escuchas mi historia?";
 	next;
 	while(1) {
-		switch(select("Escuchar la historia.:Preguntar sobre el Pumpkin Hat.:Obtener un Pumpkin Hat.:Terminar la conversación.")) {
+		switch(select("Escuchar la historia.:Preguntar sobre el Pumpkin Hat.:Obtener un Pumpkin Hat.:Terminar la conversacion.")) {
 			case 1:
 				mes "[Investigador de Pumpkin Hat]";
 				mes "He estado estudiando sobre un Pumpkin Hat mejorado.";
@@ -46,16 +46,16 @@ prontera,152,192,5	script	Pumpkin Hat Researcher	712,{
 				next;
 				mes "[Investigador de Pumpkin Hat]";
 				mes "El proceso es bastante simple.";
-				mes "Si me traes ^4a4aff20 Jack o' Pumpkin^000000 puedo mostrártelo.";
-				mes "¿No es una propuesta tentadora?";
+				mes "Si me traes ^4a4aff20 Jack o' Pumpkin^000000 puedo mostrartelo.";
+				mes "No es una propuesta tentadora?";
 				next;
 				break;
 			case 2:
 				mes "[Investigador de Pumpkin Hat]";
-				mes "¡Este pumpkin hat mejorado es algo poderoso!";
+				mes "Este pumpkin hat mejorado es algo poderoso!";
 				next;
 				mes "[Investigador de Pumpkin Hat]";
-				mes "Puede crear un Pumpkin Pie que restaura un gran porcentaje de HP y SP usando energía condensada para quien lo lleve puesto.";
+				mes "Puede crear un Pumpkin Pie que restaura un gran porcentaje de HP y SP usando energia condensada para quien lo lleve puesto.";
 				next;
 				mes "[Investigador de Pumpkin Hat]";
 				mes "Todo lo que necesitas son ^4a4aff20 Jack o' Pumpkin^000000s.";
@@ -63,7 +63,7 @@ prontera,152,192,5	script	Pumpkin Hat Researcher	712,{
 				break;
 			case 3:
 				mes "[Investigador de Pumpkin Hat]";
-				mes "¿Quieres obtener Pumpkin Pies? Está bien, déjame contar los Jack o' Pumpkins que trajiste.";
+				mes "Quieres obtener Pumpkin Pies? Esta bien, dejame contar los Jack o' Pumpkins que trajiste.";
 				next;
 				if(countitem(1062) < 20) {
 					mes "[Investigador de Pumpkin Hat]";
@@ -72,22 +72,22 @@ prontera,152,192,5	script	Pumpkin Hat Researcher	712,{
 					next;
 					mes "[Investigador de Pumpkin Hat]";
 					mes "Bueno, ve a cazar monstruos y vuelve.";
-					mes "Voy a quedarme aquí un rato así que tómate tu tiempo.";
+					mes "Voy a quedarme aqui un rato asi que tomate tu tiempo.";
 					next;
 					break;
 				}else{
 					mes "[Investigador de Pumpkin Hat]";
-					mes "Espero que te sea útil. No olvides usarlo mientras peleas para obtener tus Pumpkin Pies.";
+					mes "Espero que te sea util. No olvides usarlo mientras peleas para obtener tus Pumpkin Pies.";
 					delitem 1062,20;	// Jack o' Pumpkin
 					getitem 5668,1;		// Weird Pumpkin Hat
 					next;
 					mes "[Investigador de Pumpkin Hat]";
-					mes "Supongo que debería volver a mi investigación.";
+					mes "Supongo que deberia volver a mi investigacion.";
 					close;
 				}
 			case 4:
 				mes "[Investigador de Pumpkin Hat]";
-				mes "Adiós, hasta que nos volvamos a ver.";
+				mes "Adios, hasta que nos volvamos a ver.";
 				mes "Te deseo lo mejor...";
 				close;
 		}
@@ -101,25 +101,25 @@ OnTouch:
 	hideoffnpc strnpcinfo(3);
 	initnpctimer;
 	mes "[Trick or Treater]";
-	mes "¡Hurra! ¡hurra! ¡Hurra!";
-	mes "¿Truco o Trato?";
+	mes "Hurra! hurra! Hurra!";
+	mes "Truco o Trato?";
 	next;
 	if(select("Truco.:Trato.") == 1) {
 		mes "[Trick or Treater]";
 		mes "!!!!";
-		mes "Bien. ¡No me queda otra que hacerte un truco de vuelta!";
+		mes "Bien. No me queda otra que hacerte un truco de vuelta!";
 		sc_start SC_Stun,5000,0;
 		close;
 	}
 	mes "[Trick or Treater]";
-	mes "¡Oh genial! ¿Qué tipo de trato tienes?";
+	mes "Oh genial! Que tipo de trato tienes?";
 	next;
 	switch(select("Candy:Candy Cane:Well-baked Cookie:Nada")) {
 		case 1:
 			if(countitem(529) > 0) {
 				mes "[Trick or Treater]";
-				mes "¡Yay gracias!";
-				mes "¡Toma esto por ser tan amable!";
+				mes "Yay gracias!";
+				mes "Toma esto por ser tan amable!";
 				sc_start SC_STRFood, 1800000, 5;
 				sc_start SC_INTFood, 1800000, 5;
 				sc_start SC_VITFood, 1800000, 5;
@@ -132,15 +132,15 @@ OnTouch:
 			}else{
 				mes "[Trick or Treater]";
 				mes "Al menos un Candy, un Candy Cane o una Well-baked Cookie es todo lo que pido como trato.";
-				mes "Bien. ¡No me queda otra que hacerte un truco!";
+				mes "Bien. No me queda otra que hacerte un truco!";
 				sc_start SC_Stun,5000,0;
 				close;
 			}
 		case 2:
 			if(countitem(530) > 0) {
 				mes "[Trick or Treater]";
-				mes "¡Yay gracias!";
-				mes "¡Toma esto por ser tan amable!";
+				mes "Yay gracias!";
+				mes "Toma esto por ser tan amable!";
 				sc_start SC_STRFood, 1800000, 5;
 				sc_start SC_INTFood, 1800000, 5;
 				sc_start SC_VITFood, 1800000, 5;
@@ -153,15 +153,15 @@ OnTouch:
 			}else{
 				mes "[Trick or Treater]";
 				mes "Al menos un Candy, un Candy Cane o una Well-baked Cookie es todo lo que pido como trato.";
-				mes "Bien. ¡No me queda otra que hacerte un truco!";
+				mes "Bien. No me queda otra que hacerte un truco!";
 				sc_start SC_Stun,5000,0;
 				close;
 			}
 		case 3:
 			if(countitem(538) > 0) {
 				mes "[Trick or Treater]";
-				mes "¡Yay gracias!";
-				mes "¡Toma esto por ser tan amable!";
+				mes "Yay gracias!";
+				mes "Toma esto por ser tan amable!";
 				sc_start SC_STRFood, 1800000, 5;
 				sc_start SC_INTFood, 1800000, 5;
 				sc_start SC_VITFood, 1800000, 5;
@@ -174,14 +174,14 @@ OnTouch:
 			}else{
 				mes "[Trick or Treater]";
 				mes "Al menos un Candy, un Candy Cane o una Well-baked Cookie es todo lo que pido como trato.";
-				mes "Bien. ¡No me queda otra que hacerte un truco!";
+				mes "Bien. No me queda otra que hacerte un truco!";
 				sc_start SC_Stun,5000,0;
 				close;
 			}
 		case 4:
 			mes "[Trick or Treater]";
 			mes "Al menos un Candy, un Candy Cane o una Well-baked Cookie es todo lo que pido como trato.";
-			mes "Bien. ¡No me queda otra que hacerte un truco!";
+			mes "Bien. No me queda otra que hacerte un truco!";
 			sc_start SC_Stun,5000,0;
 			close;
 	}
@@ -225,16 +225,16 @@ prontera,220,72,5	duplicate(09Treats)	Trick or Treater#iRO8	706,2,2
 -	script	Halloween Wizard#iRO09::09HallowWiz	737,{
 	mes "[Mago de Halloween]";
 	mes "...";
-	mes "¿Quieres hacerle una broma a alguien?";
+	mes "Quieres hacerle una broma a alguien?";
 	next;
 	while(1) {
-		switch(select("¿Qué broma?:Claro:No.")) {
+		switch(select("Que broma?:Claro:No.")) {
 			case 1:
 				mes "[Mago de Halloween]";
 				mes "Puedo invocar monstruos en otras partes del mundo con solo unos pocos materiales.";
 				next;
 				mes "[Mago de Halloween]";
-				mes "¿Suena interesante, no?";
+				mes "Suena interesante, no?";
 				next;
 				mes "[Mago de Halloween]";
 				mes "Si me traes Fabric, Jack o' Pumpkins, Worn Fabric, o Crushed Pumpkins puedo invocar los monstruos.";
@@ -242,7 +242,7 @@ prontera,220,72,5	duplicate(09Treats)	Trick or Treater#iRO8	706,2,2
 				break;
 			case 2:
 				mes "[Mago de Halloween]";
-				mes "¿En qué ciudad quieres hacer la broma?";
+				mes "En que ciudad quieres hacer la broma?";
 				next;
 				getmapxy(.@mapname$,.@mapx,.@mapy,BL_PC,""+strcharinfo(0)+"");
 				if (.@mapname$ == "prontera") {
@@ -330,21 +330,21 @@ prontera,220,72,5	duplicate(09Treats)	Trick or Treater#iRO8	706,2,2
 				mes "Ok, entonces vamos al siguiente paso.";
 				next;
 				mes "[Mago de Halloween]";
-				mes "¿Cuántos Fabrics o Jack o' Pumpkins quieres usar? No pases de 100 porque es la cantidad máxima que puedo usar.";
+				mes "Cuantos Fabrics o Jack o' Pumpkins quieres usar? No pases de 100 porque es la cantidad maxima que puedo usar.";
 				next;
 				input .@input;
 				if (.@input == 0) {
 					mes "[Mago de Halloween]";
 					mes "No tienes una idea definida.";
 					mes "No es gran cosa.";
-					mes "Avísame.";
+					mes "Avisame.";
 					next;
 					break;
 				}
 				else if (.@input > 100) {
 					mes "[Mago de Halloween]";
-					mes "¡Te dije que debe ser entre 1 y 100!";
-					mes "¡No pusiste atención!";
+					mes "Te dije que debe ser entre 1 y 100!";
+					mes "No pusiste atencion!";
 					next;
 					break;
 				}
@@ -421,15 +421,15 @@ prontera,220,72,5	duplicate(09Treats)	Trick or Treater#iRO8	706,2,2
 					monster ""+.@HallowTowns$[.@HallowTown]+"",0,0,"Halloween Whisper",3014,.@whispers;
 					monster ""+.@HallowTowns$[.@HallowTown]+"",0,0,"Halloween Dark Lord",3015,.@darklords;
 					mes "[Mago de Halloween]";
-					mes "Aquí está lo que querías.";
-					mes "¿Te imaginas lo que la gente debe estar pensando en las otras aldeas?";
+					mes "Aqui esta lo que querias.";
+					mes "Te imaginas lo que la gente debe estar pensando en las otras aldeas?";
 					mes "Muajajaja";
 					close;
 				}
 			case 3:
 				mes "[Mago de Halloween]";
-				mes "Si cambias de opinión, vuelve aquí...";
-				mes "Me quedaré aquí un rato...";
+				mes "Si cambias de opinion, vuelve aqui...";
+				mes "Me quedare aqui un rato...";
 				mes "Kkkk...";
 				close;
 		}
