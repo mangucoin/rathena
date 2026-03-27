@@ -27,17 +27,17 @@ xmas,10,1,5	script	2013questreset2#xmas	10086,{
 
 xmas,150,134,3	script	Union Commander Cliff	10086,{
 	if (BaseLevel < 40) {
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Sin palabras para novatos! Â¡Los de nivel 40 o menos no pueden unirse al EjÃ©rcito de la UniÃ³n de Solteros!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Sin palabras para novatos! ¡Los de nivel 40 o menos no pueden unirse al Ejército de la Unión de Solteros!";
 		close;
 	}
 	if (checkweight(1201,1) == 0 || MaxWeight - Weight < 1) {
-		mes "^ff0000Tienes sobrepeso. Revisa tu inventario y hÃ¡blame despuÃ©s.^000000";
+		mes "^ff0000Tienes sobrepeso. Revisa tu inventario y háblame después.^000000";
 		close;
 	}
 	set .@playtime, checkquest(15059,PLAYTIME);
 	if (.@playtime == 0 || .@playtime == 1) {
-		mes "- Puedes repetir esta misiÃ³n despuÃ©s de 24 horas.";
+		mes "- Puedes repetir esta misión después de 24 horas.";
 		close;
 	} else if (checkquest(15059,PLAYTIME) > 1) {
 		erasequest 15059;
@@ -46,22 +46,22 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 	set .@que_allmem, isbegin_quest(15060) + isbegin_quest(15061) + isbegin_quest(15062) + isbegin_quest(15063) + isbegin_quest(15064);
 	if (isbegin_quest(15057) == 1) {
 		if (countitem(7909) < 10 || countitem(7910) < 10 || countitem(6682) < 10) {
-			mes "[Comandante de la UniÃ³n Cliff]";
-			mes "Â¡Necesitamos mÃ¡s materiales para hacer una fiesta de Navidad para el EjÃ©rcito de la UniÃ³n de Solteros!";
+			mes "[Comandante de la Unión Cliff]";
+			mes "¡Necesitamos más materiales para hacer una fiesta de Navidad para el Ejército de la Unión de Solteros!";
 			next;
-			mes "[Comandante de la UniÃ³n Cliff]";
-			mes "Â¡Trae ^ff000010 Stolen Cookie, 10 Stolen Candy y 10 Bag Of Selling Goods^000000 de esos malditos mapaches!";
+			mes "[Comandante de la Unión Cliff]";
+			mes "¡Trae ^ff000010 Stolen Cookie, 10 Stolen Candy y 10 Bag Of Selling Goods^000000 de esos malditos mapaches!";
 			close;
 		}
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¿Les pateaste el trasero al equipo Raccoon Hooray? Â¡Oh! Trajiste todos los objetos que necesitamos. Â¡Con esto podremos sentir algo del espÃ­ritu navideÃ±o!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¿Les pateaste el trasero al equipo Raccoon Hooray? ¡Oh! Trajiste todos los objetos que necesitamos. ¡Con esto podremos sentir algo del espíritu navideño!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Me llevarÃ© TODOS los objetos que trajiste. A cambio, te darÃ© una recompensa exclusiva solo para el EjÃ©rcito de la UniÃ³n de Solteros. Â¡Debes-abrirlo-SOLO!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Me llevaré TODOS los objetos que trajiste. A cambio, te daré una recompensa exclusiva solo para el Ejército de la Unión de Solteros. ¡Debes-abrirlo-SOLO!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Aprovecha las fiestas!";
-		mes "Â¡Gloria al EjÃ©rcito de la UniÃ³n de Solteros! jijiji Â¡JAJAJAJA!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Aprovecha las fiestas!";
+		mes "¡Gloria al Ejército de la Unión de Solteros! jijiji ¡JAJAJAJA!!";
 		delitem 7909, countitem(7909); //Stolen_Cookie
 		delitem 7910, countitem(7910); //Stolen_Candy
 		delitem 6682, countitem(6682); //Bag_Of_Selling_Goods
@@ -73,43 +73,43 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 		specialeffect2 EF_ANGEL2;
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Comandante de la UniÃ³n Cliff]";
+		mes "[Comandante de la Unión Cliff]";
 		mes "Tienes un total de " + xmas2013_01 + " puntos de ruptura de parejas.";
-		mes "Â¡Separa al menos 5 parejas y vuelve conmigo!";
+		mes "¡Separa al menos 5 parejas y vuelve conmigo!";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡SÃ­! Â¡Â¡Lo lograste!! Â¡Â¡MÃ¡s y mÃ¡s se unen al EjÃ©rcito de la UniÃ³n de Solteros!! jijiji Â¡JAJA-JAK! Â¡Â¡La victoria es nuestra!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡Sí! ¡¡Lo lograste!! ¡¡Más y más se unen al Ejército de la Unión de Solteros!! jijiji ¡JAJA-JAK! ¡¡La victoria es nuestra!!";
 		erasequest 15056;
 		setquest 15057;
 		getitem 22686,5; //Solo_Cookie
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡PERO!!! Mientras estÃ¡bamos ocupados separando parejas, esos malditos mocosos de Raccoon Hooray robaron la mayorÃ­a de nuestros objetos. Sin ellos, no podemos sentir el espÃ­ritu navideÃ±o.";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡PERO!!! Mientras estábamos ocupados separando parejas, esos malditos mocosos de Raccoon Hooray robaron la mayoría de nuestros objetos. Sin ellos, no podemos sentir el espíritu navideño.";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡Es hora de castigarlos y reclamar los objetos para el EjÃ©rcito de la UniÃ³n de Solteros!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡Es hora de castigarlos y reclamar los objetos para el Ejército de la Unión de Solteros!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "^ff0000>10 Stolen Cookie, 10 Stolen Candy y 10 Bag Of Selling Goods^000000 deberÃ­an ser suficientes para la fiesta. Â¡Encuentra a los mapaches en campos y calabozos!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "^ff0000>10 Stolen Cookie, 10 Stolen Candy y 10 Bag Of Selling Goods^000000 deberían ser suficientes para la fiesta. ¡Encuentra a los mapaches en campos y calabozos!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡No importa si trajiste mÃ¡s, me los llevarÃ© TODOS!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡No importa si trajiste más, me los llevaré TODOS!!";
 		close;
 	} else if (isbegin_quest(15055) == 0) {
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡Oye tÃº!! Â¡SÃ­! Â¡Â¡TÃº de ahÃ­!! Â¡Â¡TÃº!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡Oye tú!! ¡Sí! ¡¡Tú de ahí!! ¡¡Tú!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "DÃ©jame preguntarte directamente.";
-		mes "Debes estar soltero. Tengo un presentimiento. Â¿Â¿Verdad??";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Déjame preguntarte directamente.";
+		mes "Debes estar soltero. Tengo un presentimiento. ¿¿Verdad??";
 		next;
-		if(select("- ...Â¿tal vez...?:Â¡Â¿QUÃ‰?! Â¡Â¡Estoy en una relaciÃ³n!!") == 2) {
-			mes "[Comandante de la UniÃ³n Cliff]";
-			mes "Â¿QuÃ©? ...Â¿Â¡en una relaciÃ³n?!!";
+		if(select("- ...¿tal vez...?:¡¿QUÉ?! ¡¡Estoy en una relación!!") == 2) {
+			mes "[Comandante de la Unión Cliff]";
+			mes "¿Qué? ...¿¡en una relación?!!";
 			mes "...No soltero, sino en pareja...";
 			mes "......";
-			mes "Â¡Â¡Â¡Maldito! Â¡Â¡Â¡Prueba la ira del EjÃ©rcito de la UniÃ³n de Solteros!!!";
+			mes "¡¡¡Maldito! ¡¡¡Prueba la ira del Ejército de la Unión de Solteros!!!";
 			close2;
 			specialeffect2 EF_MAGICALATTHIT;
 			specialeffect2 EF_POTION2;
@@ -117,99 +117,99 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 			specialeffect2 EF_COIN;
 			end;
 		}
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "jijiji Â¡JAJA-JAK!";
-		mes "Â¡Lo sabÃ­a! Â¡A primera vista lo sÃ©!";
-		mes "Â¡No me subestimes, he sido soltero toda mi vida! jijiji Â¡JAJA-JAK!";
-		mes "Â¡Mi nombre es Comandante de la UniÃ³n Cliff!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "jijiji ¡JAJA-JAK!";
+		mes "¡Lo sabía! ¡A primera vista lo sé!";
+		mes "¡No me subestimes, he sido soltero toda mi vida! jijiji ¡JAJA-JAK!";
+		mes "¡Mi nombre es Comandante de la Unión Cliff!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "De todas formas, este diciembre, el dÃ­a se acerca....";
+		mes "[Comandante de la Unión Cliff]";
+		mes "De todas formas, este diciembre, el día se acerca....";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Canciones navideÃ±as por todas partes, luces de colores brillantes, nieve blanca cayendo, y parejas viÃ©ndose con sonrisas en sus caras...parejas...Â¡Â¡Â¡Â¡PAREEEJAAAS...!!!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Canciones navideñas por todas partes, luces de colores brillantes, nieve blanca cayendo, y parejas viéndose con sonrisas en sus caras...parejas...¡¡¡¡PAREEEJAAAS...!!!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Al principio era una celebraciÃ³n del nacimiento de nuestro SeÃ±or! Entonces, Â¿por quÃ©...cÃ³mo...cuÃ¡ndo se convirtiÃ³ en un dÃ­a para parejas??!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Al principio era una celebración del nacimiento de nuestro Señor! Entonces, ¿por qué...cómo...cuándo se convirtió en un día para parejas??!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
+		mes "[Comandante de la Unión Cliff]";
 		mes "No puedo soportar esto....";
-		mes "Â¡Â¡No los perdonarÃ© por la felicidad que traen solo para ellos mismos!!";
+		mes "¡¡No los perdonaré por la felicidad que traen solo para ellos mismos!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¿Navidad para parejas?";
-		mes "Â¡De ninguna manera! Â¡Â¡Esta Navidad serÃ¡ un dÃ­a para solteros!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¿Navidad para parejas?";
+		mes "¡De ninguna manera! ¡¡Esta Navidad será un día para solteros!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Sin embargo, necesitarÃ© miembros para enfrentarlos. Â¡Su nombre serÃ­a, EjÃ©rcito de la UniÃ³n de Solteros!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Sin embargo, necesitaré miembros para enfrentarlos. ¡Su nombre sería, Ejército de la Unión de Solteros!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¿QuÃ© opinas? Â¿Te unirÃ­as a mi EjÃ©rcito de la UniÃ³n de Solteros y harÃ­as de la Navidad un dÃ­a para solteros?";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¿Qué opinas? ¿Te unirías a mi Ejército de la Unión de Solteros y harías de la Navidad un día para solteros?";
 		next;
-		select("Â¡Cuenta conmigo!:AyudarÃ©.:No puedo decir que no, Â¿verdad?");
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡SÃ­! Â¡Eso es! Pero necesitamos mÃ¡s miembros para enfrentar a las parejas.";
+		select("¡Cuenta conmigo!:Ayudaré.:No puedo decir que no, ¿verdad?");
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡Sí! ¡Eso es! Pero necesitamos más miembros para enfrentar a las parejas.";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡AquÃ­ estÃ¡ tu primera misiÃ³n!";
-		mes "Ve a buscar a alguien en Lutie y haz que se unan. 5 solteros deberÃ­an ser suficientes, Â¡ahora ve ve ve~!";
-		mes "jijiji Â¡JAJA-JAK!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Aquí está tu primera misión!";
+		mes "Ve a buscar a alguien en Lutie y haz que se unan. 5 solteros deberían ser suficientes, ¡ahora ve ve ve~!";
+		mes "jijiji ¡JAJA-JAK!";
 		close2;
 		setquest 15055;
 		end;
 	} else if (isbegin_quest(15055) == 1 && .@que_allmem < 10) {
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡No hay tiempo que perder!";
-		mes "Â¡Ve a buscar 5 solteros en Lutie y haz que se unan!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡No hay tiempo que perder!";
+		mes "¡Ve a buscar 5 solteros en Lutie y haz que se unan!";
 		close;
 	} else if (isbegin_quest(15055) == 1 && .@que_allmem > 9) {
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Buen trabajo! Â¡Los conocÃ­ a todos! Â¡Son dignos de unirse a nuestra causa jijiji JAJA-JAK!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Buen trabajo! ¡Los conocí a todos! ¡Son dignos de unirse a nuestra causa jijiji JAJA-JAK!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Mientras reclutabas mÃ¡s miembros para el EjÃ©rcito de la UniÃ³n de Solteros, hice insignias..";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Mientras reclutabas más miembros para el Ejército de la Unión de Solteros, hice insignias..";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Puede que no sea Ãºtil pero este tipo de pequeÃ±o detalle puede hacer nuestros lazos sÃ³lidos y fuertes.";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Puede que no sea útil pero este tipo de pequeño detalle puede hacer nuestros lazos sólidos y fuertes.";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Bueno, toma esto! Â¡Â¡Ahora eres el orgulloso miembro del EjÃ©rcito de la UniÃ³n de Solteros!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Bueno, toma esto! ¡¡Ahora eres el orgulloso miembro del Ejército de la Unión de Solteros!!";
 		set xmas2013_01,0;
 		completequest 15055;
 		getitem 6821,1; //Solo_Troops_Badge
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡Ahora es momento de mostrar nuestro poder a las parejas ya que tenemos suficientes miembros!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡Ahora es momento de mostrar nuestro poder a las parejas ya que tenemos suficientes miembros!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡A la segunda misiÃ³n!";
-		mes "Â¡Ve a Lutie y haz que las parejas se separen. No importa cÃ³mo, solo haz que rompan!!";
-		mes "jijiji Â¡JAJA-JAK!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡A la segunda misión!";
+		mes "¡Ve a Lutie y haz que las parejas se separen. No importa cómo, solo haz que rompan!!";
+		mes "jijiji ¡JAJA-JAK!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Bueno, hay una cosa mÃ¡s...";
-		mes "Cuando molestes a una pareja, si rompen, ganarÃ¡s 2 puntos, en caso de solo una discusiÃ³n simple te darÃ¡ 1 punto.";
-		mes "Pero si se enamoran mÃ¡s, tu puntaje serÃ¡ menos 1 punto. AsÃ­ que cuando tengas 5 puntos y vengas aquÃ­ a reportar, significa misiÃ³n cumplida.";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Bueno, hay una cosa más...";
+		mes "Cuando molestes a una pareja, si rompen, ganarás 2 puntos, en caso de solo una discusión simple te dará 1 punto.";
+		mes "Pero si se enamoran más, tu puntaje será menos 1 punto. Así que cuando tengas 5 puntos y vengas aquí a reportar, significa misión cumplida.";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Seguro no tendrÃ¡s puntaje negativo asÃ­ que no te preocupes.";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Seguro no tendrás puntaje negativo así que no te preocupes.";
 		setquest 15056;
 		close;
 	} else if (isbegin_quest(15055) == 2) {
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Â¡Ahora es momento de mostrar nuestro poder a las parejas ya que tenemos suficientes tropas!!";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡¡Ahora es momento de mostrar nuestro poder a las parejas ya que tenemos suficientes tropas!!";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Â¡Vamos a la segunda misiÃ³n!";
-		mes "Â¡Ve a Lutie y haz que las parejas se separen. Lo que sea, solo haz que rompan!! ";
+		mes "[Comandante de la Unión Cliff]";
+		mes "¡Vamos a la segunda misión!";
+		mes "¡Ve a Lutie y haz que las parejas se separen. Lo que sea, solo haz que rompan!! ";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Bueno, hay una cosa mÃ¡s...";
-		mes "Cuando molestes a una pareja, si rompen, ganarÃ¡s 2 puntos, en caso de solo una discusiÃ³n simple te darÃ¡ 1 punto. ";
-		mes "Pero si se enamoran mÃ¡s, tu puntaje serÃ¡ menos 1 punto. AsÃ­ que cuando tengas 5 puntos y vengas aquÃ­ a reportar, significa misiÃ³n cumplida.";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Bueno, hay una cosa más...";
+		mes "Cuando molestes a una pareja, si rompen, ganarás 2 puntos, en caso de solo una discusión simple te dará 1 punto. ";
+		mes "Pero si se enamoran más, tu puntaje será menos 1 punto. Así que cuando tengas 5 puntos y vengas aquí a reportar, significa misión cumplida.";
 		next;
-		mes "[Comandante de la UniÃ³n Cliff]";
-		mes "Seguro no tendrÃ¡s puntaje negativo asÃ­ que no te preocupes.";
+		mes "[Comandante de la Unión Cliff]";
+		mes "Seguro no tendrás puntaje negativo así que no te preocupes.";
 		setquest 15056;
 		close;
 	}
@@ -219,37 +219,37 @@ xmas,150,134,3	script	Union Commander Cliff	10086,{
 xmas,172,126,3	script	Lonely Kwami#xmas	10089,{
 	if (isbegin_quest(15055) == 0) {
 		mes "[Kwami]";
-		mes "Haa.....rompiendo justo antes de Navidad....estoy solo...Â¡Â¿soltero! ...SOY??!!";
+		mes "Haa.....rompiendo justo antes de Navidad....estoy solo...¡¿soltero! ...SOY??!!";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15060) == 0) {
 		mes "[Kwami]";
-		mes "Haa.....rompiendo justo antes de Navidad....estoy solo...Â¡Â¿soltero! ...SOY??!!";
+		mes "Haa.....rompiendo justo antes de Navidad....estoy solo...¡¿soltero! ...SOY??!!";
 		next;
 		mes "[Kwami]";
-		mes "Â¡Â¿QuiÃ©n eres?!";
-		mes "Â¿QuÃ© asunto tienes conmigo?";
+		mes "¡¿Quién eres?!";
+		mes "¿Qué asunto tienes conmigo?";
 		next;
-		select("- El EjÃ©rcito de la UniÃ³n de Solteros vino a ti. -");
+		select("- El Ejército de la Unión de Solteros vino a ti. -");
 		mes "[Kwami]";
-		mes "Â¿err? Â¿EjÃ©rcito de la UniÃ³n de Solteros? Â¿QuÃ© es eso?";
+		mes "¿err? ¿Ejército de la Unión de Solteros? ¿Qué es eso?";
 		next;
 		select("- Explicar sobre el club -");
 		mes "[Kwami]";
-		mes "...sÃ­. Â¡Tienes razÃ³n!";
+		mes "...sí. ¡Tienes razón!";
 		next;
 		mes "[Kwami]";
-		mes "Â¡Â¡Como soy soltero! Â¡Â¡No dejarÃ© que las parejas disfruten esta Navidad!!";
+		mes "¡¡Como soy soltero! ¡¡No dejaré que las parejas disfruten esta Navidad!!";
 		next;
 		mes "[Kwami]";
-		mes "Â¡Â¡Me unirÃ© al EjÃ©rcito de la UniÃ³n de Solteros!!";
+		mes "¡¡Me uniré al Ejército de la Unión de Solteros!!";
 		next;
-		mes "- Kwami se ha convertido en miembro del EjÃ©rcito de la UniÃ³n de Solteros. -";
+		mes "- Kwami se ha convertido en miembro del Ejército de la Unión de Solteros. -";
 		setquest 15060;
 		completequest 15060;
 		close;
 	} else {
-		mes "[Kwami de la UniÃ³n de Solteros]";
-		mes "Primero que nada, tengo que vengarme de mi ex... Â¿No?";
+		mes "[Kwami de la Unión de Solteros]";
+		mes "Primero que nada, tengo que vengarme de mi ex... ¿No?";
 		close;
 	}
 }
@@ -264,28 +264,28 @@ xmas,113,161,5	script	Lonely Willer#xmas	10090,{
 		mes "Hoooooo... es tan aburrido jugar solo....";
 		next;
 		mes "[Willer]";
-		mes "Â¿No hay algo emocionante?";
-		mes "...oye, Â¿jugarÃ­as conmigo??";
+		mes "¿No hay algo emocionante?";
+		mes "...oye, ¿jugarías conmigo??";
 		next;
-		select("- El EjÃ©rcito de la UniÃ³n de Solteros vino a ti. -");
+		select("- El Ejército de la Unión de Solteros vino a ti. -");
 		mes "[Willer]";
-		mes "Â¿UniÃ³n de Solteros quÃ©? Â¿Por quÃ© vienes a mÃ­?";
+		mes "¿Unión de Solteros qué? ¿Por qué vienes a mí?";
 		next;
 		select("- Explicar sobre el club -");
 		mes "[Willer]";
 		mes "Entonceees...";
-		mes "Â¿Separar parejas y hacer fiesta de Navidad solo para solteros?";
+		mes "¿Separar parejas y hacer fiesta de Navidad solo para solteros?";
 		next;
 		mes "[Willer]";
-		mes "Â¡Eso debe ser divertido! No entiendo exactamente pero me uno, Â¡Â¡va!!";
+		mes "¡Eso debe ser divertido! No entiendo exactamente pero me uno, ¡¡va!!";
 		next;
-		mes "- Willer se ha convertido en miembro del EjÃ©rcito de la UniÃ³n de Solteros. -";
+		mes "- Willer se ha convertido en miembro del Ejército de la Unión de Solteros. -";
 		setquest 15061;
 		completequest 15061;
 		close;
 	} else {
-		mes "[Willer de la UniÃ³n de Solteros]";
-		mes "Separar parejas...Â¡Â¡esto deberÃ­a ser divertido!!";
+		mes "[Willer de la Unión de Solteros]";
+		mes "Separar parejas...¡¡esto debería ser divertido!!";
 		close;
 	}
 }
@@ -293,41 +293,41 @@ xmas,113,161,5	script	Lonely Willer#xmas	10090,{
 xmas,131,97,5	script	Lonely Rinka#xmas	10091,{
 	if (isbegin_quest(15055) == 0) {
 		mes "[Rinka]";
-		mes "Â¡Ewww! rayos... Â¿quÃ© clase de amiga solo presume de su novio?, Â¡quÃ© asco! Â¿Â¡De verdad cree que no puedo tener uno?!?";
+		mes "¡Ewww! rayos... ¿qué clase de amiga solo presume de su novio?, ¡qué asco! ¿¡De verdad cree que no puedo tener uno?!?";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15062) == 0) {
 		mes "[Rinka]";
-		mes "Â¡Ewww! Â¡Rayos... quÃ© clase de amiga solo presume de su novio, quÃ© asco! Â¿Â¡De verdad cree que no puedo tener uno?!?";
+		mes "¡Ewww! ¡Rayos... qué clase de amiga solo presume de su novio, qué asco! ¿¡De verdad cree que no puedo tener uno?!?";
 		next;
 		mes "[Rinka]";
 		mes "- sollozando -";
 		next;
 		mes "[Rinka]";
-		mes "No puedo... de hecho, no hay nadie... Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡No tengo a nadie!!!!!!!!!!!!!!";
+		mes "No puedo... de hecho, no hay nadie... ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡No tengo a nadie!!!!!!!!!!!!!!";
 		next;
-		select("- El EjÃ©rcito de la UniÃ³n de Solteros vino a ti. -");
+		select("- El Ejército de la Unión de Solteros vino a ti. -");
 		mes "[Rinka]";
-		mes "Â¡Â¡EEeepp! Â¡Â¡Wow!!";
-		mes "Me asustaste. Â¿Â¡De quÃ© hablas, quÃ© es eso?!";
+		mes "¡¡EEeepp! ¡¡Wow!!";
+		mes "Me asustaste. ¿¡De qué hablas, qué es eso?!";
 		next;
 		select("- Explicar sobre el club -");
 		mes "[Rinka]";
-		mes "Jojo...Â¿hay algo asÃ­?";
+		mes "Jojo...¿hay algo así?";
 		mes "Separar parejas...";
-		mes "Â¡Ok! Â¡DÃ©jame unirme!";
+		mes "¡Ok! ¡Déjame unirme!";
 		next;
 		mes "[Rinka]";
-		mes "Â¿Hay espacio para otro miembro?";
-		mes "...Â¡pronto otro miembro se unirÃ¡!";
-		mes "EspÃ©ralo~ mi amiga!! ...";
+		mes "¿Hay espacio para otro miembro?";
+		mes "...¡pronto otro miembro se unirá!";
+		mes "Espéralo~ mi amiga!! ...";
 		next;
-		mes "- Rinka se ha convertido en miembro del EjÃ©rcito de la UniÃ³n de Solteros. -";
+		mes "- Rinka se ha convertido en miembro del Ejército de la Unión de Solteros. -";
 		setquest 15062;
 		completequest 15062;
 		close;
 	} else {
-		mes "[Rinka de la UniÃ³n de Solteros]";
-		mes "EspÃ©ralo~ Â¡Â¡mi amiga!! TÃº... Â¡Â¡te unirÃ¡s pronto!!";
+		mes "[Rinka de la Unión de Solteros]";
+		mes "Espéralo~ ¡¡mi amiga!! Tú... ¡¡te unirás pronto!!";
 		close;
 	}
 }
@@ -335,32 +335,32 @@ xmas,131,97,5	script	Lonely Rinka#xmas	10091,{
 xmas,121,127,5	script	Lonely Jee#xmas	10088,{
 	if (isbegin_quest(15055) == 0) {
 		mes "[Jee]";
-		mes "QuÃ© hermoso es ser soltero...";
+		mes "Qué hermoso es ser soltero...";
 		close;
 	} else if ((isbegin_quest(15055) == 1) && (isbegin_quest(15063) == 0)) {
 		mes "[Jee]";
-		mes "QuÃ© hermoso es ser soltero...";
+		mes "Qué hermoso es ser soltero...";
 		next;
 		mes "[Jee]";
-		mes "No hay nadie que te moleste. Nadie de quien cuidar. No mÃ¡s trabajo extra de otros. MÃ¡s tiempo para pasarlo solo.";
+		mes "No hay nadie que te moleste. Nadie de quien cuidar. No más trabajo extra de otros. Más tiempo para pasarlo solo.";
 		next;
 		mes "[Jee]";
-		mes "Â¿Por quÃ© la gente renuncia a esta ventaja y quiere estar en pareja??";
+		mes "¿Por qué la gente renuncia a esta ventaja y quiere estar en pareja??";
 		next;
-		select("- El EjÃ©rcito de la UniÃ³n de Solteros vino a ti. -");
+		select("- El Ejército de la Unión de Solteros vino a ti. -");
 		mes "[Jee]";
-		mes "SÃ­, lo escuchÃ© recientemente. SabÃ­a que vendrÃ­as a mÃ­.";
+		mes "Sí, lo escuché recientemente. Sabía que vendrías a mí.";
 		next;
 		mes "[Jee]";
-		mes "Â¡No hacen falta mÃ¡s palabras. EsparcirÃ© las ventajas de ser soltero!";
+		mes "¡No hacen falta más palabras. Esparciré las ventajas de ser soltero!";
 		next;
-		mes "- Jee se ha convertido en miembro del EjÃ©rcito de la UniÃ³n de Solteros. -";
+		mes "- Jee se ha convertido en miembro del Ejército de la Unión de Solteros. -";
 		setquest 15063;
 		completequest 15063;
 		close;
 	} else {
-		mes "[Jee de la UniÃ³n de Solteros]";
-		mes "Â¡EsparcirÃ© las ventajas de ser soltero!";
+		mes "[Jee de la Unión de Solteros]";
+		mes "¡Esparciré las ventajas de ser soltero!";
 		close;
 	}
 }
@@ -368,29 +368,29 @@ xmas,121,127,5	script	Lonely Jee#xmas	10088,{
 xmas,150,169,3	script	Lonely Marty#xmas	10087,{
 	if (isbegin_quest(15055) == 0) {
 		mes "[Marty]";
-		mes "umm... Zzz ... Ã±am-Ã±am...";
+		mes "umm... Zzz ... ñam-ñam...";
 		close;
 	} else if (isbegin_quest(15055) == 1 && isbegin_quest(15064) == 0) {
 		mes "[Marty]";
-		mes "umm... Zzz ... Ã±amÃ±am...";
+		mes "umm... Zzz ... ñamñam...";
 		next;
-		select("- El EjÃ©rcito de la UniÃ³n de Solteros vino a ti. -");
+		select("- El Ejército de la Unión de Solteros vino a ti. -");
 		mes "[Marty]";
-		mes "Ã±am.... Ã±amÃ±am... Grrr... Zzz";
+		mes "ñam.... ñamñam... Grrr... Zzz";
 		next;
 		select("- Explicar sobre el club -");
 		mes "[Marty]";
-		mes "Huum... Ã±aaa.... Zzz";
+		mes "Huum... ñaaa.... Zzz";
 		next;
-		mes "- ...puedes considerar que aceptÃ³ unirse. -";
+		mes "- ...puedes considerar que aceptó unirse. -";
 		next;
-		mes "- Marty se ha convertido en miembro del EjÃ©rcito de la UniÃ³n de Solteros. -";
+		mes "- Marty se ha convertido en miembro del Ejército de la Unión de Solteros. -";
 		setquest 15064;
 		completequest 15064;
 		close;
 	} else {
-		mes "[Marty de la UniÃ³n de Solteros]";
-		mes "Ã±am.... Ã±amÃ±am... Grrrr... Zzz";
+		mes "[Marty de la Unión de Solteros]";
+		mes "ñam.... ñamñam... Grrrr... Zzz";
 		close;
 	}
 }
@@ -398,7 +398,7 @@ xmas,150,169,3	script	Lonely Marty#xmas	10087,{
 xmas,108,149,5	script	Drop Machine#xmas	562,{
 	if (isbegin_quest(15056) == 0) {
 		mes "[Drop Machine]";
-		mes "Â¡Dingding dong Ding!~";
+		mes "¡Dingding dong Ding!~";
 		emotion ET_THROB;
 		next;
 		mes "[Slot Machine]";
@@ -407,18 +407,18 @@ xmas,108,149,5	script	Drop Machine#xmas	562,{
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
 		mes "[Drop Machine]";
-		mes "Â¡Dingdingding ding!~";
+		mes "¡Dingdingding ding!~";
 		emotion ET_THROB;
 		next;
 		mes "[Slot Machine]";
-		mes "Â¡Charrrrr Sharrrrrrrr Ding!~";
+		mes "¡Charrrrr Sharrrrrrrr Ding!~";
 		emotion ET_THROB, getnpcid(0, "Slot Machine#xmas");
 		next;
-		mes "- Oh no, Â¡otra pareja!";
-		mes "- Aunque solo son mÃ¡quinas...";
-		mes "- Â¡No puedo soportar ver esto!";
+		mes "- Oh no, ¡otra pareja!";
+		mes "- Aunque solo son máquinas...";
+		mes "- ¡No puedo soportar ver esto!";
 		next;
-		select("- Encender la mÃ¡quina a mÃ¡xima potencia. -");
+		select("- Encender la máquina a máxima potencia. -");
 		mes "[Drop Machine]";
 		mes "Ding ding ding dong ding ding ding dong Ding ding ding dong ding ding ding dong";
 		next;
@@ -428,21 +428,21 @@ xmas,108,149,5	script	Drop Machine#xmas	562,{
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 3) {
 			mes "- Yo...";
-			mes "- Â¡Creo que rompÃ­ ambas!";
-			mes "- Â¡Separaste una pareja exitosamente!";
-			mes "- Â¡2 puntos por el buen trabajo!";
+			mes "- ¡Creo que rompí ambas!";
+			mes "- ¡Separaste una pareja exitosamente!";
+			mes "- ¡2 puntos por el buen trabajo!";
 			set xmas2013_01, xmas2013_01 + 2;
 		} else if (.@cu_bre > 7) {
-			mes "- EncendÃ­ la mÃ¡quina un rato";
-			mes "- Pero el sonido de la mÃ¡quina";
-			mes "- parece hacerse mÃ¡s fuerte.";
-			mes "- Â¡FallÃ³ la separaciÃ³n, menos 1 punto!";
+			mes "- Encendí la máquina un rato";
+			mes "- Pero el sonido de la máquina";
+			mes "- parece hacerse más fuerte.";
+			mes "- ¡Falló la separación, menos 1 punto!";
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 		} else {
-			mes "- DespuÃ©s de encender la mÃ¡quina un rato";
-			mes "- Â¡Creo que finalmente rompÃ­ una de ellas!";
-			mes "- Â¡AquÃ­ va 1 punto por el buen trabajo!";
+			mes "- Después de encender la máquina un rato";
+			mes "- ¡Creo que finalmente rompí una de ellas!";
+			mes "- ¡Aquí va 1 punto por el buen trabajo!";
 			set xmas2013_01, xmas2013_01 + 1;
 		}
 		mes "- El puntaje actual de ruptura de parejas es " + xmas2013_01 + ".";
@@ -452,8 +452,8 @@ xmas,108,149,5	script	Drop Machine#xmas	562,{
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -472,7 +472,7 @@ xmas,181,150,5	script	Frightened Man#xmas	711,{
 		emotion ET_SORRY;
 		next;
 		mes "[Mujer Enojada]";
-		mes "Â¿Lo sientes? Â¿Sabes lo que hiciste? Â¿Tienes idea de por quÃ© estoy enojada?";
+		mes "¿Lo sientes? ¿Sabes lo que hiciste? ¿Tienes idea de por qué estoy enojada?";
 		emotion ET_FRET, getnpcid(0, "Angry Woman#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
@@ -481,42 +481,42 @@ xmas,181,150,5	script	Frightened Man#xmas	711,{
 		emotion ET_SORRY;
 		next;
 		mes "[Mujer Enojada]";
-		mes "Â¿Lo sientes? Â¿Sabes lo que hiciste? Â¿Tienes idea de por quÃ© estoy enojada?";
+		mes "¿Lo sientes? ¿Sabes lo que hiciste? ¿Tienes idea de por qué estoy enojada?";
 		emotion ET_FRET, getnpcid(0, "Angry Woman#xmas");
 		next;
 		mes "[Hombre Asustado]";
 		mes "Bueno, simplemente siento que todo es mi culpa";
 		next;
 		mes "[Mujer Enojada]";
-		mes "Â¡Â¡Siempre eres asÃ­!!";
-		mes "Â¡Â¡Nunca sabes por quÃ© deberÃ­as disculparte!!";
+		mes "¡¡Siempre eres así!!";
+		mes "¡¡Nunca sabes por qué deberías disculparte!!";
 		next;
 		mes "[Hombre Asustado]";
-		mes "Ah... Â¿QuÃ© deberÃ­a hacer?";
-		mes "Oye, Â¿quÃ© crees que deberÃ­a decirle a mi novia?";
+		mes "Ah... ¿Qué debería hacer?";
+		mes "Oye, ¿qué crees que debería decirle a mi novia?";
 		next;
-		select("- Â¡Dile 'DeberÃ­amos dejar de vernos'!");
+		select("- ¡Dile 'Deberíamos dejar de vernos'!");
 		mes "[Hombre Asustado]";
-		mes "Â¿Tal vez deberÃ­amos.. dejar de vernos?";
-		mes "Â¡Oh no, lo dije en voz alta!";
+		mes "¿Tal vez deberíamos.. dejar de vernos?";
+		mes "¡Oh no, lo dije en voz alta!";
 		next;
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 3) {
 			mes "[Mujer Enojada]";
-			mes "Â¿QuÃ©? Â¿QuÃ© acabas de decir? Â¿DeberÃ­amos dejar de vernos? Â¿Â¡CÃ³mo puedes decirme eso?! Â¡TÃº eres el que ha hecho todo mal! Ok, Â¿sabes quÃ©? Â¡Terminemos! Â¡Estoy harta de todo esto!";
+			mes "¿Qué? ¿Qué acabas de decir? ¿Deberíamos dejar de vernos? ¿¡Cómo puedes decirme eso?! ¡Tú eres el que ha hecho todo mal! Ok, ¿sabes qué? ¡Terminemos! ¡Estoy harta de todo esto!";
 			set xmas2013_01, xmas2013_01 + 2;
 			hideonnpc "Frightened Man#xmas";
 			hideonnpc "Angry Woman#xmas";
 			initnpctimer;
 			next;
 			mes "[Hombre Asustado]";
-			mes "No, eso no es lo que... Â¡ok, ya estuvo! Â¡Yo tambiÃ©n estoy harto, harto de que te quejes todo el tiempo! Â¡Â¡Terminemos hoy!!";
+			mes "No, eso no es lo que... ¡ok, ya estuvo! ¡Yo también estoy harto, harto de que te quejes todo el tiempo! ¡¡Terminemos hoy!!";
 			next;
-			mes "- Â¡Â¡Separaste una pareja exitosamente!!";
-			mes "- Â¡2 puntos!";
+			mes "- ¡¡Separaste una pareja exitosamente!!";
+			mes "- ¡2 puntos!";
 		} else if (.@cu_bre > 7) {
 			mes "[Mujer Enojada]";
-			mes "Â¿QuÃ©? ...Â¿QuÃ© acabas de decir? Â¿DeberÃ­amos dejar de vernos?";
+			mes "¿Qué? ...¿Qué acabas de decir? ¿Deberíamos dejar de vernos?";
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 			hideonnpc "Frightened Man#xmas";
@@ -524,47 +524,47 @@ xmas,181,150,5	script	Frightened Man#xmas	711,{
 			initnpctimer;
 			next;
 			mes "[Mujer Enojada]";
-			mes "Â¡No puedo creer que puedas ser un tipo tan rudo y valiente! Â¡Es como si me enamorara de nuevo!";
+			mes "¡No puedo creer que puedas ser un tipo tan rudo y valiente! ¡Es como si me enamorara de nuevo!";
 			next;
 			mes "[Mujer Enojada]";
-			mes "CariÃ±o, Â¿puedes decirlo otra vez, mÃ¡s rudo?";
+			mes "Cariño, ¿puedes decirlo otra vez, más rudo?";
 			next;
 			mes "[Hombre Asustado]";
-			mes "Â¿Eh? claro... Â¡Â¡Terminemos... terminemos con esto!!!";
+			mes "¿Eh? claro... ¡¡Terminemos... terminemos con esto!!!";
 			next;
 			mes "[Mujer Enojada]";
-			mes "Â¡Â¡Jajajaja! Â¡Â¡Eres increÃ­ble!! Â¡Â¡IncreÃ­ble! Â¡Dilo otra vez! Â¡Dilo!";
+			mes "¡¡Jajajaja! ¡¡Eres increíble!! ¡¡Increíble! ¡Dilo otra vez! ¡Dilo!";
 			next;
 			mes "[Hombre Asustado]";
-			mes "Â¡Â¡Terminemos! Â¡Â¡Te dejo!!";
+			mes "¡¡Terminemos! ¡¡Te dejo!!";
 			next;
 			mes "[Mujer Enojada]";
-			mes "Â¡Â¡Jajajajajajaja! Â¡Â¡Yay! Â¡Â¡Eres el mejor!!";
+			mes "¡¡Jajajajajajaja! ¡¡Yay! ¡¡Eres el mejor!!";
 			next;
 			mes "- ...Estas personas no son normales.";
-			mes "- Â¡menos 1 punto por el fracaso!";
+			mes "- ¡menos 1 punto por el fracaso!";
 		} else {
 			set xmas2013_01, xmas2013_01 + 1;
 			hideonnpc "Frightened Man#xmas";
 			hideonnpc "Angry Woman#xmas";
 			initnpctimer;
 			mes "[Mujer Enojada]";
-			mes "Â¿QuÃ©? ...Â¿QuÃ© acabas de decir? Â¿DeberÃ­amos dejar de vernos?";
+			mes "¿Qué? ...¿Qué acabas de decir? ¿Deberíamos dejar de vernos?";
 			next;
 			mes "[Mujer Enojada]";
-			mes "...Creo que ambos estamos muy alterados ahora. Mejor hablemos despuÃ©s...";
+			mes "...Creo que ambos estamos muy alterados ahora. Mejor hablemos después...";
 			next;
 			mes "[Hombre Asustado]";
-			mes "Â¿Hmm?... ah, sÃ­, tienes razÃ³n... AdiÃ³s, llega bien a casa...";
+			mes "¿Hmm?... ah, sí, tienes razón... Adiós, llega bien a casa...";
 			next;
-			mes "- Â¡AquÃ­ va 1 punto por arruinar su cita!";
+			mes "- ¡Aquí va 1 punto por arruinar su cita!";
 		}
 		mes "- El puntaje actual de ruptura de parejas es " + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -578,53 +578,53 @@ xmas,183,150,3	script	Angry Woman#xmas	714,{ end; }
 
 xmas_in,32,99,5	script	Singles Union Kwami	10089,{
 	if (isbegin_quest(15056) == 0) {
-		mes "[Kwami de la UniÃ³n de Solteros]";
-		mes "Rinka. Es un gran misterio cÃ³mo una chica tan bonita como tÃº terminÃ³ en este EjÃ©rcito de la UniÃ³n de Solteros.";
+		mes "[Kwami de la Unión de Solteros]";
+		mes "Rinka. Es un gran misterio cómo una chica tan bonita como tú terminó en este Ejército de la Unión de Solteros.";
 		emotion ET_THROB;
 		next;
-		mes "[Rinka de la UniÃ³n de Solteros]";
-		mes "Â¿Crees que soy bonita? jojo... Para mÃ­ tambiÃ©n es un misterio, que un hombre tan guapo como tÃº se uniera al EjÃ©rcito de la UniÃ³n de Solteros.";
+		mes "[Rinka de la Unión de Solteros]";
+		mes "¿Crees que soy bonita? jojo... Para mí también es un misterio, que un hombre tan guapo como tú se uniera al Ejército de la Unión de Solteros.";
 		emotion ET_THROB, getnpcid(0, "Singles Union Rinka");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
-		mes "[Kwami de la UniÃ³n de Solteros]";
-		mes "Rinka. Es un gran misterio cÃ³mo una chica tan bonita como tÃº terminÃ³ en este EjÃ©rcito de la UniÃ³n de Solteros.";
+		mes "[Kwami de la Unión de Solteros]";
+		mes "Rinka. Es un gran misterio cómo una chica tan bonita como tú terminó en este Ejército de la Unión de Solteros.";
 		emotion ET_THROB;
 		next;
-		mes "[Rinka de la UniÃ³n de Solteros]";
-		mes "Â¿Crees que soy bonita? jojo... Para mÃ­ tambiÃ©n es un misterio, que un hombre tan guapo como tÃº se uniera al EjÃ©rcito de la UniÃ³n de Solteros.";
+		mes "[Rinka de la Unión de Solteros]";
+		mes "¿Crees que soy bonita? jojo... Para mí también es un misterio, que un hombre tan guapo como tú se uniera al Ejército de la Unión de Solteros.";
 		emotion ET_THROB, getnpcid(0, "Singles Union Rinka");
 		next;
-		mes "[Kwami de la UniÃ³n de Solteros]";
-		mes "Bueno, Â¿no es una lÃ¡stima que pasemos la Navidad solos? QuÃ© dices, Rinka, tÃº y yo...";
+		mes "[Kwami de la Unión de Solteros]";
+		mes "Bueno, ¿no es una lástima que pasemos la Navidad solos? Qué dices, Rinka, tú y yo...";
 		next;
-		select("- Â¡Ser pareja es ser un traidor! Â¡Â¡Â¡Si nos traicionan, mueren!!!");
+		select("- ¡Ser pareja es ser un traidor! ¡¡¡Si nos traicionan, mueren!!!");
 		set xmas2013_01, xmas2013_01 + 1;
 		hideonnpc "Singles Union Kwami";
 		hideonnpc "Singles Union Rinka";
 		initnpctimer;
-		mes "[Rinka de la UniÃ³n de Solteros]";
-		mes "Â¡Â¡Â¡Argh!!!!! Â¿Â¡QuiÃ©n es este?!";
-		mes "Â¿Â¡No es el que nos arrastrÃ³ al EjÃ©rcito de la UniÃ³n de Solteros?!";
+		mes "[Rinka de la Unión de Solteros]";
+		mes "¡¡¡Argh!!!!! ¿¡Quién es este?!";
+		mes "¿¡No es el que nos arrastró al Ejército de la Unión de Solteros?!";
 		next;
-		mes "[Kwami de la UniÃ³n de Solteros]";
-		mes "Â¿Â¡Estabas... espiando?!";
-		mes "Â¡Solo querÃ­a decir que deberÃ­amos buscar mÃ¡s miembros para el Club! Â¡Jajajajaja!";
+		mes "[Kwami de la Unión de Solteros]";
+		mes "¿¡Estabas... espiando?!";
+		mes "¡Solo quería decir que deberíamos buscar más miembros para el Club! ¡Jajajajaja!";
 		next;
-		mes "[Kwami de la UniÃ³n de Solteros]";
-		mes "Te veo despuÃ©s, Rinka. Voy a salir a cazar mÃ¡s parejas. Â¡No le digas al jefe!";
+		mes "[Kwami de la Unión de Solteros]";
+		mes "Te veo después, Rinka. Voy a salir a cazar más parejas. ¡No le digas al jefe!";
 		next;
-		mes "[Rinka de la UniÃ³n de Solteros]";
-		mes "Hmm, supongo que yo tambiÃ©n deberÃ­a irme. Nos vemos luego Kwami, Â¡adiÃ³s a ti tambiÃ©n~!";
+		mes "[Rinka de la Unión de Solteros]";
+		mes "Hmm, supongo que yo también debería irme. Nos vemos luego Kwami, ¡adiós a ti también~!";
 		next;
-		mes "- Â¡Evitaste exitosamente que se formara una pareja!";
-		mes "- Â¡1 punto por el buen trabajo!";
+		mes "- ¡Evitaste exitosamente que se formara una pareja!";
+		mes "- ¡1 punto por el buen trabajo!";
 		mes "- El puntaje actual de ruptura de parejas es " + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -644,7 +644,7 @@ xmas,156,109,5	script	Poor Alchemist#xmas	749,{
 		next;
 		mes "[Florista]";
 		mes "Hola, Sr. Alquimista.";
-		mes "Â¿Trabajando hoy tambiÃ©n?";
+		mes "¿Trabajando hoy también?";
 		emotion ET_DELIGHT, getnpcid(0, "Florist#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
@@ -654,60 +654,60 @@ xmas,156,109,5	script	Poor Alchemist#xmas	749,{
 		next;
 		mes "[Florista]";
 		mes "Hola, Sr. Alquimista.";
-		mes "Â¿Trabajando hoy tambiÃ©n?";
+		mes "¿Trabajando hoy también?";
 		emotion ET_DELIGHT, getnpcid(0, "Florist#xmas");
 		next;
 		mes "[Alquimista Pobre]";
 		mes "De hecho, tengo algo que decirte.";
-		mes "Es muy importante asÃ­ que por favor escucha con atenciÃ³n.";
+		mes "Es muy importante así que por favor escucha con atención.";
 		next;
 		mes "[Florista]";
 		mes "Oh, claro, habla con confianza.";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "BiolÃ³gicamente hablando, el sistema lÃ­mbico en el cerebro nos permite ser sociables, comunicarnos con la gente, entretenernos, etc.";
+		mes "Biológicamente hablando, el sistema límbico en el cerebro nos permite ser sociables, comunicarnos con la gente, entretenernos, etc.";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "Entonces cuando ves a una mujer hermosa, la informaciÃ³n como su apariencia, su aroma, el tono de su voz, etc. va al Ã¡rea lÃ­mbica.";
+		mes "Entonces cuando ves a una mujer hermosa, la información como su apariencia, su aroma, el tono de su voz, etc. va al área límbica.";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "El sistema lÃ­mbico entonces evalÃºa la informaciÃ³n, para ver si esta dama es amigable, agresiva, o encantadora, etc.";
+		mes "El sistema límbico entonces evalúa la información, para ver si esta dama es amigable, agresiva, o encantadora, etc.";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "Cuando la evaluaciÃ³n termina, el sistema lÃ­mbico comienza inmediatamente a secretar los quÃ­micos.";
+		mes "Cuando la evaluación termina, el sistema límbico comienza inmediatamente a secretar los químicos.";
 		next;
 		mes "[Alquimista Pobre]";
 		mes "Entonces si te atrae esta dama, una hormona llamada Dopamina es secretada y te hace sentir ligeramente feliz.";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "Cuando esa etapa termina, la Adrenalina se activa, entonces te vuelves mÃ¡s directo y entusiasta.";
+		mes "Cuando esa etapa termina, la Adrenalina se activa, entonces te vuelves más directo y entusiasta.";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "Â¡Estoy en esa etapa ahora contigo! Â¡En otras palabras, estoy muy...!!";
+		mes "¡Estoy en esa etapa ahora contigo! ¡En otras palabras, estoy muy...!!";
 		next;
-		select("- Â¡Muy hambriento, verdad?!");
+		select("- ¡Muy hambriento, verdad?!");
 		mes "[Florista]";
-		mes "Â¿Eh? Â¿Es eso cierto?";
-		mes "Â¿Tiene hambre ahora, Sr. Alquimista?";
+		mes "¿Eh? ¿Es eso cierto?";
+		mes "¿Tiene hambre ahora, Sr. Alquimista?";
 		next;
 		mes "[Alquimista Pobre]";
-		mes "Ah.. sÃ­.. creo que sÃ­...";
+		mes "Ah.. sí.. creo que sí...";
 		mes "...mucha hambre..";
 		next;
 		set .@cu_bre, rand(1,10);
 		if (.@cu_bre < 3) {
 			mes "[Florista]";
-			mes "Hay un buen restaurante cerca de aquÃ­. Â¿Por quÃ© no va y come algo?";
+			mes "Hay un buen restaurante cerca de aquí. ¿Por qué no va y come algo?";
 			set xmas2013_01, xmas2013_01 + 2;
 			hideonnpc "Poor Alchemist#xmas";
 			hideonnpc "Florist#xmas";
 			initnpctimer;
 			next;
 			mes "[Alquimista Pobre]";
-			mes "...Claro, gracias. Que tenga buen dÃ­a...";
+			mes "...Claro, gracias. Que tenga buen día...";
 			next;
-			mes "- Â¡Evitaste exitosamente que se formara una pareja!";
-			mes "- Â¡2 puntos por el gran trabajo!";
+			mes "- ¡Evitaste exitosamente que se formara una pareja!";
+			mes "- ¡2 puntos por el gran trabajo!";
 		} else if (.@cu_bre > 7) {
 			mes "[Florista]";
 			mes "Ya veo. Entiendo lo que quieres decir.";
@@ -718,7 +718,7 @@ xmas,156,109,5	script	Poor Alchemist#xmas	749,{
 			initnpctimer;
 			next;
 			mes "[Florista]";
-			mes "Â¿Puedo cocinarle algo rico, entonces?";
+			mes "¿Puedo cocinarle algo rico, entonces?";
 			next;
 			mes "[Florista]";
 			mes "...Por el resto de mi vida, si quieres...";
@@ -726,14 +726,14 @@ xmas,156,109,5	script	Poor Alchemist#xmas	749,{
 			mes "[Alquimista Pobre]";
 			mes "Ok...";
 			mes "......";
-			mes "Espera, Â¿Â¿Â¿Â¿Â¿quÃ©?????";
+			mes "Espera, ¿¿¿¿¿qué?????";
 			next;
 			mes "[Alquimista Pobre]";
 			mes "......";
-			mes "...... Â¡Â¡Â¡Â¡Â¡SÃ­! Â¡Â¡Â¡Â¡Â¡Quiero!!!!!!!!";
+			mes "...... ¡¡¡¡¡Sí! ¡¡¡¡¡Quiero!!!!!!!!";
 			next;
-			mes "- FallÃ³ separar a una pareja";
-			mes "- Â¡menos 1 punto por el fracaso!";
+			mes "- Falló separar a una pareja";
+			mes "- ¡menos 1 punto por el fracaso!";
 		} else {
 			set xmas2013_01, xmas2013_01 + 1;
 			hideonnpc "Poor Alchemist#xmas";
@@ -743,16 +743,16 @@ xmas,156,109,5	script	Poor Alchemist#xmas	749,{
 			mes "Hay comida en la tienda, por favor pase.";
 			next;
 			mes "[Alquimista Pobre]";
-			mes "Ah... sÃ­, gracias.";
+			mes "Ah... sí, gracias.";
 			next;
-			mes "- De alguna manera interrumpiste a la pareja. Â¡AquÃ­ va 1 punto para ti!";
+			mes "- De alguna manera interrumpiste a la pareja. ¡Aquí va 1 punto para ti!";
 		}
 		mes "- El puntaje actual de ruptura de parejas es " + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -772,7 +772,7 @@ xmas,166,164,5	script	Raffini Boy#xmas	443,{
 		next;
 		mes "[Chica Raffini]";
 		mes "Tantos hermosos copos de nieve blancos.";
-		mes "Pero hace mucho frÃ­o aquÃ­...";
+		mes "Pero hace mucho frío aquí...";
 		emotion ET_CRY, getnpcid(0, "Raffini Girl#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
@@ -782,23 +782,23 @@ xmas,166,164,5	script	Raffini Boy#xmas	443,{
 		next;
 		mes "[Chica Raffini]";
 		mes "Tantos hermosos copos de nieve blancos.";
-		mes "Pero hace mucho frÃ­o aquÃ­...";
+		mes "Pero hace mucho frío aquí...";
 		emotion ET_CRY, getnpcid(0, "Raffini Girl#xmas");
 		next;
 		mes "[Chico Raffini]";
-		mes "Pero fuiste tÃº quien quiso ver la nieve esta Navidad.";
+		mes "Pero fuiste tú quien quiso ver la nieve esta Navidad.";
 		next;
 		mes "[Chica Raffini]";
-		mes "Oh pero no sabÃ­a cuÃ¡nto frÃ­o hacÃ­a...oops...";
+		mes "Oh pero no sabía cuánto frío hacía...oops...";
 		next;
 		mes "[Chico Raffini]";
-		mes "Bueno, ok ya veo...Solo acÃ©rcate mÃ¡s a mÃ­.";
+		mes "Bueno, ok ya veo...Solo acércate más a mí.";
 		next;
 		mes "[Chica Raffini]";
-		mes "Â¿QuÃ©? No te escucho. Â¿QuÃ© dijiste?";
+		mes "¿Qué? No te escucho. ¿Qué dijiste?";
 		next;
 		mes "[Chico Raffini]";
-		mes "...AcÃ©rcate mÃ¡s a mÃ­. A mi lado.";
+		mes "...Acércate más a mí. A mi lado.";
 		next;
 		mes "[Chica Raffini]";
 		mes "Ohh ok...";
@@ -813,43 +813,43 @@ xmas,166,164,5	script	Raffini Boy#xmas	443,{
 		if (.@cu_bre < 6) {
 			set xmas2013_01, xmas2013_01 + 1;
 			mes "[Chica Raffini]";
-			mes "....Â¡Pero aÃºn hace mucho frÃ­o! Ya no quiero estar aquÃ­.";
+			mes "....¡Pero aún hace mucho frío! Ya no quiero estar aquí.";
 			next;
 			mes "[Chica Raffini]";
-			mes "Â¡Quiero volver a Eclage!";
+			mes "¡Quiero volver a Eclage!";
 			next;
 			mes "[Chico Raffini]";
-			mes "Â¿Oh? Oye...por fin llegamos aquÃ­, Â¿pero te quieres ir ahora?";
+			mes "¿Oh? Oye...por fin llegamos aquí, ¿pero te quieres ir ahora?";
 			next;
 			mes "[Chico Raffini]";
-			mes "Â¡Oye! Â¡Vamos juntos!!";
+			mes "¡Oye! ¡Vamos juntos!!";
 			next;
-			mes "- Sin ningÃºn esfuerzo, pero todo va bien.";
-			mes "- Â¡ObtÃ©n 1 punto!";
+			mes "- Sin ningún esfuerzo, pero todo va bien.";
+			mes "- ¡Obtén 1 punto!";
 		} else {
 			if (xmas2013_01 > 0)
 				set xmas2013_01, xmas2013_01 - 1;
 			mes "[Chica Raffini]";
-			mes "Â¡Oh! EstÃ¡ mucho mÃ¡s calientito que antes...jeje";
+			mes "¡Oh! Está mucho más calientito que antes...jeje";
 			next;
 			mes "[Chico Raffini]";
-			mes "Â¡N..no te acerques tanto!";
+			mes "¡N..no te acerques tanto!";
 			next;
 			mes "[Chica Raffini]";
-			mes "Â¿Por quÃ© no? A quiÃ©n le importa. Vamos a comer algo rico.";
+			mes "¿Por qué no? A quién le importa. Vamos a comer algo rico.";
 			next;
 			mes "[Chico Raffini]";
-			mes "Â¡EstÃ¡s muy cerca de mÃ­! Yo, puedo sentir tu..um..oye!";
+			mes "¡Estás muy cerca de mí! Yo, puedo sentir tu..um..oye!";
 			next;
 			mes "- Oops, fui atacado por esa pareja sin hacer nada.";
-			mes "- Â¡FallÃ³, -1 punto!";
+			mes "- ¡Falló, -1 punto!";
 		}
 		mes "- El puntaje actual de ruptura de parejas es " + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -884,13 +884,13 @@ xmas,147,123,5	script	Angeling#xmas	948,{
 		mes "- Ni siquiera puedo hablarles,";
 		mes "- bueno, ni modo.";
 		next;
-		mes "- Â¿Solo cazarlos?";
+		mes "- ¿Solo cazarlos?";
 		mes "- ......De ninguna manera.";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -900,39 +900,39 @@ xmas,149,123,3	script	Arc Angeling#xmas	949,{ end; }
 xmas,129,115,5	script	Prenetan#xmas	783,{
 	if (isbegin_quest(15056) == 0) {
 		mes "[Prenetan]";
-		mes "Â¡Umba~ Umba Umba!";
-		mes "Â¡Umba Umumumum!";
+		mes "¡Umba~ Umba Umba!";
+		mes "¡Umba Umumumum!";
 		next;
 		mes "[Prenetan]";
-		mes "Â¡Por fin te atrapÃ©, eh? Â¿Me engaÃ±aste hasta ahora e incluso me hiciste perseguirte? Â¡Te voy a matar!";
+		mes "¡Por fin te atrapé, eh? ¿Me engañaste hasta ahora e incluso me hiciste perseguirte? ¡Te voy a matar!";
 		emotion ET_FRET;
 		next;
 		mes "[Umpoucoriotan]";
-		mes "Ohhh... mi esposa es muy violenta. Ohh...Â¡me duele!";
+		mes "Ohhh... mi esposa es muy violenta. Ohh...¡me duele!";
 		emotion ET_CRY, getnpcid(0, "Umpoucoriotan#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
 		mes "[Prenetan]";
-		mes "Â¡Umba~ Umba umba!";
-		mes "Â¡Umba umumumum!";
+		mes "¡Umba~ Umba umba!";
+		mes "¡Umba umumumum!";
 		next;
 		mes "[Prenetan]";
-		mes "Â¡Por fin te atrapÃ©, eh? Â¿Me engaÃ±aste hasta ahora e incluso me hiciste perseguirte? Â¡Te voy a matar!";
+		mes "¡Por fin te atrapé, eh? ¿Me engañaste hasta ahora e incluso me hiciste perseguirte? ¡Te voy a matar!";
 		emotion ET_FRET;
 		next;
 		mes "[Umpoucoriotan]";
-		mes "Ohhh... mi esposa es muy violenta. Ohh...Â¡me duele!";
+		mes "Ohhh... mi esposa es muy violenta. Ohh...¡me duele!";
 		emotion ET_CRY, getnpcid(0, "Umpoucoriotan#xmas");
 		next;
 		mes "[Umpoucoriotan]";
 		mes "Wenathan, berzthan, Chabimathan";
-		mes "Ohhh... Las chicas de Umbala estÃ¡n aquÃ­... Me estÃ¡n esperando ahora....Â¡Arg! Â¡No me toques!";
+		mes "Ohhh... Las chicas de Umbala están aquí... Me están esperando ahora....¡Arg! ¡No me toques!";
 		next;
 		mes "[Prenetan]";
-		mes "Â¡QuÃ© tonto eres!";
-		mes "Â¡Esas chicas nunca quisieron verte y es mentira que vendrÃ­an aquÃ­!!";
+		mes "¡Qué tonto eres!";
+		mes "¡Esas chicas nunca quisieron verte y es mentira que vendrían aquí!!";
 		next;
-		select("- Â¡No! Â¡Todas estÃ¡n aquÃ­!");
+		select("- ¡No! ¡Todas están aquí!");
 		hideonnpc "Prenetan#xmas";
 		hideonnpc "Umpoucoriotan#xmas";
 		initnpctimer;
@@ -940,36 +940,36 @@ xmas,129,115,5	script	Prenetan#xmas	783,{
 		if (.@cu_bre < 6) {
 			set xmas2013_01, xmas2013_01 + 1;
 			mes "[Umpoucoriotan]";
-			mes "Umm...sÃ­ ya sÃ©..Â¿Es verdad que esas chicas estÃ¡n aquÃ­?";
+			mes "Umm...sí ya sé..¿Es verdad que esas chicas están aquí?";
 			next;
 			mes "[Umpoucoriotan]";
-			mes "...Oh me duele el estÃ³mago... Â¿HabrÃ© comido algo malo... Querida, un momento. Â¡Vuelvo pronto del baÃ±o! Â¡EspÃ©rame aquÃ­ un rato!";
+			mes "...Oh me duele el estómago... ¿Habré comido algo malo... Querida, un momento. ¡Vuelvo pronto del baño! ¡Espérame aquí un rato!";
 			next;
 			mes "[Prenetan]";
-			mes "Â¡Oye idiota! Â¡Para ahÃ­! Â¡Para! ...Â¡Â¡Â¡PARA!!!";
+			mes "¡Oye idiota! ¡Para ahí! ¡Para! ...¡¡¡PARA!!!";
 			next;
-			mes "- Bueno, las cosas son bastante fÃ¡ciles. Â¡ObtÃ©n 1 punto!";
+			mes "- Bueno, las cosas son bastante fáciles. ¡Obtén 1 punto!";
 		} else {
 			set xmas2013_01, xmas2013_01 + 1;
 			mes "[Prenetan]";
-			mes "Â¿QuiÃ©n anda ahÃ­? Â¿Quieres que te mate a ti tambiÃ©n?";
+			mes "¿Quién anda ahí? ¿Quieres que te mate a ti también?";
 			next;
 			mes "- Oops";
 			next;
 			mes "[Prenetan]";
-			mes "Â¡TodavÃ­a no entiendes nada! Â¡Ven aquÃ­, te llevo de vuelta a Umbala!";
+			mes "¡Todavía no entiendes nada! ¡Ven aquí, te llevo de vuelta a Umbala!";
 			next;
 			mes "[Umpoucoriotan]";
-			mes "Â¡Â¡ARG! ....Â¡Â¡Â¡Arrrrrrrrg!!! Â¡Â¡Duele!! Â¡Â¡Â¡Noooo!!! Â¡Â¡Â¡Me estÃ¡n esperando!!!";
+			mes "¡¡ARG! ....¡¡¡Arrrrrrrrg!!! ¡¡Duele!! ¡¡¡Noooo!!! ¡¡¡Me están esperando!!!";
 			next;
-			mes "- Bueno, Ã©l solo se lo hizo mÃ¡s difÃ­cil. Â¡ObtÃ©n 1 punto!";
+			mes "- Bueno, él solo se lo hizo más difícil. ¡Obtén 1 punto!";
 		}
 		mes "- El puntaje actual de ruptura de parejas es " + xmas2013_01 + ".";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;
@@ -984,29 +984,29 @@ xmas,131,115,3	script	Umpoucoriotan#xmas	789,{ end; }
 xmas,138,174,5	script	Dark Lord#xmas	737,{
 	if (isbegin_quest(15056) == 0) {
 		mes "[Dark Lord]";
-		mes "Â¡Â¡Wajajajaja el mundo pronto se convertirÃ¡ en oscuridad y todos se arrodillarÃ¡n ante mÃ­!!";
+		mes "¡¡Wajajajaja el mundo pronto se convertirá en oscuridad y todos se arrodillarán ante mí!!";
 		emotion ET_SURPRISE;
 		next;
 		mes "[Succubus]";
-		mes "Mi amo. Todos los mundos seguirÃ¡n tu voluntad.";
+		mes "Mi amo. Todos los mundos seguirán tu voluntad.";
 		emotion ET_THROB, getnpcid(0, "Succubus#xmas");
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 < 5) {
 		mes "[Dark Lord]";
-		mes "Â¡Â¡Wajajajaja el mundo pronto se convertirÃ¡ en oscuridad y todos se arrodillarÃ¡n ante mÃ­!!";
+		mes "¡¡Wajajajaja el mundo pronto se convertirá en oscuridad y todos se arrodillarán ante mí!!";
 		emotion ET_SURPRISE;
 		next;
 		mes "[Succubus]";
-		mes "Mi amo. Todos los mundos seguirÃ¡n tu voluntad.";
+		mes "Mi amo. Todos los mundos seguirán tu voluntad.";
 		emotion ET_THROB, getnpcid(0, "Succubus#xmas");
 		next;
 		mes "- No puedo molestarlos.";
-		mes "- Si lo hago, morirÃ©.";
+		mes "- Si lo hago, moriré.";
 		close;
 	} else if (isbegin_quest(15056) == 1 && xmas2013_01 > 4) {
 		mes "- El puntaje de ruptura de parejas";
-		mes "- ahora es mÃ¡s de 5.";
-		mes "- DeberÃ­a volver con el Comandante de la UniÃ³n Cliff.";
+		mes "- ahora es más de 5.";
+		mes "- Debería volver con el Comandante de la Unión Cliff.";
 		close;
 	}
 	end;

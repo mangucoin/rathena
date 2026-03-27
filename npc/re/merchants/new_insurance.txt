@@ -18,44 +18,44 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 		close;
 	}
 	mes "[Heart Merchant]";
-	mes "Â¡Hola! Â¡Veo que eres un aventurero que entrega su corazon a viajar, usa un barco para navegar por el continente y disfruta la emocion del peligro!";
+	mes "¡Hola! ¡Veo que eres un aventurero que entrega su corazon a viajar, usa un barco para navegar por el continente y disfruta la emocion del peligro!";
 	next;
 	if(!countitem(.@old_item)){
 		mes "[Heart Merchant]";
-		mes "Â¿Tienes algun " + mesitemlink( .@old_item ) + " en tu almacen?";
+		mes "¿Tienes algun " + mesitemlink( .@old_item ) + " en tu almacen?";
 		next;
 		mes "[Heart Merchant]";
-		mes "Si me traes un " + .@old_item_name$ + ", lo intercambiare por " + mesitemlink( .@new_item ) + ". Â¿Que dices? Â¿Tienes idea de que es este objeto?";
+		mes "Si me traes un " + .@old_item_name$ + ", lo intercambiare por " + mesitemlink( .@new_item ) + ". ¿Que dices? ¿Tienes idea de que es este objeto?";
 	} else {
 		mes "[Heart Merchant]";
-		mes "Â¿Alguna vez pensaste en reemplazar tu " + mesitemlink( .@old_item ) + " por algo mejor? Por ejemplo... " + mesitemlink( .@new_item ) + ". Â¿Que dices?";
+		mes "¿Alguna vez pensaste en reemplazar tu " + mesitemlink( .@old_item ) + " por algo mejor? Por ejemplo... " + mesitemlink( .@new_item ) + ". ¿Que dices?";
 	}
 	next;
-	switch(select("Â¿Que es?",(countitem(.@old_item)?"Â¡Intercambialo por favor!":""),"No me interesa")) {
+	switch(select("¿Que es?",(countitem(.@old_item)?"¡Intercambialo por favor!":""),"No me interesa")) {
 	case 1:
 		mes "[Heart Merchant]";
 		mes mesitemlink( .@old_item ) + " es un objeto que evita que pierdas experiencia al morir una vez dentro de los 30 minutos de duracion despues de usarlo.";
 		next;
 		mes "[Heart Merchant]";
-		mes "Pero mucha gente esta triste por el limite de tiempo, Â¿verdad? Asi que investigue y prepare el " + mesitemlink( .@new_item ) + ".";
+		mes "Pero mucha gente esta triste por el limite de tiempo, ¿verdad? Asi que investigue y prepare el " + mesitemlink( .@new_item ) + ".";
 		next;
 		mes "[Heart Merchant]";
 		mes mesitemlink( .@new_item ) + " es un objeto que evitara la perdida de experiencia al morir una vez con solo tenerlo ^EE0000sin importar la duracion^000000. Por supuesto, despues de morir, el "+.@new_item_name$+" se consume.";
 		next;
-		select("Â¿Por que lo intercambias?");
+		select("¿Por que lo intercambias?");
 		mes "[Heart Merchant]";
-		mes "Â¿Tienes curiosidad por eso? Soy un mercader. Comprar y vender cosas es mi destino, ya sea relacionado con la vida o la muerte de alguien. Â¿Crees que voy a perder esta oportunidad de ganar dinero? Yo gano dinero, y los vivos obtienen un respiro del dolor de la muerte. Â¿No es un buen trato?";
+		mes "¿Tienes curiosidad por eso? Soy un mercader. Comprar y vender cosas es mi destino, ya sea relacionado con la vida o la muerte de alguien. ¿Crees que voy a perder esta oportunidad de ganar dinero? Yo gano dinero, y los vivos obtienen un respiro del dolor de la muerte. ¿No es un buen trato?";
 		next;
 		mes "[Heart Merchant]";
-		mes "La tasa de intercambio es 5 " + mesitemlink( .@old_item ) + " por 1 " + mesitemlink( .@new_item ) + ". Â¿Tienes alguna pregunta?";
+		mes "La tasa de intercambio es 5 " + mesitemlink( .@old_item ) + " por 1 " + mesitemlink( .@new_item ) + ". ¿Tienes alguna pregunta?";
 		next;
 		mes "[Heart Merchant]";
-		mes "Hm~ Â¿Que opinas? Â¿No es un intercambio justo? Â¿Quieres siempre preocuparte por el tiempo? Es un objeto imprescindible para aventureros que disfrutan aventuras emocionantes.";
+		mes "Hm~ ¿Que opinas? ¿No es un intercambio justo? ¿Quieres siempre preocuparte por el tiempo? Es un objeto imprescindible para aventureros que disfrutan aventuras emocionantes.";
 		close;
 
 	case 2:
 		mes "[Heart Merchant]";
-		mes "Si, si. Buena decision. Es mejor intercambiarlo por algo mejor, Â¿no?";
+		mes "Si, si. Buena decision. Es mejor intercambiarlo por algo mejor, ¿no?";
 		next;
 		mes "[Heart Merchant]";
 		mes "Puedo intercambiar tus ^0000cd5 "+.@old_item_name$+" por 1 "+.@new_item_name$+".";
@@ -64,17 +64,17 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 		mes "Sin embargo, ^EE0000[No se vende] " + .@old_item_name$ + " no es elegible para intercambio^000000, asi que es inutil traerlo aqui y pedir que se intercambie.";
 		next;
 		mes "[Heart Merchant]";
-		mes "Â¿Hacemos el intercambio ahora?";
+		mes "¿Hacemos el intercambio ahora?";
 		next;
-		if (select("Â¡Intercambialo por favor!:No quiero intercambiarlo.") == 2)
+		if (select("¡Intercambialo por favor!:No quiero intercambiarlo.") == 2)
 			break;
 		mes "[Heart Merchant]";
-		mes "Â¿Cuantos quieres intercambiar? ^0000cdPuedes intercambiar hasta 10 "+.@new_item_name$+" a la vez^000000.";
+		mes "¿Cuantos quieres intercambiar? ^0000cdPuedes intercambiar hasta 10 "+.@new_item_name$+" a la vez^000000.";
 		next;
 		input .@amount;
 		if (.@amount == 0) {
 			mes "[Heart Merchant]";
-			mes "Â¿Hm? Â¿No te interesa? Este es un gran producto, y es realmente bueno para alguien como tu. Pero si no quieres proteger tu vida, tampoco te obligare.";
+			mes "¿Hm? ¿No te interesa? Este es un gran producto, y es realmente bueno para alguien como tu. Pero si no quieres proteger tu vida, tampoco te obligare.";
 			close;
 		}
 		if (.@amount > 10) {
@@ -84,11 +84,11 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 		}
 		if (countitem(.@old_item) < (.@amount*5)) {
 			mes "[Heart Merchant]";
-			mes "Um, disculpa pero... no tienes suficientes " +.@old_item_name$+ ", Â¿verdad? Son 5 " + mesitemlink( .@old_item ) + " por 1 " + mesitemlink( .@new_item ) + ". Por favor verifica la cantidad.";
+			mes "Um, disculpa pero... no tienes suficientes " +.@old_item_name$+ ", ¿verdad? Son 5 " + mesitemlink( .@old_item ) + " por 1 " + mesitemlink( .@new_item ) + ". Por favor verifica la cantidad.";
 			close;
 		}
 		mes "[Heart Merchant]";
-		mes "Â¡Ahora, con esto, he intercambiado tus ^0000cd" + .@old_item_name$ + "^000000 por el ^EE0000" + .@new_item_name$ + "^000000!! Fue un buen trato, Â¿no? Â¡La proxima vez que consigas un "+.@old_item_name$+", ven a verme de nuevo!";
+		mes "¡Ahora, con esto, he intercambiado tus ^0000cd" + .@old_item_name$ + "^000000 por el ^EE0000" + .@new_item_name$ + "^000000!! Fue un buen trato, ¿no? ¡La proxima vez que consigas un "+.@old_item_name$+", ven a verme de nuevo!";
 		delitem .@old_item,.@amount*5;
 		getitem .@new_item,.@amount;
 		close;
@@ -96,14 +96,14 @@ prontera,82,108,5	script	Heart Merchant#life01	4_M_NFDEADMAN2,5,5,{
 		break;
 	}
 	mes "[Heart Merchant]";
-	mes "Â¡Este es un gran trato! Aventurero, es un objeto imprescindible para personas como tu que se aventuran en lugares peligrosos!";
+	mes "¡Este es un gran trato! Aventurero, es un objeto imprescindible para personas como tu que se aventuran en lugares peligrosos!";
 	next;
 	mes "[Heart Merchant]";
-	mes "Si te interesa, asegurate de volver para el intercambio. Â¿De acuerdo?";
+	mes "Si te interesa, asegurate de volver para el intercambio. ¿De acuerdo?";
 	close;
 
 OnTouch:
 	if(countitem(12209))
-		npctalk "Tienes algo bueno. Â¿Te gustaria reemplazar tu " + getitemname(12209) + " por algo mejor?", "", bc_self;
+		npctalk "Tienes algo bueno. ¿Te gustaria reemplazar tu " + getitemname(12209) + " por algo mejor?", "", bc_self;
 	end;
 }

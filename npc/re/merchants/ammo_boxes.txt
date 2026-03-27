@@ -81,14 +81,14 @@ S_Casing:
 	if (.@bullet_count < 500 || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
 		mes "Oye~ Necesitas la cantidad exacta de objetos para intercambiar. Ve a conseguir mas.";
-		mes "Debes tener 500 o mas de ^FF0000" + .@bullet_str$ + "^000000, Â¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
+		mes "Debes tener 500 o mas de ^FF0000" + .@bullet_str$ + "^000000, ¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
 		close;
 	}
 
 	mes "[Kenny]";
 	mes "Has elegido ^FF0000" + .@pack_str$ + "^000000.";
 	mes "Necesitas 500 ^3131FF" + .@bullet_str$ + "^000000 para hacer 1 ^3131FF" + .@bullet_str$ + "^000000, y costara ^3131FF500^000000 zeny.";
-	mes "Â¿Cuantos quieres intercambiar?";
+	mes "¿Cuantos quieres intercambiar?";
 	next;
 	switch(select("Intercambiar todo:Hacer solo 1:Cancelar")) {
 		case 1:
@@ -97,14 +97,14 @@ S_Casing:
 			mes "Combinacion de bolsas de balas: ^3131FF" + .@pack_count;
 			mes "Zeny requeridos: ^3131FF" + .@pack_count * 500;
 			next;
-			mes "Â¿Quieres intercambiar?";
+			mes "¿Quieres intercambiar?";
 			next;
 			switch(select("Intercambiar:Cancelar")) {
 				case 1:
 					if (Zeny < .@pack_count * 500) {
 						mes "[Kenny]";
 						mes "Oye~ Necesitas la cantidad exacta de Zeny para intercambiar. Ve a conseguir mas.";
-						mes "Debes tener ^FF0000" + .@pack_count * 500 + "^000000, Â¿ok?";
+						mes "Debes tener ^FF0000" + .@pack_count * 500 + "^000000, ¿ok?";
 						close;
 					}
 					mes "[Kenny]";
@@ -121,7 +121,7 @@ S_Casing:
 			if (Zeny < 500) {
 				mes "[Kenny]";
 				mes "Oye~ Necesitas la cantidad exacta de Zeny para intercambiar. Ve a conseguir mas.";
-				mes "Debes tener ^FF0000500^000000, Â¿ok?";
+				mes "Debes tener ^FF0000500^000000, ¿ok?";
 				close;
 			}
 			mes "[Kenny]";
@@ -146,14 +146,14 @@ S_Sphere_Exchange:
 	if (.@old_count < 10 || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
 		mes "Oye~ Necesitas la cantidad exacta de objetos para intercambiar. Ve a conseguir mas.";
-		mes "Debes tener 10 o mas de ^FF0000" + .@old_str$ + "^000000, Â¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
+		mes "Debes tener 10 o mas de ^FF0000" + .@old_str$ + "^000000, ¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
 		close;
 	}
 
 	mes "[Kenny]";
 	mes "Has elegido ^FF0000" + .@old_str$ + "^000000.";
 	mes "Necesitas 10 ^3131FF" + .@old_str$ + "^000000 para hacer 1 ^3131FF" + .@new_str$ + "^000000.";
-	mes "Â¿Cuantos quieres intercambiar?";
+	mes "¿Cuantos quieres intercambiar?";
 	next;
 	switch(select("Intercambiar todo:Hacer solo 1:Cancelar")) {
 		case 1:
@@ -161,7 +161,7 @@ S_Sphere_Exchange:
 			mes "Cantidad de " + .@old_str$ + ": ^3131FF" + .@old_count;
 			mes "Cantidad de " + .@new_str$ + ": ^3131FF" + .@new_count;
 			next;
-			mes "Â¿Quieres intercambiar?";
+			mes "¿Quieres intercambiar?";
 			next;
 			switch(select("Intercambiar:Cancelar")) {
 				case 1:
@@ -193,14 +193,14 @@ S_Old_Sphere_Exchange:
 	if (.@old_count < 1 || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
 		mes "Oye~ Necesitas la cantidad exacta de objetos para intercambiar. Ve a conseguir mas.";
-		mes "Debes tener 1 o mas de ^FF0000" + .@old_str$ + "^000000, Â¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
+		mes "Debes tener 1 o mas de ^FF0000" + .@old_str$ + "^000000, ¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
 		close;
 	}
 
 	mes "[Kenny]";
 	mes "Has elegido ^FF0000" + .@old_str$ + "^000000.";
 	mes "Necesitas 1 ^3131FF" + .@old_str$ + "^000000 para hacer 1 ^3131FF" + .@new_str$ + "^000000.";
-	mes "Â¿Cuantos quieres intercambiar?";
+	mes "¿Cuantos quieres intercambiar?";
 	next;
 	switch(select("Intercambiar todo:Hacer solo 1:Cancelar")) {
 		case 1:
@@ -208,7 +208,7 @@ S_Old_Sphere_Exchange:
 			mes "Cantidad de " + .@old_str$ + ": ^3131FF" + .@old_count;
 			mes "Cantidad de " + .@new_str$ + ": ^3131FF" + .@old_count;
 			next;
-			mes "Â¿Quieres intercambiar?";
+			mes "¿Quieres intercambiar?";
 			next;
 			switch(select("Intercambiar:Cancelar")) {
 				case 1:
@@ -241,14 +241,14 @@ S_Slug_Exchange:
 	if (.@count < .@req_count || getequipid(EQI_AMMO) != -1 || BaseClass != Job_Gunslinger) {
 		mes "[Kenny]";
 		mes "Oye~ Necesitas la cantidad exacta de objetos para intercambiar. Ve a conseguir mas.";
-		mes "Debes tener " + .@req_count + " o mas de ^FF0000" + .@slug_str$ + "^000000, Â¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
+		mes "Debes tener " + .@req_count + " o mas de ^FF0000" + .@slug_str$ + "^000000, ¿ok? Ademas, asegurate de no ^FF0000equiparlas^000000 si quieres intercambiar.";
 		close;
 	}
 
 	mes "[Kenny]";
 	mes "Has elegido ^FF0000" + .@slug_str$ + "^000000.";
 	mes "Necesitas " + .@req_count + " ^3131FF" + .@slug_str$ + "^000000 para hacer 1 ^3131FF" + .@new_slug_str$ + "^000000.";
-	mes "Â¿Cuantos quieres intercambiar?";
+	mes "¿Cuantos quieres intercambiar?";
 	next;
 	switch(select("Intercambiar todo:Hacer solo 1:Cancelar")) {
 		case 1:
@@ -256,7 +256,7 @@ S_Slug_Exchange:
 			mes "Cantidad de " + .@slug_str$ + ": ^3131FF" + .@count;
 			mes "Cantidad de " + .@new_slug_str$ + ": ^3131FF" + .@new_count;
 			next;
-			mes "Â¿Quieres intercambiar?";
+			mes "¿Quieres intercambiar?";
 			next;
 			switch(select("Intercambiar:Cancelar")) {
 				case 1:

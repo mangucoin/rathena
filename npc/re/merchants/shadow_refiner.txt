@@ -21,7 +21,7 @@
 	.@zeny_cost = 200000; // Zeny cost is 200,000 according to official script [Secret]
 	disable_items;
 	mes "[Shadow Blacksmith]";
-	mes "Â¿Quieres refinar un objeto shadow? Â¡Elige lo que prefieras!";
+	mes "¿Quieres refinar un objeto shadow? ¡Elige lo que prefieras!";
 	next;
 	setarray .@indices[1], EQI_SHADOW_ARMOR, EQI_SHADOW_WEAPON, EQI_SHADOW_SHIELD, EQI_SHADOW_SHOES, EQI_SHADOW_ACC_R, EQI_SHADOW_ACC_L;
 	.@indlen = getarraysize(.@indices) - 1;
@@ -49,7 +49,7 @@
 
 	if (!getequipisequiped(.@part)) {
 		mes "[Shadow Blacksmith]";
-		mes "Â¡No hay nada aqui!";
+		mes "¡No hay nada aqui!";
 		close;
 	}
 	.@equip_id = getequipid(.@part);
@@ -126,18 +126,18 @@
 			mes "[Shadow Blacksmith]";
 			mes "El nivel de refinamiento seguro para Equipo Shadow es +4.";
 			if (!.@hoihoi)
-				mes "El equipo shadow podria destruirse en refinamientos posteriores. Â¿Quieres empezar?";
+				mes "El equipo shadow podria destruirse en refinamientos posteriores. ¿Quieres empezar?";
 			else
-				mes "El proximo refinamiento, si falla, degradara el refinamiento. Â¿Quieres refinar?";
+				mes "El proximo refinamiento, si falla, degradara el refinamiento. ¿Quieres refinar?";
 			next;
 			if (select("Proceder","Cancelar") == 2) {
 				mes "[Shadow Blacksmith]";
-				mes "Â¡Je, lo sabia!";
+				mes "¡Je, lo sabia!";
 				close;
 			}
 		}
 		mes "[Shadow Blacksmith]";
-		mes "Bueno entonces.. Â¡aqui va todo!";
+		mes "Bueno entonces.. ¡aqui va todo!";
 		next;
 		delitem .@choose,1;
 		Zeny -= .@zeny_cost;
@@ -149,7 +149,7 @@
 		if (getequippercentrefinery(.@part, .@is_enriched) > rand(100)) {
 			successrefitem .@part;
 			mes "[Shadow Blacksmith]";
-			mes "Â¡Funciono! Â¡Funciono!";
+			mes "¡Funciono! ¡Funciono!";
 			next;
 		} else {
 			if (.@hoihoi)
@@ -157,7 +157,7 @@
 			else
 				failedrefitem .@part;
 			mes "[Shadow Blacksmith]";
-			mes "Â¡Oh Odin No!";
+			mes "¡Oh Odin No!";
 			close;
 		}
 	}

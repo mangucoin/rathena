@@ -16,7 +16,7 @@ payon,165,116,5	script	Request Board#JQ_SH	4_BOARD3,{
 		close;
 	}
 	if (Class != JOB_SUMMONER) {
-		mes "[Solicitud Urgente de LeÃ±a]";
+		mes "[Solicitud Urgente de Leña]";
 		mes "Una solicitud para capturar una bestia salvaje.";
 		mes "^123456Requisitos:^000000";
 		mes "Bueno con los animales.";
@@ -24,11 +24,11 @@ payon,165,116,5	script	Request Board#JQ_SH	4_BOARD3,{
 		mes "Se prefiere clase <FONT SIZE = 14>^dd5555<B>Summoner</B>^000000</FONT>.";
 		emotion ET_HELP;
 		next;
-		mes "- Parece una solicitud difÃ­cil de cumplir con mi clase actual. -";
+		mes "- Parece una solicitud difícil de cumplir con mi clase actual. -";
 		close;
 	}
 	if (BaseLevel < 200 || JobLevel < 60) {	// !TODO: unknown dialog
-		mes "[Solicitud Urgente de LeÃ±a]";
+		mes "[Solicitud Urgente de Leña]";
 		mes "Una solicitud para capturar una bestia salvaje.";
 		mes "^123456Requisitos:^000000";
 		mes "Bueno con los animales.";
@@ -36,12 +36,12 @@ payon,165,116,5	script	Request Board#JQ_SH	4_BOARD3,{
 		mes "Se prefiere clase <FONT SIZE = 14>^dd5555<B>Summoner</B>^000000</FONT>.";
 		emotion ET_HELP;
 		next;
-		mes "- Tu nivel es muy bajo para este tablÃ³n de solicitudes. -";
+		mes "- Tu nivel es muy bajo para este tablón de solicitudes. -";
 		close;
 	}
 	switch( isbegin_quest(11770) ) {
 	case 0:
-		mes "[Solicitud Urgente de LeÃ±a]";
+		mes "[Solicitud Urgente de Leña]";
 		mes "Una solicitud para capturar una bestia salvaje.";
 		mes "^123456Requisitos:^000000";
 		mes "Bueno con los animales.";
@@ -49,24 +49,24 @@ payon,165,116,5	script	Request Board#JQ_SH	4_BOARD3,{
 		mes "Se prefiere clase <FONT SIZE = 14>^dd5555<B>Summoner</B>^000000</FONT>.";
 		emotion ET_HELP;
 		next;
-		mes "[Solicitud Urgente de LeÃ±a]";
+		mes "[Solicitud Urgente de Leña]";
 		mes "^123456Nota especial:^000000";
-		mes "Aquellos que aÃºn huelan a carnÃ­voro,";
-		mes "como un lobo o halcÃ³n,";
-		mes "no pueden completar la misiÃ³n.";
+		mes "Aquellos que aún huelan a carnívoro,";
+		mes "como un lobo o halcón,";
+		mes "no pueden completar la misión.";
 		next;
-		mes "[Solicitud Urgente de LeÃ±a]";
-		mes "Para mÃ¡s detalles, contacta al <NAVI>[Carpintero]<INFO>payon,252,297,0,101,0</INFO></NAVI> cerca de la fÃ¡brica de leÃ±a.";
+		mes "[Solicitud Urgente de Leña]";
+		mes "Para más detalles, contacta al <NAVI>[Carpintero]<INFO>payon,252,297,0,101,0</INFO></NAVI> cerca de la fábrica de leña.";
 		setquest 11770;
 		navigateto("payon",252,297);
 		close;
 	case 1:
-		mes "[Solicitud Urgente de LeÃ±a]";
-		mes "Para mÃ¡s detalles, contacta al <NAVI>[Carpintero]<INFO>payon,252,297,0,101,0</INFO></NAVI> cerca de la fÃ¡brica de leÃ±a.";
+		mes "[Solicitud Urgente de Leña]";
+		mes "Para más detalles, contacta al <NAVI>[Carpintero]<INFO>payon,252,297,0,101,0</INFO></NAVI> cerca de la fábrica de leña.";
 		navigateto("payon",252,297);
 		close;
 	case 2:
-		mes "- No hay mÃ¡s solicitudes. -";
+		mes "- No hay más solicitudes. -";
 		close;
 	}
 	end;
@@ -80,69 +80,69 @@ OnInit:
 payon,252,297,3	script	Woodworker#JQ_SH	2_M_BARD_ORIENT,{
 	if (isbegin_quest(11770) == 0) {
 		mes "[Carpintero]";
-		mes "<FONT SIZE = 14>Â¡Bienvenido~ Cliente~!</FONT>";
-		mes "Esta es una tienda de carpinterÃ­a para leÃ±a~";
+		mes "<FONT SIZE = 14>¡Bienvenido~ Cliente~!</FONT>";
+		mes "Esta es una tienda de carpintería para leña~";
 		emotion ET_DELIGHT;
-		npctalk "Â¡Bienvenido~ Cliente~!", "", bc_self;
+		npctalk "¡Bienvenido~ Cliente~!", "", bc_self;
 		next;
 		mes "[Carpintero]";
-		mes "Â¿Hay algo~ que estÃ©s buscando~?";
+		mes "¿Hay algo~ que estés buscando~?";
 		close;
 	}
 	if (isbegin_quest(11770) == 1) {
 		mes "[Carpintero]";
-		mes "<FONT SIZE = 14>Â¡Bienvenido~ Cliente~!</FONT>";
-		mes "Esta es una tienda de carpinterÃ­a para leÃ±a~";
+		mes "<FONT SIZE = 14>¡Bienvenido~ Cliente~!</FONT>";
+		mes "Esta es una tienda de carpintería para leña~";
 		emotion ET_DELIGHT;
-		npctalk "Â¡Bienvenido~ Cliente~!", "", bc_self;
+		npctalk "¡Bienvenido~ Cliente~!", "", bc_self;
 		next;
 		mes "[Carpintero]";
-		mes "Â¿Hay algo~ que estÃ©s buscando~?";
+		mes "¿Hay algo~ que estés buscando~?";
 		next;
 		select( "Sobre la solicitud." );
 		mes "[Carpintero]";
-		mes "Â¿Hablas de una solicitud~ cliente~?";
-		mes "Â¿PodrÃ­as esperar un momento, por favor~?";
+		mes "¿Hablas de una solicitud~ cliente~?";
+		mes "¿Podrías esperar un momento, por favor~?";
 		emotion ET_AHA;
 		next;
 		mes "[Carpintero]";
-		mes "La solicitud de carpinterÃ­a...";
+		mes "La solicitud de carpintería...";
 		mes "Hmm...";
 		npctalk "Veamos...", "", bc_self;
 		next;
 		mes "[Carpintero]";
-		mes "Lo siento, pero confirmÃ© que no hay ninguna solicitud de nuestra carpinterÃ­a.";
-		mes "Â¿Puedo saber quÃ© tipo de solicitud recibiste? Cliente~";
+		mes "Lo siento, pero confirmé que no hay ninguna solicitud de nuestra carpintería.";
+		mes "¿Puedo saber qué tipo de solicitud recibiste? Cliente~";
 		emotion ET_PROFUSELY_SWEAT;
 		next;
-		select( "Solicitud de leÃ±a." );
+		select( "Solicitud de leña." );
 		mes "[Carpintero]";
-		mes "Â¡Â¡Â¡Aaah!!!";
-		mes "Â¡Lo siento!";
-		mes "No creo que sea de la tienda de carpinterÃ­a, sino una solicitud personal del jefe~";
+		mes "¡¡¡Aaah!!!";
+		mes "¡Lo siento!";
+		mes "No creo que sea de la tienda de carpintería, sino una solicitud personal del jefe~";
 		emotion ET_SURPRISE;
 		next;
 		mes "[Carpintero]";
-		mes "<FONT SIZE = 10>Â¡Si el jefe te lo pidiÃ³, me lo deberÃ­as haber dicho!</FONT>";
-		mes "Â¿Me das un momento, por favor? Â¿Cliente?";
-		mes "LlamarÃ© al jefe...";
+		mes "<FONT SIZE = 10>¡Si el jefe te lo pidió, me lo deberías haber dicho!</FONT>";
+		mes "¿Me das un momento, por favor? ¿Cliente?";
+		mes "Llamaré al jefe...";
 		emotion ET_SORRY;
 		next;
 		mes "[Carpintero]";
-		mes "<FONT SIZE = 14>Â¡Â¡Este seÃ±or saliÃ³ y se fue otra vez!!</FONT>";
-		mes "<FONT SIZE = 10>Â¡Â¿Se fue al bosque otra vez?!</FONT>";
-		mes "Â¡Â¡Â¡Esto no puede estar pasando!!!";
+		mes "<FONT SIZE = 14>¡¡Este señor salió y se fue otra vez!!</FONT>";
+		mes "<FONT SIZE = 10>¡¿Se fue al bosque otra vez?!</FONT>";
+		mes "¡¡¡Esto no puede estar pasando!!!";
 		emotion ET_FRET;
-		npctalk "Â¡Â¡Â¡Â¡Este tipo, en serio!!!!", "", bc_self;
+		npctalk "¡¡¡¡Este tipo, en serio!!!!", "", bc_self;
 		next;
 		mes "[Carpintero]";
 		mes "Lo siento~ Cliente.";
-		mes "El jefe no estÃ¡ en la oficina ahora mismo.";
+		mes "El jefe no está en la oficina ahora mismo.";
 		next;
 		mes "[Carpintero]";
-		mes "No sÃ© cuÃ¡ndo regresarÃ¡.";
-		mes "Si tienes prisa, Â¿por quÃ© no vas al ^dd5555Bosque de Payon^000000?";
-		mes "Ve <NAVI>[allÃ­]<INFO>pay_fild08,157,129,0,101,0</INFO></NAVI>.";
+		mes "No sé cuándo regresará.";
+		mes "Si tienes prisa, ¿por qué no vas al ^dd5555Bosque de Payon^000000?";
+		mes "Ve <NAVI>[allí]<INFO>pay_fild08,157,129,0,101,0</INFO></NAVI>.";
 		emotion ET_SORRY;
 		completequest 11770;
 		setquest 11771;
@@ -152,24 +152,24 @@ payon,252,297,3	script	Woodworker#JQ_SH	2_M_BARD_ORIENT,{
 	if (isbegin_quest(11771) == 1) {
 		mes "[Carpintero]";
 		mes "Lo siento~ Cliente.";
-		mes "El jefe no estÃ¡ en la oficina ahora mismo.";
+		mes "El jefe no está en la oficina ahora mismo.";
 		next;
 		mes "[Carpintero]";
-		mes "No sÃ© cuÃ¡ndo regresarÃ¡.";
-		mes "Si tienes prisa, Â¿por quÃ© no vas al ^dd5555Bosque de Payon^000000?";
-		mes "Ve <NAVI>[allÃ­]<INFO>pay_fild08,157,129,0,101,0</INFO></NAVI>.";
+		mes "No sé cuándo regresará.";
+		mes "Si tienes prisa, ¿por qué no vas al ^dd5555Bosque de Payon^000000?";
+		mes "Ve <NAVI>[allí]<INFO>pay_fild08,157,129,0,101,0</INFO></NAVI>.";
 		emotion ET_SORRY;
 		navigateto("pay_fild08",157,129);
 		close;
 	}
 	mes "[Carpintero]";
-	mes "<FONT SIZE = 14>Â¡Bienvenido~ Cliente~!</FONT>";
-	mes "Esta es una tienda de carpinterÃ­a para leÃ±a~";
+	mes "<FONT SIZE = 14>¡Bienvenido~ Cliente~!</FONT>";
+	mes "Esta es una tienda de carpintería para leña~";
 	emotion ET_DELIGHT;
-	npctalk "Â¡Bienvenido~ Cliente~!", "", bc_self;
+	npctalk "¡Bienvenido~ Cliente~!", "", bc_self;
 	next;
 	mes "[Carpintero]";
-	mes "Â¿Tienes algÃºn otro asunto?";
+	mes "¿Tienes algún otro asunto?";
 	close;
 
 OnInit:
@@ -185,7 +185,7 @@ pay_fild08,157,129,3	script	Carpenter Firewood#JQ_SH	1_M_SMITH,{
 	if (isbegin_quest(11770) != 2) {
 		mes "[Carpintero Firewood]";
 		mes "Aaaah~~";
-		mes "Â¡Hoy estoy completamente arruinado! Â¡La reguÃ©!!!";
+		mes "¡Hoy estoy completamente arruinado! ¡La regué!!!";
 		emotion ET_CRY;
 		npctalk "Aaaah...", "", bc_self;
 		close;
@@ -193,125 +193,125 @@ pay_fild08,157,129,3	script	Carpenter Firewood#JQ_SH	1_M_SMITH,{
 	if (isbegin_quest(11771) == 1) {
 		mes "[Carpintero Firewood]";
 		mes "Aaaah~~";
-		mes "Â¡Hoy estoy completamente arruinado! Â¡La reguÃ©!!!";
+		mes "¡Hoy estoy completamente arruinado! ¡La regué!!!";
 		emotion ET_CRY;
 		npctalk "Aaaah...", "", bc_self;
 		next;
-		select( "Â¿Jefe?" );
+		select( "¿Jefe?" );
 		mes "[Carpintero Firewood]";
-		mes "Â¿QuiÃ©n?";
+		mes "¿Quién?";
 		mes "...";
-		mes "Â¿Te enviÃ³ Lee Daegam?";
+		mes "¿Te envió Lee Daegam?";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¿CuÃ¡nto tiempo ha pasado desde que lo asÃ³? Â¡Â¿Me envÃ­a a alguien otra vez?!";
-		mes "Â¡Que me presionen no significa que las cosas salgan!";
+		mes "¿Cuánto tiempo ha pasado desde que lo asó? ¡¿Me envía a alguien otra vez?!";
+		mes "¡Que me presionen no significa que las cosas salgan!";
 		emotion ET_FRET;
 		next;
 		select( "Vine por la solicitud." );
 		mes "[Carpintero Firewood]";
-		mes "Â¿Eh...";
-		mes "<FONT SIZE = 14>Â¿Eh...</FONT>";
-		mes "<FONT SIZE = 18><B>Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Ah!!!!!!!!!</B></FONT>";
+		mes "¿Eh...";
+		mes "<FONT SIZE = 14>¿Eh...</FONT>";
+		mes "<FONT SIZE = 18><B>¡¡¡¡¡¡¡¡¡Ah!!!!!!!!!</B></FONT>";
 		emotion ET_SURPRISE;
-		npctalk "Â¡Â¡Â¡Â¡Â¡Â¡Â¡Aaah!!!!!!!", "", bc_self;
+		npctalk "¡¡¡¡¡¡¡Aaah!!!!!!!", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¡Â¡Eje~~!!";
-		mes "Â¡Â¡Â¡Aaaah!!!";
-		mes "<FONT SIZE = 16>Â¡Â¡Â¡Â¡Â¡Eso es!!!!!</FONT>";
+		mes "¡¡Eje~~!!";
+		mes "¡¡¡Aaaah!!!";
+		mes "<FONT SIZE = 16>¡¡¡¡¡Eso es!!!!!</FONT>";
 		emotion ET_HUK;
-		npctalk "Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡Eso es!!!!!!!!!", "", bc_self;
+		npctalk "¡¡¡¡¡¡¡¡¡Eso es!!!!!!!!!", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "<FONT SIZE = 14>Â¡PerdÃ³n!</FONT>";
-		mes "SalÃ­ un rato porque no avanzaba con mi trabajo y estaba muy frustrado, pero no esperaba que un cliente me visitara.";
-		mes "Â¡QuÃ© vergÃ¼enza!";
-		mes "Â¡Jejeje!";
+		mes "<FONT SIZE = 14>¡Perdón!</FONT>";
+		mes "Salí un rato porque no avanzaba con mi trabajo y estaba muy frustrado, pero no esperaba que un cliente me visitara.";
+		mes "¡Qué vergüenza!";
+		mes "¡Jejeje!";
 		emotion ET_PROFUSELY_SWEAT;
-		npctalk "PensÃ© que la solicitud era de Lee Daegam~", "", bc_self;
+		npctalk "Pensé que la solicitud era de Lee Daegam~", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¡Es el momento perfecto!";
-		mes "Ya que viniste hasta aquÃ­, no regreses a la carpinterÃ­a, ven y mira lo que las bestias hicieron.";
-		npctalk "Â¡Hicieron un desastre con todas las herramientas, quÃ© voy a hacer!", "", bc_self;
+		mes "¡Es el momento perfecto!";
+		mes "Ya que viniste hasta aquí, no regreses a la carpintería, ven y mira lo que las bestias hicieron.";
+		npctalk "¡Hicieron un desastre con todas las herramientas, qué voy a hacer!", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Parece que son animales con pezuÃ±as como ciervos y jabalÃ­es, pero...";
-		mes "Â¡Â¿Por quÃ© son tan agresivos si solo pastan en el bosque?!";
-		npctalk "Â¡Â¡MÃ¡s les vale que no los atrape! Â¡Â¡Estoy furioso!!", "", bc_self;
+		mes "Parece que son animales con pezuñas como ciervos y jabalíes, pero...";
+		mes "¡¿Por qué son tan agresivos si solo pastan en el bosque?!";
+		npctalk "¡¡Más les vale que no los atrape! ¡¡Estoy furioso!!", "", bc_self;
 		erasequest 11771;
 		setquest 11772;
 		close;
 	}
 	if (isbegin_quest(11772) == 1) {
 		mes "[Carpintero Firewood]";
-		mes "Â¡Es el momento perfecto!";
-		mes "Ya que viniste hasta aquÃ­, no regreses a la carpinterÃ­a, ven y mira lo que las bestias hicieron.";
-		npctalk "Â¡Hicieron un desastre con todas las herramientas, quÃ© voy a hacer!", "", bc_self;
+		mes "¡Es el momento perfecto!";
+		mes "Ya que viniste hasta aquí, no regreses a la carpintería, ven y mira lo que las bestias hicieron.";
+		npctalk "¡Hicieron un desastre con todas las herramientas, qué voy a hacer!", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Parece que son animales con pezuÃ±as como ciervos y jabalÃ­es, pero...";
-		mes "Â¡Â¿Por quÃ© son tan agresivos si solo pastan en el bosque?!";
-		npctalk "Â¡Â¡MÃ¡s les vale que no los atrape! Â¡Â¡Estoy furioso!!", "", bc_self;
+		mes "Parece que son animales con pezuñas como ciervos y jabalíes, pero...";
+		mes "¡¿Por qué son tan agresivos si solo pastan en el bosque?!";
+		npctalk "¡¡Más les vale que no los atrape! ¡¡Estoy furioso!!", "", bc_self;
 		close;
 	}
 	if (isbegin_quest(11773) == 1 || isbegin_quest(11774) == 1 || isbegin_quest(11775) == 1 || isbegin_quest(11776) == 1 || isbegin_quest(11777) == 1) {
 		mes "[Carpintero Firewood]";
-		mes "Â¿Y cÃ³mo va tu investigaciÃ³n?";
-		mes "Â¿Ya encontraste a esos animales salvajes?";
+		mes "¿Y cómo va tu investigación?";
+		mes "¿Ya encontraste a esos animales salvajes?";
 		close;
 	}
 	if (isbegin_quest(11778) == 1) {
 		mes "[Carpintero Firewood]";
-		mes "Â¿QuÃ© encontraste, aventurero?";
-		mes "Â¿QuÃ© tienes?";
+		mes "¿Qué encontraste, aventurero?";
+		mes "¿Qué tienes?";
 		next;
 		select( "Sobre la comida tirada en la calle." );
 		mes "[Carpintero Firewood]";
-		mes "Â¡Â¿CÃ³mo puede alguien tirar comida en la calle?! Â¡La comida es valiosa, quÃ© desperdicio!!";
+		mes "¡¿Cómo puede alguien tirar comida en la calle?! ¡La comida es valiosa, qué desperdicio!!";
 		emotion ET_ANGER;
-		npctalk "Â¡Â¡Â¡Cuando era joven, comÃ­a raÃ­ces de Ã¡rboles porque no tenÃ­a nada que comer!!!", "", bc_self;
+		npctalk "¡¡¡Cuando era joven, comía raíces de árboles porque no tenía nada que comer!!!", "", bc_self;
 		next;
 		select( "Sobre los animales salvajes." );
 		mes "[Carpintero Firewood]";
 		mes "Me alegra que alimentara a algunos animales salvajes, pero...";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¿Entonces los animales salvajes vinieron hasta aquÃ­ siguiendo la comida?";
+		mes "¿Entonces los animales salvajes vinieron hasta aquí siguiendo la comida?";
 		emotion ET_SURPRISE;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "QuiÃ©n podrÃ­a haber hecho algo tan extraÃ±o...";
+		mes "Quién podría haber hecho algo tan extraño...";
 		emotion ET_QUESTION;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "De todos modos, el aventurero se hizo cargo del trabajo, Â¡asÃ­ que ya hay algunas pistas!";
+		mes "De todos modos, el aventurero se hizo cargo del trabajo, ¡así que ya hay algunas pistas!";
 		mes "Con este impulso, resolveremos esto antes de que Lee Daegam se vuelva loco otra vez...";
 		next;
 		mes "[???]";
-		mes "<FONT SIZE = 16>Â¡Ejem!</FONT>";
-		mes "<FONT SIZE = 14>Â¿Tienes una fÃ¡brica~?</FONT>";
+		mes "<FONT SIZE = 16>¡Ejem!</FONT>";
+		mes "<FONT SIZE = 14>¿Tienes una fábrica~?</FONT>";
 		emotion ET_HUK;
 		emotion ET_HUK, playerattached();
 		cloakoffnpcself( "Lee Daegam#JQ_SH_1" );
-		npctalk "Â¡Â¡Â¡Â¡Â¡Â¡Â¿QuÃ©?!!! Â¡Â¡Â¡Ejem!!!!!!", "Lee Daegam#JQ_SH_1", bc_self;
+		npctalk "¡¡¡¡¡¡¿Qué?!!! ¡¡¡Ejem!!!!!!", "Lee Daegam#JQ_SH_1", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
 		mes "Ugh....";
-		mes "Eddga me dijo que vendrÃ­a...";
+		mes "Eddga me dijo que vendría...";
 		npctalk "Eddga es mejor.", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Lee Daegam, Â¿quÃ© te trae por aquÃ­?";
+		mes "Lee Daegam, ¿qué te trae por aquí?";
 		next;
 		mes "[Lee Daegam]";
 		mes "Oh~~ Eje~ No es nada especial~";
 		mes "Vine a ver si todo va bien~";
-		npctalk "Â¡Ups! Â¿QuÃ© es todo esto en el suelo?", "Lee Daegam#JQ_SH_1", bc_self;
+		npctalk "¡Ups! ¿Qué es todo esto en el suelo?", "Lee Daegam#JQ_SH_1", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "No va a funcionar si vienes todo el tiempo asÃ­...";
+		mes "No va a funcionar si vienes todo el tiempo así...";
 		next;
 		mes "[Lee Daegam]";
 		mes "Oh vaya~";
@@ -319,73 +319,73 @@ pay_fild08,157,129,3	script	Carpenter Firewood#JQ_SH	1_M_SMITH,{
 		mes "Ni siquiera empezaste a trabajar, pero escucho ruidos fuertes~";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "<FONT SIZE = 14>Oh... Â¡Â¡Â¡Yo... Yo...!!!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Â¡Â¡No puedo trabajar porque las herramientas se siguen rompiendo!!!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Â¡Â¡Si vienes a molestarme, solo me estorbas, asÃ­ que regresa!!!</FONT>";
+		mes "<FONT SIZE = 14>Oh... ¡¡¡Yo... Yo...!!!</FONT>";
+		mes "<FONT SIZE = 14>¡¡¡No puedo trabajar porque las herramientas se siguen rompiendo!!!</FONT>";
+		mes "<FONT SIZE = 14>¡¡¡Si vienes a molestarme, solo me estorbas, así que regresa!!!</FONT>";
 		emotion ET_FRET;
 		next;
 		mes "[Lee Daegam]";
-		mes "Â¡Oh vaya!";
-		mes "No tienes que gritar tanto. Â¡Ya me voy!";
-		mes "<FONT SIZE = 18>Â¡Hmph!</FONT>";
-		npctalk "Â¡Â¡Â¡Hmph!!!", "Lee Daegam#JQ_SH_1", bc_self;
+		mes "¡Oh vaya!";
+		mes "No tienes que gritar tanto. ¡Ya me voy!";
+		mes "<FONT SIZE = 18>¡Hmph!</FONT>";
+		npctalk "¡¡¡Hmph!!!", "Lee Daegam#JQ_SH_1", bc_self;
 		emotion ET_HNG, getnpcid(0,"Lee Daegam#JQ_SH_1");
 		next;
 		mes "[Carpintero Firewood]";
-		mes "<FONT SIZE = 14>Â¡Oh, ese viejo!</FONT>";
-		mes "Â¡Â¿Me pides que trabaje o no?! Â¡Solo me aumentas el mal humor otra vez!";
+		mes "<FONT SIZE = 14>¡Oh, ese viejo!</FONT>";
+		mes "¡¿Me pides que trabaje o no?! ¡Solo me aumentas el mal humor otra vez!";
 		cloakonnpcself( "Lee Daegam#JQ_SH_1" );
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Solo me molesta, en vez de ayudarme con lo que le encarguÃ© a ti.";
-		mes "<FONT SIZE = 14>Â¡Ay, Dios!</FONT>";
+		mes "Solo me molesta, en vez de ayudarme con lo que le encargué a ti.";
+		mes "<FONT SIZE = 14>¡Ay, Dios!</FONT>";
 		emotion ET_FRET;
-		npctalk "Â¡Sal! Â¡DeberÃ­a echar sal!", "", bc_self;
+		npctalk "¡Sal! ¡Debería echar sal!", "", bc_self;
 		next;
 		select( "Sobre Lee Daegam." );
 		mes "[Carpintero Firewood]";
-		mes "Como escuchaste antes, es un gran lÃ­der, ^123456Lee Daegam^000000, quien me dejÃ³ este trabajo.";
+		mes "Como escuchaste antes, es un gran líder, ^123456Lee Daegam^000000, quien me dejó este trabajo.";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¡HarÃ© un lugar de descanso para los jÃ³venes por aquÃ­! Â¡Â¿QuÃ© te parece?!";
-		npctalk "Creo que necesitamos hacerlo aÃºn mÃ¡s grandioso.", "", bc_self;
+		mes "¡Haré un lugar de descanso para los jóvenes por aquí! ¡¿Qué te parece?!";
+		npctalk "Creo que necesitamos hacerlo aún más grandioso.", "", bc_self;
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Le dije que la construcciÃ³n serÃ­a difÃ­cil porque es un Ã¡rea llena de monstruos, Â¡pero quiÃ©n iba a saber que hasta los animales salvajes serÃ­an un problema!";
+		mes "Le dije que la construcción sería difícil porque es un área llena de monstruos, ¡pero quién iba a saber que hasta los animales salvajes serían un problema!";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Mientras tanto, vino hoy y me molestÃ³ asÃ­...";
-		mes "Si no puedo resolver este problema otra vez, creo que deberÃ­a renunciar...";
+		mes "Mientras tanto, vino hoy y me molestó así...";
+		mes "Si no puedo resolver este problema otra vez, creo que debería renunciar...";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Entonces estarÃ© organizando mi equipaje en la carreta.";
+		mes "Entonces estaré organizando mi equipaje en la carreta.";
 		mes "Examina de cerca las ^dd5555Herramientas Rotas^000000.";
 		emotion ET_HNG;
-		npctalk "Â¡Es mi destino!", "", bc_self;
+		npctalk "¡Es mi destino!", "", bc_self;
 		erasequest 11778;
 		setquest 11779;
 		close;
 	}
 	if (isbegin_quest(11779) == 1) {
 		mes "[Carpintero Firewood]";
-		mes "Mientras tanto, vino hoy y me molestÃ³ asÃ­...";
-		mes "Si no puedo resolver este problema otra vez, creo que deberÃ­a renunciar...";
+		mes "Mientras tanto, vino hoy y me molestó así...";
+		mes "Si no puedo resolver este problema otra vez, creo que debería renunciar...";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Entonces estarÃ© organizando mi equipaje en la carreta.";
+		mes "Entonces estaré organizando mi equipaje en la carreta.";
 		mes "Examina de cerca las ^dd5555Herramientas Rotas^000000.";
 		emotion ET_HNG;
-		npctalk "Â¡Es mi destino!", "", bc_self;
+		npctalk "¡Es mi destino!", "", bc_self;
 		close;
 	}
 	// !TODO: unknown dialog for steps [11-14]
 	if (isbegin_quest(11769) == 2) {
 		mes "[Carpintero Firewood]";
 		mes "Ay, Dios... Ay, Dios...";
-		mes "Â¿CÃ³mo pudo pasar algo asÃ­...";
+		mes "¿Cómo pudo pasar algo así...";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Era un seÃ±or gruÃ±Ã³n, pero no era tan mala persona, asÃ­ que quÃ© habrÃ¡ pasado...";
+		mes "Era un señor gruñón, pero no era tan mala persona, así que qué habrá pasado...";
 		mes "Ay, Dios...";
 		npctalk "Ay, Dios...", "", bc_self;
 		emotion ET_THINK;
@@ -410,19 +410,19 @@ pay_fild08,155,128,3	script	Broken Tools#JQ_SH	4_BRICKPILE,{
 	if (isbegin_quest(11772) == 1) {
 		mes "- Contiene herramientas rotas. -";
 		next;
-		mes "- Alrededor de la caja, huellas de animales estÃ¡n impresas en desorden, y como dijo el Carpintero Firewood, parecen ser huellas de herbÃ­voros. -";
+		mes "- Alrededor de la caja, huellas de animales están impresas en desorden, y como dijo el Carpintero Firewood, parecen ser huellas de herbívoros. -";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¿QuÃ© opinas, aventurero?";
-		mes "Â¿Crees que sabes algo?";
+		mes "¿Qué opinas, aventurero?";
+		mes "¿Crees que sabes algo?";
 		next;
-		select( "Creo que necesito mirar un poco mÃ¡s." );
+		select( "Creo que necesito mirar un poco más." );
 		mes "[Carpintero Firewood]";
 		mes "Entonces mira con cuidado.";
-		mes "Tenemos que empezar la construcciÃ³n lo antes posible, asÃ­ que no tardes mucho.";
+		mes "Tenemos que empezar la construcción lo antes posible, así que no tardes mucho.";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "AvÃ­same si descubres algo mientras miras.";
+		mes "Avísame si descubres algo mientras miras.";
 		erasequest 11772;
 		setquest 11773;
 		navigateto("pay_fild08",153,116);
@@ -431,54 +431,54 @@ pay_fild08,155,128,3	script	Broken Tools#JQ_SH	4_BRICKPILE,{
 	if (isbegin_quest(11773) == 1) {
 		mes "- Contiene herramientas rotas. -";
 		next;
-		mes "- Alrededor de la caja, huellas de animales estÃ¡n impresas en desorden, y como dijo el Carpintero Firewood, parecen ser huellas de herbÃ­voros. -";
+		mes "- Alrededor de la caja, huellas de animales están impresas en desorden, y como dijo el Carpintero Firewood, parecen ser huellas de herbívoros. -";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "Â¿QuÃ© opinas, aventurero?";
-		mes "Â¿Crees que sabes algo?";
+		mes "¿Qué opinas, aventurero?";
+		mes "¿Crees que sabes algo?";
 		next;
-		select( "Creo que necesito mirar un poco mÃ¡s." );
+		select( "Creo que necesito mirar un poco más." );
 		mes "[Carpintero Firewood]";
 		mes "Entonces mira con cuidado.";
-		mes "Tenemos que empezar la construcciÃ³n lo antes posible, asÃ­ que no tardes mucho.";
+		mes "Tenemos que empezar la construcción lo antes posible, así que no tardes mucho.";
 		next;
 		mes "[Carpintero Firewood]";
-		mes "AvÃ­same si descubres algo mientras miras.";
+		mes "Avísame si descubres algo mientras miras.";
 		navigateto("pay_fild08",153,116);
 		close;
 	}
 	if (isbegin_quest(11779) == 1) {
-		mes "- Al mirar mÃ¡s de cerca las herramientas rotas, se ve una mancha borrosa. -";
+		mes "- Al mirar más de cerca las herramientas rotas, se ve una mancha borrosa. -";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 16>Â¡Â¡Oh no!!</FONT>";
-		mes "<FONT SIZE = 14>Â¡No puedes comerte eso!</FONT>";
+		mes "<FONT SIZE = 16>¡¡Oh no!!</FONT>";
+		mes "<FONT SIZE = 14>¡No puedes comerte eso!</FONT>";
 		cutin "ex_sh_chulho00.png",2;
 		cloakoffnpcself( "Chulho#JQ_SH_1" );
-		npctalk "Â¡Â¡Ay, Dios!!", "Chulho#JQ_SH_1", bc_self;
+		npctalk "¡¡Ay, Dios!!", "Chulho#JQ_SH_1", bc_self;
 		next;
 		mes "[Chulho]";
 		mes "<FONT SIZE = 14>Huele delicioso, pero te enferma.</FONT>";
-		npctalk "Â¡Lo probÃ©!", "Chulho#JQ_SH_1", bc_self;
+		npctalk "¡Lo probé!", "Chulho#JQ_SH_1", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Las cosas que comÃ­ en el bosque eran dulces y deliciosas, pero las fresas serpiente que recogÃ­ antes estaban amargas!</FONT>";
-		mes "<FONT SIZE = 16>Â¡Estoy enojado!</FONT>";
-		mes "<FONT SIZE = 18>Â¡Me duele la panza!</FONT>";
-		npctalk "Â¡TodavÃ­a me arde el estÃ³mago!", "Chulho#JQ_SH_1", bc_self;
+		mes "<FONT SIZE = 14>¡Las cosas que comí en el bosque eran dulces y deliciosas, pero las fresas serpiente que recogí antes estaban amargas!</FONT>";
+		mes "<FONT SIZE = 16>¡Estoy enojado!</FONT>";
+		mes "<FONT SIZE = 18>¡Me duele la panza!</FONT>";
+		npctalk "¡Todavía me arde el estómago!", "Chulho#JQ_SH_1", bc_self;
 		emotion ET_PROFUSELY_SWEAT, getnpcid(0,"Chulho#JQ_SH_1");
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Hasta los amigos que siguieron la comida hasta aquÃ­ se fueron enojados!</FONT>";
+		mes "<FONT SIZE = 14>¡Hasta los amigos que siguieron la comida hasta aquí se fueron enojados!</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡El camino de allÃ¡ huele delicioso, pero ese camino lleva al pueblo, asÃ­ que nosotros, los animales de la montaÃ±a, nos meterÃ­amos en problemas si vamos por ahÃ­!</FONT>";
-		npctalk "Â¡Te vas a meter en problemas!", "Chulho#JQ_SH_1", bc_self;
+		mes "<FONT SIZE = 14>¡El camino de allá huele delicioso, pero ese camino lleva al pueblo, así que nosotros, los animales de la montaña, nos meteríamos en problemas si vamos por ahí!</FONT>";
+		npctalk "¡Te vas a meter en problemas!", "Chulho#JQ_SH_1", bc_self;
 		next;
 		select( "Sobre el olor delicioso." );
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>El olor del frente del bosque estÃ¡ conectado al camino del pueblo.</FONT>";
-		mes "<FONT SIZE = 14>Pero no importa si huele bien y es amargo, enojoso, y te da dolor de estÃ³mago.</FONT>";
+		mes "<FONT SIZE = 14>El olor del frente del bosque está conectado al camino del pueblo.</FONT>";
+		mes "<FONT SIZE = 14>Pero no importa si huele bien y es amargo, enojoso, y te da dolor de estómago.</FONT>";
 		next;
 		if (select( "Darle una fresa.", "Detenerse." ) == 2) {
 			// !TODO: unknown dialog
@@ -488,8 +488,8 @@ pay_fild08,155,128,3	script	Broken Tools#JQ_SH	4_BRICKPILE,{
 		}
 		if (countitem(578) < 1) {
 			mes "[Chulho]";
-			mes "<FONT SIZE = 14>Â¿Eh?</FONT>";
-			mes "<FONT SIZE = 14>Â¿QuÃ© me estÃ¡s dando?</FONT>";
+			mes "<FONT SIZE = 14>¿Eh?</FONT>";
+			mes "<FONT SIZE = 14>¿Qué me estás dando?</FONT>";
 			cutin "ex_sh_chulho00.png",2;
 			close2;
 			cutin "",255;
@@ -497,21 +497,21 @@ pay_fild08,155,128,3	script	Broken Tools#JQ_SH	4_BRICKPILE,{
 			end;
 		}
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Â¿De verdad me la estÃ¡s dando?!</FONT>";
-		mes "<FONT SIZE = 14>Â¡EstÃ¡ deliciosa! Â¡Deliciosa!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Es mucho mejor que las fresas que comÃ­ en el bosque!</FONT>";
+		mes "<FONT SIZE = 14>¡¿De verdad me la estás dando?!</FONT>";
+		mes "<FONT SIZE = 14>¡Está deliciosa! ¡Deliciosa!</FONT>";
+		mes "<FONT SIZE = 14>¡Es mucho mejor que las fresas que comí en el bosque!</FONT>";
 		cutin "ex_sh_chulho03.png",2;
 		cloakonnpcself( "Chulho#JQ_SH_1" );
 		cloakoffnpcself( "Chulho#JQ_SH_1_1" );
-		npctalk "Â¡Â¡Â¡Â¡EstÃ¡ buena! Â¡EstÃ¡ buena!!!!", "Chulho#JQ_SH_1_1", bc_self;
+		npctalk "¡¡¡¡Está buena! ¡Está buena!!!!", "Chulho#JQ_SH_1_1", bc_self;
 		emotion ET_BIGTHROB, getnpcid(0,"Chulho#JQ_SH_1");
 		delitem 578,1;	// Strawberry
 		erasequest 11779;
 		setquest 11780;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Me diste comida deliciosa, asÃ­ que te llevarÃ© al lugar que te interesa, con el olor delicioso!</FONT>";
-		mes "<FONT SIZE = 14>SÃ­gueme.</FONT>";
+		mes "<FONT SIZE = 14>¡Me diste comida deliciosa, así que te llevaré al lugar que te interesa, con el olor delicioso!</FONT>";
+		mes "<FONT SIZE = 14>Sígueme.</FONT>";
 		cutin "ex_sh_chulho01.png",2;
 		close2;
 		cutin "",255;
@@ -521,8 +521,8 @@ pay_fild08,155,128,3	script	Broken Tools#JQ_SH	4_BRICKPILE,{
 	}
 	if (isbegin_quest(11780) == 1) {
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Me diste comida deliciosa, asÃ­ que te llevarÃ© al lugar que te interesa, con el olor delicioso!</FONT>";
-		mes "<FONT SIZE = 14>SÃ­gueme.</FONT>";
+		mes "<FONT SIZE = 14>¡Me diste comida deliciosa, así que te llevaré al lugar que te interesa, con el olor delicioso!</FONT>";
+		mes "<FONT SIZE = 14>Sígueme.</FONT>";
 		cloakoffnpcself( "Chulho#JQ_SH_1_1" );
 		cutin "ex_sh_chulho01.png",2;
 		close2;
@@ -547,11 +547,11 @@ OnInit:
 // Step 5
 pay_fild08,153,116,3	script	Clutter Traces#JQ_SH1	4_SOIL,{
 	if (isbegin_quest(11773) == 1) {
-		mes "- EncontrÃ© otro rastro.";
+		mes "- Encontré otro rastro.";
 		mes "Hay huellas similares a las encontradas junto a la caja de herramientas. -";
 		next;
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		erasequest 11773;
 		setquest 11774;
@@ -560,7 +560,7 @@ pay_fild08,153,116,3	script	Clutter Traces#JQ_SH1	4_SOIL,{
 	}
 	if (isbegin_quest(11774) == 1) {
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		navigateto("pay_fild08",137,88);
 		close;
@@ -577,11 +577,11 @@ OnInit:
 // Step 6
 pay_fild08,137,88,3	script	Clutter Traces#JQ_SH2	4_SOIL,{
 	if (isbegin_quest(11774) == 1) {
-		mes "- EncontrÃ© otro rastro.";
-		mes "Dadas las huellas grandes y profundas, parece ser un herbÃ­voro enorme. -";
+		mes "- Encontré otro rastro.";
+		mes "Dadas las huellas grandes y profundas, parece ser un herbívoro enorme. -";
 		next;
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		erasequest 11774;
 		setquest 11775;
@@ -590,7 +590,7 @@ pay_fild08,137,88,3	script	Clutter Traces#JQ_SH2	4_SOIL,{
 	}
 	if (isbegin_quest(11775) == 1) {
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		navigateto("pay_fild08",165,68);
 		close;
@@ -609,21 +609,21 @@ pay_fild08,165,70,6	duplicate(dummy_cloaked_npc)	???#JQ_SH_1	4_POINT_BLUE
 
 pay_fild08,165,68,3	script	Clutter Traces#JQ_SH3	4_SOIL,{
 	if (isbegin_quest(11775) == 1) {
-		mes "- EncontrÃ© otro rastro.";
+		mes "- Encontré otro rastro.";
 		mes "Mirando las huellas de cerca, no parece ser uno o dos. -";
 		next;
 		mes "[???]";
-		mes "Â¿QuÃ© haces, disfrutando mirar?";
+		mes "¿Qué haces, disfrutando mirar?";
 		cutin "ex_sh_spirit01.png",2;
 		cloakoffnpcself( "???#JQ_SH_1" );
-		npctalk "Â¿QuÃ© estÃ¡s mirando?", "???#JQ_SH_1", bc_self;
+		npctalk "¿Qué estás mirando?", "???#JQ_SH_1", bc_self;
 		emotion ET_HUK, playerattached();
 		next;
 		cutin "",255;
-		mes "- MirÃ© a mi alrededor al escuchar la voz repentina, pero no pude ver a nadie. -";
+		mes "- Miré a mi alrededor al escuchar la voz repentina, pero no pude ver a nadie. -";
 		next;
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		erasequest 11775;
 		setquest 11776;
@@ -633,7 +633,7 @@ pay_fild08,165,68,3	script	Clutter Traces#JQ_SH3	4_SOIL,{
 	}
 	if (isbegin_quest(11776) == 1) {
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		navigateto("pay_fild08",214,89);
 		close;
@@ -652,23 +652,23 @@ pay_fild08,213,91,6	duplicate(dummy_cloaked_npc)	???#JQ_SH_2	4_POINT_BLUE
 
 pay_fild08,214,89,3	script	Clutter Traces#JQ_SH4	4_SOIL,{
 	if (isbegin_quest(11776) == 1) {
-		mes "- EncontrÃ© otro rastro.";
-		mes "Es una huella limpia a diferencia de lo que vi en el taller de leÃ±a. -";
+		mes "- Encontré otro rastro.";
+		mes "Es una huella limpia a diferencia de lo que vi en el taller de leña. -";
 		next;
-		mes "- Los animales parecen haberse movido directamente por el camino hacia el taller de leÃ±a. -";
+		mes "- Los animales parecen haberse movido directamente por el camino hacia el taller de leña. -";
 		next;
 		mes "[???]";
-		mes "Â¿Es divertido ver huellas?";
+		mes "¿Es divertido ver huellas?";
 		cloakoffnpcself( "???#JQ_SH_2" );
 		npctalk "Hay muchas huellas.", "???#JQ_SH_2", bc_self;
 		cutin "ex_sh_spirit02.png",2;
 		emotion ET_HUK, playerattached();
 		next;
 		cutin "",255;
-		mes "- EscuchÃ© una voz otra vez, pero no pude ver nada. -";
+		mes "- Escuché una voz otra vez, pero no pude ver nada. -";
 		next;
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		erasequest 11776;
 		setquest 11777;
@@ -678,7 +678,7 @@ pay_fild08,214,89,3	script	Clutter Traces#JQ_SH4	4_SOIL,{
 	}
 	if (isbegin_quest(11777) == 1) {
 		mes "- Las huellas muestran el camino.";
-		mes "Parece que continÃºan.";
+		mes "Parece que continúan.";
 		mes "Sigamos las huellas. -";
 		navigateto("pay_fild09",31,87);
 		close;
@@ -697,7 +697,7 @@ pay_fild09,33,89,6	duplicate(dummy_cloaked_npc)	???#JQ_SH_3	4_POINT_BLUE
 
 pay_fild09,31,87,3	script	Clutter Traces#JQ_SH5	4_SOIL,{
 	if (isbegin_quest(11777) == 1) {
-		mes "- EncontrÃ© otro rastro. -";
+		mes "- Encontré otro rastro. -";
 		next;
 		mes "[???]";
 		mes "Si son huellas, se extienden hasta ese bosque profundo.";
@@ -705,44 +705,44 @@ pay_fild09,31,87,3	script	Clutter Traces#JQ_SH5	4_SOIL,{
 		cutin "ex_sh_spirit02.png",2;
 		emotion ET_HUK, playerattached();
 		next;
-		select( "Â¿QuiÃ©n habla?" );
+		select( "¿Quién habla?" );
 		mes "[Chulho]";
 		mes "<FONT SIZE = 14>Soy Chulho.</FONT>";
-		mes "<FONT SIZE = 14>Yo~~ soy un espÃ­ritu del bosque.</FONT>";
-		npctalk "Â¡Ejem!", "???#JQ_SH_3", bc_self;
+		mes "<FONT SIZE = 14>Yo~~ soy un espíritu del bosque.</FONT>";
+		npctalk "¡Ejem!", "???#JQ_SH_3", bc_self;
 		cutin "ex_sh_chulho00.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Hay muchos amigos en el bosque!</FONT>";
+		mes "<FONT SIZE = 14>¡Hay muchos amigos en el bosque!</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Hoy estaba jugando en el bosque agitando ramas, y otros amigos venÃ­an en fila por el camino.</FONT>";
+		mes "<FONT SIZE = 14>Hoy estaba jugando en el bosque agitando ramas, y otros amigos venían en fila por el camino.</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Los seguÃ­ porque pensÃ© que pasaba algo interesante y caminabas muy emocionado.</FONT>";
+		mes "<FONT SIZE = 14>Los seguí porque pensé que pasaba algo interesante y caminabas muy emocionado.</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Caminando con todos, fue muy divertido porque habÃ­a ^dd5555frutas y granos^000000. Â¡Cosas que eran difÃ­ciles de ver en el bosque estaban en el suelo!</FONT>";
+		mes "<FONT SIZE = 14>¡Caminando con todos, fue muy divertido porque había ^dd5555frutas y granos^000000. ¡Cosas que eran difíciles de ver en el bosque estaban en el suelo!</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Entonces vi una fruta inusualmente madura en el suelo, asÃ­ que me distraje un momento y todos se fueron.</FONT>";
-		npctalk "Â¡Estaba muy tentadora!", "???#JQ_SH_3", bc_self;
+		mes "<FONT SIZE = 14>Entonces vi una fruta inusualmente madura en el suelo, así que me distraje un momento y todos se fueron.</FONT>";
+		npctalk "¡Estaba muy tentadora!", "???#JQ_SH_3", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>DespuÃ©s de que todos se fueron, no quedaron frutas deliciosas, pero habÃ­a huellas por todos lados. AsÃ­ que... las seguÃ­ hasta aquÃ­.</FONT>";
+		mes "<FONT SIZE = 14>Después de que todos se fueron, no quedaron frutas deliciosas, pero había huellas por todos lados. Así que... las seguí hasta aquí.</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¿QuÃ© tan delicioso fue comÃ©rselo sin dejar rastro?</FONT>";
+		mes "<FONT SIZE = 14>¿Qué tan delicioso fue comérselo sin dejar rastro?</FONT>";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 17>Â¡Â¡Â¡Oh!!!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Â¡Â¡Hay otra gran fresa serpiente!!!</FONT>";
-		npctalk "Â¡Â¡Se ve deliciosa!!", "???#JQ_SH_3", bc_self;
+		mes "<FONT SIZE = 17>¡¡¡Oh!!!</FONT>";
+		mes "<FONT SIZE = 14>¡¡¡Hay otra gran fresa serpiente!!!</FONT>";
+		npctalk "¡¡Se ve deliciosa!!", "???#JQ_SH_3", bc_self;
 		emotion ET_HUK, getnpcid(0,"???#JQ_SH_3");
 		next;
 		cutin "",255;
-		mes "- Obtuve informaciÃ³n de que habÃ­a algo de comer en el camino por donde pasaron los animales salvajes.";
-		mes "Regresemos al taller de leÃ±a. -";
+		mes "- Obtuve información de que había algo de comer en el camino por donde pasaron los animales salvajes.";
+		mes "Regresemos al taller de leña. -";
 		erasequest 11777;
 		setquest 11778;
 		cloakonnpcself( "???#JQ_SH_3" );
@@ -750,8 +750,8 @@ pay_fild09,31,87,3	script	Clutter Traces#JQ_SH5	4_SOIL,{
 		close;
 	}
 	if (isbegin_quest(11778) == 1) {
-		mes "- Obtuve informaciÃ³n de que habÃ­a algo de comer en el camino por donde pasaron los animales salvajes.";
-		mes "Regresemos al taller de leÃ±a. -";
+		mes "- Obtuve información de que había algo de comer en el camino por donde pasaron los animales salvajes.";
+		mes "Regresemos al taller de leña. -";
 		navigateto("pay_fild08",157,129);
 		close;
 	}
@@ -780,58 +780,58 @@ payon,240,156,5	duplicate(dummy_cloaked_npc)	Admiral Lee Daegam#JQ_SH_lee	2_M_PH
 payon,233,159,3	script	Food Pile#JQ_SH	4_EP16_FOOD,2,2,{
 	if (isbegin_quest(11780) == 1) {
 		mes "- La comida parece estar apilada.";
-		mes "AcerquÃ©monos a revisar. -";
+		mes "Acerquémonos a revisar. -";
 		close;
 	}
 	// Default dialog
 	mes "- La comida parece estar apilada.";
-	mes "Â¿QuiÃ©n harÃ­a algo asÃ­ en un lugar como este??? -";
+	mes "¿Quién haría algo así en un lugar como este??? -";
 	close;
 
 OnTouch:
 	if (isbegin_quest(11780) == 1) {
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡AquÃ­ es!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Huele muy fuerte aquÃ­!</FONT>";
+		mes "<FONT SIZE = 14>¡Aquí es!</FONT>";
+		mes "<FONT SIZE = 14>¡Huele muy fuerte aquí!</FONT>";
 		mes "<FONT SIZE = 16>Churup...</FONT>";
 		cloakoffnpcself( "Chulho#JQ_SH_2" );
 		cutin "ex_sh_chulho03.png",2;
 		emotion ET_HUNGRY, getnpcid(0,"Chulho#JQ_SH_2");
 		next;
 		mes "[???]";
-		mes "<FONT SIZE = 14>Â¡Lindo!</FONT>";
-		mes "Â¡Oye tÃº!";
-		mes "Â¿QuÃ© pasa si codicias lo ajeno en el pueblo?";
+		mes "<FONT SIZE = 14>¡Lindo!</FONT>";
+		mes "¡Oye tú!";
+		mes "¿Qué pasa si codicias lo ajeno en el pueblo?";
 		cloakoffnpcself( "???#JQ_SH_k" );
 		// npctalk "Cute!!!!", "???#JQ_SH_lee", bc_self;	// bug?
-		npctalk "Â¡Â¡Â¡Â¡Lindo!!!!", "???#JQ_SH_k", bc_self;
+		npctalk "¡¡¡¡Lindo!!!!", "???#JQ_SH_k", bc_self;
 		cutin "ex_sh_spirit01.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡No lo querÃ­a!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Solo se me hizo agua la boca!</FONT>";
+		mes "<FONT SIZE = 14>¡No lo quería!</FONT>";
+		mes "<FONT SIZE = 14>¡Solo se me hizo agua la boca!</FONT>";
 		cutin "ex_sh_chulho02.png",2;
 		next;
 		mes "[???]";
-		mes "Â¡AdemÃ¡s, esas son cosas que no deberÃ­as comer!";
+		mes "¡Además, esas son cosas que no deberías comer!";
 		cutin "ex_sh_spirit01.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 18><B>Â¿Por quÃ©?</B></FONT>";
+		mes "<FONT SIZE = 18><B>¿Por qué?</B></FONT>";
 		cutin "ex_sh_chulho02.png",2;
 		emotion ET_HUK, getnpcid(0,"Chulho#JQ_SH_2");
 		next;
 		mes "[???]";
-		mes "Ãšltimamente, ^dd5555animales de la montaÃ±a que se enferman despuÃ©s de comer lo que se cayÃ³ en el camino^000000 siguen viniendo a mÃ­, y es todo por culpa de esas cosas.";
+		mes "Últimamente, ^dd5555animales de la montaña que se enferman después de comer lo que se cayó en el camino^000000 siguen viniendo a mí, y es todo por culpa de esas cosas.";
 		cutin "ex_sh_spirit02.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Kisul es bueno!</FONT>";
-		mes "<FONT SIZE = 14>Â¿Te preocupas por su dolor de estÃ³mago?</FONT>";
+		mes "<FONT SIZE = 14>¡Kisul es bueno!</FONT>";
+		mes "<FONT SIZE = 14>¿Te preocupas por su dolor de estómago?</FONT>";
 		cutin "ex_sh_chulho03.png",2;
 		next;
 		mes "[Kisul]";
-		mes "Vine a regaÃ±ar a los que esparcieron cosas raras porque era <FONT SIZE = 14><B>molesto</B></FONT> que siguieran viniendo.";
+		mes "Vine a regañar a los que esparcieron cosas raras porque era <FONT SIZE = 14><B>molesto</B></FONT> que siguieran viniendo.";
 		cutin "ex_sh_spirit02.png",2;
 		emotion ET_HNG, getnpcid(0,"???#JQ_SH_k");
 		next;
@@ -840,110 +840,110 @@ OnTouch:
 		cutin "ex_sh_chulho02.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 18>Â¡QuÃ© bueno!</FONT>";
+		mes "<FONT SIZE = 18>¡Qué bueno!</FONT>";
 		cutin "ex_sh_chulho01.png",2;
-		npctalk "Â¡Â¡Â¡Â¡Â¡Â¡Â¡QuÃ© lindo!!!!!!!", "Chulho#JQ_SH_2", bc_self;
+		npctalk "¡¡¡¡¡¡¡Qué lindo!!!!!!!", "Chulho#JQ_SH_2", bc_self;
 		next;
 		mes "[Kisul]";
-		mes "Â¡Shh!";
+		mes "¡Shh!";
 		mes "Parece que al escuchar los pasos, por fin lo descubrieron.";
 		cutin "ex_sh_spirit02.png",2;
-		npctalk "QuÃ© ruidoso.", "???#JQ_SH_k", bc_self;
+		npctalk "Qué ruidoso.", "???#JQ_SH_k", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 10>Â¿QuÃ©?</FONT>";
+		mes "<FONT SIZE = 10>¿Qué?</FONT>";
 		cutin "ex_sh_chulho01.png",2;
 		next;
 		mes "[Kisul]";
-		mes "Estuve haciendo una pequeÃ±a travesura para ver las caras de los viejos blancos que me molestaban.";
-		mes "QuÃ©date quieto.";
+		mes "Estuve haciendo una pequeña travesura para ver las caras de los viejos blancos que me molestaban.";
+		mes "Quédate quieto.";
 		cutin "ex_sh_spirit02.png",2;
 		next;
 		cutin "",255;
 		mes "[???]";
-		mes "<FONT SIZE = 16>Â¡SeÃ±or!</FONT>";
+		mes "<FONT SIZE = 16>¡Señor!</FONT>";
 		cloakoffnpcself( "???#JQ_SH_lee" );
-		npctalk "Â¡Â¡Â¡Â¡Â¡SeÃ±or!!!!!", "???#JQ_SH_lee", bc_self;
+		npctalk "¡¡¡¡¡Señor!!!!!", "???#JQ_SH_lee", bc_self;
 		next;
 		mes "[???]";
-		mes "<FONT SIZE = 16>Â¡Â¡Â¡SeÃ±or!!!</FONT>";
-		mes "<FONT SIZE = 16>Â¡Â¡Â¡Estamos en problemas!!!</FONT>";
-		npctalk "Â¿QuÃ© hago con esto?", "???#JQ_SH_lee", bc_self;
+		mes "<FONT SIZE = 16>¡¡¡Señor!!!</FONT>";
+		mes "<FONT SIZE = 16>¡¡¡Estamos en problemas!!!</FONT>";
+		npctalk "¿Qué hago con esto?", "???#JQ_SH_lee", bc_self;
 		emotion ET_HELP, getnpcid(0,"???#JQ_SH_lee");
 		next;
 		mes "[Almirante Lee Daegam]";
-		mes "Â¿QuÃ© pasa?";
-		mes "Explica rÃ¡pido, por favor.";
+		mes "¿Qué pasa?";
+		mes "Explica rápido, por favor.";
 		cloakoffnpcself( "Admiral Lee Daegam#JQ_SH_lee" );
 		next;
 		mes "[Subordinado de Lee Daegam]";
-		mes "La puse en el granero... Â¡La...la comida desapareciÃ³ toda!";
+		mes "La puse en el granero... ¡La...la comida desapareció toda!";
 		next;
 		mes "[Almirante Lee Daegam]";
-		mes "<FONT SIZE = 14>Â¡Â¿QuÃ©?!</FONT>";
-		mes "Â¡Â¿A dÃ³nde se fue toda la comida?!";
+		mes "<FONT SIZE = 14>¡¿Qué?!</FONT>";
+		mes "¡¿A dónde se fue toda la comida?!";
 		next;
 		mes "[Subordinado de Lee Daegam]";
-		mes "La puerta del granero estaba bien cerrada, estuve en el patio todo el tiempo y nadie pasÃ³.";
+		mes "La puerta del granero estaba bien cerrada, estuve en el patio todo el tiempo y nadie pasó.";
 		emotion ET_PROFUSELY_SWEAT, getnpcid(0,"???#JQ_SH_lee");
 		next;
 		mes "[Almirante Lee Daegam]";
-		mes "Â¡Â¿Entonces estÃ¡s diciendo que la comida saliÃ³ caminando sola?!";
+		mes "¡¿Entonces estás diciendo que la comida salió caminando sola?!";
 		next;
 		mes "[Almirante Lee Daegam]";
 		mes "Bueno...";
-		mes "Primero, llama a alguien para investigar el granero discretamente. Luego, diles que vayan a la cocina y preparen comida rÃ¡pido porque necesitan alimentos de inmediato.";
-		npctalk "Â¡No pueden arruinar las cosas asÃ­!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
+		mes "Primero, llama a alguien para investigar el granero discretamente. Luego, diles que vayan a la cocina y preparen comida rápido porque necesitan alimentos de inmediato.";
+		npctalk "¡No pueden arruinar las cosas así!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
 		next;
 		mes "[Almirante Lee Daegam]";
 		mes "Luego ve a los cuarteles y diles que vengan a ver a Kwang Saeng.";
 		npctalk "No hagas ruido y ve discretamente.", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
 		next;
 		mes "[Subordinado de Lee Daegam]";
-		mes "SÃ­, seÃ±or.";
+		mes "Sí, señor.";
 		next;
 		cloakonnpcself( "???#JQ_SH_lee" );
 		mes "[Almirante Lee Daegam]";
 		mes "Suspiro~";
-		mes "Â¡QuÃ© misterio!";
-		npctalk "Â¡Â¡Â¡CÃ³mo fue que prepararon esa comida!!!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
+		mes "¡Qué misterio!";
+		npctalk "¡¡¡Cómo fue que prepararon esa comida!!!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
 		next;
 		mes "[Almirante Lee Daegam]";
-		mes "<FONT SIZE = 14>Â¡No sÃ© quiÃ©n es, pero mÃ¡s le vale que no lo atrape robando en mi granero!!!</FONT>";
-		npctalk "Â¡Â¡Â¡Lo voy a atrapar!!!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
+		mes "<FONT SIZE = 14>¡No sé quién es, pero más le vale que no lo atrape robando en mi granero!!!</FONT>";
+		npctalk "¡¡¡Lo voy a atrapar!!!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
 		next;
 		mes "[Kwang Saeng]";
-		mes "Lee Daegam, Â¿me buscabas?";
+		mes "Lee Daegam, ¿me buscabas?";
 		cloakoffnpcself( "Kwang Saeng#JQ_SH_lee" );
-		npctalk "Â¡Jaja!", "Kwang Saeng#JQ_SH_lee", bc_self;
+		npctalk "¡Jaja!", "Kwang Saeng#JQ_SH_lee", bc_self;
 		next;
 		mes "[Almirante Lee Daegam]";
-		mes "<FONT SIZE = 16>Â¡Â¡Aaah~~!</FONT>";
-		mes "<FONT SIZE = 16>Â¡Â¡Â¡Kwang Saeng!!!</FONT>";
-		mes "Â¡Â¿CÃ³mo llegaste tan rÃ¡pido?!";
+		mes "<FONT SIZE = 16>¡¡Aaah~~!</FONT>";
+		mes "<FONT SIZE = 16>¡¡¡Kwang Saeng!!!</FONT>";
+		mes "¡¿Cómo llegaste tan rápido?!";
 		npctalk "Bienvenido.", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
 		next;
 		mes "[Kwang Saeng]";
-		mes "Vine rÃ¡pido porque dijiste que me buscabas con urgencia.";
+		mes "Vine rápido porque dijiste que me buscabas con urgencia.";
 		next;
 		mes "[Almirante Lee Daegam]";
-		mes "No es mucho, pero hubo un ladrÃ³n en el granero y toda la comida desapareciÃ³.";
+		mes "No es mucho, pero hubo un ladrón en el granero y toda la comida desapareció.";
 		next;
 		mes "[Kwang Saeng]";
-		mes "Â¡Oh no!";
+		mes "¡Oh no!";
 		next;
 		mes "[Almirante Lee Daegam]";
 		mes "Por eso estamos tratando de atrapar a los criminales, pero necesitamos preparar comida nueva para la gente ahora mismo...";
 		emotion ET_SCRATCH, getnpcid(0,"Admiral Lee Daegam#JQ_SH_lee");
 		next;
 		mes "[Kwang Saeng]";
-		mes "EstÃ¡ bien.";
-		mes "Te conseguirÃ© algunas medicinas.";
+		mes "Está bien.";
+		mes "Te conseguiré algunas medicinas.";
 		next;
 		mes "[Kwang Saeng]";
 		mes "Por cierto...";
-		mes "Estoy preparando medicina ^123456porque^000000 Lee Daegam me lo pidiÃ³, pero Â¿la construcciÃ³n del bosque no la hace Lee Daegam mismo?";
-		mes "Â¿Por quÃ© no me dejas encargarme de eso?";
+		mes "Estoy preparando medicina ^123456porque^000000 Lee Daegam me lo pidió, pero ¿la construcción del bosque no la hace Lee Daegam mismo?";
+		mes "¿Por qué no me dejas encargarme de eso?";
 		next;
 		mes "[Almirante Lee Daegam]";
 		mes "Se necesita esfuerzo para comprar buena tierra a buen precio.";
@@ -951,9 +951,9 @@ OnTouch:
 		mes "[Kwang Saeng]";
 		mes "Jaja.";
 		mes "Lee Daegam.";
-		npctalk "Â¡Jajajajaja!", "Kwang Saeng#JQ_SH_lee", bc_self;
+		npctalk "¡Jajajajaja!", "Kwang Saeng#JQ_SH_lee", bc_self;
 		next;
-		npctalk "Â¡Â¡Â¡Jajajajaja!!!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
+		npctalk "¡¡¡Jajajajaja!!!", "Admiral Lee Daegam#JQ_SH_lee", bc_self;
 		emotion ET_SMILE, getnpcid(0,"Admiral Lee Daegam#JQ_SH_lee");
 		emotion ET_SMILE, getnpcid(0,"Kwang Saeng#JQ_SH_lee");
 		sleep2 1000;
@@ -961,25 +961,25 @@ OnTouch:
 		cloakonnpcself( "Kwang Saeng#JQ_SH_lee" );
 		mes "[Kisul]";
 		mes "Ay, mi~";
-		mes "Â¿QuÃ© fue eso?";
-		mes "Me preguntaba si habrÃ­a una gran razÃ³n, pero fue una razÃ³n aburrida.";
+		mes "¿Qué fue eso?";
+		mes "Me preguntaba si habría una gran razón, pero fue una razón aburrida.";
 		cutin "ex_sh_kisul00.png",2;
-		npctalk "QuÃ© decepciÃ³n~", "???#JQ_SH_k", bc_self;
+		npctalk "Qué decepción~", "???#JQ_SH_k", bc_self;
 		next;
 		mes "[Kisul]";
-		mes "Entonces me voy a casa ya que se me enfriÃ³ el interÃ©s.";
+		mes "Entonces me voy a casa ya que se me enfrió el interés.";
 		emotion ET_SLEEPY, getnpcid(0,"???#JQ_SH_k");
-		npctalk "QuÃ© aburrido~", "???#JQ_SH_k", bc_self;
+		npctalk "Qué aburrido~", "???#JQ_SH_k", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "Â¡Oh!";
-		mes "Â¿No vas a detenerme?";
+		mes "¡Oh!";
+		mes "¿No vas a detenerme?";
 		cutin "ex_sh_chulho01.png",2;
 		emotion ET_HUK, getnpcid(0,"Chulho#JQ_SH_2");
 		next;
 		mes "[Kisul]";
 		mes "No, bueno.";
-		mes "Ya estÃ¡ metido hasta el cuello, Â¿no se encargarÃ¡ Ã©l?";
+		mes "Ya está metido hasta el cuello, ¿no se encargará él?";
 		cutin "ex_sh_kisul00.png",2;
 		next;
 		mes "[Kisul]";
@@ -990,20 +990,20 @@ OnTouch:
 		next;
 		cloakonnpcself( "???#JQ_SH_k" );
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Cielos!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Es verdad!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Estoy en problemas!</FONT>";
+		mes "<FONT SIZE = 14>¡Cielos!</FONT>";
+		mes "<FONT SIZE = 14>¡Es verdad!</FONT>";
+		mes "<FONT SIZE = 14>¡Estoy en problemas!</FONT>";
 		cutin "ex_sh_chulho02.png",2;
-		npctalk "Â¡Â¡Â¡Esto estÃ¡ loco!!!", "Chulho#JQ_SH_2", bc_self;
+		npctalk "¡¡¡Esto está loco!!!", "Chulho#JQ_SH_2", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Â¡Hyunrok se meterÃ¡ en grandes problemas si descubre que le dio medicina rara a sus amigos ademÃ¡s de excavar en el bosque para hacer algo raro!!</FONT>";
-		npctalk "Â¡Si no me detienes, destruirÃ© todo!", "Chulho#JQ_SH_2", bc_self;
+		mes "<FONT SIZE = 14>¡¡Hyunrok se meterá en grandes problemas si descubre que le dio medicina rara a sus amigos además de excavar en el bosque para hacer algo raro!!</FONT>";
+		npctalk "¡Si no me detienes, destruiré todo!", "Chulho#JQ_SH_2", bc_self;
 		cutin "ex_sh_chulho01.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 16>Â¡Vamos!</FONT>";
-		mes "<FONT SIZE = 16>Â¡Â¡Date prisa!!</FONT>";
+		mes "<FONT SIZE = 16>¡Vamos!</FONT>";
+		mes "<FONT SIZE = 16>¡¡Date prisa!!</FONT>";
 		emotion ET_GO, getnpcid(0,"Chulho#JQ_SH_2");
 		erasequest 11780;
 		setquest 11781;
@@ -1019,19 +1019,19 @@ OnTouch:
 		cloakoffnpcself( "Chulho#JQ_SH_2" );
 
 		mes "[Kisul]";
-		mes "Entonces me voy a casa ya que se me enfriÃ³ el interÃ©s.";
+		mes "Entonces me voy a casa ya que se me enfrió el interés.";
 		emotion ET_SLEEPY, getnpcid(0,"???#JQ_SH_k");
-		npctalk "QuÃ© aburrido~", "???#JQ_SH_k", bc_self;
+		npctalk "Qué aburrido~", "???#JQ_SH_k", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "Â¡Oh!";
-		mes "Â¿No vas a detenerme?";
+		mes "¡Oh!";
+		mes "¿No vas a detenerme?";
 		cutin "ex_sh_chulho01.png",2;
 		emotion ET_HUK, getnpcid(0,"Chulho#JQ_SH_2");
 		next;
 		mes "[Kisul]";
 		mes "No, bueno.";
-		mes "Ya estÃ¡ metido hasta el cuello, Â¿no se encargarÃ¡ Ã©l?";
+		mes "Ya está metido hasta el cuello, ¿no se encargará él?";
 		cutin "ex_sh_kisul00.png",2;
 		next;
 		mes "[Kisul]";
@@ -1042,20 +1042,20 @@ OnTouch:
 		next;
 		cloakonnpcself( "???#JQ_SH_k" );
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Cielos!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Es verdad!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Estoy en problemas!</FONT>";
+		mes "<FONT SIZE = 14>¡Cielos!</FONT>";
+		mes "<FONT SIZE = 14>¡Es verdad!</FONT>";
+		mes "<FONT SIZE = 14>¡Estoy en problemas!</FONT>";
 		cutin "ex_sh_chulho02.png",2;
-		npctalk "Â¡Â¡Â¡Esto estÃ¡ loco!!!", "Chulho#JQ_SH_2", bc_self;
+		npctalk "¡¡¡Esto está loco!!!", "Chulho#JQ_SH_2", bc_self;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Â¡Hyunrok se meterÃ¡ en grandes problemas si descubre que le dio medicina rara a sus amigos ademÃ¡s de excavar en el bosque para hacer algo raro!!</FONT>";
-		npctalk "Â¡Si no me detienes, destruirÃ© todo!", "Chulho#JQ_SH_2", bc_self;
+		mes "<FONT SIZE = 14>¡¡Hyunrok se meterá en grandes problemas si descubre que le dio medicina rara a sus amigos además de excavar en el bosque para hacer algo raro!!</FONT>";
+		npctalk "¡Si no me detienes, destruiré todo!", "Chulho#JQ_SH_2", bc_self;
 		cutin "ex_sh_chulho01.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 16>Â¡Vamos!</FONT>";
-		mes "<FONT SIZE = 16>Â¡Â¡Date prisa!!</FONT>";
+		mes "<FONT SIZE = 16>¡Vamos!</FONT>";
+		mes "<FONT SIZE = 16>¡¡Date prisa!!</FONT>";
 		emotion ET_GO, getnpcid(0,"Chulho#JQ_SH_2");
 		close2;
 		cutin "",255;
@@ -1075,22 +1075,22 @@ pay_fild09,109,344,5	duplicate(dummy_cloaked_npc)	Chulho#JQ_SH_door	4_EXJOB_CHUL
 
 pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 	if (isbegin_quest(11770) == 0) {
-		mes "- Se ve una ondulaciÃ³n sospechosa. -";
+		mes "- Se ve una ondulación sospechosa. -";
 		close;
 	}
 	// !TODO: unknown dialog for steps [2-12]
 	if (isbegin_quest(11781) == 1) {
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Oh no!</FONT>";
-		mes "<FONT SIZE = 14>Â¡QuÃ© atmÃ³sfera tan horrible!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Como esperaba, parece que Hyunrok se dio cuenta!</FONT>";
+		mes "<FONT SIZE = 14>¡Oh no!</FONT>";
+		mes "<FONT SIZE = 14>¡Qué atmósfera tan horrible!</FONT>";
+		mes "<FONT SIZE = 14>¡Como esperaba, parece que Hyunrok se dio cuenta!</FONT>";
 		cloakoffnpcself( "Chulho#JQ_SH_door" );
 		cutin "ex_sh_chulho02.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¿QuÃ© pasa si estamos en graves problemas?</FONT>";
-		mes "<FONT SIZE = 14>ApresurÃ©monos, entremos y detengamos a Hyunrok.</FONT>";
-		npctalk "Â¡Da mucho miedo cuando Hyunrok se enoja!", "Chulho#JQ_SH_door", bc_self;
+		mes "<FONT SIZE = 14>¿Qué pasa si estamos en graves problemas?</FONT>";
+		mes "<FONT SIZE = 14>Apresurémonos, entremos y detengamos a Hyunrok.</FONT>";
+		npctalk "¡Da mucho miedo cuando Hyunrok se enoja!", "Chulho#JQ_SH_door", bc_self;
 		erasequest 11781;
 		setquest 11782;
 		next;
@@ -1100,7 +1100,7 @@ pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 	if (isbegin_quest(11782) == 1) {
 		.@md_name$ = "Deep Forest";
 
-		mes "- Aparece una ondulaciÃ³n sospechosa donde desapareciÃ³ Chulho. -";
+		mes "- Aparece una ondulación sospechosa donde desapareció Chulho. -";
 		next;
 		if (is_party_leader() == true) {	// !TODO: confirm if it's solo party
 			.@menu$[0] = "Abrir la puerta.";
@@ -1115,16 +1115,16 @@ pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 			if (is_party_leader() == true) {
 				switch( instance_enter(.@md_name$) ) {
 				case IE_OTHER:
-					mes "^ff0000OcurriÃ³ un error desconocido.^000000";
+					mes "^ff0000Ocurrió un error desconocido.^000000";
 					close;
 				case IE_NOINSTANCE:
-					mes "- El vaivÃ©n se ve inquietante.";
+					mes "- El vaivén se ve inquietante.";
 					mes "Esperemos un poco y luego entremos. -";
 					close;
 				case IE_NOMEMBER:
 					end;
 				case IE_OK:
-					mapannounce "pay_fild09", "" + strcharinfo(0) + " del grupo " + getpartyname( getcharid(1) ) + " estÃ¡ entrando al " + .@md_name$ + ".", bc_map, 0xFF99;
+					mapannounce "pay_fild09", "" + strcharinfo(0) + " del grupo " + getpartyname( getcharid(1) ) + " está entrando al " + .@md_name$ + ".", bc_map, 0xFF99;
 					// warp "1@exsh",90,35;
 					end;
 				}
@@ -1139,9 +1139,9 @@ pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 	if (isbegin_quest(11769) == 1) {
 		if (checkweight(490087,1) == 0) {
 			// !TODO: unknown dialog
-			mes "- Â¡Espera un momento aquÃ­! -";
+			mes "- ¡Espera un momento aquí! -";
 			mes "- Tienes demasiados objetos. -";
-			mes "- Eso significa que no puedes recibir mÃ¡s objetos. -";
+			mes "- Eso significa que no puedes recibir más objetos. -";
 			mes "- Libera algo de espacio -";
 			mes "- e intenta de nuevo. -";
 			close;
@@ -1153,15 +1153,15 @@ pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 			close3;
 		}
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Te estuve esperando!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Es difÃ­cil venir al Bosque Profundo ahora, pero pensÃ¡ndolo bien, solo tengo que salir a jugar!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Aunque Hyunrok no saldrÃ¡!</FONT>";
+		mes "<FONT SIZE = 14>¡Te estuve esperando!</FONT>";
+		mes "<FONT SIZE = 14>¡Es difícil venir al Bosque Profundo ahora, pero pensándolo bien, solo tengo que salir a jugar!</FONT>";
+		mes "<FONT SIZE = 14>¡Aunque Hyunrok no saldrá!</FONT>";
 		cloakoffnpcself( "Chulho#JQ_SH_door" );
 		cutin "ex_sh_chulho01.png",2;
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Ah, y esta es una carta de Hyunrok!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Anda, lÃ©ela!</FONT>";
+		mes "<FONT SIZE = 14>¡Ah, y esta es una carta de Hyunrok!</FONT>";
+		mes "<FONT SIZE = 14>¡Anda, léela!</FONT>";
 		cutin "ex_sh_chulho03.png",2;
 		next;
 		if (select( "Leer la carta.", "Detenerse." ) == 2) {
@@ -1175,34 +1175,34 @@ pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 		cutin "ex_sh_hyunrok00.png",2;
 		next;
 		mes "[Carta de Hyunrok]";
-		mes "Es una relaciÃ³n con solo rozar la ropa...";
-		mes "La razÃ³n por la que entraste a este bosque y la razÃ³n por la que nos conocimos debe ser un destino que los cielos decidieron.";
+		mes "Es una relación con solo rozar la ropa...";
+		mes "La razón por la que entraste a este bosque y la razón por la que nos conocimos debe ser un destino que los cielos decidieron.";
 		next;
 		mes "[Carta de Hyunrok]";
-		mes "Nunca olvidarÃ© la gracia que nos ayudÃ³ en peligro aunque no vimos la relaciÃ³n correctamente y fuimos irrespetuosos en el momento.";
+		mes "Nunca olvidaré la gracia que nos ayudó en peligro aunque no vimos la relación correctamente y fuimos irrespetuosos en el momento.";
 		next;
 		mes "[Carta de Hyunrok]";
-		mes "Como dijo Chulho, querÃ­a al menos hacer un festÃ­n para agradecerte, pero quedarse mucho tiempo en este Bosque Profundo es peligroso para los de afuera del bosque, asÃ­ que me pesa enviarlos de regreso con prisa sin siquiera despedirme apropiadamente.";
+		mes "Como dijo Chulho, quería al menos hacer un festín para agradecerte, pero quedarse mucho tiempo en este Bosque Profundo es peligroso para los de afuera del bosque, así que me pesa enviarlos de regreso con prisa sin siquiera despedirme apropiadamente.";
 		next;
 		mes "[Carta de Hyunrok]";
-		mes "Estoy seguro de que entenderÃ¡s porque lo hice por tu bien.";
+		mes "Estoy seguro de que entenderás porque lo hice por tu bien.";
 		next;
 		mes "[Carta de Hyunrok]";
-		mes "Y no es una pequeÃ±a recompensa por tu ayuda, pero estÃ¡ grabada en nuestras almas para que podamos invocar nuestra fuerza cuando necesites ayuda.";
+		mes "Y no es una pequeña recompensa por tu ayuda, pero está grabada en nuestras almas para que podamos invocar nuestra fuerza cuando necesites ayuda.";
 		next;
 		mes "[Carta de Hyunrok]";
 		mes "Entonces, esperemos vernos de nuevo...";
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¿Terminaste de leer la carta?</FONT>";
-		mes "<FONT SIZE = 14>Â¿QuÃ© decÃ­a?</FONT>";
+		mes "<FONT SIZE = 14>¿Terminaste de leer la carta?</FONT>";
+		mes "<FONT SIZE = 14>¿Qué decía?</FONT>";
 		cutin "ex_sh_chulho01.png",2;
 		next;
 		select( "Mostrar la carta." );
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Hyunrok siempre dice cosas difÃ­ciles de entender!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Y toma esto tambiÃ©n!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Lo guardÃ© porque era un objeto divertido, pero te lo regalo!</FONT>";
+		mes "<FONT SIZE = 14>¡Hyunrok siempre dice cosas difíciles de entender!</FONT>";
+		mes "<FONT SIZE = 14>¡Y toma esto también!</FONT>";
+		mes "<FONT SIZE = 14>¡Lo guardé porque era un objeto divertido, pero te lo regalo!</FONT>";
 		cutin "ex_sh_chulho02.png",2;
 		completequest 11769;
 		jobchange JOB_SPIRIT_HANDLER;
@@ -1220,8 +1220,8 @@ pay_fild09,108,346,3	script	Suspicious Light#JQ_SH	4_ENERGY_WHITE,{
 		cloakoffnpcself( "Chulho#JQ_SH_door" );
 		next;
 		mes "[Chulho]";
-		mes "<FONT SIZE = 14>Â¡Hay tantas cosas divertidas fuera del bosque!</FONT>";
-		mes "<FONT SIZE = 14>Â¡Claro que el bosque tambiÃ©n es divertido!</FONT>";
+		mes "<FONT SIZE = 14>¡Hay tantas cosas divertidas fuera del bosque!</FONT>";
+		mes "<FONT SIZE = 14>¡Claro que el bosque también es divertido!</FONT>";
 		close2;
 		cutin "",255;
 		cloakonnpcself( "Chulho#JQ_SH_door" );

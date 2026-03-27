@@ -13,27 +13,27 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 	}
 	.@item_name_req$ = getitemname(6672);// Gray_Shard
 	mes "[Dimension Traveler]";
-	mes "Amigo aventurero, " + mesitemlink( 6672 ) + " es lo que necesito. Â¿Que tal si lo intercambias por algo que tengo?";
+	mes "Amigo aventurero, " + mesitemlink( 6672 ) + " es lo que necesito. ¿Que tal si lo intercambias por algo que tengo?";
 	next;
-	.@type = select( "Muestrame tus armas.", "Muestrame tu armadura.", "Â¿Algo especial?", "No necesito nada." ) - 1;
+	.@type = select( "Muestrame tus armas.", "Muestrame tu armadura.", "¿Algo especial?", "No necesito nada." ) - 1;
 	mes "[Dimension Traveler]";
 	switch(.@type) {
 	case 0:
-		mes "Â¡Oh! Â¿Te interesan las armas? Tenemos todas las armas que se pueden obtener del Ghost Palace. Â¿Por que no eliges una?";
+		mes "¡Oh! ¿Te interesan las armas? Tenemos todas las armas que se pueden obtener del Ghost Palace. ¿Por que no eliges una?";
 		break;
 	case 1:
-		mes "Â¿Armadura? Tenemos todas las armaduras que se pueden obtener del Ghost Palace. Â¿Por que no eliges una?";
+		mes "¿Armadura? Tenemos todas las armaduras que se pueden obtener del Ghost Palace. ¿Por que no eliges una?";
 		break;
 	case 2:
-		mes "Â¡Uhh! Parece que muchos ya escucharon que tengo las mejores cosas. Sientete libre de revisar mis colecciones.";
+		mes "¡Uhh! Parece que muchos ya escucharon que tengo las mejores cosas. Sientete libre de revisar mis colecciones.";
 		break;
 	case 3:
-		mes "Â¡Adios amigo~ Vuelve pronto!";
+		mes "¡Adios amigo~ Vuelve pronto!";
 		close;
 	}
 	next;
 	mes "[Dimension Traveler]";
-	mes "Â¡Ah! El numero que esta escrito junto a " + mesitemlink( 6672 ) + " sera necesario.";
+	mes "¡Ah! El numero que esta escrito junto a " + mesitemlink( 6672 ) + " sera necesario.";
 	mes "Por favor tenlo en cuenta.";
 
 	switch(.@type) {
@@ -80,7 +80,7 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 		.@s = (select(.@menu$) - 1) * 2;
 		mes "[Dimension Traveler]";
 		if (.@type != 1)	// armor type doesn't display item info
-			mes "Â¿Te refieres a " + mesitemlink( .@items[.@s] ) + "?";
+			mes "¿Te refieres a " + mesitemlink( .@items[.@s] ) + "?";
 		mes "Se requieren " + .@items[.@s+1] + " ^006400" + .@item_name_req$ + "^000000 a cambio.";
 		next;
 		switch( select( "Hagamos el intercambio.", "Dejame ver otras cosas.", "Volvere despues." ) ) {
@@ -93,7 +93,7 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 				mes "Tengo mas que suficientes armas.";
 				break;
 			case 1:
-				mes "Tenemos muchas armaduras para ti. Â¿Por que no eliges una?";
+				mes "Tenemos muchas armaduras para ti. ¿Por que no eliges una?";
 				break;
 			case 2:
 				mes "Si me traes " + .@item_name_req$ + ", lo intercambiare por cualquier cosa que quieras.";
@@ -102,7 +102,7 @@ dali02,51,130,4	script	Dimension Traveler	4_F_SHABBY,{
 			continue;
 		case 3:
 			mes "[Dimension Traveler]";
-			mes "Â¡Cuidate amigo~ Nos vemos la proxima vez!";
+			mes "¡Cuidate amigo~ Nos vemos la proxima vez!";
 			close;
 		}
 		if (countitem(6672) < .@items[.@s+1]) {

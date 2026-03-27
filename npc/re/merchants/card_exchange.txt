@@ -20,11 +20,11 @@
 //============================================================
 comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 	if (checkweight(1201,1) == 0) {
-		mes "Tienes demasiados articulos, Â¡por favor reduce y vuelve despues!";
+		mes "Tienes demasiados articulos, ¡por favor reduce y vuelve despues!";
 		close;
 	}
 	if (MaxWeight - Weight < 1000) {
-		mes "Estas con sobrepeso, Â¡por favor reduce y vuelve despues!";
+		mes "Estas con sobrepeso, ¡por favor reduce y vuelve despues!";
 		close;
 	}
 	mes "[Terminator RX1]";
@@ -37,7 +37,7 @@ comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 	switch(select("1.Cancelar:2.Explicacion:3.Cambiar Carta por Moneda:4.Cambiar Moneda por Carta:^ffffff5.Iniciar Sistema de Seguridad^000000")) {
 	case 1:
 		mes "[Terminator RX1]";
-		mes "Â¡De nada!";
+		mes "¡De nada!";
 		close;
 	case 2:
 		mes "[Terminator RX1]";
@@ -47,7 +47,7 @@ comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 		mes "No.4, cuando elijas Intercambio de Cartas, el sistema recolectara CINCO monedas de tu inventario para intercambiarlas por UNA Carta al azar.";
 		next;
 		mes "[Terminator RX1]";
-		mes "Â¡De nada!";
+		mes "¡De nada!";
 		close;
 	case 3:
 		specialeffect2 EF_COIN;
@@ -84,10 +84,10 @@ comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 			4437, 4438, 4439, 4442, 4443, 4444, 4445, 4447, 4448, 4449,
 			4450, 4452;
 		mes "[Terminator RX1]";
-		mes "Â¡La busqueda de cartas ha terminado!";
+		mes "¡La busqueda de cartas ha terminado!";
 		next;
 		mes "[Terminator RX1]";
-		mes "Â¡Gracias por venir!";
+		mes "¡Gracias por venir!";
 		close;
 	case 4:
 		specialeffect2 EF_COIN;
@@ -468,11 +468,11 @@ comodo,148,306,4	script	Card Vendor Machine#pa08	562,{
 		mes "Todas las cartas han terminado.";
 		next;
 		mes "[Terminator RX1]";
-		mes "Â¡Gracias por venir!";
+		mes "¡Gracias por venir!";
 		close;
 	case 5:
 		mes "[Terminator RX1]";
-		mes "SeÃ±al no autorizada encontrada, iniciando sistema de seguridad...";
+		mes "Señal no autorizada encontrada, iniciando sistema de seguridad...";
 		close2;
 		warp "comodo",263,286;
 		end;
@@ -485,11 +485,11 @@ L_Exchange:
 	for (.@i = 0; .@i < .@args; .@i++) {
 		if (countitem(getarg(.@i))) {
 			mes "Se encontro ^980078" + getitemname(getarg(.@i)) + "^000000,";
-			mes "Â¿Quieres intercambiar UNA Carta por UNA Moneda?";
+			mes "¿Quieres intercambiar UNA Carta por UNA Moneda?";
 			next;
 			switch(select("No:Si")) {
 			case 1:
-				mes "^980078Â¿Quieres buscar otras cartas?^000000";
+				mes "^980078¿Quieres buscar otras cartas?^000000";
 				next;
 				if(select("No:Si") == 1) {
 					mes "^980078La busqueda de cartas fue interrumpida^000000";
